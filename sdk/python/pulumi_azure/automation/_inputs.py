@@ -276,6 +276,7 @@ class ModuleModuleLinkArgs:
                  hash: Optional[pulumi.Input['ModuleModuleLinkHashArgs']] = None):
         """
         :param pulumi.Input[str] uri: The URI of the module content (zip or nupkg).
+        :param pulumi.Input['ModuleModuleLinkHashArgs'] hash: A `hash` block as defined below.
         """
         pulumi.set(__self__, "uri", uri)
         if hash is not None:
@@ -296,6 +297,9 @@ class ModuleModuleLinkArgs:
     @property
     @pulumi.getter
     def hash(self) -> Optional[pulumi.Input['ModuleModuleLinkHashArgs']]:
+        """
+        A `hash` block as defined below.
+        """
         return pulumi.get(self, "hash")
 
     @hash.setter
@@ -308,12 +312,19 @@ class ModuleModuleLinkHashArgs:
     def __init__(__self__, *,
                  algorithm: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] algorithm: Specifies the algorithm used for the hash content.
+        :param pulumi.Input[str] value: The hash value of the content.
+        """
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def algorithm(self) -> pulumi.Input[str]:
+        """
+        Specifies the algorithm used for the hash content.
+        """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
@@ -323,6 +334,9 @@ class ModuleModuleLinkHashArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The hash value of the content.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -340,9 +354,10 @@ class RunBookDraftArgs:
                  output_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]] = None):
         """
-        :param pulumi.Input['RunBookDraftContentLinkArgs'] content_link: The Draft Content Link defined as `publish_content_link` above.
+        :param pulumi.Input['RunBookDraftContentLinkArgs'] content_link: A `publish_content_link` block as defined above.
         :param pulumi.Input[bool] edit_mode_enabled: Whether the draft in edit mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] output_types: Specifies the output types of the runbook.
+        :param pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgs']]] parameters: A list of `parameters` block as defined below.
         """
         if content_link is not None:
             pulumi.set(__self__, "content_link", content_link)
@@ -361,7 +376,7 @@ class RunBookDraftArgs:
     @pulumi.getter(name="contentLink")
     def content_link(self) -> Optional[pulumi.Input['RunBookDraftContentLinkArgs']]:
         """
-        The Draft Content Link defined as `publish_content_link` above.
+        A `publish_content_link` block as defined above.
         """
         return pulumi.get(self, "content_link")
 
@@ -414,6 +429,9 @@ class RunBookDraftArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]]:
+        """
+        A list of `parameters` block as defined below.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -525,6 +543,7 @@ class RunBookDraftParameterArgs:
         :param pulumi.Input[str] type: Specifies the type of this parameter.
         :param pulumi.Input[str] default_value: Specifies the default value of the parameter.
         :param pulumi.Input[bool] mandatory: Whether this parameter is mandatory.
+        :param pulumi.Input[int] position: Specifies the position of the parameter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "type", type)
@@ -586,6 +605,9 @@ class RunBookDraftParameterArgs:
     @property
     @pulumi.getter
     def position(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the position of the parameter.
+        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -600,6 +622,9 @@ class RunBookJobScheduleArgs:
                  job_schedule_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  run_on: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A list of `parameters` block as defined below.
+        """
         pulumi.set(__self__, "schedule_name", schedule_name)
         if job_schedule_id is not None:
             pulumi.set(__self__, "job_schedule_id", job_schedule_id)
@@ -629,6 +654,9 @@ class RunBookJobScheduleArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A list of `parameters` block as defined below.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -949,7 +977,7 @@ class SoftwareUpdateConfigurationScheduleArgs:
         :param pulumi.Input[str] frequency: The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
         :param pulumi.Input[int] interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         :param pulumi.Input[bool] is_enabled: Whether the schedule is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param pulumi.Input[str] time_zone: The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
@@ -1101,7 +1129,7 @@ class SoftwareUpdateConfigurationScheduleArgs:
     @pulumi.getter(name="monthlyOccurrences")
     def monthly_occurrences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]]]:
         """
-        List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         """
         return pulumi.get(self, "monthly_occurrences")
 
@@ -1248,7 +1276,7 @@ class SoftwareUpdateConfigurationTargetAzureQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Specifies a list of locations to scope the query to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Specifies a list of Subscription or Resource Group ARM Ids to query.
         :param pulumi.Input[str] tag_filter: Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
-        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]] tags: A mapping of tags used for query filter.
+        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]] tags: A mapping of tags used for query filter as defined below.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -1299,7 +1327,7 @@ class SoftwareUpdateConfigurationTargetAzureQueryArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]]:
         """
-        A mapping of tags used for query filter.
+        A mapping of tags used for query filter as defined below.
         """
         return pulumi.get(self, "tags")
 

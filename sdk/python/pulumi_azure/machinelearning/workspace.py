@@ -44,6 +44,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
+        :param pulumi.Input['WorkspaceEncryptionArgs'] encryption: An `encryption` block as defined below.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -180,6 +181,9 @@ class WorkspaceArgs:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['WorkspaceEncryptionArgs']]:
+        """
+        An `encryption` block as defined below.
+        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -348,6 +352,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] discovery_url: The url for the discovery service to identify regional endpoints for machine learning experimentation services.
+        :param pulumi.Input['WorkspaceEncryptionArgs'] encryption: An `encryption` block as defined below.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
@@ -459,6 +464,9 @@ class _WorkspaceState:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['WorkspaceEncryptionArgs']]:
+        """
+        An `encryption` block as defined below.
+        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -914,6 +922,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
+        :param pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']] encryption: An `encryption` block as defined below.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
@@ -1291,6 +1300,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] discovery_url: The url for the discovery service to identify regional endpoints for machine learning experimentation services.
+        :param pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']] encryption: An `encryption` block as defined below.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
@@ -1368,6 +1378,9 @@ class Workspace(pulumi.CustomResource):
     @property
     @pulumi.getter
     def encryption(self) -> pulumi.Output[Optional['outputs.WorkspaceEncryption']]:
+        """
+        An `encryption` block as defined below.
+        """
         return pulumi.get(self, "encryption")
 
     @property

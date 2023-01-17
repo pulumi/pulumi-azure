@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CachePatchSchedule {
+    /**
+     * @return the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+     * 
+     */
     private String dayOfWeek;
+    /**
+     * @return The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+     * 
+     */
     private @Nullable String maintenanceWindow;
+    /**
+     * @return the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+     * 
+     */
     private @Nullable Integer startHourUtc;
 
     private CachePatchSchedule() {}
+    /**
+     * @return the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+     * 
+     */
     public String dayOfWeek() {
         return this.dayOfWeek;
     }
+    /**
+     * @return The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+     * 
+     */
     public Optional<String> maintenanceWindow() {
         return Optional.ofNullable(this.maintenanceWindow);
     }
+    /**
+     * @return the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+     * 
+     */
     public Optional<Integer> startHourUtc() {
         return Optional.ofNullable(this.startHourUtc);
     }

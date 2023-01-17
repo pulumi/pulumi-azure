@@ -111,14 +111,14 @@ public class RouteFilter extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `rules` block as defined below.
+     * A `rule` block as defined below.
      * 
      */
     @Export(name="rule", type=RouteFilterRule.class, parameters={})
     private Output<RouteFilterRule> rule;
 
     /**
-     * @return A `rules` block as defined below.
+     * @return A `rule` block as defined below.
      * 
      */
     public Output<RouteFilterRule> rule() {

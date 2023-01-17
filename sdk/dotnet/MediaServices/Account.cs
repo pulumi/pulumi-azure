@@ -64,6 +64,12 @@ namespace Pulumi.Azure.MediaServices
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.AccountEncryption> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -88,6 +94,12 @@ namespace Pulumi.Azure.MediaServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -100,7 +112,7 @@ namespace Pulumi.Azure.MediaServices
         public Output<ImmutableArray<Outputs.AccountStorageAccount>> StorageAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+        /// Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
         /// </summary>
         [Output("storageAuthenticationType")]
         public Output<string> StorageAuthenticationType { get; private set; } = null!;
@@ -158,6 +170,12 @@ namespace Pulumi.Azure.MediaServices
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.AccountEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -182,6 +200,12 @@ namespace Pulumi.Azure.MediaServices
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -200,7 +224,7 @@ namespace Pulumi.Azure.MediaServices
         }
 
         /// <summary>
-        /// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+        /// Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
         /// </summary>
         [Input("storageAuthenticationType")]
         public Input<string>? StorageAuthenticationType { get; set; }
@@ -226,6 +250,12 @@ namespace Pulumi.Azure.MediaServices
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.AccountEncryptionGetArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -250,6 +280,12 @@ namespace Pulumi.Azure.MediaServices
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
@@ -268,7 +304,7 @@ namespace Pulumi.Azure.MediaServices
         }
 
         /// <summary>
-        /// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+        /// Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
         /// </summary>
         [Input("storageAuthenticationType")]
         public Input<string>? StorageAuthenticationType { get; set; }

@@ -76,7 +76,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
+        /// The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant id&gt;/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("externalId")]
         public Output<string?> ExternalId { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
+        /// The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant id&gt;/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
+        /// The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant id&gt;/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }

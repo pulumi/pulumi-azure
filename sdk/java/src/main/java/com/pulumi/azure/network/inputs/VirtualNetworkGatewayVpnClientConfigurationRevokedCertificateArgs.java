@@ -14,14 +14,14 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
     public static final VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs Empty = new VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs();
 
     /**
-     * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+     * Specifies the name of the certificate resource.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+     * @return Specifies the name of the certificate resource.
      * 
      */
     public Output<String> name() {
@@ -61,7 +61,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
         }
 
         /**
-         * @param name The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the certificate resource.
          * 
          * @return builder
          * 
@@ -72,7 +72,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
         }
 
         /**
-         * @param name The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the certificate resource.
          * 
          * @return builder
          * 

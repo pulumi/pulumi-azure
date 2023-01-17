@@ -10,6 +10,458 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccountFilterPresentationTimeRange struct {
+	// The absolute end time boundary. Applies to Video on Demand (VoD).
+	// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+	EndInUnits *int `pulumi:"endInUnits"`
+	// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: `false`, `true`.
+	ForceEnd *bool `pulumi:"forceEnd"`
+	// The relative to end right edge. Applies to Live Streaming only.
+	// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMilliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+	LiveBackoffInUnits *int `pulumi:"liveBackoffInUnits"`
+	// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMilliseconds`. For example, set  `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+	PresentationWindowInUnits *int `pulumi:"presentationWindowInUnits"`
+	// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+	StartInUnits *int `pulumi:"startInUnits"`
+	// Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1000. Or if you want to set `startInUnits` in 30 milliseconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1.  Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
+	UnitTimescaleInMilliseconds int `pulumi:"unitTimescaleInMilliseconds"`
+}
+
+// AccountFilterPresentationTimeRangeInput is an input type that accepts AccountFilterPresentationTimeRangeArgs and AccountFilterPresentationTimeRangeOutput values.
+// You can construct a concrete instance of `AccountFilterPresentationTimeRangeInput` via:
+//
+//	AccountFilterPresentationTimeRangeArgs{...}
+type AccountFilterPresentationTimeRangeInput interface {
+	pulumi.Input
+
+	ToAccountFilterPresentationTimeRangeOutput() AccountFilterPresentationTimeRangeOutput
+	ToAccountFilterPresentationTimeRangeOutputWithContext(context.Context) AccountFilterPresentationTimeRangeOutput
+}
+
+type AccountFilterPresentationTimeRangeArgs struct {
+	// The absolute end time boundary. Applies to Video on Demand (VoD).
+	// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+	EndInUnits pulumi.IntPtrInput `pulumi:"endInUnits"`
+	// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: `false`, `true`.
+	ForceEnd pulumi.BoolPtrInput `pulumi:"forceEnd"`
+	// The relative to end right edge. Applies to Live Streaming only.
+	// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMilliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+	LiveBackoffInUnits pulumi.IntPtrInput `pulumi:"liveBackoffInUnits"`
+	// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMilliseconds`. For example, set  `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+	PresentationWindowInUnits pulumi.IntPtrInput `pulumi:"presentationWindowInUnits"`
+	// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+	StartInUnits pulumi.IntPtrInput `pulumi:"startInUnits"`
+	// Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1000. Or if you want to set `startInUnits` in 30 milliseconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1.  Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
+	UnitTimescaleInMilliseconds pulumi.IntInput `pulumi:"unitTimescaleInMilliseconds"`
+}
+
+func (AccountFilterPresentationTimeRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountFilterPresentationTimeRange)(nil)).Elem()
+}
+
+func (i AccountFilterPresentationTimeRangeArgs) ToAccountFilterPresentationTimeRangeOutput() AccountFilterPresentationTimeRangeOutput {
+	return i.ToAccountFilterPresentationTimeRangeOutputWithContext(context.Background())
+}
+
+func (i AccountFilterPresentationTimeRangeArgs) ToAccountFilterPresentationTimeRangeOutputWithContext(ctx context.Context) AccountFilterPresentationTimeRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterPresentationTimeRangeOutput)
+}
+
+func (i AccountFilterPresentationTimeRangeArgs) ToAccountFilterPresentationTimeRangePtrOutput() AccountFilterPresentationTimeRangePtrOutput {
+	return i.ToAccountFilterPresentationTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i AccountFilterPresentationTimeRangeArgs) ToAccountFilterPresentationTimeRangePtrOutputWithContext(ctx context.Context) AccountFilterPresentationTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterPresentationTimeRangeOutput).ToAccountFilterPresentationTimeRangePtrOutputWithContext(ctx)
+}
+
+// AccountFilterPresentationTimeRangePtrInput is an input type that accepts AccountFilterPresentationTimeRangeArgs, AccountFilterPresentationTimeRangePtr and AccountFilterPresentationTimeRangePtrOutput values.
+// You can construct a concrete instance of `AccountFilterPresentationTimeRangePtrInput` via:
+//
+//	        AccountFilterPresentationTimeRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountFilterPresentationTimeRangePtrInput interface {
+	pulumi.Input
+
+	ToAccountFilterPresentationTimeRangePtrOutput() AccountFilterPresentationTimeRangePtrOutput
+	ToAccountFilterPresentationTimeRangePtrOutputWithContext(context.Context) AccountFilterPresentationTimeRangePtrOutput
+}
+
+type accountFilterPresentationTimeRangePtrType AccountFilterPresentationTimeRangeArgs
+
+func AccountFilterPresentationTimeRangePtr(v *AccountFilterPresentationTimeRangeArgs) AccountFilterPresentationTimeRangePtrInput {
+	return (*accountFilterPresentationTimeRangePtrType)(v)
+}
+
+func (*accountFilterPresentationTimeRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountFilterPresentationTimeRange)(nil)).Elem()
+}
+
+func (i *accountFilterPresentationTimeRangePtrType) ToAccountFilterPresentationTimeRangePtrOutput() AccountFilterPresentationTimeRangePtrOutput {
+	return i.ToAccountFilterPresentationTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i *accountFilterPresentationTimeRangePtrType) ToAccountFilterPresentationTimeRangePtrOutputWithContext(ctx context.Context) AccountFilterPresentationTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterPresentationTimeRangePtrOutput)
+}
+
+type AccountFilterPresentationTimeRangeOutput struct{ *pulumi.OutputState }
+
+func (AccountFilterPresentationTimeRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountFilterPresentationTimeRange)(nil)).Elem()
+}
+
+func (o AccountFilterPresentationTimeRangeOutput) ToAccountFilterPresentationTimeRangeOutput() AccountFilterPresentationTimeRangeOutput {
+	return o
+}
+
+func (o AccountFilterPresentationTimeRangeOutput) ToAccountFilterPresentationTimeRangeOutputWithContext(ctx context.Context) AccountFilterPresentationTimeRangeOutput {
+	return o
+}
+
+func (o AccountFilterPresentationTimeRangeOutput) ToAccountFilterPresentationTimeRangePtrOutput() AccountFilterPresentationTimeRangePtrOutput {
+	return o.ToAccountFilterPresentationTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (o AccountFilterPresentationTimeRangeOutput) ToAccountFilterPresentationTimeRangePtrOutputWithContext(ctx context.Context) AccountFilterPresentationTimeRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountFilterPresentationTimeRange) *AccountFilterPresentationTimeRange {
+		return &v
+	}).(AccountFilterPresentationTimeRangePtrOutput)
+}
+
+// The absolute end time boundary. Applies to Video on Demand (VoD).
+// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+func (o AccountFilterPresentationTimeRangeOutput) EndInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountFilterPresentationTimeRange) *int { return v.EndInUnits }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: `false`, `true`.
+func (o AccountFilterPresentationTimeRangeOutput) ForceEnd() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountFilterPresentationTimeRange) *bool { return v.ForceEnd }).(pulumi.BoolPtrOutput)
+}
+
+// The relative to end right edge. Applies to Live Streaming only.
+// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMilliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+func (o AccountFilterPresentationTimeRangeOutput) LiveBackoffInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountFilterPresentationTimeRange) *int { return v.LiveBackoffInUnits }).(pulumi.IntPtrOutput)
+}
+
+// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMilliseconds`. For example, set  `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+func (o AccountFilterPresentationTimeRangeOutput) PresentationWindowInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountFilterPresentationTimeRange) *int { return v.PresentationWindowInUnits }).(pulumi.IntPtrOutput)
+}
+
+// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+func (o AccountFilterPresentationTimeRangeOutput) StartInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountFilterPresentationTimeRange) *int { return v.StartInUnits }).(pulumi.IntPtrOutput)
+}
+
+// Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1000. Or if you want to set `startInUnits` in 30 milliseconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1.  Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
+func (o AccountFilterPresentationTimeRangeOutput) UnitTimescaleInMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v AccountFilterPresentationTimeRange) int { return v.UnitTimescaleInMilliseconds }).(pulumi.IntOutput)
+}
+
+type AccountFilterPresentationTimeRangePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountFilterPresentationTimeRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountFilterPresentationTimeRange)(nil)).Elem()
+}
+
+func (o AccountFilterPresentationTimeRangePtrOutput) ToAccountFilterPresentationTimeRangePtrOutput() AccountFilterPresentationTimeRangePtrOutput {
+	return o
+}
+
+func (o AccountFilterPresentationTimeRangePtrOutput) ToAccountFilterPresentationTimeRangePtrOutputWithContext(ctx context.Context) AccountFilterPresentationTimeRangePtrOutput {
+	return o
+}
+
+func (o AccountFilterPresentationTimeRangePtrOutput) Elem() AccountFilterPresentationTimeRangeOutput {
+	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) AccountFilterPresentationTimeRange {
+		if v != nil {
+			return *v
+		}
+		var ret AccountFilterPresentationTimeRange
+		return ret
+	}).(AccountFilterPresentationTimeRangeOutput)
+}
+
+// The absolute end time boundary. Applies to Video on Demand (VoD).
+// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+func (o AccountFilterPresentationTimeRangePtrOutput) EndInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EndInUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: `false`, `true`.
+func (o AccountFilterPresentationTimeRangePtrOutput) ForceEnd() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ForceEnd
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The relative to end right edge. Applies to Live Streaming only.
+// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMilliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+func (o AccountFilterPresentationTimeRangePtrOutput) LiveBackoffInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LiveBackoffInUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMilliseconds`. For example, set  `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+func (o AccountFilterPresentationTimeRangePtrOutput) PresentationWindowInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PresentationWindowInUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+func (o AccountFilterPresentationTimeRangePtrOutput) StartInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartInUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1000. Or if you want to set `startInUnits` in 30 milliseconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1.  Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
+func (o AccountFilterPresentationTimeRangePtrOutput) UnitTimescaleInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.UnitTimescaleInMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type AccountFilterTrackSelection struct {
+	// One or more `condition` blocks as defined above.
+	Conditions []AccountFilterTrackSelectionCondition `pulumi:"conditions"`
+}
+
+// AccountFilterTrackSelectionInput is an input type that accepts AccountFilterTrackSelectionArgs and AccountFilterTrackSelectionOutput values.
+// You can construct a concrete instance of `AccountFilterTrackSelectionInput` via:
+//
+//	AccountFilterTrackSelectionArgs{...}
+type AccountFilterTrackSelectionInput interface {
+	pulumi.Input
+
+	ToAccountFilterTrackSelectionOutput() AccountFilterTrackSelectionOutput
+	ToAccountFilterTrackSelectionOutputWithContext(context.Context) AccountFilterTrackSelectionOutput
+}
+
+type AccountFilterTrackSelectionArgs struct {
+	// One or more `condition` blocks as defined above.
+	Conditions AccountFilterTrackSelectionConditionArrayInput `pulumi:"conditions"`
+}
+
+func (AccountFilterTrackSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountFilterTrackSelection)(nil)).Elem()
+}
+
+func (i AccountFilterTrackSelectionArgs) ToAccountFilterTrackSelectionOutput() AccountFilterTrackSelectionOutput {
+	return i.ToAccountFilterTrackSelectionOutputWithContext(context.Background())
+}
+
+func (i AccountFilterTrackSelectionArgs) ToAccountFilterTrackSelectionOutputWithContext(ctx context.Context) AccountFilterTrackSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterTrackSelectionOutput)
+}
+
+// AccountFilterTrackSelectionArrayInput is an input type that accepts AccountFilterTrackSelectionArray and AccountFilterTrackSelectionArrayOutput values.
+// You can construct a concrete instance of `AccountFilterTrackSelectionArrayInput` via:
+//
+//	AccountFilterTrackSelectionArray{ AccountFilterTrackSelectionArgs{...} }
+type AccountFilterTrackSelectionArrayInput interface {
+	pulumi.Input
+
+	ToAccountFilterTrackSelectionArrayOutput() AccountFilterTrackSelectionArrayOutput
+	ToAccountFilterTrackSelectionArrayOutputWithContext(context.Context) AccountFilterTrackSelectionArrayOutput
+}
+
+type AccountFilterTrackSelectionArray []AccountFilterTrackSelectionInput
+
+func (AccountFilterTrackSelectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountFilterTrackSelection)(nil)).Elem()
+}
+
+func (i AccountFilterTrackSelectionArray) ToAccountFilterTrackSelectionArrayOutput() AccountFilterTrackSelectionArrayOutput {
+	return i.ToAccountFilterTrackSelectionArrayOutputWithContext(context.Background())
+}
+
+func (i AccountFilterTrackSelectionArray) ToAccountFilterTrackSelectionArrayOutputWithContext(ctx context.Context) AccountFilterTrackSelectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterTrackSelectionArrayOutput)
+}
+
+type AccountFilterTrackSelectionOutput struct{ *pulumi.OutputState }
+
+func (AccountFilterTrackSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountFilterTrackSelection)(nil)).Elem()
+}
+
+func (o AccountFilterTrackSelectionOutput) ToAccountFilterTrackSelectionOutput() AccountFilterTrackSelectionOutput {
+	return o
+}
+
+func (o AccountFilterTrackSelectionOutput) ToAccountFilterTrackSelectionOutputWithContext(ctx context.Context) AccountFilterTrackSelectionOutput {
+	return o
+}
+
+// One or more `condition` blocks as defined above.
+func (o AccountFilterTrackSelectionOutput) Conditions() AccountFilterTrackSelectionConditionArrayOutput {
+	return o.ApplyT(func(v AccountFilterTrackSelection) []AccountFilterTrackSelectionCondition { return v.Conditions }).(AccountFilterTrackSelectionConditionArrayOutput)
+}
+
+type AccountFilterTrackSelectionArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountFilterTrackSelectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountFilterTrackSelection)(nil)).Elem()
+}
+
+func (o AccountFilterTrackSelectionArrayOutput) ToAccountFilterTrackSelectionArrayOutput() AccountFilterTrackSelectionArrayOutput {
+	return o
+}
+
+func (o AccountFilterTrackSelectionArrayOutput) ToAccountFilterTrackSelectionArrayOutputWithContext(ctx context.Context) AccountFilterTrackSelectionArrayOutput {
+	return o
+}
+
+func (o AccountFilterTrackSelectionArrayOutput) Index(i pulumi.IntInput) AccountFilterTrackSelectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountFilterTrackSelection {
+		return vs[0].([]AccountFilterTrackSelection)[vs[1].(int)]
+	}).(AccountFilterTrackSelectionOutput)
+}
+
+type AccountFilterTrackSelectionCondition struct {
+	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+	Operation string `pulumi:"operation"`
+	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+	Property string `pulumi:"property"`
+	// The track property value to match or not match.
+	Value string `pulumi:"value"`
+}
+
+// AccountFilterTrackSelectionConditionInput is an input type that accepts AccountFilterTrackSelectionConditionArgs and AccountFilterTrackSelectionConditionOutput values.
+// You can construct a concrete instance of `AccountFilterTrackSelectionConditionInput` via:
+//
+//	AccountFilterTrackSelectionConditionArgs{...}
+type AccountFilterTrackSelectionConditionInput interface {
+	pulumi.Input
+
+	ToAccountFilterTrackSelectionConditionOutput() AccountFilterTrackSelectionConditionOutput
+	ToAccountFilterTrackSelectionConditionOutputWithContext(context.Context) AccountFilterTrackSelectionConditionOutput
+}
+
+type AccountFilterTrackSelectionConditionArgs struct {
+	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+	Operation pulumi.StringInput `pulumi:"operation"`
+	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+	Property pulumi.StringInput `pulumi:"property"`
+	// The track property value to match or not match.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AccountFilterTrackSelectionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountFilterTrackSelectionCondition)(nil)).Elem()
+}
+
+func (i AccountFilterTrackSelectionConditionArgs) ToAccountFilterTrackSelectionConditionOutput() AccountFilterTrackSelectionConditionOutput {
+	return i.ToAccountFilterTrackSelectionConditionOutputWithContext(context.Background())
+}
+
+func (i AccountFilterTrackSelectionConditionArgs) ToAccountFilterTrackSelectionConditionOutputWithContext(ctx context.Context) AccountFilterTrackSelectionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterTrackSelectionConditionOutput)
+}
+
+// AccountFilterTrackSelectionConditionArrayInput is an input type that accepts AccountFilterTrackSelectionConditionArray and AccountFilterTrackSelectionConditionArrayOutput values.
+// You can construct a concrete instance of `AccountFilterTrackSelectionConditionArrayInput` via:
+//
+//	AccountFilterTrackSelectionConditionArray{ AccountFilterTrackSelectionConditionArgs{...} }
+type AccountFilterTrackSelectionConditionArrayInput interface {
+	pulumi.Input
+
+	ToAccountFilterTrackSelectionConditionArrayOutput() AccountFilterTrackSelectionConditionArrayOutput
+	ToAccountFilterTrackSelectionConditionArrayOutputWithContext(context.Context) AccountFilterTrackSelectionConditionArrayOutput
+}
+
+type AccountFilterTrackSelectionConditionArray []AccountFilterTrackSelectionConditionInput
+
+func (AccountFilterTrackSelectionConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountFilterTrackSelectionCondition)(nil)).Elem()
+}
+
+func (i AccountFilterTrackSelectionConditionArray) ToAccountFilterTrackSelectionConditionArrayOutput() AccountFilterTrackSelectionConditionArrayOutput {
+	return i.ToAccountFilterTrackSelectionConditionArrayOutputWithContext(context.Background())
+}
+
+func (i AccountFilterTrackSelectionConditionArray) ToAccountFilterTrackSelectionConditionArrayOutputWithContext(ctx context.Context) AccountFilterTrackSelectionConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterTrackSelectionConditionArrayOutput)
+}
+
+type AccountFilterTrackSelectionConditionOutput struct{ *pulumi.OutputState }
+
+func (AccountFilterTrackSelectionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountFilterTrackSelectionCondition)(nil)).Elem()
+}
+
+func (o AccountFilterTrackSelectionConditionOutput) ToAccountFilterTrackSelectionConditionOutput() AccountFilterTrackSelectionConditionOutput {
+	return o
+}
+
+func (o AccountFilterTrackSelectionConditionOutput) ToAccountFilterTrackSelectionConditionOutputWithContext(ctx context.Context) AccountFilterTrackSelectionConditionOutput {
+	return o
+}
+
+// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+func (o AccountFilterTrackSelectionConditionOutput) Operation() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Operation }).(pulumi.StringOutput)
+}
+
+// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+func (o AccountFilterTrackSelectionConditionOutput) Property() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Property }).(pulumi.StringOutput)
+}
+
+// The track property value to match or not match.
+func (o AccountFilterTrackSelectionConditionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AccountFilterTrackSelectionConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountFilterTrackSelectionConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountFilterTrackSelectionCondition)(nil)).Elem()
+}
+
+func (o AccountFilterTrackSelectionConditionArrayOutput) ToAccountFilterTrackSelectionConditionArrayOutput() AccountFilterTrackSelectionConditionArrayOutput {
+	return o
+}
+
+func (o AccountFilterTrackSelectionConditionArrayOutput) ToAccountFilterTrackSelectionConditionArrayOutputWithContext(ctx context.Context) AccountFilterTrackSelectionConditionArrayOutput {
+	return o
+}
+
+func (o AccountFilterTrackSelectionConditionArrayOutput) Index(i pulumi.IntInput) AccountFilterTrackSelectionConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountFilterTrackSelectionCondition {
+		return vs[0].([]AccountFilterTrackSelectionCondition)[vs[1].(int)]
+	}).(AccountFilterTrackSelectionConditionOutput)
+}
+
 type AssetFilterPresentationTimeRange struct {
 	// The absolute end time boundary. Applies to Video on Demand (VoD).
 	// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
@@ -3414,6 +3866,356 @@ func (o LiveEventPreviewIpAccessControlAllowArrayOutput) Index(i pulumi.IntInput
 	}).(LiveEventPreviewIpAccessControlAllowOutput)
 }
 
+type ServiceAccountEncryption struct {
+	// The current key used to encrypt the Media Services Account, including the key version.
+	CurrentKeyIdentifier *string `pulumi:"currentKeyIdentifier"`
+	// Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+	KeyVaultKeyIdentifier *string `pulumi:"keyVaultKeyIdentifier"`
+	// A `managedIdentity` block as defined below.
+	ManagedIdentity *ServiceAccountEncryptionManagedIdentity `pulumi:"managedIdentity"`
+	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+	Type *string `pulumi:"type"`
+}
+
+// ServiceAccountEncryptionInput is an input type that accepts ServiceAccountEncryptionArgs and ServiceAccountEncryptionOutput values.
+// You can construct a concrete instance of `ServiceAccountEncryptionInput` via:
+//
+//	ServiceAccountEncryptionArgs{...}
+type ServiceAccountEncryptionInput interface {
+	pulumi.Input
+
+	ToServiceAccountEncryptionOutput() ServiceAccountEncryptionOutput
+	ToServiceAccountEncryptionOutputWithContext(context.Context) ServiceAccountEncryptionOutput
+}
+
+type ServiceAccountEncryptionArgs struct {
+	// The current key used to encrypt the Media Services Account, including the key version.
+	CurrentKeyIdentifier pulumi.StringPtrInput `pulumi:"currentKeyIdentifier"`
+	// Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+	KeyVaultKeyIdentifier pulumi.StringPtrInput `pulumi:"keyVaultKeyIdentifier"`
+	// A `managedIdentity` block as defined below.
+	ManagedIdentity ServiceAccountEncryptionManagedIdentityPtrInput `pulumi:"managedIdentity"`
+	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ServiceAccountEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccountEncryption)(nil)).Elem()
+}
+
+func (i ServiceAccountEncryptionArgs) ToServiceAccountEncryptionOutput() ServiceAccountEncryptionOutput {
+	return i.ToServiceAccountEncryptionOutputWithContext(context.Background())
+}
+
+func (i ServiceAccountEncryptionArgs) ToServiceAccountEncryptionOutputWithContext(ctx context.Context) ServiceAccountEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountEncryptionOutput)
+}
+
+func (i ServiceAccountEncryptionArgs) ToServiceAccountEncryptionPtrOutput() ServiceAccountEncryptionPtrOutput {
+	return i.ToServiceAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAccountEncryptionArgs) ToServiceAccountEncryptionPtrOutputWithContext(ctx context.Context) ServiceAccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountEncryptionOutput).ToServiceAccountEncryptionPtrOutputWithContext(ctx)
+}
+
+// ServiceAccountEncryptionPtrInput is an input type that accepts ServiceAccountEncryptionArgs, ServiceAccountEncryptionPtr and ServiceAccountEncryptionPtrOutput values.
+// You can construct a concrete instance of `ServiceAccountEncryptionPtrInput` via:
+//
+//	        ServiceAccountEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceAccountEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToServiceAccountEncryptionPtrOutput() ServiceAccountEncryptionPtrOutput
+	ToServiceAccountEncryptionPtrOutputWithContext(context.Context) ServiceAccountEncryptionPtrOutput
+}
+
+type serviceAccountEncryptionPtrType ServiceAccountEncryptionArgs
+
+func ServiceAccountEncryptionPtr(v *ServiceAccountEncryptionArgs) ServiceAccountEncryptionPtrInput {
+	return (*serviceAccountEncryptionPtrType)(v)
+}
+
+func (*serviceAccountEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAccountEncryption)(nil)).Elem()
+}
+
+func (i *serviceAccountEncryptionPtrType) ToServiceAccountEncryptionPtrOutput() ServiceAccountEncryptionPtrOutput {
+	return i.ToServiceAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAccountEncryptionPtrType) ToServiceAccountEncryptionPtrOutputWithContext(ctx context.Context) ServiceAccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountEncryptionPtrOutput)
+}
+
+type ServiceAccountEncryptionOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccountEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccountEncryption)(nil)).Elem()
+}
+
+func (o ServiceAccountEncryptionOutput) ToServiceAccountEncryptionOutput() ServiceAccountEncryptionOutput {
+	return o
+}
+
+func (o ServiceAccountEncryptionOutput) ToServiceAccountEncryptionOutputWithContext(ctx context.Context) ServiceAccountEncryptionOutput {
+	return o
+}
+
+func (o ServiceAccountEncryptionOutput) ToServiceAccountEncryptionPtrOutput() ServiceAccountEncryptionPtrOutput {
+	return o.ToServiceAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAccountEncryptionOutput) ToServiceAccountEncryptionPtrOutputWithContext(ctx context.Context) ServiceAccountEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAccountEncryption) *ServiceAccountEncryption {
+		return &v
+	}).(ServiceAccountEncryptionPtrOutput)
+}
+
+// The current key used to encrypt the Media Services Account, including the key version.
+func (o ServiceAccountEncryptionOutput) CurrentKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAccountEncryption) *string { return v.CurrentKeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+func (o ServiceAccountEncryptionOutput) KeyVaultKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAccountEncryption) *string { return v.KeyVaultKeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// A `managedIdentity` block as defined below.
+func (o ServiceAccountEncryptionOutput) ManagedIdentity() ServiceAccountEncryptionManagedIdentityPtrOutput {
+	return o.ApplyT(func(v ServiceAccountEncryption) *ServiceAccountEncryptionManagedIdentity { return v.ManagedIdentity }).(ServiceAccountEncryptionManagedIdentityPtrOutput)
+}
+
+// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+func (o ServiceAccountEncryptionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAccountEncryption) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ServiceAccountEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccountEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAccountEncryption)(nil)).Elem()
+}
+
+func (o ServiceAccountEncryptionPtrOutput) ToServiceAccountEncryptionPtrOutput() ServiceAccountEncryptionPtrOutput {
+	return o
+}
+
+func (o ServiceAccountEncryptionPtrOutput) ToServiceAccountEncryptionPtrOutputWithContext(ctx context.Context) ServiceAccountEncryptionPtrOutput {
+	return o
+}
+
+func (o ServiceAccountEncryptionPtrOutput) Elem() ServiceAccountEncryptionOutput {
+	return o.ApplyT(func(v *ServiceAccountEncryption) ServiceAccountEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAccountEncryption
+		return ret
+	}).(ServiceAccountEncryptionOutput)
+}
+
+// The current key used to encrypt the Media Services Account, including the key version.
+func (o ServiceAccountEncryptionPtrOutput) CurrentKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAccountEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CurrentKeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+func (o ServiceAccountEncryptionPtrOutput) KeyVaultKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAccountEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultKeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `managedIdentity` block as defined below.
+func (o ServiceAccountEncryptionPtrOutput) ManagedIdentity() ServiceAccountEncryptionManagedIdentityPtrOutput {
+	return o.ApplyT(func(v *ServiceAccountEncryption) *ServiceAccountEncryptionManagedIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedIdentity
+	}).(ServiceAccountEncryptionManagedIdentityPtrOutput)
+}
+
+// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+func (o ServiceAccountEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAccountEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceAccountEncryptionManagedIdentity struct {
+	// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
+	// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// ServiceAccountEncryptionManagedIdentityInput is an input type that accepts ServiceAccountEncryptionManagedIdentityArgs and ServiceAccountEncryptionManagedIdentityOutput values.
+// You can construct a concrete instance of `ServiceAccountEncryptionManagedIdentityInput` via:
+//
+//	ServiceAccountEncryptionManagedIdentityArgs{...}
+type ServiceAccountEncryptionManagedIdentityInput interface {
+	pulumi.Input
+
+	ToServiceAccountEncryptionManagedIdentityOutput() ServiceAccountEncryptionManagedIdentityOutput
+	ToServiceAccountEncryptionManagedIdentityOutputWithContext(context.Context) ServiceAccountEncryptionManagedIdentityOutput
+}
+
+type ServiceAccountEncryptionManagedIdentityArgs struct {
+	// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
+	// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (ServiceAccountEncryptionManagedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccountEncryptionManagedIdentity)(nil)).Elem()
+}
+
+func (i ServiceAccountEncryptionManagedIdentityArgs) ToServiceAccountEncryptionManagedIdentityOutput() ServiceAccountEncryptionManagedIdentityOutput {
+	return i.ToServiceAccountEncryptionManagedIdentityOutputWithContext(context.Background())
+}
+
+func (i ServiceAccountEncryptionManagedIdentityArgs) ToServiceAccountEncryptionManagedIdentityOutputWithContext(ctx context.Context) ServiceAccountEncryptionManagedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountEncryptionManagedIdentityOutput)
+}
+
+func (i ServiceAccountEncryptionManagedIdentityArgs) ToServiceAccountEncryptionManagedIdentityPtrOutput() ServiceAccountEncryptionManagedIdentityPtrOutput {
+	return i.ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAccountEncryptionManagedIdentityArgs) ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountEncryptionManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountEncryptionManagedIdentityOutput).ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(ctx)
+}
+
+// ServiceAccountEncryptionManagedIdentityPtrInput is an input type that accepts ServiceAccountEncryptionManagedIdentityArgs, ServiceAccountEncryptionManagedIdentityPtr and ServiceAccountEncryptionManagedIdentityPtrOutput values.
+// You can construct a concrete instance of `ServiceAccountEncryptionManagedIdentityPtrInput` via:
+//
+//	        ServiceAccountEncryptionManagedIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceAccountEncryptionManagedIdentityPtrInput interface {
+	pulumi.Input
+
+	ToServiceAccountEncryptionManagedIdentityPtrOutput() ServiceAccountEncryptionManagedIdentityPtrOutput
+	ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(context.Context) ServiceAccountEncryptionManagedIdentityPtrOutput
+}
+
+type serviceAccountEncryptionManagedIdentityPtrType ServiceAccountEncryptionManagedIdentityArgs
+
+func ServiceAccountEncryptionManagedIdentityPtr(v *ServiceAccountEncryptionManagedIdentityArgs) ServiceAccountEncryptionManagedIdentityPtrInput {
+	return (*serviceAccountEncryptionManagedIdentityPtrType)(v)
+}
+
+func (*serviceAccountEncryptionManagedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAccountEncryptionManagedIdentity)(nil)).Elem()
+}
+
+func (i *serviceAccountEncryptionManagedIdentityPtrType) ToServiceAccountEncryptionManagedIdentityPtrOutput() ServiceAccountEncryptionManagedIdentityPtrOutput {
+	return i.ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAccountEncryptionManagedIdentityPtrType) ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountEncryptionManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountEncryptionManagedIdentityPtrOutput)
+}
+
+type ServiceAccountEncryptionManagedIdentityOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccountEncryptionManagedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccountEncryptionManagedIdentity)(nil)).Elem()
+}
+
+func (o ServiceAccountEncryptionManagedIdentityOutput) ToServiceAccountEncryptionManagedIdentityOutput() ServiceAccountEncryptionManagedIdentityOutput {
+	return o
+}
+
+func (o ServiceAccountEncryptionManagedIdentityOutput) ToServiceAccountEncryptionManagedIdentityOutputWithContext(ctx context.Context) ServiceAccountEncryptionManagedIdentityOutput {
+	return o
+}
+
+func (o ServiceAccountEncryptionManagedIdentityOutput) ToServiceAccountEncryptionManagedIdentityPtrOutput() ServiceAccountEncryptionManagedIdentityPtrOutput {
+	return o.ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAccountEncryptionManagedIdentityOutput) ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountEncryptionManagedIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAccountEncryptionManagedIdentity) *ServiceAccountEncryptionManagedIdentity {
+		return &v
+	}).(ServiceAccountEncryptionManagedIdentityPtrOutput)
+}
+
+// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+func (o ServiceAccountEncryptionManagedIdentityOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceAccountEncryptionManagedIdentity) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+func (o ServiceAccountEncryptionManagedIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAccountEncryptionManagedIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type ServiceAccountEncryptionManagedIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccountEncryptionManagedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAccountEncryptionManagedIdentity)(nil)).Elem()
+}
+
+func (o ServiceAccountEncryptionManagedIdentityPtrOutput) ToServiceAccountEncryptionManagedIdentityPtrOutput() ServiceAccountEncryptionManagedIdentityPtrOutput {
+	return o
+}
+
+func (o ServiceAccountEncryptionManagedIdentityPtrOutput) ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountEncryptionManagedIdentityPtrOutput {
+	return o
+}
+
+func (o ServiceAccountEncryptionManagedIdentityPtrOutput) Elem() ServiceAccountEncryptionManagedIdentityOutput {
+	return o.ApplyT(func(v *ServiceAccountEncryptionManagedIdentity) ServiceAccountEncryptionManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAccountEncryptionManagedIdentity
+		return ret
+	}).(ServiceAccountEncryptionManagedIdentityOutput)
+}
+
+// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+func (o ServiceAccountEncryptionManagedIdentityPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceAccountEncryptionManagedIdentity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseSystemAssignedIdentity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+func (o ServiceAccountEncryptionManagedIdentityPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAccountEncryptionManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceAccountIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -3769,6 +4571,8 @@ type ServiceAccountStorageAccount struct {
 	Id string `pulumi:"id"`
 	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
 	IsPrimary *bool `pulumi:"isPrimary"`
+	// A `managedIdentity` block as defined below.
+	ManagedIdentity *ServiceAccountStorageAccountManagedIdentity `pulumi:"managedIdentity"`
 }
 
 // ServiceAccountStorageAccountInput is an input type that accepts ServiceAccountStorageAccountArgs and ServiceAccountStorageAccountOutput values.
@@ -3787,6 +4591,8 @@ type ServiceAccountStorageAccountArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
 	IsPrimary pulumi.BoolPtrInput `pulumi:"isPrimary"`
+	// A `managedIdentity` block as defined below.
+	ManagedIdentity ServiceAccountStorageAccountManagedIdentityPtrInput `pulumi:"managedIdentity"`
 }
 
 func (ServiceAccountStorageAccountArgs) ElementType() reflect.Type {
@@ -3850,6 +4656,13 @@ func (o ServiceAccountStorageAccountOutput) IsPrimary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceAccountStorageAccount) *bool { return v.IsPrimary }).(pulumi.BoolPtrOutput)
 }
 
+// A `managedIdentity` block as defined below.
+func (o ServiceAccountStorageAccountOutput) ManagedIdentity() ServiceAccountStorageAccountManagedIdentityPtrOutput {
+	return o.ApplyT(func(v ServiceAccountStorageAccount) *ServiceAccountStorageAccountManagedIdentity {
+		return v.ManagedIdentity
+	}).(ServiceAccountStorageAccountManagedIdentityPtrOutput)
+}
+
 type ServiceAccountStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceAccountStorageAccountArrayOutput) ElementType() reflect.Type {
@@ -3868,6 +4681,162 @@ func (o ServiceAccountStorageAccountArrayOutput) Index(i pulumi.IntInput) Servic
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceAccountStorageAccount {
 		return vs[0].([]ServiceAccountStorageAccount)[vs[1].(int)]
 	}).(ServiceAccountStorageAccountOutput)
+}
+
+type ServiceAccountStorageAccountManagedIdentity struct {
+	// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
+	// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// ServiceAccountStorageAccountManagedIdentityInput is an input type that accepts ServiceAccountStorageAccountManagedIdentityArgs and ServiceAccountStorageAccountManagedIdentityOutput values.
+// You can construct a concrete instance of `ServiceAccountStorageAccountManagedIdentityInput` via:
+//
+//	ServiceAccountStorageAccountManagedIdentityArgs{...}
+type ServiceAccountStorageAccountManagedIdentityInput interface {
+	pulumi.Input
+
+	ToServiceAccountStorageAccountManagedIdentityOutput() ServiceAccountStorageAccountManagedIdentityOutput
+	ToServiceAccountStorageAccountManagedIdentityOutputWithContext(context.Context) ServiceAccountStorageAccountManagedIdentityOutput
+}
+
+type ServiceAccountStorageAccountManagedIdentityArgs struct {
+	// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
+	// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (ServiceAccountStorageAccountManagedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccountStorageAccountManagedIdentity)(nil)).Elem()
+}
+
+func (i ServiceAccountStorageAccountManagedIdentityArgs) ToServiceAccountStorageAccountManagedIdentityOutput() ServiceAccountStorageAccountManagedIdentityOutput {
+	return i.ToServiceAccountStorageAccountManagedIdentityOutputWithContext(context.Background())
+}
+
+func (i ServiceAccountStorageAccountManagedIdentityArgs) ToServiceAccountStorageAccountManagedIdentityOutputWithContext(ctx context.Context) ServiceAccountStorageAccountManagedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountStorageAccountManagedIdentityOutput)
+}
+
+func (i ServiceAccountStorageAccountManagedIdentityArgs) ToServiceAccountStorageAccountManagedIdentityPtrOutput() ServiceAccountStorageAccountManagedIdentityPtrOutput {
+	return i.ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAccountStorageAccountManagedIdentityArgs) ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountStorageAccountManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountStorageAccountManagedIdentityOutput).ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx)
+}
+
+// ServiceAccountStorageAccountManagedIdentityPtrInput is an input type that accepts ServiceAccountStorageAccountManagedIdentityArgs, ServiceAccountStorageAccountManagedIdentityPtr and ServiceAccountStorageAccountManagedIdentityPtrOutput values.
+// You can construct a concrete instance of `ServiceAccountStorageAccountManagedIdentityPtrInput` via:
+//
+//	        ServiceAccountStorageAccountManagedIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceAccountStorageAccountManagedIdentityPtrInput interface {
+	pulumi.Input
+
+	ToServiceAccountStorageAccountManagedIdentityPtrOutput() ServiceAccountStorageAccountManagedIdentityPtrOutput
+	ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(context.Context) ServiceAccountStorageAccountManagedIdentityPtrOutput
+}
+
+type serviceAccountStorageAccountManagedIdentityPtrType ServiceAccountStorageAccountManagedIdentityArgs
+
+func ServiceAccountStorageAccountManagedIdentityPtr(v *ServiceAccountStorageAccountManagedIdentityArgs) ServiceAccountStorageAccountManagedIdentityPtrInput {
+	return (*serviceAccountStorageAccountManagedIdentityPtrType)(v)
+}
+
+func (*serviceAccountStorageAccountManagedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAccountStorageAccountManagedIdentity)(nil)).Elem()
+}
+
+func (i *serviceAccountStorageAccountManagedIdentityPtrType) ToServiceAccountStorageAccountManagedIdentityPtrOutput() ServiceAccountStorageAccountManagedIdentityPtrOutput {
+	return i.ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAccountStorageAccountManagedIdentityPtrType) ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountStorageAccountManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountStorageAccountManagedIdentityPtrOutput)
+}
+
+type ServiceAccountStorageAccountManagedIdentityOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccountStorageAccountManagedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccountStorageAccountManagedIdentity)(nil)).Elem()
+}
+
+func (o ServiceAccountStorageAccountManagedIdentityOutput) ToServiceAccountStorageAccountManagedIdentityOutput() ServiceAccountStorageAccountManagedIdentityOutput {
+	return o
+}
+
+func (o ServiceAccountStorageAccountManagedIdentityOutput) ToServiceAccountStorageAccountManagedIdentityOutputWithContext(ctx context.Context) ServiceAccountStorageAccountManagedIdentityOutput {
+	return o
+}
+
+func (o ServiceAccountStorageAccountManagedIdentityOutput) ToServiceAccountStorageAccountManagedIdentityPtrOutput() ServiceAccountStorageAccountManagedIdentityPtrOutput {
+	return o.ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAccountStorageAccountManagedIdentityOutput) ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountStorageAccountManagedIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAccountStorageAccountManagedIdentity) *ServiceAccountStorageAccountManagedIdentity {
+		return &v
+	}).(ServiceAccountStorageAccountManagedIdentityPtrOutput)
+}
+
+// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+func (o ServiceAccountStorageAccountManagedIdentityOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceAccountStorageAccountManagedIdentity) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+func (o ServiceAccountStorageAccountManagedIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAccountStorageAccountManagedIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type ServiceAccountStorageAccountManagedIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccountStorageAccountManagedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAccountStorageAccountManagedIdentity)(nil)).Elem()
+}
+
+func (o ServiceAccountStorageAccountManagedIdentityPtrOutput) ToServiceAccountStorageAccountManagedIdentityPtrOutput() ServiceAccountStorageAccountManagedIdentityPtrOutput {
+	return o
+}
+
+func (o ServiceAccountStorageAccountManagedIdentityPtrOutput) ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountStorageAccountManagedIdentityPtrOutput {
+	return o
+}
+
+func (o ServiceAccountStorageAccountManagedIdentityPtrOutput) Elem() ServiceAccountStorageAccountManagedIdentityOutput {
+	return o.ApplyT(func(v *ServiceAccountStorageAccountManagedIdentity) ServiceAccountStorageAccountManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAccountStorageAccountManagedIdentity
+		return ret
+	}).(ServiceAccountStorageAccountManagedIdentityOutput)
+}
+
+// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+func (o ServiceAccountStorageAccountManagedIdentityPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceAccountStorageAccountManagedIdentity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseSystemAssignedIdentity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+func (o ServiceAccountStorageAccountManagedIdentityPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAccountStorageAccountManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
 }
 
 type StreamingEndpointAccessControl struct {
@@ -6894,6 +7863,12 @@ func (o TransformOutputVideoAnalyzerPresetPtrOutput) InsightsType() pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountFilterPresentationTimeRangeInput)(nil)).Elem(), AccountFilterPresentationTimeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountFilterPresentationTimeRangePtrInput)(nil)).Elem(), AccountFilterPresentationTimeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountFilterTrackSelectionInput)(nil)).Elem(), AccountFilterTrackSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountFilterTrackSelectionArrayInput)(nil)).Elem(), AccountFilterTrackSelectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountFilterTrackSelectionConditionInput)(nil)).Elem(), AccountFilterTrackSelectionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountFilterTrackSelectionConditionArrayInput)(nil)).Elem(), AccountFilterTrackSelectionConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterPresentationTimeRangeInput)(nil)).Elem(), AssetFilterPresentationTimeRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterPresentationTimeRangePtrInput)(nil)).Elem(), AssetFilterPresentationTimeRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterTrackSelectionInput)(nil)).Elem(), AssetFilterTrackSelectionArgs{})
@@ -6934,12 +7909,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventPreviewEndpointArrayInput)(nil)).Elem(), LiveEventPreviewEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventPreviewIpAccessControlAllowInput)(nil)).Elem(), LiveEventPreviewIpAccessControlAllowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventPreviewIpAccessControlAllowArrayInput)(nil)).Elem(), LiveEventPreviewIpAccessControlAllowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountEncryptionInput)(nil)).Elem(), ServiceAccountEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountEncryptionPtrInput)(nil)).Elem(), ServiceAccountEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountEncryptionManagedIdentityInput)(nil)).Elem(), ServiceAccountEncryptionManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountEncryptionManagedIdentityPtrInput)(nil)).Elem(), ServiceAccountEncryptionManagedIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountIdentityInput)(nil)).Elem(), ServiceAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountIdentityPtrInput)(nil)).Elem(), ServiceAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountKeyDeliveryAccessControlInput)(nil)).Elem(), ServiceAccountKeyDeliveryAccessControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountKeyDeliveryAccessControlPtrInput)(nil)).Elem(), ServiceAccountKeyDeliveryAccessControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountStorageAccountInput)(nil)).Elem(), ServiceAccountStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountStorageAccountArrayInput)(nil)).Elem(), ServiceAccountStorageAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountStorageAccountManagedIdentityInput)(nil)).Elem(), ServiceAccountStorageAccountManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccountStorageAccountManagedIdentityPtrInput)(nil)).Elem(), ServiceAccountStorageAccountManagedIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointAccessControlInput)(nil)).Elem(), StreamingEndpointAccessControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointAccessControlPtrInput)(nil)).Elem(), StreamingEndpointAccessControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyInput)(nil)).Elem(), StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs{})
@@ -6978,6 +7959,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputFaceDetectorPresetPtrInput)(nil)).Elem(), TransformOutputFaceDetectorPresetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputVideoAnalyzerPresetInput)(nil)).Elem(), TransformOutputVideoAnalyzerPresetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputVideoAnalyzerPresetPtrInput)(nil)).Elem(), TransformOutputVideoAnalyzerPresetArgs{})
+	pulumi.RegisterOutputType(AccountFilterPresentationTimeRangeOutput{})
+	pulumi.RegisterOutputType(AccountFilterPresentationTimeRangePtrOutput{})
+	pulumi.RegisterOutputType(AccountFilterTrackSelectionOutput{})
+	pulumi.RegisterOutputType(AccountFilterTrackSelectionArrayOutput{})
+	pulumi.RegisterOutputType(AccountFilterTrackSelectionConditionOutput{})
+	pulumi.RegisterOutputType(AccountFilterTrackSelectionConditionArrayOutput{})
 	pulumi.RegisterOutputType(AssetFilterPresentationTimeRangeOutput{})
 	pulumi.RegisterOutputType(AssetFilterPresentationTimeRangePtrOutput{})
 	pulumi.RegisterOutputType(AssetFilterTrackSelectionOutput{})
@@ -7018,12 +8005,18 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventPreviewEndpointArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewIpAccessControlAllowOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewIpAccessControlAllowArrayOutput{})
+	pulumi.RegisterOutputType(ServiceAccountEncryptionOutput{})
+	pulumi.RegisterOutputType(ServiceAccountEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(ServiceAccountEncryptionManagedIdentityOutput{})
+	pulumi.RegisterOutputType(ServiceAccountEncryptionManagedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAccountIdentityOutput{})
 	pulumi.RegisterOutputType(ServiceAccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAccountKeyDeliveryAccessControlOutput{})
 	pulumi.RegisterOutputType(ServiceAccountKeyDeliveryAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAccountStorageAccountOutput{})
 	pulumi.RegisterOutputType(ServiceAccountStorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(ServiceAccountStorageAccountManagedIdentityOutput{})
+	pulumi.RegisterOutputType(ServiceAccountStorageAccountManagedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput{})

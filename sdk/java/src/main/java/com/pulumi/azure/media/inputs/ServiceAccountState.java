@@ -3,11 +3,13 @@
 
 package com.pulumi.azure.media.inputs;
 
+import com.pulumi.azure.media.inputs.ServiceAccountEncryptionArgs;
 import com.pulumi.azure.media.inputs.ServiceAccountIdentityArgs;
 import com.pulumi.azure.media.inputs.ServiceAccountKeyDeliveryAccessControlArgs;
 import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +21,21 @@ import javax.annotation.Nullable;
 public final class ServiceAccountState extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceAccountState Empty = new ServiceAccountState();
+
+    /**
+     * An `encryption` block as defined below.
+     * 
+     */
+    @Import(name="encryption")
+    private @Nullable Output<ServiceAccountEncryptionArgs> encryption;
+
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
+    public Optional<Output<ServiceAccountEncryptionArgs>> encryption() {
+        return Optional.ofNullable(this.encryption);
+    }
 
     /**
      * An `identity` block as defined below.
@@ -81,6 +98,21 @@ public final class ServiceAccountState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether public network access is allowed for this server. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
+    /**
      * The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
      * 
      */
@@ -111,14 +143,14 @@ public final class ServiceAccountState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+     * Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
      * 
      */
     @Import(name="storageAuthenticationType")
     private @Nullable Output<String> storageAuthenticationType;
 
     /**
-     * @return Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+     * @return Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
      * 
      */
     public Optional<Output<String>> storageAuthenticationType() {
@@ -143,10 +175,12 @@ public final class ServiceAccountState extends com.pulumi.resources.ResourceArgs
     private ServiceAccountState() {}
 
     private ServiceAccountState(ServiceAccountState $) {
+        this.encryption = $.encryption;
         this.identity = $.identity;
         this.keyDeliveryAccessControl = $.keyDeliveryAccessControl;
         this.location = $.location;
         this.name = $.name;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.storageAccounts = $.storageAccounts;
         this.storageAuthenticationType = $.storageAuthenticationType;
@@ -169,6 +203,27 @@ public final class ServiceAccountState extends com.pulumi.resources.ResourceArgs
 
         public Builder(ServiceAccountState defaults) {
             $ = new ServiceAccountState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param encryption An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryption(@Nullable Output<ServiceAccountEncryptionArgs> encryption) {
+            $.encryption = encryption;
+            return this;
+        }
+
+        /**
+         * @param encryption An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryption(ServiceAccountEncryptionArgs encryption) {
+            return encryption(Output.of(encryption));
         }
 
         /**
@@ -256,6 +311,27 @@ public final class ServiceAccountState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
+        }
+
+        /**
          * @param resourceGroupName The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -308,7 +384,7 @@ public final class ServiceAccountState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageAuthenticationType Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+         * @param storageAuthenticationType Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
          * 
          * @return builder
          * 
@@ -319,7 +395,7 @@ public final class ServiceAccountState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageAuthenticationType Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+         * @param storageAuthenticationType Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
          * 
          * @return builder
          * 

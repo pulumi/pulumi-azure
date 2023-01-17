@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.monitoring;
 
+import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledLogArgs;
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingLogArgs;
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricArgs;
 import com.pulumi.core.Output;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class DiagnosticSettingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DiagnosticSettingArgs Empty = new DiagnosticSettingArgs();
+
+    /**
+     * One or more `enabled_log` blocks as defined below.
+     * 
+     */
+    @Import(name="enabledLogs")
+    private @Nullable Output<List<DiagnosticSettingEnabledLogArgs>> enabledLogs;
+
+    /**
+     * @return One or more `enabled_log` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<DiagnosticSettingEnabledLogArgs>>> enabledLogs() {
+        return Optional.ofNullable(this.enabledLogs);
+    }
 
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
@@ -81,14 +97,22 @@ public final class DiagnosticSettingArgs extends com.pulumi.resources.ResourceAr
     /**
      * One or more `log` blocks as defined below.
      * 
+     * @deprecated
+     * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
     @Import(name="logs")
     private @Nullable Output<List<DiagnosticSettingLogArgs>> logs;
 
     /**
      * @return One or more `log` blocks as defined below.
      * 
+     * @deprecated
+     * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
     public Optional<Output<List<DiagnosticSettingLogArgs>>> logs() {
         return Optional.ofNullable(this.logs);
     }
@@ -171,6 +195,7 @@ public final class DiagnosticSettingArgs extends com.pulumi.resources.ResourceAr
     private DiagnosticSettingArgs() {}
 
     private DiagnosticSettingArgs(DiagnosticSettingArgs $) {
+        this.enabledLogs = $.enabledLogs;
         this.eventhubAuthorizationRuleId = $.eventhubAuthorizationRuleId;
         this.eventhubName = $.eventhubName;
         this.logAnalyticsDestinationType = $.logAnalyticsDestinationType;
@@ -199,6 +224,37 @@ public final class DiagnosticSettingArgs extends com.pulumi.resources.ResourceAr
 
         public Builder(DiagnosticSettingArgs defaults) {
             $ = new DiagnosticSettingArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param enabledLogs One or more `enabled_log` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabledLogs(@Nullable Output<List<DiagnosticSettingEnabledLogArgs>> enabledLogs) {
+            $.enabledLogs = enabledLogs;
+            return this;
+        }
+
+        /**
+         * @param enabledLogs One or more `enabled_log` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabledLogs(List<DiagnosticSettingEnabledLogArgs> enabledLogs) {
+            return enabledLogs(Output.of(enabledLogs));
+        }
+
+        /**
+         * @param enabledLogs One or more `enabled_log` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabledLogs(DiagnosticSettingEnabledLogArgs... enabledLogs) {
+            return enabledLogs(List.of(enabledLogs));
         }
 
         /**
@@ -290,7 +346,11 @@ public final class DiagnosticSettingArgs extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
         public Builder logs(@Nullable Output<List<DiagnosticSettingLogArgs>> logs) {
             $.logs = logs;
             return this;
@@ -301,7 +361,11 @@ public final class DiagnosticSettingArgs extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
         public Builder logs(List<DiagnosticSettingLogArgs> logs) {
             return logs(Output.of(logs));
         }
@@ -311,7 +375,11 @@ public final class DiagnosticSettingArgs extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
         public Builder logs(DiagnosticSettingLogArgs... logs) {
             return logs(List.of(logs));
         }

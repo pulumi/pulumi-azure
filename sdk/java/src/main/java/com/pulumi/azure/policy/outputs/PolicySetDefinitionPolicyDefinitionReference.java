@@ -18,7 +18,7 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
      */
     private @Nullable String parameterValues;
     /**
-     * @return The ID of the policy definition or policy set definition that will be included in this policy set definition.
+     * @return The ID of the policy definition that will be included in this policy set definition.
      * 
      */
     private String policyDefinitionId;
@@ -42,7 +42,7 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
         return Optional.ofNullable(this.parameterValues);
     }
     /**
-     * @return The ID of the policy definition or policy set definition that will be included in this policy set definition.
+     * @return The ID of the policy definition that will be included in this policy set definition.
      * 
      */
     public String policyDefinitionId() {

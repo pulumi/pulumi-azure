@@ -147,14 +147,14 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
     }
 
     /**
-     * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+     * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
      * 
      */
     @Import(name="monthlyOccurrences")
     private @Nullable Output<List<SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs>> monthlyOccurrences;
 
     /**
-     * @return List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+     * @return List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
      * 
      */
     public Optional<Output<List<SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs>>> monthlyOccurrences() {
@@ -446,7 +446,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param monthlyOccurrences List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+         * @param monthlyOccurrences List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param monthlyOccurrences List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+         * @param monthlyOccurrences List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param monthlyOccurrences List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+         * @param monthlyOccurrences List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
          * 
          * @return builder
          * 

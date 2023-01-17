@@ -74,7 +74,7 @@ namespace Pulumi.Azure.ApiManagement
     /// API Management Azure AD B2C Identity Providers can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/service1/identityProviders/AadB2C
+    ///  $ pulumi import azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/service1/identityProviders/aadB2C
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c")]

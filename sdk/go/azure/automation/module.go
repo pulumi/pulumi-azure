@@ -72,7 +72,7 @@ type Module struct {
 
 	// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
-	// The published Module link.
+	// A `moduleLink` block as defined blow.
 	ModuleLink ModuleModuleLinkOutput `pulumi:"moduleLink"`
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -120,7 +120,7 @@ func GetModule(ctx *pulumi.Context,
 type moduleState struct {
 	// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
 	AutomationAccountName *string `pulumi:"automationAccountName"`
-	// The published Module link.
+	// A `moduleLink` block as defined blow.
 	ModuleLink *ModuleModuleLink `pulumi:"moduleLink"`
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -131,7 +131,7 @@ type moduleState struct {
 type ModuleState struct {
 	// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringPtrInput
-	// The published Module link.
+	// A `moduleLink` block as defined blow.
 	ModuleLink ModuleModuleLinkPtrInput
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -146,7 +146,7 @@ func (ModuleState) ElementType() reflect.Type {
 type moduleArgs struct {
 	// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The published Module link.
+	// A `moduleLink` block as defined blow.
 	ModuleLink ModuleModuleLink `pulumi:"moduleLink"`
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -158,7 +158,7 @@ type moduleArgs struct {
 type ModuleArgs struct {
 	// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringInput
-	// The published Module link.
+	// A `moduleLink` block as defined blow.
 	ModuleLink ModuleModuleLinkInput
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -258,7 +258,7 @@ func (o ModuleOutput) AutomationAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Module) pulumi.StringOutput { return v.AutomationAccountName }).(pulumi.StringOutput)
 }
 
-// The published Module link.
+// A `moduleLink` block as defined blow.
 func (o ModuleOutput) ModuleLink() ModuleModuleLinkOutput {
 	return o.ApplyT(func(v *Module) ModuleModuleLinkOutput { return v.ModuleLink }).(ModuleModuleLinkOutput)
 }

@@ -120,6 +120,11 @@ export type DataConnectorThreatIntelligence = import("./dataConnectorThreatIntel
 export const DataConnectorThreatIntelligence: typeof import("./dataConnectorThreatIntelligence").DataConnectorThreatIntelligence = null as any;
 utilities.lazyLoad(exports, ["DataConnectorThreatIntelligence"], () => require("./dataConnectorThreatIntelligence"));
 
+export { DataConnectorThreatIntelligenceTaxiiArgs, DataConnectorThreatIntelligenceTaxiiState } from "./dataConnectorThreatIntelligenceTaxii";
+export type DataConnectorThreatIntelligenceTaxii = import("./dataConnectorThreatIntelligenceTaxii").DataConnectorThreatIntelligenceTaxii;
+export const DataConnectorThreatIntelligenceTaxii: typeof import("./dataConnectorThreatIntelligenceTaxii").DataConnectorThreatIntelligenceTaxii = null as any;
+utilities.lazyLoad(exports, ["DataConnectorThreatIntelligenceTaxii"], () => require("./dataConnectorThreatIntelligenceTaxii"));
+
 export { GetAlertRuleArgs, GetAlertRuleResult, GetAlertRuleOutputArgs } from "./getAlertRule";
 export const getAlertRule: typeof import("./getAlertRule").getAlertRule = null as any;
 export const getAlertRuleOutput: typeof import("./getAlertRule").getAlertRuleOutput = null as any;
@@ -191,6 +196,8 @@ const _module = {
                 return new DataConnectorOfficePowerBi(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
                 return new DataConnectorThreatIntelligence(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii":
+                return new DataConnectorThreatIntelligenceTaxii(name, <any>undefined, { urn })
             case "azure:sentinel/watchlist:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
             case "azure:sentinel/watchlistItem:WatchlistItem":
@@ -223,5 +230,6 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOfficeAtp"
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOfficeIrm", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOfficePowerBi", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligence", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligenceTaxii", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlist", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlistItem", _module)

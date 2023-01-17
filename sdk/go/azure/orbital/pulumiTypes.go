@@ -11,7 +11,7 @@ import (
 )
 
 type ContactProfileLink struct {
-	// A list of contact profile link channels. A `channel` block as defined below.
+	// A list of contact profile link channels. A `channels` block as defined below.
 	Channels []ContactProfileLinkChannel `pulumi:"channels"`
 	// Direction of the link. Possible values are `Uplink` and `Downlink`.
 	Direction string `pulumi:"direction"`
@@ -33,7 +33,7 @@ type ContactProfileLinkInput interface {
 }
 
 type ContactProfileLinkArgs struct {
-	// A list of contact profile link channels. A `channel` block as defined below.
+	// A list of contact profile link channels. A `channels` block as defined below.
 	Channels ContactProfileLinkChannelArrayInput `pulumi:"channels"`
 	// Direction of the link. Possible values are `Uplink` and `Downlink`.
 	Direction pulumi.StringInput `pulumi:"direction"`
@@ -94,7 +94,7 @@ func (o ContactProfileLinkOutput) ToContactProfileLinkOutputWithContext(ctx cont
 	return o
 }
 
-// A list of contact profile link channels. A `channel` block as defined below.
+// A list of contact profile link channels. A `channels` block as defined below.
 func (o ContactProfileLinkOutput) Channels() ContactProfileLinkChannelArrayOutput {
 	return o.ApplyT(func(v ContactProfileLink) []ContactProfileLinkChannel { return v.Channels }).(ContactProfileLinkChannelArrayOutput)
 }

@@ -29,6 +29,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The Docker Container Tag of the Container in use.
         /// </summary>
         public readonly string DockerContainerTag;
+        public readonly string DotnetCoreVersion;
         /// <summary>
         /// The version of .NET in use.
         /// </summary>
@@ -41,6 +42,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The Version of the Java Container in use.
         /// </summary>
         public readonly string JavaContainerVersion;
+        public readonly bool JavaEmbeddedServerEnabled;
         /// <summary>
         /// The Version of Java in use.
         /// </summary>
@@ -53,10 +55,12 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The Version of the PHP in use.
         /// </summary>
         public readonly string PhpVersion;
+        public readonly bool Python;
         /// <summary>
         /// The Version of Python in use.
         /// </summary>
         public readonly string PythonVersion;
+        public readonly string TomcatVersion;
 
         [OutputConstructor]
         private GetWindowsWebAppSiteConfigApplicationStackResult(
@@ -68,11 +72,15 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string dockerContainerTag,
 
+            string dotnetCoreVersion,
+
             string dotnetVersion,
 
             string javaContainer,
 
             string javaContainerVersion,
+
+            bool javaEmbeddedServerEnabled,
 
             string javaVersion,
 
@@ -80,19 +88,27 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string phpVersion,
 
-            string pythonVersion)
+            bool python,
+
+            string pythonVersion,
+
+            string tomcatVersion)
         {
             CurrentStack = currentStack;
             DockerContainerName = dockerContainerName;
             DockerContainerRegistry = dockerContainerRegistry;
             DockerContainerTag = dockerContainerTag;
+            DotnetCoreVersion = dotnetCoreVersion;
             DotnetVersion = dotnetVersion;
             JavaContainer = javaContainer;
             JavaContainerVersion = javaContainerVersion;
+            JavaEmbeddedServerEnabled = javaEmbeddedServerEnabled;
             JavaVersion = javaVersion;
             NodeVersion = nodeVersion;
             PhpVersion = phpVersion;
+            Python = python;
             PythonVersion = pythonVersion;
+            TomcatVersion = tomcatVersion;
         }
     }
 }

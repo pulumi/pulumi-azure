@@ -115,6 +115,9 @@ namespace Pulumi.Azure.Network
         [Output("routingState")]
         public Output<string> RoutingState { get; private set; } = null!;
 
+        /// <summary>
+        /// The SKU of the Route Server. The only possible value is `Standard`.
+        /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
 
@@ -124,6 +127,9 @@ namespace Pulumi.Azure.Network
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -209,6 +215,9 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The SKU of the Route Server. The only possible value is `Standard`.
+        /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
@@ -220,6 +229,10 @@ namespace Pulumi.Azure.Network
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -267,6 +280,9 @@ namespace Pulumi.Azure.Network
         [Input("routingState")]
         public Input<string>? RoutingState { get; set; }
 
+        /// <summary>
+        /// The SKU of the Route Server. The only possible value is `Standard`.
+        /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
@@ -278,6 +294,10 @@ namespace Pulumi.Azure.Network
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

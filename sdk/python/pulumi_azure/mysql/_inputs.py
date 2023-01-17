@@ -10,12 +10,53 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FlexibleServerCustomerManagedKeyArgs',
     'FlexibleServerHighAvailabilityArgs',
+    'FlexibleServerIdentityArgs',
     'FlexibleServerMaintenanceWindowArgs',
     'FlexibleServerStorageArgs',
     'ServerIdentityArgs',
     'ServerThreatDetectionPolicyArgs',
 ]
+
+@pulumi.input_type
+class FlexibleServerCustomerManagedKeyArgs:
+    def __init__(__self__, *,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key.
+        :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+        """
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if primary_user_assigned_identity_id is not None:
+            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentityId")
+    def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity_id")
+
+    @primary_user_assigned_identity_id.setter
+    def primary_user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_user_assigned_identity_id", value)
+
 
 @pulumi.input_type
 class FlexibleServerHighAvailabilityArgs:
@@ -53,6 +94,68 @@ class FlexibleServerHighAvailabilityArgs:
     @standby_availability_zone.setter
     def standby_availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "standby_availability_zone", value)
+
+
+@pulumi.input_type
+class FlexibleServerIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type

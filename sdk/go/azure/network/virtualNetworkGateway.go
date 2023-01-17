@@ -149,7 +149,8 @@ type VirtualNetworkGateway struct {
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolOutput `pulumi:"activeActive"`
 	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
-	BgpSettings VirtualNetworkGatewayBgpSettingsOutput    `pulumi:"bgpSettings"`
+	BgpSettings VirtualNetworkGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
+	// A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
 	CustomRoute VirtualNetworkGatewayCustomRoutePtrOutput `pulumi:"customRoute"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
@@ -243,6 +244,7 @@ type virtualNetworkGatewayState struct {
 	ActiveActive *bool `pulumi:"activeActive"`
 	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
 	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
+	// A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
 	CustomRoute *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
@@ -296,6 +298,7 @@ type VirtualNetworkGatewayState struct {
 	ActiveActive pulumi.BoolPtrInput
 	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
 	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
+	// A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
 	CustomRoute VirtualNetworkGatewayCustomRoutePtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
@@ -353,6 +356,7 @@ type virtualNetworkGatewayArgs struct {
 	ActiveActive *bool `pulumi:"activeActive"`
 	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
 	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
+	// A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
 	CustomRoute *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
@@ -407,6 +411,7 @@ type VirtualNetworkGatewayArgs struct {
 	ActiveActive pulumi.BoolPtrInput
 	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
 	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
+	// A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
 	CustomRoute VirtualNetworkGatewayCustomRoutePtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
@@ -552,6 +557,7 @@ func (o VirtualNetworkGatewayOutput) BgpSettings() VirtualNetworkGatewayBgpSetti
 	return o.ApplyT(func(v *VirtualNetworkGateway) VirtualNetworkGatewayBgpSettingsOutput { return v.BgpSettings }).(VirtualNetworkGatewayBgpSettingsOutput)
 }
 
+// A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
 func (o VirtualNetworkGatewayOutput) CustomRoute() VirtualNetworkGatewayCustomRoutePtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) VirtualNetworkGatewayCustomRoutePtrOutput { return v.CustomRoute }).(VirtualNetworkGatewayCustomRoutePtrOutput)
 }

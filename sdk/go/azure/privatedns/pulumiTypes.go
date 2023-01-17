@@ -1105,6 +1105,227 @@ func (o GetMxRecordRecordArrayOutput) Index(i pulumi.IntInput) GetMxRecordRecord
 	}).(GetMxRecordRecordOutput)
 }
 
+type GetResolverForwardingRuleTargetDnsServer struct {
+	// The DNS server IP address.
+	IpAddress string `pulumi:"ipAddress"`
+	// The DNS server port.
+	Port int `pulumi:"port"`
+}
+
+// GetResolverForwardingRuleTargetDnsServerInput is an input type that accepts GetResolverForwardingRuleTargetDnsServerArgs and GetResolverForwardingRuleTargetDnsServerOutput values.
+// You can construct a concrete instance of `GetResolverForwardingRuleTargetDnsServerInput` via:
+//
+//	GetResolverForwardingRuleTargetDnsServerArgs{...}
+type GetResolverForwardingRuleTargetDnsServerInput interface {
+	pulumi.Input
+
+	ToGetResolverForwardingRuleTargetDnsServerOutput() GetResolverForwardingRuleTargetDnsServerOutput
+	ToGetResolverForwardingRuleTargetDnsServerOutputWithContext(context.Context) GetResolverForwardingRuleTargetDnsServerOutput
+}
+
+type GetResolverForwardingRuleTargetDnsServerArgs struct {
+	// The DNS server IP address.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The DNS server port.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetResolverForwardingRuleTargetDnsServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverForwardingRuleTargetDnsServer)(nil)).Elem()
+}
+
+func (i GetResolverForwardingRuleTargetDnsServerArgs) ToGetResolverForwardingRuleTargetDnsServerOutput() GetResolverForwardingRuleTargetDnsServerOutput {
+	return i.ToGetResolverForwardingRuleTargetDnsServerOutputWithContext(context.Background())
+}
+
+func (i GetResolverForwardingRuleTargetDnsServerArgs) ToGetResolverForwardingRuleTargetDnsServerOutputWithContext(ctx context.Context) GetResolverForwardingRuleTargetDnsServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverForwardingRuleTargetDnsServerOutput)
+}
+
+// GetResolverForwardingRuleTargetDnsServerArrayInput is an input type that accepts GetResolverForwardingRuleTargetDnsServerArray and GetResolverForwardingRuleTargetDnsServerArrayOutput values.
+// You can construct a concrete instance of `GetResolverForwardingRuleTargetDnsServerArrayInput` via:
+//
+//	GetResolverForwardingRuleTargetDnsServerArray{ GetResolverForwardingRuleTargetDnsServerArgs{...} }
+type GetResolverForwardingRuleTargetDnsServerArrayInput interface {
+	pulumi.Input
+
+	ToGetResolverForwardingRuleTargetDnsServerArrayOutput() GetResolverForwardingRuleTargetDnsServerArrayOutput
+	ToGetResolverForwardingRuleTargetDnsServerArrayOutputWithContext(context.Context) GetResolverForwardingRuleTargetDnsServerArrayOutput
+}
+
+type GetResolverForwardingRuleTargetDnsServerArray []GetResolverForwardingRuleTargetDnsServerInput
+
+func (GetResolverForwardingRuleTargetDnsServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverForwardingRuleTargetDnsServer)(nil)).Elem()
+}
+
+func (i GetResolverForwardingRuleTargetDnsServerArray) ToGetResolverForwardingRuleTargetDnsServerArrayOutput() GetResolverForwardingRuleTargetDnsServerArrayOutput {
+	return i.ToGetResolverForwardingRuleTargetDnsServerArrayOutputWithContext(context.Background())
+}
+
+func (i GetResolverForwardingRuleTargetDnsServerArray) ToGetResolverForwardingRuleTargetDnsServerArrayOutputWithContext(ctx context.Context) GetResolverForwardingRuleTargetDnsServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverForwardingRuleTargetDnsServerArrayOutput)
+}
+
+type GetResolverForwardingRuleTargetDnsServerOutput struct{ *pulumi.OutputState }
+
+func (GetResolverForwardingRuleTargetDnsServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverForwardingRuleTargetDnsServer)(nil)).Elem()
+}
+
+func (o GetResolverForwardingRuleTargetDnsServerOutput) ToGetResolverForwardingRuleTargetDnsServerOutput() GetResolverForwardingRuleTargetDnsServerOutput {
+	return o
+}
+
+func (o GetResolverForwardingRuleTargetDnsServerOutput) ToGetResolverForwardingRuleTargetDnsServerOutputWithContext(ctx context.Context) GetResolverForwardingRuleTargetDnsServerOutput {
+	return o
+}
+
+// The DNS server IP address.
+func (o GetResolverForwardingRuleTargetDnsServerOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverForwardingRuleTargetDnsServer) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The DNS server port.
+func (o GetResolverForwardingRuleTargetDnsServerOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetResolverForwardingRuleTargetDnsServer) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetResolverForwardingRuleTargetDnsServerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResolverForwardingRuleTargetDnsServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverForwardingRuleTargetDnsServer)(nil)).Elem()
+}
+
+func (o GetResolverForwardingRuleTargetDnsServerArrayOutput) ToGetResolverForwardingRuleTargetDnsServerArrayOutput() GetResolverForwardingRuleTargetDnsServerArrayOutput {
+	return o
+}
+
+func (o GetResolverForwardingRuleTargetDnsServerArrayOutput) ToGetResolverForwardingRuleTargetDnsServerArrayOutputWithContext(ctx context.Context) GetResolverForwardingRuleTargetDnsServerArrayOutput {
+	return o
+}
+
+func (o GetResolverForwardingRuleTargetDnsServerArrayOutput) Index(i pulumi.IntInput) GetResolverForwardingRuleTargetDnsServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResolverForwardingRuleTargetDnsServer {
+		return vs[0].([]GetResolverForwardingRuleTargetDnsServer)[vs[1].(int)]
+	}).(GetResolverForwardingRuleTargetDnsServerOutput)
+}
+
+type GetResolverInboundEndpointIpConfiguration struct {
+	// The private IP address of the IP configuration.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The private IP address allocation method.
+	PrivateIpAllocationMethod string `pulumi:"privateIpAllocationMethod"`
+	// The subnet ID of the IP configuration.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetResolverInboundEndpointIpConfigurationInput is an input type that accepts GetResolverInboundEndpointIpConfigurationArgs and GetResolverInboundEndpointIpConfigurationOutput values.
+// You can construct a concrete instance of `GetResolverInboundEndpointIpConfigurationInput` via:
+//
+//	GetResolverInboundEndpointIpConfigurationArgs{...}
+type GetResolverInboundEndpointIpConfigurationInput interface {
+	pulumi.Input
+
+	ToGetResolverInboundEndpointIpConfigurationOutput() GetResolverInboundEndpointIpConfigurationOutput
+	ToGetResolverInboundEndpointIpConfigurationOutputWithContext(context.Context) GetResolverInboundEndpointIpConfigurationOutput
+}
+
+type GetResolverInboundEndpointIpConfigurationArgs struct {
+	// The private IP address of the IP configuration.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The private IP address allocation method.
+	PrivateIpAllocationMethod pulumi.StringInput `pulumi:"privateIpAllocationMethod"`
+	// The subnet ID of the IP configuration.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetResolverInboundEndpointIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverInboundEndpointIpConfiguration)(nil)).Elem()
+}
+
+func (i GetResolverInboundEndpointIpConfigurationArgs) ToGetResolverInboundEndpointIpConfigurationOutput() GetResolverInboundEndpointIpConfigurationOutput {
+	return i.ToGetResolverInboundEndpointIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetResolverInboundEndpointIpConfigurationArgs) ToGetResolverInboundEndpointIpConfigurationOutputWithContext(ctx context.Context) GetResolverInboundEndpointIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverInboundEndpointIpConfigurationOutput)
+}
+
+// GetResolverInboundEndpointIpConfigurationArrayInput is an input type that accepts GetResolverInboundEndpointIpConfigurationArray and GetResolverInboundEndpointIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetResolverInboundEndpointIpConfigurationArrayInput` via:
+//
+//	GetResolverInboundEndpointIpConfigurationArray{ GetResolverInboundEndpointIpConfigurationArgs{...} }
+type GetResolverInboundEndpointIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetResolverInboundEndpointIpConfigurationArrayOutput() GetResolverInboundEndpointIpConfigurationArrayOutput
+	ToGetResolverInboundEndpointIpConfigurationArrayOutputWithContext(context.Context) GetResolverInboundEndpointIpConfigurationArrayOutput
+}
+
+type GetResolverInboundEndpointIpConfigurationArray []GetResolverInboundEndpointIpConfigurationInput
+
+func (GetResolverInboundEndpointIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverInboundEndpointIpConfiguration)(nil)).Elem()
+}
+
+func (i GetResolverInboundEndpointIpConfigurationArray) ToGetResolverInboundEndpointIpConfigurationArrayOutput() GetResolverInboundEndpointIpConfigurationArrayOutput {
+	return i.ToGetResolverInboundEndpointIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetResolverInboundEndpointIpConfigurationArray) ToGetResolverInboundEndpointIpConfigurationArrayOutputWithContext(ctx context.Context) GetResolverInboundEndpointIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverInboundEndpointIpConfigurationArrayOutput)
+}
+
+type GetResolverInboundEndpointIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetResolverInboundEndpointIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverInboundEndpointIpConfiguration)(nil)).Elem()
+}
+
+func (o GetResolverInboundEndpointIpConfigurationOutput) ToGetResolverInboundEndpointIpConfigurationOutput() GetResolverInboundEndpointIpConfigurationOutput {
+	return o
+}
+
+func (o GetResolverInboundEndpointIpConfigurationOutput) ToGetResolverInboundEndpointIpConfigurationOutputWithContext(ctx context.Context) GetResolverInboundEndpointIpConfigurationOutput {
+	return o
+}
+
+// The private IP address of the IP configuration.
+func (o GetResolverInboundEndpointIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverInboundEndpointIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// The private IP address allocation method.
+func (o GetResolverInboundEndpointIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverInboundEndpointIpConfiguration) string { return v.PrivateIpAllocationMethod }).(pulumi.StringOutput)
+}
+
+// The subnet ID of the IP configuration.
+func (o GetResolverInboundEndpointIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverInboundEndpointIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetResolverInboundEndpointIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResolverInboundEndpointIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverInboundEndpointIpConfiguration)(nil)).Elem()
+}
+
+func (o GetResolverInboundEndpointIpConfigurationArrayOutput) ToGetResolverInboundEndpointIpConfigurationArrayOutput() GetResolverInboundEndpointIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetResolverInboundEndpointIpConfigurationArrayOutput) ToGetResolverInboundEndpointIpConfigurationArrayOutputWithContext(ctx context.Context) GetResolverInboundEndpointIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetResolverInboundEndpointIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetResolverInboundEndpointIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResolverInboundEndpointIpConfiguration {
+		return vs[0].([]GetResolverInboundEndpointIpConfiguration)[vs[1].(int)]
+	}).(GetResolverInboundEndpointIpConfigurationOutput)
+}
+
 type GetSrvRecordRecord struct {
 	// Port the service is listening on.
 	Port int `pulumi:"port"`
@@ -1343,6 +1564,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSoaRecordPtrInput)(nil)).Elem(), ZoneSoaRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMxRecordRecordInput)(nil)).Elem(), GetMxRecordRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMxRecordRecordArrayInput)(nil)).Elem(), GetMxRecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverForwardingRuleTargetDnsServerInput)(nil)).Elem(), GetResolverForwardingRuleTargetDnsServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverForwardingRuleTargetDnsServerArrayInput)(nil)).Elem(), GetResolverForwardingRuleTargetDnsServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverInboundEndpointIpConfigurationInput)(nil)).Elem(), GetResolverInboundEndpointIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverInboundEndpointIpConfigurationArrayInput)(nil)).Elem(), GetResolverInboundEndpointIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSrvRecordRecordInput)(nil)).Elem(), GetSrvRecordRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSrvRecordRecordArrayInput)(nil)).Elem(), GetSrvRecordRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTxtRecordRecordInput)(nil)).Elem(), GetTxtRecordRecordArgs{})
@@ -1363,6 +1588,10 @@ func init() {
 	pulumi.RegisterOutputType(ZoneSoaRecordPtrOutput{})
 	pulumi.RegisterOutputType(GetMxRecordRecordOutput{})
 	pulumi.RegisterOutputType(GetMxRecordRecordArrayOutput{})
+	pulumi.RegisterOutputType(GetResolverForwardingRuleTargetDnsServerOutput{})
+	pulumi.RegisterOutputType(GetResolverForwardingRuleTargetDnsServerArrayOutput{})
+	pulumi.RegisterOutputType(GetResolverInboundEndpointIpConfigurationOutput{})
+	pulumi.RegisterOutputType(GetResolverInboundEndpointIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetSrvRecordRecordOutput{})
 	pulumi.RegisterOutputType(GetSrvRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetTxtRecordRecordOutput{})

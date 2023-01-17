@@ -45,12 +45,24 @@ namespace Pulumi.Azure.Maintenance
     /// Maintenance Configuration can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.maintenance/maintenanceconfigurations/example-mc
+    ///  $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maintenance/maintenanceConfigurations/example-mc
     /// ```
     /// </summary>
     [AzureResourceType("azure:maintenance/configuration:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        /// </summary>
+        [Output("inGuestUserPatchMode")]
+        public Output<string?> InGuestUserPatchMode { get; private set; } = null!;
+
+        /// <summary>
+        /// An `install_patches` block as defined below.
+        /// </summary>
+        [Output("installPatches")]
+        public Output<Outputs.ConfigurationInstallPatches?> InstallPatches { get; private set; } = null!;
+
         /// <summary>
         /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -146,6 +158,18 @@ namespace Pulumi.Azure.Maintenance
     public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        /// </summary>
+        [Input("inGuestUserPatchMode")]
+        public Input<string>? InGuestUserPatchMode { get; set; }
+
+        /// <summary>
+        /// An `install_patches` block as defined below.
+        /// </summary>
+        [Input("installPatches")]
+        public Input<Inputs.ConfigurationInstallPatchesArgs>? InstallPatches { get; set; }
+
+        /// <summary>
         /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -213,6 +237,18 @@ namespace Pulumi.Azure.Maintenance
 
     public sealed class ConfigurationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        /// </summary>
+        [Input("inGuestUserPatchMode")]
+        public Input<string>? InGuestUserPatchMode { get; set; }
+
+        /// <summary>
+        /// An `install_patches` block as defined below.
+        /// </summary>
+        [Input("installPatches")]
+        public Input<Inputs.ConfigurationInstallPatchesGetArgs>? InstallPatches { get; set; }
+
         /// <summary>
         /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>

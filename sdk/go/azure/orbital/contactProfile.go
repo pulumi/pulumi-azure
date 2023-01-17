@@ -136,8 +136,9 @@ type ContactProfile struct {
 	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
 	NetworkConfigurationSubnetId pulumi.StringOutput `pulumi:"networkConfigurationSubnetId"`
 	// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewContactProfile registers a new resource with the given unique name, arguments, and options.
@@ -201,8 +202,9 @@ type contactProfileState struct {
 	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
 	NetworkConfigurationSubnetId *string `pulumi:"networkConfigurationSubnetId"`
 	// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
-	ResourceGroupName *string           `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ContactProfileState struct {
@@ -224,7 +226,8 @@ type ContactProfileState struct {
 	NetworkConfigurationSubnetId pulumi.StringPtrInput
 	// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ContactProfileState) ElementType() reflect.Type {
@@ -249,8 +252,9 @@ type contactProfileArgs struct {
 	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
 	NetworkConfigurationSubnetId string `pulumi:"networkConfigurationSubnetId"`
 	// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ContactProfile resource.
@@ -273,7 +277,8 @@ type ContactProfileArgs struct {
 	NetworkConfigurationSubnetId pulumi.StringInput
 	// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ContactProfileArgs) ElementType() reflect.Type {
@@ -408,6 +413,7 @@ func (o ContactProfileOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the resource.
 func (o ContactProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

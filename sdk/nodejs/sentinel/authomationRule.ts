@@ -91,9 +91,15 @@ export class AuthomationRule extends pulumi.CustomResource {
      */
     public readonly actionPlaybooks!: pulumi.Output<outputs.sentinel.AuthomationRuleActionPlaybook[] | undefined>;
     /**
-     * One or more `condition` blocks as defined below.
+     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      */
-    public readonly conditions!: pulumi.Output<outputs.sentinel.AuthomationRuleCondition[] | undefined>;
+    public readonly conditionJson!: pulumi.Output<string>;
+    /**
+     * One or more `condition` blocks as defined below.
+     *
+     * @deprecated This is deprecated in favor of `condition_json`
+     */
+    public readonly conditions!: pulumi.Output<outputs.sentinel.AuthomationRuleCondition[]>;
     /**
      * The display name which should be used for this Sentinel Automation Rule.
      */
@@ -118,6 +124,14 @@ export class AuthomationRule extends pulumi.CustomResource {
      * The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
      */
     public readonly order!: pulumi.Output<number>;
+    /**
+     * Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+     */
+    public readonly triggersOn!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+     */
+    public readonly triggersWhen!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AuthomationRule resource with the given unique name, arguments, and options.
@@ -137,6 +151,7 @@ export class AuthomationRule extends pulumi.CustomResource {
             const state = argsOrState as AuthomationRuleState | undefined;
             resourceInputs["actionIncidents"] = state ? state.actionIncidents : undefined;
             resourceInputs["actionPlaybooks"] = state ? state.actionPlaybooks : undefined;
+            resourceInputs["conditionJson"] = state ? state.conditionJson : undefined;
             resourceInputs["conditions"] = state ? state.conditions : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
@@ -144,6 +159,8 @@ export class AuthomationRule extends pulumi.CustomResource {
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["order"] = state ? state.order : undefined;
+            resourceInputs["triggersOn"] = state ? state.triggersOn : undefined;
+            resourceInputs["triggersWhen"] = state ? state.triggersWhen : undefined;
         } else {
             const args = argsOrState as AuthomationRuleArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -157,6 +174,7 @@ export class AuthomationRule extends pulumi.CustomResource {
             }
             resourceInputs["actionIncidents"] = args ? args.actionIncidents : undefined;
             resourceInputs["actionPlaybooks"] = args ? args.actionPlaybooks : undefined;
+            resourceInputs["conditionJson"] = args ? args.conditionJson : undefined;
             resourceInputs["conditions"] = args ? args.conditions : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
@@ -164,6 +182,8 @@ export class AuthomationRule extends pulumi.CustomResource {
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["order"] = args ? args.order : undefined;
+            resourceInputs["triggersOn"] = args ? args.triggersOn : undefined;
+            resourceInputs["triggersWhen"] = args ? args.triggersWhen : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AuthomationRule.__pulumiType, name, resourceInputs, opts);
@@ -183,7 +203,13 @@ export interface AuthomationRuleState {
      */
     actionPlaybooks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionPlaybook>[]>;
     /**
+     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+     */
+    conditionJson?: pulumi.Input<string>;
+    /**
      * One or more `condition` blocks as defined below.
+     *
+     * @deprecated This is deprecated in favor of `condition_json`
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleCondition>[]>;
     /**
@@ -210,6 +236,14 @@ export interface AuthomationRuleState {
      * The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
      */
     order?: pulumi.Input<number>;
+    /**
+     * Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+     */
+    triggersOn?: pulumi.Input<string>;
+    /**
+     * Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+     */
+    triggersWhen?: pulumi.Input<string>;
 }
 
 /**
@@ -225,7 +259,13 @@ export interface AuthomationRuleArgs {
      */
     actionPlaybooks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionPlaybook>[]>;
     /**
+     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+     */
+    conditionJson?: pulumi.Input<string>;
+    /**
      * One or more `condition` blocks as defined below.
+     *
+     * @deprecated This is deprecated in favor of `condition_json`
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleCondition>[]>;
     /**
@@ -252,4 +292,12 @@ export interface AuthomationRuleArgs {
      * The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
      */
     order: pulumi.Input<number>;
+    /**
+     * Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+     */
+    triggersOn?: pulumi.Input<string>;
+    /**
+     * Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+     */
+    triggersWhen?: pulumi.Input<string>;
 }

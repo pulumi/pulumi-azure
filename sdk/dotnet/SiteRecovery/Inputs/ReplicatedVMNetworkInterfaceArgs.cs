@@ -13,6 +13,12 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     public sealed class ReplicatedVMNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+        /// </summary>
+        [Input("isPrimary")]
+        public Input<bool>? IsPrimary { get; set; }
+
+        /// <summary>
         /// Id of the public IP object to use when a failover is done.
         /// </summary>
         [Input("recoveryPublicIpAddressId")]

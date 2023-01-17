@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Policy.Inputs
         public Input<string>? ParameterValues { get; set; }
 
         /// <summary>
-        /// The ID of the policy definition or policy set definition that will be included in this policy set definition.
+        /// The ID of the policy definition that will be included in this policy set definition.
         /// </summary>
         [Input("policyDefinitionId", required: true)]
         public Input<string> PolicyDefinitionId { get; set; } = null!;

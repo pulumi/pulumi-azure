@@ -6,7 +6,9 @@ package com.pulumi.azure.mysql;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mysql.FlexibleServerArgs;
 import com.pulumi.azure.mysql.inputs.FlexibleServerState;
+import com.pulumi.azure.mysql.outputs.FlexibleServerCustomerManagedKey;
 import com.pulumi.azure.mysql.outputs.FlexibleServerHighAvailability;
+import com.pulumi.azure.mysql.outputs.FlexibleServerIdentity;
 import com.pulumi.azure.mysql.outputs.FlexibleServerMaintenanceWindow;
 import com.pulumi.azure.mysql.outputs.FlexibleServerStorage;
 import com.pulumi.core.Output;
@@ -178,6 +180,20 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.createMode);
     }
     /**
+     * A `customer_managed_key` block as defined below.
+     * 
+     */
+    @Export(name="customerManagedKey", type=FlexibleServerCustomerManagedKey.class, parameters={})
+    private Output</* @Nullable */ FlexibleServerCustomerManagedKey> customerManagedKey;
+
+    /**
+     * @return A `customer_managed_key` block as defined below.
+     * 
+     */
+    public Output<Optional<FlexibleServerCustomerManagedKey>> customerManagedKey() {
+        return Codegen.optional(this.customerManagedKey);
+    }
+    /**
      * The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
@@ -232,6 +248,20 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<FlexibleServerHighAvailability>> highAvailability() {
         return Codegen.optional(this.highAvailability);
+    }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", type=FlexibleServerIdentity.class, parameters={})
+    private Output</* @Nullable */ FlexibleServerIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<FlexibleServerIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.

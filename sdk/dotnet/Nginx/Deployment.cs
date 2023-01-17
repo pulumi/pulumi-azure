@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Nginx
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Nginx
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -439,7 +439,7 @@ namespace Pulumi.Azure.Nginx
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

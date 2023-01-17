@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Offer;
         /// <summary>
-        /// The Publisher Name for this Gallery Image.
+        /// (Optional) The Purchase Plan Publisher for this Gallery Image.
         /// </summary>
         public readonly string Publisher;
         /// <summary>

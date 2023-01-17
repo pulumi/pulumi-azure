@@ -43,6 +43,7 @@ import * as consumption from "./consumption";
 import * as containerservice from "./containerservice";
 import * as core from "./core";
 import * as cosmosdb from "./cosmosdb";
+import * as costmanagement from "./costmanagement";
 import * as dashboard from "./dashboard";
 import * as databasemigration from "./databasemigration";
 import * as databoxedge from "./databoxedge";
@@ -157,6 +158,7 @@ export {
     containerservice,
     core,
     cosmosdb,
+    costmanagement,
     dashboard,
     databasemigration,
     databoxedge,

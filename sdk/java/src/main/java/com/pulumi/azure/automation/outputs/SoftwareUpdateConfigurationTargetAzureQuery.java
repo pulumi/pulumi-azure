@@ -29,7 +29,7 @@ public final class SoftwareUpdateConfigurationTargetAzureQuery {
      */
     private @Nullable String tagFilter;
     /**
-     * @return A mapping of tags used for query filter.
+     * @return A mapping of tags used for query filter as defined below.
      * 
      */
     private @Nullable List<SoftwareUpdateConfigurationTargetAzureQueryTag> tags;
@@ -57,7 +57,7 @@ public final class SoftwareUpdateConfigurationTargetAzureQuery {
         return Optional.ofNullable(this.tagFilter);
     }
     /**
-     * @return A mapping of tags used for query filter.
+     * @return A mapping of tags used for query filter as defined below.
      * 
      */
     public List<SoftwareUpdateConfigurationTargetAzureQueryTag> tags() {

@@ -49,14 +49,14 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
     }
 
     /**
-     * a `ssl policy` block as defined below.
+     * a `ssl_policy` block as defined below.
      * 
      */
     @Import(name="sslPolicy")
     private @Nullable Output<ApplicationGatewaySslProfileSslPolicyArgs> sslPolicy;
 
     /**
-     * @return a `ssl policy` block as defined below.
+     * @return a `ssl_policy` block as defined below.
      * 
      */
     public Optional<Output<ApplicationGatewaySslProfileSslPolicyArgs>> sslPolicy() {
@@ -164,7 +164,7 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sslPolicy a `ssl policy` block as defined below.
+         * @param sslPolicy a `ssl_policy` block as defined below.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sslPolicy a `ssl policy` block as defined below.
+         * @param sslPolicy a `ssl_policy` block as defined below.
          * 
          * @return builder
          * 

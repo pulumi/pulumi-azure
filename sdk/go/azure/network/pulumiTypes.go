@@ -4503,7 +4503,7 @@ type ApplicationGatewaySslProfile struct {
 	Id *string `pulumi:"id"`
 	// The name of the SSL Profile that is unique within this Application Gateway.
 	Name string `pulumi:"name"`
-	// a `ssl policy` block as defined below.
+	// a `sslPolicy` block as defined below.
 	SslPolicy *ApplicationGatewaySslProfileSslPolicy `pulumi:"sslPolicy"`
 	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames []string `pulumi:"trustedClientCertificateNames"`
@@ -4527,7 +4527,7 @@ type ApplicationGatewaySslProfileArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the SSL Profile that is unique within this Application Gateway.
 	Name pulumi.StringInput `pulumi:"name"`
-	// a `ssl policy` block as defined below.
+	// a `sslPolicy` block as defined below.
 	SslPolicy ApplicationGatewaySslProfileSslPolicyPtrInput `pulumi:"sslPolicy"`
 	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames pulumi.StringArrayInput `pulumi:"trustedClientCertificateNames"`
@@ -4596,7 +4596,7 @@ func (o ApplicationGatewaySslProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// a `ssl policy` block as defined below.
+// a `sslPolicy` block as defined below.
 func (o ApplicationGatewaySslProfileOutput) SslPolicy() ApplicationGatewaySslProfileSslPolicyPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) *ApplicationGatewaySslProfileSslPolicy { return v.SslPolicy }).(ApplicationGatewaySslProfileSslPolicyPtrOutput)
 }
@@ -20484,7 +20484,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) VpnClientProtocols
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate struct {
-	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+	// Specifies the name of the certificate resource.
 	Name       string `pulumi:"name"`
 	Thumbprint string `pulumi:"thumbprint"`
 }
@@ -20501,7 +20501,7 @@ type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput interfac
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs struct {
-	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+	// Specifies the name of the certificate resource.
 	Name       pulumi.StringInput `pulumi:"name"`
 	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 }
@@ -20557,7 +20557,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput) ToV
 	return o
 }
 
-// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+// Specifies the name of the certificate resource.
 func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate) string { return v.Name }).(pulumi.StringOutput)
 }

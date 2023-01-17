@@ -148,6 +148,12 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> AllowNestedItemsToBePublic { get; private set; } = null!;
 
         /// <summary>
+        /// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        /// </summary>
+        [Output("allowedCopyScope")]
+        public Output<string?> AllowedCopyScope { get; private set; } = null!;
+
+        /// <summary>
         /// A `azure_files_authentication` block as defined below.
         /// </summary>
         [Output("azureFilesAuthentication")]
@@ -606,6 +612,12 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? AllowNestedItemsToBePublic { get; set; }
 
         /// <summary>
+        /// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        /// </summary>
+        [Input("allowedCopyScope")]
+        public Input<string>? AllowedCopyScope { get; set; }
+
+        /// <summary>
         /// A `azure_files_authentication` block as defined below.
         /// </summary>
         [Input("azureFilesAuthentication")]
@@ -829,6 +841,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("allowNestedItemsToBePublic")]
         public Input<bool>? AllowNestedItemsToBePublic { get; set; }
+
+        /// <summary>
+        /// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        /// </summary>
+        [Input("allowedCopyScope")]
+        public Input<string>? AllowedCopyScope { get; set; }
 
         /// <summary>
         /// A `azure_files_authentication` block as defined below.

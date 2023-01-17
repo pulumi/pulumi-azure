@@ -27,8 +27,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a HPC Cache.
  * 
- * &gt; **Note:** During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
- * 
  * &gt; **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace &#39;Microsoft.StorageCache&#39;`.
  * 
  * ## Example Usage

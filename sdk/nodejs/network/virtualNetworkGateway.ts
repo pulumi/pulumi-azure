@@ -128,6 +128,9 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      */
     public readonly bgpSettings!: pulumi.Output<outputs.network.VirtualNetworkGatewayBgpSettings>;
+    /**
+     * A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+     */
     public readonly customRoute!: pulumi.Output<outputs.network.VirtualNetworkGatewayCustomRoute | undefined>;
     /**
      * The ID of the local network gateway
@@ -282,6 +285,9 @@ export interface VirtualNetworkGatewayState {
      * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      */
     bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings>;
+    /**
+     * A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+     */
     customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute>;
     /**
      * The ID of the local network gateway
@@ -370,6 +376,9 @@ export interface VirtualNetworkGatewayArgs {
      * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      */
     bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings>;
+    /**
+     * A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+     */
     customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute>;
     /**
      * The ID of the local network gateway

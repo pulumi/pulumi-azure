@@ -43,30 +43,6 @@ namespace Pulumi.Azure.Redis
     /// 
     /// });
     /// ```
-    /// ## Default Redis Configuration Values
-    /// 
-    /// | Redis Value                     | Basic        | Standard     | Premium      |
-    /// | ------------------------------- | ------------ | ------------ | ------------ |
-    /// | enable_authentication           | true         | true         | true         |
-    /// | maxmemory_reserved              | 2            | 50           | 200          |
-    /// | maxfragmentationmemory_reserved | 2            | 50           | 200          |
-    /// | maxmemory_delta                 | 2            | 50           | 200          |
-    /// | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
-    /// 
-    /// &gt; **NOTE:** The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory_reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below.
-    /// 
-    /// ***
-    /// 
-    /// A `patch_schedule` block supports the following:
-    /// 
-    /// * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
-    /// 
-    /// * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
-    /// 
-    /// &gt; **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
-    /// 
-    /// * `maintenance_window` - (Optional) The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
-    /// 
     /// ## Relevant Links
     /// 
     /// * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)

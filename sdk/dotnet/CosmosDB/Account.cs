@@ -155,10 +155,10 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> CreateMode { get; private set; } = null!;
 
         /// <summary>
-        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
         /// </summary>
         [Output("defaultIdentityType")]
-        public Output<string?> DefaultIdentityType { get; private set; } = null!;
+        public Output<string> DefaultIdentityType { get; private set; } = null!;
 
         /// <summary>
         /// Enable automatic fail over for this Cosmos DB account.
@@ -459,7 +459,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
         /// </summary>
         [Input("defaultIdentityType")]
         public Input<string>? DefaultIdentityType { get; set; }
@@ -699,7 +699,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
         /// </summary>
         [Input("defaultIdentityType")]
         public Input<string>? DefaultIdentityType { get; set; }

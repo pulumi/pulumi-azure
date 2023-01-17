@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * App Service Source Control Token&#39;s can be imported using the `type`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example /providers/Microsoft.Web/sourceControls/GitHub
+ *  $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example {type}
  * ```
  * 
  */

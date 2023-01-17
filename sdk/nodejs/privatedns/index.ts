@@ -50,6 +50,36 @@ export const getPtrRecord: typeof import("./getPtrRecord").getPtrRecord = null a
 export const getPtrRecordOutput: typeof import("./getPtrRecord").getPtrRecordOutput = null as any;
 utilities.lazyLoad(exports, ["getPtrRecord","getPtrRecordOutput"], () => require("./getPtrRecord"));
 
+export { GetResolverArgs, GetResolverResult, GetResolverOutputArgs } from "./getResolver";
+export const getResolver: typeof import("./getResolver").getResolver = null as any;
+export const getResolverOutput: typeof import("./getResolver").getResolverOutput = null as any;
+utilities.lazyLoad(exports, ["getResolver","getResolverOutput"], () => require("./getResolver"));
+
+export { GetResolverDnsForwardingRulesetArgs, GetResolverDnsForwardingRulesetResult, GetResolverDnsForwardingRulesetOutputArgs } from "./getResolverDnsForwardingRuleset";
+export const getResolverDnsForwardingRuleset: typeof import("./getResolverDnsForwardingRuleset").getResolverDnsForwardingRuleset = null as any;
+export const getResolverDnsForwardingRulesetOutput: typeof import("./getResolverDnsForwardingRuleset").getResolverDnsForwardingRulesetOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverDnsForwardingRuleset","getResolverDnsForwardingRulesetOutput"], () => require("./getResolverDnsForwardingRuleset"));
+
+export { GetResolverForwardingRuleArgs, GetResolverForwardingRuleResult, GetResolverForwardingRuleOutputArgs } from "./getResolverForwardingRule";
+export const getResolverForwardingRule: typeof import("./getResolverForwardingRule").getResolverForwardingRule = null as any;
+export const getResolverForwardingRuleOutput: typeof import("./getResolverForwardingRule").getResolverForwardingRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverForwardingRule","getResolverForwardingRuleOutput"], () => require("./getResolverForwardingRule"));
+
+export { GetResolverInboundEndpointArgs, GetResolverInboundEndpointResult, GetResolverInboundEndpointOutputArgs } from "./getResolverInboundEndpoint";
+export const getResolverInboundEndpoint: typeof import("./getResolverInboundEndpoint").getResolverInboundEndpoint = null as any;
+export const getResolverInboundEndpointOutput: typeof import("./getResolverInboundEndpoint").getResolverInboundEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverInboundEndpoint","getResolverInboundEndpointOutput"], () => require("./getResolverInboundEndpoint"));
+
+export { GetResolverOutboundEndpointArgs, GetResolverOutboundEndpointResult, GetResolverOutboundEndpointOutputArgs } from "./getResolverOutboundEndpoint";
+export const getResolverOutboundEndpoint: typeof import("./getResolverOutboundEndpoint").getResolverOutboundEndpoint = null as any;
+export const getResolverOutboundEndpointOutput: typeof import("./getResolverOutboundEndpoint").getResolverOutboundEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverOutboundEndpoint","getResolverOutboundEndpointOutput"], () => require("./getResolverOutboundEndpoint"));
+
+export { GetResolverVirtualNetworkLinkArgs, GetResolverVirtualNetworkLinkResult, GetResolverVirtualNetworkLinkOutputArgs } from "./getResolverVirtualNetworkLink";
+export const getResolverVirtualNetworkLink: typeof import("./getResolverVirtualNetworkLink").getResolverVirtualNetworkLink = null as any;
+export const getResolverVirtualNetworkLinkOutput: typeof import("./getResolverVirtualNetworkLink").getResolverVirtualNetworkLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverVirtualNetworkLink","getResolverVirtualNetworkLinkOutput"], () => require("./getResolverVirtualNetworkLink"));
+
 export { GetSoaRecordArgs, GetSoaRecordResult, GetSoaRecordOutputArgs } from "./getSoaRecord";
 export const getSoaRecord: typeof import("./getSoaRecord").getSoaRecord = null as any;
 export const getSoaRecordOutput: typeof import("./getSoaRecord").getSoaRecordOutput = null as any;

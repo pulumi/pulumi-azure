@@ -13,7 +13,13 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     [OutputType]
     public sealed class DiagnosticFrontendRequestDataMasking
     {
+        /// <summary>
+        /// A `headers` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DiagnosticFrontendRequestDataMaskingHeader> Headers;
+        /// <summary>
+        /// A `query_params` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DiagnosticFrontendRequestDataMaskingQueryParam> QueryParams;
 
         [OutputConstructor]

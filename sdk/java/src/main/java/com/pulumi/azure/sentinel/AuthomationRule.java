@@ -133,18 +133,36 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.actionPlaybooks);
     }
     /**
-     * One or more `condition` blocks as defined below.
+     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      * 
      */
+    @Export(name="conditionJson", type=String.class, parameters={})
+    private Output<String> conditionJson;
+
+    /**
+     * @return A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+     * 
+     */
+    public Output<String> conditionJson() {
+        return this.conditionJson;
+    }
+    /**
+     * One or more `condition` blocks as defined below.
+     * 
+     * @deprecated
+     * This is deprecated in favor of `condition_json`
+     * 
+     */
+    @Deprecated /* This is deprecated in favor of `condition_json` */
     @Export(name="conditions", type=List.class, parameters={AuthomationRuleCondition.class})
-    private Output</* @Nullable */ List<AuthomationRuleCondition>> conditions;
+    private Output<List<AuthomationRuleCondition>> conditions;
 
     /**
      * @return One or more `condition` blocks as defined below.
      * 
      */
-    public Output<Optional<List<AuthomationRuleCondition>>> conditions() {
-        return Codegen.optional(this.conditions);
+    public Output<List<AuthomationRuleCondition>> conditions() {
+        return this.conditions;
     }
     /**
      * The display name which should be used for this Sentinel Automation Rule.
@@ -229,6 +247,34 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> order() {
         return this.order;
+    }
+    /**
+     * Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+     * 
+     */
+    @Export(name="triggersOn", type=String.class, parameters={})
+    private Output</* @Nullable */ String> triggersOn;
+
+    /**
+     * @return Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+     * 
+     */
+    public Output<Optional<String>> triggersOn() {
+        return Codegen.optional(this.triggersOn);
+    }
+    /**
+     * Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+     * 
+     */
+    @Export(name="triggersWhen", type=String.class, parameters={})
+    private Output</* @Nullable */ String> triggersWhen;
+
+    /**
+     * @return Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+     * 
+     */
+    public Output<Optional<String>> triggersWhen() {
+        return Codegen.optional(this.triggersWhen);
     }
 
     /**

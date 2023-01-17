@@ -120,6 +120,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly allowNestedItemsToBePublic!: pulumi.Output<boolean | undefined>;
     /**
+     * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+     */
+    public readonly allowedCopyScope!: pulumi.Output<string | undefined>;
+    /**
      * A `azureFilesAuthentication` block as defined below.
      */
     public readonly azureFilesAuthentication!: pulumi.Output<outputs.storage.AccountAzureFilesAuthentication | undefined>;
@@ -387,6 +391,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["accountReplicationType"] = state ? state.accountReplicationType : undefined;
             resourceInputs["accountTier"] = state ? state.accountTier : undefined;
             resourceInputs["allowNestedItemsToBePublic"] = state ? state.allowNestedItemsToBePublic : undefined;
+            resourceInputs["allowedCopyScope"] = state ? state.allowedCopyScope : undefined;
             resourceInputs["azureFilesAuthentication"] = state ? state.azureFilesAuthentication : undefined;
             resourceInputs["blobProperties"] = state ? state.blobProperties : undefined;
             resourceInputs["crossTenantReplicationEnabled"] = state ? state.crossTenantReplicationEnabled : undefined;
@@ -465,6 +470,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["accountReplicationType"] = args ? args.accountReplicationType : undefined;
             resourceInputs["accountTier"] = args ? args.accountTier : undefined;
             resourceInputs["allowNestedItemsToBePublic"] = args ? args.allowNestedItemsToBePublic : undefined;
+            resourceInputs["allowedCopyScope"] = args ? args.allowedCopyScope : undefined;
             resourceInputs["azureFilesAuthentication"] = args ? args.azureFilesAuthentication : undefined;
             resourceInputs["blobProperties"] = args ? args.blobProperties : undefined;
             resourceInputs["crossTenantReplicationEnabled"] = args ? args.crossTenantReplicationEnabled : undefined;
@@ -559,6 +565,10 @@ export interface AccountState {
      * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
      */
     allowNestedItemsToBePublic?: pulumi.Input<boolean>;
+    /**
+     * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+     */
+    allowedCopyScope?: pulumi.Input<string>;
     /**
      * A `azureFilesAuthentication` block as defined below.
      */
@@ -834,6 +844,10 @@ export interface AccountArgs {
      * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
      */
     allowNestedItemsToBePublic?: pulumi.Input<boolean>;
+    /**
+     * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+     */
+    allowedCopyScope?: pulumi.Input<string>;
     /**
      * A `azureFilesAuthentication` block as defined below.
      */

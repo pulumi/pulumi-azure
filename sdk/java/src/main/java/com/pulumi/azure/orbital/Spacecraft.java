@@ -111,14 +111,14 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Name of the link. Changing this forces a new resource to be created.
+     * The name of the Spacecraft. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name of the link. Changing this forces a new resource to be created.
+     * @return The name of the Spacecraft. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -152,35 +152,43 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Title of the two line elements(TLE).
+     * Title of the two line elements (TLE).
      * 
      */
     @Export(name="titleLine", type=String.class, parameters={})
     private Output<String> titleLine;
 
     /**
-     * @return Title of the two line elements(TLE).
+     * @return Title of the two line elements (TLE).
      * 
      */
     public Output<String> titleLine() {
         return this.titleLine;
     }
     /**
-     * A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
      * 
      */
     @Export(name="twoLineElements", type=List.class, parameters={String.class})
     private Output<List<String>> twoLineElements;
 
     /**
-     * @return A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+     * @return A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
      * 
      */
     public Output<List<String>> twoLineElements() {

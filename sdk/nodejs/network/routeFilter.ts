@@ -76,7 +76,7 @@ export class RouteFilter extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `rules` block as defined below.
+     * A `rule` block as defined below.
      */
     public readonly rule!: pulumi.Output<outputs.network.RouteFilterRule>;
     /**
@@ -135,7 +135,7 @@ export interface RouteFilterState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `rules` block as defined below.
+     * A `rule` block as defined below.
      */
     rule?: pulumi.Input<inputs.network.RouteFilterRule>;
     /**
@@ -161,7 +161,7 @@ export interface RouteFilterArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `rules` block as defined below.
+     * A `rule` block as defined below.
      */
     rule?: pulumi.Input<inputs.network.RouteFilterRule>;
     /**

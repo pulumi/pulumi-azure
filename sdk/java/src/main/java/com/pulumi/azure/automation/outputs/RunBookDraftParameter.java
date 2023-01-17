@@ -28,6 +28,10 @@ public final class RunBookDraftParameter {
      * 
      */
     private @Nullable Boolean mandatory;
+    /**
+     * @return Specifies the position of the parameter.
+     * 
+     */
     private @Nullable Integer position;
     /**
      * @return Specifies the type of this parameter.
@@ -57,6 +61,10 @@ public final class RunBookDraftParameter {
     public Optional<Boolean> mandatory() {
         return Optional.ofNullable(this.mandatory);
     }
+    /**
+     * @return Specifies the position of the parameter.
+     * 
+     */
     public Optional<Integer> position() {
         return Optional.ofNullable(this.position);
     }

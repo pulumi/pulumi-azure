@@ -17,6 +17,9 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// Number of payload bytes to log (up to 8192).
         /// </summary>
         public readonly int? BodyBytes;
+        /// <summary>
+        /// A `data_masking` block as defined below.
+        /// </summary>
         public readonly Outputs.DiagnosticBackendRequestDataMasking? DataMasking;
         /// <summary>
         /// Specifies a list of headers to log.

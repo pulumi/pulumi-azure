@@ -324,7 +324,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.ApplicationGatewaySslCertificate>> SslCertificates { get; private set; } = null!;
 
         /// <summary>
-        /// a `ssl policy` block as defined below.
+        /// a `ssl_policy` block as defined below.
         /// </summary>
         [Output("sslPolicy")]
         public Output<Outputs.ApplicationGatewaySslPolicy> SslPolicy { get; private set; } = null!;
@@ -652,7 +652,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// a `ssl policy` block as defined below.
+        /// a `ssl_policy` block as defined below.
         /// </summary>
         [Input("sslPolicy")]
         public Input<Inputs.ApplicationGatewaySslPolicyArgs>? SslPolicy { get; set; }
@@ -990,7 +990,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// a `ssl policy` block as defined below.
+        /// a `ssl_policy` block as defined below.
         /// </summary>
         [Input("sslPolicy")]
         public Input<Inputs.ApplicationGatewaySslPolicyGetArgs>? SslPolicy { get; set; }

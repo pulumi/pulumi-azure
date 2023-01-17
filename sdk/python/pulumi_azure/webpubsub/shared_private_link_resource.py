@@ -251,7 +251,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         Web Pubsub Shared Private Link Resource can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubsub/webpubsub1/sharedPrivateLinkResources/resource1
+         $ pulumi import azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webPubSub1/sharedPrivateLinkResources/resource1
         ```
 
         :param str resource_name: The name of the resource.
@@ -308,7 +308,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         Web Pubsub Shared Private Link Resource can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubsub/webpubsub1/sharedPrivateLinkResources/resource1
+         $ pulumi import azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webPubSub1/sharedPrivateLinkResources/resource1
         ```
 
         :param str resource_name: The name of the resource.

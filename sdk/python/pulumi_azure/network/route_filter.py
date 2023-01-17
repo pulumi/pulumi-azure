@@ -26,7 +26,7 @@ class RouteFilterArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
         :param pulumi.Input[str] location: The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Route Filter.
-        :param pulumi.Input['RouteFilterRuleArgs'] rule: A `rules` block as defined below.
+        :param pulumi.Input['RouteFilterRuleArgs'] rule: A `rule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Route Filter.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -79,7 +79,7 @@ class RouteFilterArgs:
     @pulumi.getter
     def rule(self) -> Optional[pulumi.Input['RouteFilterRuleArgs']]:
         """
-        A `rules` block as defined below.
+        A `rule` block as defined below.
         """
         return pulumi.get(self, "rule")
 
@@ -113,7 +113,7 @@ class _RouteFilterState:
         :param pulumi.Input[str] location: The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Route Filter.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
-        :param pulumi.Input['RouteFilterRuleArgs'] rule: A `rules` block as defined below.
+        :param pulumi.Input['RouteFilterRuleArgs'] rule: A `rule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Route Filter.
         """
         if location is not None:
@@ -167,7 +167,7 @@ class _RouteFilterState:
     @pulumi.getter
     def rule(self) -> Optional[pulumi.Input['RouteFilterRuleArgs']]:
         """
-        A `rules` block as defined below.
+        A `rule` block as defined below.
         """
         return pulumi.get(self, "rule")
 
@@ -232,7 +232,7 @@ class RouteFilter(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Route Filter.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
-        :param pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']] rule: A `rules` block as defined below.
+        :param pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']] rule: A `rule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Route Filter.
         """
         ...
@@ -330,7 +330,7 @@ class RouteFilter(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Route Filter.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
-        :param pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']] rule: A `rules` block as defined below.
+        :param pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']] rule: A `rule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Route Filter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -372,7 +372,7 @@ class RouteFilter(pulumi.CustomResource):
     @pulumi.getter
     def rule(self) -> pulumi.Output['outputs.RouteFilterRule']:
         """
-        A `rules` block as defined below.
+        A `rule` block as defined below.
         """
         return pulumi.get(self, "rule")
 

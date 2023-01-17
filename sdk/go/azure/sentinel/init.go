@@ -67,6 +67,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataConnectorOfficePowerBi{}
 	case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
 		r = &DataConnectorThreatIntelligence{}
+	case "azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii":
+		r = &DataConnectorThreatIntelligenceTaxii{}
 	case "azure:sentinel/watchlist:Watchlist":
 		r = &Watchlist{}
 	case "azure:sentinel/watchlistItem:WatchlistItem":
@@ -197,6 +199,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/dataConnectorThreatIntelligence",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorThreatIntelligenceTaxii",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

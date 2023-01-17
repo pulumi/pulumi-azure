@@ -16,9 +16,17 @@ public final class ModuleModuleLinkArgs extends com.pulumi.resources.ResourceArg
 
     public static final ModuleModuleLinkArgs Empty = new ModuleModuleLinkArgs();
 
+    /**
+     * A `hash` block as defined below.
+     * 
+     */
     @Import(name="hash")
     private @Nullable Output<ModuleModuleLinkHashArgs> hash;
 
+    /**
+     * @return A `hash` block as defined below.
+     * 
+     */
     public Optional<Output<ModuleModuleLinkHashArgs>> hash() {
         return Optional.ofNullable(this.hash);
     }
@@ -63,11 +71,23 @@ public final class ModuleModuleLinkArgs extends com.pulumi.resources.ResourceArg
             $ = new ModuleModuleLinkArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param hash A `hash` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hash(@Nullable Output<ModuleModuleLinkHashArgs> hash) {
             $.hash = hash;
             return this;
         }
 
+        /**
+         * @param hash A `hash` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hash(ModuleModuleLinkHashArgs hash) {
             return hash(Output.of(hash));
         }

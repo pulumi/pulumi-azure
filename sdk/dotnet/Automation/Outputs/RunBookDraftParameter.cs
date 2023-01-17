@@ -25,6 +25,9 @@ namespace Pulumi.Azure.Automation.Outputs
         /// Whether this parameter is mandatory.
         /// </summary>
         public readonly bool? Mandatory;
+        /// <summary>
+        /// Specifies the position of the parameter.
+        /// </summary>
         public readonly int? Position;
         /// <summary>
         /// Specifies the type of this parameter.

@@ -80,6 +80,9 @@ export interface GetSharedImageResult {
      * The supported Azure location where the Shared Image Gallery exists.
      */
     readonly location: string;
+    /**
+     * (Required) The Purchase Plan Name for this Shared Image.
+     */
     readonly name: string;
     /**
      * The type of Operating System present in this Shared Image.
@@ -89,6 +92,10 @@ export interface GetSharedImageResult {
      * The URI containing the Privacy Statement for this Shared Image.
      */
     readonly privacyStatementUri: string;
+    /**
+     * (Optional) A `purchasePlan` block as defined below.
+     */
+    readonly purchasePlans: outputs.compute.GetSharedImagePurchasePlan[];
     /**
      * The URI containing the Release Notes for this Shared Image.
      */

@@ -25,6 +25,7 @@ from .get_storage_container import *
 from .get_sync import *
 from .get_sync_group import *
 from .get_table_entity import *
+from .local_user import *
 from .management_policy import *
 from .object_replication import *
 from .queue import *

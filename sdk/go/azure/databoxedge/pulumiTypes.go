@@ -1091,6 +1091,193 @@ func (o OrderStatusArrayOutput) Index(i pulumi.IntInput) OrderStatusOutput {
 	}).(OrderStatusOutput)
 }
 
+type GetDeviceDeviceProperty struct {
+	// The Data Box Edge/Gateway device local capacity in MB.
+	Capacity int `pulumi:"capacity"`
+	// Type of compute roles configured.
+	ConfiguredRoleTypes []string `pulumi:"configuredRoleTypes"`
+	// The Data Box Edge/Gateway device culture.
+	Culture string `pulumi:"culture"`
+	// The device software version number of the device (e.g. 1.2.18105.6).
+	HcsVersion string `pulumi:"hcsVersion"`
+	// The Data Box Edge/Gateway device model.
+	Model string `pulumi:"model"`
+	// The number of nodes in the cluster.
+	NodeCount int `pulumi:"nodeCount"`
+	// The Serial Number of Data Box Edge/Gateway device.
+	SerialNumber string `pulumi:"serialNumber"`
+	// The Data Box Edge/Gateway device software version.
+	SoftwareVersion string `pulumi:"softwareVersion"`
+	// The status of the Data Box Edge/Gateway device.
+	Status string `pulumi:"status"`
+	// The Data Box Edge/Gateway device timezone.
+	TimeZone string `pulumi:"timeZone"`
+	// The type of the Data Box Edge/Gateway device.
+	Type string `pulumi:"type"`
+}
+
+// GetDeviceDevicePropertyInput is an input type that accepts GetDeviceDevicePropertyArgs and GetDeviceDevicePropertyOutput values.
+// You can construct a concrete instance of `GetDeviceDevicePropertyInput` via:
+//
+//	GetDeviceDevicePropertyArgs{...}
+type GetDeviceDevicePropertyInput interface {
+	pulumi.Input
+
+	ToGetDeviceDevicePropertyOutput() GetDeviceDevicePropertyOutput
+	ToGetDeviceDevicePropertyOutputWithContext(context.Context) GetDeviceDevicePropertyOutput
+}
+
+type GetDeviceDevicePropertyArgs struct {
+	// The Data Box Edge/Gateway device local capacity in MB.
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// Type of compute roles configured.
+	ConfiguredRoleTypes pulumi.StringArrayInput `pulumi:"configuredRoleTypes"`
+	// The Data Box Edge/Gateway device culture.
+	Culture pulumi.StringInput `pulumi:"culture"`
+	// The device software version number of the device (e.g. 1.2.18105.6).
+	HcsVersion pulumi.StringInput `pulumi:"hcsVersion"`
+	// The Data Box Edge/Gateway device model.
+	Model pulumi.StringInput `pulumi:"model"`
+	// The number of nodes in the cluster.
+	NodeCount pulumi.IntInput `pulumi:"nodeCount"`
+	// The Serial Number of Data Box Edge/Gateway device.
+	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
+	// The Data Box Edge/Gateway device software version.
+	SoftwareVersion pulumi.StringInput `pulumi:"softwareVersion"`
+	// The status of the Data Box Edge/Gateway device.
+	Status pulumi.StringInput `pulumi:"status"`
+	// The Data Box Edge/Gateway device timezone.
+	TimeZone pulumi.StringInput `pulumi:"timeZone"`
+	// The type of the Data Box Edge/Gateway device.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDeviceDevicePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceDeviceProperty)(nil)).Elem()
+}
+
+func (i GetDeviceDevicePropertyArgs) ToGetDeviceDevicePropertyOutput() GetDeviceDevicePropertyOutput {
+	return i.ToGetDeviceDevicePropertyOutputWithContext(context.Background())
+}
+
+func (i GetDeviceDevicePropertyArgs) ToGetDeviceDevicePropertyOutputWithContext(ctx context.Context) GetDeviceDevicePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceDevicePropertyOutput)
+}
+
+// GetDeviceDevicePropertyArrayInput is an input type that accepts GetDeviceDevicePropertyArray and GetDeviceDevicePropertyArrayOutput values.
+// You can construct a concrete instance of `GetDeviceDevicePropertyArrayInput` via:
+//
+//	GetDeviceDevicePropertyArray{ GetDeviceDevicePropertyArgs{...} }
+type GetDeviceDevicePropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetDeviceDevicePropertyArrayOutput() GetDeviceDevicePropertyArrayOutput
+	ToGetDeviceDevicePropertyArrayOutputWithContext(context.Context) GetDeviceDevicePropertyArrayOutput
+}
+
+type GetDeviceDevicePropertyArray []GetDeviceDevicePropertyInput
+
+func (GetDeviceDevicePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeviceDeviceProperty)(nil)).Elem()
+}
+
+func (i GetDeviceDevicePropertyArray) ToGetDeviceDevicePropertyArrayOutput() GetDeviceDevicePropertyArrayOutput {
+	return i.ToGetDeviceDevicePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeviceDevicePropertyArray) ToGetDeviceDevicePropertyArrayOutputWithContext(ctx context.Context) GetDeviceDevicePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceDevicePropertyArrayOutput)
+}
+
+type GetDeviceDevicePropertyOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceDevicePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceDeviceProperty)(nil)).Elem()
+}
+
+func (o GetDeviceDevicePropertyOutput) ToGetDeviceDevicePropertyOutput() GetDeviceDevicePropertyOutput {
+	return o
+}
+
+func (o GetDeviceDevicePropertyOutput) ToGetDeviceDevicePropertyOutputWithContext(ctx context.Context) GetDeviceDevicePropertyOutput {
+	return o
+}
+
+// The Data Box Edge/Gateway device local capacity in MB.
+func (o GetDeviceDevicePropertyOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDeviceDeviceProperty) int { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// Type of compute roles configured.
+func (o GetDeviceDevicePropertyOutput) ConfiguredRoleTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDeviceDeviceProperty) []string { return v.ConfiguredRoleTypes }).(pulumi.StringArrayOutput)
+}
+
+// The Data Box Edge/Gateway device culture.
+func (o GetDeviceDevicePropertyOutput) Culture() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceDeviceProperty) string { return v.Culture }).(pulumi.StringOutput)
+}
+
+// The device software version number of the device (e.g. 1.2.18105.6).
+func (o GetDeviceDevicePropertyOutput) HcsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceDeviceProperty) string { return v.HcsVersion }).(pulumi.StringOutput)
+}
+
+// The Data Box Edge/Gateway device model.
+func (o GetDeviceDevicePropertyOutput) Model() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceDeviceProperty) string { return v.Model }).(pulumi.StringOutput)
+}
+
+// The number of nodes in the cluster.
+func (o GetDeviceDevicePropertyOutput) NodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDeviceDeviceProperty) int { return v.NodeCount }).(pulumi.IntOutput)
+}
+
+// The Serial Number of Data Box Edge/Gateway device.
+func (o GetDeviceDevicePropertyOutput) SerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceDeviceProperty) string { return v.SerialNumber }).(pulumi.StringOutput)
+}
+
+// The Data Box Edge/Gateway device software version.
+func (o GetDeviceDevicePropertyOutput) SoftwareVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceDeviceProperty) string { return v.SoftwareVersion }).(pulumi.StringOutput)
+}
+
+// The status of the Data Box Edge/Gateway device.
+func (o GetDeviceDevicePropertyOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceDeviceProperty) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The Data Box Edge/Gateway device timezone.
+func (o GetDeviceDevicePropertyOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceDeviceProperty) string { return v.TimeZone }).(pulumi.StringOutput)
+}
+
+// The type of the Data Box Edge/Gateway device.
+func (o GetDeviceDevicePropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceDeviceProperty) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDeviceDevicePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceDevicePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeviceDeviceProperty)(nil)).Elem()
+}
+
+func (o GetDeviceDevicePropertyArrayOutput) ToGetDeviceDevicePropertyArrayOutput() GetDeviceDevicePropertyArrayOutput {
+	return o
+}
+
+func (o GetDeviceDevicePropertyArrayOutput) ToGetDeviceDevicePropertyArrayOutputWithContext(ctx context.Context) GetDeviceDevicePropertyArrayOutput {
+	return o
+}
+
+func (o GetDeviceDevicePropertyArrayOutput) Index(i pulumi.IntInput) GetDeviceDevicePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeviceDeviceProperty {
+		return vs[0].([]GetDeviceDeviceProperty)[vs[1].(int)]
+	}).(GetDeviceDevicePropertyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceDevicePropertyInput)(nil)).Elem(), DeviceDevicePropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceDevicePropertyArrayInput)(nil)).Elem(), DeviceDevicePropertyArray{})
@@ -1106,6 +1293,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentTrackingArrayInput)(nil)).Elem(), OrderShipmentTrackingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrderStatusInput)(nil)).Elem(), OrderStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrderStatusArrayInput)(nil)).Elem(), OrderStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceDevicePropertyInput)(nil)).Elem(), GetDeviceDevicePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceDevicePropertyArrayInput)(nil)).Elem(), GetDeviceDevicePropertyArray{})
 	pulumi.RegisterOutputType(DeviceDevicePropertyOutput{})
 	pulumi.RegisterOutputType(DeviceDevicePropertyArrayOutput{})
 	pulumi.RegisterOutputType(OrderContactOutput{})
@@ -1120,4 +1309,6 @@ func init() {
 	pulumi.RegisterOutputType(OrderShipmentTrackingArrayOutput{})
 	pulumi.RegisterOutputType(OrderStatusOutput{})
 	pulumi.RegisterOutputType(OrderStatusArrayOutput{})
+	pulumi.RegisterOutputType(GetDeviceDevicePropertyOutput{})
+	pulumi.RegisterOutputType(GetDeviceDevicePropertyArrayOutput{})
 }

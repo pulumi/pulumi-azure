@@ -10,8 +10,176 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ConfigurationInstallPatchesArgs',
+    'ConfigurationInstallPatchesLinuxArgs',
+    'ConfigurationInstallPatchesWindowArgs',
     'ConfigurationWindowArgs',
 ]
+
+@pulumi.input_type
+class ConfigurationInstallPatchesArgs:
+    def __init__(__self__, *,
+                 linuxes: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]] = None,
+                 reboot: Optional[pulumi.Input[str]] = None,
+                 windows: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]] linuxes: A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        :param pulumi.Input[str] reboot: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]] windows: A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        """
+        if linuxes is not None:
+            pulumi.set(__self__, "linuxes", linuxes)
+        if reboot is not None:
+            pulumi.set(__self__, "reboot", reboot)
+        if windows is not None:
+            pulumi.set(__self__, "windows", windows)
+
+    @property
+    @pulumi.getter
+    def linuxes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]]:
+        """
+        A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        """
+        return pulumi.get(self, "linuxes")
+
+    @linuxes.setter
+    def linuxes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]]):
+        pulumi.set(self, "linuxes", value)
+
+    @property
+    @pulumi.getter
+    def reboot(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
+        """
+        return pulumi.get(self, "reboot")
+
+    @reboot.setter
+    def reboot(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reboot", value)
+
+    @property
+    @pulumi.getter
+    def windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]]:
+        """
+        A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        """
+        return pulumi.get(self, "windows")
+
+    @windows.setter
+    def windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]]):
+        pulumi.set(self, "windows", value)
+
+
+@pulumi.input_type
+class ConfigurationInstallPatchesLinuxArgs:
+    def __init__(__self__, *,
+                 classifications_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 package_names_mask_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 package_names_mask_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classifications_to_includes: List of Classification category of patches to be patched. Possible values are `Critical`, `Security` and `Other`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] package_names_mask_to_excludes: List of package names to be excluded from patching.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] package_names_mask_to_includes: List of package names to be included for patching.
+        """
+        if classifications_to_includes is not None:
+            pulumi.set(__self__, "classifications_to_includes", classifications_to_includes)
+        if package_names_mask_to_excludes is not None:
+            pulumi.set(__self__, "package_names_mask_to_excludes", package_names_mask_to_excludes)
+        if package_names_mask_to_includes is not None:
+            pulumi.set(__self__, "package_names_mask_to_includes", package_names_mask_to_includes)
+
+    @property
+    @pulumi.getter(name="classificationsToIncludes")
+    def classifications_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Classification category of patches to be patched. Possible values are `Critical`, `Security` and `Other`.
+        """
+        return pulumi.get(self, "classifications_to_includes")
+
+    @classifications_to_includes.setter
+    def classifications_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "classifications_to_includes", value)
+
+    @property
+    @pulumi.getter(name="packageNamesMaskToExcludes")
+    def package_names_mask_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of package names to be excluded from patching.
+        """
+        return pulumi.get(self, "package_names_mask_to_excludes")
+
+    @package_names_mask_to_excludes.setter
+    def package_names_mask_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "package_names_mask_to_excludes", value)
+
+    @property
+    @pulumi.getter(name="packageNamesMaskToIncludes")
+    def package_names_mask_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of package names to be included for patching.
+        """
+        return pulumi.get(self, "package_names_mask_to_includes")
+
+    @package_names_mask_to_includes.setter
+    def package_names_mask_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "package_names_mask_to_includes", value)
+
+
+@pulumi.input_type
+class ConfigurationInstallPatchesWindowArgs:
+    def __init__(__self__, *,
+                 classifications_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 kb_numbers_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 kb_numbers_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classifications_to_includes: List of Classification category of patches to be patched. Possible values are `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] kb_numbers_to_excludes: List of KB numbers to be excluded from patching.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] kb_numbers_to_includes: List of KB numbers to be included for patching.
+        """
+        if classifications_to_includes is not None:
+            pulumi.set(__self__, "classifications_to_includes", classifications_to_includes)
+        if kb_numbers_to_excludes is not None:
+            pulumi.set(__self__, "kb_numbers_to_excludes", kb_numbers_to_excludes)
+        if kb_numbers_to_includes is not None:
+            pulumi.set(__self__, "kb_numbers_to_includes", kb_numbers_to_includes)
+
+    @property
+    @pulumi.getter(name="classificationsToIncludes")
+    def classifications_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Classification category of patches to be patched. Possible values are `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        """
+        return pulumi.get(self, "classifications_to_includes")
+
+    @classifications_to_includes.setter
+    def classifications_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "classifications_to_includes", value)
+
+    @property
+    @pulumi.getter(name="kbNumbersToExcludes")
+    def kb_numbers_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of KB numbers to be excluded from patching.
+        """
+        return pulumi.get(self, "kb_numbers_to_excludes")
+
+    @kb_numbers_to_excludes.setter
+    def kb_numbers_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "kb_numbers_to_excludes", value)
+
+    @property
+    @pulumi.getter(name="kbNumbersToIncludes")
+    def kb_numbers_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of KB numbers to be included for patching.
+        """
+        return pulumi.get(self, "kb_numbers_to_includes")
+
+    @kb_numbers_to_includes.setter
+    def kb_numbers_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "kb_numbers_to_includes", value)
+
 
 @pulumi.input_type
 class ConfigurationWindowArgs:

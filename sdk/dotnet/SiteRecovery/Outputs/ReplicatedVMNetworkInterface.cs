@@ -14,6 +14,10 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     public sealed class ReplicatedVMNetworkInterface
     {
         /// <summary>
+        /// If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+        /// </summary>
+        public readonly bool? IsPrimary;
+        /// <summary>
         /// Id of the public IP object to use when a failover is done.
         /// </summary>
         public readonly string? RecoveryPublicIpAddressId;
@@ -32,6 +36,8 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
 
         [OutputConstructor]
         private ReplicatedVMNetworkInterface(
+            bool? isPrimary,
+
             string? recoveryPublicIpAddressId,
 
             string? sourceNetworkInterfaceId,
@@ -40,6 +46,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
 
             string? targetSubnetName)
         {
+            IsPrimary = isPrimary;
             RecoveryPublicIpAddressId = recoveryPublicIpAddressId;
             SourceNetworkInterfaceId = sourceNetworkInterfaceId;
             TargetStaticIp = targetStaticIp;

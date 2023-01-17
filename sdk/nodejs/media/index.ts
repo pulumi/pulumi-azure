@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccountFilterArgs, AccountFilterState } from "./accountFilter";
+export type AccountFilter = import("./accountFilter").AccountFilter;
+export const AccountFilter: typeof import("./accountFilter").AccountFilter = null as any;
+utilities.lazyLoad(exports, ["AccountFilter"], () => require("./accountFilter"));
+
 export { AssetArgs, AssetState } from "./asset";
 export type Asset = import("./asset").Asset;
 export const Asset: typeof import("./asset").Asset = null as any;
@@ -65,6 +70,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:media/accountFilter:AccountFilter":
+                return new AccountFilter(name, <any>undefined, { urn })
             case "azure:media/asset:Asset":
                 return new Asset(name, <any>undefined, { urn })
             case "azure:media/assetFilter:AssetFilter":
@@ -92,6 +99,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "media/accountFilter", _module)
 pulumi.runtime.registerResourceModule("azure", "media/asset", _module)
 pulumi.runtime.registerResourceModule("azure", "media/assetFilter", _module)
 pulumi.runtime.registerResourceModule("azure", "media/contentKeyPolicy", _module)

@@ -27,6 +27,11 @@ public final class LinuxWebAppSiteConfigApplicationStack {
      */
     private @Nullable String dotnetVersion;
     /**
+     * @return The version of Go to use. Possible values include `1.18`, and `1.19`.
+     * 
+     */
+    private @Nullable String goVersion;
+    /**
      * @return The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
      * 
      */
@@ -37,7 +42,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
      */
     private @Nullable String javaServerVersion;
     /**
-     * @return The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+     * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
      */
     private @Nullable String javaVersion;
@@ -85,6 +90,13 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.dotnetVersion);
     }
     /**
+     * @return The version of Go to use. Possible values include `1.18`, and `1.19`.
+     * 
+     */
+    public Optional<String> goVersion() {
+        return Optional.ofNullable(this.goVersion);
+    }
+    /**
      * @return The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
      * 
      */
@@ -99,7 +111,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaServerVersion);
     }
     /**
-     * @return The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+     * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
      */
     public Optional<String> javaVersion() {
@@ -146,6 +158,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         private @Nullable String dockerImage;
         private @Nullable String dockerImageTag;
         private @Nullable String dotnetVersion;
+        private @Nullable String goVersion;
         private @Nullable String javaServer;
         private @Nullable String javaServerVersion;
         private @Nullable String javaVersion;
@@ -159,6 +172,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
     	      this.dockerImage = defaults.dockerImage;
     	      this.dockerImageTag = defaults.dockerImageTag;
     	      this.dotnetVersion = defaults.dotnetVersion;
+    	      this.goVersion = defaults.goVersion;
     	      this.javaServer = defaults.javaServer;
     	      this.javaServerVersion = defaults.javaServerVersion;
     	      this.javaVersion = defaults.javaVersion;
@@ -181,6 +195,11 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         @CustomType.Setter
         public Builder dotnetVersion(@Nullable String dotnetVersion) {
             this.dotnetVersion = dotnetVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder goVersion(@Nullable String goVersion) {
+            this.goVersion = goVersion;
             return this;
         }
         @CustomType.Setter
@@ -223,6 +242,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
             o.dockerImage = dockerImage;
             o.dockerImageTag = dockerImageTag;
             o.dotnetVersion = dotnetVersion;
+            o.goVersion = goVersion;
             o.javaServer = javaServer;
             o.javaServerVersion = javaServerVersion;
             o.javaVersion = javaVersion;

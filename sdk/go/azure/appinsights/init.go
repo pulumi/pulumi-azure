@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Insights{}
 	case "azure:appinsights/smartDetectionRule:SmartDetectionRule":
 		r = &SmartDetectionRule{}
+	case "azure:appinsights/standardWebTest:StandardWebTest":
+		r = &StandardWebTest{}
 	case "azure:appinsights/webTest:WebTest":
 		r = &WebTest{}
 	case "azure:appinsights/workbook:Workbook":
@@ -66,6 +68,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appinsights/smartDetectionRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appinsights/standardWebTest",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

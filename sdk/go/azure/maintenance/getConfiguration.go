@@ -60,6 +60,10 @@ type LookupConfigurationArgs struct {
 type LookupConfigurationResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The in guest user patch mode.
+	InGuestUserPatchMode string `pulumi:"inGuestUserPatchMode"`
+	// An `installPatches` block as defined below.
+	InstallPatches []GetConfigurationInstallPatch `pulumi:"installPatches"`
 	// The Azure location where the resource exists.
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
@@ -119,6 +123,16 @@ func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutputWithCo
 // The provider-assigned unique ID for this managed resource.
 func (o LookupConfigurationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The in guest user patch mode.
+func (o LookupConfigurationResultOutput) InGuestUserPatchMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.InGuestUserPatchMode }).(pulumi.StringOutput)
+}
+
+// An `installPatches` block as defined below.
+func (o LookupConfigurationResultOutput) InstallPatches() GetConfigurationInstallPatchArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) []GetConfigurationInstallPatch { return v.InstallPatches }).(GetConfigurationInstallPatchArrayOutput)
 }
 
 // The Azure location where the resource exists.

@@ -126,6 +126,14 @@ namespace Pulumi.Azure.Maintenance
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The in guest user patch mode.
+        /// </summary>
+        public readonly string InGuestUserPatchMode;
+        /// <summary>
+        /// An `install_patches` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetConfigurationInstallPatchResult> InstallPatches;
+        /// <summary>
         /// The Azure location where the resource exists.
         /// </summary>
         public readonly string Location;
@@ -156,6 +164,10 @@ namespace Pulumi.Azure.Maintenance
         private GetConfigurationResult(
             string id,
 
+            string inGuestUserPatchMode,
+
+            ImmutableArray<Outputs.GetConfigurationInstallPatchResult> installPatches,
+
             string location,
 
             string name,
@@ -173,6 +185,8 @@ namespace Pulumi.Azure.Maintenance
             ImmutableArray<Outputs.GetConfigurationWindowResult> windows)
         {
             Id = id;
+            InGuestUserPatchMode = inGuestUserPatchMode;
+            InstallPatches = installPatches;
             Location = location;
             Name = name;
             Properties = properties;

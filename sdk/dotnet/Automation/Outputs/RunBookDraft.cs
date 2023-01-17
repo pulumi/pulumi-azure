@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Automation.Outputs
     public sealed class RunBookDraft
     {
         /// <summary>
-        /// The Draft Content Link defined as `publish_content_link` above.
+        /// A `publish_content_link` block as defined above.
         /// </summary>
         public readonly Outputs.RunBookDraftContentLink? ContentLink;
         public readonly string? CreationTime;
@@ -27,6 +27,9 @@ namespace Pulumi.Azure.Automation.Outputs
         /// Specifies the output types of the runbook.
         /// </summary>
         public readonly ImmutableArray<string> OutputTypes;
+        /// <summary>
+        /// A list of `parameters` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RunBookDraftParameter> Parameters;
 
         [OutputConstructor]

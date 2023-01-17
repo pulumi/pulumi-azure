@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetSharedImageIdentifier;
+import com.pulumi.azure.compute.outputs.GetSharedImagePurchasePlan;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -45,6 +46,10 @@ public final class GetSharedImageResult {
      * 
      */
     private String location;
+    /**
+     * @return (Required) The Purchase Plan Name for this Shared Image.
+     * 
+     */
     private String name;
     /**
      * @return The type of Operating System present in this Shared Image.
@@ -56,6 +61,11 @@ public final class GetSharedImageResult {
      * 
      */
     private String privacyStatementUri;
+    /**
+     * @return (Optional) A `purchase_plan` block as defined below.
+     * 
+     */
+    private List<GetSharedImagePurchasePlan> purchasePlans;
     /**
      * @return The URI containing the Release Notes for this Shared Image.
      * 
@@ -122,6 +132,10 @@ public final class GetSharedImageResult {
     public String location() {
         return this.location;
     }
+    /**
+     * @return (Required) The Purchase Plan Name for this Shared Image.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -138,6 +152,13 @@ public final class GetSharedImageResult {
      */
     public String privacyStatementUri() {
         return this.privacyStatementUri;
+    }
+    /**
+     * @return (Optional) A `purchase_plan` block as defined below.
+     * 
+     */
+    public List<GetSharedImagePurchasePlan> purchasePlans() {
+        return this.purchasePlans;
     }
     /**
      * @return The URI containing the Release Notes for this Shared Image.
@@ -184,6 +205,7 @@ public final class GetSharedImageResult {
         private String name;
         private String osType;
         private String privacyStatementUri;
+        private List<GetSharedImagePurchasePlan> purchasePlans;
         private String releaseNoteUri;
         private String resourceGroupName;
         private Boolean specialized;
@@ -202,6 +224,7 @@ public final class GetSharedImageResult {
     	      this.name = defaults.name;
     	      this.osType = defaults.osType;
     	      this.privacyStatementUri = defaults.privacyStatementUri;
+    	      this.purchasePlans = defaults.purchasePlans;
     	      this.releaseNoteUri = defaults.releaseNoteUri;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.specialized = defaults.specialized;
@@ -267,6 +290,14 @@ public final class GetSharedImageResult {
             return this;
         }
         @CustomType.Setter
+        public Builder purchasePlans(List<GetSharedImagePurchasePlan> purchasePlans) {
+            this.purchasePlans = Objects.requireNonNull(purchasePlans);
+            return this;
+        }
+        public Builder purchasePlans(GetSharedImagePurchasePlan... purchasePlans) {
+            return purchasePlans(List.of(purchasePlans));
+        }
+        @CustomType.Setter
         public Builder releaseNoteUri(String releaseNoteUri) {
             this.releaseNoteUri = Objects.requireNonNull(releaseNoteUri);
             return this;
@@ -299,6 +330,7 @@ public final class GetSharedImageResult {
             o.name = name;
             o.osType = osType;
             o.privacyStatementUri = privacyStatementUri;
+            o.purchasePlans = purchasePlans;
             o.releaseNoteUri = releaseNoteUri;
             o.resourceGroupName = resourceGroupName;
             o.specialized = specialized;

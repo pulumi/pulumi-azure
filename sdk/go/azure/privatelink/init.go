@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:privatelink/applicationSecurityGroupAssociation:ApplicationSecurityGroupAssociation":
+		r = &ApplicationSecurityGroupAssociation{}
 	case "azure:privatelink/endpoint:Endpoint":
 		r = &Endpoint{}
 	default:
@@ -36,6 +38,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"privatelink/applicationSecurityGroupAssociation",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"privatelink/endpoint",

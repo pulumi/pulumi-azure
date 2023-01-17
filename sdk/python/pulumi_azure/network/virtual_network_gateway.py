@@ -53,6 +53,7 @@ class VirtualNetworkGatewayArgs:
                `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
         :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        :param pulumi.Input['VirtualNetworkGatewayCustomRouteArgs'] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -187,6 +188,9 @@ class VirtualNetworkGatewayArgs:
     @property
     @pulumi.getter(name="customRoute")
     def custom_route(self) -> Optional[pulumi.Input['VirtualNetworkGatewayCustomRouteArgs']]:
+        """
+        A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+        """
         return pulumi.get(self, "custom_route")
 
     @custom_route.setter
@@ -346,6 +350,7 @@ class _VirtualNetworkGatewayState:
                `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
         :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        :param pulumi.Input['VirtualNetworkGatewayCustomRouteArgs'] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -440,6 +445,9 @@ class _VirtualNetworkGatewayState:
     @property
     @pulumi.getter(name="customRoute")
     def custom_route(self) -> Optional[pulumi.Input['VirtualNetworkGatewayCustomRouteArgs']]:
+        """
+        A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+        """
         return pulumi.get(self, "custom_route")
 
     @custom_route.setter
@@ -738,6 +746,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayCustomRouteArgs']] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -957,6 +966,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayCustomRouteArgs']] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -1031,6 +1041,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customRoute")
     def custom_route(self) -> pulumi.Output[Optional['outputs.VirtualNetworkGatewayCustomRoute']]:
+        """
+        A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+        """
         return pulumi.get(self, "custom_route")
 
     @property

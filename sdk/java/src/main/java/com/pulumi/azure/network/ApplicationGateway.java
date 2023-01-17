@@ -551,14 +551,14 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sslCertificates);
     }
     /**
-     * a `ssl policy` block as defined below.
+     * a `ssl_policy` block as defined below.
      * 
      */
     @Export(name="sslPolicy", type=ApplicationGatewaySslPolicy.class, parameters={})
     private Output<ApplicationGatewaySslPolicy> sslPolicy;
 
     /**
-     * @return a `ssl policy` block as defined below.
+     * @return a `ssl_policy` block as defined below.
      * 
      */
     public Output<ApplicationGatewaySslPolicy> sslPolicy() {

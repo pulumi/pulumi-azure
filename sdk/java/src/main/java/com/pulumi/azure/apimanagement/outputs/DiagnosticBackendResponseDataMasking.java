@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DiagnosticBackendResponseDataMasking {
+    /**
+     * @return A `headers` block as defined below.
+     * 
+     */
     private @Nullable List<DiagnosticBackendResponseDataMaskingHeader> headers;
+    /**
+     * @return A `query_params` block as defined below.
+     * 
+     */
     private @Nullable List<DiagnosticBackendResponseDataMaskingQueryParam> queryParams;
 
     private DiagnosticBackendResponseDataMasking() {}
+    /**
+     * @return A `headers` block as defined below.
+     * 
+     */
     public List<DiagnosticBackendResponseDataMaskingHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
+    /**
+     * @return A `query_params` block as defined below.
+     * 
+     */
     public List<DiagnosticBackendResponseDataMaskingQueryParam> queryParams() {
         return this.queryParams == null ? List.of() : this.queryParams;
     }

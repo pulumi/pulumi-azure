@@ -61,6 +61,21 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     }
 
     /**
+     * The version of Go to use. Possible values include `1.18`, and `1.19`.
+     * 
+     */
+    @Import(name="goVersion")
+    private @Nullable Output<String> goVersion;
+
+    /**
+     * @return The version of Go to use. Possible values include `1.18`, and `1.19`.
+     * 
+     */
+    public Optional<Output<String>> goVersion() {
+        return Optional.ofNullable(this.goVersion);
+    }
+
+    /**
      * The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
      * 
      */
@@ -91,14 +106,14 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     }
 
     /**
-     * The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+     * The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+     * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -171,6 +186,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         this.dockerImage = $.dockerImage;
         this.dockerImageTag = $.dockerImageTag;
         this.dotnetVersion = $.dotnetVersion;
+        this.goVersion = $.goVersion;
         this.javaServer = $.javaServer;
         this.javaServerVersion = $.javaServerVersion;
         this.javaVersion = $.javaVersion;
@@ -262,6 +278,27 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
+         * @param goVersion The version of Go to use. Possible values include `1.18`, and `1.19`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder goVersion(@Nullable Output<String> goVersion) {
+            $.goVersion = goVersion;
+            return this;
+        }
+
+        /**
+         * @param goVersion The version of Go to use. Possible values include `1.18`, and `1.19`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder goVersion(String goVersion) {
+            return goVersion(Output.of(goVersion));
+        }
+
+        /**
          * @param javaServer The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
          * 
          * @return builder
@@ -304,7 +341,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, and `17`.
          * 
          * @return builder
          * 
@@ -315,7 +352,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, and `17`.
          * 
          * @return builder
          * 

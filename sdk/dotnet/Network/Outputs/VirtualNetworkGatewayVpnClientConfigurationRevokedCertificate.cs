@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
     {
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+        /// Specifies the name of the certificate resource.
         /// </summary>
         public readonly string Name;
         public readonly string Thumbprint;

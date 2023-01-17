@@ -321,7 +321,7 @@ class StreamingPolicy(pulumi.CustomResource):
         Streaming Policies can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:media/streamingPolicy:StreamingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/streamingpolicies/policy1
+         $ pulumi import azure:media/streamingPolicy:StreamingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/streamingPolicies/policy1
         ```
 
         :param str resource_name: The name of the resource.
@@ -397,7 +397,7 @@ class StreamingPolicy(pulumi.CustomResource):
         Streaming Policies can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:media/streamingPolicy:StreamingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/streamingpolicies/policy1
+         $ pulumi import azure:media/streamingPolicy:StreamingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/streamingPolicies/policy1
         ```
 
         :param str resource_name: The name of the resource.

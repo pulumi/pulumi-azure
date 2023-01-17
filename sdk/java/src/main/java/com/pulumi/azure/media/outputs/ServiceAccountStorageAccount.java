@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.media.outputs;
 
+import com.pulumi.azure.media.outputs.ServiceAccountStorageAccountManagedIdentity;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -22,6 +23,11 @@ public final class ServiceAccountStorageAccount {
      * 
      */
     private @Nullable Boolean isPrimary;
+    /**
+     * @return A `managed_identity` block as defined below.
+     * 
+     */
+    private @Nullable ServiceAccountStorageAccountManagedIdentity managedIdentity;
 
     private ServiceAccountStorageAccount() {}
     /**
@@ -38,6 +44,13 @@ public final class ServiceAccountStorageAccount {
     public Optional<Boolean> isPrimary() {
         return Optional.ofNullable(this.isPrimary);
     }
+    /**
+     * @return A `managed_identity` block as defined below.
+     * 
+     */
+    public Optional<ServiceAccountStorageAccountManagedIdentity> managedIdentity() {
+        return Optional.ofNullable(this.managedIdentity);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +63,13 @@ public final class ServiceAccountStorageAccount {
     public static final class Builder {
         private String id;
         private @Nullable Boolean isPrimary;
+        private @Nullable ServiceAccountStorageAccountManagedIdentity managedIdentity;
         public Builder() {}
         public Builder(ServiceAccountStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.isPrimary = defaults.isPrimary;
+    	      this.managedIdentity = defaults.managedIdentity;
         }
 
         @CustomType.Setter
@@ -67,10 +82,16 @@ public final class ServiceAccountStorageAccount {
             this.isPrimary = isPrimary;
             return this;
         }
+        @CustomType.Setter
+        public Builder managedIdentity(@Nullable ServiceAccountStorageAccountManagedIdentity managedIdentity) {
+            this.managedIdentity = managedIdentity;
+            return this;
+        }
         public ServiceAccountStorageAccount build() {
             final var o = new ServiceAccountStorageAccount();
             o.id = id;
             o.isPrimary = isPrimary;
+            o.managedIdentity = managedIdentity;
             return o;
         }
     }

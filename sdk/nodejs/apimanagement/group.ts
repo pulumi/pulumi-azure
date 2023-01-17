@@ -78,7 +78,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
+     * The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant id>/groups/<group object id>`. Changing this forces a new resource to be created.
      */
     public readonly externalId!: pulumi.Output<string | undefined>;
     /**
@@ -155,7 +155,7 @@ export interface GroupState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
+     * The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant id>/groups/<group object id>`. Changing this forces a new resource to be created.
      */
     externalId?: pulumi.Input<string>;
     /**
@@ -189,7 +189,7 @@ export interface GroupArgs {
      */
     displayName: pulumi.Input<string>;
     /**
-     * The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
+     * The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant id>/groups/<group object id>`. Changing this forces a new resource to be created.
      */
     externalId?: pulumi.Input<string>;
     /**

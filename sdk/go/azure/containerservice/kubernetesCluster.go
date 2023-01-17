@@ -71,7 +71,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
+//	$ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
 //
 // ```
 type KubernetesCluster struct {
@@ -79,7 +79,9 @@ type KubernetesCluster struct {
 
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrOutput `pulumi:"aciConnectorLinux"`
-	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+	// An `apiServerAccessProfile` block as defined below.
+	ApiServerAccessProfile KubernetesClusterApiServerAccessProfileOutput `pulumi:"apiServerAccessProfile"`
+	// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
 	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfileOutput `pulumi:"autoScalerProfile"`
@@ -237,7 +239,9 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 type kubernetesClusterState struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
-	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+	// An `apiServerAccessProfile` block as defined below.
+	ApiServerAccessProfile *KubernetesClusterApiServerAccessProfile `pulumi:"apiServerAccessProfile"`
+	// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
@@ -354,7 +358,9 @@ type kubernetesClusterState struct {
 type KubernetesClusterState struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
-	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+	// An `apiServerAccessProfile` block as defined below.
+	ApiServerAccessProfile KubernetesClusterApiServerAccessProfilePtrInput
+	// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
@@ -475,7 +481,9 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 type kubernetesClusterArgs struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
-	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+	// An `apiServerAccessProfile` block as defined below.
+	ApiServerAccessProfile *KubernetesClusterApiServerAccessProfile `pulumi:"apiServerAccessProfile"`
+	// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
@@ -575,7 +583,9 @@ type kubernetesClusterArgs struct {
 type KubernetesClusterArgs struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
-	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+	// An `apiServerAccessProfile` block as defined below.
+	ApiServerAccessProfile KubernetesClusterApiServerAccessProfilePtrInput
+	// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
@@ -763,7 +773,14 @@ func (o KubernetesClusterOutput) AciConnectorLinux() KubernetesClusterAciConnect
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterAciConnectorLinuxPtrOutput { return v.AciConnectorLinux }).(KubernetesClusterAciConnectorLinuxPtrOutput)
 }
 
-// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+// An `apiServerAccessProfile` block as defined below.
+func (o KubernetesClusterOutput) ApiServerAccessProfile() KubernetesClusterApiServerAccessProfileOutput {
+	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterApiServerAccessProfileOutput {
+		return v.ApiServerAccessProfile
+	}).(KubernetesClusterApiServerAccessProfileOutput)
+}
+
+// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
 func (o KubernetesClusterOutput) ApiServerAuthorizedIpRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringArrayOutput { return v.ApiServerAuthorizedIpRanges }).(pulumi.StringArrayOutput)
 }

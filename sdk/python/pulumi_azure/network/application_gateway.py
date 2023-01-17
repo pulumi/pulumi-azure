@@ -76,7 +76,7 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
-        :param pulumi.Input['ApplicationGatewaySslPolicyArgs'] ssl_policy: a `ssl policy` block as defined below.
+        :param pulumi.Input['ApplicationGatewaySslPolicyArgs'] ssl_policy: a `ssl_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
@@ -447,7 +447,7 @@ class ApplicationGatewayArgs:
     @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> Optional[pulumi.Input['ApplicationGatewaySslPolicyArgs']]:
         """
-        a `ssl policy` block as defined below.
+        a `ssl_policy` block as defined below.
         """
         return pulumi.get(self, "ssl_policy")
 
@@ -605,7 +605,7 @@ class _ApplicationGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         :param pulumi.Input['ApplicationGatewaySkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
-        :param pulumi.Input['ApplicationGatewaySslPolicyArgs'] ssl_policy: a `ssl policy` block as defined below.
+        :param pulumi.Input['ApplicationGatewaySslPolicyArgs'] ssl_policy: a `ssl_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
@@ -999,7 +999,7 @@ class _ApplicationGatewayState:
     @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> Optional[pulumi.Input['ApplicationGatewaySslPolicyArgs']]:
         """
-        a `ssl policy` block as defined below.
+        a `ssl_policy` block as defined below.
         """
         return pulumi.get(self, "ssl_policy")
 
@@ -1245,7 +1245,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']] ssl_policy: a `ssl policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']] ssl_policy: a `ssl_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
@@ -1533,7 +1533,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']] ssl_policy: a `ssl policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']] ssl_policy: a `ssl_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
@@ -1794,7 +1794,7 @@ class ApplicationGateway(pulumi.CustomResource):
     @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> pulumi.Output['outputs.ApplicationGatewaySslPolicy']:
         """
-        a `ssl policy` block as defined below.
+        a `ssl_policy` block as defined below.
         """
         return pulumi.get(self, "ssl_policy")
 

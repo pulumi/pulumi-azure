@@ -26982,7 +26982,7 @@ func (o GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput) Index(i pulu
 type GetSharedImageIdentifier struct {
 	// The Offer Name for this Shared Image.
 	Offer string `pulumi:"offer"`
-	// The Publisher Name for this Gallery Image.
+	// (Optional) The Purchase Plan Publisher for this Gallery Image.
 	Publisher string `pulumi:"publisher"`
 	// The Name of the SKU for this Gallery Image.
 	Sku string `pulumi:"sku"`
@@ -27002,7 +27002,7 @@ type GetSharedImageIdentifierInput interface {
 type GetSharedImageIdentifierArgs struct {
 	// The Offer Name for this Shared Image.
 	Offer pulumi.StringInput `pulumi:"offer"`
-	// The Publisher Name for this Gallery Image.
+	// (Optional) The Purchase Plan Publisher for this Gallery Image.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	// The Name of the SKU for this Gallery Image.
 	Sku pulumi.StringInput `pulumi:"sku"`
@@ -27064,7 +27064,7 @@ func (o GetSharedImageIdentifierOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
 }
 
-// The Publisher Name for this Gallery Image.
+// (Optional) The Purchase Plan Publisher for this Gallery Image.
 func (o GetSharedImageIdentifierOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -27092,6 +27092,121 @@ func (o GetSharedImageIdentifierArrayOutput) Index(i pulumi.IntInput) GetSharedI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSharedImageIdentifier {
 		return vs[0].([]GetSharedImageIdentifier)[vs[1].(int)]
 	}).(GetSharedImageIdentifierOutput)
+}
+
+type GetSharedImagePurchasePlan struct {
+	// The name of the Shared Image.
+	Name string `pulumi:"name"`
+	// (Optional) The Purchase Plan Product for this Gallery Image.
+	Product string `pulumi:"product"`
+	// (Optional) The Purchase Plan Publisher for this Gallery Image.
+	Publisher string `pulumi:"publisher"`
+}
+
+// GetSharedImagePurchasePlanInput is an input type that accepts GetSharedImagePurchasePlanArgs and GetSharedImagePurchasePlanOutput values.
+// You can construct a concrete instance of `GetSharedImagePurchasePlanInput` via:
+//
+//	GetSharedImagePurchasePlanArgs{...}
+type GetSharedImagePurchasePlanInput interface {
+	pulumi.Input
+
+	ToGetSharedImagePurchasePlanOutput() GetSharedImagePurchasePlanOutput
+	ToGetSharedImagePurchasePlanOutputWithContext(context.Context) GetSharedImagePurchasePlanOutput
+}
+
+type GetSharedImagePurchasePlanArgs struct {
+	// The name of the Shared Image.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) The Purchase Plan Product for this Gallery Image.
+	Product pulumi.StringInput `pulumi:"product"`
+	// (Optional) The Purchase Plan Publisher for this Gallery Image.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (GetSharedImagePurchasePlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSharedImagePurchasePlan)(nil)).Elem()
+}
+
+func (i GetSharedImagePurchasePlanArgs) ToGetSharedImagePurchasePlanOutput() GetSharedImagePurchasePlanOutput {
+	return i.ToGetSharedImagePurchasePlanOutputWithContext(context.Background())
+}
+
+func (i GetSharedImagePurchasePlanArgs) ToGetSharedImagePurchasePlanOutputWithContext(ctx context.Context) GetSharedImagePurchasePlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSharedImagePurchasePlanOutput)
+}
+
+// GetSharedImagePurchasePlanArrayInput is an input type that accepts GetSharedImagePurchasePlanArray and GetSharedImagePurchasePlanArrayOutput values.
+// You can construct a concrete instance of `GetSharedImagePurchasePlanArrayInput` via:
+//
+//	GetSharedImagePurchasePlanArray{ GetSharedImagePurchasePlanArgs{...} }
+type GetSharedImagePurchasePlanArrayInput interface {
+	pulumi.Input
+
+	ToGetSharedImagePurchasePlanArrayOutput() GetSharedImagePurchasePlanArrayOutput
+	ToGetSharedImagePurchasePlanArrayOutputWithContext(context.Context) GetSharedImagePurchasePlanArrayOutput
+}
+
+type GetSharedImagePurchasePlanArray []GetSharedImagePurchasePlanInput
+
+func (GetSharedImagePurchasePlanArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSharedImagePurchasePlan)(nil)).Elem()
+}
+
+func (i GetSharedImagePurchasePlanArray) ToGetSharedImagePurchasePlanArrayOutput() GetSharedImagePurchasePlanArrayOutput {
+	return i.ToGetSharedImagePurchasePlanArrayOutputWithContext(context.Background())
+}
+
+func (i GetSharedImagePurchasePlanArray) ToGetSharedImagePurchasePlanArrayOutputWithContext(ctx context.Context) GetSharedImagePurchasePlanArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSharedImagePurchasePlanArrayOutput)
+}
+
+type GetSharedImagePurchasePlanOutput struct{ *pulumi.OutputState }
+
+func (GetSharedImagePurchasePlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSharedImagePurchasePlan)(nil)).Elem()
+}
+
+func (o GetSharedImagePurchasePlanOutput) ToGetSharedImagePurchasePlanOutput() GetSharedImagePurchasePlanOutput {
+	return o
+}
+
+func (o GetSharedImagePurchasePlanOutput) ToGetSharedImagePurchasePlanOutputWithContext(ctx context.Context) GetSharedImagePurchasePlanOutput {
+	return o
+}
+
+// The name of the Shared Image.
+func (o GetSharedImagePurchasePlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharedImagePurchasePlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) The Purchase Plan Product for this Gallery Image.
+func (o GetSharedImagePurchasePlanOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharedImagePurchasePlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// (Optional) The Purchase Plan Publisher for this Gallery Image.
+func (o GetSharedImagePurchasePlanOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharedImagePurchasePlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type GetSharedImagePurchasePlanArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSharedImagePurchasePlanArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSharedImagePurchasePlan)(nil)).Elem()
+}
+
+func (o GetSharedImagePurchasePlanArrayOutput) ToGetSharedImagePurchasePlanArrayOutput() GetSharedImagePurchasePlanArrayOutput {
+	return o
+}
+
+func (o GetSharedImagePurchasePlanArrayOutput) ToGetSharedImagePurchasePlanArrayOutputWithContext(ctx context.Context) GetSharedImagePurchasePlanArrayOutput {
+	return o
+}
+
+func (o GetSharedImagePurchasePlanArrayOutput) Index(i pulumi.IntInput) GetSharedImagePurchasePlanOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSharedImagePurchasePlan {
+		return vs[0].([]GetSharedImagePurchasePlan)[vs[1].(int)]
+	}).(GetSharedImagePurchasePlanOutput)
 }
 
 type GetSharedImageVersionTargetRegion struct {
@@ -29141,6 +29256,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayInput)(nil)).Elem(), GetManagedDiskEncryptionSettingKeyEncryptionKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageIdentifierInput)(nil)).Elem(), GetSharedImageIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageIdentifierArrayInput)(nil)).Elem(), GetSharedImageIdentifierArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImagePurchasePlanInput)(nil)).Elem(), GetSharedImagePurchasePlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImagePurchasePlanArrayInput)(nil)).Elem(), GetSharedImagePurchasePlanArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageVersionTargetRegionInput)(nil)).Elem(), GetSharedImageVersionTargetRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageVersionTargetRegionArrayInput)(nil)).Elem(), GetSharedImageVersionTargetRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageVersionsImageInput)(nil)).Elem(), GetSharedImageVersionsImageArgs{})
@@ -29511,6 +29628,8 @@ func init() {
 	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImageIdentifierOutput{})
 	pulumi.RegisterOutputType(GetSharedImageIdentifierArrayOutput{})
+	pulumi.RegisterOutputType(GetSharedImagePurchasePlanOutput{})
+	pulumi.RegisterOutputType(GetSharedImagePurchasePlanArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImageVersionTargetRegionOutput{})
 	pulumi.RegisterOutputType(GetSharedImageVersionTargetRegionArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImageVersionsImageOutput{})

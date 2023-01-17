@@ -31,6 +31,7 @@ class LiveEventOutputArgs:
         :param pulumi.Input[int] hls_fragments_per_ts_segment: The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[int] output_snap_time_in_seconds: The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
         """
         pulumi.set(__self__, "archive_window_duration", archive_window_duration)
         pulumi.set(__self__, "asset_name", asset_name)
@@ -133,6 +134,9 @@ class LiveEventOutputArgs:
     @property
     @pulumi.getter(name="outputSnapTimeInSeconds")
     def output_snap_time_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "output_snap_time_in_seconds")
 
     @output_snap_time_in_seconds.setter
@@ -160,6 +164,7 @@ class _LiveEventOutputState:
         :param pulumi.Input[str] live_event_id: The id of the live event. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[int] output_snap_time_in_seconds: The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
         """
         if archive_window_duration is not None:
             pulumi.set(__self__, "archive_window_duration", archive_window_duration)
@@ -265,6 +270,9 @@ class _LiveEventOutputState:
     @property
     @pulumi.getter(name="outputSnapTimeInSeconds")
     def output_snap_time_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "output_snap_time_in_seconds")
 
     @output_snap_time_in_seconds.setter
@@ -340,7 +348,7 @@ class LiveEventOutput(pulumi.CustomResource):
         Live Outputs can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1/liveoutputs/output1
+         $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/liveEvents/event1/liveOutputs/output1
         ```
 
         :param str resource_name: The name of the resource.
@@ -352,6 +360,7 @@ class LiveEventOutput(pulumi.CustomResource):
         :param pulumi.Input[str] live_event_id: The id of the live event. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[int] output_snap_time_in_seconds: The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
         """
         ...
     @overload
@@ -413,7 +422,7 @@ class LiveEventOutput(pulumi.CustomResource):
         Live Outputs can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1/liveoutputs/output1
+         $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/liveEvents/event1/liveOutputs/output1
         ```
 
         :param str resource_name: The name of the resource.
@@ -494,6 +503,7 @@ class LiveEventOutput(pulumi.CustomResource):
         :param pulumi.Input[str] live_event_id: The id of the live event. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[int] output_snap_time_in_seconds: The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -568,5 +578,8 @@ class LiveEventOutput(pulumi.CustomResource):
     @property
     @pulumi.getter(name="outputSnapTimeInSeconds")
     def output_snap_time_in_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "output_snap_time_in_seconds")
 

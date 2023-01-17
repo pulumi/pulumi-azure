@@ -103,6 +103,8 @@ __all__ = [
     'DataCollectionRuleDestinations',
     'DataCollectionRuleDestinationsAzureMonitorMetrics',
     'DataCollectionRuleDestinationsLogAnalytic',
+    'DiagnosticSettingEnabledLog',
+    'DiagnosticSettingEnabledLogRetentionPolicy',
     'DiagnosticSettingLog',
     'DiagnosticSettingLogRetentionPolicy',
     'DiagnosticSettingMetric',
@@ -5068,6 +5070,98 @@ class DataCollectionRuleDestinationsLogAnalytic(dict):
         The ID of a Log Analytic Workspace resource.
         """
         return pulumi.get(self, "workspace_resource_id")
+
+
+@pulumi.output_type
+class DiagnosticSettingEnabledLog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "categoryGroup":
+            suggest = "category_group"
+        elif key == "retentionPolicy":
+            suggest = "retention_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticSettingEnabledLog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticSettingEnabledLog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticSettingEnabledLog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 category_group: Optional[str] = None,
+                 retention_policy: Optional['outputs.DiagnosticSettingEnabledLogRetentionPolicy'] = None):
+        """
+        :param str category: The name of a Diagnostic Log Category for this Resource.
+        :param str category_group: The name of a Diagnostic Log Category Group for this Resource.
+        :param 'DiagnosticSettingEnabledLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
+        """
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if category_group is not None:
+            pulumi.set(__self__, "category_group", category_group)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        The name of a Diagnostic Log Category for this Resource.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="categoryGroup")
+    def category_group(self) -> Optional[str]:
+        """
+        The name of a Diagnostic Log Category Group for this Resource.
+        """
+        return pulumi.get(self, "category_group")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.DiagnosticSettingEnabledLogRetentionPolicy']:
+        """
+        A `retention_policy` block as defined below.
+        """
+        return pulumi.get(self, "retention_policy")
+
+
+@pulumi.output_type
+class DiagnosticSettingEnabledLogRetentionPolicy(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 days: Optional[int] = None):
+        """
+        :param bool enabled: Is this Retention Policy enabled?
+        :param int days: The number of days for which this Retention Policy should apply.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Is this Retention Policy enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        """
+        The number of days for which this Retention Policy should apply.
+        """
+        return pulumi.get(self, "days")
 
 
 @pulumi.output_type

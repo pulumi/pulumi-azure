@@ -470,9 +470,17 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     public Output<String> discoveryUrl() {
         return this.discoveryUrl;
     }
+    /**
+     * An `encryption` block as defined below.
+     * 
+     */
     @Export(name="encryption", type=WorkspaceEncryption.class, parameters={})
     private Output</* @Nullable */ WorkspaceEncryption> encryption;
 
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
     public Output<Optional<WorkspaceEncryption>> encryption() {
         return Codegen.optional(this.encryption);
     }

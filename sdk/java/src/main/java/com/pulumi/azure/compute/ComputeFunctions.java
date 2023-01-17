@@ -852,12 +852,76 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Disk Encryption Set.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDiskEncryptionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
+     *             .name(&#34;example-des&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args) {
         return getDiskEncryptionSet(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Disk Encryption Set.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDiskEncryptionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
+     *             .name(&#34;example-des&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetDiskEncryptionSetResult> getDiskEncryptionSetPlain(GetDiskEncryptionSetPlainArgs args) {
@@ -866,12 +930,76 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Disk Encryption Set.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDiskEncryptionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
+     *             .name(&#34;example-des&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", TypeShape.of(GetDiskEncryptionSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Disk Encryption Set.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetDiskEncryptionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
+     *             .name(&#34;example-des&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetDiskEncryptionSetResult> getDiskEncryptionSetPlain(GetDiskEncryptionSetPlainArgs args, InvokeOptions options) {

@@ -106,9 +106,11 @@ type RouteServer struct {
 	// Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	RoutingState      pulumi.StringOutput `pulumi:"routingState"`
-	Sku               pulumi.StringOutput `pulumi:"sku"`
+	// The SKU of the Route Server. The only possible value is `Standard`.
+	Sku pulumi.StringOutput `pulumi:"sku"`
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
-	SubnetId         pulumi.StringOutput      `pulumi:"subnetId"`
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
 	Tags             pulumi.StringMapOutput   `pulumi:"tags"`
 	VirtualRouterAsn pulumi.IntOutput         `pulumi:"virtualRouterAsn"`
 	VirtualRouterIps pulumi.StringArrayOutput `pulumi:"virtualRouterIps"`
@@ -166,9 +168,11 @@ type routeServerState struct {
 	// Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	RoutingState      *string `pulumi:"routingState"`
-	Sku               *string `pulumi:"sku"`
+	// The SKU of the Route Server. The only possible value is `Standard`.
+	Sku *string `pulumi:"sku"`
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
-	SubnetId         *string           `pulumi:"subnetId"`
+	SubnetId *string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
 	Tags             map[string]string `pulumi:"tags"`
 	VirtualRouterAsn *int              `pulumi:"virtualRouterAsn"`
 	VirtualRouterIps []string          `pulumi:"virtualRouterIps"`
@@ -186,9 +190,11 @@ type RouteServerState struct {
 	// Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	RoutingState      pulumi.StringPtrInput
-	Sku               pulumi.StringPtrInput
+	// The SKU of the Route Server. The only possible value is `Standard`.
+	Sku pulumi.StringPtrInput
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
-	SubnetId         pulumi.StringPtrInput
+	SubnetId pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
 	Tags             pulumi.StringMapInput
 	VirtualRouterAsn pulumi.IntPtrInput
 	VirtualRouterIps pulumi.StringArrayInput
@@ -209,10 +215,12 @@ type routeServerArgs struct {
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Sku               string `pulumi:"sku"`
+	// The SKU of the Route Server. The only possible value is `Standard`.
+	Sku string `pulumi:"sku"`
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
-	SubnetId string            `pulumi:"subnetId"`
-	Tags     map[string]string `pulumi:"tags"`
+	SubnetId string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RouteServer resource.
@@ -227,10 +235,12 @@ type RouteServerArgs struct {
 	PublicIpAddressId pulumi.StringInput
 	// Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Sku               pulumi.StringInput
+	// The SKU of the Route Server. The only possible value is `Standard`.
+	Sku pulumi.StringInput
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
-	Tags     pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (RouteServerArgs) ElementType() reflect.Type {
@@ -349,6 +359,7 @@ func (o RouteServerOutput) RoutingState() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServer) pulumi.StringOutput { return v.RoutingState }).(pulumi.StringOutput)
 }
 
+// The SKU of the Route Server. The only possible value is `Standard`.
 func (o RouteServerOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServer) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }
@@ -358,6 +369,7 @@ func (o RouteServerOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServer) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the resource.
 func (o RouteServerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteServer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

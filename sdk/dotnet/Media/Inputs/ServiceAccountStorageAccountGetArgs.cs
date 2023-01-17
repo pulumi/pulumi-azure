@@ -24,6 +24,12 @@ namespace Pulumi.Azure.Media.Inputs
         [Input("isPrimary")]
         public Input<bool>? IsPrimary { get; set; }
 
+        /// <summary>
+        /// A `managed_identity` block as defined below.
+        /// </summary>
+        [Input("managedIdentity")]
+        public Input<Inputs.ServiceAccountStorageAccountManagedIdentityGetArgs>? ManagedIdentity { get; set; }
+
         public ServiceAccountStorageAccountGetArgs()
         {
         }

@@ -20,14 +20,14 @@ public final class RunBookDraftArgs extends com.pulumi.resources.ResourceArgs {
     public static final RunBookDraftArgs Empty = new RunBookDraftArgs();
 
     /**
-     * The Draft Content Link defined as `publish_content_link` above.
+     * A `publish_content_link` block as defined above.
      * 
      */
     @Import(name="contentLink")
     private @Nullable Output<RunBookDraftContentLinkArgs> contentLink;
 
     /**
-     * @return The Draft Content Link defined as `publish_content_link` above.
+     * @return A `publish_content_link` block as defined above.
      * 
      */
     public Optional<Output<RunBookDraftContentLinkArgs>> contentLink() {
@@ -78,9 +78,17 @@ public final class RunBookDraftArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.outputTypes);
     }
 
+    /**
+     * A list of `parameters` block as defined below.
+     * 
+     */
     @Import(name="parameters")
     private @Nullable Output<List<RunBookDraftParameterArgs>> parameters;
 
+    /**
+     * @return A list of `parameters` block as defined below.
+     * 
+     */
     public Optional<Output<List<RunBookDraftParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
@@ -115,7 +123,7 @@ public final class RunBookDraftArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentLink The Draft Content Link defined as `publish_content_link` above.
+         * @param contentLink A `publish_content_link` block as defined above.
          * 
          * @return builder
          * 
@@ -126,7 +134,7 @@ public final class RunBookDraftArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentLink The Draft Content Link defined as `publish_content_link` above.
+         * @param contentLink A `publish_content_link` block as defined above.
          * 
          * @return builder
          * 
@@ -205,15 +213,33 @@ public final class RunBookDraftArgs extends com.pulumi.resources.ResourceArgs {
             return outputTypes(List.of(outputTypes));
         }
 
+        /**
+         * @param parameters A list of `parameters` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(@Nullable Output<List<RunBookDraftParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
+        /**
+         * @param parameters A list of `parameters` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(List<RunBookDraftParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
+        /**
+         * @param parameters A list of `parameters` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(RunBookDraftParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }

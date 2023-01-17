@@ -54,7 +54,7 @@ public final class AccountBlobProperties {
      */
     private @Nullable Boolean lastAccessTimeEnabled;
     /**
-     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
      * 
      */
     private @Nullable AccountBlobPropertiesRestorePolicy restorePolicy;
@@ -115,7 +115,7 @@ public final class AccountBlobProperties {
         return Optional.ofNullable(this.lastAccessTimeEnabled);
     }
     /**
-     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
      * 
      */
     public Optional<AccountBlobPropertiesRestorePolicy> restorePolicy() {

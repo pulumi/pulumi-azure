@@ -8,11 +8,283 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'StandardWebTestRequest',
+    'StandardWebTestRequestHeader',
+    'StandardWebTestValidationRules',
+    'StandardWebTestValidationRulesContent',
     'WorkbookIdentity',
     'WorkbookTemplateGallery',
 ]
+
+@pulumi.output_type
+class StandardWebTestRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "followRedirectsEnabled":
+            suggest = "follow_redirects_enabled"
+        elif key == "httpVerb":
+            suggest = "http_verb"
+        elif key == "parseDependentRequestsEnabled":
+            suggest = "parse_dependent_requests_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StandardWebTestRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StandardWebTestRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StandardWebTestRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 body: Optional[str] = None,
+                 follow_redirects_enabled: Optional[bool] = None,
+                 headers: Optional[Sequence['outputs.StandardWebTestRequestHeader']] = None,
+                 http_verb: Optional[str] = None,
+                 parse_dependent_requests_enabled: Optional[bool] = None):
+        """
+        :param str url: The WebTest request URL.
+        :param str body: The WebTest request body.
+        :param bool follow_redirects_enabled: Should the following of redirects be enabled?
+        :param Sequence['StandardWebTestRequestHeaderArgs'] headers: One or more `header` blocks as defined above.
+        :param str http_verb: Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+        :param bool parse_dependent_requests_enabled: Should the parsing of dependend requests be enabled?
+        """
+        pulumi.set(__self__, "url", url)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if follow_redirects_enabled is not None:
+            pulumi.set(__self__, "follow_redirects_enabled", follow_redirects_enabled)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if http_verb is not None:
+            pulumi.set(__self__, "http_verb", http_verb)
+        if parse_dependent_requests_enabled is not None:
+            pulumi.set(__self__, "parse_dependent_requests_enabled", parse_dependent_requests_enabled)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The WebTest request URL.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        """
+        The WebTest request body.
+        """
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter(name="followRedirectsEnabled")
+    def follow_redirects_enabled(self) -> Optional[bool]:
+        """
+        Should the following of redirects be enabled?
+        """
+        return pulumi.get(self, "follow_redirects_enabled")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.StandardWebTestRequestHeader']]:
+        """
+        One or more `header` blocks as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="httpVerb")
+    def http_verb(self) -> Optional[str]:
+        """
+        Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+        """
+        return pulumi.get(self, "http_verb")
+
+    @property
+    @pulumi.getter(name="parseDependentRequestsEnabled")
+    def parse_dependent_requests_enabled(self) -> Optional[bool]:
+        """
+        Should the parsing of dependend requests be enabled?
+        """
+        return pulumi.get(self, "parse_dependent_requests_enabled")
+
+
+@pulumi.output_type
+class StandardWebTestRequestHeader(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name which should be used for a header in the request.
+        :param str value: The value which should be used for a header in the request.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for a header in the request.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value which should be used for a header in the request.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class StandardWebTestValidationRules(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedStatusCode":
+            suggest = "expected_status_code"
+        elif key == "sslCertRemainingLifetime":
+            suggest = "ssl_cert_remaining_lifetime"
+        elif key == "sslCheckEnabled":
+            suggest = "ssl_check_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StandardWebTestValidationRules. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StandardWebTestValidationRules.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StandardWebTestValidationRules.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: Optional['outputs.StandardWebTestValidationRulesContent'] = None,
+                 expected_status_code: Optional[int] = None,
+                 ssl_cert_remaining_lifetime: Optional[int] = None,
+                 ssl_check_enabled: Optional[bool] = None):
+        """
+        :param 'StandardWebTestValidationRulesContentArgs' content: A `content` block as defined above.
+        :param int expected_status_code: The expected status code of the response. Default is '200', '0' means 'response code < 400'
+        :param int ssl_cert_remaining_lifetime: The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+        :param bool ssl_check_enabled: Should the SSL check be enabled?
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if expected_status_code is not None:
+            pulumi.set(__self__, "expected_status_code", expected_status_code)
+        if ssl_cert_remaining_lifetime is not None:
+            pulumi.set(__self__, "ssl_cert_remaining_lifetime", ssl_cert_remaining_lifetime)
+        if ssl_check_enabled is not None:
+            pulumi.set(__self__, "ssl_check_enabled", ssl_check_enabled)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional['outputs.StandardWebTestValidationRulesContent']:
+        """
+        A `content` block as defined above.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="expectedStatusCode")
+    def expected_status_code(self) -> Optional[int]:
+        """
+        The expected status code of the response. Default is '200', '0' means 'response code < 400'
+        """
+        return pulumi.get(self, "expected_status_code")
+
+    @property
+    @pulumi.getter(name="sslCertRemainingLifetime")
+    def ssl_cert_remaining_lifetime(self) -> Optional[int]:
+        """
+        The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+        """
+        return pulumi.get(self, "ssl_cert_remaining_lifetime")
+
+    @property
+    @pulumi.getter(name="sslCheckEnabled")
+    def ssl_check_enabled(self) -> Optional[bool]:
+        """
+        Should the SSL check be enabled?
+        """
+        return pulumi.get(self, "ssl_check_enabled")
+
+
+@pulumi.output_type
+class StandardWebTestValidationRulesContent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentMatch":
+            suggest = "content_match"
+        elif key == "ignoreCase":
+            suggest = "ignore_case"
+        elif key == "passIfTextFound":
+            suggest = "pass_if_text_found"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StandardWebTestValidationRulesContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StandardWebTestValidationRulesContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StandardWebTestValidationRulesContent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_match: str,
+                 ignore_case: Optional[bool] = None,
+                 pass_if_text_found: Optional[bool] = None):
+        """
+        :param str content_match: A string value containing the content to match on.
+        :param bool ignore_case: Ignore the casing in the `content_match` value.
+        :param bool pass_if_text_found: If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
+        """
+        pulumi.set(__self__, "content_match", content_match)
+        if ignore_case is not None:
+            pulumi.set(__self__, "ignore_case", ignore_case)
+        if pass_if_text_found is not None:
+            pulumi.set(__self__, "pass_if_text_found", pass_if_text_found)
+
+    @property
+    @pulumi.getter(name="contentMatch")
+    def content_match(self) -> str:
+        """
+        A string value containing the content to match on.
+        """
+        return pulumi.get(self, "content_match")
+
+    @property
+    @pulumi.getter(name="ignoreCase")
+    def ignore_case(self) -> Optional[bool]:
+        """
+        Ignore the casing in the `content_match` value.
+        """
+        return pulumi.get(self, "ignore_case")
+
+    @property
+    @pulumi.getter(name="passIfTextFound")
+    def pass_if_text_found(self) -> Optional[bool]:
+        """
+        If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
+        """
+        return pulumi.get(self, "pass_if_text_found")
+
 
 @pulumi.output_type
 class WorkbookIdentity(dict):

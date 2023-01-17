@@ -17,14 +17,14 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
     public static final WindowsFunctionAppSiteConfigApplicationStackArgs Empty = new WindowsFunctionAppSiteConfigApplicationStackArgs();
 
     /**
-     * The version of .NET to use. Possible values include `3.1`, `6` and `7`.
+     * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `6` and `7`.
+     * @return The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -32,14 +32,14 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
     }
 
     /**
-     * The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
+     * The Version of Java to use. Supported versions include `1.8`, `11` &amp; `17` (In-Preview).
      * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
+     * @return The Version of Java to use. Supported versions include `1.8`, `11` &amp; `17` (In-Preview).
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -136,7 +136,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `6` and `7`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `6` and `7`.
+         * @param dotnetVersion The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
+         * @param javaVersion The Version of Java to use. Supported versions include `1.8`, `11` &amp; `17` (In-Preview).
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStackArgs extends com.
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
+         * @param javaVersion The Version of Java to use. Supported versions include `1.8`, `11` &amp; `17` (In-Preview).
          * 
          * @return builder
          * 

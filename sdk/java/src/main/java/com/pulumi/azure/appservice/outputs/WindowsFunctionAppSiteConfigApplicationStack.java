@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsFunctionAppSiteConfigApplicationStack {
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `6` and `7`.
+     * @return The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`.
      * 
      */
     private @Nullable String dotnetVersion;
     /**
-     * @return The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
+     * @return The Version of Java to use. Supported versions include `1.8`, `11` &amp; `17` (In-Preview).
      * 
      */
     private @Nullable String javaVersion;
@@ -45,14 +45,14 @@ public final class WindowsFunctionAppSiteConfigApplicationStack {
 
     private WindowsFunctionAppSiteConfigApplicationStack() {}
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `6` and `7`.
+     * @return The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`.
      * 
      */
     public Optional<String> dotnetVersion() {
         return Optional.ofNullable(this.dotnetVersion);
     }
     /**
-     * @return The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
+     * @return The Version of Java to use. Supported versions include `1.8`, `11` &amp; `17` (In-Preview).
      * 
      */
     public Optional<String> javaVersion() {

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Policy.Outputs
         /// </summary>
         public readonly string? ParameterValues;
         /// <summary>
-        /// The ID of the policy definition or policy set definition that will be included in this policy set definition.
+        /// The ID of the policy definition that will be included in this policy set definition.
         /// </summary>
         public readonly string PolicyDefinitionId;
         /// <summary>

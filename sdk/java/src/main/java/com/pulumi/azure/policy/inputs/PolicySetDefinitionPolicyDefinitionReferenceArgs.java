@@ -32,14 +32,14 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
     }
 
     /**
-     * The ID of the policy definition or policy set definition that will be included in this policy set definition.
+     * The ID of the policy definition that will be included in this policy set definition.
      * 
      */
     @Import(name="policyDefinitionId", required=true)
     private Output<String> policyDefinitionId;
 
     /**
-     * @return The ID of the policy definition or policy set definition that will be included in this policy set definition.
+     * @return The ID of the policy definition that will be included in this policy set definition.
      * 
      */
     public Output<String> policyDefinitionId() {
@@ -125,7 +125,7 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         /**
-         * @param policyDefinitionId The ID of the policy definition or policy set definition that will be included in this policy set definition.
+         * @param policyDefinitionId The ID of the policy definition that will be included in this policy set definition.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         /**
-         * @param policyDefinitionId The ID of the policy definition or policy set definition that will be included in this policy set definition.
+         * @param policyDefinitionId The ID of the policy definition that will be included in this policy set definition.
          * 
          * @return builder
          * 

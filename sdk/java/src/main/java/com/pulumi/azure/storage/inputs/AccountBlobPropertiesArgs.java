@@ -128,14 +128,14 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+     * A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
      * 
      */
     @Import(name="restorePolicy")
     private @Nullable Output<AccountBlobPropertiesRestorePolicyArgs> restorePolicy;
 
     /**
-     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
      * 
      */
     public Optional<Output<AccountBlobPropertiesRestorePolicyArgs>> restorePolicy() {
@@ -347,7 +347,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param restorePolicy A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+         * @param restorePolicy A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param restorePolicy A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+         * @param restorePolicy A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
          * 
          * @return builder
          * 

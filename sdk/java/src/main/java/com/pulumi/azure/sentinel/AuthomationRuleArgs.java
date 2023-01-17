@@ -52,16 +52,39 @@ public final class AuthomationRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more `condition` blocks as defined below.
+     * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      * 
      */
+    @Import(name="conditionJson")
+    private @Nullable Output<String> conditionJson;
+
+    /**
+     * @return A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+     * 
+     */
+    public Optional<Output<String>> conditionJson() {
+        return Optional.ofNullable(this.conditionJson);
+    }
+
+    /**
+     * One or more `condition` blocks as defined below.
+     * 
+     * @deprecated
+     * This is deprecated in favor of `condition_json`
+     * 
+     */
+    @Deprecated /* This is deprecated in favor of `condition_json` */
     @Import(name="conditions")
     private @Nullable Output<List<AuthomationRuleConditionArgs>> conditions;
 
     /**
      * @return One or more `condition` blocks as defined below.
      * 
+     * @deprecated
+     * This is deprecated in favor of `condition_json`
+     * 
      */
+    @Deprecated /* This is deprecated in favor of `condition_json` */
     public Optional<Output<List<AuthomationRuleConditionArgs>>> conditions() {
         return Optional.ofNullable(this.conditions);
     }
@@ -156,11 +179,42 @@ public final class AuthomationRuleArgs extends com.pulumi.resources.ResourceArgs
         return this.order;
     }
 
+    /**
+     * Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+     * 
+     */
+    @Import(name="triggersOn")
+    private @Nullable Output<String> triggersOn;
+
+    /**
+     * @return Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+     * 
+     */
+    public Optional<Output<String>> triggersOn() {
+        return Optional.ofNullable(this.triggersOn);
+    }
+
+    /**
+     * Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+     * 
+     */
+    @Import(name="triggersWhen")
+    private @Nullable Output<String> triggersWhen;
+
+    /**
+     * @return Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+     * 
+     */
+    public Optional<Output<String>> triggersWhen() {
+        return Optional.ofNullable(this.triggersWhen);
+    }
+
     private AuthomationRuleArgs() {}
 
     private AuthomationRuleArgs(AuthomationRuleArgs $) {
         this.actionIncidents = $.actionIncidents;
         this.actionPlaybooks = $.actionPlaybooks;
+        this.conditionJson = $.conditionJson;
         this.conditions = $.conditions;
         this.displayName = $.displayName;
         this.enabled = $.enabled;
@@ -168,6 +222,8 @@ public final class AuthomationRuleArgs extends com.pulumi.resources.ResourceArgs
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
         this.name = $.name;
         this.order = $.order;
+        this.triggersOn = $.triggersOn;
+        this.triggersWhen = $.triggersWhen;
     }
 
     public static Builder builder() {
@@ -251,11 +307,36 @@ public final class AuthomationRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param conditions One or more `condition` blocks as defined below.
+         * @param conditionJson A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
          * 
          * @return builder
          * 
          */
+        public Builder conditionJson(@Nullable Output<String> conditionJson) {
+            $.conditionJson = conditionJson;
+            return this;
+        }
+
+        /**
+         * @param conditionJson A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder conditionJson(String conditionJson) {
+            return conditionJson(Output.of(conditionJson));
+        }
+
+        /**
+         * @param conditions One or more `condition` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This is deprecated in favor of `condition_json`
+         * 
+         */
+        @Deprecated /* This is deprecated in favor of `condition_json` */
         public Builder conditions(@Nullable Output<List<AuthomationRuleConditionArgs>> conditions) {
             $.conditions = conditions;
             return this;
@@ -266,7 +347,11 @@ public final class AuthomationRuleArgs extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
+         * @deprecated
+         * This is deprecated in favor of `condition_json`
+         * 
          */
+        @Deprecated /* This is deprecated in favor of `condition_json` */
         public Builder conditions(List<AuthomationRuleConditionArgs> conditions) {
             return conditions(Output.of(conditions));
         }
@@ -276,7 +361,11 @@ public final class AuthomationRuleArgs extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
+         * @deprecated
+         * This is deprecated in favor of `condition_json`
+         * 
          */
+        @Deprecated /* This is deprecated in favor of `condition_json` */
         public Builder conditions(AuthomationRuleConditionArgs... conditions) {
             return conditions(List.of(conditions));
         }
@@ -405,6 +494,48 @@ public final class AuthomationRuleArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder order(Integer order) {
             return order(Output.of(order));
+        }
+
+        /**
+         * @param triggersOn Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggersOn(@Nullable Output<String> triggersOn) {
+            $.triggersOn = triggersOn;
+            return this;
+        }
+
+        /**
+         * @param triggersOn Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggersOn(String triggersOn) {
+            return triggersOn(Output.of(triggersOn));
+        }
+
+        /**
+         * @param triggersWhen Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggersWhen(@Nullable Output<String> triggersWhen) {
+            $.triggersWhen = triggersWhen;
+            return this;
+        }
+
+        /**
+         * @param triggersWhen Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggersWhen(String triggersWhen) {
+            return triggersWhen(Output.of(triggersWhen));
         }
 
         public AuthomationRuleArgs build() {

@@ -124,7 +124,7 @@ namespace Pulumi.Azure.AppInsights
     /// Application Insights Workbook Template can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appinsights/workbookTemplate:WorkbookTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbooktemplates/resource1
+    ///  $ pulumi import azure:appinsights/workbookTemplate:WorkbookTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbookTemplates/resource1
     /// ```
     /// </summary>
     [AzureResourceType("azure:appinsights/workbookTemplate:WorkbookTemplate")]

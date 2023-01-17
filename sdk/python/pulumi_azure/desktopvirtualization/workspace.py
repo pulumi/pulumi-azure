@@ -252,7 +252,7 @@ class Workspace(pulumi.CustomResource):
         Virtual Desktop Workspaces can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
+         $ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
         ```
 
         :param str resource_name: The name of the resource.
@@ -292,7 +292,7 @@ class Workspace(pulumi.CustomResource):
         Virtual Desktop Workspaces can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
+         $ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
         ```
 
         :param str resource_name: The name of the resource.

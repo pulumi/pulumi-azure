@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  * Live Outputs can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1/liveoutputs/output1
+ *  $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/liveEvents/event1/liveOutputs/output1
  * ```
  * 
  */
@@ -216,9 +216,17 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+     * 
+     */
     @Export(name="outputSnapTimeInSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> outputSnapTimeInSeconds;
 
+    /**
+     * @return The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+     * 
+     */
     public Output<Optional<Integer>> outputSnapTimeInSeconds() {
         return Codegen.optional(this.outputSnapTimeInSeconds);
     }

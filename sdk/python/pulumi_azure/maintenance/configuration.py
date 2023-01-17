@@ -18,6 +18,8 @@ class ConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  scope: pulumi.Input[str],
+                 in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
+                 install_patches: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -28,6 +30,8 @@ class ConfigurationArgs:
         The set of arguments for constructing a Configuration resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
+        :param pulumi.Input[str] in_guest_user_patch_mode: The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        :param pulumi.Input['ConfigurationInstallPatchesArgs'] install_patches: An `install_patches` block as defined below.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of properties to assign to the resource.
@@ -37,6 +41,10 @@ class ConfigurationArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scope", scope)
+        if in_guest_user_patch_mode is not None:
+            pulumi.set(__self__, "in_guest_user_patch_mode", in_guest_user_patch_mode)
+        if install_patches is not None:
+            pulumi.set(__self__, "install_patches", install_patches)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -73,6 +81,30 @@ class ConfigurationArgs:
     @scope.setter
     def scope(self, value: pulumi.Input[str]):
         pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="inGuestUserPatchMode")
+    def in_guest_user_patch_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        """
+        return pulumi.get(self, "in_guest_user_patch_mode")
+
+    @in_guest_user_patch_mode.setter
+    def in_guest_user_patch_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "in_guest_user_patch_mode", value)
+
+    @property
+    @pulumi.getter(name="installPatches")
+    def install_patches(self) -> Optional[pulumi.Input['ConfigurationInstallPatchesArgs']]:
+        """
+        An `install_patches` block as defined below.
+        """
+        return pulumi.get(self, "install_patches")
+
+    @install_patches.setter
+    def install_patches(self, value: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']]):
+        pulumi.set(self, "install_patches", value)
 
     @property
     @pulumi.getter
@@ -150,6 +182,8 @@ class ConfigurationArgs:
 @pulumi.input_type
 class _ConfigurationState:
     def __init__(__self__, *,
+                 in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
+                 install_patches: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -160,6 +194,8 @@ class _ConfigurationState:
                  window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
+        :param pulumi.Input[str] in_guest_user_patch_mode: The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        :param pulumi.Input['ConfigurationInstallPatchesArgs'] install_patches: An `install_patches` block as defined below.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of properties to assign to the resource.
@@ -169,6 +205,10 @@ class _ConfigurationState:
         :param pulumi.Input[str] visibility: The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
         :param pulumi.Input['ConfigurationWindowArgs'] window: A `window` block as defined below.
         """
+        if in_guest_user_patch_mode is not None:
+            pulumi.set(__self__, "in_guest_user_patch_mode", in_guest_user_patch_mode)
+        if install_patches is not None:
+            pulumi.set(__self__, "install_patches", install_patches)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -185,6 +225,30 @@ class _ConfigurationState:
             pulumi.set(__self__, "visibility", visibility)
         if window is not None:
             pulumi.set(__self__, "window", window)
+
+    @property
+    @pulumi.getter(name="inGuestUserPatchMode")
+    def in_guest_user_patch_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        """
+        return pulumi.get(self, "in_guest_user_patch_mode")
+
+    @in_guest_user_patch_mode.setter
+    def in_guest_user_patch_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "in_guest_user_patch_mode", value)
+
+    @property
+    @pulumi.getter(name="installPatches")
+    def install_patches(self) -> Optional[pulumi.Input['ConfigurationInstallPatchesArgs']]:
+        """
+        An `install_patches` block as defined below.
+        """
+        return pulumi.get(self, "install_patches")
+
+    @install_patches.setter
+    def install_patches(self, value: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']]):
+        pulumi.set(self, "install_patches", value)
 
     @property
     @pulumi.getter
@@ -288,6 +352,8 @@ class Configuration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
+                 install_patches: Optional[pulumi.Input[pulumi.InputType['ConfigurationInstallPatchesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -321,11 +387,13 @@ class Configuration(pulumi.CustomResource):
         Maintenance Configuration can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.maintenance/maintenanceconfigurations/example-mc
+         $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maintenance/maintenanceConfigurations/example-mc
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] in_guest_user_patch_mode: The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        :param pulumi.Input[pulumi.InputType['ConfigurationInstallPatchesArgs']] install_patches: An `install_patches` block as defined below.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of properties to assign to the resource.
@@ -365,7 +433,7 @@ class Configuration(pulumi.CustomResource):
         Maintenance Configuration can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.maintenance/maintenanceconfigurations/example-mc
+         $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maintenance/maintenanceConfigurations/example-mc
         ```
 
         :param str resource_name: The name of the resource.
@@ -383,6 +451,8 @@ class Configuration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
+                 install_patches: Optional[pulumi.Input[pulumi.InputType['ConfigurationInstallPatchesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -400,6 +470,8 @@ class Configuration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
+            __props__.__dict__["in_guest_user_patch_mode"] = in_guest_user_patch_mode
+            __props__.__dict__["install_patches"] = install_patches
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties
@@ -422,6 +494,8 @@ class Configuration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
+            install_patches: Optional[pulumi.Input[pulumi.InputType['ConfigurationInstallPatchesArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -437,6 +511,8 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] in_guest_user_patch_mode: The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        :param pulumi.Input[pulumi.InputType['ConfigurationInstallPatchesArgs']] install_patches: An `install_patches` block as defined below.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of properties to assign to the resource.
@@ -450,6 +526,8 @@ class Configuration(pulumi.CustomResource):
 
         __props__ = _ConfigurationState.__new__(_ConfigurationState)
 
+        __props__.__dict__["in_guest_user_patch_mode"] = in_guest_user_patch_mode
+        __props__.__dict__["install_patches"] = install_patches
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["properties"] = properties
@@ -459,6 +537,22 @@ class Configuration(pulumi.CustomResource):
         __props__.__dict__["visibility"] = visibility
         __props__.__dict__["window"] = window
         return Configuration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="inGuestUserPatchMode")
+    def in_guest_user_patch_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+        """
+        return pulumi.get(self, "in_guest_user_patch_mode")
+
+    @property
+    @pulumi.getter(name="installPatches")
+    def install_patches(self) -> pulumi.Output[Optional['outputs.ConfigurationInstallPatches']]:
+        """
+        An `install_patches` block as defined below.
+        """
+        return pulumi.get(self, "install_patches")
 
     @property
     @pulumi.getter

@@ -143,7 +143,7 @@ type Deployment struct {
 	NginxVersion pulumi.StringOutput `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Nginx Deployment.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -208,7 +208,7 @@ type deploymentState struct {
 	NginxVersion *string `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Nginx Deployment.
 	Tags map[string]string `pulumi:"tags"`
@@ -239,7 +239,7 @@ type DeploymentState struct {
 	NginxVersion pulumi.StringPtrInput
 	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Nginx Deployment.
 	Tags pulumi.StringMapInput
@@ -270,7 +270,7 @@ type deploymentArgs struct {
 	NetworkInterfaces []DeploymentNetworkInterface `pulumi:"networkInterfaces"`
 	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Nginx Deployment.
 	Tags map[string]string `pulumi:"tags"`
@@ -298,7 +298,7 @@ type DeploymentArgs struct {
 	NetworkInterfaces DeploymentNetworkInterfaceArrayInput
 	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
 	Sku pulumi.StringInput
 	// A mapping of tags which should be assigned to the Nginx Deployment.
 	Tags pulumi.StringMapInput
@@ -451,7 +451,7 @@ func (o DeploymentOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
 func (o DeploymentOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }

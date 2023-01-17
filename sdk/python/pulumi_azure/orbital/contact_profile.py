@@ -37,6 +37,7 @@ class ContactProfileArgs:
         :param pulumi.Input[str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[str] name: The name of the contact profile. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "auto_tracking", auto_tracking)
         pulumi.set(__self__, "links", links)
@@ -165,6 +166,9 @@ class ContactProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -196,6 +200,7 @@ class _ContactProfileState:
         :param pulumi.Input[str] name: The name of the contact profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if auto_tracking is not None:
             pulumi.set(__self__, "auto_tracking", auto_tracking)
@@ -329,6 +334,9 @@ class _ContactProfileState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -425,6 +433,7 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the contact profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -584,6 +593,7 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the contact profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -676,5 +686,8 @@ class ContactProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 

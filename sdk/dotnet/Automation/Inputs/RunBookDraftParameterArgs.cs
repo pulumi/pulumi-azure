@@ -30,6 +30,9 @@ namespace Pulumi.Azure.Automation.Inputs
         [Input("mandatory")]
         public Input<bool>? Mandatory { get; set; }
 
+        /// <summary>
+        /// Specifies the position of the parameter.
+        /// </summary>
         [Input("position")]
         public Input<int>? Position { get; set; }
 

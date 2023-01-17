@@ -10,6 +10,713 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type StandardWebTestRequest struct {
+	// The WebTest request body.
+	Body *string `pulumi:"body"`
+	// Should the following of redirects be enabled?
+	FollowRedirectsEnabled *bool `pulumi:"followRedirectsEnabled"`
+	// One or more `header` blocks as defined above.
+	Headers []StandardWebTestRequestHeader `pulumi:"headers"`
+	// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+	HttpVerb *string `pulumi:"httpVerb"`
+	// Should the parsing of dependend requests be enabled?
+	ParseDependentRequestsEnabled *bool `pulumi:"parseDependentRequestsEnabled"`
+	// The WebTest request URL.
+	Url string `pulumi:"url"`
+}
+
+// StandardWebTestRequestInput is an input type that accepts StandardWebTestRequestArgs and StandardWebTestRequestOutput values.
+// You can construct a concrete instance of `StandardWebTestRequestInput` via:
+//
+//	StandardWebTestRequestArgs{...}
+type StandardWebTestRequestInput interface {
+	pulumi.Input
+
+	ToStandardWebTestRequestOutput() StandardWebTestRequestOutput
+	ToStandardWebTestRequestOutputWithContext(context.Context) StandardWebTestRequestOutput
+}
+
+type StandardWebTestRequestArgs struct {
+	// The WebTest request body.
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// Should the following of redirects be enabled?
+	FollowRedirectsEnabled pulumi.BoolPtrInput `pulumi:"followRedirectsEnabled"`
+	// One or more `header` blocks as defined above.
+	Headers StandardWebTestRequestHeaderArrayInput `pulumi:"headers"`
+	// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+	HttpVerb pulumi.StringPtrInput `pulumi:"httpVerb"`
+	// Should the parsing of dependend requests be enabled?
+	ParseDependentRequestsEnabled pulumi.BoolPtrInput `pulumi:"parseDependentRequestsEnabled"`
+	// The WebTest request URL.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (StandardWebTestRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardWebTestRequest)(nil)).Elem()
+}
+
+func (i StandardWebTestRequestArgs) ToStandardWebTestRequestOutput() StandardWebTestRequestOutput {
+	return i.ToStandardWebTestRequestOutputWithContext(context.Background())
+}
+
+func (i StandardWebTestRequestArgs) ToStandardWebTestRequestOutputWithContext(ctx context.Context) StandardWebTestRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestRequestOutput)
+}
+
+func (i StandardWebTestRequestArgs) ToStandardWebTestRequestPtrOutput() StandardWebTestRequestPtrOutput {
+	return i.ToStandardWebTestRequestPtrOutputWithContext(context.Background())
+}
+
+func (i StandardWebTestRequestArgs) ToStandardWebTestRequestPtrOutputWithContext(ctx context.Context) StandardWebTestRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestRequestOutput).ToStandardWebTestRequestPtrOutputWithContext(ctx)
+}
+
+// StandardWebTestRequestPtrInput is an input type that accepts StandardWebTestRequestArgs, StandardWebTestRequestPtr and StandardWebTestRequestPtrOutput values.
+// You can construct a concrete instance of `StandardWebTestRequestPtrInput` via:
+//
+//	        StandardWebTestRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type StandardWebTestRequestPtrInput interface {
+	pulumi.Input
+
+	ToStandardWebTestRequestPtrOutput() StandardWebTestRequestPtrOutput
+	ToStandardWebTestRequestPtrOutputWithContext(context.Context) StandardWebTestRequestPtrOutput
+}
+
+type standardWebTestRequestPtrType StandardWebTestRequestArgs
+
+func StandardWebTestRequestPtr(v *StandardWebTestRequestArgs) StandardWebTestRequestPtrInput {
+	return (*standardWebTestRequestPtrType)(v)
+}
+
+func (*standardWebTestRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardWebTestRequest)(nil)).Elem()
+}
+
+func (i *standardWebTestRequestPtrType) ToStandardWebTestRequestPtrOutput() StandardWebTestRequestPtrOutput {
+	return i.ToStandardWebTestRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *standardWebTestRequestPtrType) ToStandardWebTestRequestPtrOutputWithContext(ctx context.Context) StandardWebTestRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestRequestPtrOutput)
+}
+
+type StandardWebTestRequestOutput struct{ *pulumi.OutputState }
+
+func (StandardWebTestRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardWebTestRequest)(nil)).Elem()
+}
+
+func (o StandardWebTestRequestOutput) ToStandardWebTestRequestOutput() StandardWebTestRequestOutput {
+	return o
+}
+
+func (o StandardWebTestRequestOutput) ToStandardWebTestRequestOutputWithContext(ctx context.Context) StandardWebTestRequestOutput {
+	return o
+}
+
+func (o StandardWebTestRequestOutput) ToStandardWebTestRequestPtrOutput() StandardWebTestRequestPtrOutput {
+	return o.ToStandardWebTestRequestPtrOutputWithContext(context.Background())
+}
+
+func (o StandardWebTestRequestOutput) ToStandardWebTestRequestPtrOutputWithContext(ctx context.Context) StandardWebTestRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardWebTestRequest) *StandardWebTestRequest {
+		return &v
+	}).(StandardWebTestRequestPtrOutput)
+}
+
+// The WebTest request body.
+func (o StandardWebTestRequestOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardWebTestRequest) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// Should the following of redirects be enabled?
+func (o StandardWebTestRequestOutput) FollowRedirectsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardWebTestRequest) *bool { return v.FollowRedirectsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// One or more `header` blocks as defined above.
+func (o StandardWebTestRequestOutput) Headers() StandardWebTestRequestHeaderArrayOutput {
+	return o.ApplyT(func(v StandardWebTestRequest) []StandardWebTestRequestHeader { return v.Headers }).(StandardWebTestRequestHeaderArrayOutput)
+}
+
+// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+func (o StandardWebTestRequestOutput) HttpVerb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardWebTestRequest) *string { return v.HttpVerb }).(pulumi.StringPtrOutput)
+}
+
+// Should the parsing of dependend requests be enabled?
+func (o StandardWebTestRequestOutput) ParseDependentRequestsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardWebTestRequest) *bool { return v.ParseDependentRequestsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The WebTest request URL.
+func (o StandardWebTestRequestOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v StandardWebTestRequest) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type StandardWebTestRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (StandardWebTestRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardWebTestRequest)(nil)).Elem()
+}
+
+func (o StandardWebTestRequestPtrOutput) ToStandardWebTestRequestPtrOutput() StandardWebTestRequestPtrOutput {
+	return o
+}
+
+func (o StandardWebTestRequestPtrOutput) ToStandardWebTestRequestPtrOutputWithContext(ctx context.Context) StandardWebTestRequestPtrOutput {
+	return o
+}
+
+func (o StandardWebTestRequestPtrOutput) Elem() StandardWebTestRequestOutput {
+	return o.ApplyT(func(v *StandardWebTestRequest) StandardWebTestRequest {
+		if v != nil {
+			return *v
+		}
+		var ret StandardWebTestRequest
+		return ret
+	}).(StandardWebTestRequestOutput)
+}
+
+// The WebTest request body.
+func (o StandardWebTestRequestPtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// Should the following of redirects be enabled?
+func (o StandardWebTestRequestPtrOutput) FollowRedirectsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FollowRedirectsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// One or more `header` blocks as defined above.
+func (o StandardWebTestRequestPtrOutput) Headers() StandardWebTestRequestHeaderArrayOutput {
+	return o.ApplyT(func(v *StandardWebTestRequest) []StandardWebTestRequestHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(StandardWebTestRequestHeaderArrayOutput)
+}
+
+// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+func (o StandardWebTestRequestPtrOutput) HttpVerb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpVerb
+	}).(pulumi.StringPtrOutput)
+}
+
+// Should the parsing of dependend requests be enabled?
+func (o StandardWebTestRequestPtrOutput) ParseDependentRequestsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ParseDependentRequestsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The WebTest request URL.
+func (o StandardWebTestRequestPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type StandardWebTestRequestHeader struct {
+	// The name which should be used for a header in the request.
+	Name string `pulumi:"name"`
+	// The value which should be used for a header in the request.
+	Value string `pulumi:"value"`
+}
+
+// StandardWebTestRequestHeaderInput is an input type that accepts StandardWebTestRequestHeaderArgs and StandardWebTestRequestHeaderOutput values.
+// You can construct a concrete instance of `StandardWebTestRequestHeaderInput` via:
+//
+//	StandardWebTestRequestHeaderArgs{...}
+type StandardWebTestRequestHeaderInput interface {
+	pulumi.Input
+
+	ToStandardWebTestRequestHeaderOutput() StandardWebTestRequestHeaderOutput
+	ToStandardWebTestRequestHeaderOutputWithContext(context.Context) StandardWebTestRequestHeaderOutput
+}
+
+type StandardWebTestRequestHeaderArgs struct {
+	// The name which should be used for a header in the request.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value which should be used for a header in the request.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StandardWebTestRequestHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardWebTestRequestHeader)(nil)).Elem()
+}
+
+func (i StandardWebTestRequestHeaderArgs) ToStandardWebTestRequestHeaderOutput() StandardWebTestRequestHeaderOutput {
+	return i.ToStandardWebTestRequestHeaderOutputWithContext(context.Background())
+}
+
+func (i StandardWebTestRequestHeaderArgs) ToStandardWebTestRequestHeaderOutputWithContext(ctx context.Context) StandardWebTestRequestHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestRequestHeaderOutput)
+}
+
+// StandardWebTestRequestHeaderArrayInput is an input type that accepts StandardWebTestRequestHeaderArray and StandardWebTestRequestHeaderArrayOutput values.
+// You can construct a concrete instance of `StandardWebTestRequestHeaderArrayInput` via:
+//
+//	StandardWebTestRequestHeaderArray{ StandardWebTestRequestHeaderArgs{...} }
+type StandardWebTestRequestHeaderArrayInput interface {
+	pulumi.Input
+
+	ToStandardWebTestRequestHeaderArrayOutput() StandardWebTestRequestHeaderArrayOutput
+	ToStandardWebTestRequestHeaderArrayOutputWithContext(context.Context) StandardWebTestRequestHeaderArrayOutput
+}
+
+type StandardWebTestRequestHeaderArray []StandardWebTestRequestHeaderInput
+
+func (StandardWebTestRequestHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StandardWebTestRequestHeader)(nil)).Elem()
+}
+
+func (i StandardWebTestRequestHeaderArray) ToStandardWebTestRequestHeaderArrayOutput() StandardWebTestRequestHeaderArrayOutput {
+	return i.ToStandardWebTestRequestHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i StandardWebTestRequestHeaderArray) ToStandardWebTestRequestHeaderArrayOutputWithContext(ctx context.Context) StandardWebTestRequestHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestRequestHeaderArrayOutput)
+}
+
+type StandardWebTestRequestHeaderOutput struct{ *pulumi.OutputState }
+
+func (StandardWebTestRequestHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardWebTestRequestHeader)(nil)).Elem()
+}
+
+func (o StandardWebTestRequestHeaderOutput) ToStandardWebTestRequestHeaderOutput() StandardWebTestRequestHeaderOutput {
+	return o
+}
+
+func (o StandardWebTestRequestHeaderOutput) ToStandardWebTestRequestHeaderOutputWithContext(ctx context.Context) StandardWebTestRequestHeaderOutput {
+	return o
+}
+
+// The name which should be used for a header in the request.
+func (o StandardWebTestRequestHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StandardWebTestRequestHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value which should be used for a header in the request.
+func (o StandardWebTestRequestHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StandardWebTestRequestHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StandardWebTestRequestHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (StandardWebTestRequestHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StandardWebTestRequestHeader)(nil)).Elem()
+}
+
+func (o StandardWebTestRequestHeaderArrayOutput) ToStandardWebTestRequestHeaderArrayOutput() StandardWebTestRequestHeaderArrayOutput {
+	return o
+}
+
+func (o StandardWebTestRequestHeaderArrayOutput) ToStandardWebTestRequestHeaderArrayOutputWithContext(ctx context.Context) StandardWebTestRequestHeaderArrayOutput {
+	return o
+}
+
+func (o StandardWebTestRequestHeaderArrayOutput) Index(i pulumi.IntInput) StandardWebTestRequestHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StandardWebTestRequestHeader {
+		return vs[0].([]StandardWebTestRequestHeader)[vs[1].(int)]
+	}).(StandardWebTestRequestHeaderOutput)
+}
+
+type StandardWebTestValidationRules struct {
+	// A `content` block as defined above.
+	Content *StandardWebTestValidationRulesContent `pulumi:"content"`
+	// The expected status code of the response. Default is '200', '0' means 'response code < 400'
+	ExpectedStatusCode *int `pulumi:"expectedStatusCode"`
+	// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+	SslCertRemainingLifetime *int `pulumi:"sslCertRemainingLifetime"`
+	// Should the SSL check be enabled?
+	SslCheckEnabled *bool `pulumi:"sslCheckEnabled"`
+}
+
+// StandardWebTestValidationRulesInput is an input type that accepts StandardWebTestValidationRulesArgs and StandardWebTestValidationRulesOutput values.
+// You can construct a concrete instance of `StandardWebTestValidationRulesInput` via:
+//
+//	StandardWebTestValidationRulesArgs{...}
+type StandardWebTestValidationRulesInput interface {
+	pulumi.Input
+
+	ToStandardWebTestValidationRulesOutput() StandardWebTestValidationRulesOutput
+	ToStandardWebTestValidationRulesOutputWithContext(context.Context) StandardWebTestValidationRulesOutput
+}
+
+type StandardWebTestValidationRulesArgs struct {
+	// A `content` block as defined above.
+	Content StandardWebTestValidationRulesContentPtrInput `pulumi:"content"`
+	// The expected status code of the response. Default is '200', '0' means 'response code < 400'
+	ExpectedStatusCode pulumi.IntPtrInput `pulumi:"expectedStatusCode"`
+	// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+	SslCertRemainingLifetime pulumi.IntPtrInput `pulumi:"sslCertRemainingLifetime"`
+	// Should the SSL check be enabled?
+	SslCheckEnabled pulumi.BoolPtrInput `pulumi:"sslCheckEnabled"`
+}
+
+func (StandardWebTestValidationRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardWebTestValidationRules)(nil)).Elem()
+}
+
+func (i StandardWebTestValidationRulesArgs) ToStandardWebTestValidationRulesOutput() StandardWebTestValidationRulesOutput {
+	return i.ToStandardWebTestValidationRulesOutputWithContext(context.Background())
+}
+
+func (i StandardWebTestValidationRulesArgs) ToStandardWebTestValidationRulesOutputWithContext(ctx context.Context) StandardWebTestValidationRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestValidationRulesOutput)
+}
+
+func (i StandardWebTestValidationRulesArgs) ToStandardWebTestValidationRulesPtrOutput() StandardWebTestValidationRulesPtrOutput {
+	return i.ToStandardWebTestValidationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i StandardWebTestValidationRulesArgs) ToStandardWebTestValidationRulesPtrOutputWithContext(ctx context.Context) StandardWebTestValidationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestValidationRulesOutput).ToStandardWebTestValidationRulesPtrOutputWithContext(ctx)
+}
+
+// StandardWebTestValidationRulesPtrInput is an input type that accepts StandardWebTestValidationRulesArgs, StandardWebTestValidationRulesPtr and StandardWebTestValidationRulesPtrOutput values.
+// You can construct a concrete instance of `StandardWebTestValidationRulesPtrInput` via:
+//
+//	        StandardWebTestValidationRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type StandardWebTestValidationRulesPtrInput interface {
+	pulumi.Input
+
+	ToStandardWebTestValidationRulesPtrOutput() StandardWebTestValidationRulesPtrOutput
+	ToStandardWebTestValidationRulesPtrOutputWithContext(context.Context) StandardWebTestValidationRulesPtrOutput
+}
+
+type standardWebTestValidationRulesPtrType StandardWebTestValidationRulesArgs
+
+func StandardWebTestValidationRulesPtr(v *StandardWebTestValidationRulesArgs) StandardWebTestValidationRulesPtrInput {
+	return (*standardWebTestValidationRulesPtrType)(v)
+}
+
+func (*standardWebTestValidationRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardWebTestValidationRules)(nil)).Elem()
+}
+
+func (i *standardWebTestValidationRulesPtrType) ToStandardWebTestValidationRulesPtrOutput() StandardWebTestValidationRulesPtrOutput {
+	return i.ToStandardWebTestValidationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *standardWebTestValidationRulesPtrType) ToStandardWebTestValidationRulesPtrOutputWithContext(ctx context.Context) StandardWebTestValidationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestValidationRulesPtrOutput)
+}
+
+type StandardWebTestValidationRulesOutput struct{ *pulumi.OutputState }
+
+func (StandardWebTestValidationRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardWebTestValidationRules)(nil)).Elem()
+}
+
+func (o StandardWebTestValidationRulesOutput) ToStandardWebTestValidationRulesOutput() StandardWebTestValidationRulesOutput {
+	return o
+}
+
+func (o StandardWebTestValidationRulesOutput) ToStandardWebTestValidationRulesOutputWithContext(ctx context.Context) StandardWebTestValidationRulesOutput {
+	return o
+}
+
+func (o StandardWebTestValidationRulesOutput) ToStandardWebTestValidationRulesPtrOutput() StandardWebTestValidationRulesPtrOutput {
+	return o.ToStandardWebTestValidationRulesPtrOutputWithContext(context.Background())
+}
+
+func (o StandardWebTestValidationRulesOutput) ToStandardWebTestValidationRulesPtrOutputWithContext(ctx context.Context) StandardWebTestValidationRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardWebTestValidationRules) *StandardWebTestValidationRules {
+		return &v
+	}).(StandardWebTestValidationRulesPtrOutput)
+}
+
+// A `content` block as defined above.
+func (o StandardWebTestValidationRulesOutput) Content() StandardWebTestValidationRulesContentPtrOutput {
+	return o.ApplyT(func(v StandardWebTestValidationRules) *StandardWebTestValidationRulesContent { return v.Content }).(StandardWebTestValidationRulesContentPtrOutput)
+}
+
+// The expected status code of the response. Default is '200', '0' means 'response code < 400'
+func (o StandardWebTestValidationRulesOutput) ExpectedStatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StandardWebTestValidationRules) *int { return v.ExpectedStatusCode }).(pulumi.IntPtrOutput)
+}
+
+// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+func (o StandardWebTestValidationRulesOutput) SslCertRemainingLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StandardWebTestValidationRules) *int { return v.SslCertRemainingLifetime }).(pulumi.IntPtrOutput)
+}
+
+// Should the SSL check be enabled?
+func (o StandardWebTestValidationRulesOutput) SslCheckEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardWebTestValidationRules) *bool { return v.SslCheckEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type StandardWebTestValidationRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (StandardWebTestValidationRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardWebTestValidationRules)(nil)).Elem()
+}
+
+func (o StandardWebTestValidationRulesPtrOutput) ToStandardWebTestValidationRulesPtrOutput() StandardWebTestValidationRulesPtrOutput {
+	return o
+}
+
+func (o StandardWebTestValidationRulesPtrOutput) ToStandardWebTestValidationRulesPtrOutputWithContext(ctx context.Context) StandardWebTestValidationRulesPtrOutput {
+	return o
+}
+
+func (o StandardWebTestValidationRulesPtrOutput) Elem() StandardWebTestValidationRulesOutput {
+	return o.ApplyT(func(v *StandardWebTestValidationRules) StandardWebTestValidationRules {
+		if v != nil {
+			return *v
+		}
+		var ret StandardWebTestValidationRules
+		return ret
+	}).(StandardWebTestValidationRulesOutput)
+}
+
+// A `content` block as defined above.
+func (o StandardWebTestValidationRulesPtrOutput) Content() StandardWebTestValidationRulesContentPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestValidationRules) *StandardWebTestValidationRulesContent {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(StandardWebTestValidationRulesContentPtrOutput)
+}
+
+// The expected status code of the response. Default is '200', '0' means 'response code < 400'
+func (o StandardWebTestValidationRulesPtrOutput) ExpectedStatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestValidationRules) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedStatusCode
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+func (o StandardWebTestValidationRulesPtrOutput) SslCertRemainingLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestValidationRules) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SslCertRemainingLifetime
+	}).(pulumi.IntPtrOutput)
+}
+
+// Should the SSL check be enabled?
+func (o StandardWebTestValidationRulesPtrOutput) SslCheckEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestValidationRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SslCheckEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StandardWebTestValidationRulesContent struct {
+	// A string value containing the content to match on.
+	ContentMatch string `pulumi:"contentMatch"`
+	// Ignore the casing in the `contentMatch` value.
+	IgnoreCase *bool `pulumi:"ignoreCase"`
+	// If the content of `contentMatch` is found, pass the test. If set to `false`, the WebTest is failing if the content of `contentMatch` is found.
+	PassIfTextFound *bool `pulumi:"passIfTextFound"`
+}
+
+// StandardWebTestValidationRulesContentInput is an input type that accepts StandardWebTestValidationRulesContentArgs and StandardWebTestValidationRulesContentOutput values.
+// You can construct a concrete instance of `StandardWebTestValidationRulesContentInput` via:
+//
+//	StandardWebTestValidationRulesContentArgs{...}
+type StandardWebTestValidationRulesContentInput interface {
+	pulumi.Input
+
+	ToStandardWebTestValidationRulesContentOutput() StandardWebTestValidationRulesContentOutput
+	ToStandardWebTestValidationRulesContentOutputWithContext(context.Context) StandardWebTestValidationRulesContentOutput
+}
+
+type StandardWebTestValidationRulesContentArgs struct {
+	// A string value containing the content to match on.
+	ContentMatch pulumi.StringInput `pulumi:"contentMatch"`
+	// Ignore the casing in the `contentMatch` value.
+	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
+	// If the content of `contentMatch` is found, pass the test. If set to `false`, the WebTest is failing if the content of `contentMatch` is found.
+	PassIfTextFound pulumi.BoolPtrInput `pulumi:"passIfTextFound"`
+}
+
+func (StandardWebTestValidationRulesContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardWebTestValidationRulesContent)(nil)).Elem()
+}
+
+func (i StandardWebTestValidationRulesContentArgs) ToStandardWebTestValidationRulesContentOutput() StandardWebTestValidationRulesContentOutput {
+	return i.ToStandardWebTestValidationRulesContentOutputWithContext(context.Background())
+}
+
+func (i StandardWebTestValidationRulesContentArgs) ToStandardWebTestValidationRulesContentOutputWithContext(ctx context.Context) StandardWebTestValidationRulesContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestValidationRulesContentOutput)
+}
+
+func (i StandardWebTestValidationRulesContentArgs) ToStandardWebTestValidationRulesContentPtrOutput() StandardWebTestValidationRulesContentPtrOutput {
+	return i.ToStandardWebTestValidationRulesContentPtrOutputWithContext(context.Background())
+}
+
+func (i StandardWebTestValidationRulesContentArgs) ToStandardWebTestValidationRulesContentPtrOutputWithContext(ctx context.Context) StandardWebTestValidationRulesContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestValidationRulesContentOutput).ToStandardWebTestValidationRulesContentPtrOutputWithContext(ctx)
+}
+
+// StandardWebTestValidationRulesContentPtrInput is an input type that accepts StandardWebTestValidationRulesContentArgs, StandardWebTestValidationRulesContentPtr and StandardWebTestValidationRulesContentPtrOutput values.
+// You can construct a concrete instance of `StandardWebTestValidationRulesContentPtrInput` via:
+//
+//	        StandardWebTestValidationRulesContentArgs{...}
+//
+//	or:
+//
+//	        nil
+type StandardWebTestValidationRulesContentPtrInput interface {
+	pulumi.Input
+
+	ToStandardWebTestValidationRulesContentPtrOutput() StandardWebTestValidationRulesContentPtrOutput
+	ToStandardWebTestValidationRulesContentPtrOutputWithContext(context.Context) StandardWebTestValidationRulesContentPtrOutput
+}
+
+type standardWebTestValidationRulesContentPtrType StandardWebTestValidationRulesContentArgs
+
+func StandardWebTestValidationRulesContentPtr(v *StandardWebTestValidationRulesContentArgs) StandardWebTestValidationRulesContentPtrInput {
+	return (*standardWebTestValidationRulesContentPtrType)(v)
+}
+
+func (*standardWebTestValidationRulesContentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardWebTestValidationRulesContent)(nil)).Elem()
+}
+
+func (i *standardWebTestValidationRulesContentPtrType) ToStandardWebTestValidationRulesContentPtrOutput() StandardWebTestValidationRulesContentPtrOutput {
+	return i.ToStandardWebTestValidationRulesContentPtrOutputWithContext(context.Background())
+}
+
+func (i *standardWebTestValidationRulesContentPtrType) ToStandardWebTestValidationRulesContentPtrOutputWithContext(ctx context.Context) StandardWebTestValidationRulesContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestValidationRulesContentPtrOutput)
+}
+
+type StandardWebTestValidationRulesContentOutput struct{ *pulumi.OutputState }
+
+func (StandardWebTestValidationRulesContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardWebTestValidationRulesContent)(nil)).Elem()
+}
+
+func (o StandardWebTestValidationRulesContentOutput) ToStandardWebTestValidationRulesContentOutput() StandardWebTestValidationRulesContentOutput {
+	return o
+}
+
+func (o StandardWebTestValidationRulesContentOutput) ToStandardWebTestValidationRulesContentOutputWithContext(ctx context.Context) StandardWebTestValidationRulesContentOutput {
+	return o
+}
+
+func (o StandardWebTestValidationRulesContentOutput) ToStandardWebTestValidationRulesContentPtrOutput() StandardWebTestValidationRulesContentPtrOutput {
+	return o.ToStandardWebTestValidationRulesContentPtrOutputWithContext(context.Background())
+}
+
+func (o StandardWebTestValidationRulesContentOutput) ToStandardWebTestValidationRulesContentPtrOutputWithContext(ctx context.Context) StandardWebTestValidationRulesContentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardWebTestValidationRulesContent) *StandardWebTestValidationRulesContent {
+		return &v
+	}).(StandardWebTestValidationRulesContentPtrOutput)
+}
+
+// A string value containing the content to match on.
+func (o StandardWebTestValidationRulesContentOutput) ContentMatch() pulumi.StringOutput {
+	return o.ApplyT(func(v StandardWebTestValidationRulesContent) string { return v.ContentMatch }).(pulumi.StringOutput)
+}
+
+// Ignore the casing in the `contentMatch` value.
+func (o StandardWebTestValidationRulesContentOutput) IgnoreCase() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardWebTestValidationRulesContent) *bool { return v.IgnoreCase }).(pulumi.BoolPtrOutput)
+}
+
+// If the content of `contentMatch` is found, pass the test. If set to `false`, the WebTest is failing if the content of `contentMatch` is found.
+func (o StandardWebTestValidationRulesContentOutput) PassIfTextFound() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardWebTestValidationRulesContent) *bool { return v.PassIfTextFound }).(pulumi.BoolPtrOutput)
+}
+
+type StandardWebTestValidationRulesContentPtrOutput struct{ *pulumi.OutputState }
+
+func (StandardWebTestValidationRulesContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandardWebTestValidationRulesContent)(nil)).Elem()
+}
+
+func (o StandardWebTestValidationRulesContentPtrOutput) ToStandardWebTestValidationRulesContentPtrOutput() StandardWebTestValidationRulesContentPtrOutput {
+	return o
+}
+
+func (o StandardWebTestValidationRulesContentPtrOutput) ToStandardWebTestValidationRulesContentPtrOutputWithContext(ctx context.Context) StandardWebTestValidationRulesContentPtrOutput {
+	return o
+}
+
+func (o StandardWebTestValidationRulesContentPtrOutput) Elem() StandardWebTestValidationRulesContentOutput {
+	return o.ApplyT(func(v *StandardWebTestValidationRulesContent) StandardWebTestValidationRulesContent {
+		if v != nil {
+			return *v
+		}
+		var ret StandardWebTestValidationRulesContent
+		return ret
+	}).(StandardWebTestValidationRulesContentOutput)
+}
+
+// A string value containing the content to match on.
+func (o StandardWebTestValidationRulesContentPtrOutput) ContentMatch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestValidationRulesContent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentMatch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ignore the casing in the `contentMatch` value.
+func (o StandardWebTestValidationRulesContentPtrOutput) IgnoreCase() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestValidationRulesContent) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreCase
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If the content of `contentMatch` is found, pass the test. If set to `false`, the WebTest is failing if the content of `contentMatch` is found.
+func (o StandardWebTestValidationRulesContentPtrOutput) PassIfTextFound() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardWebTestValidationRulesContent) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PassIfTextFound
+	}).(pulumi.BoolPtrOutput)
+}
+
 type WorkbookIdentity struct {
 	// The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -338,10 +1045,26 @@ func (o WorkbookTemplateGalleryArrayOutput) Index(i pulumi.IntInput) WorkbookTem
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardWebTestRequestInput)(nil)).Elem(), StandardWebTestRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardWebTestRequestPtrInput)(nil)).Elem(), StandardWebTestRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardWebTestRequestHeaderInput)(nil)).Elem(), StandardWebTestRequestHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardWebTestRequestHeaderArrayInput)(nil)).Elem(), StandardWebTestRequestHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardWebTestValidationRulesInput)(nil)).Elem(), StandardWebTestValidationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardWebTestValidationRulesPtrInput)(nil)).Elem(), StandardWebTestValidationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardWebTestValidationRulesContentInput)(nil)).Elem(), StandardWebTestValidationRulesContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardWebTestValidationRulesContentPtrInput)(nil)).Elem(), StandardWebTestValidationRulesContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookIdentityInput)(nil)).Elem(), WorkbookIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookIdentityPtrInput)(nil)).Elem(), WorkbookIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateGalleryInput)(nil)).Elem(), WorkbookTemplateGalleryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkbookTemplateGalleryArrayInput)(nil)).Elem(), WorkbookTemplateGalleryArray{})
+	pulumi.RegisterOutputType(StandardWebTestRequestOutput{})
+	pulumi.RegisterOutputType(StandardWebTestRequestPtrOutput{})
+	pulumi.RegisterOutputType(StandardWebTestRequestHeaderOutput{})
+	pulumi.RegisterOutputType(StandardWebTestRequestHeaderArrayOutput{})
+	pulumi.RegisterOutputType(StandardWebTestValidationRulesOutput{})
+	pulumi.RegisterOutputType(StandardWebTestValidationRulesPtrOutput{})
+	pulumi.RegisterOutputType(StandardWebTestValidationRulesContentOutput{})
+	pulumi.RegisterOutputType(StandardWebTestValidationRulesContentPtrOutput{})
 	pulumi.RegisterOutputType(WorkbookIdentityOutput{})
 	pulumi.RegisterOutputType(WorkbookIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateGalleryOutput{})

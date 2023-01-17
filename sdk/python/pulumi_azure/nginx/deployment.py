@@ -31,7 +31,7 @@ class DeploymentArgs:
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+        :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
@@ -82,7 +82,7 @@ class DeploymentArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
         """
-        Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+        Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
         """
         return pulumi.get(self, "sku")
 
@@ -242,7 +242,7 @@ class _DeploymentState:
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[str] nginx_version: The version of deployed nginx.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+        :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Nginx Deployment.
         """
         if diagnose_support_enabled is not None:
@@ -422,7 +422,7 @@ class _DeploymentState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+        Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
         """
         return pulumi.get(self, "sku")
 
@@ -531,7 +531,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+        :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Nginx Deployment.
         """
         ...
@@ -695,7 +695,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[str] nginx_version: The version of deployed nginx.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+        :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Nginx Deployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -818,7 +818,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
         """
-        Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+        Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
         """
         return pulumi.get(self, "sku")
 

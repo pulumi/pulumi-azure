@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.mediaservices.outputs;
 
+import com.pulumi.azure.mediaservices.outputs.AccountStorageAccountManagedIdentity;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -22,6 +23,11 @@ public final class AccountStorageAccount {
      * 
      */
     private @Nullable Boolean isPrimary;
+    /**
+     * @return A `managed_identity` block as defined below.
+     * 
+     */
+    private @Nullable AccountStorageAccountManagedIdentity managedIdentity;
 
     private AccountStorageAccount() {}
     /**
@@ -38,6 +44,13 @@ public final class AccountStorageAccount {
     public Optional<Boolean> isPrimary() {
         return Optional.ofNullable(this.isPrimary);
     }
+    /**
+     * @return A `managed_identity` block as defined below.
+     * 
+     */
+    public Optional<AccountStorageAccountManagedIdentity> managedIdentity() {
+        return Optional.ofNullable(this.managedIdentity);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +63,13 @@ public final class AccountStorageAccount {
     public static final class Builder {
         private String id;
         private @Nullable Boolean isPrimary;
+        private @Nullable AccountStorageAccountManagedIdentity managedIdentity;
         public Builder() {}
         public Builder(AccountStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.isPrimary = defaults.isPrimary;
+    	      this.managedIdentity = defaults.managedIdentity;
         }
 
         @CustomType.Setter
@@ -67,10 +82,16 @@ public final class AccountStorageAccount {
             this.isPrimary = isPrimary;
             return this;
         }
+        @CustomType.Setter
+        public Builder managedIdentity(@Nullable AccountStorageAccountManagedIdentity managedIdentity) {
+            this.managedIdentity = managedIdentity;
+            return this;
+        }
         public AccountStorageAccount build() {
             final var o = new AccountStorageAccount();
             o.id = id;
             o.isPrimary = isPrimary;
+            o.managedIdentity = managedIdentity;
             return o;
         }
     }

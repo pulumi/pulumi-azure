@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:lab/lab:Lab":
+		r = &Lab{}
 	case "azure:lab/servicePlan:ServicePlan":
 		r = &ServicePlan{}
+	case "azure:lab/user:User":
+		r = &User{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -38,7 +42,17 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"azure",
+		"lab/lab",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"lab/servicePlan",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"lab/user",
 		&module{version},
 	)
 }

@@ -108,7 +108,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1/liveoutputs/output1
+//	$ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/liveEvents/event1/liveOutputs/output1
 //
 // ```
 type LiveEventOutputResource struct {
@@ -127,7 +127,8 @@ type LiveEventOutputResource struct {
 	// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
 	ManifestName pulumi.StringOutput `pulumi:"manifestName"`
 	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
-	Name                    pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
 	OutputSnapTimeInSeconds pulumi.IntPtrOutput `pulumi:"outputSnapTimeInSeconds"`
 }
 
@@ -182,8 +183,9 @@ type liveEventOutputResourceState struct {
 	// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
 	ManifestName *string `pulumi:"manifestName"`
 	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
-	Name                    *string `pulumi:"name"`
-	OutputSnapTimeInSeconds *int    `pulumi:"outputSnapTimeInSeconds"`
+	Name *string `pulumi:"name"`
+	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+	OutputSnapTimeInSeconds *int `pulumi:"outputSnapTimeInSeconds"`
 }
 
 type LiveEventOutputResourceState struct {
@@ -200,7 +202,8 @@ type LiveEventOutputResourceState struct {
 	// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
 	ManifestName pulumi.StringPtrInput
 	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
-	Name                    pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
 	OutputSnapTimeInSeconds pulumi.IntPtrInput
 }
 
@@ -222,8 +225,9 @@ type liveEventOutputResourceArgs struct {
 	// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
 	ManifestName *string `pulumi:"manifestName"`
 	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
-	Name                    *string `pulumi:"name"`
-	OutputSnapTimeInSeconds *int    `pulumi:"outputSnapTimeInSeconds"`
+	Name *string `pulumi:"name"`
+	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+	OutputSnapTimeInSeconds *int `pulumi:"outputSnapTimeInSeconds"`
 }
 
 // The set of arguments for constructing a LiveEventOutputResource resource.
@@ -241,7 +245,8 @@ type LiveEventOutputResourceArgs struct {
 	// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
 	ManifestName pulumi.StringPtrInput
 	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
-	Name                    pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
 	OutputSnapTimeInSeconds pulumi.IntPtrInput
 }
 
@@ -367,6 +372,7 @@ func (o LiveEventOutputResourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LiveEventOutputResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
 func (o LiveEventOutputResourceOutput) OutputSnapTimeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LiveEventOutputResource) pulumi.IntPtrOutput { return v.OutputSnapTimeInSeconds }).(pulumi.IntPtrOutput)
 }

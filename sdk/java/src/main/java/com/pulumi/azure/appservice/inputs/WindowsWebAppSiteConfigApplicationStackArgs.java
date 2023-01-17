@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,14 +77,29 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+     * The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+     * 
+     */
+    @Import(name="dotnetCoreVersion")
+    private @Nullable Output<String> dotnetCoreVersion;
+
+    /**
+     * @return The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+     * 
+     */
+    public Optional<Output<String>> dotnetCoreVersion() {
+        return Optional.ofNullable(this.dotnetCoreVersion);
+    }
+
+    /**
+     * The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -91,44 +107,67 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
+     * @deprecated
+     * this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
      * 
      */
+    @Deprecated /* this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
     @Import(name="javaContainer")
     private @Nullable Output<String> javaContainer;
 
     /**
-     * @return The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
+     * @deprecated
+     * this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
      * 
      */
+    @Deprecated /* this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
     public Optional<Output<String>> javaContainer() {
         return Optional.ofNullable(this.javaContainer);
     }
 
     /**
-     * The Version of the `java_container` to use. Required with `java_version` and `java_container`.
+     * @deprecated
+     * This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
      * 
      */
+    @Deprecated /* This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
     @Import(name="javaContainerVersion")
     private @Nullable Output<String> javaContainerVersion;
 
     /**
-     * @return The Version of the `java_container` to use. Required with `java_version` and `java_container`.
+     * @deprecated
+     * This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
      * 
      */
+    @Deprecated /* This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
     public Optional<Output<String>> javaContainerVersion() {
         return Optional.ofNullable(this.javaContainerVersion);
     }
 
     /**
-     * The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+     * Should the Java Embedded Server (Java SE) be used to run the app.
+     * 
+     */
+    @Import(name="javaEmbeddedServerEnabled")
+    private @Nullable Output<Boolean> javaEmbeddedServerEnabled;
+
+    /**
+     * @return Should the Java Embedded Server (Java SE) be used to run the app.
+     * 
+     */
+    public Optional<Output<Boolean>> javaEmbeddedServerEnabled() {
+        return Optional.ofNullable(this.javaEmbeddedServerEnabled);
+    }
+
+    /**
+     * The version of Java to use when `current_stack` is set to `java`.
      * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+     * @return The version of Java to use when `current_stack` is set to `java`.
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -136,14 +175,14 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
+     * The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
      * 
      */
     @Import(name="nodeVersion")
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
+     * @return The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -151,14 +190,14 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
+     * The version of PHP to use when `current_stack` is set to `php`. Possible values are `v7.1`, `v7.4` and `Off`.
      * 
      */
     @Import(name="phpVersion")
     private @Nullable Output<String> phpVersion;
 
     /**
-     * @return The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
+     * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `v7.1`, `v7.4` and `Off`.
      * 
      */
     public Optional<Output<String>> phpVersion() {
@@ -166,18 +205,52 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+     * Specifies whether this is a Python app. Defaults to `false`.
      * 
      */
+    @Import(name="python")
+    private @Nullable Output<Boolean> python;
+
+    /**
+     * @return Specifies whether this is a Python app. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> python() {
+        return Optional.ofNullable(this.python);
+    }
+
+    /**
+     * @deprecated
+     * This property is deprecated. Values set are not used by the service.
+     * 
+     */
+    @Deprecated /* This property is deprecated. Values set are not used by the service. */
     @Import(name="pythonVersion")
     private @Nullable Output<String> pythonVersion;
 
     /**
-     * @return The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+     * @deprecated
+     * This property is deprecated. Values set are not used by the service.
      * 
      */
+    @Deprecated /* This property is deprecated. Values set are not used by the service. */
     public Optional<Output<String>> pythonVersion() {
         return Optional.ofNullable(this.pythonVersion);
+    }
+
+    /**
+     * The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
+     * 
+     */
+    @Import(name="tomcatVersion")
+    private @Nullable Output<String> tomcatVersion;
+
+    /**
+     * @return The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
+     * 
+     */
+    public Optional<Output<String>> tomcatVersion() {
+        return Optional.ofNullable(this.tomcatVersion);
     }
 
     private WindowsWebAppSiteConfigApplicationStackArgs() {}
@@ -187,13 +260,17 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         this.dockerContainerName = $.dockerContainerName;
         this.dockerContainerRegistry = $.dockerContainerRegistry;
         this.dockerContainerTag = $.dockerContainerTag;
+        this.dotnetCoreVersion = $.dotnetCoreVersion;
         this.dotnetVersion = $.dotnetVersion;
         this.javaContainer = $.javaContainer;
         this.javaContainerVersion = $.javaContainerVersion;
+        this.javaEmbeddedServerEnabled = $.javaEmbeddedServerEnabled;
         this.javaVersion = $.javaVersion;
         this.nodeVersion = $.nodeVersion;
         this.phpVersion = $.phpVersion;
+        this.python = $.python;
         this.pythonVersion = $.pythonVersion;
+        this.tomcatVersion = $.tomcatVersion;
     }
 
     public static Builder builder() {
@@ -299,7 +376,28 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+         * @param dotnetCoreVersion The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dotnetCoreVersion(@Nullable Output<String> dotnetCoreVersion) {
+            $.dotnetCoreVersion = dotnetCoreVersion;
+            return this;
+        }
+
+        /**
+         * @param dotnetCoreVersion The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dotnetCoreVersion(String dotnetCoreVersion) {
+            return dotnetCoreVersion(Output.of(dotnetCoreVersion));
+        }
+
+        /**
+         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
          * 
          * @return builder
          * 
@@ -310,7 +408,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
          * 
          * @return builder
          * 
@@ -320,49 +418,78 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param javaContainer The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+         * 
          */
+        @Deprecated /* this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
         public Builder javaContainer(@Nullable Output<String> javaContainer) {
             $.javaContainer = javaContainer;
             return this;
         }
 
         /**
-         * @param javaContainer The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+         * 
          */
+        @Deprecated /* this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
         public Builder javaContainer(String javaContainer) {
             return javaContainer(Output.of(javaContainer));
         }
 
         /**
-         * @param javaContainerVersion The Version of the `java_container` to use. Required with `java_version` and `java_container`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+         * 
          */
+        @Deprecated /* This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
         public Builder javaContainerVersion(@Nullable Output<String> javaContainerVersion) {
             $.javaContainerVersion = javaContainerVersion;
             return this;
         }
 
         /**
-         * @param javaContainerVersion The Version of the `java_container` to use. Required with `java_version` and `java_container`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+         * 
          */
+        @Deprecated /* This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
         public Builder javaContainerVersion(String javaContainerVersion) {
             return javaContainerVersion(Output.of(javaContainerVersion));
         }
 
         /**
-         * @param javaVersion The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+         * @param javaEmbeddedServerEnabled Should the Java Embedded Server (Java SE) be used to run the app.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder javaEmbeddedServerEnabled(@Nullable Output<Boolean> javaEmbeddedServerEnabled) {
+            $.javaEmbeddedServerEnabled = javaEmbeddedServerEnabled;
+            return this;
+        }
+
+        /**
+         * @param javaEmbeddedServerEnabled Should the Java Embedded Server (Java SE) be used to run the app.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder javaEmbeddedServerEnabled(Boolean javaEmbeddedServerEnabled) {
+            return javaEmbeddedServerEnabled(Output.of(javaEmbeddedServerEnabled));
+        }
+
+        /**
+         * @param javaVersion The version of Java to use when `current_stack` is set to `java`.
          * 
          * @return builder
          * 
@@ -373,7 +500,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param javaVersion The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+         * @param javaVersion The version of Java to use when `current_stack` is set to `java`.
          * 
          * @return builder
          * 
@@ -383,7 +510,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
+         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
          * 
          * @return builder
          * 
@@ -394,7 +521,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
+         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
          * 
          * @return builder
          * 
@@ -404,7 +531,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param phpVersion The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
+         * @param phpVersion The version of PHP to use when `current_stack` is set to `php`. Possible values are `v7.1`, `v7.4` and `Off`.
          * 
          * @return builder
          * 
@@ -415,7 +542,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param phpVersion The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
+         * @param phpVersion The version of PHP to use when `current_stack` is set to `php`. Possible values are `v7.1`, `v7.4` and `Off`.
          * 
          * @return builder
          * 
@@ -425,24 +552,70 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param pythonVersion The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+         * @param python Specifies whether this is a Python app. Defaults to `false`.
          * 
          * @return builder
          * 
          */
+        public Builder python(@Nullable Output<Boolean> python) {
+            $.python = python;
+            return this;
+        }
+
+        /**
+         * @param python Specifies whether this is a Python app. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder python(Boolean python) {
+            return python(Output.of(python));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This property is deprecated. Values set are not used by the service.
+         * 
+         */
+        @Deprecated /* This property is deprecated. Values set are not used by the service. */
         public Builder pythonVersion(@Nullable Output<String> pythonVersion) {
             $.pythonVersion = pythonVersion;
             return this;
         }
 
         /**
-         * @param pythonVersion The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+         * @return builder
+         * 
+         * @deprecated
+         * This property is deprecated. Values set are not used by the service.
+         * 
+         */
+        @Deprecated /* This property is deprecated. Values set are not used by the service. */
+        public Builder pythonVersion(String pythonVersion) {
+            return pythonVersion(Output.of(pythonVersion));
+        }
+
+        /**
+         * @param tomcatVersion The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
          * 
          * @return builder
          * 
          */
-        public Builder pythonVersion(String pythonVersion) {
-            return pythonVersion(Output.of(pythonVersion));
+        public Builder tomcatVersion(@Nullable Output<String> tomcatVersion) {
+            $.tomcatVersion = tomcatVersion;
+            return this;
+        }
+
+        /**
+         * @param tomcatVersion The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tomcatVersion(String tomcatVersion) {
+            return tomcatVersion(Output.of(tomcatVersion));
         }
 
         public WindowsWebAppSiteConfigApplicationStackArgs build() {

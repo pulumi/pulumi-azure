@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Automation.Outputs
     [OutputType]
     public sealed class ModuleModuleLink
     {
+        /// <summary>
+        /// A `hash` block as defined below.
+        /// </summary>
         public readonly Outputs.ModuleModuleLinkHash? Hash;
         /// <summary>
         /// The URI of the module content (zip or nupkg).

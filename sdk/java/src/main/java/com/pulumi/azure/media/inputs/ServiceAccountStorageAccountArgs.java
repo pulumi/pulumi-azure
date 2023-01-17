@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.media.inputs;
 
+import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountManagedIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -46,11 +47,27 @@ public final class ServiceAccountStorageAccountArgs extends com.pulumi.resources
         return Optional.ofNullable(this.isPrimary);
     }
 
+    /**
+     * A `managed_identity` block as defined below.
+     * 
+     */
+    @Import(name="managedIdentity")
+    private @Nullable Output<ServiceAccountStorageAccountManagedIdentityArgs> managedIdentity;
+
+    /**
+     * @return A `managed_identity` block as defined below.
+     * 
+     */
+    public Optional<Output<ServiceAccountStorageAccountManagedIdentityArgs>> managedIdentity() {
+        return Optional.ofNullable(this.managedIdentity);
+    }
+
     private ServiceAccountStorageAccountArgs() {}
 
     private ServiceAccountStorageAccountArgs(ServiceAccountStorageAccountArgs $) {
         this.id = $.id;
         this.isPrimary = $.isPrimary;
+        this.managedIdentity = $.managedIdentity;
     }
 
     public static Builder builder() {
@@ -111,6 +128,27 @@ public final class ServiceAccountStorageAccountArgs extends com.pulumi.resources
          */
         public Builder isPrimary(Boolean isPrimary) {
             return isPrimary(Output.of(isPrimary));
+        }
+
+        /**
+         * @param managedIdentity A `managed_identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedIdentity(@Nullable Output<ServiceAccountStorageAccountManagedIdentityArgs> managedIdentity) {
+            $.managedIdentity = managedIdentity;
+            return this;
+        }
+
+        /**
+         * @param managedIdentity A `managed_identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedIdentity(ServiceAccountStorageAccountManagedIdentityArgs managedIdentity) {
+            return managedIdentity(Output.of(managedIdentity));
         }
 
         public ServiceAccountStorageAccountArgs build() {

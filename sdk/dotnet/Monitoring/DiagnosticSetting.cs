@@ -82,6 +82,12 @@ namespace Pulumi.Azure.Monitoring
     public partial class DiagnosticSetting : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// One or more `enabled_log` blocks as defined below.
+        /// </summary>
+        [Output("enabledLogs")]
+        public Output<ImmutableArray<Outputs.DiagnosticSettingEnabledLog>> EnabledLogs { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventhubAuthorizationRuleId")]
@@ -187,6 +193,18 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DiagnosticSettingArgs : global::Pulumi.ResourceArgs
     {
+        [Input("enabledLogs")]
+        private InputList<Inputs.DiagnosticSettingEnabledLogArgs>? _enabledLogs;
+
+        /// <summary>
+        /// One or more `enabled_log` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DiagnosticSettingEnabledLogArgs> EnabledLogs
+        {
+            get => _enabledLogs ?? (_enabledLogs = new InputList<Inputs.DiagnosticSettingEnabledLogArgs>());
+            set => _enabledLogs = value;
+        }
+
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         /// </summary>
@@ -217,6 +235,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more `log` blocks as defined below.
         /// </summary>
+        [Obsolete(@"`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.")]
         public InputList<Inputs.DiagnosticSettingLogArgs> Logs
         {
             get => _logs ?? (_logs = new InputList<Inputs.DiagnosticSettingLogArgs>());
@@ -267,6 +286,18 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DiagnosticSettingState : global::Pulumi.ResourceArgs
     {
+        [Input("enabledLogs")]
+        private InputList<Inputs.DiagnosticSettingEnabledLogGetArgs>? _enabledLogs;
+
+        /// <summary>
+        /// One or more `enabled_log` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DiagnosticSettingEnabledLogGetArgs> EnabledLogs
+        {
+            get => _enabledLogs ?? (_enabledLogs = new InputList<Inputs.DiagnosticSettingEnabledLogGetArgs>());
+            set => _enabledLogs = value;
+        }
+
         /// <summary>
         /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         /// </summary>
@@ -297,6 +328,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more `log` blocks as defined below.
         /// </summary>
+        [Obsolete(@"`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.")]
         public InputList<Inputs.DiagnosticSettingLogGetArgs> Logs
         {
             get => _logs ?? (_logs = new InputList<Inputs.DiagnosticSettingLogGetArgs>());

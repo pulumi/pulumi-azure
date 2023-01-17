@@ -17,16 +17,32 @@ public final class DiagnosticBackendRequestDataMaskingArgs extends com.pulumi.re
 
     public static final DiagnosticBackendRequestDataMaskingArgs Empty = new DiagnosticBackendRequestDataMaskingArgs();
 
+    /**
+     * A `headers` block as defined below.
+     * 
+     */
     @Import(name="headers")
     private @Nullable Output<List<DiagnosticBackendRequestDataMaskingHeaderArgs>> headers;
 
+    /**
+     * @return A `headers` block as defined below.
+     * 
+     */
     public Optional<Output<List<DiagnosticBackendRequestDataMaskingHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
     }
 
+    /**
+     * A `query_params` block as defined below.
+     * 
+     */
     @Import(name="queryParams")
     private @Nullable Output<List<DiagnosticBackendRequestDataMaskingQueryParamArgs>> queryParams;
 
+    /**
+     * @return A `query_params` block as defined below.
+     * 
+     */
     public Optional<Output<List<DiagnosticBackendRequestDataMaskingQueryParamArgs>>> queryParams() {
         return Optional.ofNullable(this.queryParams);
     }
@@ -56,28 +72,64 @@ public final class DiagnosticBackendRequestDataMaskingArgs extends com.pulumi.re
             $ = new DiagnosticBackendRequestDataMaskingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param headers A `headers` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headers(@Nullable Output<List<DiagnosticBackendRequestDataMaskingHeaderArgs>> headers) {
             $.headers = headers;
             return this;
         }
 
+        /**
+         * @param headers A `headers` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headers(List<DiagnosticBackendRequestDataMaskingHeaderArgs> headers) {
             return headers(Output.of(headers));
         }
 
+        /**
+         * @param headers A `headers` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headers(DiagnosticBackendRequestDataMaskingHeaderArgs... headers) {
             return headers(List.of(headers));
         }
 
+        /**
+         * @param queryParams A `query_params` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryParams(@Nullable Output<List<DiagnosticBackendRequestDataMaskingQueryParamArgs>> queryParams) {
             $.queryParams = queryParams;
             return this;
         }
 
+        /**
+         * @param queryParams A `query_params` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryParams(List<DiagnosticBackendRequestDataMaskingQueryParamArgs> queryParams) {
             return queryParams(Output.of(queryParams));
         }
 
+        /**
+         * @param queryParams A `query_params` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryParams(DiagnosticBackendRequestDataMaskingQueryParamArgs... queryParams) {
             return queryParams(List.of(queryParams));
         }

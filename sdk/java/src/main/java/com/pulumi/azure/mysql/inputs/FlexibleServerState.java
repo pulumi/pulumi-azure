@@ -3,7 +3,9 @@
 
 package com.pulumi.azure.mysql.inputs;
 
+import com.pulumi.azure.mysql.inputs.FlexibleServerCustomerManagedKeyArgs;
 import com.pulumi.azure.mysql.inputs.FlexibleServerHighAvailabilityArgs;
+import com.pulumi.azure.mysql.inputs.FlexibleServerIdentityArgs;
 import com.pulumi.azure.mysql.inputs.FlexibleServerMaintenanceWindowArgs;
 import com.pulumi.azure.mysql.inputs.FlexibleServerStorageArgs;
 import com.pulumi.core.Output;
@@ -82,6 +84,21 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * A `customer_managed_key` block as defined below.
+     * 
+     */
+    @Import(name="customerManagedKey")
+    private @Nullable Output<FlexibleServerCustomerManagedKeyArgs> customerManagedKey;
+
+    /**
+     * @return A `customer_managed_key` block as defined below.
+     * 
+     */
+    public Optional<Output<FlexibleServerCustomerManagedKeyArgs>> customerManagedKey() {
+        return Optional.ofNullable(this.customerManagedKey);
+    }
+
+    /**
      * The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
@@ -139,6 +156,21 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<FlexibleServerHighAvailabilityArgs>> highAvailability() {
         return Optional.ofNullable(this.highAvailability);
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<FlexibleServerIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<FlexibleServerIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -373,10 +405,12 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         this.administratorPassword = $.administratorPassword;
         this.backupRetentionDays = $.backupRetentionDays;
         this.createMode = $.createMode;
+        this.customerManagedKey = $.customerManagedKey;
         this.delegatedSubnetId = $.delegatedSubnetId;
         this.fqdn = $.fqdn;
         this.geoRedundantBackupEnabled = $.geoRedundantBackupEnabled;
         this.highAvailability = $.highAvailability;
+        this.identity = $.identity;
         this.location = $.location;
         this.maintenanceWindow = $.maintenanceWindow;
         this.name = $.name;
@@ -497,6 +531,27 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param customerManagedKey A `customer_managed_key` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerManagedKey(@Nullable Output<FlexibleServerCustomerManagedKeyArgs> customerManagedKey) {
+            $.customerManagedKey = customerManagedKey;
+            return this;
+        }
+
+        /**
+         * @param customerManagedKey A `customer_managed_key` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerManagedKey(FlexibleServerCustomerManagedKeyArgs customerManagedKey) {
+            return customerManagedKey(Output.of(customerManagedKey));
+        }
+
+        /**
          * @param delegatedSubnetId The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
          * 
          * @return builder
@@ -578,6 +633,27 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
          */
         public Builder highAvailability(FlexibleServerHighAvailabilityArgs highAvailability) {
             return highAvailability(Output.of(highAvailability));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<FlexibleServerIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(FlexibleServerIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

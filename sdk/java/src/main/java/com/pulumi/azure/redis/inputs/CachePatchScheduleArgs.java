@@ -16,23 +16,47 @@ public final class CachePatchScheduleArgs extends com.pulumi.resources.ResourceA
 
     public static final CachePatchScheduleArgs Empty = new CachePatchScheduleArgs();
 
+    /**
+     * the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+     * 
+     */
     @Import(name="dayOfWeek", required=true)
     private Output<String> dayOfWeek;
 
+    /**
+     * @return the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+     * 
+     */
     public Output<String> dayOfWeek() {
         return this.dayOfWeek;
     }
 
+    /**
+     * The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+     * 
+     */
     @Import(name="maintenanceWindow")
     private @Nullable Output<String> maintenanceWindow;
 
+    /**
+     * @return The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+     * 
+     */
     public Optional<Output<String>> maintenanceWindow() {
         return Optional.ofNullable(this.maintenanceWindow);
     }
 
+    /**
+     * the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+     * 
+     */
     @Import(name="startHourUtc")
     private @Nullable Output<Integer> startHourUtc;
 
+    /**
+     * @return the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+     * 
+     */
     public Optional<Output<Integer>> startHourUtc() {
         return Optional.ofNullable(this.startHourUtc);
     }
@@ -63,29 +87,65 @@ public final class CachePatchScheduleArgs extends com.pulumi.resources.ResourceA
             $ = new CachePatchScheduleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dayOfWeek the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dayOfWeek(Output<String> dayOfWeek) {
             $.dayOfWeek = dayOfWeek;
             return this;
         }
 
+        /**
+         * @param dayOfWeek the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dayOfWeek(String dayOfWeek) {
             return dayOfWeek(Output.of(dayOfWeek));
         }
 
+        /**
+         * @param maintenanceWindow The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maintenanceWindow(@Nullable Output<String> maintenanceWindow) {
             $.maintenanceWindow = maintenanceWindow;
             return this;
         }
 
+        /**
+         * @param maintenanceWindow The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maintenanceWindow(String maintenanceWindow) {
             return maintenanceWindow(Output.of(maintenanceWindow));
         }
 
+        /**
+         * @param startHourUtc the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startHourUtc(@Nullable Output<Integer> startHourUtc) {
             $.startHourUtc = startHourUtc;
             return this;
         }
 
+        /**
+         * @param startHourUtc the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startHourUtc(Integer startHourUtc) {
             return startHourUtc(Output.of(startHourUtc));
         }

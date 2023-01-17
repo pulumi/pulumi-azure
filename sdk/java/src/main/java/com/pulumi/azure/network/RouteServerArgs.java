@@ -92,9 +92,17 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         return this.resourceGroupName;
     }
 
+    /**
+     * The SKU of the Route Server. The only possible value is `Standard`.
+     * 
+     */
     @Import(name="sku", required=true)
     private Output<String> sku;
 
+    /**
+     * @return The SKU of the Route Server. The only possible value is `Standard`.
+     * 
+     */
     public Output<String> sku() {
         return this.sku;
     }
@@ -114,9 +122,17 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         return this.subnetId;
     }
 
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -257,11 +273,23 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        /**
+         * @param sku The SKU of the Route Server. The only possible value is `Standard`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sku(Output<String> sku) {
             $.sku = sku;
             return this;
         }
 
+        /**
+         * @param sku The SKU of the Route Server. The only possible value is `Standard`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
         }
@@ -287,11 +315,23 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
             return subnetId(Output.of(subnetId));
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

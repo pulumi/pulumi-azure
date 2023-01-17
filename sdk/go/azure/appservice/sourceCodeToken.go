@@ -44,7 +44,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example /providers/Microsoft.Web/sourceControls/GitHub
+//	$ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example {type}
 //
 // ```
 type SourceCodeToken struct {

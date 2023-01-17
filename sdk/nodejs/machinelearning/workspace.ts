@@ -317,6 +317,9 @@ export class Workspace extends pulumi.CustomResource {
      * The url for the discovery service to identify regional endpoints for machine learning experimentation services.
      */
     public /*out*/ readonly discoveryUrl!: pulumi.Output<string>;
+    /**
+     * An `encryption` block as defined below.
+     */
     public readonly encryption!: pulumi.Output<outputs.machinelearning.WorkspaceEncryption | undefined>;
     /**
      * Display name for this Machine Learning Workspace.
@@ -477,6 +480,9 @@ export interface WorkspaceState {
      * The url for the discovery service to identify regional endpoints for machine learning experimentation services.
      */
     discoveryUrl?: pulumi.Input<string>;
+    /**
+     * An `encryption` block as defined below.
+     */
     encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
     /**
      * Display name for this Machine Learning Workspace.
@@ -558,6 +564,9 @@ export interface WorkspaceArgs {
      * The description of this Machine Learning Workspace.
      */
     description?: pulumi.Input<string>;
+    /**
+     * An `encryption` block as defined below.
+     */
     encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
     /**
      * Display name for this Machine Learning Workspace.

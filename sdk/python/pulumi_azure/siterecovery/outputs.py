@@ -283,7 +283,9 @@ class ReplicatedVMNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "recoveryPublicIpAddressId":
+        if key == "isPrimary":
+            suggest = "is_primary"
+        elif key == "recoveryPublicIpAddressId":
             suggest = "recovery_public_ip_address_id"
         elif key == "sourceNetworkInterfaceId":
             suggest = "source_network_interface_id"
@@ -304,16 +306,20 @@ class ReplicatedVMNetworkInterface(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 is_primary: Optional[bool] = None,
                  recovery_public_ip_address_id: Optional[str] = None,
                  source_network_interface_id: Optional[str] = None,
                  target_static_ip: Optional[str] = None,
                  target_subnet_name: Optional[str] = None):
         """
+        :param bool is_primary: If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
         :param str recovery_public_ip_address_id: Id of the public IP object to use when a failover is done.
         :param str source_network_interface_id: (Required if the network_interface block is specified) Id source network interface.
         :param str target_static_ip: Static IP to assign when a failover is done.
         :param str target_subnet_name: Name of the subnet to to use when a failover is done.
         """
+        if is_primary is not None:
+            pulumi.set(__self__, "is_primary", is_primary)
         if recovery_public_ip_address_id is not None:
             pulumi.set(__self__, "recovery_public_ip_address_id", recovery_public_ip_address_id)
         if source_network_interface_id is not None:
@@ -322,6 +328,14 @@ class ReplicatedVMNetworkInterface(dict):
             pulumi.set(__self__, "target_static_ip", target_static_ip)
         if target_subnet_name is not None:
             pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+
+    @property
+    @pulumi.getter(name="isPrimary")
+    def is_primary(self) -> Optional[bool]:
+        """
+        If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+        """
+        return pulumi.get(self, "is_primary")
 
     @property
     @pulumi.getter(name="recoveryPublicIpAddressId")

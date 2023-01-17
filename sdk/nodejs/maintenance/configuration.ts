@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * Maintenance Configuration can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.maintenance/maintenanceconfigurations/example-mc
+ *  $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maintenance/maintenanceConfigurations/example-mc
  * ```
  */
 export class Configuration extends pulumi.CustomResource {
@@ -62,6 +62,14 @@ export class Configuration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Configuration.__pulumiType;
     }
 
+    /**
+     * The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+     */
+    public readonly inGuestUserPatchMode!: pulumi.Output<string | undefined>;
+    /**
+     * An `installPatches` block as defined below.
+     */
+    public readonly installPatches!: pulumi.Output<outputs.maintenance.ConfigurationInstallPatches | undefined>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -108,6 +116,8 @@ export class Configuration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationState | undefined;
+            resourceInputs["inGuestUserPatchMode"] = state ? state.inGuestUserPatchMode : undefined;
+            resourceInputs["installPatches"] = state ? state.installPatches : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
@@ -124,6 +134,8 @@ export class Configuration extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
+            resourceInputs["inGuestUserPatchMode"] = args ? args.inGuestUserPatchMode : undefined;
+            resourceInputs["installPatches"] = args ? args.installPatches : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
@@ -142,6 +154,14 @@ export class Configuration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Configuration resources.
  */
 export interface ConfigurationState {
+    /**
+     * The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+     */
+    inGuestUserPatchMode?: pulumi.Input<string>;
+    /**
+     * An `installPatches` block as defined below.
+     */
+    installPatches?: pulumi.Input<inputs.maintenance.ConfigurationInstallPatches>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -180,6 +200,14 @@ export interface ConfigurationState {
  * The set of arguments for constructing a Configuration resource.
  */
 export interface ConfigurationArgs {
+    /**
+     * The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+     */
+    inGuestUserPatchMode?: pulumi.Input<string>;
+    /**
+     * An `installPatches` block as defined below.
+     */
+    installPatches?: pulumi.Input<inputs.maintenance.ConfigurationInstallPatches>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

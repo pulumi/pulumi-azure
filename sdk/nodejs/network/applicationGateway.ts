@@ -231,7 +231,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly sslCertificates!: pulumi.Output<outputs.network.ApplicationGatewaySslCertificate[] | undefined>;
     /**
-     * a `ssl policy` block as defined below.
+     * a `sslPolicy` block as defined below.
      */
     public readonly sslPolicy!: pulumi.Output<outputs.network.ApplicationGatewaySslPolicy>;
     /**
@@ -488,7 +488,7 @@ export interface ApplicationGatewayState {
      */
     sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslCertificate>[]>;
     /**
-     * a `ssl policy` block as defined below.
+     * a `sslPolicy` block as defined below.
      */
     sslPolicy?: pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>;
     /**
@@ -626,7 +626,7 @@ export interface ApplicationGatewayArgs {
      */
     sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslCertificate>[]>;
     /**
-     * a `ssl policy` block as defined below.
+     * a `sslPolicy` block as defined below.
      */
     sslPolicy?: pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>;
     /**

@@ -153,6 +153,9 @@ namespace Pulumi.Azure.Compute
         /// The supported Azure location where the Shared Image Gallery exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// (Required) The Purchase Plan Name for this Shared Image.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// The type of Operating System present in this Shared Image.
@@ -162,6 +165,10 @@ namespace Pulumi.Azure.Compute
         /// The URI containing the Privacy Statement for this Shared Image.
         /// </summary>
         public readonly string PrivacyStatementUri;
+        /// <summary>
+        /// (Optional) A `purchase_plan` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetSharedImagePurchasePlanResult> PurchasePlans;
         /// <summary>
         /// The URI containing the Release Notes for this Shared Image.
         /// </summary>
@@ -200,6 +207,8 @@ namespace Pulumi.Azure.Compute
 
             string privacyStatementUri,
 
+            ImmutableArray<Outputs.GetSharedImagePurchasePlanResult> purchasePlans,
+
             string releaseNoteUri,
 
             string resourceGroupName,
@@ -219,6 +228,7 @@ namespace Pulumi.Azure.Compute
             Name = name;
             OsType = osType;
             PrivacyStatementUri = privacyStatementUri;
+            PurchasePlans = purchasePlans;
             ReleaseNoteUri = releaseNoteUri;
             ResourceGroupName = resourceGroupName;
             Specialized = specialized;

@@ -13,7 +13,13 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     [OutputType]
     public sealed class DiagnosticFrontendRequestDataMaskingQueryParam
     {
+        /// <summary>
+        /// The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        /// </summary>
         public readonly string Mode;
+        /// <summary>
+        /// The name of the header or the query parameter to mask.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

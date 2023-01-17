@@ -18,6 +18,9 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("bodyBytes")]
         public Input<int>? BodyBytes { get; set; }
 
+        /// <summary>
+        /// A `data_masking` block as defined below.
+        /// </summary>
         [Input("dataMasking")]
         public Input<Inputs.DiagnosticFrontendResponseDataMaskingGetArgs>? DataMasking { get; set; }
 

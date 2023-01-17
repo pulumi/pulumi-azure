@@ -97,9 +97,17 @@ export class SpringCloudGateway extends pulumi.CustomResource {
      */
     public readonly apiMetadata!: pulumi.Output<outputs.appplatform.SpringCloudGatewayApiMetadata | undefined>;
     /**
+     * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+     */
+    public readonly applicationPerformanceMonitoringTypes!: pulumi.Output<string[] | undefined>;
+    /**
      * A `cors` block as defined below.
      */
     public readonly cors!: pulumi.Output<outputs.appplatform.SpringCloudGatewayCors | undefined>;
+    /**
+     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     */
+    public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * is only https is allowed?
      */
@@ -120,6 +128,10 @@ export class SpringCloudGateway extends pulumi.CustomResource {
      * A `quota` block as defined below.
      */
     public readonly quota!: pulumi.Output<outputs.appplatform.SpringCloudGatewayQuota>;
+    /**
+     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     */
+    public readonly sensitiveEnvironmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
      */
@@ -147,12 +159,15 @@ export class SpringCloudGateway extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SpringCloudGatewayState | undefined;
             resourceInputs["apiMetadata"] = state ? state.apiMetadata : undefined;
+            resourceInputs["applicationPerformanceMonitoringTypes"] = state ? state.applicationPerformanceMonitoringTypes : undefined;
             resourceInputs["cors"] = state ? state.cors : undefined;
+            resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["quota"] = state ? state.quota : undefined;
+            resourceInputs["sensitiveEnvironmentVariables"] = state ? state.sensitiveEnvironmentVariables : undefined;
             resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
             resourceInputs["sso"] = state ? state.sso : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
@@ -162,17 +177,22 @@ export class SpringCloudGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
             resourceInputs["apiMetadata"] = args ? args.apiMetadata : undefined;
+            resourceInputs["applicationPerformanceMonitoringTypes"] = args ? args.applicationPerformanceMonitoringTypes : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["quota"] = args ? args.quota : undefined;
+            resourceInputs["sensitiveEnvironmentVariables"] = args?.sensitiveEnvironmentVariables ? pulumi.secret(args.sensitiveEnvironmentVariables) : undefined;
             resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
             resourceInputs["sso"] = args ? args.sso : undefined;
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sensitiveEnvironmentVariables"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SpringCloudGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -186,9 +206,17 @@ export interface SpringCloudGatewayState {
      */
     apiMetadata?: pulumi.Input<inputs.appplatform.SpringCloudGatewayApiMetadata>;
     /**
+     * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+     */
+    applicationPerformanceMonitoringTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * A `cors` block as defined below.
      */
     cors?: pulumi.Input<inputs.appplatform.SpringCloudGatewayCors>;
+    /**
+     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     */
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * is only https is allowed?
      */
@@ -209,6 +237,10 @@ export interface SpringCloudGatewayState {
      * A `quota` block as defined below.
      */
     quota?: pulumi.Input<inputs.appplatform.SpringCloudGatewayQuota>;
+    /**
+     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     */
+    sensitiveEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
      */
@@ -232,9 +264,17 @@ export interface SpringCloudGatewayArgs {
      */
     apiMetadata?: pulumi.Input<inputs.appplatform.SpringCloudGatewayApiMetadata>;
     /**
+     * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+     */
+    applicationPerformanceMonitoringTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * A `cors` block as defined below.
      */
     cors?: pulumi.Input<inputs.appplatform.SpringCloudGatewayCors>;
+    /**
+     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     */
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * is only https is allowed?
      */
@@ -255,6 +295,10 @@ export interface SpringCloudGatewayArgs {
      * A `quota` block as defined below.
      */
     quota?: pulumi.Input<inputs.appplatform.SpringCloudGatewayQuota>;
+    /**
+     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     */
+    sensitiveEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
      */

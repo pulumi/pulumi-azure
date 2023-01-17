@@ -89,6 +89,12 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<Outputs.AutomationRuleActionPlaybook>> ActionPlaybooks { get; private set; } = null!;
 
         /// <summary>
+        /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+        /// </summary>
+        [Output("conditionJson")]
+        public Output<string> ConditionJson { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `condition` blocks as defined below.
         /// </summary>
         [Output("conditions")]
@@ -129,6 +135,18 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+        /// </summary>
+        [Output("triggersOn")]
+        public Output<string?> TriggersOn { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+        /// </summary>
+        [Output("triggersWhen")]
+        public Output<string?> TriggersWhen { get; private set; } = null!;
 
 
         /// <summary>
@@ -204,12 +222,19 @@ namespace Pulumi.Azure.Sentinel
             set => _actionPlaybooks = value;
         }
 
+        /// <summary>
+        /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+        /// </summary>
+        [Input("conditionJson")]
+        public Input<string>? ConditionJson { get; set; }
+
         [Input("conditions")]
         private InputList<Inputs.AutomationRuleConditionArgs>? _conditions;
 
         /// <summary>
         /// One or more `condition` blocks as defined below.
         /// </summary>
+        [Obsolete(@"This is deprecated in favor of `condition_json`")]
         public InputList<Inputs.AutomationRuleConditionArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.AutomationRuleConditionArgs>());
@@ -252,6 +277,18 @@ namespace Pulumi.Azure.Sentinel
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+        /// </summary>
+        [Input("triggersOn")]
+        public Input<string>? TriggersOn { get; set; }
+
+        /// <summary>
+        /// Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+        /// </summary>
+        [Input("triggersWhen")]
+        public Input<string>? TriggersWhen { get; set; }
+
         public AutomationRuleArgs()
         {
         }
@@ -284,12 +321,19 @@ namespace Pulumi.Azure.Sentinel
             set => _actionPlaybooks = value;
         }
 
+        /// <summary>
+        /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+        /// </summary>
+        [Input("conditionJson")]
+        public Input<string>? ConditionJson { get; set; }
+
         [Input("conditions")]
         private InputList<Inputs.AutomationRuleConditionGetArgs>? _conditions;
 
         /// <summary>
         /// One or more `condition` blocks as defined below.
         /// </summary>
+        [Obsolete(@"This is deprecated in favor of `condition_json`")]
         public InputList<Inputs.AutomationRuleConditionGetArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.AutomationRuleConditionGetArgs>());
@@ -331,6 +375,18 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
+
+        /// <summary>
+        /// Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+        /// </summary>
+        [Input("triggersOn")]
+        public Input<string>? TriggersOn { get; set; }
+
+        /// <summary>
+        /// Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+        /// </summary>
+        [Input("triggersWhen")]
+        public Input<string>? TriggersWhen { get; set; }
 
         public AutomationRuleState()
         {

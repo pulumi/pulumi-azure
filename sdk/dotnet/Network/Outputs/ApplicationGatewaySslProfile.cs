@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// a `ssl policy` block as defined below.
+        /// a `ssl_policy` block as defined below.
         /// </summary>
         public readonly Outputs.ApplicationGatewaySslProfileSslPolicy? SslPolicy;
         /// <summary>

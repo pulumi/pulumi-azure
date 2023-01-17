@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApplicationSecurityGroupAssociationArgs, ApplicationSecurityGroupAssociationState } from "./applicationSecurityGroupAssociation";
+export type ApplicationSecurityGroupAssociation = import("./applicationSecurityGroupAssociation").ApplicationSecurityGroupAssociation;
+export const ApplicationSecurityGroupAssociation: typeof import("./applicationSecurityGroupAssociation").ApplicationSecurityGroupAssociation = null as any;
+utilities.lazyLoad(exports, ["ApplicationSecurityGroupAssociation"], () => require("./applicationSecurityGroupAssociation"));
+
 export { EndpointArgs, EndpointState } from "./endpoint";
 export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
@@ -30,6 +35,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:privatelink/applicationSecurityGroupAssociation:ApplicationSecurityGroupAssociation":
+                return new ApplicationSecurityGroupAssociation(name, <any>undefined, { urn })
             case "azure:privatelink/endpoint:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
             default:
@@ -37,4 +44,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "privatelink/applicationSecurityGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "privatelink/endpoint", _module)

@@ -4,6 +4,7 @@
 package com.pulumi.azure.siterecovery.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -11,6 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicatedVMNetworkInterface {
+    /**
+     * @return If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+     * 
+     */
+    private @Nullable Boolean isPrimary;
     /**
      * @return Id of the public IP object to use when a failover is done.
      * 
@@ -33,6 +39,13 @@ public final class ReplicatedVMNetworkInterface {
     private @Nullable String targetSubnetName;
 
     private ReplicatedVMNetworkInterface() {}
+    /**
+     * @return If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+     * 
+     */
+    public Optional<Boolean> isPrimary() {
+        return Optional.ofNullable(this.isPrimary);
+    }
     /**
      * @return Id of the public IP object to use when a failover is done.
      * 
@@ -71,6 +84,7 @@ public final class ReplicatedVMNetworkInterface {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean isPrimary;
         private @Nullable String recoveryPublicIpAddressId;
         private @Nullable String sourceNetworkInterfaceId;
         private @Nullable String targetStaticIp;
@@ -78,12 +92,18 @@ public final class ReplicatedVMNetworkInterface {
         public Builder() {}
         public Builder(ReplicatedVMNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.isPrimary = defaults.isPrimary;
     	      this.recoveryPublicIpAddressId = defaults.recoveryPublicIpAddressId;
     	      this.sourceNetworkInterfaceId = defaults.sourceNetworkInterfaceId;
     	      this.targetStaticIp = defaults.targetStaticIp;
     	      this.targetSubnetName = defaults.targetSubnetName;
         }
 
+        @CustomType.Setter
+        public Builder isPrimary(@Nullable Boolean isPrimary) {
+            this.isPrimary = isPrimary;
+            return this;
+        }
         @CustomType.Setter
         public Builder recoveryPublicIpAddressId(@Nullable String recoveryPublicIpAddressId) {
             this.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
@@ -106,6 +126,7 @@ public final class ReplicatedVMNetworkInterface {
         }
         public ReplicatedVMNetworkInterface build() {
             final var o = new ReplicatedVMNetworkInterface();
+            o.isPrimary = isPrimary;
             o.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
             o.sourceNetworkInterfaceId = sourceNetworkInterfaceId;
             o.targetStaticIp = targetStaticIp;

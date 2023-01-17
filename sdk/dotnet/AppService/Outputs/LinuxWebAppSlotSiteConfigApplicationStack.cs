@@ -22,9 +22,13 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? DockerImageTag;
         /// <summary>
-        /// The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
+        /// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
         /// </summary>
         public readonly string? DotnetVersion;
+        /// <summary>
+        /// The version of Go to use. Possible values include `1.18`, and `1.19`.
+        /// </summary>
+        public readonly string? GoVersion;
         /// <summary>
         /// The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         /// </summary>
@@ -34,7 +38,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? JavaServerVersion;
         /// <summary>
-        /// The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+        /// The Version of Java to use. Possible values include `8`, `11`, and `17`.
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
@@ -62,6 +66,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? dotnetVersion,
 
+            string? goVersion,
+
             string? javaServer,
 
             string? javaServerVersion,
@@ -79,6 +85,7 @@ namespace Pulumi.Azure.AppService.Outputs
             DockerImage = dockerImage;
             DockerImageTag = dockerImageTag;
             DotnetVersion = dotnetVersion;
+            GoVersion = goVersion;
             JavaServer = javaServer;
             JavaServerVersion = javaServerVersion;
             JavaVersion = javaVersion;

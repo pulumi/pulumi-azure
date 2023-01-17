@@ -110,7 +110,7 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
                  policy_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reference_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition that will be included in this policy set definition.
+        :param pulumi.Input[str] policy_definition_id: The ID of the policy definition that will be included in this policy set definition.
         :param pulumi.Input[str] parameter_values: Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_group_names: A list of names of the policy definition groups that this policy definition reference belongs to.
         :param pulumi.Input[str] reference_id: A unique ID within this policy set definition for this policy definition reference.
@@ -127,7 +127,7 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> pulumi.Input[str]:
         """
-        The ID of the policy definition or policy set definition that will be included in this policy set definition.
+        The ID of the policy definition that will be included in this policy set definition.
         """
         return pulumi.get(self, "policy_definition_id")
 

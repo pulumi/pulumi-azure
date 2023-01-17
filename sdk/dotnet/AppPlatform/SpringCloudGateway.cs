@@ -108,10 +108,22 @@ namespace Pulumi.Azure.AppPlatform
         public Output<Outputs.SpringCloudGatewayApiMetadata?> ApiMetadata { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+        /// </summary>
+        [Output("applicationPerformanceMonitoringTypes")]
+        public Output<ImmutableArray<string>> ApplicationPerformanceMonitoringTypes { get; private set; } = null!;
+
+        /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         [Output("cors")]
         public Output<Outputs.SpringCloudGatewayCors?> Cors { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+        /// </summary>
+        [Output("environmentVariables")]
+        public Output<ImmutableDictionary<string, string>?> EnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
         /// is only https is allowed?
@@ -142,6 +154,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Output("quota")]
         public Output<Outputs.SpringCloudGatewayQuota> Quota { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+        /// </summary>
+        [Output("sensitiveEnvironmentVariables")]
+        public Output<ImmutableDictionary<string, string>?> SensitiveEnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
@@ -184,6 +202,10 @@ namespace Pulumi.Azure.AppPlatform
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sensitiveEnvironmentVariables",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -213,11 +235,35 @@ namespace Pulumi.Azure.AppPlatform
         [Input("apiMetadata")]
         public Input<Inputs.SpringCloudGatewayApiMetadataArgs>? ApiMetadata { get; set; }
 
+        [Input("applicationPerformanceMonitoringTypes")]
+        private InputList<string>? _applicationPerformanceMonitoringTypes;
+
+        /// <summary>
+        /// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+        /// </summary>
+        public InputList<string> ApplicationPerformanceMonitoringTypes
+        {
+            get => _applicationPerformanceMonitoringTypes ?? (_applicationPerformanceMonitoringTypes = new InputList<string>());
+            set => _applicationPerformanceMonitoringTypes = value;
+        }
+
         /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.SpringCloudGatewayCorsArgs>? Cors { get; set; }
+
+        [Input("environmentVariables")]
+        private InputMap<string>? _environmentVariables;
+
+        /// <summary>
+        /// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+        /// </summary>
+        public InputMap<string> EnvironmentVariables
+        {
+            get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
+            set => _environmentVariables = value;
+        }
 
         /// <summary>
         /// is only https is allowed?
@@ -249,6 +295,22 @@ namespace Pulumi.Azure.AppPlatform
         [Input("quota")]
         public Input<Inputs.SpringCloudGatewayQuotaArgs>? Quota { get; set; }
 
+        [Input("sensitiveEnvironmentVariables")]
+        private InputMap<string>? _sensitiveEnvironmentVariables;
+
+        /// <summary>
+        /// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+        /// </summary>
+        public InputMap<string> SensitiveEnvironmentVariables
+        {
+            get => _sensitiveEnvironmentVariables ?? (_sensitiveEnvironmentVariables = new InputMap<string>());
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _sensitiveEnvironmentVariables = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
+        }
+
         /// <summary>
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
         /// </summary>
@@ -275,11 +337,35 @@ namespace Pulumi.Azure.AppPlatform
         [Input("apiMetadata")]
         public Input<Inputs.SpringCloudGatewayApiMetadataGetArgs>? ApiMetadata { get; set; }
 
+        [Input("applicationPerformanceMonitoringTypes")]
+        private InputList<string>? _applicationPerformanceMonitoringTypes;
+
+        /// <summary>
+        /// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+        /// </summary>
+        public InputList<string> ApplicationPerformanceMonitoringTypes
+        {
+            get => _applicationPerformanceMonitoringTypes ?? (_applicationPerformanceMonitoringTypes = new InputList<string>());
+            set => _applicationPerformanceMonitoringTypes = value;
+        }
+
         /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.SpringCloudGatewayCorsGetArgs>? Cors { get; set; }
+
+        [Input("environmentVariables")]
+        private InputMap<string>? _environmentVariables;
+
+        /// <summary>
+        /// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+        /// </summary>
+        public InputMap<string> EnvironmentVariables
+        {
+            get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
+            set => _environmentVariables = value;
+        }
 
         /// <summary>
         /// is only https is allowed?
@@ -310,6 +396,22 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("quota")]
         public Input<Inputs.SpringCloudGatewayQuotaGetArgs>? Quota { get; set; }
+
+        [Input("sensitiveEnvironmentVariables")]
+        private InputMap<string>? _sensitiveEnvironmentVariables;
+
+        /// <summary>
+        /// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+        /// </summary>
+        public InputMap<string> SensitiveEnvironmentVariables
+        {
+            get => _sensitiveEnvironmentVariables ?? (_sensitiveEnvironmentVariables = new InputMap<string>());
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _sensitiveEnvironmentVariables = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
+        }
 
         /// <summary>
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.

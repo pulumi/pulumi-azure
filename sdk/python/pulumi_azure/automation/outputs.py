@@ -288,6 +288,7 @@ class ModuleModuleLink(dict):
                  hash: Optional['outputs.ModuleModuleLinkHash'] = None):
         """
         :param str uri: The URI of the module content (zip or nupkg).
+        :param 'ModuleModuleLinkHashArgs' hash: A `hash` block as defined below.
         """
         pulumi.set(__self__, "uri", uri)
         if hash is not None:
@@ -304,6 +305,9 @@ class ModuleModuleLink(dict):
     @property
     @pulumi.getter
     def hash(self) -> Optional['outputs.ModuleModuleLinkHash']:
+        """
+        A `hash` block as defined below.
+        """
         return pulumi.get(self, "hash")
 
 
@@ -312,17 +316,27 @@ class ModuleModuleLinkHash(dict):
     def __init__(__self__, *,
                  algorithm: str,
                  value: str):
+        """
+        :param str algorithm: Specifies the algorithm used for the hash content.
+        :param str value: The hash value of the content.
+        """
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def algorithm(self) -> str:
+        """
+        Specifies the algorithm used for the hash content.
+        """
         return pulumi.get(self, "algorithm")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The hash value of the content.
+        """
         return pulumi.get(self, "value")
 
 
@@ -361,9 +375,10 @@ class RunBookDraft(dict):
                  output_types: Optional[Sequence[str]] = None,
                  parameters: Optional[Sequence['outputs.RunBookDraftParameter']] = None):
         """
-        :param 'RunBookDraftContentLinkArgs' content_link: The Draft Content Link defined as `publish_content_link` above.
+        :param 'RunBookDraftContentLinkArgs' content_link: A `publish_content_link` block as defined above.
         :param bool edit_mode_enabled: Whether the draft in edit mode.
         :param Sequence[str] output_types: Specifies the output types of the runbook.
+        :param Sequence['RunBookDraftParameterArgs'] parameters: A list of `parameters` block as defined below.
         """
         if content_link is not None:
             pulumi.set(__self__, "content_link", content_link)
@@ -382,7 +397,7 @@ class RunBookDraft(dict):
     @pulumi.getter(name="contentLink")
     def content_link(self) -> Optional['outputs.RunBookDraftContentLink']:
         """
-        The Draft Content Link defined as `publish_content_link` above.
+        A `publish_content_link` block as defined above.
         """
         return pulumi.get(self, "content_link")
 
@@ -415,6 +430,9 @@ class RunBookDraft(dict):
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.RunBookDraftParameter']]:
+        """
+        A list of `parameters` block as defined below.
+        """
         return pulumi.get(self, "parameters")
 
 
@@ -519,6 +537,7 @@ class RunBookDraftParameter(dict):
         :param str type: Specifies the type of this parameter.
         :param str default_value: Specifies the default value of the parameter.
         :param bool mandatory: Whether this parameter is mandatory.
+        :param int position: Specifies the position of the parameter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "type", type)
@@ -564,6 +583,9 @@ class RunBookDraftParameter(dict):
     @property
     @pulumi.getter
     def position(self) -> Optional[int]:
+        """
+        Specifies the position of the parameter.
+        """
         return pulumi.get(self, "position")
 
 
@@ -595,6 +617,9 @@ class RunBookJobSchedule(dict):
                  job_schedule_id: Optional[str] = None,
                  parameters: Optional[Mapping[str, str]] = None,
                  run_on: Optional[str] = None):
+        """
+        :param Mapping[str, str] parameters: A list of `parameters` block as defined below.
+        """
         pulumi.set(__self__, "schedule_name", schedule_name)
         if job_schedule_id is not None:
             pulumi.set(__self__, "job_schedule_id", job_schedule_id)
@@ -616,6 +641,9 @@ class RunBookJobSchedule(dict):
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A list of `parameters` block as defined below.
+        """
         return pulumi.get(self, "parameters")
 
     @property
@@ -930,7 +958,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
         :param str frequency: The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
         :param int interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         :param bool is_enabled: Whether the schedule is enabled.
-        :param Sequence['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs'] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        :param Sequence['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs'] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         :param str start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param str time_zone: The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
@@ -1042,7 +1070,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
     @pulumi.getter(name="monthlyOccurrences")
     def monthly_occurrences(self) -> Optional[Sequence['outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence']]:
         """
-        List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         """
         return pulumi.get(self, "monthly_occurrences")
 
@@ -1185,7 +1213,7 @@ class SoftwareUpdateConfigurationTargetAzureQuery(dict):
         :param Sequence[str] locations: Specifies a list of locations to scope the query to.
         :param Sequence[str] scopes: Specifies a list of Subscription or Resource Group ARM Ids to query.
         :param str tag_filter: Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
-        :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryTagArgs'] tags: A mapping of tags used for query filter.
+        :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryTagArgs'] tags: A mapping of tags used for query filter as defined below.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -1224,7 +1252,7 @@ class SoftwareUpdateConfigurationTargetAzureQuery(dict):
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQueryTag']]:
         """
-        A mapping of tags used for query filter.
+        A mapping of tags used for query filter as defined below.
         """
         return pulumi.get(self, "tags")
 

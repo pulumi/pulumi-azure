@@ -69,6 +69,10 @@ export class ServiceAccount extends pulumi.CustomResource {
     }
 
     /**
+     * An `encryption` block as defined below.
+     */
+    public readonly encryption!: pulumi.Output<outputs.media.ServiceAccountEncryption>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.media.ServiceAccountIdentity | undefined>;
@@ -85,6 +89,10 @@ export class ServiceAccount extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -93,7 +101,7 @@ export class ServiceAccount extends pulumi.CustomResource {
      */
     public readonly storageAccounts!: pulumi.Output<outputs.media.ServiceAccountStorageAccount[]>;
     /**
-     * Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+     * Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
      */
     public readonly storageAuthenticationType!: pulumi.Output<string>;
     /**
@@ -114,10 +122,12 @@ export class ServiceAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceAccountState | undefined;
+            resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["keyDeliveryAccessControl"] = state ? state.keyDeliveryAccessControl : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             resourceInputs["storageAuthenticationType"] = state ? state.storageAuthenticationType : undefined;
@@ -130,10 +140,12 @@ export class ServiceAccount extends pulumi.CustomResource {
             if ((!args || args.storageAccounts === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccounts'");
             }
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["keyDeliveryAccessControl"] = args ? args.keyDeliveryAccessControl : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["storageAuthenticationType"] = args ? args.storageAuthenticationType : undefined;
@@ -151,6 +163,10 @@ export class ServiceAccount extends pulumi.CustomResource {
  */
 export interface ServiceAccountState {
     /**
+     * An `encryption` block as defined below.
+     */
+    encryption?: pulumi.Input<inputs.media.ServiceAccountEncryption>;
+    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.media.ServiceAccountIdentity>;
@@ -167,6 +183,10 @@ export interface ServiceAccountState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -175,7 +195,7 @@ export interface ServiceAccountState {
      */
     storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.ServiceAccountStorageAccount>[]>;
     /**
-     * Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+     * Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
      */
     storageAuthenticationType?: pulumi.Input<string>;
     /**
@@ -189,6 +209,10 @@ export interface ServiceAccountState {
  */
 export interface ServiceAccountArgs {
     /**
+     * An `encryption` block as defined below.
+     */
+    encryption?: pulumi.Input<inputs.media.ServiceAccountEncryption>;
+    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.media.ServiceAccountIdentity>;
@@ -205,6 +229,10 @@ export interface ServiceAccountArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -213,7 +241,7 @@ export interface ServiceAccountArgs {
      */
     storageAccounts: pulumi.Input<pulumi.Input<inputs.media.ServiceAccountStorageAccount>[]>;
     /**
-     * Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+     * Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
      */
     storageAuthenticationType?: pulumi.Input<string>;
     /**

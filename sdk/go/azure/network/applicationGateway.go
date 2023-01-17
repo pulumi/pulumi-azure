@@ -227,7 +227,7 @@ type ApplicationGateway struct {
 	Sku ApplicationGatewaySkuOutput `pulumi:"sku"`
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates ApplicationGatewaySslCertificateArrayOutput `pulumi:"sslCertificates"`
-	// a `ssl policy` block as defined below.
+	// a `sslPolicy` block as defined below.
 	SslPolicy ApplicationGatewaySslPolicyOutput `pulumi:"sslPolicy"`
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles ApplicationGatewaySslProfileArrayOutput `pulumi:"sslProfiles"`
@@ -353,7 +353,7 @@ type applicationGatewayState struct {
 	Sku *ApplicationGatewaySku `pulumi:"sku"`
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates []ApplicationGatewaySslCertificate `pulumi:"sslCertificates"`
-	// a `ssl policy` block as defined below.
+	// a `sslPolicy` block as defined below.
 	SslPolicy *ApplicationGatewaySslPolicy `pulumi:"sslPolicy"`
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles []ApplicationGatewaySslProfile `pulumi:"sslProfiles"`
@@ -424,7 +424,7 @@ type ApplicationGatewayState struct {
 	Sku ApplicationGatewaySkuPtrInput
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates ApplicationGatewaySslCertificateArrayInput
-	// a `ssl policy` block as defined below.
+	// a `sslPolicy` block as defined below.
 	SslPolicy ApplicationGatewaySslPolicyPtrInput
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles ApplicationGatewaySslProfileArrayInput
@@ -497,7 +497,7 @@ type applicationGatewayArgs struct {
 	Sku ApplicationGatewaySku `pulumi:"sku"`
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates []ApplicationGatewaySslCertificate `pulumi:"sslCertificates"`
-	// a `ssl policy` block as defined below.
+	// a `sslPolicy` block as defined below.
 	SslPolicy *ApplicationGatewaySslPolicy `pulumi:"sslPolicy"`
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles []ApplicationGatewaySslProfile `pulumi:"sslProfiles"`
@@ -567,7 +567,7 @@ type ApplicationGatewayArgs struct {
 	Sku ApplicationGatewaySkuInput
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates ApplicationGatewaySslCertificateArrayInput
-	// a `ssl policy` block as defined below.
+	// a `sslPolicy` block as defined below.
 	SslPolicy ApplicationGatewaySslPolicyPtrInput
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles ApplicationGatewaySslProfileArrayInput
@@ -824,7 +824,7 @@ func (o ApplicationGatewayOutput) SslCertificates() ApplicationGatewaySslCertifi
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewaySslCertificateArrayOutput { return v.SslCertificates }).(ApplicationGatewaySslCertificateArrayOutput)
 }
 
-// a `ssl policy` block as defined below.
+// a `sslPolicy` block as defined below.
 func (o ApplicationGatewayOutput) SslPolicy() ApplicationGatewaySslPolicyOutput {
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewaySslPolicyOutput { return v.SslPolicy }).(ApplicationGatewaySslPolicyOutput)
 }

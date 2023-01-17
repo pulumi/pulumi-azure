@@ -172,7 +172,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/frontdoorWebApplicationFirewallPolicies/firewallPolicy1
+//	$ pulumi import azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/firewallPolicy1
 //
 // ```
 type FrontdoorFirewallPolicy struct {

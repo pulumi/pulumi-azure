@@ -102,6 +102,8 @@ __all__ = [
     'DataCollectionRuleDestinationsArgs',
     'DataCollectionRuleDestinationsAzureMonitorMetricsArgs',
     'DataCollectionRuleDestinationsLogAnalyticArgs',
+    'DiagnosticSettingEnabledLogArgs',
+    'DiagnosticSettingEnabledLogRetentionPolicyArgs',
     'DiagnosticSettingLogArgs',
     'DiagnosticSettingLogRetentionPolicyArgs',
     'DiagnosticSettingMetricArgs',
@@ -5308,6 +5310,99 @@ class DataCollectionRuleDestinationsLogAnalyticArgs:
     @workspace_resource_id.setter
     def workspace_resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_resource_id", value)
+
+
+@pulumi.input_type
+class DiagnosticSettingEnabledLogArgs:
+    def __init__(__self__, *,
+                 category: Optional[pulumi.Input[str]] = None,
+                 category_group: Optional[pulumi.Input[str]] = None,
+                 retention_policy: Optional[pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs']] = None):
+        """
+        :param pulumi.Input[str] category: The name of a Diagnostic Log Category for this Resource.
+        :param pulumi.Input[str] category_group: The name of a Diagnostic Log Category Group for this Resource.
+        :param pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
+        """
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if category_group is not None:
+            pulumi.set(__self__, "category_group", category_group)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a Diagnostic Log Category for this Resource.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter(name="categoryGroup")
+    def category_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a Diagnostic Log Category Group for this Resource.
+        """
+        return pulumi.get(self, "category_group")
+
+    @category_group.setter
+    def category_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "category_group", value)
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs']]:
+        """
+        A `retention_policy` block as defined below.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: Optional[pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs']]):
+        pulumi.set(self, "retention_policy", value)
+
+
+@pulumi.input_type
+class DiagnosticSettingEnabledLogRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
+        :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Is this Retention Policy enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days for which this Retention Policy should apply.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "days", value)
 
 
 @pulumi.input_type

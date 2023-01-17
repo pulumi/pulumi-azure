@@ -15,7 +15,7 @@ public final class GetSharedImageIdentifier {
      */
     private String offer;
     /**
-     * @return The Publisher Name for this Gallery Image.
+     * @return (Optional) The Purchase Plan Publisher for this Gallery Image.
      * 
      */
     private String publisher;
@@ -34,7 +34,7 @@ public final class GetSharedImageIdentifier {
         return this.offer;
     }
     /**
-     * @return The Publisher Name for this Gallery Image.
+     * @return (Optional) The Purchase Plan Publisher for this Gallery Image.
      * 
      */
     public String publisher() {

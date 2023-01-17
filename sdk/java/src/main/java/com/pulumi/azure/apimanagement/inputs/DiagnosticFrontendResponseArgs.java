@@ -33,9 +33,17 @@ public final class DiagnosticFrontendResponseArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.bodyBytes);
     }
 
+    /**
+     * A `data_masking` block as defined below.
+     * 
+     */
     @Import(name="dataMasking")
     private @Nullable Output<DiagnosticFrontendResponseDataMaskingArgs> dataMasking;
 
+    /**
+     * @return A `data_masking` block as defined below.
+     * 
+     */
     public Optional<Output<DiagnosticFrontendResponseDataMaskingArgs>> dataMasking() {
         return Optional.ofNullable(this.dataMasking);
     }
@@ -102,11 +110,23 @@ public final class DiagnosticFrontendResponseArgs extends com.pulumi.resources.R
             return bodyBytes(Output.of(bodyBytes));
         }
 
+        /**
+         * @param dataMasking A `data_masking` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataMasking(@Nullable Output<DiagnosticFrontendResponseDataMaskingArgs> dataMasking) {
             $.dataMasking = dataMasking;
             return this;
         }
 
+        /**
+         * @param dataMasking A `data_masking` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataMasking(DiagnosticFrontendResponseDataMaskingArgs dataMasking) {
             return dataMasking(Output.of(dataMasking));
         }

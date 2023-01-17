@@ -66,7 +66,7 @@ type RouteFilter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `rules` block as defined below.
+	// A `rule` block as defined below.
 	Rule RouteFilterRuleOutput `pulumi:"rule"`
 	// A mapping of tags which should be assigned to the Route Filter.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -110,7 +110,7 @@ type routeFilterState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `rules` block as defined below.
+	// A `rule` block as defined below.
 	Rule *RouteFilterRule `pulumi:"rule"`
 	// A mapping of tags which should be assigned to the Route Filter.
 	Tags map[string]string `pulumi:"tags"`
@@ -123,7 +123,7 @@ type RouteFilterState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `rules` block as defined below.
+	// A `rule` block as defined below.
 	Rule RouteFilterRulePtrInput
 	// A mapping of tags which should be assigned to the Route Filter.
 	Tags pulumi.StringMapInput
@@ -140,7 +140,7 @@ type routeFilterArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `rules` block as defined below.
+	// A `rule` block as defined below.
 	Rule *RouteFilterRule `pulumi:"rule"`
 	// A mapping of tags which should be assigned to the Route Filter.
 	Tags map[string]string `pulumi:"tags"`
@@ -154,7 +154,7 @@ type RouteFilterArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `rules` block as defined below.
+	// A `rule` block as defined below.
 	Rule RouteFilterRulePtrInput
 	// A mapping of tags which should be assigned to the Route Filter.
 	Tags pulumi.StringMapInput
@@ -262,7 +262,7 @@ func (o RouteFilterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteFilter) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `rules` block as defined below.
+// A `rule` block as defined below.
 func (o RouteFilterOutput) Rule() RouteFilterRuleOutput {
 	return o.ApplyT(func(v *RouteFilter) RouteFilterRuleOutput { return v.Rule }).(RouteFilterRuleOutput)
 }

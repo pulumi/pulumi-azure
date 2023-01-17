@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -72,7 +71,6 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .serverName(exampleSqlServer.name())
- *             .extendedAuditingPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
  *             .build());
  * 

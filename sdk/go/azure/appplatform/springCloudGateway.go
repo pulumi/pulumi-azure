@@ -108,8 +108,12 @@ type SpringCloudGateway struct {
 
 	// A `apiMetadata` block as defined below.
 	ApiMetadata SpringCloudGatewayApiMetadataPtrOutput `pulumi:"apiMetadata"`
+	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+	ApplicationPerformanceMonitoringTypes pulumi.StringArrayOutput `pulumi:"applicationPerformanceMonitoringTypes"`
 	// A `cors` block as defined below.
 	Cors SpringCloudGatewayCorsPtrOutput `pulumi:"cors"`
+	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
 	// is only https is allowed?
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -120,6 +124,8 @@ type SpringCloudGateway struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A `quota` block as defined below.
 	Quota SpringCloudGatewayQuotaOutput `pulumi:"quota"`
+	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+	SensitiveEnvironmentVariables pulumi.StringMapOutput `pulumi:"sensitiveEnvironmentVariables"`
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
 	SpringCloudServiceId pulumi.StringOutput `pulumi:"springCloudServiceId"`
 	// A `sso` block as defined below.
@@ -138,6 +144,13 @@ func NewSpringCloudGateway(ctx *pulumi.Context,
 	if args.SpringCloudServiceId == nil {
 		return nil, errors.New("invalid value for required argument 'SpringCloudServiceId'")
 	}
+	if args.SensitiveEnvironmentVariables != nil {
+		args.SensitiveEnvironmentVariables = pulumi.ToSecret(args.SensitiveEnvironmentVariables).(pulumi.StringMapInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sensitiveEnvironmentVariables",
+	})
+	opts = append(opts, secrets)
 	var resource SpringCloudGateway
 	err := ctx.RegisterResource("azure:appplatform/springCloudGateway:SpringCloudGateway", name, args, &resource, opts...)
 	if err != nil {
@@ -162,8 +175,12 @@ func GetSpringCloudGateway(ctx *pulumi.Context,
 type springCloudGatewayState struct {
 	// A `apiMetadata` block as defined below.
 	ApiMetadata *SpringCloudGatewayApiMetadata `pulumi:"apiMetadata"`
+	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+	ApplicationPerformanceMonitoringTypes []string `pulumi:"applicationPerformanceMonitoringTypes"`
 	// A `cors` block as defined below.
 	Cors *SpringCloudGatewayCors `pulumi:"cors"`
+	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// is only https is allowed?
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -174,6 +191,8 @@ type springCloudGatewayState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `quota` block as defined below.
 	Quota *SpringCloudGatewayQuota `pulumi:"quota"`
+	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+	SensitiveEnvironmentVariables map[string]string `pulumi:"sensitiveEnvironmentVariables"`
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
 	SpringCloudServiceId *string `pulumi:"springCloudServiceId"`
 	// A `sso` block as defined below.
@@ -185,8 +204,12 @@ type springCloudGatewayState struct {
 type SpringCloudGatewayState struct {
 	// A `apiMetadata` block as defined below.
 	ApiMetadata SpringCloudGatewayApiMetadataPtrInput
+	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+	ApplicationPerformanceMonitoringTypes pulumi.StringArrayInput
 	// A `cors` block as defined below.
 	Cors SpringCloudGatewayCorsPtrInput
+	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+	EnvironmentVariables pulumi.StringMapInput
 	// is only https is allowed?
 	HttpsOnly pulumi.BoolPtrInput
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -197,6 +220,8 @@ type SpringCloudGatewayState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `quota` block as defined below.
 	Quota SpringCloudGatewayQuotaPtrInput
+	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+	SensitiveEnvironmentVariables pulumi.StringMapInput
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
 	SpringCloudServiceId pulumi.StringPtrInput
 	// A `sso` block as defined below.
@@ -212,8 +237,12 @@ func (SpringCloudGatewayState) ElementType() reflect.Type {
 type springCloudGatewayArgs struct {
 	// A `apiMetadata` block as defined below.
 	ApiMetadata *SpringCloudGatewayApiMetadata `pulumi:"apiMetadata"`
+	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+	ApplicationPerformanceMonitoringTypes []string `pulumi:"applicationPerformanceMonitoringTypes"`
 	// A `cors` block as defined below.
 	Cors *SpringCloudGatewayCors `pulumi:"cors"`
+	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// is only https is allowed?
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -224,6 +253,8 @@ type springCloudGatewayArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `quota` block as defined below.
 	Quota *SpringCloudGatewayQuota `pulumi:"quota"`
+	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+	SensitiveEnvironmentVariables map[string]string `pulumi:"sensitiveEnvironmentVariables"`
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
 	SpringCloudServiceId string `pulumi:"springCloudServiceId"`
 	// A `sso` block as defined below.
@@ -234,8 +265,12 @@ type springCloudGatewayArgs struct {
 type SpringCloudGatewayArgs struct {
 	// A `apiMetadata` block as defined below.
 	ApiMetadata SpringCloudGatewayApiMetadataPtrInput
+	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+	ApplicationPerformanceMonitoringTypes pulumi.StringArrayInput
 	// A `cors` block as defined below.
 	Cors SpringCloudGatewayCorsPtrInput
+	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+	EnvironmentVariables pulumi.StringMapInput
 	// is only https is allowed?
 	HttpsOnly pulumi.BoolPtrInput
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -246,6 +281,8 @@ type SpringCloudGatewayArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `quota` block as defined below.
 	Quota SpringCloudGatewayQuotaPtrInput
+	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+	SensitiveEnvironmentVariables pulumi.StringMapInput
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
 	SpringCloudServiceId pulumi.StringInput
 	// A `sso` block as defined below.
@@ -344,9 +381,19 @@ func (o SpringCloudGatewayOutput) ApiMetadata() SpringCloudGatewayApiMetadataPtr
 	return o.ApplyT(func(v *SpringCloudGateway) SpringCloudGatewayApiMetadataPtrOutput { return v.ApiMetadata }).(SpringCloudGatewayApiMetadataPtrOutput)
 }
 
+// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+func (o SpringCloudGatewayOutput) ApplicationPerformanceMonitoringTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudGateway) pulumi.StringArrayOutput { return v.ApplicationPerformanceMonitoringTypes }).(pulumi.StringArrayOutput)
+}
+
 // A `cors` block as defined below.
 func (o SpringCloudGatewayOutput) Cors() SpringCloudGatewayCorsPtrOutput {
 	return o.ApplyT(func(v *SpringCloudGateway) SpringCloudGatewayCorsPtrOutput { return v.Cors }).(SpringCloudGatewayCorsPtrOutput)
+}
+
+// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+func (o SpringCloudGatewayOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SpringCloudGateway) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
 // is only https is allowed?
@@ -372,6 +419,11 @@ func (o SpringCloudGatewayOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOut
 // A `quota` block as defined below.
 func (o SpringCloudGatewayOutput) Quota() SpringCloudGatewayQuotaOutput {
 	return o.ApplyT(func(v *SpringCloudGateway) SpringCloudGatewayQuotaOutput { return v.Quota }).(SpringCloudGatewayQuotaOutput)
+}
+
+// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+func (o SpringCloudGatewayOutput) SensitiveEnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SpringCloudGateway) pulumi.StringMapOutput { return v.SensitiveEnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
 // The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.

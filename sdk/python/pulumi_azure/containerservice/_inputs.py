@@ -31,6 +31,7 @@ __all__ = [
     'GroupInitContainerVolumeArgs',
     'GroupInitContainerVolumeGitRepoArgs',
     'KubernetesClusterAciConnectorLinuxArgs',
+    'KubernetesClusterApiServerAccessProfileArgs',
     'KubernetesClusterAutoScalerProfileArgs',
     'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs',
     'KubernetesClusterDefaultNodePoolArgs',
@@ -1756,6 +1757,61 @@ class KubernetesClusterAciConnectorLinuxArgs:
     @subnet_name.setter
     def subnet_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_name", value)
+
+
+@pulumi.input_type
+class KubernetesClusterApiServerAccessProfileArgs:
+    def __init__(__self__, *,
+                 authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_integration_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet where the API server endpoint is delegated to.
+        :param pulumi.Input[bool] vnet_integration_enabled: Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+        """
+        if authorized_ip_ranges is not None:
+            pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if vnet_integration_enabled is not None:
+            pulumi.set(__self__, "vnet_integration_enabled", vnet_integration_enabled)
+
+    @property
+    @pulumi.getter(name="authorizedIpRanges")
+    def authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+        """
+        return pulumi.get(self, "authorized_ip_ranges")
+
+    @authorized_ip_ranges.setter
+    def authorized_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "authorized_ip_ranges", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subnet where the API server endpoint is delegated to.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="vnetIntegrationEnabled")
+    def vnet_integration_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+        """
+        return pulumi.get(self, "vnet_integration_enabled")
+
+    @vnet_integration_enabled.setter
+    def vnet_integration_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_integration_enabled", value)
 
 
 @pulumi.input_type

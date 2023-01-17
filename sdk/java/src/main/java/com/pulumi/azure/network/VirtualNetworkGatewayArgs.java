@@ -58,9 +58,17 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.bgpSettings);
     }
 
+    /**
+     * A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+     * 
+     */
     @Import(name="customRoute")
     private @Nullable Output<VirtualNetworkGatewayCustomRouteArgs> customRoute;
 
+    /**
+     * @return A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+     * 
+     */
     public Optional<Output<VirtualNetworkGatewayCustomRouteArgs>> customRoute() {
         return Optional.ofNullable(this.customRoute);
     }
@@ -391,11 +399,23 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
             return bgpSettings(Output.of(bgpSettings));
         }
 
+        /**
+         * @param customRoute A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customRoute(@Nullable Output<VirtualNetworkGatewayCustomRouteArgs> customRoute) {
             $.customRoute = customRoute;
             return this;
         }
 
+        /**
+         * @param customRoute A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customRoute(VirtualNetworkGatewayCustomRouteArgs customRoute) {
             return customRoute(Output.of(customRoute));
         }

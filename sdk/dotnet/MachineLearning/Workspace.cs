@@ -401,6 +401,9 @@ namespace Pulumi.Azure.MachineLearning
         [Output("discoveryUrl")]
         public Output<string> DiscoveryUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         [Output("encryption")]
         public Output<Outputs.WorkspaceEncryption?> Encryption { get; private set; } = null!;
 
@@ -558,6 +561,9 @@ namespace Pulumi.Azure.MachineLearning
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.WorkspaceEncryptionArgs>? Encryption { get; set; }
 
@@ -689,6 +695,9 @@ namespace Pulumi.Azure.MachineLearning
         [Input("discoveryUrl")]
         public Input<string>? DiscoveryUrl { get; set; }
 
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.WorkspaceEncryptionGetArgs>? Encryption { get; set; }
 

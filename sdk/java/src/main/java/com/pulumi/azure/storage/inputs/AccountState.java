@@ -105,6 +105,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+     * 
+     */
+    @Import(name="allowedCopyScope")
+    private @Nullable Output<String> allowedCopyScope;
+
+    /**
+     * @return Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+     * 
+     */
+    public Optional<Output<String>> allowedCopyScope() {
+        return Optional.ofNullable(this.allowedCopyScope);
+    }
+
+    /**
      * A `azure_files_authentication` block as defined below.
      * 
      */
@@ -1044,6 +1059,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.accountReplicationType = $.accountReplicationType;
         this.accountTier = $.accountTier;
         this.allowNestedItemsToBePublic = $.allowNestedItemsToBePublic;
+        this.allowedCopyScope = $.allowedCopyScope;
         this.azureFilesAuthentication = $.azureFilesAuthentication;
         this.blobProperties = $.blobProperties;
         this.crossTenantReplicationEnabled = $.crossTenantReplicationEnabled;
@@ -1229,6 +1245,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder allowNestedItemsToBePublic(Boolean allowNestedItemsToBePublic) {
             return allowNestedItemsToBePublic(Output.of(allowNestedItemsToBePublic));
+        }
+
+        /**
+         * @param allowedCopyScope Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedCopyScope(@Nullable Output<String> allowedCopyScope) {
+            $.allowedCopyScope = allowedCopyScope;
+            return this;
+        }
+
+        /**
+         * @param allowedCopyScope Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedCopyScope(String allowedCopyScope) {
+            return allowedCopyScope(Output.of(allowedCopyScope));
         }
 
         /**

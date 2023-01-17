@@ -10,6 +10,356 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccountEncryption struct {
+	// The current key used to encrypt the Media Services Account, including the key version.
+	CurrentKeyIdentifier *string `pulumi:"currentKeyIdentifier"`
+	// Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+	KeyVaultKeyIdentifier *string `pulumi:"keyVaultKeyIdentifier"`
+	// A `managedIdentity` block as defined below.
+	ManagedIdentity *AccountEncryptionManagedIdentity `pulumi:"managedIdentity"`
+	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+	Type *string `pulumi:"type"`
+}
+
+// AccountEncryptionInput is an input type that accepts AccountEncryptionArgs and AccountEncryptionOutput values.
+// You can construct a concrete instance of `AccountEncryptionInput` via:
+//
+//	AccountEncryptionArgs{...}
+type AccountEncryptionInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionOutput() AccountEncryptionOutput
+	ToAccountEncryptionOutputWithContext(context.Context) AccountEncryptionOutput
+}
+
+type AccountEncryptionArgs struct {
+	// The current key used to encrypt the Media Services Account, including the key version.
+	CurrentKeyIdentifier pulumi.StringPtrInput `pulumi:"currentKeyIdentifier"`
+	// Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+	KeyVaultKeyIdentifier pulumi.StringPtrInput `pulumi:"keyVaultKeyIdentifier"`
+	// A `managedIdentity` block as defined below.
+	ManagedIdentity AccountEncryptionManagedIdentityPtrInput `pulumi:"managedIdentity"`
+	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (AccountEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryption)(nil)).Elem()
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionOutput() AccountEncryptionOutput {
+	return i.ToAccountEncryptionOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput)
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return i.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput).ToAccountEncryptionPtrOutputWithContext(ctx)
+}
+
+// AccountEncryptionPtrInput is an input type that accepts AccountEncryptionArgs, AccountEncryptionPtr and AccountEncryptionPtrOutput values.
+// You can construct a concrete instance of `AccountEncryptionPtrInput` via:
+//
+//	        AccountEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput
+	ToAccountEncryptionPtrOutputWithContext(context.Context) AccountEncryptionPtrOutput
+}
+
+type accountEncryptionPtrType AccountEncryptionArgs
+
+func AccountEncryptionPtr(v *AccountEncryptionArgs) AccountEncryptionPtrInput {
+	return (*accountEncryptionPtrType)(v)
+}
+
+func (*accountEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryption)(nil)).Elem()
+}
+
+func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return i.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionPtrOutput)
+}
+
+type AccountEncryptionOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryption)(nil)).Elem()
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionOutput() AccountEncryptionOutput {
+	return o
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
+	return o
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return o.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryption) *AccountEncryption {
+		return &v
+	}).(AccountEncryptionPtrOutput)
+}
+
+// The current key used to encrypt the Media Services Account, including the key version.
+func (o AccountEncryptionOutput) CurrentKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountEncryption) *string { return v.CurrentKeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+func (o AccountEncryptionOutput) KeyVaultKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountEncryption) *string { return v.KeyVaultKeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// A `managedIdentity` block as defined below.
+func (o AccountEncryptionOutput) ManagedIdentity() AccountEncryptionManagedIdentityPtrOutput {
+	return o.ApplyT(func(v AccountEncryption) *AccountEncryptionManagedIdentity { return v.ManagedIdentity }).(AccountEncryptionManagedIdentityPtrOutput)
+}
+
+// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+func (o AccountEncryptionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountEncryption) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type AccountEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryption)(nil)).Elem()
+}
+
+func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
+	return o.ApplyT(func(v *AccountEncryption) AccountEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryption
+		return ret
+	}).(AccountEncryptionOutput)
+}
+
+// The current key used to encrypt the Media Services Account, including the key version.
+func (o AccountEncryptionPtrOutput) CurrentKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CurrentKeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+func (o AccountEncryptionPtrOutput) KeyVaultKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultKeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `managedIdentity` block as defined below.
+func (o AccountEncryptionPtrOutput) ManagedIdentity() AccountEncryptionManagedIdentityPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *AccountEncryptionManagedIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedIdentity
+	}).(AccountEncryptionManagedIdentityPtrOutput)
+}
+
+// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+func (o AccountEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountEncryptionManagedIdentity struct {
+	// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
+	// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// AccountEncryptionManagedIdentityInput is an input type that accepts AccountEncryptionManagedIdentityArgs and AccountEncryptionManagedIdentityOutput values.
+// You can construct a concrete instance of `AccountEncryptionManagedIdentityInput` via:
+//
+//	AccountEncryptionManagedIdentityArgs{...}
+type AccountEncryptionManagedIdentityInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionManagedIdentityOutput() AccountEncryptionManagedIdentityOutput
+	ToAccountEncryptionManagedIdentityOutputWithContext(context.Context) AccountEncryptionManagedIdentityOutput
+}
+
+type AccountEncryptionManagedIdentityArgs struct {
+	// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
+	// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (AccountEncryptionManagedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryptionManagedIdentity)(nil)).Elem()
+}
+
+func (i AccountEncryptionManagedIdentityArgs) ToAccountEncryptionManagedIdentityOutput() AccountEncryptionManagedIdentityOutput {
+	return i.ToAccountEncryptionManagedIdentityOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionManagedIdentityArgs) ToAccountEncryptionManagedIdentityOutputWithContext(ctx context.Context) AccountEncryptionManagedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionManagedIdentityOutput)
+}
+
+func (i AccountEncryptionManagedIdentityArgs) ToAccountEncryptionManagedIdentityPtrOutput() AccountEncryptionManagedIdentityPtrOutput {
+	return i.ToAccountEncryptionManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionManagedIdentityArgs) ToAccountEncryptionManagedIdentityPtrOutputWithContext(ctx context.Context) AccountEncryptionManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionManagedIdentityOutput).ToAccountEncryptionManagedIdentityPtrOutputWithContext(ctx)
+}
+
+// AccountEncryptionManagedIdentityPtrInput is an input type that accepts AccountEncryptionManagedIdentityArgs, AccountEncryptionManagedIdentityPtr and AccountEncryptionManagedIdentityPtrOutput values.
+// You can construct a concrete instance of `AccountEncryptionManagedIdentityPtrInput` via:
+//
+//	        AccountEncryptionManagedIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountEncryptionManagedIdentityPtrInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionManagedIdentityPtrOutput() AccountEncryptionManagedIdentityPtrOutput
+	ToAccountEncryptionManagedIdentityPtrOutputWithContext(context.Context) AccountEncryptionManagedIdentityPtrOutput
+}
+
+type accountEncryptionManagedIdentityPtrType AccountEncryptionManagedIdentityArgs
+
+func AccountEncryptionManagedIdentityPtr(v *AccountEncryptionManagedIdentityArgs) AccountEncryptionManagedIdentityPtrInput {
+	return (*accountEncryptionManagedIdentityPtrType)(v)
+}
+
+func (*accountEncryptionManagedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryptionManagedIdentity)(nil)).Elem()
+}
+
+func (i *accountEncryptionManagedIdentityPtrType) ToAccountEncryptionManagedIdentityPtrOutput() AccountEncryptionManagedIdentityPtrOutput {
+	return i.ToAccountEncryptionManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *accountEncryptionManagedIdentityPtrType) ToAccountEncryptionManagedIdentityPtrOutputWithContext(ctx context.Context) AccountEncryptionManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionManagedIdentityPtrOutput)
+}
+
+type AccountEncryptionManagedIdentityOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionManagedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryptionManagedIdentity)(nil)).Elem()
+}
+
+func (o AccountEncryptionManagedIdentityOutput) ToAccountEncryptionManagedIdentityOutput() AccountEncryptionManagedIdentityOutput {
+	return o
+}
+
+func (o AccountEncryptionManagedIdentityOutput) ToAccountEncryptionManagedIdentityOutputWithContext(ctx context.Context) AccountEncryptionManagedIdentityOutput {
+	return o
+}
+
+func (o AccountEncryptionManagedIdentityOutput) ToAccountEncryptionManagedIdentityPtrOutput() AccountEncryptionManagedIdentityPtrOutput {
+	return o.ToAccountEncryptionManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o AccountEncryptionManagedIdentityOutput) ToAccountEncryptionManagedIdentityPtrOutputWithContext(ctx context.Context) AccountEncryptionManagedIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryptionManagedIdentity) *AccountEncryptionManagedIdentity {
+		return &v
+	}).(AccountEncryptionManagedIdentityPtrOutput)
+}
+
+// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+func (o AccountEncryptionManagedIdentityOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountEncryptionManagedIdentity) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+func (o AccountEncryptionManagedIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountEncryptionManagedIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type AccountEncryptionManagedIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionManagedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryptionManagedIdentity)(nil)).Elem()
+}
+
+func (o AccountEncryptionManagedIdentityPtrOutput) ToAccountEncryptionManagedIdentityPtrOutput() AccountEncryptionManagedIdentityPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionManagedIdentityPtrOutput) ToAccountEncryptionManagedIdentityPtrOutputWithContext(ctx context.Context) AccountEncryptionManagedIdentityPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionManagedIdentityPtrOutput) Elem() AccountEncryptionManagedIdentityOutput {
+	return o.ApplyT(func(v *AccountEncryptionManagedIdentity) AccountEncryptionManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryptionManagedIdentity
+		return ret
+	}).(AccountEncryptionManagedIdentityOutput)
+}
+
+// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+func (o AccountEncryptionManagedIdentityPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionManagedIdentity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseSystemAssignedIdentity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+func (o AccountEncryptionManagedIdentityPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -365,6 +715,8 @@ type AccountStorageAccount struct {
 	Id string `pulumi:"id"`
 	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
 	IsPrimary *bool `pulumi:"isPrimary"`
+	// A `managedIdentity` block as defined below.
+	ManagedIdentity *AccountStorageAccountManagedIdentity `pulumi:"managedIdentity"`
 }
 
 // AccountStorageAccountInput is an input type that accepts AccountStorageAccountArgs and AccountStorageAccountOutput values.
@@ -383,6 +735,8 @@ type AccountStorageAccountArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
 	IsPrimary pulumi.BoolPtrInput `pulumi:"isPrimary"`
+	// A `managedIdentity` block as defined below.
+	ManagedIdentity AccountStorageAccountManagedIdentityPtrInput `pulumi:"managedIdentity"`
 }
 
 func (AccountStorageAccountArgs) ElementType() reflect.Type {
@@ -446,6 +800,11 @@ func (o AccountStorageAccountOutput) IsPrimary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountStorageAccount) *bool { return v.IsPrimary }).(pulumi.BoolPtrOutput)
 }
 
+// A `managedIdentity` block as defined below.
+func (o AccountStorageAccountOutput) ManagedIdentity() AccountStorageAccountManagedIdentityPtrOutput {
+	return o.ApplyT(func(v AccountStorageAccount) *AccountStorageAccountManagedIdentity { return v.ManagedIdentity }).(AccountStorageAccountManagedIdentityPtrOutput)
+}
+
 type AccountStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountStorageAccountArrayOutput) ElementType() reflect.Type {
@@ -466,17 +825,185 @@ func (o AccountStorageAccountArrayOutput) Index(i pulumi.IntInput) AccountStorag
 	}).(AccountStorageAccountOutput)
 }
 
+type AccountStorageAccountManagedIdentity struct {
+	// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
+	// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// AccountStorageAccountManagedIdentityInput is an input type that accepts AccountStorageAccountManagedIdentityArgs and AccountStorageAccountManagedIdentityOutput values.
+// You can construct a concrete instance of `AccountStorageAccountManagedIdentityInput` via:
+//
+//	AccountStorageAccountManagedIdentityArgs{...}
+type AccountStorageAccountManagedIdentityInput interface {
+	pulumi.Input
+
+	ToAccountStorageAccountManagedIdentityOutput() AccountStorageAccountManagedIdentityOutput
+	ToAccountStorageAccountManagedIdentityOutputWithContext(context.Context) AccountStorageAccountManagedIdentityOutput
+}
+
+type AccountStorageAccountManagedIdentityArgs struct {
+	// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
+	// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (AccountStorageAccountManagedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountStorageAccountManagedIdentity)(nil)).Elem()
+}
+
+func (i AccountStorageAccountManagedIdentityArgs) ToAccountStorageAccountManagedIdentityOutput() AccountStorageAccountManagedIdentityOutput {
+	return i.ToAccountStorageAccountManagedIdentityOutputWithContext(context.Background())
+}
+
+func (i AccountStorageAccountManagedIdentityArgs) ToAccountStorageAccountManagedIdentityOutputWithContext(ctx context.Context) AccountStorageAccountManagedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStorageAccountManagedIdentityOutput)
+}
+
+func (i AccountStorageAccountManagedIdentityArgs) ToAccountStorageAccountManagedIdentityPtrOutput() AccountStorageAccountManagedIdentityPtrOutput {
+	return i.ToAccountStorageAccountManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i AccountStorageAccountManagedIdentityArgs) ToAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx context.Context) AccountStorageAccountManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStorageAccountManagedIdentityOutput).ToAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx)
+}
+
+// AccountStorageAccountManagedIdentityPtrInput is an input type that accepts AccountStorageAccountManagedIdentityArgs, AccountStorageAccountManagedIdentityPtr and AccountStorageAccountManagedIdentityPtrOutput values.
+// You can construct a concrete instance of `AccountStorageAccountManagedIdentityPtrInput` via:
+//
+//	        AccountStorageAccountManagedIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountStorageAccountManagedIdentityPtrInput interface {
+	pulumi.Input
+
+	ToAccountStorageAccountManagedIdentityPtrOutput() AccountStorageAccountManagedIdentityPtrOutput
+	ToAccountStorageAccountManagedIdentityPtrOutputWithContext(context.Context) AccountStorageAccountManagedIdentityPtrOutput
+}
+
+type accountStorageAccountManagedIdentityPtrType AccountStorageAccountManagedIdentityArgs
+
+func AccountStorageAccountManagedIdentityPtr(v *AccountStorageAccountManagedIdentityArgs) AccountStorageAccountManagedIdentityPtrInput {
+	return (*accountStorageAccountManagedIdentityPtrType)(v)
+}
+
+func (*accountStorageAccountManagedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountStorageAccountManagedIdentity)(nil)).Elem()
+}
+
+func (i *accountStorageAccountManagedIdentityPtrType) ToAccountStorageAccountManagedIdentityPtrOutput() AccountStorageAccountManagedIdentityPtrOutput {
+	return i.ToAccountStorageAccountManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *accountStorageAccountManagedIdentityPtrType) ToAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx context.Context) AccountStorageAccountManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStorageAccountManagedIdentityPtrOutput)
+}
+
+type AccountStorageAccountManagedIdentityOutput struct{ *pulumi.OutputState }
+
+func (AccountStorageAccountManagedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountStorageAccountManagedIdentity)(nil)).Elem()
+}
+
+func (o AccountStorageAccountManagedIdentityOutput) ToAccountStorageAccountManagedIdentityOutput() AccountStorageAccountManagedIdentityOutput {
+	return o
+}
+
+func (o AccountStorageAccountManagedIdentityOutput) ToAccountStorageAccountManagedIdentityOutputWithContext(ctx context.Context) AccountStorageAccountManagedIdentityOutput {
+	return o
+}
+
+func (o AccountStorageAccountManagedIdentityOutput) ToAccountStorageAccountManagedIdentityPtrOutput() AccountStorageAccountManagedIdentityPtrOutput {
+	return o.ToAccountStorageAccountManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o AccountStorageAccountManagedIdentityOutput) ToAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx context.Context) AccountStorageAccountManagedIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountStorageAccountManagedIdentity) *AccountStorageAccountManagedIdentity {
+		return &v
+	}).(AccountStorageAccountManagedIdentityPtrOutput)
+}
+
+// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+func (o AccountStorageAccountManagedIdentityOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountStorageAccountManagedIdentity) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+func (o AccountStorageAccountManagedIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountStorageAccountManagedIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type AccountStorageAccountManagedIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountStorageAccountManagedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountStorageAccountManagedIdentity)(nil)).Elem()
+}
+
+func (o AccountStorageAccountManagedIdentityPtrOutput) ToAccountStorageAccountManagedIdentityPtrOutput() AccountStorageAccountManagedIdentityPtrOutput {
+	return o
+}
+
+func (o AccountStorageAccountManagedIdentityPtrOutput) ToAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx context.Context) AccountStorageAccountManagedIdentityPtrOutput {
+	return o
+}
+
+func (o AccountStorageAccountManagedIdentityPtrOutput) Elem() AccountStorageAccountManagedIdentityOutput {
+	return o.ApplyT(func(v *AccountStorageAccountManagedIdentity) AccountStorageAccountManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountStorageAccountManagedIdentity
+		return ret
+	}).(AccountStorageAccountManagedIdentityOutput)
+}
+
+// Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+func (o AccountStorageAccountManagedIdentityPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountStorageAccountManagedIdentity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseSystemAssignedIdentity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
+func (o AccountStorageAccountManagedIdentityPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountStorageAccountManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionInput)(nil)).Elem(), AccountEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionPtrInput)(nil)).Elem(), AccountEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionManagedIdentityInput)(nil)).Elem(), AccountEncryptionManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionManagedIdentityPtrInput)(nil)).Elem(), AccountEncryptionManagedIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountKeyDeliveryAccessControlInput)(nil)).Elem(), AccountKeyDeliveryAccessControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountKeyDeliveryAccessControlPtrInput)(nil)).Elem(), AccountKeyDeliveryAccessControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageAccountInput)(nil)).Elem(), AccountStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageAccountArrayInput)(nil)).Elem(), AccountStorageAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageAccountManagedIdentityInput)(nil)).Elem(), AccountStorageAccountManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageAccountManagedIdentityPtrInput)(nil)).Elem(), AccountStorageAccountManagedIdentityArgs{})
+	pulumi.RegisterOutputType(AccountEncryptionOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionManagedIdentityOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionManagedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountKeyDeliveryAccessControlOutput{})
 	pulumi.RegisterOutputType(AccountKeyDeliveryAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(AccountStorageAccountOutput{})
 	pulumi.RegisterOutputType(AccountStorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(AccountStorageAccountManagedIdentityOutput{})
+	pulumi.RegisterOutputType(AccountStorageAccountManagedIdentityPtrOutput{})
 }

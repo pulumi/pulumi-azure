@@ -78,7 +78,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.Resources/deploymentScripts/script1
+//	$ pulumi import azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Resources/deploymentScripts/script1
 //
 // ```
 type ResourceDeploymentScriptPowerShell struct {

@@ -49,14 +49,14 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the link. Changing this forces a new resource to be created.
+     * The name of the Spacecraft. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the link. Changing this forces a new resource to be created.
+     * @return The name of the Spacecraft. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -93,22 +93,30 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.resourceGroupName);
     }
 
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
-     * Title of the two line elements(TLE).
+     * Title of the two line elements (TLE).
      * 
      */
     @Import(name="titleLine")
     private @Nullable Output<String> titleLine;
 
     /**
-     * @return Title of the two line elements(TLE).
+     * @return Title of the two line elements (TLE).
      * 
      */
     public Optional<Output<String>> titleLine() {
@@ -116,14 +124,14 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
      * 
      */
     @Import(name="twoLineElements")
     private @Nullable Output<List<String>> twoLineElements;
 
     /**
-     * @return A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+     * @return A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
      * 
      */
     public Optional<Output<List<String>>> twoLineElements() {
@@ -214,7 +222,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the link. Changing this forces a new resource to be created.
+         * @param name The name of the Spacecraft. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -225,7 +233,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the link. Changing this forces a new resource to be created.
+         * @param name The name of the Spacecraft. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -276,17 +284,29 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
         /**
-         * @param titleLine Title of the two line elements(TLE).
+         * @param titleLine Title of the two line elements (TLE).
          * 
          * @return builder
          * 
@@ -297,7 +317,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param titleLine Title of the two line elements(TLE).
+         * @param titleLine Title of the two line elements (TLE).
          * 
          * @return builder
          * 
@@ -307,7 +327,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param twoLineElements A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+         * @param twoLineElements A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
          * 
          * @return builder
          * 
@@ -318,7 +338,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param twoLineElements A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+         * @param twoLineElements A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
          * 
          * @return builder
          * 
@@ -328,7 +348,7 @@ public final class SpacecraftState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param twoLineElements A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+         * @param twoLineElements A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
          * 
          * @return builder
          * 

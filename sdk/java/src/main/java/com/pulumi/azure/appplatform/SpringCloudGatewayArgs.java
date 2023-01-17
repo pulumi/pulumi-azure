@@ -12,6 +12,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -37,6 +39,21 @@ public final class SpringCloudGatewayArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+     * 
+     */
+    @Import(name="applicationPerformanceMonitoringTypes")
+    private @Nullable Output<List<String>> applicationPerformanceMonitoringTypes;
+
+    /**
+     * @return Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+     * 
+     */
+    public Optional<Output<List<String>>> applicationPerformanceMonitoringTypes() {
+        return Optional.ofNullable(this.applicationPerformanceMonitoringTypes);
+    }
+
+    /**
      * A `cors` block as defined below.
      * 
      */
@@ -49,6 +66,21 @@ public final class SpringCloudGatewayArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<SpringCloudGatewayCorsArgs>> cors() {
         return Optional.ofNullable(this.cors);
+    }
+
+    /**
+     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * 
+     */
+    @Import(name="environmentVariables")
+    private @Nullable Output<Map<String,String>> environmentVariables;
+
+    /**
+     * @return Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> environmentVariables() {
+        return Optional.ofNullable(this.environmentVariables);
     }
 
     /**
@@ -127,6 +159,21 @@ public final class SpringCloudGatewayArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * 
+     */
+    @Import(name="sensitiveEnvironmentVariables")
+    private @Nullable Output<Map<String,String>> sensitiveEnvironmentVariables;
+
+    /**
+     * @return Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> sensitiveEnvironmentVariables() {
+        return Optional.ofNullable(this.sensitiveEnvironmentVariables);
+    }
+
+    /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
      * 
      */
@@ -160,12 +207,15 @@ public final class SpringCloudGatewayArgs extends com.pulumi.resources.ResourceA
 
     private SpringCloudGatewayArgs(SpringCloudGatewayArgs $) {
         this.apiMetadata = $.apiMetadata;
+        this.applicationPerformanceMonitoringTypes = $.applicationPerformanceMonitoringTypes;
         this.cors = $.cors;
+        this.environmentVariables = $.environmentVariables;
         this.httpsOnly = $.httpsOnly;
         this.instanceCount = $.instanceCount;
         this.name = $.name;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.quota = $.quota;
+        this.sensitiveEnvironmentVariables = $.sensitiveEnvironmentVariables;
         this.springCloudServiceId = $.springCloudServiceId;
         this.sso = $.sso;
     }
@@ -210,6 +260,37 @@ public final class SpringCloudGatewayArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param applicationPerformanceMonitoringTypes Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationPerformanceMonitoringTypes(@Nullable Output<List<String>> applicationPerformanceMonitoringTypes) {
+            $.applicationPerformanceMonitoringTypes = applicationPerformanceMonitoringTypes;
+            return this;
+        }
+
+        /**
+         * @param applicationPerformanceMonitoringTypes Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationPerformanceMonitoringTypes(List<String> applicationPerformanceMonitoringTypes) {
+            return applicationPerformanceMonitoringTypes(Output.of(applicationPerformanceMonitoringTypes));
+        }
+
+        /**
+         * @param applicationPerformanceMonitoringTypes Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationPerformanceMonitoringTypes(String... applicationPerformanceMonitoringTypes) {
+            return applicationPerformanceMonitoringTypes(List.of(applicationPerformanceMonitoringTypes));
+        }
+
+        /**
          * @param cors A `cors` block as defined below.
          * 
          * @return builder
@@ -228,6 +309,27 @@ public final class SpringCloudGatewayArgs extends com.pulumi.resources.ResourceA
          */
         public Builder cors(SpringCloudGatewayCorsArgs cors) {
             return cors(Output.of(cors));
+        }
+
+        /**
+         * @param environmentVariables Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environmentVariables(@Nullable Output<Map<String,String>> environmentVariables) {
+            $.environmentVariables = environmentVariables;
+            return this;
+        }
+
+        /**
+         * @param environmentVariables Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environmentVariables(Map<String,String> environmentVariables) {
+            return environmentVariables(Output.of(environmentVariables));
         }
 
         /**
@@ -333,6 +435,27 @@ public final class SpringCloudGatewayArgs extends com.pulumi.resources.ResourceA
          */
         public Builder quota(SpringCloudGatewayQuotaArgs quota) {
             return quota(Output.of(quota));
+        }
+
+        /**
+         * @param sensitiveEnvironmentVariables Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sensitiveEnvironmentVariables(@Nullable Output<Map<String,String>> sensitiveEnvironmentVariables) {
+            $.sensitiveEnvironmentVariables = sensitiveEnvironmentVariables;
+            return this;
+        }
+
+        /**
+         * @param sensitiveEnvironmentVariables Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sensitiveEnvironmentVariables(Map<String,String> sensitiveEnvironmentVariables) {
+            return sensitiveEnvironmentVariables(Output.of(sensitiveEnvironmentVariables));
         }
 
         /**

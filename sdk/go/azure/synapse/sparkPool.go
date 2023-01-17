@@ -57,7 +57,7 @@ type SparkPool struct {
 	SparkEventsFolder pulumi.StringPtrOutput `pulumi:"sparkEventsFolder"`
 	// The default folder where Spark logs will be written. Defaults to `/logs`.
 	SparkLogFolder pulumi.StringPtrOutput `pulumi:"sparkLogFolder"`
-	// The Apache Spark version. Possible values are `2.4` and `3.1` and `3.2`. Defaults to `2.4`.
+	// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
 	SparkVersion pulumi.StringPtrOutput `pulumi:"sparkVersion"`
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
@@ -135,7 +135,7 @@ type sparkPoolState struct {
 	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
 	// The default folder where Spark logs will be written. Defaults to `/logs`.
 	SparkLogFolder *string `pulumi:"sparkLogFolder"`
-	// The Apache Spark version. Possible values are `2.4` and `3.1` and `3.2`. Defaults to `2.4`.
+	// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
 	SparkVersion *string `pulumi:"sparkVersion"`
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
@@ -176,7 +176,7 @@ type SparkPoolState struct {
 	SparkEventsFolder pulumi.StringPtrInput
 	// The default folder where Spark logs will be written. Defaults to `/logs`.
 	SparkLogFolder pulumi.StringPtrInput
-	// The Apache Spark version. Possible values are `2.4` and `3.1` and `3.2`. Defaults to `2.4`.
+	// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
 	SparkVersion pulumi.StringPtrInput
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId pulumi.StringPtrInput
@@ -221,7 +221,7 @@ type sparkPoolArgs struct {
 	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
 	// The default folder where Spark logs will be written. Defaults to `/logs`.
 	SparkLogFolder *string `pulumi:"sparkLogFolder"`
-	// The Apache Spark version. Possible values are `2.4` and `3.1` and `3.2`. Defaults to `2.4`.
+	// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
 	SparkVersion *string `pulumi:"sparkVersion"`
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
@@ -263,7 +263,7 @@ type SparkPoolArgs struct {
 	SparkEventsFolder pulumi.StringPtrInput
 	// The default folder where Spark logs will be written. Defaults to `/logs`.
 	SparkLogFolder pulumi.StringPtrInput
-	// The Apache Spark version. Possible values are `2.4` and `3.1` and `3.2`. Defaults to `2.4`.
+	// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
 	SparkVersion pulumi.StringPtrInput
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId pulumi.StringInput
@@ -438,7 +438,7 @@ func (o SparkPoolOutput) SparkLogFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringPtrOutput { return v.SparkLogFolder }).(pulumi.StringPtrOutput)
 }
 
-// The Apache Spark version. Possible values are `2.4` and `3.1` and `3.2`. Defaults to `2.4`.
+// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
 func (o SparkPoolOutput) SparkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringPtrOutput { return v.SparkVersion }).(pulumi.StringPtrOutput)
 }

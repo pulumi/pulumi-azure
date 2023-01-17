@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.maintenance;
 
+import com.pulumi.azure.maintenance.inputs.ConfigurationInstallPatchesArgs;
 import com.pulumi.azure.maintenance.inputs.ConfigurationWindowArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,6 +17,36 @@ import javax.annotation.Nullable;
 public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ConfigurationArgs Empty = new ConfigurationArgs();
+
+    /**
+     * The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+     * 
+     */
+    @Import(name="inGuestUserPatchMode")
+    private @Nullable Output<String> inGuestUserPatchMode;
+
+    /**
+     * @return The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+     * 
+     */
+    public Optional<Output<String>> inGuestUserPatchMode() {
+        return Optional.ofNullable(this.inGuestUserPatchMode);
+    }
+
+    /**
+     * An `install_patches` block as defined below.
+     * 
+     */
+    @Import(name="installPatches")
+    private @Nullable Output<ConfigurationInstallPatchesArgs> installPatches;
+
+    /**
+     * @return An `install_patches` block as defined below.
+     * 
+     */
+    public Optional<Output<ConfigurationInstallPatchesArgs>> installPatches() {
+        return Optional.ofNullable(this.installPatches);
+    }
 
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -140,6 +171,8 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
     private ConfigurationArgs() {}
 
     private ConfigurationArgs(ConfigurationArgs $) {
+        this.inGuestUserPatchMode = $.inGuestUserPatchMode;
+        this.installPatches = $.installPatches;
         this.location = $.location;
         this.name = $.name;
         this.properties = $.properties;
@@ -166,6 +199,48 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ConfigurationArgs defaults) {
             $ = new ConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param inGuestUserPatchMode The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inGuestUserPatchMode(@Nullable Output<String> inGuestUserPatchMode) {
+            $.inGuestUserPatchMode = inGuestUserPatchMode;
+            return this;
+        }
+
+        /**
+         * @param inGuestUserPatchMode The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inGuestUserPatchMode(String inGuestUserPatchMode) {
+            return inGuestUserPatchMode(Output.of(inGuestUserPatchMode));
+        }
+
+        /**
+         * @param installPatches An `install_patches` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder installPatches(@Nullable Output<ConfigurationInstallPatchesArgs> installPatches) {
+            $.installPatches = installPatches;
+            return this;
+        }
+
+        /**
+         * @param installPatches An `install_patches` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder installPatches(ConfigurationInstallPatchesArgs installPatches) {
+            return installPatches(Output.of(installPatches));
         }
 
         /**

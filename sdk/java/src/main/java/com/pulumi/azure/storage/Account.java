@@ -218,6 +218,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowNestedItemsToBePublic);
     }
     /**
+     * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+     * 
+     */
+    @Export(name="allowedCopyScope", type=String.class, parameters={})
+    private Output</* @Nullable */ String> allowedCopyScope;
+
+    /**
+     * @return Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+     * 
+     */
+    public Output<Optional<String>> allowedCopyScope() {
+        return Codegen.optional(this.allowedCopyScope);
+    }
+    /**
      * A `azure_files_authentication` block as defined below.
      * 
      */

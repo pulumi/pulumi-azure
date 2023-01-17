@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Automation.Inputs
     public sealed class RunBookDraftArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Draft Content Link defined as `publish_content_link` above.
+        /// A `publish_content_link` block as defined above.
         /// </summary>
         [Input("contentLink")]
         public Input<Inputs.RunBookDraftContentLinkArgs>? ContentLink { get; set; }
@@ -44,6 +44,10 @@ namespace Pulumi.Azure.Automation.Inputs
 
         [Input("parameters")]
         private InputList<Inputs.RunBookDraftParameterArgs>? _parameters;
+
+        /// <summary>
+        /// A list of `parameters` block as defined below.
+        /// </summary>
         public InputList<Inputs.RunBookDraftParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.RunBookDraftParameterArgs>());

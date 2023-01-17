@@ -79,9 +79,17 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.discoveryUrl);
     }
 
+    /**
+     * An `encryption` block as defined below.
+     * 
+     */
     @Import(name="encryption")
     private @Nullable Output<WorkspaceEncryptionArgs> encryption;
 
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
     public Optional<Output<WorkspaceEncryptionArgs>> encryption() {
         return Optional.ofNullable(this.encryption);
     }
@@ -446,11 +454,23 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
             return discoveryUrl(Output.of(discoveryUrl));
         }
 
+        /**
+         * @param encryption An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryption(@Nullable Output<WorkspaceEncryptionArgs> encryption) {
             $.encryption = encryption;
             return this;
         }
 
+        /**
+         * @param encryption An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryption(WorkspaceEncryptionArgs encryption) {
             return encryption(Output.of(encryption));
         }
