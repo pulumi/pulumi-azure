@@ -100,10 +100,14 @@ func NewIdentityProviderTwitter(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.ApiKey != nil {
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringInput)
+	}
 	if args.ApiSecretKey != nil {
 		args.ApiSecretKey = pulumi.ToSecret(args.ApiSecretKey).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiKey",
 		"apiSecretKey",
 	})
 	opts = append(opts, secrets)

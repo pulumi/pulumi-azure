@@ -106,7 +106,7 @@ import * as utilities from "../utilities";
  * Container Registries can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
+ *  $ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
  * ```
  */
 export class Registry extends pulumi.CustomResource {
@@ -150,11 +150,11 @@ export class Registry extends pulumi.CustomResource {
      */
     public /*out*/ readonly adminUsername!: pulumi.Output<string>;
     /**
-     * Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
      */
     public readonly anonymousPullEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+     * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      */
     public readonly dataEndpointEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -210,7 +210,7 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly retentionPolicy!: pulumi.Output<outputs.containerservice.RegistryRetentionPolicy>;
     /**
-     * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+     * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -316,11 +316,11 @@ export interface RegistryState {
      */
     adminUsername?: pulumi.Input<string>;
     /**
-     * Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
      */
     anonymousPullEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+     * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      */
     dataEndpointEnabled?: pulumi.Input<boolean>;
     /**
@@ -376,7 +376,7 @@ export interface RegistryState {
      */
     retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
     /**
-     * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+     * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -402,11 +402,11 @@ export interface RegistryArgs {
      */
     adminEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
      */
     anonymousPullEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+     * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      */
     dataEndpointEnabled?: pulumi.Input<boolean>;
     /**
@@ -458,7 +458,7 @@ export interface RegistryArgs {
      */
     retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
     /**
-     * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+     * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      */
     sku: pulumi.Input<string>;
     /**

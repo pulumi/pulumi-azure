@@ -105,7 +105,7 @@ type ElasticPool struct {
 	Sku ElasticPoolSkuOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
+	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
 	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
@@ -172,7 +172,7 @@ type elasticPoolState struct {
 	Sku *ElasticPoolSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
+	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -199,7 +199,7 @@ type ElasticPoolState struct {
 	Sku ElasticPoolSkuPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
+	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -230,7 +230,7 @@ type elasticPoolArgs struct {
 	Sku ElasticPoolSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
+	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -258,7 +258,7 @@ type ElasticPoolArgs struct {
 	Sku ElasticPoolSkuInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
+	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -404,7 +404,7 @@ func (o ElasticPoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
+// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
 func (o ElasticPoolOutput) ZoneRedundant() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }

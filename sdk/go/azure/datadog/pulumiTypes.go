@@ -15,7 +15,7 @@ type MonitorDatadogOrganization struct {
 	ApiKey string `pulumi:"apiKey"`
 	// Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
 	ApplicationKey string `pulumi:"applicationKey"`
-	// The ID of the enterprise_app.
+	// The ID of the enterprise_app. Changing this forces a new resource to be created.
 	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
 	// The ID of the Datadog Monitor.
 	Id *string `pulumi:"id"`
@@ -45,7 +45,7 @@ type MonitorDatadogOrganizationArgs struct {
 	ApiKey pulumi.StringInput `pulumi:"apiKey"`
 	// Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
 	ApplicationKey pulumi.StringInput `pulumi:"applicationKey"`
-	// The ID of the enterprise_app.
+	// The ID of the enterprise_app. Changing this forces a new resource to be created.
 	EnterpriseAppId pulumi.StringPtrInput `pulumi:"enterpriseAppId"`
 	// The ID of the Datadog Monitor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -146,7 +146,7 @@ func (o MonitorDatadogOrganizationOutput) ApplicationKey() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorDatadogOrganization) string { return v.ApplicationKey }).(pulumi.StringOutput)
 }
 
-// The ID of the enterprise_app.
+// The ID of the enterprise_app. Changing this forces a new resource to be created.
 func (o MonitorDatadogOrganizationOutput) EnterpriseAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorDatadogOrganization) *string { return v.EnterpriseAppId }).(pulumi.StringPtrOutput)
 }
@@ -220,7 +220,7 @@ func (o MonitorDatadogOrganizationPtrOutput) ApplicationKey() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the enterprise_app.
+// The ID of the enterprise_app. Changing this forces a new resource to be created.
 func (o MonitorDatadogOrganizationPtrOutput) EnterpriseAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorDatadogOrganization) *string {
 		if v == nil {
@@ -909,9 +909,9 @@ func (o MonitorTagRuleMetricFilterArrayOutput) Index(i pulumi.IntInput) MonitorT
 type MonitorUser struct {
 	// Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
 	Email string `pulumi:"email"`
-	// The name which should be used for this user_info.
+	// The name which should be used for this user_info. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	// Phone number of the user used by Datadog for contacting them if needed.
+	// Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
 	PhoneNumber *string `pulumi:"phoneNumber"`
 }
 
@@ -929,9 +929,9 @@ type MonitorUserInput interface {
 type MonitorUserArgs struct {
 	// Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
 	Email pulumi.StringInput `pulumi:"email"`
-	// The name which should be used for this user_info.
+	// The name which should be used for this user_info. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Phone number of the user used by Datadog for contacting them if needed.
+	// Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
 	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
 }
 
@@ -1017,12 +1017,12 @@ func (o MonitorUserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorUser) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this user_info.
+// The name which should be used for this user_info. Changing this forces a new resource to be created.
 func (o MonitorUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorUser) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Phone number of the user used by Datadog for contacting them if needed.
+// Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
 func (o MonitorUserOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorUser) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
@@ -1061,7 +1061,7 @@ func (o MonitorUserPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name which should be used for this user_info.
+// The name which should be used for this user_info. Changing this forces a new resource to be created.
 func (o MonitorUserPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorUser) *string {
 		if v == nil {
@@ -1071,7 +1071,7 @@ func (o MonitorUserPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the user used by Datadog for contacting them if needed.
+// Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
 func (o MonitorUserPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorUser) *string {
 		if v == nil {

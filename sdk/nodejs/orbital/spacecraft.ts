@@ -75,7 +75,7 @@ export class Spacecraft extends pulumi.CustomResource {
     }
 
     /**
-     * A `links` block as defined below.
+     * A `links` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly links!: pulumi.Output<outputs.orbital.SpacecraftLink[]>;
     /**
@@ -103,7 +103,7 @@ export class Spacecraft extends pulumi.CustomResource {
      */
     public readonly titleLine!: pulumi.Output<string>;
     /**
-     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
      */
     public readonly twoLineElements!: pulumi.Output<string[]>;
 
@@ -164,7 +164,7 @@ export class Spacecraft extends pulumi.CustomResource {
  */
 export interface SpacecraftState {
     /**
-     * A `links` block as defined below.
+     * A `links` block as defined below. Changing this forces a new resource to be created.
      */
     links?: pulumi.Input<pulumi.Input<inputs.orbital.SpacecraftLink>[]>;
     /**
@@ -192,7 +192,7 @@ export interface SpacecraftState {
      */
     titleLine?: pulumi.Input<string>;
     /**
-     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
      */
     twoLineElements?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -202,7 +202,7 @@ export interface SpacecraftState {
  */
 export interface SpacecraftArgs {
     /**
-     * A `links` block as defined below.
+     * A `links` block as defined below. Changing this forces a new resource to be created.
      */
     links: pulumi.Input<pulumi.Input<inputs.orbital.SpacecraftLink>[]>;
     /**
@@ -230,7 +230,7 @@ export interface SpacecraftArgs {
      */
     titleLine: pulumi.Input<string>;
     /**
-     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
      */
     twoLineElements: pulumi.Input<pulumi.Input<string>[]>;
 }

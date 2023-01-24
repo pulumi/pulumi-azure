@@ -21,7 +21,7 @@ class TimeSeriesInsightsAccessPolicyArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TimeSeriesInsightsAccessPolicy resource.
-        :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory.
+        :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the Azure IoT Time Series Insights Access Policy.
@@ -39,7 +39,7 @@ class TimeSeriesInsightsAccessPolicyArgs:
     @pulumi.getter(name="principalObjectId")
     def principal_object_id(self) -> pulumi.Input[str]:
         """
-        The id of the principal in Azure Active Directory.
+        The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_object_id")
 
@@ -108,7 +108,7 @@ class _TimeSeriesInsightsAccessPolicyState:
         Input properties used for looking up and filtering TimeSeriesInsightsAccessPolicy resources.
         :param pulumi.Input[str] description: The description of the Azure IoT Time Series Insights Access Policy.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
-        :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory.
+        :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """
@@ -151,7 +151,7 @@ class _TimeSeriesInsightsAccessPolicyState:
     @pulumi.getter(name="principalObjectId")
     def principal_object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the principal in Azure Active Directory.
+        The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_object_id")
 
@@ -228,7 +228,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Azure IoT Time Series Insights Access Policy.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
-        :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory.
+        :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """
@@ -331,7 +331,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Azure IoT Time Series Insights Access Policy.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
-        :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory.
+        :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """
@@ -366,7 +366,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
     @pulumi.getter(name="principalObjectId")
     def principal_object_id(self) -> pulumi.Output[str]:
         """
-        The id of the principal in Azure Active Directory.
+        The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_object_id")
 

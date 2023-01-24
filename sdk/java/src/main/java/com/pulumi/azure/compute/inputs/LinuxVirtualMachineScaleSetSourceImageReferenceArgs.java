@@ -14,14 +14,14 @@ public final class LinuxVirtualMachineScaleSetSourceImageReferenceArgs extends c
     public static final LinuxVirtualMachineScaleSetSourceImageReferenceArgs Empty = new LinuxVirtualMachineScaleSetSourceImageReferenceArgs();
 
     /**
-     * Specifies the offer of the image used to create the virtual machines.
+     * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="offer", required=true)
     private Output<String> offer;
 
     /**
-     * @return Specifies the offer of the image used to create the virtual machines.
+     * @return Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> offer() {
@@ -29,14 +29,14 @@ public final class LinuxVirtualMachineScaleSetSourceImageReferenceArgs extends c
     }
 
     /**
-     * Specifies the publisher of the image used to create the virtual machines.
+     * Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="publisher", required=true)
     private Output<String> publisher;
 
     /**
-     * @return Specifies the publisher of the image used to create the virtual machines.
+     * @return Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> publisher() {
@@ -101,7 +101,7 @@ public final class LinuxVirtualMachineScaleSetSourceImageReferenceArgs extends c
         }
 
         /**
-         * @param offer Specifies the offer of the image used to create the virtual machines.
+         * @param offer Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class LinuxVirtualMachineScaleSetSourceImageReferenceArgs extends c
         }
 
         /**
-         * @param offer Specifies the offer of the image used to create the virtual machines.
+         * @param offer Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class LinuxVirtualMachineScaleSetSourceImageReferenceArgs extends c
         }
 
         /**
-         * @param publisher Specifies the publisher of the image used to create the virtual machines.
+         * @param publisher Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class LinuxVirtualMachineScaleSetSourceImageReferenceArgs extends c
         }
 
         /**
-         * @param publisher Specifies the publisher of the image used to create the virtual machines.
+         * @param publisher Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

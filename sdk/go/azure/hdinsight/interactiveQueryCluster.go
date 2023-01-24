@@ -139,7 +139,7 @@ type InteractiveQueryCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles InteractiveQueryClusterRolesOutput `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile InteractiveQueryClusterSecurityProfilePtrOutput `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
 	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
@@ -231,7 +231,7 @@ type interactiveQueryClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles *InteractiveQueryClusterRoles `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *InteractiveQueryClusterSecurityProfile `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
 	SshEndpoint *string `pulumi:"sshEndpoint"`
@@ -277,7 +277,7 @@ type InteractiveQueryClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
 	Roles InteractiveQueryClusterRolesPtrInput
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile InteractiveQueryClusterSecurityProfilePtrInput
 	// The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
 	SshEndpoint pulumi.StringPtrInput
@@ -325,7 +325,7 @@ type interactiveQueryClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles InteractiveQueryClusterRoles `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *InteractiveQueryClusterSecurityProfile `pulumi:"securityProfile"`
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 *InteractiveQueryClusterStorageAccountGen2 `pulumi:"storageAccountGen2"`
@@ -368,7 +368,7 @@ type InteractiveQueryClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
 	Roles InteractiveQueryClusterRolesInput
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile InteractiveQueryClusterSecurityProfilePtrInput
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 InteractiveQueryClusterStorageAccountGen2PtrInput
@@ -549,7 +549,7 @@ func (o InteractiveQueryClusterOutput) Roles() InteractiveQueryClusterRolesOutpu
 	return o.ApplyT(func(v *InteractiveQueryCluster) InteractiveQueryClusterRolesOutput { return v.Roles }).(InteractiveQueryClusterRolesOutput)
 }
 
-// A `securityProfile` block as defined below.
+// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterOutput) SecurityProfile() InteractiveQueryClusterSecurityProfilePtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryCluster) InteractiveQueryClusterSecurityProfilePtrOutput {
 		return v.SecurityProfile

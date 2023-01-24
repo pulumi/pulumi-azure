@@ -50,14 +50,14 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+     * The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
      * 
      */
     @Import(name="dailyQuotaGb")
     private @Nullable Output<Double> dailyQuotaGb;
 
     /**
-     * @return The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+     * @return The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
      * 
      */
     public Optional<Output<Double>> dailyQuotaGb() {
@@ -140,14 +140,14 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+     * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
      * 
      */
     @Import(name="reservationCapacityInGbPerDay")
     private @Nullable Output<Integer> reservationCapacityInGbPerDay;
 
     /**
-     * @return The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+     * @return The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
      * 
      */
     public Optional<Output<Integer>> reservationCapacityInGbPerDay() {
@@ -325,7 +325,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param dailyQuotaGb The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+         * @param dailyQuotaGb The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param dailyQuotaGb The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+         * @param dailyQuotaGb The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+         * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+         * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
          * 
          * @return builder
          * 

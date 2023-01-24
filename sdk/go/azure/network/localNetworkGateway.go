@@ -63,11 +63,9 @@ import (
 type LocalNetworkGateway struct {
 	pulumi.CustomResourceState
 
-	// The list of string CIDRs representing the
-	// address spaces the gateway exposes.
+	// The list of string CIDRs representing the address spaces the gateway exposes.
 	AddressSpaces pulumi.StringArrayOutput `pulumi:"addressSpaces"`
-	// A `bgpSettings` block as defined below containing the
-	// Local Network Gateway's BGP speaker settings.
+	// A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
 	BgpSettings LocalNetworkGatewayBgpSettingsPtrOutput `pulumi:"bgpSettings"`
 	// The gateway IP address to connect with.
 	GatewayAddress pulumi.StringPtrOutput `pulumi:"gatewayAddress"`
@@ -115,11 +113,9 @@ func GetLocalNetworkGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalNetworkGateway resources.
 type localNetworkGatewayState struct {
-	// The list of string CIDRs representing the
-	// address spaces the gateway exposes.
+	// The list of string CIDRs representing the address spaces the gateway exposes.
 	AddressSpaces []string `pulumi:"addressSpaces"`
-	// A `bgpSettings` block as defined below containing the
-	// Local Network Gateway's BGP speaker settings.
+	// A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
 	BgpSettings *LocalNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	// The gateway IP address to connect with.
 	GatewayAddress *string `pulumi:"gatewayAddress"`
@@ -136,11 +132,9 @@ type localNetworkGatewayState struct {
 }
 
 type LocalNetworkGatewayState struct {
-	// The list of string CIDRs representing the
-	// address spaces the gateway exposes.
+	// The list of string CIDRs representing the address spaces the gateway exposes.
 	AddressSpaces pulumi.StringArrayInput
-	// A `bgpSettings` block as defined below containing the
-	// Local Network Gateway's BGP speaker settings.
+	// A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
 	BgpSettings LocalNetworkGatewayBgpSettingsPtrInput
 	// The gateway IP address to connect with.
 	GatewayAddress pulumi.StringPtrInput
@@ -161,11 +155,9 @@ func (LocalNetworkGatewayState) ElementType() reflect.Type {
 }
 
 type localNetworkGatewayArgs struct {
-	// The list of string CIDRs representing the
-	// address spaces the gateway exposes.
+	// The list of string CIDRs representing the address spaces the gateway exposes.
 	AddressSpaces []string `pulumi:"addressSpaces"`
-	// A `bgpSettings` block as defined below containing the
-	// Local Network Gateway's BGP speaker settings.
+	// A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
 	BgpSettings *LocalNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	// The gateway IP address to connect with.
 	GatewayAddress *string `pulumi:"gatewayAddress"`
@@ -183,11 +175,9 @@ type localNetworkGatewayArgs struct {
 
 // The set of arguments for constructing a LocalNetworkGateway resource.
 type LocalNetworkGatewayArgs struct {
-	// The list of string CIDRs representing the
-	// address spaces the gateway exposes.
+	// The list of string CIDRs representing the address spaces the gateway exposes.
 	AddressSpaces pulumi.StringArrayInput
-	// A `bgpSettings` block as defined below containing the
-	// Local Network Gateway's BGP speaker settings.
+	// A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
 	BgpSettings LocalNetworkGatewayBgpSettingsPtrInput
 	// The gateway IP address to connect with.
 	GatewayAddress pulumi.StringPtrInput
@@ -290,14 +280,12 @@ func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutputWithContext(ctx co
 	return o
 }
 
-// The list of string CIDRs representing the
-// address spaces the gateway exposes.
+// The list of string CIDRs representing the address spaces the gateway exposes.
 func (o LocalNetworkGatewayOutput) AddressSpaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringArrayOutput { return v.AddressSpaces }).(pulumi.StringArrayOutput)
 }
 
-// A `bgpSettings` block as defined below containing the
-// Local Network Gateway's BGP speaker settings.
+// A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
 func (o LocalNetworkGatewayOutput) BgpSettings() LocalNetworkGatewayBgpSettingsPtrOutput {
 	return o.ApplyT(func(v *LocalNetworkGateway) LocalNetworkGatewayBgpSettingsPtrOutput { return v.BgpSettings }).(LocalNetworkGatewayBgpSettingsPtrOutput)
 }

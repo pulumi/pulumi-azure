@@ -32,12 +32,12 @@ class CertificateOrderArgs:
         :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
-        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to `2048`.
+        :param pulumi.Input[int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A mapping of tags to assign to the resource.
-        :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`). Defaults to `1`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_renew is not None:
@@ -111,7 +111,7 @@ class CertificateOrderArgs:
     @pulumi.getter(name="keySize")
     def key_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Certificate key size.  Defaults to `2048`.
+        Certificate key size. Defaults to `2048`.
         """
         return pulumi.get(self, "key_size")
 
@@ -171,7 +171,7 @@ class CertificateOrderArgs:
     @pulumi.getter(name="validityInYears")
     def validity_in_years(self) -> Optional[pulumi.Input[int]]:
         """
-        Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        Duration in years (must be between `1` and `3`). Defaults to `1`.
         """
         return pulumi.get(self, "validity_in_years")
 
@@ -213,7 +213,7 @@ class _CertificateOrderState:
         :param pulumi.Input[str] expiration_time: Certificate expiration time.
         :param pulumi.Input[str] intermediate_thumbprint: Certificate thumbprint intermediate certificate.
         :param pulumi.Input[bool] is_private_key_external: Whether the private key is external or not.
-        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to `2048`.
+        :param pulumi.Input[int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
@@ -222,7 +222,7 @@ class _CertificateOrderState:
         :param pulumi.Input[str] signed_certificate_thumbprint: Certificate thumbprint for signed certificate.
         :param pulumi.Input[str] status: Current order status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A mapping of tags to assign to the resource.
-        :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`). Defaults to `1`.
         """
         if app_service_certificate_not_renewable_reasons is not None:
             pulumi.set(__self__, "app_service_certificate_not_renewable_reasons", app_service_certificate_not_renewable_reasons)
@@ -375,7 +375,7 @@ class _CertificateOrderState:
     @pulumi.getter(name="keySize")
     def key_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Certificate key size.  Defaults to `2048`.
+        Certificate key size. Defaults to `2048`.
         """
         return pulumi.get(self, "key_size")
 
@@ -483,7 +483,7 @@ class _CertificateOrderState:
     @pulumi.getter(name="validityInYears")
     def validity_in_years(self) -> Optional[pulumi.Input[int]]:
         """
-        Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        Duration in years (must be between `1` and `3`). Defaults to `1`.
         """
         return pulumi.get(self, "validity_in_years")
 
@@ -538,13 +538,13 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
-        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to `2048`.
+        :param pulumi.Input[int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A mapping of tags to assign to the resource.
-        :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`). Defaults to `1`.
         """
         ...
     @overload
@@ -677,7 +677,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_time: Certificate expiration time.
         :param pulumi.Input[str] intermediate_thumbprint: Certificate thumbprint intermediate certificate.
         :param pulumi.Input[bool] is_private_key_external: Whether the private key is external or not.
-        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to `2048`.
+        :param pulumi.Input[int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
@@ -686,7 +686,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] signed_certificate_thumbprint: Certificate thumbprint for signed certificate.
         :param pulumi.Input[str] status: Current order status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A mapping of tags to assign to the resource.
-        :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`). Defaults to `1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -789,7 +789,7 @@ class CertificateOrder(pulumi.CustomResource):
     @pulumi.getter(name="keySize")
     def key_size(self) -> pulumi.Output[Optional[int]]:
         """
-        Certificate key size.  Defaults to `2048`.
+        Certificate key size. Defaults to `2048`.
         """
         return pulumi.get(self, "key_size")
 
@@ -861,7 +861,7 @@ class CertificateOrder(pulumi.CustomResource):
     @pulumi.getter(name="validityInYears")
     def validity_in_years(self) -> pulumi.Output[Optional[int]]:
         """
-        Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        Duration in years (must be between `1` and `3`). Defaults to `1`.
         """
         return pulumi.get(self, "validity_in_years")
 

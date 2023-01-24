@@ -52,10 +52,10 @@ class StandardWebTestRequest(dict):
         """
         :param str url: The WebTest request URL.
         :param str body: The WebTest request body.
-        :param bool follow_redirects_enabled: Should the following of redirects be enabled?
+        :param bool follow_redirects_enabled: Should the following of redirects be enabled? Defaults to `true`.
         :param Sequence['StandardWebTestRequestHeaderArgs'] headers: One or more `header` blocks as defined above.
         :param str http_verb: Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
-        :param bool parse_dependent_requests_enabled: Should the parsing of dependend requests be enabled?
+        :param bool parse_dependent_requests_enabled: Should the parsing of dependend requests be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "url", url)
         if body is not None:
@@ -89,7 +89,7 @@ class StandardWebTestRequest(dict):
     @pulumi.getter(name="followRedirectsEnabled")
     def follow_redirects_enabled(self) -> Optional[bool]:
         """
-        Should the following of redirects be enabled?
+        Should the following of redirects be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "follow_redirects_enabled")
 
@@ -113,7 +113,7 @@ class StandardWebTestRequest(dict):
     @pulumi.getter(name="parseDependentRequestsEnabled")
     def parse_dependent_requests_enabled(self) -> Optional[bool]:
         """
-        Should the parsing of dependend requests be enabled?
+        Should the parsing of dependend requests be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "parse_dependent_requests_enabled")
 

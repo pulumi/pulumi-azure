@@ -165,8 +165,7 @@ import (
 type Extension struct {
 	pulumi.CustomResourceState
 
-	// Specifies if the platform deploys
-	// the latest minor version update to the `typeHandlerVersion` specified.
+	// Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrOutput `pulumi:"automaticUpgradeEnabled"`
@@ -174,23 +173,19 @@ type Extension struct {
 	FailureSuppressionEnabled pulumi.BoolPtrOutput `pulumi:"failureSuppressionEnabled"`
 	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The protectedSettings passed to the
-	// extension, like settings, these are specified as a JSON object in a string.
+	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings pulumi.StringPtrOutput `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
 	ProtectedSettingsFromKeyVault ExtensionProtectedSettingsFromKeyVaultPtrOutput `pulumi:"protectedSettingsFromKeyVault"`
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringOutput `pulumi:"publisher"`
-	// The settings passed to the extension, these are
-	// specified as a JSON object in a string.
+	// The settings passed to the extension, these are specified as a JSON object in a string.
 	Settings pulumi.StringPtrOutput `pulumi:"settings"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of extension, available types for a publisher can
-	// be found using the Azure CLI.
+	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Specifies the version of the extension to
-	// use, available versions can be found using the Azure CLI.
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringOutput `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
@@ -244,8 +239,7 @@ func GetExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Extension resources.
 type extensionState struct {
-	// Specifies if the platform deploys
-	// the latest minor version update to the `typeHandlerVersion` specified.
+	// Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
@@ -253,31 +247,26 @@ type extensionState struct {
 	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
 	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The protectedSettings passed to the
-	// extension, like settings, these are specified as a JSON object in a string.
+	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
 	ProtectedSettingsFromKeyVault *ExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher *string `pulumi:"publisher"`
-	// The settings passed to the extension, these are
-	// specified as a JSON object in a string.
+	// The settings passed to the extension, these are specified as a JSON object in a string.
 	Settings *string `pulumi:"settings"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of extension, available types for a publisher can
-	// be found using the Azure CLI.
+	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	Type *string `pulumi:"type"`
-	// Specifies the version of the extension to
-	// use, available versions can be found using the Azure CLI.
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 }
 
 type ExtensionState struct {
-	// Specifies if the platform deploys
-	// the latest minor version update to the `typeHandlerVersion` specified.
+	// Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
@@ -285,23 +274,19 @@ type ExtensionState struct {
 	FailureSuppressionEnabled pulumi.BoolPtrInput
 	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The protectedSettings passed to the
-	// extension, like settings, these are specified as a JSON object in a string.
+	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings pulumi.StringPtrInput
 	// A `protectedSettingsFromKeyVault` block as defined below.
 	ProtectedSettingsFromKeyVault ExtensionProtectedSettingsFromKeyVaultPtrInput
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringPtrInput
-	// The settings passed to the extension, these are
-	// specified as a JSON object in a string.
+	// The settings passed to the extension, these are specified as a JSON object in a string.
 	Settings pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The type of extension, available types for a publisher can
-	// be found using the Azure CLI.
+	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	Type pulumi.StringPtrInput
-	// Specifies the version of the extension to
-	// use, available versions can be found using the Azure CLI.
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringPtrInput
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created
 	VirtualMachineId pulumi.StringPtrInput
@@ -312,8 +297,7 @@ func (ExtensionState) ElementType() reflect.Type {
 }
 
 type extensionArgs struct {
-	// Specifies if the platform deploys
-	// the latest minor version update to the `typeHandlerVersion` specified.
+	// Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
@@ -321,23 +305,19 @@ type extensionArgs struct {
 	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
 	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The protectedSettings passed to the
-	// extension, like settings, these are specified as a JSON object in a string.
+	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
 	ProtectedSettingsFromKeyVault *ExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
-	// The settings passed to the extension, these are
-	// specified as a JSON object in a string.
+	// The settings passed to the extension, these are specified as a JSON object in a string.
 	Settings *string `pulumi:"settings"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of extension, available types for a publisher can
-	// be found using the Azure CLI.
+	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	Type string `pulumi:"type"`
-	// Specifies the version of the extension to
-	// use, available versions can be found using the Azure CLI.
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created
 	VirtualMachineId string `pulumi:"virtualMachineId"`
@@ -345,8 +325,7 @@ type extensionArgs struct {
 
 // The set of arguments for constructing a Extension resource.
 type ExtensionArgs struct {
-	// Specifies if the platform deploys
-	// the latest minor version update to the `typeHandlerVersion` specified.
+	// Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
@@ -354,23 +333,19 @@ type ExtensionArgs struct {
 	FailureSuppressionEnabled pulumi.BoolPtrInput
 	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The protectedSettings passed to the
-	// extension, like settings, these are specified as a JSON object in a string.
+	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings pulumi.StringPtrInput
 	// A `protectedSettingsFromKeyVault` block as defined below.
 	ProtectedSettingsFromKeyVault ExtensionProtectedSettingsFromKeyVaultPtrInput
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput
-	// The settings passed to the extension, these are
-	// specified as a JSON object in a string.
+	// The settings passed to the extension, these are specified as a JSON object in a string.
 	Settings pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The type of extension, available types for a publisher can
-	// be found using the Azure CLI.
+	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	Type pulumi.StringInput
-	// Specifies the version of the extension to
-	// use, available versions can be found using the Azure CLI.
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringInput
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created
 	VirtualMachineId pulumi.StringInput
@@ -463,8 +438,7 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
-// Specifies if the platform deploys
-// the latest minor version update to the `typeHandlerVersion` specified.
+// Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
 func (o ExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.BoolPtrOutput { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
@@ -484,8 +458,7 @@ func (o ExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The protectedSettings passed to the
-// extension, like settings, these are specified as a JSON object in a string.
+// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 func (o ExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
@@ -502,8 +475,7 @@ func (o ExtensionOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The settings passed to the extension, these are
-// specified as a JSON object in a string.
+// The settings passed to the extension, these are specified as a JSON object in a string.
 func (o ExtensionOutput) Settings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.Settings }).(pulumi.StringPtrOutput)
 }
@@ -513,14 +485,12 @@ func (o ExtensionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of extension, available types for a publisher can
-// be found using the Azure CLI.
+// The type of extension, available types for a publisher can be found using the Azure CLI.
 func (o ExtensionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Specifies the version of the extension to
-// use, available versions can be found using the Azure CLI.
+// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 func (o ExtensionOutput) TypeHandlerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.TypeHandlerVersion }).(pulumi.StringOutput)
 }

@@ -68,8 +68,7 @@ export class GlobalSchema extends pulumi.CustomResource {
     }
 
     /**
-     * The Name of the API Management Service where the API exists. Changing this forces a
-     * new resource to be created.
+     * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
     public readonly apiManagementName!: pulumi.Output<string>;
     /**
@@ -77,8 +76,7 @@ export class GlobalSchema extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The Name of the Resource Group in which the API Management Service exists. Changing
-     * this forces a new resource to be created.
+     * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -147,8 +145,7 @@ export class GlobalSchema extends pulumi.CustomResource {
  */
 export interface GlobalSchemaState {
     /**
-     * The Name of the API Management Service where the API exists. Changing this forces a
-     * new resource to be created.
+     * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
     apiManagementName?: pulumi.Input<string>;
     /**
@@ -156,8 +153,7 @@ export interface GlobalSchemaState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The Name of the Resource Group in which the API Management Service exists. Changing
-     * this forces a new resource to be created.
+     * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -179,8 +175,7 @@ export interface GlobalSchemaState {
  */
 export interface GlobalSchemaArgs {
     /**
-     * The Name of the API Management Service where the API exists. Changing this forces a
-     * new resource to be created.
+     * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
     apiManagementName: pulumi.Input<string>;
     /**
@@ -188,8 +183,7 @@ export interface GlobalSchemaArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The Name of the Resource Group in which the API Management Service exists. Changing
-     * this forces a new resource to be created.
+     * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -109,14 +109,14 @@ public final class EnterpriseDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `module` block as defined below.
+     * A `module` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="modules")
     private @Nullable Output<List<EnterpriseDatabaseModuleArgs>> modules;
 
     /**
-     * @return A `module` block as defined below.
+     * @return A `module` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<EnterpriseDatabaseModuleArgs>>> modules() {
@@ -378,7 +378,7 @@ public final class EnterpriseDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param modules A `module` block as defined below.
+         * @param modules A `module` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class EnterpriseDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param modules A `module` block as defined below.
+         * @param modules A `module` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class EnterpriseDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param modules A `module` block as defined below.
+         * @param modules A `module` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

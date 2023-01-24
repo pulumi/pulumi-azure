@@ -12,9 +12,15 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class ScaleSetOsProfileLinuxConfigSshKeyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Public SSH Key which should be written to the `path` defined above.
+        /// </summary>
         [Input("keyData")]
         public Input<string>? KeyData { get; set; }
 
+        /// <summary>
+        /// The path of the destination file on the virtual machine
+        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 

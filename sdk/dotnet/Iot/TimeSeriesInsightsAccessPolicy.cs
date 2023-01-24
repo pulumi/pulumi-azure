@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the principal in Azure Active Directory.
+        /// The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
         /// </summary>
         [Output("principalObjectId")]
         public Output<string> PrincipalObjectId { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The id of the principal in Azure Active Directory.
+        /// The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
         /// </summary>
         [Input("principalObjectId", required: true)]
         public Input<string> PrincipalObjectId { get; set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The id of the principal in Azure Active Directory.
+        /// The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
         /// </summary>
         [Input("principalObjectId")]
         public Input<string>? PrincipalObjectId { get; set; }

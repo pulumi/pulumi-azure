@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class LinuxVirtualMachineScaleSetSourceImageReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the offer of the image used to create the virtual machines.
+        /// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
         /// </summary>
         [Input("offer", required: true)]
         public Input<string> Offer { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the publisher of the image used to create the virtual machines.
+        /// Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;

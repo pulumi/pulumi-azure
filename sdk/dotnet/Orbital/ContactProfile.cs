@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Orbital
         public Output<string?> EventHubUri { get; private set; } = null!;
 
         /// <summary>
-        /// A list of spacecraft links. A `links` block as defined below.
+        /// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("links")]
         public Output<ImmutableArray<Outputs.ContactProfileLink>> Links { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<Inputs.ContactProfileLinkArgs>? _links;
 
         /// <summary>
-        /// A list of spacecraft links. A `links` block as defined below.
+        /// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ContactProfileLinkArgs> Links
         {
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<Inputs.ContactProfileLinkGetArgs>? _links;
 
         /// <summary>
-        /// A list of spacecraft links. A `links` block as defined below.
+        /// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ContactProfileLinkGetArgs> Links
         {

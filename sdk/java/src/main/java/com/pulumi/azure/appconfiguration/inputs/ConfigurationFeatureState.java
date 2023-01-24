@@ -74,14 +74,14 @@ public final class ConfigurationFeatureState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+     * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+     * @return The label of the App Configuration Feature. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> label() {
@@ -285,7 +285,7 @@ public final class ConfigurationFeatureState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param label The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+         * @param label The label of the App Configuration Feature. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class ConfigurationFeatureState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param label The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+         * @param label The label of the App Configuration Feature. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

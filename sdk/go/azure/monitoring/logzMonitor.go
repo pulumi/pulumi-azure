@@ -82,7 +82,7 @@ type LogzMonitor struct {
 	LogzOrganizationId pulumi.StringOutput `pulumi:"logzOrganizationId"`
 	// The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LogzMonitorPlanOutput `pulumi:"plan"`
 	// The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -90,7 +90,7 @@ type LogzMonitor struct {
 	SingleSignOnUrl pulumi.StringOutput `pulumi:"singleSignOnUrl"`
 	// A mapping of tags which should be assigned to the logz Monitor.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A `user` block as defined below.
+	// A `user` block as defined below. Changing this forces a new resource to be created.
 	User LogzMonitorUserOutput `pulumi:"user"`
 }
 
@@ -144,7 +144,7 @@ type logzMonitorState struct {
 	LogzOrganizationId *string `pulumi:"logzOrganizationId"`
 	// The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
 	Name *string `pulumi:"name"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *LogzMonitorPlan `pulumi:"plan"`
 	// The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -152,7 +152,7 @@ type logzMonitorState struct {
 	SingleSignOnUrl *string `pulumi:"singleSignOnUrl"`
 	// A mapping of tags which should be assigned to the logz Monitor.
 	Tags map[string]string `pulumi:"tags"`
-	// A `user` block as defined below.
+	// A `user` block as defined below. Changing this forces a new resource to be created.
 	User *LogzMonitorUser `pulumi:"user"`
 }
 
@@ -169,7 +169,7 @@ type LogzMonitorState struct {
 	LogzOrganizationId pulumi.StringPtrInput
 	// The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
 	Name pulumi.StringPtrInput
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LogzMonitorPlanPtrInput
 	// The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -177,7 +177,7 @@ type LogzMonitorState struct {
 	SingleSignOnUrl pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the logz Monitor.
 	Tags pulumi.StringMapInput
-	// A `user` block as defined below.
+	// A `user` block as defined below. Changing this forces a new resource to be created.
 	User LogzMonitorUserPtrInput
 }
 
@@ -196,13 +196,13 @@ type logzMonitorArgs struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
 	Name *string `pulumi:"name"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LogzMonitorPlan `pulumi:"plan"`
 	// The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the logz Monitor.
 	Tags map[string]string `pulumi:"tags"`
-	// A `user` block as defined below.
+	// A `user` block as defined below. Changing this forces a new resource to be created.
 	User LogzMonitorUser `pulumi:"user"`
 }
 
@@ -218,13 +218,13 @@ type LogzMonitorArgs struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
 	Name pulumi.StringPtrInput
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LogzMonitorPlanInput
 	// The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags which should be assigned to the logz Monitor.
 	Tags pulumi.StringMapInput
-	// A `user` block as defined below.
+	// A `user` block as defined below. Changing this forces a new resource to be created.
 	User LogzMonitorUserInput
 }
 
@@ -345,7 +345,7 @@ func (o LogzMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogzMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `plan` block as defined below.
+// A `plan` block as defined below. Changing this forces a new resource to be created.
 func (o LogzMonitorOutput) Plan() LogzMonitorPlanOutput {
 	return o.ApplyT(func(v *LogzMonitor) LogzMonitorPlanOutput { return v.Plan }).(LogzMonitorPlanOutput)
 }
@@ -365,7 +365,7 @@ func (o LogzMonitorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogzMonitor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A `user` block as defined below.
+// A `user` block as defined below. Changing this forces a new resource to be created.
 func (o LogzMonitorOutput) User() LogzMonitorUserOutput {
 	return o.ApplyT(func(v *LogzMonitor) LogzMonitorUserOutput { return v.User }).(LogzMonitorUserOutput)
 }

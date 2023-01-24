@@ -83,7 +83,7 @@ export class NetworkManagerSubscriptionConnection extends pulumi.CustomResource 
      */
     public readonly networkManagerId!: pulumi.Output<string>;
     /**
-     * Specifies the ID of the target Subscription.
+     * Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
      */
     public readonly subscriptionId!: pulumi.Output<string>;
 
@@ -145,7 +145,7 @@ export interface NetworkManagerSubscriptionConnectionState {
      */
     networkManagerId?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the target Subscription.
+     * Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
      */
     subscriptionId?: pulumi.Input<string>;
 }
@@ -167,7 +167,7 @@ export interface NetworkManagerSubscriptionConnectionArgs {
      */
     networkManagerId: pulumi.Input<string>;
     /**
-     * Specifies the ID of the target Subscription.
+     * Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
      */
     subscriptionId: pulumi.Input<string>;
 }

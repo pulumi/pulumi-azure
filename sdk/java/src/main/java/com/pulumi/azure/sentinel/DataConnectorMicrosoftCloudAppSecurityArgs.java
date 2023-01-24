@@ -77,14 +77,14 @@ public final class DataConnectorMicrosoftCloudAppSecurityArgs extends com.pulumi
     }
 
     /**
-     * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+     * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+     * @return The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -204,7 +204,7 @@ public final class DataConnectorMicrosoftCloudAppSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param tenantId The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+         * @param tenantId The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DataConnectorMicrosoftCloudAppSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param tenantId The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+         * @param tenantId The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
          * 
          * @return builder
          * 

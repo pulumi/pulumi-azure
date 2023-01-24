@@ -91,7 +91,7 @@ type DataConnectorMicrosoftCloudAppSecurity struct {
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -135,7 +135,7 @@ type dataConnectorMicrosoftCloudAppSecurityState struct {
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -148,7 +148,7 @@ type DataConnectorMicrosoftCloudAppSecurityState struct {
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -165,7 +165,7 @@ type dataConnectorMicrosoftCloudAppSecurityArgs struct {
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -179,7 +179,7 @@ type DataConnectorMicrosoftCloudAppSecurityArgs struct {
 	LogAnalyticsWorkspaceId pulumi.StringInput
 	// The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -290,7 +290,7 @@ func (o DataConnectorMicrosoftCloudAppSecurityOutput) Name() pulumi.StringOutput
 	return o.ApplyT(func(v *DataConnectorMicrosoftCloudAppSecurity) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 func (o DataConnectorMicrosoftCloudAppSecurityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorMicrosoftCloudAppSecurity) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

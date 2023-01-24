@@ -80,7 +80,7 @@ export class SourceControlSlot extends pulumi.CustomResource {
      */
     public readonly branch!: pulumi.Output<string>;
     /**
-     * A `githubActionConfiguration` block as detailed below.
+     * A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
      */
     public readonly githubActionConfiguration!: pulumi.Output<outputs.appservice.SourceControlSlotGithubActionConfiguration | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface SourceControlSlotState {
      */
     branch?: pulumi.Input<string>;
     /**
-     * A `githubActionConfiguration` block as detailed below.
+     * A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
      */
     githubActionConfiguration?: pulumi.Input<inputs.appservice.SourceControlSlotGithubActionConfiguration>;
     /**
@@ -215,7 +215,7 @@ export interface SourceControlSlotArgs {
      */
     branch?: pulumi.Input<string>;
     /**
-     * A `githubActionConfiguration` block as detailed below.
+     * A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
      */
     githubActionConfiguration?: pulumi.Input<inputs.appservice.SourceControlSlotGithubActionConfiguration>;
     /**

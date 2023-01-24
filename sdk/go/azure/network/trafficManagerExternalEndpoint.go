@@ -86,21 +86,17 @@ type TrafficManagerExternalEndpoint struct {
 	CustomHeaders TrafficManagerExternalEndpointCustomHeaderArrayOutput `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Specifies the Azure location of the Endpoint,
-	// this must be specified for Profiles using the `Performance` routing method.
+	// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation pulumi.StringOutput `pulumi:"endpointLocation"`
 	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayOutput `pulumi:"geoMappings"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be
-	// specified for Profiles using the `Priority` traffic routing method. Supports
-	// values between 1 and 1000, with no Endpoints sharing the same value. If
-	// omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
-	// One or more `subnet` blocks as defined below
+	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 	Subnets TrafficManagerExternalEndpointSubnetArrayOutput `pulumi:"subnets"`
 	// The FQDN DNS name of the target.
 	Target pulumi.StringOutput `pulumi:"target"`
@@ -147,21 +143,17 @@ type trafficManagerExternalEndpointState struct {
 	CustomHeaders []TrafficManagerExternalEndpointCustomHeader `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the Azure location of the Endpoint,
-	// this must be specified for Profiles using the `Performance` routing method.
+	// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation *string `pulumi:"endpointLocation"`
 	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings []string `pulumi:"geoMappings"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be
-	// specified for Profiles using the `Priority` traffic routing method. Supports
-	// values between 1 and 1000, with no Endpoints sharing the same value. If
-	// omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority *int `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId *string `pulumi:"profileId"`
-	// One or more `subnet` blocks as defined below
+	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 	Subnets []TrafficManagerExternalEndpointSubnet `pulumi:"subnets"`
 	// The FQDN DNS name of the target.
 	Target *string `pulumi:"target"`
@@ -174,21 +166,17 @@ type TrafficManagerExternalEndpointState struct {
 	CustomHeaders TrafficManagerExternalEndpointCustomHeaderArrayInput
 	// Is the endpoint enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Specifies the Azure location of the Endpoint,
-	// this must be specified for Profiles using the `Performance` routing method.
+	// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation pulumi.StringPtrInput
 	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayInput
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the priority of this Endpoint, this must be
-	// specified for Profiles using the `Priority` traffic routing method. Supports
-	// values between 1 and 1000, with no Endpoints sharing the same value. If
-	// omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority pulumi.IntPtrInput
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringPtrInput
-	// One or more `subnet` blocks as defined below
+	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 	Subnets TrafficManagerExternalEndpointSubnetArrayInput
 	// The FQDN DNS name of the target.
 	Target pulumi.StringPtrInput
@@ -205,21 +193,17 @@ type trafficManagerExternalEndpointArgs struct {
 	CustomHeaders []TrafficManagerExternalEndpointCustomHeader `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the Azure location of the Endpoint,
-	// this must be specified for Profiles using the `Performance` routing method.
+	// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation *string `pulumi:"endpointLocation"`
 	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings []string `pulumi:"geoMappings"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be
-	// specified for Profiles using the `Priority` traffic routing method. Supports
-	// values between 1 and 1000, with no Endpoints sharing the same value. If
-	// omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority *int `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId string `pulumi:"profileId"`
-	// One or more `subnet` blocks as defined below
+	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 	Subnets []TrafficManagerExternalEndpointSubnet `pulumi:"subnets"`
 	// The FQDN DNS name of the target.
 	Target string `pulumi:"target"`
@@ -233,21 +217,17 @@ type TrafficManagerExternalEndpointArgs struct {
 	CustomHeaders TrafficManagerExternalEndpointCustomHeaderArrayInput
 	// Is the endpoint enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Specifies the Azure location of the Endpoint,
-	// this must be specified for Profiles using the `Performance` routing method.
+	// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation pulumi.StringPtrInput
 	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayInput
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the priority of this Endpoint, this must be
-	// specified for Profiles using the `Priority` traffic routing method. Supports
-	// values between 1 and 1000, with no Endpoints sharing the same value. If
-	// omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority pulumi.IntPtrInput
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringInput
-	// One or more `subnet` blocks as defined below
+	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 	Subnets TrafficManagerExternalEndpointSubnetArrayInput
 	// The FQDN DNS name of the target.
 	Target pulumi.StringInput
@@ -354,8 +334,7 @@ func (o TrafficManagerExternalEndpointOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrafficManagerExternalEndpoint) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the Azure location of the Endpoint,
-// this must be specified for Profiles using the `Performance` routing method.
+// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
 func (o TrafficManagerExternalEndpointOutput) EndpointLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficManagerExternalEndpoint) pulumi.StringOutput { return v.EndpointLocation }).(pulumi.StringOutput)
 }
@@ -370,10 +349,7 @@ func (o TrafficManagerExternalEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficManagerExternalEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the priority of this Endpoint, this must be
-// specified for Profiles using the `Priority` traffic routing method. Supports
-// values between 1 and 1000, with no Endpoints sharing the same value. If
-// omitted the value will be computed in order of creation.
+// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 func (o TrafficManagerExternalEndpointOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficManagerExternalEndpoint) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
@@ -383,7 +359,7 @@ func (o TrafficManagerExternalEndpointOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficManagerExternalEndpoint) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
-// One or more `subnet` blocks as defined below
+// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 func (o TrafficManagerExternalEndpointOutput) Subnets() TrafficManagerExternalEndpointSubnetArrayOutput {
 	return o.ApplyT(func(v *TrafficManagerExternalEndpoint) TrafficManagerExternalEndpointSubnetArrayOutput {
 		return v.Subnets

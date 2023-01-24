@@ -148,7 +148,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled.  Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled.  Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled.  Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

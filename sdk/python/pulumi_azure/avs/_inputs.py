@@ -94,7 +94,7 @@ class PrivateCloudManagementClusterArgs:
         """
         :param pulumi.Input[int] size: The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: A list of hosts in the management cluster.
-        :param pulumi.Input[int] id: The ID of the  management cluster.
+        :param pulumi.Input[int] id: The ID of the management cluster.
         """
         pulumi.set(__self__, "size", size)
         if hosts is not None:
@@ -130,7 +130,7 @@ class PrivateCloudManagementClusterArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[int]]:
         """
-        The ID of the  management cluster.
+        The ID of the management cluster.
         """
         return pulumi.get(self, "id")
 

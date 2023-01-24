@@ -34,14 +34,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `certificate_policy` block as defined below.
+     * A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="certificatePolicy")
     private @Nullable Output<CertificateCertificatePolicyArgs> certificatePolicy;
 
     /**
-     * @return A `certificate_policy` block as defined below.
+     * @return A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<CertificateCertificatePolicyArgs>> certificatePolicy() {
@@ -143,7 +143,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificatePolicy A `certificate_policy` block as defined below.
+         * @param certificatePolicy A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificatePolicy A `certificate_policy` block as defined below.
+         * @param certificatePolicy A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

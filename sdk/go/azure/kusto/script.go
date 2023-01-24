@@ -136,7 +136,7 @@ type Script struct {
 	SasToken pulumi.StringPtrOutput `pulumi:"sasToken"`
 	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
 	ScriptContent pulumi.StringPtrOutput `pulumi:"scriptContent"`
-	// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
 
@@ -195,7 +195,7 @@ type scriptState struct {
 	SasToken *string `pulumi:"sasToken"`
 	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
 	ScriptContent *string `pulumi:"scriptContent"`
-	// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url *string `pulumi:"url"`
 }
 
@@ -212,7 +212,7 @@ type ScriptState struct {
 	SasToken pulumi.StringPtrInput
 	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
 	ScriptContent pulumi.StringPtrInput
-	// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url pulumi.StringPtrInput
 }
 
@@ -233,7 +233,7 @@ type scriptArgs struct {
 	SasToken *string `pulumi:"sasToken"`
 	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
 	ScriptContent *string `pulumi:"scriptContent"`
-	// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url *string `pulumi:"url"`
 }
 
@@ -251,7 +251,7 @@ type ScriptArgs struct {
 	SasToken pulumi.StringPtrInput
 	// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
 	ScriptContent pulumi.StringPtrInput
-	// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url pulumi.StringPtrInput
 }
 
@@ -372,7 +372,7 @@ func (o ScriptOutput) ScriptContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.ScriptContent }).(pulumi.StringPtrOutput)
 }
 
-// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 func (o ScriptOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }

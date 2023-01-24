@@ -19,8 +19,7 @@ public final class VirtualNetworkGatewayBgpSettings {
      */
     private @Nullable Integer asn;
     /**
-     * @return The weight added to routes which have been learned
-     * through BGP peering. Valid values can be between `0` and `100`.
+     * @return The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
      * 
      */
     private @Nullable Integer peerWeight;
@@ -39,8 +38,7 @@ public final class VirtualNetworkGatewayBgpSettings {
         return Optional.ofNullable(this.asn);
     }
     /**
-     * @return The weight added to routes which have been learned
-     * through BGP peering. Valid values can be between `0` and `100`.
+     * @return The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
      * 
      */
     public Optional<Integer> peerWeight() {

@@ -258,7 +258,7 @@ type LoadBalancerFrontendIpConfiguration struct {
 	InboundNatRules []string `pulumi:"inboundNatRules"`
 	// The list of IDs of load balancing rules that use this frontend IP.
 	LoadBalancerRules []string `pulumi:"loadBalancerRules"`
-	// Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+	// Specifies the name of the frontend IP configuration.
 	Name string `pulumi:"name"`
 	// The list of IDs outbound rules that use this frontend IP.
 	OutboundRules []string `pulumi:"outboundRules"`
@@ -274,7 +274,7 @@ type LoadBalancerFrontendIpConfiguration struct {
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
 	// The ID of the Subnet which should be associated with the IP Configuration.
 	SubnetId *string `pulumi:"subnetId"`
-	// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+	// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -298,7 +298,7 @@ type LoadBalancerFrontendIpConfigurationArgs struct {
 	InboundNatRules pulumi.StringArrayInput `pulumi:"inboundNatRules"`
 	// The list of IDs of load balancing rules that use this frontend IP.
 	LoadBalancerRules pulumi.StringArrayInput `pulumi:"loadBalancerRules"`
-	// Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+	// Specifies the name of the frontend IP configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The list of IDs outbound rules that use this frontend IP.
 	OutboundRules pulumi.StringArrayInput `pulumi:"outboundRules"`
@@ -314,7 +314,7 @@ type LoadBalancerFrontendIpConfigurationArgs struct {
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
 	// The ID of the Subnet which should be associated with the IP Configuration.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+	// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
@@ -391,7 +391,7 @@ func (o LoadBalancerFrontendIpConfigurationOutput) LoadBalancerRules() pulumi.St
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.LoadBalancerRules }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+// Specifies the name of the frontend IP configuration.
 func (o LoadBalancerFrontendIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -431,7 +431,7 @@ func (o LoadBalancerFrontendIpConfigurationOutput) SubnetId() pulumi.StringPtrOu
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
 func (o LoadBalancerFrontendIpConfigurationOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }

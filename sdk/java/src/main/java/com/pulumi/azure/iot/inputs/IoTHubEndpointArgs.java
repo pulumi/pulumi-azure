@@ -167,14 +167,14 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+     * @return The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      * 
      */
     public Output<String> name() {
@@ -458,7 +458,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+         * @param name The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+         * @param name The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
          * 
          * @return builder
          * 

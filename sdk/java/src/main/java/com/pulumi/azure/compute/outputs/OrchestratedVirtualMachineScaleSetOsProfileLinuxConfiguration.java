@@ -31,7 +31,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
      */
     private String adminUsername;
     /**
-     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String computerNamePrefix;
@@ -84,7 +84,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         return this.adminUsername;
     }
     /**
-     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> computerNamePrefix() {

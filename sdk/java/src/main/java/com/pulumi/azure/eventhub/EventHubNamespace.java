@@ -117,32 +117,28 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dedicatedClusterId);
     }
     /**
-     * The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     @Export(name="defaultPrimaryConnectionString", type=String.class, parameters={})
     private Output<String> defaultPrimaryConnectionString;
 
     /**
-     * @return The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * @return The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     public Output<String> defaultPrimaryConnectionString() {
         return this.defaultPrimaryConnectionString;
     }
     /**
-     * The alias of the primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      * 
      */
     @Export(name="defaultPrimaryConnectionStringAlias", type=String.class, parameters={})
     private Output<String> defaultPrimaryConnectionStringAlias;
 
     /**
-     * @return The alias of the primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * @return The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      * 
      */
     public Output<String> defaultPrimaryConnectionStringAlias() {
@@ -163,32 +159,28 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
         return this.defaultPrimaryKey;
     }
     /**
-     * The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     @Export(name="defaultSecondaryConnectionString", type=String.class, parameters={})
     private Output<String> defaultSecondaryConnectionString;
 
     /**
-     * @return The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * @return The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     public Output<String> defaultSecondaryConnectionString() {
         return this.defaultSecondaryConnectionString;
     }
     /**
-     * The alias of the secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      * 
      */
     @Export(name="defaultSecondaryConnectionStringAlias", type=String.class, parameters={})
     private Output<String> defaultSecondaryConnectionStringAlias;
 
     /**
-     * @return The alias of the secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * @return The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      * 
      */
     public Output<String> defaultSecondaryConnectionStringAlias() {

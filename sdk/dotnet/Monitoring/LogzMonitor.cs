@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.LogzMonitorPlan> Plan { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `user` block as defined below.
+        /// A `user` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("user")]
         public Output<Outputs.LogzMonitorUser> User { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan", required: true)]
         public Input<Inputs.LogzMonitorPlanArgs> Plan { get; set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `user` block as defined below.
+        /// A `user` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("user", required: true)]
         public Input<Inputs.LogzMonitorUserArgs> User { get; set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.LogzMonitorPlanGetArgs>? Plan { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `user` block as defined below.
+        /// A `user` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("user")]
         public Input<Inputs.LogzMonitorUserGetArgs>? User { get; set; }

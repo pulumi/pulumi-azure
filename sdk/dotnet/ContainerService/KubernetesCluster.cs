@@ -189,6 +189,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterIngressApplicationGateway?> IngressApplicationGateway { get; private set; } = null!;
 
         /// <summary>
+        /// A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        /// </summary>
+        [Output("keyManagementService")]
+        public Output<Outputs.KubernetesClusterKeyManagementService?> KeyManagementService { get; private set; } = null!;
+
+        /// <summary>
         /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         /// </summary>
         [Output("keyVaultSecretsProvider")]
@@ -219,7 +225,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<Outputs.KubernetesClusterKubeConfig>> KubeConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        /// A `kubelet_identity` block as defined below.
         /// </summary>
         [Output("kubeletIdentity")]
         public Output<Outputs.KubernetesClusterKubeletIdentity> KubeletIdentity { get; private set; } = null!;
@@ -273,7 +279,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.KubernetesClusterNetworkProfile> NetworkProfile { get; private set; } = null!;
@@ -578,13 +584,19 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterIngressApplicationGatewayArgs>? IngressApplicationGateway { get; set; }
 
         /// <summary>
+        /// A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        /// </summary>
+        [Input("keyManagementService")]
+        public Input<Inputs.KubernetesClusterKeyManagementServiceArgs>? KeyManagementService { get; set; }
+
+        /// <summary>
         /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         /// </summary>
         [Input("keyVaultSecretsProvider")]
         public Input<Inputs.KubernetesClusterKeyVaultSecretsProviderArgs>? KeyVaultSecretsProvider { get; set; }
 
         /// <summary>
-        /// A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        /// A `kubelet_identity` block as defined below.
         /// </summary>
         [Input("kubeletIdentity")]
         public Input<Inputs.KubernetesClusterKubeletIdentityArgs>? KubeletIdentity { get; set; }
@@ -638,7 +650,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileArgs>? NetworkProfile { get; set; }
@@ -898,6 +910,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterIngressApplicationGatewayGetArgs>? IngressApplicationGateway { get; set; }
 
         /// <summary>
+        /// A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        /// </summary>
+        [Input("keyManagementService")]
+        public Input<Inputs.KubernetesClusterKeyManagementServiceGetArgs>? KeyManagementService { get; set; }
+
+        /// <summary>
         /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         /// </summary>
         [Input("keyVaultSecretsProvider")]
@@ -968,7 +986,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        /// A `kubelet_identity` block as defined below.
         /// </summary>
         [Input("kubeletIdentity")]
         public Input<Inputs.KubernetesClusterKubeletIdentityGetArgs>? KubeletIdentity { get; set; }
@@ -1022,7 +1040,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileGetArgs>? NetworkProfile { get; set; }

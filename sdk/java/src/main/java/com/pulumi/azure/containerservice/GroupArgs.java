@@ -40,14 +40,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `diagnostics` block as documented below.
+     * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diagnostics")
     private @Nullable Output<GroupDiagnosticsArgs> diagnostics;
 
     /**
-     * @return A `diagnostics` block as documented below.
+     * @return A `diagnostics` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<GroupDiagnosticsArgs>> diagnostics() {
@@ -55,14 +55,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `dns_config` block as documented below.
+     * A `dns_config` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dnsConfig")
     private @Nullable Output<GroupDnsConfigArgs> dnsConfig;
 
     /**
-     * @return A `dns_config` block as documented below.
+     * @return A `dns_config` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<GroupDnsConfigArgs>> dnsConfig() {
@@ -403,7 +403,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diagnostics A `diagnostics` block as documented below.
+         * @param diagnostics A `diagnostics` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diagnostics A `diagnostics` block as documented below.
+         * @param diagnostics A `diagnostics` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig A `dns_config` block as documented below.
+         * @param dnsConfig A `dns_config` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig A `dns_config` block as documented below.
+         * @param dnsConfig A `dns_config` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

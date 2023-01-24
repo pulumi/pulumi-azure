@@ -122,7 +122,7 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether this scheduled query rule is enabled.  Default is `true`.
+     * Whether this scheduled query rule is enabled. Default is `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -211,7 +211,7 @@ export interface ScheduledQueryRulesLogState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this scheduled query rule is enabled.  Default is `true`.
+     * Whether this scheduled query rule is enabled. Default is `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -253,7 +253,7 @@ export interface ScheduledQueryRulesLogArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this scheduled query rule is enabled.  Default is `true`.
+     * Whether this scheduled query rule is enabled. Default is `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

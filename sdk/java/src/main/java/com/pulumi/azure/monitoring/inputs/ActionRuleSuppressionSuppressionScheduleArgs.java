@@ -48,14 +48,14 @@ public final class ActionRuleSuppressionSuppressionScheduleArgs extends com.pulu
     }
 
     /**
-     * specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+     * specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
      * 
      */
     @Import(name="recurrenceWeeklies")
     private @Nullable Output<List<String>> recurrenceWeeklies;
 
     /**
-     * @return specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+     * @return specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
      * 
      */
     public Optional<Output<List<String>>> recurrenceWeeklies() {
@@ -157,7 +157,7 @@ public final class ActionRuleSuppressionSuppressionScheduleArgs extends com.pulu
         }
 
         /**
-         * @param recurrenceWeeklies specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+         * @param recurrenceWeeklies specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ActionRuleSuppressionSuppressionScheduleArgs extends com.pulu
         }
 
         /**
-         * @param recurrenceWeeklies specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+         * @param recurrenceWeeklies specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ActionRuleSuppressionSuppressionScheduleArgs extends com.pulu
         }
 
         /**
-         * @param recurrenceWeeklies specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+         * @param recurrenceWeeklies specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
          * 
          * @return builder
          * 

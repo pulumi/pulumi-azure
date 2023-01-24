@@ -35,7 +35,7 @@ public final class ApplicationGatewaySslProfile {
      */
     private @Nullable List<String> trustedClientCertificateNames;
     /**
-     * @return Should client certificate issuer DN be verified?  Defaults to `false`.
+     * @return Should client certificate issuer DN be verified? Defaults to `false`.
      * 
      */
     private @Nullable Boolean verifyClientCertIssuerDn;
@@ -70,7 +70,7 @@ public final class ApplicationGatewaySslProfile {
         return this.trustedClientCertificateNames == null ? List.of() : this.trustedClientCertificateNames;
     }
     /**
-     * @return Should client certificate issuer DN be verified?  Defaults to `false`.
+     * @return Should client certificate issuer DN be verified? Defaults to `false`.
      * 
      */
     public Optional<Boolean> verifyClientCertIssuerDn() {

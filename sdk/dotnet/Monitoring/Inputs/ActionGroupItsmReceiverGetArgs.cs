@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> ConnectionId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the ITSM receiver. Changing this forces a new resource to be created.
+        /// The name of the ITSM receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -40,28 +40,14 @@ class VirtualNetworkGatewayArgs:
                an active-active gateway requires exactly two `ip_configuration` blocks whereas
                an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network
-               gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-               `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
-               `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
-               `generation` arguments.
-               A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
-               SKU is only supported by an `ExpressRoute` gateway.
+        :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-        :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
-               will be created. An active-active gateway requires a `HighPerformance` or an
-               `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
-               Defaults to `false`.
+        :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         :param pulumi.Input['VirtualNetworkGatewayCustomRouteArgs'] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
-        :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
-               through which outbound Internet traffic from the virtual network in which the
-               gateway is created will be routed (*forced tunnelling*). Refer to the
-               [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-               If not specified, forced tunnelling is disabled.
+        :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
-        :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
-               for this Virtual Network Gateway. Defaults to `false`.
+        :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
@@ -132,13 +118,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
         """
-        Configuration of the size and capacity of the virtual network
-        gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-        `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
-        `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
-        `generation` arguments.
-        A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
-        SKU is only supported by an `ExpressRoute` gateway.
+        Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         """
         return pulumi.get(self, "sku")
 
@@ -162,10 +142,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter(name="activeActive")
     def active_active(self) -> Optional[pulumi.Input[bool]]:
         """
-        If `true`, an active-active Virtual Network Gateway
-        will be created. An active-active gateway requires a `HighPerformance` or an
-        `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
-        Defaults to `false`.
+        If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         """
         return pulumi.get(self, "active_active")
 
@@ -201,11 +178,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter(name="defaultLocalNetworkGatewayId")
     def default_local_network_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the local network gateway
-        through which outbound Internet traffic from the virtual network in which the
-        gateway is created will be routed (*forced tunnelling*). Refer to the
-        [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-        If not specified, forced tunnelling is disabled.
+        The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         """
         return pulumi.get(self, "default_local_network_gateway_id")
 
@@ -229,8 +202,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter(name="enableBgp")
     def enable_bgp(self) -> Optional[pulumi.Input[bool]]:
         """
-        If `true`, BGP (Border Gateway Protocol) will be enabled
-        for this Virtual Network Gateway. Defaults to `false`.
+        If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         """
         return pulumi.get(self, "enable_bgp")
 
@@ -345,20 +317,12 @@ class _VirtualNetworkGatewayState:
                  vpn_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkGateway resources.
-        :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
-               will be created. An active-active gateway requires a `HighPerformance` or an
-               `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
-               Defaults to `false`.
+        :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         :param pulumi.Input['VirtualNetworkGatewayCustomRouteArgs'] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
-        :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
-               through which outbound Internet traffic from the virtual network in which the
-               gateway is created will be routed (*forced tunnelling*). Refer to the
-               [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-               If not specified, forced tunnelling is disabled.
+        :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
-        :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
-               for this Virtual Network Gateway. Defaults to `false`.
+        :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIpConfigurationArgs']]] ip_configurations: One, two or three `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block,
@@ -368,13 +332,7 @@ class _VirtualNetworkGatewayState:
         :param pulumi.Input[str] name: The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network
-               gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-               `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
-               `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
-               `generation` arguments.
-               A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
-               SKU is only supported by an `ExpressRoute` gateway.
+        :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
@@ -419,10 +377,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter(name="activeActive")
     def active_active(self) -> Optional[pulumi.Input[bool]]:
         """
-        If `true`, an active-active Virtual Network Gateway
-        will be created. An active-active gateway requires a `HighPerformance` or an
-        `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
-        Defaults to `false`.
+        If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         """
         return pulumi.get(self, "active_active")
 
@@ -458,11 +413,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter(name="defaultLocalNetworkGatewayId")
     def default_local_network_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the local network gateway
-        through which outbound Internet traffic from the virtual network in which the
-        gateway is created will be routed (*forced tunnelling*). Refer to the
-        [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-        If not specified, forced tunnelling is disabled.
+        The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         """
         return pulumi.get(self, "default_local_network_gateway_id")
 
@@ -486,8 +437,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter(name="enableBgp")
     def enable_bgp(self) -> Optional[pulumi.Input[bool]]:
         """
-        If `true`, BGP (Border Gateway Protocol) will be enabled
-        for this Virtual Network Gateway. Defaults to `false`.
+        If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         """
         return pulumi.get(self, "enable_bgp")
 
@@ -574,13 +524,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Configuration of the size and capacity of the virtual network
-        gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-        `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
-        `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
-        `generation` arguments.
-        A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
-        SKU is only supported by an `ExpressRoute` gateway.
+        Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         """
         return pulumi.get(self, "sku")
 
@@ -741,20 +685,12 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
-               will be created. An active-active gateway requires a `HighPerformance` or an
-               `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
-               Defaults to `false`.
+        :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayCustomRouteArgs']] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
-        :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
-               through which outbound Internet traffic from the virtual network in which the
-               gateway is created will be routed (*forced tunnelling*). Refer to the
-               [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-               If not specified, forced tunnelling is disabled.
+        :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
-        :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
-               for this Virtual Network Gateway. Defaults to `false`.
+        :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]] ip_configurations: One, two or three `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block,
@@ -764,13 +700,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network
-               gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-               `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
-               `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
-               `generation` arguments.
-               A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
-               SKU is only supported by an `ExpressRoute` gateway.
+        :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
@@ -961,20 +891,12 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
-               will be created. An active-active gateway requires a `HighPerformance` or an
-               `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
-               Defaults to `false`.
+        :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayCustomRouteArgs']] custom_route: A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
-        :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
-               through which outbound Internet traffic from the virtual network in which the
-               gateway is created will be routed (*forced tunnelling*). Refer to the
-               [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-               If not specified, forced tunnelling is disabled.
+        :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
-        :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
-               for this Virtual Network Gateway. Defaults to `false`.
+        :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]] ip_configurations: One, two or three `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block,
@@ -984,13 +906,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network
-               gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-               `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
-               `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
-               `generation` arguments.
-               A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
-               SKU is only supported by an `ExpressRoute` gateway.
+        :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
@@ -1023,10 +939,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter(name="activeActive")
     def active_active(self) -> pulumi.Output[bool]:
         """
-        If `true`, an active-active Virtual Network Gateway
-        will be created. An active-active gateway requires a `HighPerformance` or an
-        `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
-        Defaults to `false`.
+        If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         """
         return pulumi.get(self, "active_active")
 
@@ -1050,11 +963,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter(name="defaultLocalNetworkGatewayId")
     def default_local_network_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the local network gateway
-        through which outbound Internet traffic from the virtual network in which the
-        gateway is created will be routed (*forced tunnelling*). Refer to the
-        [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-        If not specified, forced tunnelling is disabled.
+        The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         """
         return pulumi.get(self, "default_local_network_gateway_id")
 
@@ -1070,8 +979,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter(name="enableBgp")
     def enable_bgp(self) -> pulumi.Output[bool]:
         """
-        If `true`, BGP (Border Gateway Protocol) will be enabled
-        for this Virtual Network Gateway. Defaults to `false`.
+        If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         """
         return pulumi.get(self, "enable_bgp")
 
@@ -1130,13 +1038,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
         """
-        Configuration of the size and capacity of the virtual network
-        gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-        `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
-        `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
-        `generation` arguments.
-        A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
-        SKU is only supported by an `ExpressRoute` gateway.
+        Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         """
         return pulumi.get(self, "sku")
 

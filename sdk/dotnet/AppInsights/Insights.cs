@@ -162,8 +162,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Application Insights component. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -304,8 +303,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Application Insights component. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -447,8 +445,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Application Insights component. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

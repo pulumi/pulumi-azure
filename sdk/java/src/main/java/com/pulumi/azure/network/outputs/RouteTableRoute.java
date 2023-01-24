@@ -17,7 +17,7 @@ public final class RouteTableRoute {
      */
     private String addressPrefix;
     /**
-     * @return The name of the route. Changing this forces a new resource to be created.
+     * @return The name of the route.
      * 
      */
     private String name;
@@ -41,7 +41,7 @@ public final class RouteTableRoute {
         return this.addressPrefix;
     }
     /**
-     * @return The name of the route. Changing this forces a new resource to be created.
+     * @return The name of the route.
      * 
      */
     public String name() {

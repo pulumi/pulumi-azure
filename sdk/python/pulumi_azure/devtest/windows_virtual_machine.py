@@ -771,7 +771,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["notes"] = notes
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -787,6 +787,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["username"] = username
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["unique_identifier"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WindowsVirtualMachine, __self__).__init__(
             'azure:devtest/windowsVirtualMachine:WindowsVirtualMachine',
             resource_name,

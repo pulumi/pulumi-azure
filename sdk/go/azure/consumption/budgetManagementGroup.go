@@ -123,7 +123,7 @@ type BudgetManagementGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `notification` blocks as defined below.
 	Notifications BudgetManagementGroupNotificationArrayOutput `pulumi:"notifications"`
-	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
 	TimeGrain pulumi.StringPtrOutput `pulumi:"timeGrain"`
 	// A `timePeriod` block as defined below.
 	TimePeriod BudgetManagementGroupTimePeriodOutput `pulumi:"timePeriod"`
@@ -182,7 +182,7 @@ type budgetManagementGroupState struct {
 	Name *string `pulumi:"name"`
 	// One or more `notification` blocks as defined below.
 	Notifications []BudgetManagementGroupNotification `pulumi:"notifications"`
-	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
 	TimeGrain *string `pulumi:"timeGrain"`
 	// A `timePeriod` block as defined below.
 	TimePeriod *BudgetManagementGroupTimePeriod `pulumi:"timePeriod"`
@@ -201,7 +201,7 @@ type BudgetManagementGroupState struct {
 	Name pulumi.StringPtrInput
 	// One or more `notification` blocks as defined below.
 	Notifications BudgetManagementGroupNotificationArrayInput
-	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
 	TimeGrain pulumi.StringPtrInput
 	// A `timePeriod` block as defined below.
 	TimePeriod BudgetManagementGroupTimePeriodPtrInput
@@ -224,7 +224,7 @@ type budgetManagementGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more `notification` blocks as defined below.
 	Notifications []BudgetManagementGroupNotification `pulumi:"notifications"`
-	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
 	TimeGrain *string `pulumi:"timeGrain"`
 	// A `timePeriod` block as defined below.
 	TimePeriod BudgetManagementGroupTimePeriod `pulumi:"timePeriod"`
@@ -244,7 +244,7 @@ type BudgetManagementGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more `notification` blocks as defined below.
 	Notifications BudgetManagementGroupNotificationArrayInput
-	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
 	TimeGrain pulumi.StringPtrInput
 	// A `timePeriod` block as defined below.
 	TimePeriod BudgetManagementGroupTimePeriodInput
@@ -367,7 +367,7 @@ func (o BudgetManagementGroupOutput) Notifications() BudgetManagementGroupNotifi
 	return o.ApplyT(func(v *BudgetManagementGroup) BudgetManagementGroupNotificationArrayOutput { return v.Notifications }).(BudgetManagementGroupNotificationArrayOutput)
 }
 
-// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
 func (o BudgetManagementGroupOutput) TimeGrain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetManagementGroup) pulumi.StringPtrOutput { return v.TimeGrain }).(pulumi.StringPtrOutput)
 }

@@ -72,13 +72,13 @@ namespace Pulumi.Azure.EventHub
         public Output<ImmutableArray<Outputs.EventGridTopicInboundIpRule>> InboundIpRules { get; private set; } = null!;
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below.
+        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("inputMappingDefaultValues")]
         public Output<Outputs.EventGridTopicInputMappingDefaultValues?> InputMappingDefaultValues { get; private set; } = null!;
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below.
+        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("inputMappingFields")]
         public Output<Outputs.EventGridTopicInputMappingFields?> InputMappingFields { get; private set; } = null!;
@@ -207,13 +207,13 @@ namespace Pulumi.Azure.EventHub
         }
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below.
+        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingDefaultValues")]
         public Input<Inputs.EventGridTopicInputMappingDefaultValuesArgs>? InputMappingDefaultValues { get; set; }
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below.
+        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingFields")]
         public Input<Inputs.EventGridTopicInputMappingFieldsArgs>? InputMappingFields { get; set; }
@@ -299,13 +299,13 @@ namespace Pulumi.Azure.EventHub
         }
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below.
+        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingDefaultValues")]
         public Input<Inputs.EventGridTopicInputMappingDefaultValuesGetArgs>? InputMappingDefaultValues { get; set; }
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below.
+        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingFields")]
         public Input<Inputs.EventGridTopicInputMappingFieldsGetArgs>? InputMappingFields { get; set; }

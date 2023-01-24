@@ -841,14 +841,14 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.vtpmEnabled);
     }
     /**
-     * One or more `winrm_listener` blocks as defined below.
+     * One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="winrmListeners", type=List.class, parameters={WindowsVirtualMachineWinrmListener.class})
     private Output</* @Nullable */ List<WindowsVirtualMachineWinrmListener>> winrmListeners;
 
     /**
-     * @return One or more `winrm_listener` blocks as defined below.
+     * @return One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<WindowsVirtualMachineWinrmListener>>> winrmListeners() {

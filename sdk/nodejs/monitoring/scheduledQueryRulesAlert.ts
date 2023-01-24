@@ -67,11 +67,11 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether this scheduled query rule is enabled.  Default is `true`.
+     * Whether this scheduled query rule is enabled. Default is `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+     * Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
      */
     public readonly frequency!: pulumi.Output<number>;
     /**
@@ -103,11 +103,11 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+     * Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
      */
     public readonly throttling!: pulumi.Output<number | undefined>;
     /**
-     * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+     * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
      */
     public readonly timeWindow!: pulumi.Output<number>;
     /**
@@ -217,11 +217,11 @@ export interface ScheduledQueryRulesAlertState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this scheduled query rule is enabled.  Default is `true`.
+     * Whether this scheduled query rule is enabled. Default is `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+     * Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
      */
     frequency?: pulumi.Input<number>;
     /**
@@ -253,11 +253,11 @@ export interface ScheduledQueryRulesAlertState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+     * Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
      */
     throttling?: pulumi.Input<number>;
     /**
-     * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+     * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
      */
     timeWindow?: pulumi.Input<number>;
     /**
@@ -292,11 +292,11 @@ export interface ScheduledQueryRulesAlertArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this scheduled query rule is enabled.  Default is `true`.
+     * Whether this scheduled query rule is enabled. Default is `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+     * Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
      */
     frequency: pulumi.Input<number>;
     /**
@@ -328,11 +328,11 @@ export interface ScheduledQueryRulesAlertArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+     * Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
      */
     throttling?: pulumi.Input<number>;
     /**
-     * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+     * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
      */
     timeWindow: pulumi.Input<number>;
     /**

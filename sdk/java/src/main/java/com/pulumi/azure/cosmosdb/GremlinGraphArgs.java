@@ -44,14 +44,14 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `conflict_resolution_policy` blocks as defined below.
+     * A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="conflictResolutionPolicy")
     private @Nullable Output<GremlinGraphConflictResolutionPolicyArgs> conflictResolutionPolicy;
 
     /**
-     * @return A `conflict_resolution_policy` blocks as defined below.
+     * @return A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<GremlinGraphConflictResolutionPolicyArgs>> conflictResolutionPolicy() {
@@ -259,7 +259,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below.
+         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below.
+         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

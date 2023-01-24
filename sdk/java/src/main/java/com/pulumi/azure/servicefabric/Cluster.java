@@ -204,14 +204,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterEndpoint;
     }
     /**
-     * A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+     * A `diagnostics_config` block as defined below.
      * 
      */
     @Export(name="diagnosticsConfig", type=ClusterDiagnosticsConfig.class, parameters={})
     private Output</* @Nullable */ ClusterDiagnosticsConfig> diagnosticsConfig;
 
     /**
-     * @return A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `diagnostics_config` block as defined below.
      * 
      */
     public Output<Optional<ClusterDiagnosticsConfig>> diagnosticsConfig() {

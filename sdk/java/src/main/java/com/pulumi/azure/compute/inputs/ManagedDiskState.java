@@ -185,14 +185,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="hyperVGeneration")
     private @Nullable Output<String> hyperVGeneration;
 
     /**
-     * @return The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+     * @return The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> hyperVGeneration() {
@@ -305,14 +305,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+     * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      * 
      */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
     /**
-     * @return Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+     * @return Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      * 
      */
     public Optional<Output<String>> osType() {
@@ -365,14 +365,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="securityType")
     private @Nullable Output<String> securityType;
 
     /**
-     * @return Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+     * @return Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> securityType() {
@@ -395,14 +395,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
+     * URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceUri")
     private @Nullable Output<String> sourceUri;
 
     /**
-     * @return URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
+     * @return URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceUri() {
@@ -410,14 +410,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
+     * The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountId")
     private @Nullable Output<String> storageAccountId;
 
     /**
-     * @return The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
+     * @return The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -802,7 +802,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hyperVGeneration The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+         * @param hyperVGeneration The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -813,7 +813,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hyperVGeneration The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+         * @param hyperVGeneration The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -970,7 +970,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osType Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+         * @param osType Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
          * 
          * @return builder
          * 
@@ -981,7 +981,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osType Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+         * @param osType Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
          * 
          * @return builder
          * 
@@ -1054,7 +1054,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityType Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+         * @param securityType Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1065,7 +1065,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityType Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+         * @param securityType Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1096,7 +1096,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceUri URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
+         * @param sourceUri URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1107,7 +1107,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceUri URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
+         * @param sourceUri URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1117,7 +1117,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountId The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
+         * @param storageAccountId The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1128,7 +1128,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountId The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
+         * @param storageAccountId The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

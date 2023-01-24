@@ -13,7 +13,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class HadoopClusterRolesEdgeNodeInstallScriptActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the install script action. Changing this forces a new resource to be created.
+        /// The name of the install script action.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public Input<string>? Parameters { get; set; }
 
         /// <summary>
-        /// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        /// The URI pointing to the script to run during the installation of the edge node.
         /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;

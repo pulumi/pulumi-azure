@@ -128,7 +128,7 @@ type DatasetBlobStorage struct {
 	FolderPath pulumi.StringPtrOutput `pulumi:"folderPath"`
 	// The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `storageAccount` block as defined below.
+	// A `storageAccount` block as defined below. Changing this forces a new resource to be created.
 	StorageAccount DatasetBlobStorageStorageAccountOutput `pulumi:"storageAccount"`
 }
 
@@ -182,7 +182,7 @@ type datasetBlobStorageState struct {
 	FolderPath *string `pulumi:"folderPath"`
 	// The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
 	Name *string `pulumi:"name"`
-	// A `storageAccount` block as defined below.
+	// A `storageAccount` block as defined below. Changing this forces a new resource to be created.
 	StorageAccount *DatasetBlobStorageStorageAccount `pulumi:"storageAccount"`
 }
 
@@ -199,7 +199,7 @@ type DatasetBlobStorageState struct {
 	FolderPath pulumi.StringPtrInput
 	// The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
 	Name pulumi.StringPtrInput
-	// A `storageAccount` block as defined below.
+	// A `storageAccount` block as defined below. Changing this forces a new resource to be created.
 	StorageAccount DatasetBlobStorageStorageAccountPtrInput
 }
 
@@ -218,7 +218,7 @@ type datasetBlobStorageArgs struct {
 	FolderPath *string `pulumi:"folderPath"`
 	// The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
 	Name *string `pulumi:"name"`
-	// A `storageAccount` block as defined below.
+	// A `storageAccount` block as defined below. Changing this forces a new resource to be created.
 	StorageAccount DatasetBlobStorageStorageAccount `pulumi:"storageAccount"`
 }
 
@@ -234,7 +234,7 @@ type DatasetBlobStorageArgs struct {
 	FolderPath pulumi.StringPtrInput
 	// The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
 	Name pulumi.StringPtrInput
-	// A `storageAccount` block as defined below.
+	// A `storageAccount` block as defined below. Changing this forces a new resource to be created.
 	StorageAccount DatasetBlobStorageStorageAccountInput
 }
 
@@ -355,7 +355,7 @@ func (o DatasetBlobStorageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatasetBlobStorage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `storageAccount` block as defined below.
+// A `storageAccount` block as defined below. Changing this forces a new resource to be created.
 func (o DatasetBlobStorageOutput) StorageAccount() DatasetBlobStorageStorageAccountOutput {
 	return o.ApplyT(func(v *DatasetBlobStorage) DatasetBlobStorageStorageAccountOutput { return v.StorageAccount }).(DatasetBlobStorageStorageAccountOutput)
 }

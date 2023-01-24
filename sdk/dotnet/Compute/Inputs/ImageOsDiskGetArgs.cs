@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class ImageOsDiskGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the URI in Azure storage of the blob that you want to use to create the image.
+        /// Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("blobUri")]
         public Input<string>? BlobUri { get; set; }

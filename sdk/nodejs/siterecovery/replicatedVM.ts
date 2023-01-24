@@ -206,7 +206,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
     }
 
     /**
-     * One or more `managedDisk` block as defined below.
+     * One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly managedDisks!: pulumi.Output<outputs.siterecovery.ReplicatedVMManagedDisk[] | undefined>;
     /**
@@ -349,7 +349,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
  */
 export interface ReplicatedVMState {
     /**
-     * One or more `managedDisk` block as defined below.
+     * One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
      */
     managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
     /**
@@ -415,7 +415,7 @@ export interface ReplicatedVMState {
  */
 export interface ReplicatedVMArgs {
     /**
-     * One or more `managedDisk` block as defined below.
+     * One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
      */
     managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
     /**

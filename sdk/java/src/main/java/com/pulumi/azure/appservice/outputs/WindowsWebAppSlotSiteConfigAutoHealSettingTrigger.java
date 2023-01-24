@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
     /**
-     * @return The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+     * @return The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
      * 
      */
     private @Nullable Integer privateMemoryKb;
@@ -38,7 +38,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
 
     private WindowsWebAppSlotSiteConfigAutoHealSettingTrigger() {}
     /**
-     * @return The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+     * @return The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
      * 
      */
     public Optional<Integer> privateMemoryKb() {

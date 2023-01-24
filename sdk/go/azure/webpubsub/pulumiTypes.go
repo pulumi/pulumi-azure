@@ -15,14 +15,9 @@ type HubEventHandler struct {
 	Auth *HubEventHandlerAuth `pulumi:"auth"`
 	// Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
 	SystemEvents []string `pulumi:"systemEvents"`
-	// The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-	// available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-	// comes in. Example: `http://example.com/api/{hub}/{event}`.
+	// The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
 	UrlTemplate string `pulumi:"urlTemplate"`
-	// Specify the matching event names. There are 3 kind of patterns supported:
-	// * `*` matches any event name
-	// * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-	// * The single event name, for example `event1`, it matches `event1`.
+	// Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
 	UserEventPattern *string `pulumi:"userEventPattern"`
 }
 
@@ -42,14 +37,9 @@ type HubEventHandlerArgs struct {
 	Auth HubEventHandlerAuthPtrInput `pulumi:"auth"`
 	// Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
 	SystemEvents pulumi.StringArrayInput `pulumi:"systemEvents"`
-	// The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-	// available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-	// comes in. Example: `http://example.com/api/{hub}/{event}`.
+	// The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
 	UrlTemplate pulumi.StringInput `pulumi:"urlTemplate"`
-	// Specify the matching event names. There are 3 kind of patterns supported:
-	// * `*` matches any event name
-	// * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-	// * The single event name, for example `event1`, it matches `event1`.
+	// Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
 	UserEventPattern pulumi.StringPtrInput `pulumi:"userEventPattern"`
 }
 
@@ -114,17 +104,12 @@ func (o HubEventHandlerOutput) SystemEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HubEventHandler) []string { return v.SystemEvents }).(pulumi.StringArrayOutput)
 }
 
-// The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-// available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-// comes in. Example: `http://example.com/api/{hub}/{event}`.
+// The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
 func (o HubEventHandlerOutput) UrlTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v HubEventHandler) string { return v.UrlTemplate }).(pulumi.StringOutput)
 }
 
-// Specify the matching event names. There are 3 kind of patterns supported:
-// * `*` matches any event name
-// * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-// * The single event name, for example `event1`, it matches `event1`.
+// Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
 func (o HubEventHandlerOutput) UserEventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HubEventHandler) *string { return v.UserEventPattern }).(pulumi.StringPtrOutput)
 }

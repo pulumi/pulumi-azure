@@ -139,7 +139,7 @@ type SparkCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles SparkClusterRolesOutput `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile SparkClusterSecurityProfilePtrOutput `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
 	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
@@ -231,7 +231,7 @@ type sparkClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles *SparkClusterRoles `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *SparkClusterSecurityProfile `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
 	SshEndpoint *string `pulumi:"sshEndpoint"`
@@ -277,7 +277,7 @@ type SparkClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
 	Roles SparkClusterRolesPtrInput
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile SparkClusterSecurityProfilePtrInput
 	// The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
 	SshEndpoint pulumi.StringPtrInput
@@ -325,7 +325,7 @@ type sparkClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles SparkClusterRoles `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *SparkClusterSecurityProfile `pulumi:"securityProfile"`
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 *SparkClusterStorageAccountGen2 `pulumi:"storageAccountGen2"`
@@ -368,7 +368,7 @@ type SparkClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
 	Roles SparkClusterRolesInput
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile SparkClusterSecurityProfilePtrInput
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 SparkClusterStorageAccountGen2PtrInput
@@ -543,7 +543,7 @@ func (o SparkClusterOutput) Roles() SparkClusterRolesOutput {
 	return o.ApplyT(func(v *SparkCluster) SparkClusterRolesOutput { return v.Roles }).(SparkClusterRolesOutput)
 }
 
-// A `securityProfile` block as defined below.
+// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 func (o SparkClusterOutput) SecurityProfile() SparkClusterSecurityProfilePtrOutput {
 	return o.ApplyT(func(v *SparkCluster) SparkClusterSecurityProfilePtrOutput { return v.SecurityProfile }).(SparkClusterSecurityProfilePtrOutput)
 }

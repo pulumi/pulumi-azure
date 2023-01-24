@@ -332,14 +332,14 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
         return this.certificateDataBase64;
     }
     /**
-     * A `certificate_policy` block as defined below.
+     * A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="certificatePolicy", type=CertifiateCertificatePolicy.class, parameters={})
     private Output<CertifiateCertificatePolicy> certificatePolicy;
 
     /**
-     * @return A `certificate_policy` block as defined below.
+     * @return A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<CertifiateCertificatePolicy> certificatePolicy() {

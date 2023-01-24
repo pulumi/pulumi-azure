@@ -169,7 +169,7 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public readonly roles!: pulumi.Output<outputs.hdinsight.KafkaClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly securityProfile!: pulumi.Output<outputs.hdinsight.KafkaClusterSecurityProfile | undefined>;
     /**
@@ -356,7 +356,7 @@ export interface KafkaClusterState {
      */
     roles?: pulumi.Input<inputs.hdinsight.KafkaClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     securityProfile?: pulumi.Input<inputs.hdinsight.KafkaClusterSecurityProfile>;
     /**
@@ -449,7 +449,7 @@ export interface KafkaClusterArgs {
      */
     roles: pulumi.Input<inputs.hdinsight.KafkaClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     securityProfile?: pulumi.Input<inputs.hdinsight.KafkaClusterSecurityProfile>;
     /**

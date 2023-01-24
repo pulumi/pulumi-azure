@@ -50,14 +50,14 @@ public final class RulesEngineRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the rule. Changing this forces a new resource to be created.
+     * The name of the rule.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the rule. Changing this forces a new resource to be created.
+     * @return The name of the rule.
      * 
      */
     public Output<String> name() {
@@ -159,7 +159,7 @@ public final class RulesEngineRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the rule. Changing this forces a new resource to be created.
+         * @param name The name of the rule.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class RulesEngineRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the rule. Changing this forces a new resource to be created.
+         * @param name The name of the rule.
          * 
          * @return builder
          * 

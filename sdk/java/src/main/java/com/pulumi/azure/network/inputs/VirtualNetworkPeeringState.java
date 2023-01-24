@@ -17,14 +17,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     public static final VirtualNetworkPeeringState Empty = new VirtualNetworkPeeringState();
 
     /**
-     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+     * Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
      * 
      */
     @Import(name="allowForwardedTraffic")
     private @Nullable Output<Boolean> allowForwardedTraffic;
 
     /**
-     * @return Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+     * @return Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> allowForwardedTraffic() {
@@ -77,14 +77,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+     * The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="remoteVirtualNetworkId")
     private @Nullable Output<String> remoteVirtualNetworkId;
 
     /**
-     * @return The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+     * @return The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> remoteVirtualNetworkId() {
@@ -92,16 +92,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-     * created.
+     * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-     * created.
+     * @return The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -109,24 +107,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Controls if remote gateways can be used on
-     * the local virtual network. If the flag is set to `true`, and
-     * `allow_gateway_transit` on the remote peering is also `true`, virtual network will
-     * use gateways of remote virtual network for transit. Only one peering can
-     * have this flag set to `true`. This flag cannot be set if virtual network
-     * already has a gateway. Defaults to `false`.
+     * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
      */
     @Import(name="useRemoteGateways")
     private @Nullable Output<Boolean> useRemoteGateways;
 
     /**
-     * @return Controls if remote gateways can be used on
-     * the local virtual network. If the flag is set to `true`, and
-     * `allow_gateway_transit` on the remote peering is also `true`, virtual network will
-     * use gateways of remote virtual network for transit. Only one peering can
-     * have this flag set to `true`. This flag cannot be set if virtual network
-     * already has a gateway. Defaults to `false`.
+     * @return Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> useRemoteGateways() {
@@ -180,7 +168,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowForwardedTraffic Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+         * @param allowForwardedTraffic Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -191,7 +179,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowForwardedTraffic Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+         * @param allowForwardedTraffic Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -264,7 +252,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param remoteVirtualNetworkId The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+         * @param remoteVirtualNetworkId The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -275,7 +263,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param remoteVirtualNetworkId The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+         * @param remoteVirtualNetworkId The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -285,8 +273,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-         * created.
+         * @param resourceGroupName The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -297,8 +284,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-         * created.
+         * @param resourceGroupName The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -308,12 +294,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param useRemoteGateways Controls if remote gateways can be used on
-         * the local virtual network. If the flag is set to `true`, and
-         * `allow_gateway_transit` on the remote peering is also `true`, virtual network will
-         * use gateways of remote virtual network for transit. Only one peering can
-         * have this flag set to `true`. This flag cannot be set if virtual network
-         * already has a gateway. Defaults to `false`.
+         * @param useRemoteGateways Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -324,12 +305,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param useRemoteGateways Controls if remote gateways can be used on
-         * the local virtual network. If the flag is set to `true`, and
-         * `allow_gateway_transit` on the remote peering is also `true`, virtual network will
-         * use gateways of remote virtual network for transit. Only one peering can
-         * have this flag set to `true`. This flag cannot be set if virtual network
-         * already has a gateway. Defaults to `false`.
+         * @param useRemoteGateways Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Network
         public Output<string> RoutingState { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the Route Server. The only possible value is `Standard`.
+        /// The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU of the Route Server. The only possible value is `Standard`.
+        /// The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? RoutingState { get; set; }
 
         /// <summary>
-        /// The SKU of the Route Server. The only possible value is `Standard`.
+        /// The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

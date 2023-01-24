@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey {
     /**
-     * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+     * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
      * 
      */
     private String publicKey;
     /**
-     * @return The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+     * @return The Username for which this Public SSH Key should be configured.
      * 
      */
     private String username;
 
     private OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey() {}
     /**
-     * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+     * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
      * 
      */
     public String publicKey() {
         return this.publicKey;
     }
     /**
-     * @return The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+     * @return The Username for which this Public SSH Key should be configured.
      * 
      */
     public String username() {

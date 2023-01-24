@@ -1674,7 +1674,7 @@ type SpringCloudConnectionAuthentication struct {
 	Secret *string `pulumi:"secret"`
 	// Subscription ID for `userAssignedIdentity`. `subscriptionId` and `clientId` should be either both specified or both not specified.
 	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+	// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -1702,7 +1702,7 @@ type SpringCloudConnectionAuthenticationArgs struct {
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
 	// Subscription ID for `userAssignedIdentity`. `subscriptionId` and `clientId` should be either both specified or both not specified.
 	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+	// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1813,7 +1813,7 @@ func (o SpringCloudConnectionAuthenticationOutput) SubscriptionId() pulumi.Strin
 	return o.ApplyT(func(v SpringCloudConnectionAuthentication) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
 func (o SpringCloudConnectionAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudConnectionAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1902,7 +1902,7 @@ func (o SpringCloudConnectionAuthenticationPtrOutput) SubscriptionId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
 func (o SpringCloudConnectionAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudConnectionAuthentication) *string {
 		if v == nil {
@@ -4504,7 +4504,7 @@ type SpringCloudServiceConfigServerGitSettingRepository struct {
 	HttpBasicAuth *SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth `pulumi:"httpBasicAuth"`
 	// The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
 	Label *string `pulumi:"label"`
-	// A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+	// A name to identify on the Git repository, required only if repos exists.
 	Name string `pulumi:"name"`
 	// An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
 	Patterns []string `pulumi:"patterns"`
@@ -4532,7 +4532,7 @@ type SpringCloudServiceConfigServerGitSettingRepositoryArgs struct {
 	HttpBasicAuth SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrInput `pulumi:"httpBasicAuth"`
 	// The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+	// A name to identify on the Git repository, required only if repos exists.
 	Name pulumi.StringInput `pulumi:"name"`
 	// An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
 	Patterns pulumi.StringArrayInput `pulumi:"patterns"`
@@ -4607,7 +4607,7 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryOutput) Label() pulumi
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepository) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+// A name to identify on the Git repository, required only if repos exists.
 func (o SpringCloudServiceConfigServerGitSettingRepositoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepository) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5207,7 +5207,7 @@ type SpringCloudServiceNetwork struct {
 	AppSubnetId string `pulumi:"appSubnetId"`
 	// A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
 	CidrRanges []string `pulumi:"cidrRanges"`
-	// Ingress read time out in seconds. Changing this forces a new resource to be created.
+	// Ingress read time out in seconds.
 	ReadTimeoutSeconds *int `pulumi:"readTimeoutSeconds"`
 	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
 	ServiceRuntimeNetworkResourceGroup *string `pulumi:"serviceRuntimeNetworkResourceGroup"`
@@ -5233,7 +5233,7 @@ type SpringCloudServiceNetworkArgs struct {
 	AppSubnetId pulumi.StringInput `pulumi:"appSubnetId"`
 	// A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
 	CidrRanges pulumi.StringArrayInput `pulumi:"cidrRanges"`
-	// Ingress read time out in seconds. Changing this forces a new resource to be created.
+	// Ingress read time out in seconds.
 	ReadTimeoutSeconds pulumi.IntPtrInput `pulumi:"readTimeoutSeconds"`
 	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
 	ServiceRuntimeNetworkResourceGroup pulumi.StringPtrInput `pulumi:"serviceRuntimeNetworkResourceGroup"`
@@ -5333,7 +5333,7 @@ func (o SpringCloudServiceNetworkOutput) CidrRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpringCloudServiceNetwork) []string { return v.CidrRanges }).(pulumi.StringArrayOutput)
 }
 
-// Ingress read time out in seconds. Changing this forces a new resource to be created.
+// Ingress read time out in seconds.
 func (o SpringCloudServiceNetworkOutput) ReadTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpringCloudServiceNetwork) *int { return v.ReadTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -5402,7 +5402,7 @@ func (o SpringCloudServiceNetworkPtrOutput) CidrRanges() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Ingress read time out in seconds. Changing this forces a new resource to be created.
+// Ingress read time out in seconds.
 func (o SpringCloudServiceNetworkPtrOutput) ReadTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpringCloudServiceNetwork) *int {
 		if v == nil {

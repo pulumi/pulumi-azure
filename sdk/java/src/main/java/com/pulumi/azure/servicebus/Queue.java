@@ -233,18 +233,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxDeliveryCount);
     }
     /**
-     * Integer value which controls the maximum size of
-     * a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     @Export(name="maxMessageSizeInKilobytes", type=Integer.class, parameters={})
     private Output<Integer> maxMessageSizeInKilobytes;
 
     /**
-     * @return Integer value which controls the maximum size of
-     * a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     public Output<Integer> maxMessageSizeInKilobytes() {

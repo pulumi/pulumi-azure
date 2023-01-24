@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool? IpForwarding;
         /// <summary>
-        /// Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
+        /// Specifies the name of the network interface configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>

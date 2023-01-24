@@ -33,14 +33,14 @@ public final class PrivateCloudManagementClusterArgs extends com.pulumi.resource
     }
 
     /**
-     * The ID of the  management cluster.
+     * The ID of the management cluster.
      * 
      */
     @Import(name="id")
     private @Nullable Output<Integer> id;
 
     /**
-     * @return The ID of the  management cluster.
+     * @return The ID of the management cluster.
      * 
      */
     public Optional<Output<Integer>> id() {
@@ -120,7 +120,7 @@ public final class PrivateCloudManagementClusterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param id The ID of the  management cluster.
+         * @param id The ID of the management cluster.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PrivateCloudManagementClusterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param id The ID of the  management cluster.
+         * @param id The ID of the management cluster.
          * 
          * @return builder
          * 

@@ -71,32 +71,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/localNetworkGateway:LocalNetworkGateway")
 public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
     /**
-     * The list of string CIDRs representing the
-     * address spaces the gateway exposes.
+     * The list of string CIDRs representing the address spaces the gateway exposes.
      * 
      */
     @Export(name="addressSpaces", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> addressSpaces;
 
     /**
-     * @return The list of string CIDRs representing the
-     * address spaces the gateway exposes.
+     * @return The list of string CIDRs representing the address spaces the gateway exposes.
      * 
      */
     public Output<Optional<List<String>>> addressSpaces() {
         return Codegen.optional(this.addressSpaces);
     }
     /**
-     * A `bgp_settings` block as defined below containing the
-     * Local Network Gateway&#39;s BGP speaker settings.
+     * A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
     @Export(name="bgpSettings", type=LocalNetworkGatewayBgpSettings.class, parameters={})
     private Output</* @Nullable */ LocalNetworkGatewayBgpSettings> bgpSettings;
 
     /**
-     * @return A `bgp_settings` block as defined below containing the
-     * Local Network Gateway&#39;s BGP speaker settings.
+     * @return A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
     public Output<Optional<LocalNetworkGatewayBgpSettings>> bgpSettings() {

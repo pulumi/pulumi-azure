@@ -47,14 +47,14 @@ public final class FrontdoorBackendPoolLoadBalancingArgs extends com.pulumi.reso
     }
 
     /**
-     * Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
+     * Specifies the name of the Load Balancer.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Load Balancer.
      * 
      */
     public Output<String> name() {
@@ -162,7 +162,7 @@ public final class FrontdoorBackendPoolLoadBalancingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Load Balancer.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class FrontdoorBackendPoolLoadBalancingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Load Balancer.
          * 
          * @return builder
          * 

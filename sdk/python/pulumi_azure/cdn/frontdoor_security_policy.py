@@ -135,54 +135,6 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Security Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", resource_group_name=example_resource_group.name)
-        example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy",
-            resource_group_name=example_resource_group.name,
-            sku_name=example_frontdoor_profile.sku_name,
-            enabled=True,
-            mode="Prevention",
-            redirect_url="https://www.contoso.com",
-            custom_block_response_status_code=403,
-            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
-            custom_rules=[azure.cdn.FrontdoorFirewallPolicyCustomRuleArgs(
-                name="Rule1",
-                enabled=True,
-                priority=1,
-                rate_limit_duration_in_minutes=1,
-                rate_limit_threshold=10,
-                type="MatchRule",
-                action="Block",
-                match_conditions=[azure.cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs(
-                    match_variable="RemoteAddr",
-                    operator="IPMatch",
-                    negation_condition=False,
-                    match_values=[
-                        "192.168.1.0/24",
-                        "10.0.1.0/24",
-                    ],
-                )],
-            )])
-        example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            security_policies=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesArgs(
-                firewall=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs(
-                    cdn_frontdoor_firewall_policy_id=example_frontdoor_firewall_policy.id,
-                    association=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs(
-                        domains=[azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs(
-                            cdn_frontdoor_domain_id=azurerm_cdn_frontdoor_custom_domain["domain1"]["id"],
-                        )],
-                    ),
-                ),
-            ))
-        ```
-
         ## Import
 
         Front Door Security Policies can be imported using the `resource id`, e.g.
@@ -205,54 +157,6 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Security Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", resource_group_name=example_resource_group.name)
-        example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy",
-            resource_group_name=example_resource_group.name,
-            sku_name=example_frontdoor_profile.sku_name,
-            enabled=True,
-            mode="Prevention",
-            redirect_url="https://www.contoso.com",
-            custom_block_response_status_code=403,
-            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
-            custom_rules=[azure.cdn.FrontdoorFirewallPolicyCustomRuleArgs(
-                name="Rule1",
-                enabled=True,
-                priority=1,
-                rate_limit_duration_in_minutes=1,
-                rate_limit_threshold=10,
-                type="MatchRule",
-                action="Block",
-                match_conditions=[azure.cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs(
-                    match_variable="RemoteAddr",
-                    operator="IPMatch",
-                    negation_condition=False,
-                    match_values=[
-                        "192.168.1.0/24",
-                        "10.0.1.0/24",
-                    ],
-                )],
-            )])
-        example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            security_policies=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesArgs(
-                firewall=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs(
-                    cdn_frontdoor_firewall_policy_id=example_frontdoor_firewall_policy.id,
-                    association=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs(
-                        domains=[azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs(
-                            cdn_frontdoor_domain_id=azurerm_cdn_frontdoor_custom_domain["domain1"]["id"],
-                        )],
-                    ),
-                ),
-            ))
-        ```
 
         ## Import
 

@@ -94,8 +94,7 @@ export class LogProfile extends pulumi.CustomResource {
      */
     public readonly locations!: pulumi.Output<string[]>;
     /**
-     * The name of the Log Profile. Changing this forces a
-     * new resource to be created.
+     * The name of the Log Profile. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -166,8 +165,7 @@ export interface LogProfileState {
      */
     locations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the Log Profile. Changing this forces a
-     * new resource to be created.
+     * The name of the Log Profile. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -197,8 +195,7 @@ export interface LogProfileArgs {
      */
     locations: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the Log Profile. Changing this forces a
-     * new resource to be created.
+     * The name of the Log Profile. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

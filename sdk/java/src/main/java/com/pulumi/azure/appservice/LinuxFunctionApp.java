@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .storageAccountName(exampleAccount.name())
- *             .storageAccountAccessKey(exampleAccount.primaryConnectionString())
+ *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .servicePlanId(exampleServicePlan.id())
  *             .siteConfig()
  *             .build());

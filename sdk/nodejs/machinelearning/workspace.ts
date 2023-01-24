@@ -318,7 +318,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly discoveryUrl!: pulumi.Output<string>;
     /**
-     * An `encryption` block as defined below.
+     * An `encryption` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly encryption!: pulumi.Output<outputs.machinelearning.WorkspaceEncryption | undefined>;
     /**
@@ -481,7 +481,7 @@ export interface WorkspaceState {
      */
     discoveryUrl?: pulumi.Input<string>;
     /**
-     * An `encryption` block as defined below.
+     * An `encryption` block as defined below. Changing this forces a new resource to be created.
      */
     encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
     /**
@@ -565,7 +565,7 @@ export interface WorkspaceArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * An `encryption` block as defined below.
+     * An `encryption` block as defined below. Changing this forces a new resource to be created.
      */
     encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
     /**

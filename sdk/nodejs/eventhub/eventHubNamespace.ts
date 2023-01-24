@@ -76,13 +76,11 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public readonly dedicatedClusterId!: pulumi.Output<string | undefined>;
     /**
-     * The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
     public /*out*/ readonly defaultPrimaryConnectionString!: pulumi.Output<string>;
     /**
-     * The alias of the primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      */
     public /*out*/ readonly defaultPrimaryConnectionStringAlias!: pulumi.Output<string>;
     /**
@@ -90,13 +88,11 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultPrimaryKey!: pulumi.Output<string>;
     /**
-     * The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
     public /*out*/ readonly defaultSecondaryConnectionString!: pulumi.Output<string>;
     /**
-     * The alias of the secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      */
     public /*out*/ readonly defaultSecondaryConnectionStringAlias!: pulumi.Output<string>;
     /**
@@ -240,13 +236,11 @@ export interface EventHubNamespaceState {
      */
     dedicatedClusterId?: pulumi.Input<string>;
     /**
-     * The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
     defaultPrimaryConnectionString?: pulumi.Input<string>;
     /**
-     * The alias of the primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      */
     defaultPrimaryConnectionStringAlias?: pulumi.Input<string>;
     /**
@@ -254,13 +248,11 @@ export interface EventHubNamespaceState {
      */
     defaultPrimaryKey?: pulumi.Input<string>;
     /**
-     * The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
     defaultSecondaryConnectionString?: pulumi.Input<string>;
     /**
-     * The alias of the secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      */
     defaultSecondaryConnectionStringAlias?: pulumi.Input<string>;
     /**

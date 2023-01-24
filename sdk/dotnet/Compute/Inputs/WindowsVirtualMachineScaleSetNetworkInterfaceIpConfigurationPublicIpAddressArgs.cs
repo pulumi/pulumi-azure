@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs>? _ipTags;
 
         /// <summary>
-        /// One or more `ip_tag` blocks as defined above.
+        /// One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs> IpTags
         {
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? PublicIpPrefixId { get; set; }
 
         /// <summary>
-        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

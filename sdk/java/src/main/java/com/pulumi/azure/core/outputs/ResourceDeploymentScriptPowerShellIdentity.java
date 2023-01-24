@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class ResourceDeploymentScriptPowerShellIdentity {
     /**
-     * @return Specifies the list of user-assigned managed identity IDs associated with the resource.
+     * @return Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
      * 
      */
     private List<String> identityIds;
     /**
-     * @return Type of the managed identity. The only possible value is `UserAssigned`.
+     * @return Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     private String type;
 
     private ResourceDeploymentScriptPowerShellIdentity() {}
     /**
-     * @return Specifies the list of user-assigned managed identity IDs associated with the resource.
+     * @return Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
      * 
      */
     public List<String> identityIds() {
         return this.identityIds;
     }
     /**
-     * @return Type of the managed identity. The only possible value is `UserAssigned`.
+     * @return Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     public String type() {

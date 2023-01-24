@@ -61,7 +61,7 @@ class MonitorDatadogOrganization(dict):
         """
         :param str api_key: Api key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
         :param str application_key: Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
-        :param str enterprise_app_id: The ID of the enterprise_app.
+        :param str enterprise_app_id: The ID of the enterprise_app. Changing this forces a new resource to be created.
         :param str id: The ID of the Datadog Monitor.
         :param str linking_auth_code: The auth code used to linking to an existing Datadog organization. Changing this forces a new Datadog Monitor to be created.
         :param str linking_client_id: The ID of the linking_client. Changing this forces a new Datadog Monitor to be created.
@@ -103,7 +103,7 @@ class MonitorDatadogOrganization(dict):
     @pulumi.getter(name="enterpriseAppId")
     def enterprise_app_id(self) -> Optional[str]:
         """
-        The ID of the enterprise_app.
+        The ID of the enterprise_app. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enterprise_app_id")
 
@@ -409,8 +409,8 @@ class MonitorUser(dict):
                  phone_number: Optional[str] = None):
         """
         :param str email: Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
-        :param str name: The name which should be used for this user_info.
-        :param str phone_number: Phone number of the user used by Datadog for contacting them if needed.
+        :param str name: The name which should be used for this user_info. Changing this forces a new resource to be created.
+        :param str phone_number: Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "name", name)
@@ -429,7 +429,7 @@ class MonitorUser(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for this user_info.
+        The name which should be used for this user_info. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -437,7 +437,7 @@ class MonitorUser(dict):
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[str]:
         """
-        Phone number of the user used by Datadog for contacting them if needed.
+        Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "phone_number")
 

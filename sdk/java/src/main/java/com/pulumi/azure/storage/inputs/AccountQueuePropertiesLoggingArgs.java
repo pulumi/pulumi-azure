@@ -18,14 +18,14 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
     public static final AccountQueuePropertiesLoggingArgs Empty = new AccountQueuePropertiesLoggingArgs();
 
     /**
-     * Indicates whether all delete requests should be logged. Changing this forces a new resource.
+     * Indicates whether all delete requests should be logged.
      * 
      */
     @Import(name="delete", required=true)
     private Output<Boolean> delete;
 
     /**
-     * @return Indicates whether all delete requests should be logged. Changing this forces a new resource.
+     * @return Indicates whether all delete requests should be logged.
      * 
      */
     public Output<Boolean> delete() {
@@ -33,14 +33,14 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
     }
 
     /**
-     * Indicates whether all read requests should be logged. Changing this forces a new resource.
+     * Indicates whether all read requests should be logged.
      * 
      */
     @Import(name="read", required=true)
     private Output<Boolean> read;
 
     /**
-     * @return Indicates whether all read requests should be logged. Changing this forces a new resource.
+     * @return Indicates whether all read requests should be logged.
      * 
      */
     public Output<Boolean> read() {
@@ -48,14 +48,14 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the number of days that logs will be retained. Changing this forces a new resource.
+     * Specifies the number of days that logs will be retained.
      * 
      */
     @Import(name="retentionPolicyDays")
     private @Nullable Output<Integer> retentionPolicyDays;
 
     /**
-     * @return Specifies the number of days that logs will be retained. Changing this forces a new resource.
+     * @return Specifies the number of days that logs will be retained.
      * 
      */
     public Optional<Output<Integer>> retentionPolicyDays() {
@@ -63,14 +63,14 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
     }
 
     /**
-     * The version of storage analytics to configure. Changing this forces a new resource.
+     * The version of storage analytics to configure.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return The version of storage analytics to configure. Changing this forces a new resource.
+     * @return The version of storage analytics to configure.
      * 
      */
     public Output<String> version() {
@@ -78,14 +78,14 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
     }
 
     /**
-     * Indicates whether all write requests should be logged. Changing this forces a new resource.
+     * Indicates whether all write requests should be logged.
      * 
      */
     @Import(name="write", required=true)
     private Output<Boolean> write;
 
     /**
-     * @return Indicates whether all write requests should be logged. Changing this forces a new resource.
+     * @return Indicates whether all write requests should be logged.
      * 
      */
     public Output<Boolean> write() {
@@ -121,7 +121,7 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param delete Indicates whether all delete requests should be logged. Changing this forces a new resource.
+         * @param delete Indicates whether all delete requests should be logged.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param delete Indicates whether all delete requests should be logged. Changing this forces a new resource.
+         * @param delete Indicates whether all delete requests should be logged.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param read Indicates whether all read requests should be logged. Changing this forces a new resource.
+         * @param read Indicates whether all read requests should be logged.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param read Indicates whether all read requests should be logged. Changing this forces a new resource.
+         * @param read Indicates whether all read requests should be logged.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param retentionPolicyDays Specifies the number of days that logs will be retained. Changing this forces a new resource.
+         * @param retentionPolicyDays Specifies the number of days that logs will be retained.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param retentionPolicyDays Specifies the number of days that logs will be retained. Changing this forces a new resource.
+         * @param retentionPolicyDays Specifies the number of days that logs will be retained.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param version The version of storage analytics to configure. Changing this forces a new resource.
+         * @param version The version of storage analytics to configure.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param version The version of storage analytics to configure. Changing this forces a new resource.
+         * @param version The version of storage analytics to configure.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param write Indicates whether all write requests should be logged. Changing this forces a new resource.
+         * @param write Indicates whether all write requests should be logged.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param write Indicates whether all write requests should be logged. Changing this forces a new resource.
+         * @param write Indicates whether all write requests should be logged.
          * 
          * @return builder
          * 

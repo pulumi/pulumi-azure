@@ -36,6 +36,7 @@ class KubernetesClusterArgs:
                  image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
                  image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
                  ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']] = None,
+                 key_management_service: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']] = None,
                  key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']] = None,
                  kubelet_identity: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -85,8 +86,9 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
         :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input['KubernetesClusterKeyManagementServiceArgs'] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
         :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
-        :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
@@ -95,7 +97,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input['KubernetesClusterMonitorMetricsArgs'] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
         :param pulumi.Input['KubernetesClusterOmsAgentArgs'] oms_agent: A `oms_agent` block as defined below.
@@ -159,6 +161,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "image_cleaner_interval_hours", image_cleaner_interval_hours)
         if ingress_application_gateway is not None:
             pulumi.set(__self__, "ingress_application_gateway", ingress_application_gateway)
+        if key_management_service is not None:
+            pulumi.set(__self__, "key_management_service", key_management_service)
         if key_vault_secrets_provider is not None:
             pulumi.set(__self__, "key_vault_secrets_provider", key_vault_secrets_provider)
         if kubelet_identity is not None:
@@ -453,6 +457,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "ingress_application_gateway", value)
 
     @property
+    @pulumi.getter(name="keyManagementService")
+    def key_management_service(self) -> Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']]:
+        """
+        A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        """
+        return pulumi.get(self, "key_management_service")
+
+    @key_management_service.setter
+    def key_management_service(self, value: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']]):
+        pulumi.set(self, "key_management_service", value)
+
+    @property
     @pulumi.getter(name="keyVaultSecretsProvider")
     def key_vault_secrets_provider(self) -> Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']]:
         """
@@ -468,7 +484,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="kubeletIdentity")
     def kubelet_identity(self) -> Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]:
         """
-        A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        A `kubelet_identity` block as defined below.
         """
         return pulumi.get(self, "kubelet_identity")
 
@@ -576,7 +592,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']]:
         """
-        A `network_profile` block as defined below.
+        A `network_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_profile")
 
@@ -825,6 +841,7 @@ class _KubernetesClusterState:
                  image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
                  image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
                  ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']] = None,
+                 key_management_service: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']] = None,
                  key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']] = None,
                  kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
                  kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]]] = None,
@@ -883,12 +900,13 @@ class _KubernetesClusterState:
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
         :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input['KubernetesClusterKeyManagementServiceArgs'] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
         :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArgs']]] kube_configs: A `kube_config` block as defined below.
-        :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
@@ -897,7 +915,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input['KubernetesClusterMonitorMetricsArgs'] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
         :param pulumi.Input[str] oidc_issuer_url: The OIDC issuer URL that is associated with the cluster.
@@ -969,6 +987,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "image_cleaner_interval_hours", image_cleaner_interval_hours)
         if ingress_application_gateway is not None:
             pulumi.set(__self__, "ingress_application_gateway", ingress_application_gateway)
+        if key_management_service is not None:
+            pulumi.set(__self__, "key_management_service", key_management_service)
         if key_vault_secrets_provider is not None:
             pulumi.set(__self__, "key_vault_secrets_provider", key_vault_secrets_provider)
         if kube_admin_config_raw is not None:
@@ -1291,6 +1311,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "ingress_application_gateway", value)
 
     @property
+    @pulumi.getter(name="keyManagementService")
+    def key_management_service(self) -> Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']]:
+        """
+        A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        """
+        return pulumi.get(self, "key_management_service")
+
+    @key_management_service.setter
+    def key_management_service(self, value: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']]):
+        pulumi.set(self, "key_management_service", value)
+
+    @property
     @pulumi.getter(name="keyVaultSecretsProvider")
     def key_vault_secrets_provider(self) -> Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']]:
         """
@@ -1354,7 +1386,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="kubeletIdentity")
     def kubelet_identity(self) -> Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]:
         """
-        A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        A `kubelet_identity` block as defined below.
         """
         return pulumi.get(self, "kubelet_identity")
 
@@ -1462,7 +1494,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']]:
         """
-        A `network_profile` block as defined below.
+        A `network_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_profile")
 
@@ -1759,6 +1791,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
                  image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
                  ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
+                 key_management_service: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArgs']]] = None,
                  key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
                  kubelet_identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -1848,8 +1881,9 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
         :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArgs']] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']] kubelet_identity: A `kubelet_identity` block as defined below.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
@@ -1858,7 +1892,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']] oms_agent: A `oms_agent` block as defined below.
@@ -1958,6 +1992,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
                  image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
                  ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
+                 key_management_service: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArgs']]] = None,
                  key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
                  kubelet_identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -2024,6 +2059,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["image_cleaner_enabled"] = image_cleaner_enabled
             __props__.__dict__["image_cleaner_interval_hours"] = image_cleaner_interval_hours
             __props__.__dict__["ingress_application_gateway"] = ingress_application_gateway
+            __props__.__dict__["key_management_service"] = key_management_service
             __props__.__dict__["key_vault_secrets_provider"] = key_vault_secrets_provider
             __props__.__dict__["kubelet_identity"] = kubelet_identity
             __props__.__dict__["kubernetes_version"] = kubernetes_version
@@ -2098,6 +2134,7 @@ class KubernetesCluster(pulumi.CustomResource):
             image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
             image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
             ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
+            key_management_service: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArgs']]] = None,
             key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
             kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
             kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]]] = None,
@@ -2161,12 +2198,13 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
         :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArgs']] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArgs']]]] kube_configs: A `kube_config` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']] kubelet_identity: A `kubelet_identity` block as defined below.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
@@ -2175,7 +2213,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
         :param pulumi.Input[str] oidc_issuer_url: The OIDC issuer URL that is associated with the cluster.
@@ -2224,6 +2262,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["image_cleaner_enabled"] = image_cleaner_enabled
         __props__.__dict__["image_cleaner_interval_hours"] = image_cleaner_interval_hours
         __props__.__dict__["ingress_application_gateway"] = ingress_application_gateway
+        __props__.__dict__["key_management_service"] = key_management_service
         __props__.__dict__["key_vault_secrets_provider"] = key_vault_secrets_provider
         __props__.__dict__["kube_admin_config_raw"] = kube_admin_config_raw
         __props__.__dict__["kube_admin_configs"] = kube_admin_configs
@@ -2426,6 +2465,14 @@ class KubernetesCluster(pulumi.CustomResource):
         return pulumi.get(self, "ingress_application_gateway")
 
     @property
+    @pulumi.getter(name="keyManagementService")
+    def key_management_service(self) -> pulumi.Output[Optional['outputs.KubernetesClusterKeyManagementService']]:
+        """
+        A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        """
+        return pulumi.get(self, "key_management_service")
+
+    @property
     @pulumi.getter(name="keyVaultSecretsProvider")
     def key_vault_secrets_provider(self) -> pulumi.Output[Optional['outputs.KubernetesClusterKeyVaultSecretsProvider']]:
         """
@@ -2469,7 +2516,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="kubeletIdentity")
     def kubelet_identity(self) -> pulumi.Output['outputs.KubernetesClusterKubeletIdentity']:
         """
-        A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        A `kubelet_identity` block as defined below.
         """
         return pulumi.get(self, "kubelet_identity")
 
@@ -2541,7 +2588,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> pulumi.Output['outputs.KubernetesClusterNetworkProfile']:
         """
-        A `network_profile` block as defined below.
+        A `network_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_profile")
 

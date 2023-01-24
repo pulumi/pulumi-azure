@@ -17,14 +17,14 @@ public final class ScheduledQueryRulesLogCriteriaDimensionArgs extends com.pulum
     public static final ScheduledQueryRulesLogCriteriaDimensionArgs Empty = new ScheduledQueryRulesLogCriteriaDimensionArgs();
 
     /**
-     * Name of the dimension. Changing this forces a new resource to be created.
+     * Name of the dimension.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the dimension. Changing this forces a new resource to be created.
+     * @return Name of the dimension.
      * 
      */
     public Output<String> name() {
@@ -88,7 +88,7 @@ public final class ScheduledQueryRulesLogCriteriaDimensionArgs extends com.pulum
         }
 
         /**
-         * @param name Name of the dimension. Changing this forces a new resource to be created.
+         * @param name Name of the dimension.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ScheduledQueryRulesLogCriteriaDimensionArgs extends com.pulum
         }
 
         /**
-         * @param name Name of the dimension. Changing this forces a new resource to be created.
+         * @param name Name of the dimension.
          * 
          * @return builder
          * 

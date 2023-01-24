@@ -184,9 +184,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     }
 
     /**
-     * The authorization key associated with the
-     * Express Route Circuit. This field is required only if the type is an
-     * ExpressRoute connection.
+     * The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
      */
     public readonly authorizationKey!: pulumi.Output<string | undefined>;
     /**
@@ -213,8 +211,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly egressNatRuleIds!: pulumi.Output<string[] | undefined>;
     /**
-     * If `true`, BGP (Border Gateway Protocol) is enabled
-     * for this connection. Defaults to `false`.
+     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
      */
     public readonly enableBgp!: pulumi.Output<boolean>;
     /**
@@ -240,8 +237,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly localAzureIpAddressEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the local network gateway
-     * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+     * The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      */
     public readonly localNetworkGatewayId!: pulumi.Output<string | undefined>;
     /**
@@ -249,8 +245,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the connection. Changing the name forces a
-     * new resource to be created.
+     * The name of the connection. Changing the name forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -266,8 +261,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly routingWeight!: pulumi.Output<number>;
     /**
-     * The shared IPSec key. A key could be provided if a
-     * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+     * The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      */
     public readonly sharedKey!: pulumi.Output<string | undefined>;
     /**
@@ -285,9 +279,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * If `true`, policy-based traffic
-     * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsecPolicy` block. Defaults to `false`.
+     * If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsecPolicy` block. Defaults to `false`.
      */
     public readonly usePolicyBasedTrafficSelectors!: pulumi.Output<boolean>;
     /**
@@ -380,9 +372,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
  */
 export interface VirtualNetworkGatewayConnectionState {
     /**
-     * The authorization key associated with the
-     * Express Route Circuit. This field is required only if the type is an
-     * ExpressRoute connection.
+     * The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
      */
     authorizationKey?: pulumi.Input<string>;
     /**
@@ -409,8 +399,7 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     egressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If `true`, BGP (Border Gateway Protocol) is enabled
-     * for this connection. Defaults to `false`.
+     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
      */
     enableBgp?: pulumi.Input<boolean>;
     /**
@@ -436,8 +425,7 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     localAzureIpAddressEnabled?: pulumi.Input<boolean>;
     /**
-     * The ID of the local network gateway
-     * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+     * The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      */
     localNetworkGatewayId?: pulumi.Input<string>;
     /**
@@ -445,8 +433,7 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the connection. Changing the name forces a
-     * new resource to be created.
+     * The name of the connection. Changing the name forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -462,8 +449,7 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     routingWeight?: pulumi.Input<number>;
     /**
-     * The shared IPSec key. A key could be provided if a
-     * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+     * The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      */
     sharedKey?: pulumi.Input<string>;
     /**
@@ -481,9 +467,7 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     type?: pulumi.Input<string>;
     /**
-     * If `true`, policy-based traffic
-     * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsecPolicy` block. Defaults to `false`.
+     * If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsecPolicy` block. Defaults to `false`.
      */
     usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
     /**
@@ -497,9 +481,7 @@ export interface VirtualNetworkGatewayConnectionState {
  */
 export interface VirtualNetworkGatewayConnectionArgs {
     /**
-     * The authorization key associated with the
-     * Express Route Circuit. This field is required only if the type is an
-     * ExpressRoute connection.
+     * The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
      */
     authorizationKey?: pulumi.Input<string>;
     /**
@@ -526,8 +508,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     egressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If `true`, BGP (Border Gateway Protocol) is enabled
-     * for this connection. Defaults to `false`.
+     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
      */
     enableBgp?: pulumi.Input<boolean>;
     /**
@@ -553,8 +534,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     localAzureIpAddressEnabled?: pulumi.Input<boolean>;
     /**
-     * The ID of the local network gateway
-     * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+     * The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      */
     localNetworkGatewayId?: pulumi.Input<string>;
     /**
@@ -562,8 +542,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the connection. Changing the name forces a
-     * new resource to be created.
+     * The name of the connection. Changing the name forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -579,8 +558,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     routingWeight?: pulumi.Input<number>;
     /**
-     * The shared IPSec key. A key could be provided if a
-     * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+     * The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      */
     sharedKey?: pulumi.Input<string>;
     /**
@@ -598,9 +576,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * If `true`, policy-based traffic
-     * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsecPolicy` block. Defaults to `false`.
+     * If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsecPolicy` block. Defaults to `false`.
      */
     usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
     /**

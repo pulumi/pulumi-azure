@@ -6,6 +6,8 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.compute.inputs.GetAvailabilitySetArgs;
 import com.pulumi.azure.compute.inputs.GetAvailabilitySetPlainArgs;
+import com.pulumi.azure.compute.inputs.GetBastionHostArgs;
+import com.pulumi.azure.compute.inputs.GetBastionHostPlainArgs;
 import com.pulumi.azure.compute.inputs.GetConfidentialLedgerArgs;
 import com.pulumi.azure.compute.inputs.GetConfidentialLedgerPlainArgs;
 import com.pulumi.azure.compute.inputs.GetDedicatedHostArgs;
@@ -41,6 +43,7 @@ import com.pulumi.azure.compute.inputs.GetVirtualMachinePlainArgs;
 import com.pulumi.azure.compute.inputs.GetVirtualMachineScaleSetArgs;
 import com.pulumi.azure.compute.inputs.GetVirtualMachineScaleSetPlainArgs;
 import com.pulumi.azure.compute.outputs.GetAvailabilitySetResult;
+import com.pulumi.azure.compute.outputs.GetBastionHostResult;
 import com.pulumi.azure.compute.outputs.GetConfidentialLedgerResult;
 import com.pulumi.azure.compute.outputs.GetDedicatedHostGroupResult;
 import com.pulumi.azure.compute.outputs.GetDedicatedHostResult;
@@ -220,6 +223,162 @@ public final class ComputeFunctions {
      */
     public static CompletableFuture<GetAvailabilitySetResult> getAvailabilitySetPlain(GetAvailabilitySetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getAvailabilitySet:getAvailabilitySet", TypeShape.of(GetAvailabilitySetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Bastion Host.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetBastionHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
+     *             .name(&#34;existing-bastion&#34;)
+     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args) {
+        return getBastionHost(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Bastion Host.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetBastionHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
+     *             .name(&#34;existing-bastion&#34;)
+     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args) {
+        return getBastionHostPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Bastion Host.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetBastionHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
+     *             .name(&#34;existing-bastion&#34;)
+     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:compute/getBastionHost:getBastionHost", TypeShape.of(GetBastionHostResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Bastion Host.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetBastionHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
+     *             .name(&#34;existing-bastion&#34;)
+     *             .resourceGroupName(&#34;existing-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:compute/getBastionHost:getBastionHost", TypeShape.of(GetBastionHostResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Gets information about an existing Confidential Ledger.

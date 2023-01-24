@@ -306,7 +306,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * One or more `winrmListener` blocks as defined below.
+     * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly winrmListeners!: pulumi.Output<outputs.compute.WindowsVirtualMachineWinrmListener[] | undefined>;
     /**
@@ -664,7 +664,7 @@ export interface WindowsVirtualMachineState {
      */
     vtpmEnabled?: pulumi.Input<boolean>;
     /**
-     * One or more `winrmListener` blocks as defined below.
+     * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      */
     winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineWinrmListener>[]>;
     /**
@@ -858,7 +858,7 @@ export interface WindowsVirtualMachineArgs {
      */
     vtpmEnabled?: pulumi.Input<boolean>;
     /**
-     * One or more `winrmListener` blocks as defined below.
+     * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      */
     winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineWinrmListener>[]>;
     /**

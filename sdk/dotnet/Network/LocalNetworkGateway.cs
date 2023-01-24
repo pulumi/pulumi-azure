@@ -52,15 +52,13 @@ namespace Pulumi.Azure.Network
     public partial class LocalNetworkGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The list of string CIDRs representing the
-        /// address spaces the gateway exposes.
+        /// The list of string CIDRs representing the address spaces the gateway exposes.
         /// </summary>
         [Output("addressSpaces")]
         public Output<ImmutableArray<string>> AddressSpaces { get; private set; } = null!;
 
         /// <summary>
-        /// A `bgp_settings` block as defined below containing the
-        /// Local Network Gateway's BGP speaker settings.
+        /// A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         /// </summary>
         [Output("bgpSettings")]
         public Output<Outputs.LocalNetworkGatewayBgpSettings?> BgpSettings { get; private set; } = null!;
@@ -151,8 +149,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _addressSpaces;
 
         /// <summary>
-        /// The list of string CIDRs representing the
-        /// address spaces the gateway exposes.
+        /// The list of string CIDRs representing the address spaces the gateway exposes.
         /// </summary>
         public InputList<string> AddressSpaces
         {
@@ -161,8 +158,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `bgp_settings` block as defined below containing the
-        /// Local Network Gateway's BGP speaker settings.
+        /// A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.LocalNetworkGatewayBgpSettingsArgs>? BgpSettings { get; set; }
@@ -221,8 +217,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _addressSpaces;
 
         /// <summary>
-        /// The list of string CIDRs representing the
-        /// address spaces the gateway exposes.
+        /// The list of string CIDRs representing the address spaces the gateway exposes.
         /// </summary>
         public InputList<string> AddressSpaces
         {
@@ -231,8 +226,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `bgp_settings` block as defined below containing the
-        /// Local Network Gateway's BGP speaker settings.
+        /// A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.LocalNetworkGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }

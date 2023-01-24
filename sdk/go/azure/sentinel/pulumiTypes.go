@@ -1621,7 +1621,7 @@ type AlertRuleScheduledIncidentConfigurationGrouping struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
 	EntityMatchingMethod *string `pulumi:"entityMatchingMethod"`
-	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
 	GroupByAlertDetails []string `pulumi:"groupByAlertDetails"`
 	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
 	GroupByCustomDetails []string `pulumi:"groupByCustomDetails"`
@@ -1649,7 +1649,7 @@ type AlertRuleScheduledIncidentConfigurationGroupingArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
 	EntityMatchingMethod pulumi.StringPtrInput `pulumi:"entityMatchingMethod"`
-	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
 	GroupByAlertDetails pulumi.StringArrayInput `pulumi:"groupByAlertDetails"`
 	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
 	GroupByCustomDetails pulumi.StringArrayInput `pulumi:"groupByCustomDetails"`
@@ -1748,7 +1748,7 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) EntityMatchingMet
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) *string { return v.EntityMatchingMethod }).(pulumi.StringPtrOutput)
 }
 
-// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
 func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) []string { return v.GroupByAlertDetails }).(pulumi.StringArrayOutput)
 }
@@ -1817,7 +1817,7 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) EntityMatching
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) []string {
 		if v == nil {

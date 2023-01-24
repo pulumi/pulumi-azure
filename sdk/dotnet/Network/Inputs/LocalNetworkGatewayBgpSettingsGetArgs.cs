@@ -19,15 +19,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int> Asn { get; set; } = null!;
 
         /// <summary>
-        /// The BGP peering address and BGP identifier
-        /// of this BGP speaker.
+        /// The BGP peering address and BGP identifier of this BGP speaker.
         /// </summary>
         [Input("bgpPeeringAddress", required: true)]
         public Input<string> BgpPeeringAddress { get; set; } = null!;
 
         /// <summary>
-        /// The weight added to routes learned from this
-        /// BGP speaker.
+        /// The weight added to routes learned from this BGP speaker.
         /// </summary>
         [Input("peerWeight")]
         public Input<int>? PeerWeight { get; set; }

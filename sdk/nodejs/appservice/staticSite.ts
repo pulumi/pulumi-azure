@@ -134,6 +134,8 @@ export class StaticSite extends pulumi.CustomResource {
             resourceInputs["defaultHostName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["apiKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(StaticSite.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -175,14 +175,14 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.linkedDatabaseIds);
     }
     /**
-     * A `module` block as defined below.
+     * A `module` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="modules", type=List.class, parameters={EnterpriseDatabaseModule.class})
     private Output</* @Nullable */ List<EnterpriseDatabaseModule>> modules;
 
     /**
-     * @return A `module` block as defined below.
+     * @return A `module` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<EnterpriseDatabaseModule>>> modules() {

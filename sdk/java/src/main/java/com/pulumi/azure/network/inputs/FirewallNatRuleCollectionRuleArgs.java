@@ -77,14 +77,14 @@ public final class FirewallNatRuleCollectionRuleArgs extends com.pulumi.resource
     }
 
     /**
-     * A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+     * A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
      * 
      */
     @Import(name="protocols", required=true)
     private Output<List<String>> protocols;
 
     /**
-     * @return A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+     * @return A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
      * 
      */
     public Output<List<String>> protocols() {
@@ -288,7 +288,7 @@ public final class FirewallNatRuleCollectionRuleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param protocols A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+         * @param protocols A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class FirewallNatRuleCollectionRuleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param protocols A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+         * @param protocols A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class FirewallNatRuleCollectionRuleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param protocols A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+         * @param protocols A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
          * 
          * @return builder
          * 

@@ -32,14 +32,14 @@ public final class LinuxFunctionAppAuthSettingsGoogleArgs extends com.pulumi.res
     }
 
     /**
-     * The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+     * The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
      * 
      */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
     /**
-     * @return The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+     * @return The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
      * 
      */
     public Optional<Output<String>> clientSecret() {
@@ -125,7 +125,7 @@ public final class LinuxFunctionAppAuthSettingsGoogleArgs extends com.pulumi.res
         }
 
         /**
-         * @param clientSecret The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+         * @param clientSecret The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class LinuxFunctionAppAuthSettingsGoogleArgs extends com.pulumi.res
         }
 
         /**
-         * @param clientSecret The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+         * @param clientSecret The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
          * 
          * @return builder
          * 

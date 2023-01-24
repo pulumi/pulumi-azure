@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Lab.Outputs
     public sealed class LabVirtualMachineNonAdminUser
     {
         /// <summary>
-        /// The password for the user. Changing this forces a new resource to be created.
+        /// The password for the user.
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+        /// The username to use when signing in to Lab Service Lab VMs.
         /// </summary>
         public readonly string Username;
 

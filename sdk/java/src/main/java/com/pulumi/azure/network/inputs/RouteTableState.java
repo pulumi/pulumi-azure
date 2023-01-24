@@ -50,14 +50,14 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the route. Changing this forces a new resource to be created.
+     * The name of the route.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the route. Changing this forces a new resource to be created.
+     * @return The name of the route.
      * 
      */
     public Optional<Output<String>> name() {
@@ -197,7 +197,7 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the route. Changing this forces a new resource to be created.
+         * @param name The name of the route.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the route. Changing this forces a new resource to be created.
+         * @param name The name of the route.
          * 
          * @return builder
          * 

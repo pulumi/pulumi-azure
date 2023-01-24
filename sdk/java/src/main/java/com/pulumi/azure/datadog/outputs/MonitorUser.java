@@ -17,12 +17,12 @@ public final class MonitorUser {
      */
     private String email;
     /**
-     * @return The name which should be used for this user_info.
+     * @return The name which should be used for this user_info. Changing this forces a new resource to be created.
      * 
      */
     private String name;
     /**
-     * @return Phone number of the user used by Datadog for contacting them if needed.
+     * @return Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String phoneNumber;
@@ -36,14 +36,14 @@ public final class MonitorUser {
         return this.email;
     }
     /**
-     * @return The name which should be used for this user_info.
+     * @return The name which should be used for this user_info. Changing this forces a new resource to be created.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Phone number of the user used by Datadog for contacting them if needed.
+     * @return Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> phoneNumber() {

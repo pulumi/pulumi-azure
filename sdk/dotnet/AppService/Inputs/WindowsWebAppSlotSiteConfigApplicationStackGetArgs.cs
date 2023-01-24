@@ -43,7 +43,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? DotnetCoreVersion { get; set; }
 
         /// <summary>
-        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         /// </summary>
         [Input("dotnetVersion")]
         public Input<string>? DotnetVersion { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? NodeVersion { get; set; }
 
         /// <summary>
-        /// The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4` and `Off`.
+        /// The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
         /// </summary>
         [Input("phpVersion")]
         public Input<string>? PhpVersion { get; set; }

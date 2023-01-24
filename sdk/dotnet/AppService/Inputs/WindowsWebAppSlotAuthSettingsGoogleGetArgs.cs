@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        /// The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         /// </summary>
         public Input<string>? ClientSecret
         {

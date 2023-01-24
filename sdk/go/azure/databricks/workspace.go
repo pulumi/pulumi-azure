@@ -47,7 +47,7 @@ type Workspace struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A `storageAccountIdentity` block as documented below.
 	StorageAccountIdentities WorkspaceStorageAccountIdentityArrayOutput `pulumi:"storageAccountIdentities"`
@@ -118,7 +118,7 @@ type workspaceState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
 	Sku *string `pulumi:"sku"`
 	// A `storageAccountIdentity` block as documented below.
 	StorageAccountIdentities []WorkspaceStorageAccountIdentity `pulumi:"storageAccountIdentities"`
@@ -155,7 +155,7 @@ type WorkspaceState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
 	Sku pulumi.StringPtrInput
 	// A `storageAccountIdentity` block as documented below.
 	StorageAccountIdentities WorkspaceStorageAccountIdentityArrayInput
@@ -194,7 +194,7 @@ type workspaceArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -224,7 +224,7 @@ type WorkspaceArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+	// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -377,7 +377,7 @@ func (o WorkspaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
 func (o WorkspaceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }

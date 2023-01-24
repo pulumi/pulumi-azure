@@ -123,7 +123,7 @@ type ContactProfile struct {
 	AutoTracking pulumi.StringOutput `pulumi:"autoTracking"`
 	// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
 	EventHubUri pulumi.StringPtrOutput `pulumi:"eventHubUri"`
-	// A list of spacecraft links. A `links` block as defined below.
+	// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
 	Links ContactProfileLinkArrayOutput `pulumi:"links"`
 	// The location where the contact profile exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -189,7 +189,7 @@ type contactProfileState struct {
 	AutoTracking *string `pulumi:"autoTracking"`
 	// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
 	EventHubUri *string `pulumi:"eventHubUri"`
-	// A list of spacecraft links. A `links` block as defined below.
+	// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
 	Links []ContactProfileLink `pulumi:"links"`
 	// The location where the contact profile exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -212,7 +212,7 @@ type ContactProfileState struct {
 	AutoTracking pulumi.StringPtrInput
 	// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
 	EventHubUri pulumi.StringPtrInput
-	// A list of spacecraft links. A `links` block as defined below.
+	// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
 	Links ContactProfileLinkArrayInput
 	// The location where the contact profile exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -239,7 +239,7 @@ type contactProfileArgs struct {
 	AutoTracking string `pulumi:"autoTracking"`
 	// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
 	EventHubUri *string `pulumi:"eventHubUri"`
-	// A list of spacecraft links. A `links` block as defined below.
+	// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
 	Links []ContactProfileLink `pulumi:"links"`
 	// The location where the contact profile exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -263,7 +263,7 @@ type ContactProfileArgs struct {
 	AutoTracking pulumi.StringInput
 	// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
 	EventHubUri pulumi.StringPtrInput
-	// A list of spacecraft links. A `links` block as defined below.
+	// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
 	Links ContactProfileLinkArrayInput
 	// The location where the contact profile exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -378,7 +378,7 @@ func (o ContactProfileOutput) EventHubUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringPtrOutput { return v.EventHubUri }).(pulumi.StringPtrOutput)
 }
 
-// A list of spacecraft links. A `links` block as defined below.
+// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
 func (o ContactProfileOutput) Links() ContactProfileLinkArrayOutput {
 	return o.ApplyT(func(v *ContactProfile) ContactProfileLinkArrayOutput { return v.Links }).(ContactProfileLinkArrayOutput)
 }

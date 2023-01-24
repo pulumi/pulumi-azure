@@ -15,6 +15,11 @@ export type ComputeInstance = import("./computeInstance").ComputeInstance;
 export const ComputeInstance: typeof import("./computeInstance").ComputeInstance = null as any;
 utilities.lazyLoad(exports, ["ComputeInstance"], () => require("./computeInstance"));
 
+export { DatastoreBlobstorageArgs, DatastoreBlobstorageState } from "./datastoreBlobstorage";
+export type DatastoreBlobstorage = import("./datastoreBlobstorage").DatastoreBlobstorage;
+export const DatastoreBlobstorage: typeof import("./datastoreBlobstorage").DatastoreBlobstorage = null as any;
+utilities.lazyLoad(exports, ["DatastoreBlobstorage"], () => require("./datastoreBlobstorage"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -44,6 +49,8 @@ const _module = {
                 return new ComputeCluster(name, <any>undefined, { urn })
             case "azure:machinelearning/computeInstance:ComputeInstance":
                 return new ComputeInstance(name, <any>undefined, { urn })
+            case "azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage":
+                return new DatastoreBlobstorage(name, <any>undefined, { urn })
             case "azure:machinelearning/inferenceCluster:InferenceCluster":
                 return new InferenceCluster(name, <any>undefined, { urn })
             case "azure:machinelearning/synapseSpark:SynapseSpark":
@@ -57,6 +64,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "machinelearning/computeCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/computeInstance", _module)
+pulumi.runtime.registerResourceModule("azure", "machinelearning/datastoreBlobstorage", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/inferenceCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/synapseSpark", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/workspace", _module)

@@ -1528,7 +1528,7 @@ func (o GroupContainerReadinessProbeHttpGetArrayOutput) Index(i pulumi.IntInput)
 type GroupContainerVolume struct {
 	// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
 	EmptyDir *bool `pulumi:"emptyDir"`
-	// A `gitRepo` block as defined below.
+	// A `gitRepo` block as defined below. Changing this forces a new resource to be created.
 	GitRepo *GroupContainerVolumeGitRepo `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath string `pulumi:"mountPath"`
@@ -1560,7 +1560,7 @@ type GroupContainerVolumeInput interface {
 type GroupContainerVolumeArgs struct {
 	// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
 	EmptyDir pulumi.BoolPtrInput `pulumi:"emptyDir"`
-	// A `gitRepo` block as defined below.
+	// A `gitRepo` block as defined below. Changing this forces a new resource to be created.
 	GitRepo GroupContainerVolumeGitRepoPtrInput `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath pulumi.StringInput `pulumi:"mountPath"`
@@ -1634,7 +1634,7 @@ func (o GroupContainerVolumeOutput) EmptyDir() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupContainerVolume) *bool { return v.EmptyDir }).(pulumi.BoolPtrOutput)
 }
 
-// A `gitRepo` block as defined below.
+// A `gitRepo` block as defined below. Changing this forces a new resource to be created.
 func (o GroupContainerVolumeOutput) GitRepo() GroupContainerVolumeGitRepoPtrOutput {
 	return o.ApplyT(func(v GroupContainerVolume) *GroupContainerVolumeGitRepo { return v.GitRepo }).(GroupContainerVolumeGitRepoPtrOutput)
 }
@@ -2201,11 +2201,11 @@ func (o GroupDiagnosticsLogAnalyticsPtrOutput) WorkspaceKey() pulumi.StringPtrOu
 }
 
 type GroupDnsConfig struct {
-	// A list of nameservers the containers will search out to resolve requests.
+	// A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
 	Nameservers []string `pulumi:"nameservers"`
-	// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+	// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
 	Options []string `pulumi:"options"`
-	// A list of search domains that DNS requests will search along.
+	// A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
 	SearchDomains []string `pulumi:"searchDomains"`
 }
 
@@ -2221,11 +2221,11 @@ type GroupDnsConfigInput interface {
 }
 
 type GroupDnsConfigArgs struct {
-	// A list of nameservers the containers will search out to resolve requests.
+	// A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
 	Nameservers pulumi.StringArrayInput `pulumi:"nameservers"`
-	// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+	// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
 	Options pulumi.StringArrayInput `pulumi:"options"`
-	// A list of search domains that DNS requests will search along.
+	// A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
 	SearchDomains pulumi.StringArrayInput `pulumi:"searchDomains"`
 }
 
@@ -2306,17 +2306,17 @@ func (o GroupDnsConfigOutput) ToGroupDnsConfigPtrOutputWithContext(ctx context.C
 	}).(GroupDnsConfigPtrOutput)
 }
 
-// A list of nameservers the containers will search out to resolve requests.
+// A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
 func (o GroupDnsConfigOutput) Nameservers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupDnsConfig) []string { return v.Nameservers }).(pulumi.StringArrayOutput)
 }
 
-// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
 func (o GroupDnsConfigOutput) Options() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupDnsConfig) []string { return v.Options }).(pulumi.StringArrayOutput)
 }
 
-// A list of search domains that DNS requests will search along.
+// A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
 func (o GroupDnsConfigOutput) SearchDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupDnsConfig) []string { return v.SearchDomains }).(pulumi.StringArrayOutput)
 }
@@ -2345,7 +2345,7 @@ func (o GroupDnsConfigPtrOutput) Elem() GroupDnsConfigOutput {
 	}).(GroupDnsConfigOutput)
 }
 
-// A list of nameservers the containers will search out to resolve requests.
+// A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
 func (o GroupDnsConfigPtrOutput) Nameservers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupDnsConfig) []string {
 		if v == nil {
@@ -2355,7 +2355,7 @@ func (o GroupDnsConfigPtrOutput) Nameservers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
 func (o GroupDnsConfigPtrOutput) Options() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupDnsConfig) []string {
 		if v == nil {
@@ -2365,7 +2365,7 @@ func (o GroupDnsConfigPtrOutput) Options() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of search domains that DNS requests will search along.
+// A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
 func (o GroupDnsConfigPtrOutput) SearchDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupDnsConfig) []string {
 		if v == nil {
@@ -2944,7 +2944,7 @@ func (o GroupInitContainerArrayOutput) Index(i pulumi.IntInput) GroupInitContain
 type GroupInitContainerVolume struct {
 	// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
 	EmptyDir *bool `pulumi:"emptyDir"`
-	// A `gitRepo` block as defined below.
+	// A `gitRepo` block as defined below. Changing this forces a new resource to be created.
 	GitRepo *GroupInitContainerVolumeGitRepo `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath string `pulumi:"mountPath"`
@@ -2976,7 +2976,7 @@ type GroupInitContainerVolumeInput interface {
 type GroupInitContainerVolumeArgs struct {
 	// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
 	EmptyDir pulumi.BoolPtrInput `pulumi:"emptyDir"`
-	// A `gitRepo` block as defined below.
+	// A `gitRepo` block as defined below. Changing this forces a new resource to be created.
 	GitRepo GroupInitContainerVolumeGitRepoPtrInput `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath pulumi.StringInput `pulumi:"mountPath"`
@@ -3050,7 +3050,7 @@ func (o GroupInitContainerVolumeOutput) EmptyDir() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInitContainerVolume) *bool { return v.EmptyDir }).(pulumi.BoolPtrOutput)
 }
 
-// A `gitRepo` block as defined below.
+// A `gitRepo` block as defined below. Changing this forces a new resource to be created.
 func (o GroupInitContainerVolumeOutput) GitRepo() GroupInitContainerVolumeGitRepoPtrOutput {
 	return o.ApplyT(func(v GroupInitContainerVolume) *GroupInitContainerVolumeGitRepo { return v.GitRepo }).(GroupInitContainerVolumeGitRepoPtrOutput)
 }
@@ -4298,19 +4298,19 @@ type KubernetesClusterDefaultNodePool struct {
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+	// Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+	// Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
-	// A `kubeletConfig` block as defined below.
+	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
 	KubeletConfig *KubernetesClusterDefaultNodePoolKubeletConfig `pulumi:"kubeletConfig"`
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
-	// A `linuxOsConfig` block as defined below.
+	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig *KubernetesClusterDefaultNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MaxCount *int `pulumi:"maxCount"`
@@ -4328,7 +4328,7 @@ type KubernetesClusterDefaultNodePool struct {
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
-	// A list of the taints added to new nodes during node pool create and scale.
+	// A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled *bool `pulumi:"onlyCriticalAddonsEnabled"`
@@ -4382,19 +4382,19 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	CustomCaTrustEnabled pulumi.BoolPtrInput `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
-	// Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+	// Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrInput `pulumi:"enableHostEncryption"`
-	// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+	// Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
 	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
 	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput `pulumi:"hostGroupId"`
-	// A `kubeletConfig` block as defined below.
+	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
 	KubeletConfig KubernetesClusterDefaultNodePoolKubeletConfigPtrInput `pulumi:"kubeletConfig"`
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType pulumi.StringPtrInput `pulumi:"kubeletDiskType"`
-	// A `linuxOsConfig` block as defined below.
+	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
@@ -4412,7 +4412,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrInput `pulumi:"nodePublicIpPrefixId"`
-	// A list of the taints added to new nodes during node pool create and scale.
+	// A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled pulumi.BoolPtrInput `pulumi:"onlyCriticalAddonsEnabled"`
@@ -4540,12 +4540,12 @@ func (o KubernetesClusterDefaultNodePoolOutput) EnableAutoScaling() pulumi.BoolP
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+// Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableHostEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+// Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -4560,7 +4560,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) HostGroupId() pulumi.StringPtrOu
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.HostGroupId }).(pulumi.StringPtrOutput)
 }
 
-// A `kubeletConfig` block as defined below.
+// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) KubeletConfig() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolKubeletConfig {
 		return v.KubeletConfig
@@ -4572,7 +4572,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) KubeletDiskType() pulumi.StringP
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.KubeletDiskType }).(pulumi.StringPtrOutput)
 }
 
-// A `linuxOsConfig` block as defined below.
+// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) LinuxOsConfig() KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolLinuxOsConfig {
 		return v.LinuxOsConfig
@@ -4619,7 +4619,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodePublicIpPrefixId() pulumi.St
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.NodePublicIpPrefixId }).(pulumi.StringPtrOutput)
 }
 
-// A list of the taints added to new nodes during node pool create and scale.
+// A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
@@ -4760,7 +4760,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+// Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -4770,7 +4770,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableHostEncryption() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+// Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -4800,7 +4800,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) HostGroupId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `kubeletConfig` block as defined below.
+// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) KubeletConfig() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolKubeletConfig {
 		if v == nil {
@@ -4820,7 +4820,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) KubeletDiskType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `linuxOsConfig` block as defined below.
+// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) LinuxOsConfig() KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolLinuxOsConfig {
 		if v == nil {
@@ -4910,7 +4910,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodePublicIpPrefixId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of the taints added to new nodes during node pool create and scale.
+// A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) []string {
 		if v == nil {
@@ -7041,11 +7041,11 @@ func (o KubernetesClusterIngressApplicationGatewayPtrOutput) SubnetId() pulumi.S
 }
 
 type KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -7061,11 +7061,11 @@ type KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity
 }
 
 type KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -7120,21 +7120,21 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 	return o
 }
 
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
 		return v.ClientId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
 		return v.ObjectId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
 		return v.UserAssignedIdentityId
@@ -7159,6 +7159,166 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity {
 		return vs[0].([]KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity)[vs[1].(int)]
 	}).(KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
+}
+
+type KubernetesClusterKeyManagementService struct {
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+	// Network access of the key vault
+	// Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+	KeyVaultNetworkAccess *string `pulumi:"keyVaultNetworkAccess"`
+}
+
+// KubernetesClusterKeyManagementServiceInput is an input type that accepts KubernetesClusterKeyManagementServiceArgs and KubernetesClusterKeyManagementServiceOutput values.
+// You can construct a concrete instance of `KubernetesClusterKeyManagementServiceInput` via:
+//
+//	KubernetesClusterKeyManagementServiceArgs{...}
+type KubernetesClusterKeyManagementServiceInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterKeyManagementServiceOutput() KubernetesClusterKeyManagementServiceOutput
+	ToKubernetesClusterKeyManagementServiceOutputWithContext(context.Context) KubernetesClusterKeyManagementServiceOutput
+}
+
+type KubernetesClusterKeyManagementServiceArgs struct {
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+	// Network access of the key vault
+	// Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+	KeyVaultNetworkAccess pulumi.StringPtrInput `pulumi:"keyVaultNetworkAccess"`
+}
+
+func (KubernetesClusterKeyManagementServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterKeyManagementService)(nil)).Elem()
+}
+
+func (i KubernetesClusterKeyManagementServiceArgs) ToKubernetesClusterKeyManagementServiceOutput() KubernetesClusterKeyManagementServiceOutput {
+	return i.ToKubernetesClusterKeyManagementServiceOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterKeyManagementServiceArgs) ToKubernetesClusterKeyManagementServiceOutputWithContext(ctx context.Context) KubernetesClusterKeyManagementServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKeyManagementServiceOutput)
+}
+
+func (i KubernetesClusterKeyManagementServiceArgs) ToKubernetesClusterKeyManagementServicePtrOutput() KubernetesClusterKeyManagementServicePtrOutput {
+	return i.ToKubernetesClusterKeyManagementServicePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterKeyManagementServiceArgs) ToKubernetesClusterKeyManagementServicePtrOutputWithContext(ctx context.Context) KubernetesClusterKeyManagementServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKeyManagementServiceOutput).ToKubernetesClusterKeyManagementServicePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterKeyManagementServicePtrInput is an input type that accepts KubernetesClusterKeyManagementServiceArgs, KubernetesClusterKeyManagementServicePtr and KubernetesClusterKeyManagementServicePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterKeyManagementServicePtrInput` via:
+//
+//	        KubernetesClusterKeyManagementServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterKeyManagementServicePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterKeyManagementServicePtrOutput() KubernetesClusterKeyManagementServicePtrOutput
+	ToKubernetesClusterKeyManagementServicePtrOutputWithContext(context.Context) KubernetesClusterKeyManagementServicePtrOutput
+}
+
+type kubernetesClusterKeyManagementServicePtrType KubernetesClusterKeyManagementServiceArgs
+
+func KubernetesClusterKeyManagementServicePtr(v *KubernetesClusterKeyManagementServiceArgs) KubernetesClusterKeyManagementServicePtrInput {
+	return (*kubernetesClusterKeyManagementServicePtrType)(v)
+}
+
+func (*kubernetesClusterKeyManagementServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterKeyManagementService)(nil)).Elem()
+}
+
+func (i *kubernetesClusterKeyManagementServicePtrType) ToKubernetesClusterKeyManagementServicePtrOutput() KubernetesClusterKeyManagementServicePtrOutput {
+	return i.ToKubernetesClusterKeyManagementServicePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterKeyManagementServicePtrType) ToKubernetesClusterKeyManagementServicePtrOutputWithContext(ctx context.Context) KubernetesClusterKeyManagementServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKeyManagementServicePtrOutput)
+}
+
+type KubernetesClusterKeyManagementServiceOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterKeyManagementServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterKeyManagementService)(nil)).Elem()
+}
+
+func (o KubernetesClusterKeyManagementServiceOutput) ToKubernetesClusterKeyManagementServiceOutput() KubernetesClusterKeyManagementServiceOutput {
+	return o
+}
+
+func (o KubernetesClusterKeyManagementServiceOutput) ToKubernetesClusterKeyManagementServiceOutputWithContext(ctx context.Context) KubernetesClusterKeyManagementServiceOutput {
+	return o
+}
+
+func (o KubernetesClusterKeyManagementServiceOutput) ToKubernetesClusterKeyManagementServicePtrOutput() KubernetesClusterKeyManagementServicePtrOutput {
+	return o.ToKubernetesClusterKeyManagementServicePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterKeyManagementServiceOutput) ToKubernetesClusterKeyManagementServicePtrOutputWithContext(ctx context.Context) KubernetesClusterKeyManagementServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterKeyManagementService) *KubernetesClusterKeyManagementService {
+		return &v
+	}).(KubernetesClusterKeyManagementServicePtrOutput)
+}
+
+// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterKeyManagementService) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+// Network access of the key vault
+// Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterKeyManagementService) *string { return v.KeyVaultNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterKeyManagementServicePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterKeyManagementServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterKeyManagementService)(nil)).Elem()
+}
+
+func (o KubernetesClusterKeyManagementServicePtrOutput) ToKubernetesClusterKeyManagementServicePtrOutput() KubernetesClusterKeyManagementServicePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterKeyManagementServicePtrOutput) ToKubernetesClusterKeyManagementServicePtrOutputWithContext(ctx context.Context) KubernetesClusterKeyManagementServicePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterKeyManagementServicePtrOutput) Elem() KubernetesClusterKeyManagementServiceOutput {
+	return o.ApplyT(func(v *KubernetesClusterKeyManagementService) KubernetesClusterKeyManagementService {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterKeyManagementService
+		return ret
+	}).(KubernetesClusterKeyManagementServiceOutput)
+}
+
+// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterKeyManagementService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network access of the key vault
+// Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterKeyManagementService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultNetworkAccess
+	}).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterKeyVaultSecretsProvider struct {
@@ -7339,11 +7499,11 @@ func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) SecretRotationInterva
 }
 
 type KubernetesClusterKeyVaultSecretsProviderSecretIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -7359,11 +7519,11 @@ type KubernetesClusterKeyVaultSecretsProviderSecretIdentityInput interface {
 }
 
 type KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -7418,17 +7578,17 @@ func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ToKubernet
 	return o
 }
 
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProviderSecretIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProviderSecretIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProviderSecretIdentity) *string {
 		return v.UserAssignedIdentityId
@@ -7740,11 +7900,11 @@ func (o KubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) Kuberne
 }
 
 type KubernetesClusterKubeletIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -7760,11 +7920,11 @@ type KubernetesClusterKubeletIdentityInput interface {
 }
 
 type KubernetesClusterKubeletIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -7845,17 +8005,17 @@ func (o KubernetesClusterKubeletIdentityOutput) ToKubernetesClusterKubeletIdenti
 	}).(KubernetesClusterKubeletIdentityPtrOutput)
 }
 
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterKubeletIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterKubeletIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterKubeletIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -7884,7 +8044,7 @@ func (o KubernetesClusterKubeletIdentityPtrOutput) Elem() KubernetesClusterKubel
 	}).(KubernetesClusterKubeletIdentityOutput)
 }
 
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterKubeletIdentityPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKubeletIdentity) *string {
 		if v == nil {
@@ -7894,7 +8054,7 @@ func (o KubernetesClusterKubeletIdentityPtrOutput) ClientId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterKubeletIdentityPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKubeletIdentity) *string {
 		if v == nil {
@@ -7904,7 +8064,7 @@ func (o KubernetesClusterKubeletIdentityPtrOutput) ObjectId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterKubeletIdentityPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKubeletIdentity) *string {
 		if v == nil {
@@ -8881,11 +9041,11 @@ type KubernetesClusterNetworkProfile struct {
 	EbpfDataPlane *string `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	IpVersions []string `pulumi:"ipVersions"`
-	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`.
+	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
-	// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+	// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
 	NatGatewayProfile *KubernetesClusterNetworkProfileNatGatewayProfile `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode *string `pulumi:"networkMode"`
@@ -8927,11 +9087,11 @@ type KubernetesClusterNetworkProfileArgs struct {
 	EbpfDataPlane pulumi.StringPtrInput `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	IpVersions pulumi.StringArrayInput `pulumi:"ipVersions"`
-	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`.
+	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
-	// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+	// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
 	NatGatewayProfile KubernetesClusterNetworkProfileNatGatewayProfilePtrInput `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
@@ -9050,7 +9210,7 @@ func (o KubernetesClusterNetworkProfileOutput) IpVersions() pulumi.StringArrayOu
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.IpVersions }).(pulumi.StringArrayOutput)
 }
 
-// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`.
+// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) LoadBalancerProfile() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
 		return v.LoadBalancerProfile
@@ -9062,7 +9222,7 @@ func (o KubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringPt
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
-// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) NatGatewayProfile() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileNatGatewayProfile {
 		return v.NatGatewayProfile
@@ -9178,7 +9338,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) IpVersions() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`.
+// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerProfile() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
 		if v == nil {
@@ -9198,7 +9358,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerSku() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) NatGatewayProfile() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileNatGatewayProfile {
 		if v == nil {
@@ -11332,11 +11492,11 @@ func (o KubernetesClusterOmsAgentPtrOutput) OmsAgentIdentities() KubernetesClust
 }
 
 type KubernetesClusterOmsAgentOmsAgentIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -11352,11 +11512,11 @@ type KubernetesClusterOmsAgentOmsAgentIdentityInput interface {
 }
 
 type KubernetesClusterOmsAgentOmsAgentIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -11411,17 +11571,17 @@ func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) ToKubernetesClusterOmsA
 	return o
 }
 
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterOmsAgentOmsAgentIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterOmsAgentOmsAgentIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterOmsAgentOmsAgentIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -12778,13 +12938,13 @@ func (o RegistryEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 }
 
 type RegistryGeoreplication struct {
-	// A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
+	// A location where the container registry should be geo-replicated.
 	Location string `pulumi:"location"`
 	// Whether regional endpoint is enabled for this Container Registry?
 	RegionalEndpointEnabled *bool `pulumi:"regionalEndpointEnabled"`
 	// A mapping of tags to assign to this replication location.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -12800,13 +12960,13 @@ type RegistryGeoreplicationInput interface {
 }
 
 type RegistryGeoreplicationArgs struct {
-	// A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
+	// A location where the container registry should be geo-replicated.
 	Location pulumi.StringInput `pulumi:"location"`
 	// Whether regional endpoint is enabled for this Container Registry?
 	RegionalEndpointEnabled pulumi.BoolPtrInput `pulumi:"regionalEndpointEnabled"`
 	// A mapping of tags to assign to this replication location.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 	ZoneRedundancyEnabled pulumi.BoolPtrInput `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -12861,7 +13021,7 @@ func (o RegistryGeoreplicationOutput) ToRegistryGeoreplicationOutputWithContext(
 	return o
 }
 
-// A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
+// A location where the container registry should be geo-replicated.
 func (o RegistryGeoreplicationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -12876,7 +13036,7 @@ func (o RegistryGeoreplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
+// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 func (o RegistryGeoreplicationOutput) ZoneRedundancyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) *bool { return v.ZoneRedundancyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13997,7 +14157,7 @@ type RegistryTaskDockerStep struct {
 	ContextAccessToken string `pulumi:"contextAccessToken"`
 	// The URL (absolute or relative) of the source context for this step.
 	ContextPath string `pulumi:"contextPath"`
-	// The  Dockerfile path relative to the source context.
+	// The Dockerfile path relative to the source context.
 	DockerfilePath string `pulumi:"dockerfilePath"`
 	// Specifies a list of fully qualified image names including the repository and tag.
 	ImageNames []string `pulumi:"imageNames"`
@@ -14029,7 +14189,7 @@ type RegistryTaskDockerStepArgs struct {
 	ContextAccessToken pulumi.StringInput `pulumi:"contextAccessToken"`
 	// The URL (absolute or relative) of the source context for this step.
 	ContextPath pulumi.StringInput `pulumi:"contextPath"`
-	// The  Dockerfile path relative to the source context.
+	// The Dockerfile path relative to the source context.
 	DockerfilePath pulumi.StringInput `pulumi:"dockerfilePath"`
 	// Specifies a list of fully qualified image names including the repository and tag.
 	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
@@ -14138,7 +14298,7 @@ func (o RegistryTaskDockerStepOutput) ContextPath() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryTaskDockerStep) string { return v.ContextPath }).(pulumi.StringOutput)
 }
 
-// The  Dockerfile path relative to the source context.
+// The Dockerfile path relative to the source context.
 func (o RegistryTaskDockerStepOutput) DockerfilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryTaskDockerStep) string { return v.DockerfilePath }).(pulumi.StringOutput)
 }
@@ -14227,7 +14387,7 @@ func (o RegistryTaskDockerStepPtrOutput) ContextPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The  Dockerfile path relative to the source context.
+// The Dockerfile path relative to the source context.
 func (o RegistryTaskDockerStepPtrOutput) DockerfilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryTaskDockerStep) *string {
 		if v == nil {
@@ -17655,6 +17815,112 @@ func (o GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayId
 	}).(GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
 }
 
+type GetKubernetesClusterKeyManagementService struct {
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+	// Network access of the key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link.
+	KeyVaultNetworkAccess string `pulumi:"keyVaultNetworkAccess"`
+}
+
+// GetKubernetesClusterKeyManagementServiceInput is an input type that accepts GetKubernetesClusterKeyManagementServiceArgs and GetKubernetesClusterKeyManagementServiceOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterKeyManagementServiceInput` via:
+//
+//	GetKubernetesClusterKeyManagementServiceArgs{...}
+type GetKubernetesClusterKeyManagementServiceInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterKeyManagementServiceOutput() GetKubernetesClusterKeyManagementServiceOutput
+	ToGetKubernetesClusterKeyManagementServiceOutputWithContext(context.Context) GetKubernetesClusterKeyManagementServiceOutput
+}
+
+type GetKubernetesClusterKeyManagementServiceArgs struct {
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+	// Network access of the key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link.
+	KeyVaultNetworkAccess pulumi.StringInput `pulumi:"keyVaultNetworkAccess"`
+}
+
+func (GetKubernetesClusterKeyManagementServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterKeyManagementService)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterKeyManagementServiceArgs) ToGetKubernetesClusterKeyManagementServiceOutput() GetKubernetesClusterKeyManagementServiceOutput {
+	return i.ToGetKubernetesClusterKeyManagementServiceOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterKeyManagementServiceArgs) ToGetKubernetesClusterKeyManagementServiceOutputWithContext(ctx context.Context) GetKubernetesClusterKeyManagementServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKeyManagementServiceOutput)
+}
+
+// GetKubernetesClusterKeyManagementServiceArrayInput is an input type that accepts GetKubernetesClusterKeyManagementServiceArray and GetKubernetesClusterKeyManagementServiceArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterKeyManagementServiceArrayInput` via:
+//
+//	GetKubernetesClusterKeyManagementServiceArray{ GetKubernetesClusterKeyManagementServiceArgs{...} }
+type GetKubernetesClusterKeyManagementServiceArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterKeyManagementServiceArrayOutput() GetKubernetesClusterKeyManagementServiceArrayOutput
+	ToGetKubernetesClusterKeyManagementServiceArrayOutputWithContext(context.Context) GetKubernetesClusterKeyManagementServiceArrayOutput
+}
+
+type GetKubernetesClusterKeyManagementServiceArray []GetKubernetesClusterKeyManagementServiceInput
+
+func (GetKubernetesClusterKeyManagementServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterKeyManagementService)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterKeyManagementServiceArray) ToGetKubernetesClusterKeyManagementServiceArrayOutput() GetKubernetesClusterKeyManagementServiceArrayOutput {
+	return i.ToGetKubernetesClusterKeyManagementServiceArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterKeyManagementServiceArray) ToGetKubernetesClusterKeyManagementServiceArrayOutputWithContext(ctx context.Context) GetKubernetesClusterKeyManagementServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKeyManagementServiceArrayOutput)
+}
+
+type GetKubernetesClusterKeyManagementServiceOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterKeyManagementServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterKeyManagementService)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterKeyManagementServiceOutput) ToGetKubernetesClusterKeyManagementServiceOutput() GetKubernetesClusterKeyManagementServiceOutput {
+	return o
+}
+
+func (o GetKubernetesClusterKeyManagementServiceOutput) ToGetKubernetesClusterKeyManagementServiceOutputWithContext(ctx context.Context) GetKubernetesClusterKeyManagementServiceOutput {
+	return o
+}
+
+// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+func (o GetKubernetesClusterKeyManagementServiceOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterKeyManagementService) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+// Network access of the key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link.
+func (o GetKubernetesClusterKeyManagementServiceOutput) KeyVaultNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterKeyManagementService) string { return v.KeyVaultNetworkAccess }).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterKeyManagementServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterKeyManagementServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterKeyManagementService)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterKeyManagementServiceArrayOutput) ToGetKubernetesClusterKeyManagementServiceArrayOutput() GetKubernetesClusterKeyManagementServiceArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterKeyManagementServiceArrayOutput) ToGetKubernetesClusterKeyManagementServiceArrayOutputWithContext(ctx context.Context) GetKubernetesClusterKeyManagementServiceArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterKeyManagementServiceArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKeyManagementServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterKeyManagementService {
+		return vs[0].([]GetKubernetesClusterKeyManagementService)[vs[1].(int)]
+	}).(GetKubernetesClusterKeyManagementServiceOutput)
+}
+
 type GetKubernetesClusterKeyVaultSecretsProvider struct {
 	// A `secretIdentity` block as documented below.
 	SecretIdentities []GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity `pulumi:"secretIdentities"`
@@ -19353,6 +19619,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterIngressApplicationGatewayPtrInput)(nil)).Elem(), KubernetesClusterIngressApplicationGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityInput)(nil)).Elem(), KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput)(nil)).Elem(), KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterKeyManagementServiceInput)(nil)).Elem(), KubernetesClusterKeyManagementServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterKeyManagementServicePtrInput)(nil)).Elem(), KubernetesClusterKeyManagementServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterKeyVaultSecretsProviderInput)(nil)).Elem(), KubernetesClusterKeyVaultSecretsProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterKeyVaultSecretsProviderPtrInput)(nil)).Elem(), KubernetesClusterKeyVaultSecretsProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterKeyVaultSecretsProviderSecretIdentityInput)(nil)).Elem(), KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs{})
@@ -19475,6 +19743,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterIngressApplicationGatewayArrayInput)(nil)).Elem(), GetKubernetesClusterIngressApplicationGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityInput)(nil)).Elem(), GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput)(nil)).Elem(), GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterKeyManagementServiceInput)(nil)).Elem(), GetKubernetesClusterKeyManagementServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterKeyManagementServiceArrayInput)(nil)).Elem(), GetKubernetesClusterKeyManagementServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterKeyVaultSecretsProviderInput)(nil)).Elem(), GetKubernetesClusterKeyVaultSecretsProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterKeyVaultSecretsProviderArrayInput)(nil)).Elem(), GetKubernetesClusterKeyVaultSecretsProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityInput)(nil)).Elem(), GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs{})
@@ -19569,6 +19839,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterIngressApplicationGatewayPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterKeyManagementServiceOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterKeyManagementServicePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKeyVaultSecretsProviderOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKeyVaultSecretsProviderPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput{})
@@ -19691,6 +19963,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterIngressApplicationGatewayArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterKeyManagementServiceOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterKeyManagementServiceArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterKeyVaultSecretsProviderOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterKeyVaultSecretsProviderArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput{})

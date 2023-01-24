@@ -24,7 +24,7 @@ public final class AccountGeoLocation {
      */
     private @Nullable String id;
     /**
-     * @return The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+     * @return The name of the Azure region to host replicated data.
      * 
      */
     private String location;
@@ -50,7 +50,7 @@ public final class AccountGeoLocation {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+     * @return The name of the Azure region to host replicated data.
      * 
      */
     public String location() {

@@ -31,14 +31,14 @@ public final class WindowsVirtualMachineWinrmListenerArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies the protocol of listener. Possible values are `Http` or `Https`
+     * Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return Specifies the protocol of listener. Possible values are `Http` or `Https`
+     * @return Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> protocol() {
@@ -92,7 +92,7 @@ public final class WindowsVirtualMachineWinrmListenerArgs extends com.pulumi.res
         }
 
         /**
-         * @param protocol Specifies the protocol of listener. Possible values are `Http` or `Https`
+         * @param protocol Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WindowsVirtualMachineWinrmListenerArgs extends com.pulumi.res
         }
 
         /**
-         * @param protocol Specifies the protocol of listener. Possible values are `Http` or `Https`
+         * @param protocol Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

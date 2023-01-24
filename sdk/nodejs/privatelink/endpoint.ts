@@ -145,7 +145,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly customNetworkInterfaceName!: pulumi.Output<string | undefined>;
     /**
-     * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
+     * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      */
     public readonly ipConfigurations!: pulumi.Output<outputs.privatelink.EndpointIpConfiguration[] | undefined>;
     /**
@@ -243,7 +243,7 @@ export interface EndpointState {
      */
     customNetworkInterfaceName?: pulumi.Input<string>;
     /**
-     * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
+     * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointIpConfiguration>[]>;
     /**
@@ -287,7 +287,7 @@ export interface EndpointArgs {
      */
     customNetworkInterfaceName?: pulumi.Input<string>;
     /**
-     * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
+     * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointIpConfiguration>[]>;
     /**

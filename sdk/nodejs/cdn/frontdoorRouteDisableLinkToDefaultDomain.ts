@@ -61,7 +61,7 @@ export class FrontdoorRouteDisableLinkToDefaultDomain extends pulumi.CustomResou
     }
 
     /**
-     * The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+     * The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      *
      * @deprecated the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value
      */
@@ -109,7 +109,7 @@ export class FrontdoorRouteDisableLinkToDefaultDomain extends pulumi.CustomResou
  */
 export interface FrontdoorRouteDisableLinkToDefaultDomainState {
     /**
-     * The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+     * The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      *
      * @deprecated the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value
      */
@@ -127,7 +127,7 @@ export interface FrontdoorRouteDisableLinkToDefaultDomainState {
  */
 export interface FrontdoorRouteDisableLinkToDefaultDomainArgs {
     /**
-     * The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+     * The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      *
      * @deprecated the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value
      */

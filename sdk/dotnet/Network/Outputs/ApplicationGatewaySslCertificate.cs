@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Password for the pfx file specified in data.  Required if `data` is set.
+        /// Password for the pfx file specified in data. Required if `data` is set.
         /// </summary>
         public readonly string? Password;
         /// <summary>

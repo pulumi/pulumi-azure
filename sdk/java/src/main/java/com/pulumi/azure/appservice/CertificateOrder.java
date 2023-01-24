@@ -199,14 +199,14 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
         return this.isPrivateKeyExternal;
     }
     /**
-     * Certificate key size.  Defaults to `2048`.
+     * Certificate key size. Defaults to `2048`.
      * 
      */
     @Export(name="keySize", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> keySize;
 
     /**
-     * @return Certificate key size.  Defaults to `2048`.
+     * @return Certificate key size. Defaults to `2048`.
      * 
      */
     public Output<Optional<Integer>> keySize() {
@@ -325,14 +325,14 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Duration in years (must be between `1` and `3`).  Defaults to `1`.
+     * Duration in years (must be between `1` and `3`). Defaults to `1`.
      * 
      */
     @Export(name="validityInYears", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> validityInYears;
 
     /**
-     * @return Duration in years (must be between `1` and `3`).  Defaults to `1`.
+     * @return Duration in years (must be between `1` and `3`). Defaults to `1`.
      * 
      */
     public Output<Optional<Integer>> validityInYears() {

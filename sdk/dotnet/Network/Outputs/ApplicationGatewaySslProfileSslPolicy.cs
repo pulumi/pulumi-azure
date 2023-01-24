@@ -18,20 +18,19 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CipherSuites;
         /// <summary>
-        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         /// </summary>
         public readonly ImmutableArray<string> DisabledProtocols;
         /// <summary>
-        /// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         /// </summary>
         public readonly string? MinProtocolVersion;
         /// <summary>
-        /// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        /// are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+        /// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
         /// </summary>
         public readonly string? PolicyName;
         /// <summary>
-        /// The Type of the Policy. Possible values are `Predefined` and `Custom`.
+        /// The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
         /// </summary>
         public readonly string? PolicyType;
 

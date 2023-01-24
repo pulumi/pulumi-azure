@@ -22,10 +22,8 @@ class GlobalSchemaArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GlobalSchema resource.
-        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing
-               this forces a new resource to be created.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schema_id: A unique identifier for this Schema. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The content type of the Schema. Possible values are `xml` and `json`.
         :param pulumi.Input[str] value: The string defining the document representing the Schema.
@@ -43,8 +41,7 @@ class GlobalSchemaArgs:
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Input[str]:
         """
-        The Name of the API Management Service where the API exists. Changing this forces a
-        new resource to be created.
+        The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
@@ -56,8 +53,7 @@ class GlobalSchemaArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The Name of the Resource Group in which the API Management Service exists. Changing
-        this forces a new resource to be created.
+        The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -125,11 +121,9 @@ class _GlobalSchemaState:
                  value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering GlobalSchema resources.
-        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the schema.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing
-               this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schema_id: A unique identifier for this Schema. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The content type of the Schema. Possible values are `xml` and `json`.
         :param pulumi.Input[str] value: The string defining the document representing the Schema.
@@ -151,8 +145,7 @@ class _GlobalSchemaState:
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Name of the API Management Service where the API exists. Changing this forces a
-        new resource to be created.
+        The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
@@ -176,8 +169,7 @@ class _GlobalSchemaState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Name of the Resource Group in which the API Management Service exists. Changing
-        this forces a new resource to be created.
+        The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -268,11 +260,9 @@ class GlobalSchema(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the schema.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing
-               this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schema_id: A unique identifier for this Schema. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The content type of the Schema. Possible values are `xml` and `json`.
         :param pulumi.Input[str] value: The string defining the document representing the Schema.
@@ -384,11 +374,9 @@ class GlobalSchema(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the schema.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing
-               this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schema_id: A unique identifier for this Schema. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The content type of the Schema. Possible values are `xml` and `json`.
         :param pulumi.Input[str] value: The string defining the document representing the Schema.
@@ -409,8 +397,7 @@ class GlobalSchema(pulumi.CustomResource):
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Output[str]:
         """
-        The Name of the API Management Service where the API exists. Changing this forces a
-        new resource to be created.
+        The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
@@ -426,8 +413,7 @@ class GlobalSchema(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The Name of the Resource Group in which the API Management Service exists. Changing
-        this forces a new resource to be created.
+        The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

@@ -98,14 +98,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
+     * Is the cluster&#39;s double encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     @Import(name="doubleEncryptionEnabled")
     private @Nullable Output<Boolean> doubleEncryptionEnabled;
 
     /**
-     * @return Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
+     * @return Is the cluster&#39;s double encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> doubleEncryptionEnabled() {
@@ -555,7 +555,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param doubleEncryptionEnabled Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
+         * @param doubleEncryptionEnabled Is the cluster&#39;s double encryption enabled? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -566,7 +566,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param doubleEncryptionEnabled Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
+         * @param doubleEncryptionEnabled Is the cluster&#39;s double encryption enabled? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

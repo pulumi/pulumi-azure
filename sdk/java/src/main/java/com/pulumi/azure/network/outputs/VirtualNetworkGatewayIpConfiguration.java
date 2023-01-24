@@ -12,62 +12,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNetworkGatewayIpConfiguration {
     /**
-     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
      * 
      */
     private @Nullable String name;
     /**
-     * @return Defines how the private IP address
-     * of the gateways virtual interface is assigned. Valid options are `Static` or
-     * `Dynamic`. Defaults to `Dynamic`.
+     * @return Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
      * 
      */
     private @Nullable String privateIpAddressAllocation;
     /**
-     * @return The ID of the public IP address to associate
-     * with the Virtual Network Gateway.
+     * @return The ID of the public IP address to associate with the Virtual Network Gateway.
      * 
      */
     private String publicIpAddressId;
     /**
-     * @return The ID of the gateway subnet of a virtual network in
-     * which the virtual network gateway will be created. It is mandatory that
-     * the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-     * network can contain at most a single Virtual Network Gateway.
+     * @return The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
      * 
      */
     private String subnetId;
 
     private VirtualNetworkGatewayIpConfiguration() {}
     /**
-     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Defines how the private IP address
-     * of the gateways virtual interface is assigned. Valid options are `Static` or
-     * `Dynamic`. Defaults to `Dynamic`.
+     * @return Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
      * 
      */
     public Optional<String> privateIpAddressAllocation() {
         return Optional.ofNullable(this.privateIpAddressAllocation);
     }
     /**
-     * @return The ID of the public IP address to associate
-     * with the Virtual Network Gateway.
+     * @return The ID of the public IP address to associate with the Virtual Network Gateway.
      * 
      */
     public String publicIpAddressId() {
         return this.publicIpAddressId;
     }
     /**
-     * @return The ID of the gateway subnet of a virtual network in
-     * which the virtual network gateway will be created. It is mandatory that
-     * the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-     * network can contain at most a single Virtual Network Gateway.
+     * @return The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
      * 
      */
     public String subnetId() {

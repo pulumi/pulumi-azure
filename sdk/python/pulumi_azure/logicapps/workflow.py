@@ -35,7 +35,7 @@ class WorkflowArgs:
         :param pulumi.Input['WorkflowAccessControlArgs'] access_control: A `access_control` block as defined below.
         :param pulumi.Input[bool] enabled: Is the Logic App Workflow enabled? Defaults to `true`.
         :param pulumi.Input['WorkflowIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -123,7 +123,7 @@ class WorkflowArgs:
     @pulumi.getter(name="integrationServiceEnvironmentId")
     def integration_service_environment_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         """
         return pulumi.get(self, "integration_service_environment_id")
 
@@ -257,7 +257,7 @@ class _WorkflowState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_outbound_ip_addresses: The list of outgoing IP addresses of connector.
         :param pulumi.Input[bool] enabled: Is the Logic App Workflow enabled? Defaults to `true`.
         :param pulumi.Input['WorkflowIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -383,7 +383,7 @@ class _WorkflowState:
     @pulumi.getter(name="integrationServiceEnvironmentId")
     def integration_service_environment_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         """
         return pulumi.get(self, "integration_service_environment_id")
 
@@ -571,7 +571,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkflowAccessControlArgs']] access_control: A `access_control` block as defined below.
         :param pulumi.Input[bool] enabled: Is the Logic App Workflow enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['WorkflowIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -709,7 +709,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_outbound_ip_addresses: The list of outgoing IP addresses of connector.
         :param pulumi.Input[bool] enabled: Is the Logic App Workflow enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['WorkflowIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -798,7 +798,7 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter(name="integrationServiceEnvironmentId")
     def integration_service_environment_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         """
         return pulumi.get(self, "integration_service_environment_id")
 

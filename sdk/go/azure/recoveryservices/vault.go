@@ -67,10 +67,14 @@ type Vault struct {
 	Encryption VaultEncryptionPtrOutput `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrOutput `pulumi:"identity"`
+	// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+	Immutability pulumi.StringOutput `pulumi:"immutability"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Is it enabled to access the vault from public networks. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
@@ -124,10 +128,14 @@ type vaultState struct {
 	Encryption *VaultEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *VaultIdentity `pulumi:"identity"`
+	// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+	Immutability *string `pulumi:"immutability"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Is it enabled to access the vault from public networks. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
@@ -147,10 +155,14 @@ type VaultState struct {
 	Encryption VaultEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrInput
+	// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+	Immutability pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Is it enabled to access the vault from public networks. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
@@ -174,10 +186,14 @@ type vaultArgs struct {
 	Encryption *VaultEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *VaultIdentity `pulumi:"identity"`
+	// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+	Immutability *string `pulumi:"immutability"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Is it enabled to access the vault from public networks. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
@@ -198,10 +214,14 @@ type VaultArgs struct {
 	Encryption VaultEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrInput
+	// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+	Immutability pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Is it enabled to access the vault from public networks. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
@@ -316,6 +336,11 @@ func (o VaultOutput) Identity() VaultIdentityPtrOutput {
 	return o.ApplyT(func(v *Vault) VaultIdentityPtrOutput { return v.Identity }).(VaultIdentityPtrOutput)
 }
 
+// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+func (o VaultOutput) Immutability() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Immutability }).(pulumi.StringOutput)
+}
+
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o VaultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -324,6 +349,11 @@ func (o VaultOutput) Location() pulumi.StringOutput {
 // Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
 func (o VaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Is it enabled to access the vault from public networks. Defaults to `true`.
+func (o VaultOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Vault) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.

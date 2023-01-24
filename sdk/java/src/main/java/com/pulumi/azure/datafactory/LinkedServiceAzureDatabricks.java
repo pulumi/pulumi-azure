@@ -269,14 +269,14 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.existingClusterId);
     }
     /**
-     * Leverages an instance pool within the linked ADB instance as defined by  `instance_pool` block below.
+     * Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
      * 
      */
     @Export(name="instancePool", type=LinkedServiceAzureDatabricksInstancePool.class, parameters={})
     private Output</* @Nullable */ LinkedServiceAzureDatabricksInstancePool> instancePool;
 
     /**
-     * @return Leverages an instance pool within the linked ADB instance as defined by  `instance_pool` block below.
+     * @return Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
      * 
      */
     public Output<Optional<LinkedServiceAzureDatabricksInstancePool>> instancePool() {
@@ -339,14 +339,14 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
         return this.name;
     }
     /**
-     * Creates new clusters within the linked ADB instance as defined in the  `new_cluster_config` block below.
+     * Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
      * 
      */
     @Export(name="newClusterConfig", type=LinkedServiceAzureDatabricksNewClusterConfig.class, parameters={})
     private Output</* @Nullable */ LinkedServiceAzureDatabricksNewClusterConfig> newClusterConfig;
 
     /**
-     * @return Creates new clusters within the linked ADB instance as defined in the  `new_cluster_config` block below.
+     * @return Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
      * 
      */
     public Output<Optional<LinkedServiceAzureDatabricksNewClusterConfig>> newClusterConfig() {

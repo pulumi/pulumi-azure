@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Backup.Inputs
         public Input<int>? HourDuration { get; set; }
 
         /// <summary>
-        /// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+        /// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
         /// </summary>
         [Input("hourInterval")]
         public Input<int>? HourInterval { get; set; }

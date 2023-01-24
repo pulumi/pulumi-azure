@@ -66,16 +66,14 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     @Import(name="defaultPrimaryConnectionString")
     private @Nullable Output<String> defaultPrimaryConnectionString;
 
     /**
-     * @return The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * @return The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     public Optional<Output<String>> defaultPrimaryConnectionString() {
@@ -83,16 +81,14 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The alias of the primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      * 
      */
     @Import(name="defaultPrimaryConnectionStringAlias")
     private @Nullable Output<String> defaultPrimaryConnectionStringAlias;
 
     /**
-     * @return The alias of the primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * @return The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      * 
      */
     public Optional<Output<String>> defaultPrimaryConnectionStringAlias() {
@@ -115,16 +111,14 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     @Import(name="defaultSecondaryConnectionString")
     private @Nullable Output<String> defaultSecondaryConnectionString;
 
     /**
-     * @return The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * @return The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     public Optional<Output<String>> defaultSecondaryConnectionString() {
@@ -132,16 +126,14 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The alias of the secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      * 
      */
     @Import(name="defaultSecondaryConnectionStringAlias")
     private @Nullable Output<String> defaultSecondaryConnectionStringAlias;
 
     /**
-     * @return The alias of the secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     * @return The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      * 
      */
     public Optional<Output<String>> defaultSecondaryConnectionStringAlias() {
@@ -451,8 +443,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultPrimaryConnectionString The primary connection string for the authorization
-         * rule `RootManageSharedAccessKey`.
+         * @param defaultPrimaryConnectionString The primary connection string for the authorization rule `RootManageSharedAccessKey`.
          * 
          * @return builder
          * 
@@ -463,8 +454,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultPrimaryConnectionString The primary connection string for the authorization
-         * rule `RootManageSharedAccessKey`.
+         * @param defaultPrimaryConnectionString The primary connection string for the authorization rule `RootManageSharedAccessKey`.
          * 
          * @return builder
          * 
@@ -474,8 +464,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultPrimaryConnectionStringAlias The alias of the primary connection string for the authorization
-         * rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+         * @param defaultPrimaryConnectionStringAlias The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
          * 
          * @return builder
          * 
@@ -486,8 +475,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultPrimaryConnectionStringAlias The alias of the primary connection string for the authorization
-         * rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+         * @param defaultPrimaryConnectionStringAlias The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
          * 
          * @return builder
          * 
@@ -518,8 +506,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultSecondaryConnectionString The secondary connection string for the
-         * authorization rule `RootManageSharedAccessKey`.
+         * @param defaultSecondaryConnectionString The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
          * 
          * @return builder
          * 
@@ -530,8 +517,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultSecondaryConnectionString The secondary connection string for the
-         * authorization rule `RootManageSharedAccessKey`.
+         * @param defaultSecondaryConnectionString The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
          * 
          * @return builder
          * 
@@ -541,8 +527,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultSecondaryConnectionStringAlias The alias of the secondary connection string for the
-         * authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+         * @param defaultSecondaryConnectionStringAlias The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
          * 
          * @return builder
          * 
@@ -553,8 +538,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultSecondaryConnectionStringAlias The alias of the secondary connection string for the
-         * authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+         * @param defaultSecondaryConnectionStringAlias The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
          * 
          * @return builder
          * 

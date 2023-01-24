@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineScaleSetAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `additional_unattend_content` blocks as defined below.
+        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("additionalUnattendContents")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetAdditionalUnattendContent>> AdditionalUnattendContents { get; private set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> Overprovision { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.WindowsVirtualMachineScaleSetPlan?> Plan { get; private set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("rollingUpgradePolicy")]
         public Output<Outputs.WindowsVirtualMachineScaleSetRollingUpgradePolicy?> RollingUpgradePolicy { get; private set; } = null!;
@@ -434,7 +434,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> VtpmEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below.
+        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("winrmListeners")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetWinrmListener>> WinrmListeners { get; private set; } = null!;
@@ -512,7 +512,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs>? _additionalUnattendContents;
 
         /// <summary>
-        /// One or more `additional_unattend_content` blocks as defined below.
+        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs> AdditionalUnattendContents
         {
@@ -736,7 +736,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? Overprovision { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.WindowsVirtualMachineScaleSetPlanArgs>? Plan { get; set; }
@@ -772,7 +772,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs>? RollingUpgradePolicy { get; set; }
@@ -886,7 +886,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetWinrmListenerArgs>? _winrmListeners;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below.
+        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetWinrmListenerArgs> WinrmListeners
         {
@@ -930,7 +930,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetAdditionalUnattendContentGetArgs>? _additionalUnattendContents;
 
         /// <summary>
-        /// One or more `additional_unattend_content` blocks as defined below.
+        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetAdditionalUnattendContentGetArgs> AdditionalUnattendContents
         {
@@ -1154,7 +1154,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? Overprovision { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.WindowsVirtualMachineScaleSetPlanGetArgs>? Plan { get; set; }
@@ -1190,7 +1190,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.WindowsVirtualMachineScaleSetRollingUpgradePolicyGetArgs>? RollingUpgradePolicy { get; set; }
@@ -1310,7 +1310,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineScaleSetWinrmListenerGetArgs>? _winrmListeners;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below.
+        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineScaleSetWinrmListenerGetArgs> WinrmListeners
         {

@@ -14,14 +14,14 @@ public final class ActiveSlotArgs extends com.pulumi.resources.ResourceArgs {
     public static final ActiveSlotArgs Empty = new ActiveSlotArgs();
 
     /**
-     * The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+     * The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="appServiceName", required=true)
     private Output<String> appServiceName;
 
     /**
-     * @return The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+     * @return The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> appServiceName() {
@@ -85,7 +85,7 @@ public final class ActiveSlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appServiceName The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+         * @param appServiceName The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class ActiveSlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appServiceName The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+         * @param appServiceName The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

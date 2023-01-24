@@ -1124,7 +1124,7 @@ class AppServiceConnectionString(dict):
                  value: str):
         """
         :param str name: The name of the Connection String.
-        :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         :param str value: The value for the Connection String.
         """
         pulumi.set(__self__, "name", name)
@@ -1143,7 +1143,7 @@ class AppServiceConnectionString(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         """
         return pulumi.get(self, "type")
 
@@ -2771,7 +2771,7 @@ class ConnectionAuthentication(dict):
                  secret: Optional[str] = None,
                  subscription_id: Optional[str] = None):
         """
-        :param str type: The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+        :param str type: The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
         :param str certificate: Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
         :param str client_id: Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
         :param str name: Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
@@ -2797,7 +2797,7 @@ class ConnectionAuthentication(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+        The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -3477,8 +3477,8 @@ class FunctionAppConnectionString(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The name of the Connection String. Changing this forces a new resource to be created.
-        :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        :param str name: The name of the Connection String.
+        :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         :param str value: The value for the Connection String.
         """
         pulumi.set(__self__, "name", name)
@@ -3489,7 +3489,7 @@ class FunctionAppConnectionString(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Connection String. Changing this forces a new resource to be created.
+        The name of the Connection String.
         """
         return pulumi.get(self, "name")
 
@@ -3497,7 +3497,7 @@ class FunctionAppConnectionString(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         """
         return pulumi.get(self, "type")
 
@@ -4893,8 +4893,8 @@ class FunctionAppSlotConnectionString(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The name of the Connection String. Changing this forces a new resource to be created.
-        :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        :param str name: The name of the Connection String.
+        :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         :param str value: The value for the Connection String.
         """
         pulumi.set(__self__, "name", name)
@@ -4905,7 +4905,7 @@ class FunctionAppSlotConnectionString(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Connection String. Changing this forces a new resource to be created.
+        The name of the Connection String.
         """
         return pulumi.get(self, "name")
 
@@ -4913,7 +4913,7 @@ class FunctionAppSlotConnectionString(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         """
         return pulumi.get(self, "type")
 
@@ -6321,7 +6321,7 @@ class LinuxFunctionAppAuthSettingsGoogle(dict):
                  oauth_scopes: Optional[Sequence[str]] = None):
         """
         :param str client_id: The OpenID Connect Client ID for the Google web application.
-        :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param str client_secret: The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
@@ -6345,7 +6345,7 @@ class LinuxFunctionAppAuthSettingsGoogle(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[str]:
         """
-        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -6936,13 +6936,13 @@ class LinuxFunctionAppSiteConfig(dict):
         :param Sequence['LinuxFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
-        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
         :param bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
         :param Sequence['LinuxFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
-        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
@@ -7204,7 +7204,7 @@ class LinuxFunctionAppSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -7252,7 +7252,7 @@ class LinuxFunctionAppSiteConfig(dict):
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[str]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -7398,7 +7398,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
         :param str java_version: The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
         :param str node_version: The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
-        :param str python_version: The version of Python to run. Possible values include `3.6`, `3.7`, `3.8`, and `3.9`.
+        :param str python_version: The version of Python to run. Possible values are `3.10`, `3.9`, `3.8` and `3.7`.
         :param bool use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -7463,7 +7463,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
         """
-        The version of Python to run. Possible values include `3.6`, `3.7`, `3.8`, and `3.9`.
+        The version of Python to run. Possible values are `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 
@@ -8513,7 +8513,7 @@ class LinuxFunctionAppSlotAuthSettingsGoogle(dict):
                  oauth_scopes: Optional[Sequence[str]] = None):
         """
         :param str client_id: The OpenID Connect Client ID for the Google web application.
-        :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param str client_secret: The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
@@ -8537,7 +8537,7 @@ class LinuxFunctionAppSlotAuthSettingsGoogle(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[str]:
         """
-        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -9138,13 +9138,13 @@ class LinuxFunctionAppSlotSiteConfig(dict):
         :param str linux_fx_version: The Linux FX Version
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
-        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
         :param bool runtime_scale_monitoring_enabled: Should Functions Runtime Scale Monitoring be enabled.
         :param Sequence['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
-        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param str scm_type: The SCM Type in use by the Linux Function App.
         :param bool scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker.
@@ -9423,7 +9423,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -9471,7 +9471,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[str]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -9620,7 +9620,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
         :param str java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
         :param str node_version: The version of Node to use. Possible values include `12`, `14`, `16` and `18`
         :param str powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
-        :param str python_version: The version of Python to use. Possible values include `3.9`, `3.8`, and `3.7`.
+        :param str python_version: The version of Python to use. Possible values are `3.10`, `3.9`, `3.8` and `3.7`.
         :param bool use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -9685,7 +9685,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
         """
-        The version of Python to use. Possible values include `3.9`, `3.8`, and `3.7`.
+        The version of Python to use. Possible values are `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 
@@ -10979,7 +10979,7 @@ class LinuxWebAppAuthSettingsGoogle(dict):
                  oauth_scopes: Optional[Sequence[str]] = None):
         """
         :param str client_id: The OpenID Connect Client ID for the Google web application.
-        :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param str client_secret: The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
@@ -11003,7 +11003,7 @@ class LinuxWebAppAuthSettingsGoogle(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[str]:
         """
-        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -11913,11 +11913,11 @@ class LinuxWebAppSiteConfig(dict):
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
-        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
         :param Sequence['LinuxWebAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
-        :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker? Defaults to `true`.
         :param bool vnet_route_all_enabled: Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
@@ -12155,7 +12155,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -12187,7 +12187,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -12298,7 +12298,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         :param str java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
         :param str php_version: The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
-        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
+        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
         :param str ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
@@ -12400,7 +12400,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
         """
-        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
+        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
         """
         return pulumi.get(self, "python_version")
 
@@ -13690,7 +13690,7 @@ class LinuxWebAppSlotAuthSettingsGoogle(dict):
                  oauth_scopes: Optional[Sequence[str]] = None):
         """
         :param str client_id: The OpenID Connect Client ID for the Google web application.
-        :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param str client_secret: The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
@@ -13714,7 +13714,7 @@ class LinuxWebAppSlotAuthSettingsGoogle(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[str]:
         """
-        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -14628,11 +14628,11 @@ class LinuxWebAppSlotSiteConfig(dict):
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
-        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
         :param Sequence['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
-        :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker? Defaults to `true`.
         :param bool vnet_route_all_enabled: Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
@@ -14879,7 +14879,7 @@ class LinuxWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -14911,7 +14911,7 @@ class LinuxWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -15019,7 +15019,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         :param str java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
         :param str php_version: The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
-        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
+        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
         :param str ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
@@ -15121,7 +15121,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
         """
-        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
+        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
         """
         return pulumi.get(self, "python_version")
 
@@ -16715,8 +16715,8 @@ class SlotConnectionString(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The name of the Connection String. Changing this forces a new resource to be created.
-        :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+        :param str name: The name of the Connection String.
+        :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
         :param str value: The value for the Connection String.
         """
         pulumi.set(__self__, "name", name)
@@ -16727,7 +16727,7 @@ class SlotConnectionString(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Connection String. Changing this forces a new resource to be created.
+        The name of the Connection String.
         """
         return pulumi.get(self, "name")
 
@@ -16735,7 +16735,7 @@ class SlotConnectionString(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
         """
         return pulumi.get(self, "type")
 
@@ -18198,7 +18198,7 @@ class SourceControlGithubActionConfiguration(dict):
                  generate_workflow_file: Optional[bool] = None,
                  linux_action: Optional[bool] = None):
         """
-        :param 'SourceControlGithubActionConfigurationCodeConfigurationArgs' code_configuration: A `code_configuration` block as defined above.
+        :param 'SourceControlGithubActionConfigurationCodeConfigurationArgs' code_configuration: A `code_configuration` block as defined above. Changing this forces a new resource to be created.
         :param 'SourceControlGithubActionConfigurationContainerConfigurationArgs' container_configuration: A `container_configuration` block as defined above.
         """
         if code_configuration is not None:
@@ -18214,7 +18214,7 @@ class SourceControlGithubActionConfiguration(dict):
     @pulumi.getter(name="codeConfiguration")
     def code_configuration(self) -> Optional['outputs.SourceControlGithubActionConfigurationCodeConfiguration']:
         """
-        A `code_configuration` block as defined above.
+        A `code_configuration` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "code_configuration")
 
@@ -18392,7 +18392,7 @@ class SourceControlSlotGithubActionConfiguration(dict):
                  generate_workflow_file: Optional[bool] = None,
                  linux_action: Optional[bool] = None):
         """
-        :param 'SourceControlSlotGithubActionConfigurationCodeConfigurationArgs' code_configuration: A `code_configuration` block as detailed below.
+        :param 'SourceControlSlotGithubActionConfigurationCodeConfigurationArgs' code_configuration: A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
         :param 'SourceControlSlotGithubActionConfigurationContainerConfigurationArgs' container_configuration: A `container_configuration` block as detailed below.
         :param bool generate_workflow_file: Should the service generate the GitHub Action Workflow file. Defaults to `true` Changing this forces a new resource to be created.
         :param bool linux_action: Denotes this action uses a Linux base image.
@@ -18410,7 +18410,7 @@ class SourceControlSlotGithubActionConfiguration(dict):
     @pulumi.getter(name="codeConfiguration")
     def code_configuration(self) -> Optional['outputs.SourceControlSlotGithubActionConfigurationCodeConfiguration']:
         """
-        A `code_configuration` block as detailed below.
+        A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "code_configuration")
 
@@ -19114,7 +19114,7 @@ class WindowsFunctionAppAuthSettingsGoogle(dict):
                  oauth_scopes: Optional[Sequence[str]] = None):
         """
         :param str client_id: The OpenID Connect Client ID for the Google web application.
-        :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param str client_secret: The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
@@ -19138,7 +19138,7 @@ class WindowsFunctionAppAuthSettingsGoogle(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[str]:
         """
-        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -19721,13 +19721,13 @@ class WindowsFunctionAppSiteConfig(dict):
         :param Sequence['WindowsFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
-        :param str minimum_tls_version: Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
         :param bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
         :param Sequence['WindowsFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
-        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
@@ -19964,7 +19964,7 @@ class WindowsFunctionAppSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -20012,7 +20012,7 @@ class WindowsFunctionAppSiteConfig(dict):
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[str]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -21163,7 +21163,7 @@ class WindowsFunctionAppSlotAuthSettingsGoogle(dict):
                  oauth_scopes: Optional[Sequence[str]] = None):
         """
         :param str client_id: The OpenID Connect Client ID for the Google web application.
-        :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param str client_secret: The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param Sequence[str] oauth_scopes: an `oauth_scopes` block as detailed below.
         """
@@ -21187,7 +21187,7 @@ class WindowsFunctionAppSlotAuthSettingsGoogle(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[str]:
         """
-        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -21779,13 +21779,13 @@ class WindowsFunctionAppSlotSiteConfig(dict):
         :param Sequence['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: an `ip_restriction` block as detailed below.
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
-        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
         :param bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
         :param Sequence['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
-        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param str scm_type: The SCM Type in use by the Windows Function App.
         :param bool scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Web App use a 32-bit worker. Defaults to `true`.
@@ -22037,7 +22037,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -22085,7 +22085,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[str]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -22233,8 +22233,8 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[bool] = None,
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
-        :param str dotnet_version: The version of .Net. Possible values are `3.1`, `6` and `7`
-        :param str java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
+        :param str dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
+        :param str java_version: The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
         :param str node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
         :param str powershell_core_version: The PowerShell Core version to use. Possible values are `7`, and `7.2`.
         :param bool use_custom_runtime: Does the Function App use a custom Application Stack?
@@ -22257,7 +22257,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .Net. Possible values are `3.1`, `6` and `7`
+        The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -22265,7 +22265,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[str]:
         """
-        The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
+        The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
         """
         return pulumi.get(self, "java_version")
 
@@ -23486,7 +23486,7 @@ class WindowsWebAppAuthSettingsGoogle(dict):
                  oauth_scopes: Optional[Sequence[str]] = None):
         """
         :param str client_id: The OpenID Connect Client ID for the Google web application.
-        :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param str client_secret: The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
@@ -23510,7 +23510,7 @@ class WindowsWebAppAuthSettingsGoogle(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[str]:
         """
-        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -24425,11 +24425,11 @@ class WindowsWebAppSiteConfig(dict):
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
-        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
         :param Sequence['WindowsWebAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
-        :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Web App use a 32-bit worker. Defaults to `true`.
         :param Sequence['WindowsWebAppSiteConfigVirtualApplicationArgs'] virtual_applications: One or more `virtual_application` blocks as defined below.
@@ -24669,7 +24669,7 @@ class WindowsWebAppSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -24701,7 +24701,7 @@ class WindowsWebAppSiteConfig(dict):
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -24831,7 +24831,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
         :param str dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
-        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         :param bool java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
         :param str java_version: The version of Java to use when `current_stack` is set to `java`.
         :param str node_version: The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
@@ -24914,7 +24914,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -25133,7 +25133,7 @@ class WindowsWebAppSiteConfigAutoHealSettingTrigger(dict):
                  slow_requests: Optional[Sequence['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
                  status_codes: Optional[Sequence['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode']] = None):
         """
-        :param int private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+        :param int private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
         :param 'WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs' requests: A `requests` block as defined above.
         :param Sequence['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: One or more `slow_request` blocks as defined above.
         :param Sequence['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: One or more `status_code` blocks as defined above.
@@ -25151,7 +25151,7 @@ class WindowsWebAppSiteConfigAutoHealSettingTrigger(dict):
     @pulumi.getter(name="privateMemoryKb")
     def private_memory_kb(self) -> Optional[int]:
         """
-        The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+        The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
         """
         return pulumi.get(self, "private_memory_kb")
 
@@ -26438,7 +26438,7 @@ class WindowsWebAppSlotAuthSettingsGoogle(dict):
                  oauth_scopes: Optional[Sequence[str]] = None):
         """
         :param str client_id: The OpenID Connect Client ID for the Google web application.
-        :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param str client_secret: The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
@@ -26462,7 +26462,7 @@ class WindowsWebAppSlotAuthSettingsGoogle(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[str]:
         """
-        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -27379,11 +27379,11 @@ class WindowsWebAppSlotSiteConfig(dict):
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
-        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
         :param Sequence['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
-        :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
         :param Sequence['WindowsWebAppSlotSiteConfigVirtualApplicationArgs'] virtual_applications: One or more `virtual_application` blocks as defined below.
@@ -27628,7 +27628,7 @@ class WindowsWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -27660,7 +27660,7 @@ class WindowsWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -27787,11 +27787,11 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
         :param str dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
-        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         :param bool java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
         :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
         :param str node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
-        :param str php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4` and `Off`.
+        :param str php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
         :param bool python: The app is a Python app. Defaults to `false`.
         :param str tomcat_version: The version of Tomcat the Java App should use.
         """
@@ -27870,7 +27870,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -27912,7 +27912,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[str]:
         """
-        The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4` and `Off`.
+        The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
         """
         return pulumi.get(self, "php_version")
 
@@ -28089,7 +28089,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
                  slow_requests: Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
                  status_codes: Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode']] = None):
         """
-        :param int private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+        :param int private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
         :param 'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs' requests: A `requests` block as defined above.
         :param Sequence['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: One or more `slow_request` blocks as defined above.
         :param Sequence['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: One or more `status_code` blocks as defined above.
@@ -28107,7 +28107,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
     @pulumi.getter(name="privateMemoryKb")
     def private_memory_kb(self) -> Optional[int]:
         """
-        The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+        The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
         """
         return pulumi.get(self, "private_memory_kb")
 

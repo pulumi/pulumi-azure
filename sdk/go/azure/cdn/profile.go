@@ -64,8 +64,7 @@ type Profile struct {
 
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the CDN Profile. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the CDN Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -112,8 +111,7 @@ func GetProfile(ctx *pulumi.Context,
 type profileState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the CDN Profile. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the CDN Profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -126,8 +124,7 @@ type profileState struct {
 type ProfileState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the CDN Profile. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the CDN Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -144,8 +141,7 @@ func (ProfileState) ElementType() reflect.Type {
 type profileArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the CDN Profile. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the CDN Profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -159,8 +155,7 @@ type profileArgs struct {
 type ProfileArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the CDN Profile. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the CDN Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -262,8 +257,7 @@ func (o ProfileOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the CDN Profile. Changing this forces a
-// new resource to be created.
+// Specifies the name of the CDN Profile. Changing this forces a new resource to be created.
 func (o ProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

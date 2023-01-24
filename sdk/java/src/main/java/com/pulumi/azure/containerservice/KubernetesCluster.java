@@ -14,6 +14,7 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoo
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterHttpProxyConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterIdentity;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterIngressApplicationGateway;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterKeyManagementService;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterKeyVaultSecretsProvider;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterKubeAdminConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterKubeConfig;
@@ -399,6 +400,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ingressApplicationGateway);
     }
     /**
+     * A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * 
+     */
+    @Export(name="keyManagementService", type=KubernetesClusterKeyManagementService.class, parameters={})
+    private Output</* @Nullable */ KubernetesClusterKeyManagementService> keyManagementService;
+
+    /**
+     * @return A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * 
+     */
+    public Output<Optional<KubernetesClusterKeyManagementService>> keyManagementService() {
+        return Codegen.optional(this.keyManagementService);
+    }
+    /**
      * A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
      * 
      */
@@ -469,14 +484,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.kubeConfigs;
     }
     /**
-     * A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+     * A `kubelet_identity` block as defined below.
      * 
      */
     @Export(name="kubeletIdentity", type=KubernetesClusterKubeletIdentity.class, parameters={})
     private Output<KubernetesClusterKubeletIdentity> kubeletIdentity;
 
     /**
-     * @return A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+     * @return A `kubelet_identity` block as defined below.
      * 
      */
     public Output<KubernetesClusterKubeletIdentity> kubeletIdentity() {
@@ -595,14 +610,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_profile` block as defined below.
+     * A `network_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="networkProfile", type=KubernetesClusterNetworkProfile.class, parameters={})
     private Output<KubernetesClusterNetworkProfile> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below.
+     * @return A `network_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<KubernetesClusterNetworkProfile> networkProfile() {

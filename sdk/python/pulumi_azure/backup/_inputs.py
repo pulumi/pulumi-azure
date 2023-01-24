@@ -257,7 +257,7 @@ class PolicyVMBackupArgs:
         :param pulumi.Input[str] frequency: Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
         :param pulumi.Input[str] time: The time of day to perform the backup in 24hour format.
         :param pulumi.Input[int] hour_duration: Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
-        :param pulumi.Input[int] hour_interval: Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+        :param pulumi.Input[int] hour_interval: Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
         """
         pulumi.set(__self__, "frequency", frequency)
@@ -309,7 +309,7 @@ class PolicyVMBackupArgs:
     @pulumi.getter(name="hourInterval")
     def hour_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+        Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
         """
         return pulumi.get(self, "hour_interval")
 

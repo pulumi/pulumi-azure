@@ -21,8 +21,7 @@ class ApiKeyArgs:
         """
         The set of arguments for constructing a ApiKey resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """
@@ -50,8 +49,7 @@ class ApiKeyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Application Insights API key. Changing this forces a
-        new resource to be created.
+        Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -96,8 +94,7 @@ class _ApiKeyState:
         Input properties used for looking up and filtering ApiKey resources.
         :param pulumi.Input[str] api_key: The API Key secret (Sensitive).
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """
@@ -140,8 +137,7 @@ class _ApiKeyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Application Insights API key. Changing this forces a
-        new resource to be created.
+        Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -241,8 +237,7 @@ class ApiKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """
@@ -367,8 +362,7 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_key: The API Key secret (Sensitive).
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """
@@ -403,8 +397,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Application Insights API key. Changing this forces a
-        new resource to be created.
+        Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

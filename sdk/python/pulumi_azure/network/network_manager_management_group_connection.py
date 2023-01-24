@@ -20,8 +20,8 @@ class NetworkManagerManagementGroupConnectionArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NetworkManagerManagementGroupConnection resource.
-        :param pulumi.Input[str] management_group_id: Specifies the ID of the target Management Group.
-        :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Management Group is connected to.
+        :param pulumi.Input[str] management_group_id: Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of the Network Manager Management Group Connection.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
         """
@@ -36,7 +36,7 @@ class NetworkManagerManagementGroupConnectionArgs:
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> pulumi.Input[str]:
         """
-        Specifies the ID of the target Management Group.
+        Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_group_id")
 
@@ -48,7 +48,7 @@ class NetworkManagerManagementGroupConnectionArgs:
     @pulumi.getter(name="networkManagerId")
     def network_manager_id(self) -> pulumi.Input[str]:
         """
-        Specifies the ID of the Network Manager which the Management Group is connected to.
+        Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_manager_id")
 
@@ -92,11 +92,10 @@ class _NetworkManagerManagementGroupConnectionState:
         """
         Input properties used for looking up and filtering NetworkManagerManagementGroupConnection resources.
         :param pulumi.Input[str] connection_state: The Connection state of the Network Manager Management Group Connection.
-               *
         :param pulumi.Input[str] description: A description of the Network Manager Management Group Connection.
-        :param pulumi.Input[str] management_group_id: Specifies the ID of the target Management Group.
+        :param pulumi.Input[str] management_group_id: Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
-        :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Management Group is connected to.
+        :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         """
         if connection_state is not None:
             pulumi.set(__self__, "connection_state", connection_state)
@@ -114,7 +113,6 @@ class _NetworkManagerManagementGroupConnectionState:
     def connection_state(self) -> Optional[pulumi.Input[str]]:
         """
         The Connection state of the Network Manager Management Group Connection.
-        *
         """
         return pulumi.get(self, "connection_state")
 
@@ -138,7 +136,7 @@ class _NetworkManagerManagementGroupConnectionState:
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ID of the target Management Group.
+        Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_group_id")
 
@@ -162,7 +160,7 @@ class _NetworkManagerManagementGroupConnectionState:
     @pulumi.getter(name="networkManagerId")
     def network_manager_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ID of the Network Manager which the Management Group is connected to.
+        Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_manager_id")
 
@@ -227,9 +225,9 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the Network Manager Management Group Connection.
-        :param pulumi.Input[str] management_group_id: Specifies the ID of the target Management Group.
+        :param pulumi.Input[str] management_group_id: Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
-        :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Management Group is connected to.
+        :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -340,11 +338,10 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_state: The Connection state of the Network Manager Management Group Connection.
-               *
         :param pulumi.Input[str] description: A description of the Network Manager Management Group Connection.
-        :param pulumi.Input[str] management_group_id: Specifies the ID of the target Management Group.
+        :param pulumi.Input[str] management_group_id: Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
-        :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Management Group is connected to.
+        :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -362,7 +359,6 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
     def connection_state(self) -> pulumi.Output[str]:
         """
         The Connection state of the Network Manager Management Group Connection.
-        *
         """
         return pulumi.get(self, "connection_state")
 
@@ -378,7 +374,7 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> pulumi.Output[str]:
         """
-        Specifies the ID of the target Management Group.
+        Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_group_id")
 
@@ -394,7 +390,7 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
     @pulumi.getter(name="networkManagerId")
     def network_manager_id(self) -> pulumi.Output[str]:
         """
-        Specifies the ID of the Network Manager which the Management Group is connected to.
+        Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_manager_id")
 

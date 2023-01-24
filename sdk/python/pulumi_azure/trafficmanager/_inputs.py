@@ -191,7 +191,7 @@ class ProfileMonitorConfigCustomHeaderArgs:
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the custom header. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the custom header.
         :param pulumi.Input[str] value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
@@ -201,7 +201,7 @@ class ProfileMonitorConfigCustomHeaderArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the custom header. Changing this forces a new resource to be created.
+        The name of the custom header.
         """
         return pulumi.get(self, "name")
 

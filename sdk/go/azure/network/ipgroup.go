@@ -69,6 +69,10 @@ type IPGroup struct {
 
 	// A list of CIDRs or IP addresses.
 	Cidrs pulumi.StringArrayOutput `pulumi:"cidrs"`
+	// A `firewallIds` block as defined below.
+	FirewallIds pulumi.StringArrayOutput `pulumi:"firewallIds"`
+	// A `firewallPolicyIds` block as defined below.
+	FirewallPolicyIds pulumi.StringArrayOutput `pulumi:"firewallPolicyIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the IP group. Changing this forces a new resource to be created.
@@ -113,6 +117,10 @@ func GetIPGroup(ctx *pulumi.Context,
 type ipgroupState struct {
 	// A list of CIDRs or IP addresses.
 	Cidrs []string `pulumi:"cidrs"`
+	// A `firewallIds` block as defined below.
+	FirewallIds []string `pulumi:"firewallIds"`
+	// A `firewallPolicyIds` block as defined below.
+	FirewallPolicyIds []string `pulumi:"firewallPolicyIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the IP group. Changing this forces a new resource to be created.
@@ -126,6 +134,10 @@ type ipgroupState struct {
 type IPGroupState struct {
 	// A list of CIDRs or IP addresses.
 	Cidrs pulumi.StringArrayInput
+	// A `firewallIds` block as defined below.
+	FirewallIds pulumi.StringArrayInput
+	// A `firewallPolicyIds` block as defined below.
+	FirewallPolicyIds pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the IP group. Changing this forces a new resource to be created.
@@ -257,6 +269,16 @@ func (o IPGroupOutput) ToIPGroupOutputWithContext(ctx context.Context) IPGroupOu
 // A list of CIDRs or IP addresses.
 func (o IPGroupOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IPGroup) pulumi.StringArrayOutput { return v.Cidrs }).(pulumi.StringArrayOutput)
+}
+
+// A `firewallIds` block as defined below.
+func (o IPGroupOutput) FirewallIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IPGroup) pulumi.StringArrayOutput { return v.FirewallIds }).(pulumi.StringArrayOutput)
+}
+
+// A `firewallPolicyIds` block as defined below.
+func (o IPGroupOutput) FirewallPolicyIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IPGroup) pulumi.StringArrayOutput { return v.FirewallPolicyIds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

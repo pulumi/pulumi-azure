@@ -51,7 +51,7 @@ class WorkspaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
@@ -250,7 +250,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="managedVirtualNetworkEnabled")
     def managed_virtual_network_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
+        Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_virtual_network_enabled")
 
@@ -393,7 +393,7 @@ class _WorkspaceState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
@@ -586,7 +586,7 @@ class _WorkspaceState:
     @pulumi.getter(name="managedVirtualNetworkEnabled")
     def managed_virtual_network_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
+        Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_virtual_network_enabled")
 
@@ -878,7 +878,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
@@ -1143,7 +1143,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
@@ -1275,7 +1275,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="managedVirtualNetworkEnabled")
     def managed_virtual_network_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
+        Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_virtual_network_enabled")
 

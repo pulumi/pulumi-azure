@@ -108,7 +108,7 @@ export class ContactProfile extends pulumi.CustomResource {
      */
     public readonly eventHubUri!: pulumi.Output<string | undefined>;
     /**
-     * A list of spacecraft links. A `links` block as defined below.
+     * A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly links!: pulumi.Output<outputs.orbital.ContactProfileLink[]>;
     /**
@@ -209,7 +209,7 @@ export interface ContactProfileState {
      */
     eventHubUri?: pulumi.Input<string>;
     /**
-     * A list of spacecraft links. A `links` block as defined below.
+     * A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
      */
     links?: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileLink>[]>;
     /**
@@ -255,7 +255,7 @@ export interface ContactProfileArgs {
      */
     eventHubUri?: pulumi.Input<string>;
     /**
-     * A list of spacecraft links. A `links` block as defined below.
+     * A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
      */
     links: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileLink>[]>;
     /**

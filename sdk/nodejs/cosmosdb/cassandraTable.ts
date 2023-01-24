@@ -110,7 +110,7 @@ export class CassandraTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `schema` block as defined below. Changing this forces a new resource to be created.
+     * A `schema` block as defined below.
      */
     public readonly schema!: pulumi.Output<outputs.cosmosdb.CassandraTableSchema>;
     public readonly throughput!: pulumi.Output<number>;
@@ -178,7 +178,7 @@ export interface CassandraTableState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `schema` block as defined below. Changing this forces a new resource to be created.
+     * A `schema` block as defined below.
      */
     schema?: pulumi.Input<inputs.cosmosdb.CassandraTableSchema>;
     throughput?: pulumi.Input<number>;
@@ -206,7 +206,7 @@ export interface CassandraTableArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `schema` block as defined below. Changing this forces a new resource to be created.
+     * A `schema` block as defined below.
      */
     schema: pulumi.Input<inputs.cosmosdb.CassandraTableSchema>;
     throughput?: pulumi.Input<number>;

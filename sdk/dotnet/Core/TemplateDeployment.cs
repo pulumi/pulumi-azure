@@ -120,8 +120,7 @@ namespace Pulumi.Azure.Core
         public Output<string> DeploymentMode { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the template deployment. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the template deployment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -211,8 +210,7 @@ namespace Pulumi.Azure.Core
         public Input<string> DeploymentMode { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the template deployment. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the template deployment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -264,8 +262,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? DeploymentMode { get; set; }
 
         /// <summary>
-        /// Specifies the name of the template deployment. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the template deployment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

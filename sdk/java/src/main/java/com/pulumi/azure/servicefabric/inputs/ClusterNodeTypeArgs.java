@@ -201,14 +201,14 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+     * The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
      * 
      */
     @Import(name="reverseProxyEndpointPort")
     private @Nullable Output<Integer> reverseProxyEndpointPort;
 
     /**
-     * @return The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+     * @return The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
      * 
      */
     public Optional<Output<Integer>> reverseProxyEndpointPort() {
@@ -504,7 +504,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param reverseProxyEndpointPort The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+         * @param reverseProxyEndpointPort The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param reverseProxyEndpointPort The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+         * @param reverseProxyEndpointPort The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
          * 
          * @return builder
          * 

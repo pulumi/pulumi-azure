@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppConfiguration.Outputs
     public sealed class ConfigurationFeatureTimewindowFilter
     {
         /// <summary>
-        /// The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+        /// The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
         /// </summary>
         public readonly string? End;
         /// <summary>

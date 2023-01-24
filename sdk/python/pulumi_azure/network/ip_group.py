@@ -102,6 +102,8 @@ class IPGroupArgs:
 class _IPGroupState:
     def __init__(__self__, *,
                  cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 firewall_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -109,6 +111,8 @@ class _IPGroupState:
         """
         Input properties used for looking up and filtering IPGroup resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: A list of CIDRs or IP addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_ids: A `firewall_ids` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_policy_ids: A `firewall_policy_ids` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IP group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the IP group. Changing this forces a new resource to be created.
@@ -116,6 +120,10 @@ class _IPGroupState:
         """
         if cidrs is not None:
             pulumi.set(__self__, "cidrs", cidrs)
+        if firewall_ids is not None:
+            pulumi.set(__self__, "firewall_ids", firewall_ids)
+        if firewall_policy_ids is not None:
+            pulumi.set(__self__, "firewall_policy_ids", firewall_policy_ids)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -136,6 +144,30 @@ class _IPGroupState:
     @cidrs.setter
     def cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "cidrs", value)
+
+    @property
+    @pulumi.getter(name="firewallIds")
+    def firewall_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A `firewall_ids` block as defined below.
+        """
+        return pulumi.get(self, "firewall_ids")
+
+    @firewall_ids.setter
+    def firewall_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "firewall_ids", value)
+
+    @property
+    @pulumi.getter(name="firewallPolicyIds")
+    def firewall_policy_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A `firewall_policy_ids` block as defined below.
+        """
+        return pulumi.get(self, "firewall_policy_ids")
+
+    @firewall_policy_ids.setter
+    def firewall_policy_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "firewall_policy_ids", value)
 
     @property
     @pulumi.getter
@@ -309,6 +341,8 @@ class IPGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["firewall_ids"] = None
+            __props__.__dict__["firewall_policy_ids"] = None
         super(IPGroup, __self__).__init__(
             'azure:network/iPGroup:IPGroup',
             resource_name,
@@ -320,6 +354,8 @@ class IPGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            firewall_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            firewall_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -332,6 +368,8 @@ class IPGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: A list of CIDRs or IP addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_ids: A `firewall_ids` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_policy_ids: A `firewall_policy_ids` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IP group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the IP group. Changing this forces a new resource to be created.
@@ -342,6 +380,8 @@ class IPGroup(pulumi.CustomResource):
         __props__ = _IPGroupState.__new__(_IPGroupState)
 
         __props__.__dict__["cidrs"] = cidrs
+        __props__.__dict__["firewall_ids"] = firewall_ids
+        __props__.__dict__["firewall_policy_ids"] = firewall_policy_ids
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -355,6 +395,22 @@ class IPGroup(pulumi.CustomResource):
         A list of CIDRs or IP addresses.
         """
         return pulumi.get(self, "cidrs")
+
+    @property
+    @pulumi.getter(name="firewallIds")
+    def firewall_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A `firewall_ids` block as defined below.
+        """
+        return pulumi.get(self, "firewall_ids")
+
+    @property
+    @pulumi.getter(name="firewallPolicyIds")
+    def firewall_policy_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A `firewall_policy_ids` block as defined below.
+        """
+        return pulumi.get(self, "firewall_policy_ids")
 
     @property
     @pulumi.getter

@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .lab import *
+from .schedule import *
 from .service_plan import *
 from .user import *
 from ._inputs import *

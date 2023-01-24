@@ -96,11 +96,11 @@ type SqlContainer struct {
 
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
-	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analyticalStorageTtl` on an existing Cosmos DB SQL Container.
+	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrOutput `pulumi:"analyticalStorageTtl"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
-	// A `conflictResolutionPolicy` blocks as defined below.
+	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyOutput `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -165,11 +165,11 @@ func GetSqlContainer(ctx *pulumi.Context,
 type sqlContainerState struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
-	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analyticalStorageTtl` on an existing Cosmos DB SQL Container.
+	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
-	// A `conflictResolutionPolicy` blocks as defined below.
+	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *SqlContainerConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -194,11 +194,11 @@ type sqlContainerState struct {
 type SqlContainerState struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringPtrInput
-	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analyticalStorageTtl` on an existing Cosmos DB SQL Container.
+	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
-	// A `conflictResolutionPolicy` blocks as defined below.
+	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
@@ -227,11 +227,11 @@ func (SqlContainerState) ElementType() reflect.Type {
 type sqlContainerArgs struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
-	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analyticalStorageTtl` on an existing Cosmos DB SQL Container.
+	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
-	// A `conflictResolutionPolicy` blocks as defined below.
+	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *SqlContainerConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
@@ -257,11 +257,11 @@ type sqlContainerArgs struct {
 type SqlContainerArgs struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringInput
-	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analyticalStorageTtl` on an existing Cosmos DB SQL Container.
+	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
-	// A `conflictResolutionPolicy` blocks as defined below.
+	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
@@ -375,7 +375,7 @@ func (o SqlContainerOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlContainer) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analyticalStorageTtl` on an existing Cosmos DB SQL Container.
+// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 func (o SqlContainerOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlContainer) pulumi.IntPtrOutput { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
 }
@@ -385,7 +385,7 @@ func (o SqlContainerOutput) AutoscaleSettings() SqlContainerAutoscaleSettingsPtr
 	return o.ApplyT(func(v *SqlContainer) SqlContainerAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(SqlContainerAutoscaleSettingsPtrOutput)
 }
 
-// A `conflictResolutionPolicy` blocks as defined below.
+// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 func (o SqlContainerOutput) ConflictResolutionPolicy() SqlContainerConflictResolutionPolicyOutput {
 	return o.ApplyT(func(v *SqlContainer) SqlContainerConflictResolutionPolicyOutput { return v.ConflictResolutionPolicy }).(SqlContainerConflictResolutionPolicyOutput)
 }

@@ -24,11 +24,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("loginServer", required: true)]
         public Input<string> LoginServer { get; set; } = null!;
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The password for logging into the custom Container Registry. It can be either a plain text of password, or a Keyvault Secret ID.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The username for logging into the custom Container Registry. It can be either a plain text of username, or a Keyvault Secret ID.

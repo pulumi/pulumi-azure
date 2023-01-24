@@ -13,9 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatedVMNetworkInterface {
     /**
-     * @return If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+     * @deprecated
+     * this property is not used and will be removed in version 4.0 of the provider
      * 
      */
+    @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
     private @Nullable Boolean isPrimary;
     /**
      * @return Id of the public IP object to use when a failover is done.
@@ -40,9 +42,11 @@ public final class ReplicatedVMNetworkInterface {
 
     private ReplicatedVMNetworkInterface() {}
     /**
-     * @return If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+     * @deprecated
+     * this property is not used and will be removed in version 4.0 of the provider
      * 
      */
+    @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
     public Optional<Boolean> isPrimary() {
         return Optional.ofNullable(this.isPrimary);
     }

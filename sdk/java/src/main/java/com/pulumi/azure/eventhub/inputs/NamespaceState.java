@@ -51,16 +51,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     @Import(name="defaultPrimaryConnectionString")
     private @Nullable Output<String> defaultPrimaryConnectionString;
 
     /**
-     * @return The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * @return The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     public Optional<Output<String>> defaultPrimaryConnectionString() {
@@ -83,16 +81,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     @Import(name="defaultSecondaryConnectionString")
     private @Nullable Output<String> defaultSecondaryConnectionString;
 
     /**
-     * @return The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * @return The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     public Optional<Output<String>> defaultSecondaryConnectionString() {
@@ -175,16 +171,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-     * new resource to be created.
+     * @return Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -350,8 +344,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultPrimaryConnectionString The primary connection string for the authorization
-         * rule `RootManageSharedAccessKey`.
+         * @param defaultPrimaryConnectionString The primary connection string for the authorization rule `RootManageSharedAccessKey`.
          * 
          * @return builder
          * 
@@ -362,8 +355,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultPrimaryConnectionString The primary connection string for the authorization
-         * rule `RootManageSharedAccessKey`.
+         * @param defaultPrimaryConnectionString The primary connection string for the authorization rule `RootManageSharedAccessKey`.
          * 
          * @return builder
          * 
@@ -394,8 +386,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSecondaryConnectionString The secondary connection string for the
-         * authorization rule `RootManageSharedAccessKey`.
+         * @param defaultSecondaryConnectionString The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
          * 
          * @return builder
          * 
@@ -406,8 +397,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSecondaryConnectionString The secondary connection string for the
-         * authorization rule `RootManageSharedAccessKey`.
+         * @param defaultSecondaryConnectionString The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
          * 
          * @return builder
          * 
@@ -522,8 +512,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-         * new resource to be created.
+         * @param name Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -534,8 +523,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-         * new resource to be created.
+         * @param name Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

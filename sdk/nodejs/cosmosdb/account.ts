@@ -112,7 +112,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly backup!: pulumi.Output<outputs.cosmosdb.AccountBackup>;
     /**
-     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      */
     public readonly capabilities!: pulumi.Output<outputs.cosmosdb.AccountCapability[]>;
     /**
@@ -398,7 +398,7 @@ export interface AccountState {
      */
     backup?: pulumi.Input<inputs.cosmosdb.AccountBackup>;
     /**
-     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      */
     capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
     /**
@@ -564,7 +564,7 @@ export interface AccountArgs {
      */
     backup?: pulumi.Input<inputs.cosmosdb.AccountBackup>;
     /**
-     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      */
     capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
     /**

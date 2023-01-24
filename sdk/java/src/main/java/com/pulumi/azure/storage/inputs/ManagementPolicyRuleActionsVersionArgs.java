@@ -31,14 +31,14 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
     }
 
     /**
-     * The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+     * The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     @Import(name="changeTierToCoolAfterDaysSinceCreation")
     private @Nullable Output<Integer> changeTierToCoolAfterDaysSinceCreation;
 
     /**
-     * @return The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     public Optional<Output<Integer>> changeTierToCoolAfterDaysSinceCreation() {
@@ -124,7 +124,7 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
         }
 
         /**
-         * @param changeTierToCoolAfterDaysSinceCreation The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+         * @param changeTierToCoolAfterDaysSinceCreation The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
         }
 
         /**
-         * @param changeTierToCoolAfterDaysSinceCreation The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+         * @param changeTierToCoolAfterDaysSinceCreation The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
          * 
          * @return builder
          * 

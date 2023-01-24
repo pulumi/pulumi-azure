@@ -562,14 +562,14 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.overprovision);
     }
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="plan", type=LinuxVirtualMachineScaleSetPlan.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetPlan> plan;
 
     /**
-     * @return A `plan` block as defined below.
+     * @return A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<LinuxVirtualMachineScaleSetPlan>> plan() {
@@ -646,14 +646,14 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return this.resourceGroupName;
     }
     /**
-     * A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+     * A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="rollingUpgradePolicy", type=LinuxVirtualMachineScaleSetRollingUpgradePolicy.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetRollingUpgradePolicy> rollingUpgradePolicy;
 
     /**
-     * @return A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+     * @return A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<LinuxVirtualMachineScaleSetRollingUpgradePolicy>> rollingUpgradePolicy() {

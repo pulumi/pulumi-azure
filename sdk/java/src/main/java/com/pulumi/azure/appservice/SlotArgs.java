@@ -25,14 +25,14 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
     public static final SlotArgs Empty = new SlotArgs();
 
     /**
-     * The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+     * The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="appServiceName", required=true)
     private Output<String> appServiceName;
 
     /**
-     * @return The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+     * @return The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> appServiceName() {
@@ -320,7 +320,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appServiceName The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+         * @param appServiceName The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appServiceName The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+         * @param appServiceName The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

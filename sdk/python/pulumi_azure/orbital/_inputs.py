@@ -24,7 +24,7 @@ class ContactProfileLinkArgs:
                  name: pulumi.Input[str],
                  polarization: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]] channels: A list of contact profile link channels. A `channels` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]] channels: A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] direction: Direction of the link. Possible values are `Uplink` and `Downlink`.
         :param pulumi.Input[str] name: Name of the link.
         :param pulumi.Input[str] polarization: Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
@@ -38,7 +38,7 @@ class ContactProfileLinkArgs:
     @pulumi.getter
     def channels(self) -> pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]]:
         """
-        A list of contact profile link channels. A `channels` block as defined below.
+        A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "channels")
 
@@ -261,7 +261,7 @@ class SpacecraftLinkArgs:
         :param pulumi.Input[float] bandwidth_mhz: Bandwidth in Mhz.
         :param pulumi.Input[float] center_frequency_mhz: Center frequency in Mhz.
         :param pulumi.Input[str] direction: Direction if the communication. Possible values are `Uplink` and `Downlink`.
-        :param pulumi.Input[str] name: Name of the link. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Name of the link.
         :param pulumi.Input[str] polarization: Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
         """
         pulumi.set(__self__, "bandwidth_mhz", bandwidth_mhz)
@@ -310,7 +310,7 @@ class SpacecraftLinkArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the link. Changing this forces a new resource to be created.
+        Name of the link.
         """
         return pulumi.get(self, "name")
 

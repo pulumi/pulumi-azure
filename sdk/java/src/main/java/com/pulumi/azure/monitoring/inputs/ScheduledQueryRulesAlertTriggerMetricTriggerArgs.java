@@ -60,14 +60,14 @@ public final class ScheduledQueryRulesAlertTriggerMetricTriggerArgs extends com.
     }
 
     /**
-     * The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+     * The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
      * 
      */
     @Import(name="threshold", required=true)
     private Output<Double> threshold;
 
     /**
-     * @return The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+     * @return The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
      * 
      */
     public Output<Double> threshold() {
@@ -165,7 +165,7 @@ public final class ScheduledQueryRulesAlertTriggerMetricTriggerArgs extends com.
         }
 
         /**
-         * @param threshold The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+         * @param threshold The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ScheduledQueryRulesAlertTriggerMetricTriggerArgs extends com.
         }
 
         /**
-         * @param threshold The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+         * @param threshold The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
          * 
          * @return builder
          * 

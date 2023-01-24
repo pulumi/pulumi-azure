@@ -259,16 +259,14 @@ public class FlowletDataFlow extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-     * root level.
+     * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      * 
      */
     @Export(name="folder", type=String.class, parameters={})
     private Output</* @Nullable */ String> folder;
 
     /**
-     * @return The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-     * root level.
+     * @return The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      * 
      */
     public Output<Optional<String>> folder() {

@@ -8,6 +8,7 @@ import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterAgentPoolPr
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterIdentity;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterIngressApplicationGateway;
+import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterKeyManagementService;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterKeyVaultSecretsProvider;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterKubeAdminConfig;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterKubeConfig;
@@ -93,6 +94,11 @@ public final class GetKubernetesClusterResult {
      * 
      */
     private List<GetKubernetesClusterIngressApplicationGateway> ingressApplicationGateways;
+    /**
+     * @return A `key_management_service` block as documented below.
+     * 
+     */
+    private List<GetKubernetesClusterKeyManagementService> keyManagementServices;
     /**
      * @return A `key_vault_secrets_provider` block as documented below.
      * 
@@ -308,6 +314,13 @@ public final class GetKubernetesClusterResult {
         return this.ingressApplicationGateways;
     }
     /**
+     * @return A `key_management_service` block as documented below.
+     * 
+     */
+    public List<GetKubernetesClusterKeyManagementService> keyManagementServices() {
+        return this.keyManagementServices;
+    }
+    /**
      * @return A `key_vault_secrets_provider` block as documented below.
      * 
      */
@@ -501,6 +514,7 @@ public final class GetKubernetesClusterResult {
         private String id;
         private List<GetKubernetesClusterIdentity> identities;
         private List<GetKubernetesClusterIngressApplicationGateway> ingressApplicationGateways;
+        private List<GetKubernetesClusterKeyManagementService> keyManagementServices;
         private List<GetKubernetesClusterKeyVaultSecretsProvider> keyVaultSecretsProviders;
         private String kubeAdminConfigRaw;
         private List<GetKubernetesClusterKubeAdminConfig> kubeAdminConfigs;
@@ -542,6 +556,7 @@ public final class GetKubernetesClusterResult {
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
     	      this.ingressApplicationGateways = defaults.ingressApplicationGateways;
+    	      this.keyManagementServices = defaults.keyManagementServices;
     	      this.keyVaultSecretsProviders = defaults.keyVaultSecretsProviders;
     	      this.kubeAdminConfigRaw = defaults.kubeAdminConfigRaw;
     	      this.kubeAdminConfigs = defaults.kubeAdminConfigs;
@@ -651,6 +666,14 @@ public final class GetKubernetesClusterResult {
         }
         public Builder ingressApplicationGateways(GetKubernetesClusterIngressApplicationGateway... ingressApplicationGateways) {
             return ingressApplicationGateways(List.of(ingressApplicationGateways));
+        }
+        @CustomType.Setter
+        public Builder keyManagementServices(List<GetKubernetesClusterKeyManagementService> keyManagementServices) {
+            this.keyManagementServices = Objects.requireNonNull(keyManagementServices);
+            return this;
+        }
+        public Builder keyManagementServices(GetKubernetesClusterKeyManagementService... keyManagementServices) {
+            return keyManagementServices(List.of(keyManagementServices));
         }
         @CustomType.Setter
         public Builder keyVaultSecretsProviders(List<GetKubernetesClusterKeyVaultSecretsProvider> keyVaultSecretsProviders) {
@@ -825,6 +848,7 @@ public final class GetKubernetesClusterResult {
             o.id = id;
             o.identities = identities;
             o.ingressApplicationGateways = ingressApplicationGateways;
+            o.keyManagementServices = keyManagementServices;
             o.keyVaultSecretsProviders = keyVaultSecretsProviders;
             o.kubeAdminConfigRaw = kubeAdminConfigRaw;
             o.kubeAdminConfigs = kubeAdminConfigs;

@@ -95,14 +95,14 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="plan", required=true)
     private Output<LogzMonitorPlanArgs> plan;
 
     /**
-     * @return A `plan` block as defined below.
+     * @return A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<LogzMonitorPlanArgs> plan() {
@@ -140,14 +140,14 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `user` block as defined below.
+     * A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="user", required=true)
     private Output<LogzMonitorUserArgs> user;
 
     /**
-     * @return A `user` block as defined below.
+     * @return A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<LogzMonitorUserArgs> user() {
@@ -292,7 +292,7 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plan A `plan` block as defined below.
+         * @param plan A `plan` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plan A `plan` block as defined below.
+         * @param plan A `plan` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param user A `user` block as defined below.
+         * @param user A `user` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param user A `user` block as defined below.
+         * @param user A `user` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -93,6 +93,12 @@ namespace Pulumi.Azure.Synapse
         public Output<bool?> DataEncrypted { get; private set; } = null!;
 
         /// <summary>
+        /// Is geo-backup policy enabled? Defaults to `true`.
+        /// </summary>
+        [Output("geoBackupPolicyEnabled")]
+        public Output<bool?> GeoBackupPolicyEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         /// </summary>
         [Output("name")]
@@ -105,7 +111,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string?> RecoveryDatabaseId { get; private set; } = null!;
 
         /// <summary>
-        /// A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        /// A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("restore")]
         public Output<Outputs.SqlPoolRestore?> Restore { get; private set; } = null!;
@@ -193,6 +199,12 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? DataEncrypted { get; set; }
 
         /// <summary>
+        /// Is geo-backup policy enabled? Defaults to `true`.
+        /// </summary>
+        [Input("geoBackupPolicyEnabled")]
+        public Input<bool>? GeoBackupPolicyEnabled { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         /// </summary>
         [Input("name")]
@@ -205,7 +217,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? RecoveryDatabaseId { get; set; }
 
         /// <summary>
-        /// A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        /// A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("restore")]
         public Input<Inputs.SqlPoolRestoreArgs>? Restore { get; set; }
@@ -261,6 +273,12 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? DataEncrypted { get; set; }
 
         /// <summary>
+        /// Is geo-backup policy enabled? Defaults to `true`.
+        /// </summary>
+        [Input("geoBackupPolicyEnabled")]
+        public Input<bool>? GeoBackupPolicyEnabled { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         /// </summary>
         [Input("name")]
@@ -273,7 +291,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? RecoveryDatabaseId { get; set; }
 
         /// <summary>
-        /// A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        /// A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("restore")]
         public Input<Inputs.SqlPoolRestoreGetArgs>? Restore { get; set; }

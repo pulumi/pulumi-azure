@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> EmailAddress { get; set; } = null!;
 
         /// <summary>
-        /// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+        /// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

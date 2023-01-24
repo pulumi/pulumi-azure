@@ -29,7 +29,7 @@ class ContactProfileArgs:
         """
         The set of arguments for constructing a ContactProfile resource.
         :param pulumi.Input[str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
-        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: A list of spacecraft links. A `links` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         :param pulumi.Input[str] network_configuration_subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
@@ -71,7 +71,7 @@ class ContactProfileArgs:
     @pulumi.getter
     def links(self) -> pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]]:
         """
-        A list of spacecraft links. A `links` block as defined below.
+        A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "links")
 
@@ -193,7 +193,7 @@ class _ContactProfileState:
         Input properties used for looking up and filtering ContactProfile resources.
         :param pulumi.Input[str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
-        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: A list of spacecraft links. A `links` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
@@ -251,7 +251,7 @@ class _ContactProfileState:
     @pulumi.getter
     def links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]]]:
         """
-        A list of spacecraft links. A `links` block as defined below.
+        A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "links")
 
@@ -426,7 +426,7 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: A list of spacecraft links. A `links` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
@@ -586,7 +586,7 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: A list of spacecraft links. A `links` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
@@ -631,7 +631,7 @@ class ContactProfile(pulumi.CustomResource):
     @pulumi.getter
     def links(self) -> pulumi.Output[Sequence['outputs.ContactProfileLink']]:
         """
-        A list of spacecraft links. A `links` block as defined below.
+        A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "links")
 

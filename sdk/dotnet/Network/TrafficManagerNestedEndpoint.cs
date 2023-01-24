@@ -111,8 +111,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Azure location of the Endpoint,
-        /// this must be specified for Profiles using the `Performance` routing method.
+        /// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         /// </summary>
         [Output("endpointLocation")]
         public Output<string> EndpointLocation { get; private set; } = null!;
@@ -124,10 +123,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> GeoMappings { get; private set; } = null!;
 
         /// <summary>
-        /// This argument specifies the minimum number
-        /// of endpoints that must be ‘online’ in the child profile in order for the
-        /// parent profile to direct traffic to any of the endpoints in that child
-        /// profile. This value must be larger than `0`.
+        /// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         /// </summary>
         [Output("minimumChildEndpoints")]
         public Output<int> MinimumChildEndpoints { get; private set; } = null!;
@@ -151,10 +147,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the priority of this Endpoint, this must be
-        /// specified for Profiles using the `Priority` traffic routing method. Supports
-        /// values between 1 and 1000, with no Endpoints sharing the same value. If
-        /// omitted the value will be computed in order of creation.
+        /// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
@@ -166,14 +159,13 @@ namespace Pulumi.Azure.Network
         public Output<string> ProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below
+        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<Outputs.TrafficManagerNestedEndpointSubnet>> Subnets { get; private set; } = null!;
 
         /// <summary>
-        /// The resource id of an Azure resource to
-        /// target.
+        /// The resource id of an Azure resource to target.
         /// </summary>
         [Output("targetResourceId")]
         public Output<string> TargetResourceId { get; private set; } = null!;
@@ -249,8 +241,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the Azure location of the Endpoint,
-        /// this must be specified for Profiles using the `Performance` routing method.
+        /// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         /// </summary>
         [Input("endpointLocation")]
         public Input<string>? EndpointLocation { get; set; }
@@ -268,10 +259,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// This argument specifies the minimum number
-        /// of endpoints that must be ‘online’ in the child profile in order for the
-        /// parent profile to direct traffic to any of the endpoints in that child
-        /// profile. This value must be larger than `0`.
+        /// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         /// </summary>
         [Input("minimumChildEndpoints", required: true)]
         public Input<int> MinimumChildEndpoints { get; set; } = null!;
@@ -295,10 +283,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the priority of this Endpoint, this must be
-        /// specified for Profiles using the `Priority` traffic routing method. Supports
-        /// values between 1 and 1000, with no Endpoints sharing the same value. If
-        /// omitted the value will be computed in order of creation.
+        /// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -313,7 +298,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerNestedEndpointSubnetArgs>? _subnets;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below
+        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.TrafficManagerNestedEndpointSubnetArgs> Subnets
         {
@@ -322,8 +307,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The resource id of an Azure resource to
-        /// target.
+        /// The resource id of an Azure resource to target.
         /// </summary>
         [Input("targetResourceId", required: true)]
         public Input<string> TargetResourceId { get; set; } = null!;
@@ -361,8 +345,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the Azure location of the Endpoint,
-        /// this must be specified for Profiles using the `Performance` routing method.
+        /// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         /// </summary>
         [Input("endpointLocation")]
         public Input<string>? EndpointLocation { get; set; }
@@ -380,10 +363,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// This argument specifies the minimum number
-        /// of endpoints that must be ‘online’ in the child profile in order for the
-        /// parent profile to direct traffic to any of the endpoints in that child
-        /// profile. This value must be larger than `0`.
+        /// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         /// </summary>
         [Input("minimumChildEndpoints")]
         public Input<int>? MinimumChildEndpoints { get; set; }
@@ -407,10 +387,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the priority of this Endpoint, this must be
-        /// specified for Profiles using the `Priority` traffic routing method. Supports
-        /// values between 1 and 1000, with no Endpoints sharing the same value. If
-        /// omitted the value will be computed in order of creation.
+        /// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -425,7 +402,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerNestedEndpointSubnetGetArgs>? _subnets;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below
+        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.TrafficManagerNestedEndpointSubnetGetArgs> Subnets
         {
@@ -434,8 +411,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The resource id of an Azure resource to
-        /// target.
+        /// The resource id of an Azure resource to target.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }

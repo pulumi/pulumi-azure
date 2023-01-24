@@ -80,14 +80,14 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     * The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      * 
      */
     @Import(name="privateIpAddresses")
     private @Nullable Output<List<String>> privateIpAddresses;
 
     /**
-     * @return The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     * @return The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      * 
      */
     public Optional<Output<List<String>>> privateIpAddresses() {
@@ -125,14 +125,14 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+     * A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
     @Import(name="virtualNetworkConfiguration")
     private @Nullable Output<ServiceAdditionalLocationVirtualNetworkConfigurationArgs> virtualNetworkConfiguration;
 
     /**
-     * @return A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
     public Optional<Output<ServiceAdditionalLocationVirtualNetworkConfigurationArgs>> virtualNetworkConfiguration() {
@@ -271,7 +271,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param privateIpAddresses The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+         * @param privateIpAddresses The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param privateIpAddresses The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+         * @param privateIpAddresses The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param privateIpAddresses The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+         * @param privateIpAddresses The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
          * 
          * @return builder
          * 

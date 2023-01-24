@@ -200,14 +200,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+     * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
      * 
      */
     @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
-     * @return The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+     * @return The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
      * 
      */
     public Output<String> sku() {

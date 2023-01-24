@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? GatewayLoadBalancerFrontendIpConfigurationId;
         /// <summary>
-        /// A name used for this IP Configuration. Changing this forces a new resource to be created.
+        /// A name used for this IP Configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>

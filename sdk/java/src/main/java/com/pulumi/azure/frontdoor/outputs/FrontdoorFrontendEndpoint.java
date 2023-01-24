@@ -24,7 +24,7 @@ public final class FrontdoorFrontendEndpoint {
      */
     private @Nullable String id;
     /**
-     * @return Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
+     * @return Specifies the name of the `frontend_endpoint`.
      * 
      */
     private String name;
@@ -60,7 +60,7 @@ public final class FrontdoorFrontendEndpoint {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
+     * @return Specifies the name of the `frontend_endpoint`.
      * 
      */
     public String name() {

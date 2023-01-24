@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Lb.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerRules;
         /// <summary>
-        /// Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+        /// Specifies the name of the frontend IP configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Lb.Outputs
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>
-        /// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+        /// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 

@@ -1187,7 +1187,7 @@ type ClusterNodeType struct {
 	Name string `pulumi:"name"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties map[string]string `pulumi:"placementProperties"`
-	// The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+	// The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
 	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
 }
 
@@ -1227,7 +1227,7 @@ type ClusterNodeTypeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties pulumi.StringMapInput `pulumi:"placementProperties"`
-	// The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+	// The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
 	ReverseProxyEndpointPort pulumi.IntPtrInput `pulumi:"reverseProxyEndpointPort"`
 }
 
@@ -1342,7 +1342,7 @@ func (o ClusterNodeTypeOutput) PlacementProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ClusterNodeType) map[string]string { return v.PlacementProperties }).(pulumi.StringMapOutput)
 }
 
-// The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+// The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
 func (o ClusterNodeTypeOutput) ReverseProxyEndpointPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterNodeType) *int { return v.ReverseProxyEndpointPort }).(pulumi.IntPtrOutput)
 }

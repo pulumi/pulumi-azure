@@ -38,7 +38,7 @@ class ManagedClusterArgs:
         :param pulumi.Input[int] client_connection_port: Port to use when connecting to the cluster.
         :param pulumi.Input[int] http_gateway_port: Port that should be used by the Service Fabric Explorer to visualize applications and cluster status.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]] lb_rules: One or more `lb_rule` blocks as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group should exist.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         :param pulumi.Input['ManagedClusterAuthenticationArgs'] authentication: Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
         :param pulumi.Input[bool] backup_service_enabled: If true, backup service is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]] custom_fabric_settings: One or more `custom_fabric_setting` blocks as defined below.
@@ -48,7 +48,7 @@ class ManagedClusterArgs:
         :param pulumi.Input[str] name: The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[str] password: Administrator password for the VMs that will be created as part of this cluster.
-        :param pulumi.Input[str] sku: SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        :param pulumi.Input[str] sku: SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         :param pulumi.Input[str] upgrade_wave: Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         :param pulumi.Input[str] username: Administrator password for the VMs that will be created as part of this cluster.
@@ -124,7 +124,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group where the Resource Group should exist.
+        The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -244,7 +244,7 @@ class ManagedClusterArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         """
         return pulumi.get(self, "sku")
 
@@ -323,8 +323,8 @@ class _ManagedClusterState:
         :param pulumi.Input[str] name: The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[str] password: Administrator password for the VMs that will be created as part of this cluster.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group should exist.
-        :param pulumi.Input[str] sku: SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
+        :param pulumi.Input[str] sku: SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         :param pulumi.Input[str] upgrade_wave: Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         :param pulumi.Input[str] username: Administrator password for the VMs that will be created as part of this cluster.
@@ -512,7 +512,7 @@ class _ManagedClusterState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group where the Resource Group should exist.
+        The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -524,7 +524,7 @@ class _ManagedClusterState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         """
         return pulumi.get(self, "sku")
 
@@ -650,8 +650,8 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterNodeTypeArgs']]]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[str] password: Administrator password for the VMs that will be created as part of this cluster.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group should exist.
-        :param pulumi.Input[str] sku: SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
+        :param pulumi.Input[str] sku: SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         :param pulumi.Input[str] upgrade_wave: Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         :param pulumi.Input[str] username: Administrator password for the VMs that will be created as part of this cluster.
@@ -764,7 +764,7 @@ class ManagedCluster(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["node_types"] = node_types
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -772,6 +772,8 @@ class ManagedCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upgrade_wave"] = upgrade_wave
             __props__.__dict__["username"] = username
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ManagedCluster, __self__).__init__(
             'azure:servicefabric/managedCluster:ManagedCluster',
             resource_name,
@@ -818,8 +820,8 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterNodeTypeArgs']]]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[str] password: Administrator password for the VMs that will be created as part of this cluster.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group should exist.
-        :param pulumi.Input[str] sku: SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
+        :param pulumi.Input[str] sku: SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group.
         :param pulumi.Input[str] upgrade_wave: Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         :param pulumi.Input[str] username: Administrator password for the VMs that will be created as part of this cluster.
@@ -947,7 +949,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group where the Resource Group should exist.
+        The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -955,7 +957,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
-        SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         """
         return pulumi.get(self, "sku")
 

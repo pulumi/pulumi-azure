@@ -23,7 +23,7 @@ public final class ActionRuleSuppressionSuppressionSchedule {
      */
     private @Nullable List<Integer> recurrenceMonthlies;
     /**
-     * @return specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+     * @return specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
      * 
      */
     private @Nullable List<String> recurrenceWeeklies;
@@ -49,7 +49,7 @@ public final class ActionRuleSuppressionSuppressionSchedule {
         return this.recurrenceMonthlies == null ? List.of() : this.recurrenceMonthlies;
     }
     /**
-     * @return specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+     * @return specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
      * 
      */
     public List<String> recurrenceWeeklies() {

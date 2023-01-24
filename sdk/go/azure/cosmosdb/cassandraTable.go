@@ -114,7 +114,7 @@ type CassandraTable struct {
 	DefaultTtl pulumi.IntOutput `pulumi:"defaultTtl"`
 	// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `schema` block as defined below. Changing this forces a new resource to be created.
+	// A `schema` block as defined below.
 	Schema     CassandraTableSchemaOutput `pulumi:"schema"`
 	Throughput pulumi.IntOutput           `pulumi:"throughput"`
 }
@@ -163,7 +163,7 @@ type cassandraTableState struct {
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `schema` block as defined below. Changing this forces a new resource to be created.
+	// A `schema` block as defined below.
 	Schema     *CassandraTableSchema `pulumi:"schema"`
 	Throughput *int                  `pulumi:"throughput"`
 }
@@ -178,7 +178,7 @@ type CassandraTableState struct {
 	DefaultTtl pulumi.IntPtrInput
 	// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `schema` block as defined below. Changing this forces a new resource to be created.
+	// A `schema` block as defined below.
 	Schema     CassandraTableSchemaPtrInput
 	Throughput pulumi.IntPtrInput
 }
@@ -197,7 +197,7 @@ type cassandraTableArgs struct {
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `schema` block as defined below. Changing this forces a new resource to be created.
+	// A `schema` block as defined below.
 	Schema     CassandraTableSchema `pulumi:"schema"`
 	Throughput *int                 `pulumi:"throughput"`
 }
@@ -213,7 +213,7 @@ type CassandraTableArgs struct {
 	DefaultTtl pulumi.IntPtrInput
 	// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `schema` block as defined below. Changing this forces a new resource to be created.
+	// A `schema` block as defined below.
 	Schema     CassandraTableSchemaInput
 	Throughput pulumi.IntPtrInput
 }
@@ -329,7 +329,7 @@ func (o CassandraTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `schema` block as defined below. Changing this forces a new resource to be created.
+// A `schema` block as defined below.
 func (o CassandraTableOutput) Schema() CassandraTableSchemaOutput {
 	return o.ApplyT(func(v *CassandraTable) CassandraTableSchemaOutput { return v.Schema }).(CassandraTableSchemaOutput)
 }

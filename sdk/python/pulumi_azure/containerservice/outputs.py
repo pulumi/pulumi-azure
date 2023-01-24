@@ -44,6 +44,7 @@ __all__ = [
     'KubernetesClusterIdentity',
     'KubernetesClusterIngressApplicationGateway',
     'KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity',
+    'KubernetesClusterKeyManagementService',
     'KubernetesClusterKeyVaultSecretsProvider',
     'KubernetesClusterKeyVaultSecretsProviderSecretIdentity',
     'KubernetesClusterKubeAdminConfig',
@@ -105,6 +106,7 @@ __all__ = [
     'GetKubernetesClusterIdentityResult',
     'GetKubernetesClusterIngressApplicationGatewayResult',
     'GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityResult',
+    'GetKubernetesClusterKeyManagementServiceResult',
     'GetKubernetesClusterKeyVaultSecretsProviderResult',
     'GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityResult',
     'GetKubernetesClusterKubeAdminConfigResult',
@@ -904,7 +906,7 @@ class GroupContainerVolume(dict):
         :param str mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
         :param str name: The name of the volume mount. Changing this forces a new resource to be created.
         :param bool empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
-        :param 'GroupContainerVolumeGitRepoArgs' git_repo: A `git_repo` block as defined below.
+        :param 'GroupContainerVolumeGitRepoArgs' git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
         :param bool read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         :param Mapping[str, str] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
         :param str share_name: The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
@@ -956,7 +958,7 @@ class GroupContainerVolume(dict):
     @pulumi.getter(name="gitRepo")
     def git_repo(self) -> Optional['outputs.GroupContainerVolumeGitRepo']:
         """
-        A `git_repo` block as defined below.
+        A `git_repo` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "git_repo")
 
@@ -1176,9 +1178,9 @@ class GroupDnsConfig(dict):
                  options: Optional[Sequence[str]] = None,
                  search_domains: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] nameservers: A list of nameservers the containers will search out to resolve requests.
-        :param Sequence[str] options: A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
-        :param Sequence[str] search_domains: A list of search domains that DNS requests will search along.
+        :param Sequence[str] nameservers: A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
+        :param Sequence[str] options: A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
+        :param Sequence[str] search_domains: A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "nameservers", nameservers)
         if options is not None:
@@ -1190,7 +1192,7 @@ class GroupDnsConfig(dict):
     @pulumi.getter
     def nameservers(self) -> Sequence[str]:
         """
-        A list of nameservers the containers will search out to resolve requests.
+        A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "nameservers")
 
@@ -1198,7 +1200,7 @@ class GroupDnsConfig(dict):
     @pulumi.getter
     def options(self) -> Optional[Sequence[str]]:
         """
-        A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+        A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "options")
 
@@ -1206,7 +1208,7 @@ class GroupDnsConfig(dict):
     @pulumi.getter(name="searchDomains")
     def search_domains(self) -> Optional[Sequence[str]]:
         """
-        A list of search domains that DNS requests will search along.
+        A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "search_domains")
 
@@ -1529,7 +1531,7 @@ class GroupInitContainerVolume(dict):
         :param str mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
         :param str name: The name of the volume mount. Changing this forces a new resource to be created.
         :param bool empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
-        :param 'GroupInitContainerVolumeGitRepoArgs' git_repo: A `git_repo` block as defined below.
+        :param 'GroupInitContainerVolumeGitRepoArgs' git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
         :param bool read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         :param Mapping[str, str] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
         :param str share_name: The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
@@ -1581,7 +1583,7 @@ class GroupInitContainerVolume(dict):
     @pulumi.getter(name="gitRepo")
     def git_repo(self) -> Optional['outputs.GroupInitContainerVolumeGitRepo']:
         """
-        A `git_repo` block as defined below.
+        A `git_repo` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "git_repo")
 
@@ -2264,13 +2266,13 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param bool custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
         :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-        :param bool enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
-        :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+        :param bool enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
         :param bool fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param str host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-        :param 'KubernetesClusterDefaultNodePoolKubeletConfigArgs' kubelet_config: A `kubelet_config` block as defined below.
+        :param 'KubernetesClusterDefaultNodePoolKubeletConfigArgs' kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param str kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
-        :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs' linux_os_config: A `linux_os_config` block as defined below.
+        :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs' linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         :param int max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param int max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param str message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
@@ -2278,7 +2280,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param int node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         :param Mapping[str, str] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         :param str node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
-        :param Sequence[str] node_taints: A list of the taints added to new nodes during node pool create and scale.
+        :param Sequence[str] node_taints: A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
         :param bool only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
         :param str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
@@ -2408,7 +2410,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> Optional[bool]:
         """
-        Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -2416,7 +2418,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> Optional[bool]:
         """
-        Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+        Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -2440,7 +2442,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="kubeletConfig")
     def kubelet_config(self) -> Optional['outputs.KubernetesClusterDefaultNodePoolKubeletConfig']:
         """
-        A `kubelet_config` block as defined below.
+        A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kubelet_config")
 
@@ -2456,7 +2458,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="linuxOsConfig")
     def linux_os_config(self) -> Optional['outputs.KubernetesClusterDefaultNodePoolLinuxOsConfig']:
         """
-        A `linux_os_config` block as defined below.
+        A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "linux_os_config")
 
@@ -2520,7 +2522,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="nodeTaints")
     def node_taints(self) -> Optional[Sequence[str]]:
         """
-        A list of the taints added to new nodes during node pool create and scale.
+        A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_taints")
 
@@ -3635,9 +3637,9 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
                  object_id: Optional[str] = None,
                  user_assigned_identity_id: Optional[str] = None):
         """
-        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -3650,7 +3652,7 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
         """
-        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "client_id")
 
@@ -3658,7 +3660,7 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[str]:
         """
-        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "object_id")
 
@@ -3666,9 +3668,60 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[str]:
         """
-        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class KubernetesClusterKeyManagementService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "keyVaultNetworkAccess":
+            suggest = "key_vault_network_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterKeyManagementService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterKeyManagementService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterKeyManagementService.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_key_id: str,
+                 key_vault_network_access: Optional[str] = None):
+        """
+        :param str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+        :param str key_vault_network_access: Network access of the key vault
+               Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_network_access is not None:
+            pulumi.set(__self__, "key_vault_network_access", key_vault_network_access)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        """
+        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="keyVaultNetworkAccess")
+    def key_vault_network_access(self) -> Optional[str]:
+        """
+        Network access of the key vault
+        Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+        """
+        return pulumi.get(self, "key_vault_network_access")
 
 
 @pulumi.output_type
@@ -3763,9 +3816,9 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentity(dict):
                  object_id: Optional[str] = None,
                  user_assigned_identity_id: Optional[str] = None):
         """
-        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -3778,7 +3831,7 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentity(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
         """
-        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "client_id")
 
@@ -3786,7 +3839,7 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentity(dict):
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[str]:
         """
-        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "object_id")
 
@@ -3794,7 +3847,7 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentity(dict):
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[str]:
         """
-        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -4027,9 +4080,9 @@ class KubernetesClusterKubeletIdentity(dict):
                  object_id: Optional[str] = None,
                  user_assigned_identity_id: Optional[str] = None):
         """
-        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -4042,7 +4095,7 @@ class KubernetesClusterKubeletIdentity(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
         """
-        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "client_id")
 
@@ -4050,7 +4103,7 @@ class KubernetesClusterKubeletIdentity(dict):
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[str]:
         """
-        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "object_id")
 
@@ -4058,7 +4111,7 @@ class KubernetesClusterKubeletIdentity(dict):
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[str]:
         """
-        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -4409,9 +4462,9 @@ class KubernetesClusterNetworkProfile(dict):
         :param str docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
         :param str ebpf_data_plane: Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
         :param Sequence[str] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
-        :param 'KubernetesClusterNetworkProfileLoadBalancerProfileArgs' load_balancer_profile: A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
+        :param 'KubernetesClusterNetworkProfileLoadBalancerProfileArgs' load_balancer_profile: A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
         :param str load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
-        :param 'KubernetesClusterNetworkProfileNatGatewayProfileArgs' nat_gateway_profile: A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        :param 'KubernetesClusterNetworkProfileNatGatewayProfileArgs' nat_gateway_profile: A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
         :param str network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         :param str network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
         :param str network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
@@ -4497,7 +4550,7 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="loadBalancerProfile")
     def load_balancer_profile(self) -> Optional['outputs.KubernetesClusterNetworkProfileLoadBalancerProfile']:
         """
-        A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
+        A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer_profile")
 
@@ -4513,7 +4566,7 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="natGatewayProfile")
     def nat_gateway_profile(self) -> Optional['outputs.KubernetesClusterNetworkProfileNatGatewayProfile']:
         """
-        A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "nat_gateway_profile")
 
@@ -5582,9 +5635,9 @@ class KubernetesClusterOmsAgentOmsAgentIdentity(dict):
                  object_id: Optional[str] = None,
                  user_assigned_identity_id: Optional[str] = None):
         """
-        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -5597,7 +5650,7 @@ class KubernetesClusterOmsAgentOmsAgentIdentity(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
         """
-        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "client_id")
 
@@ -5605,7 +5658,7 @@ class KubernetesClusterOmsAgentOmsAgentIdentity(dict):
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[str]:
         """
-        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "object_id")
 
@@ -5613,7 +5666,7 @@ class KubernetesClusterOmsAgentOmsAgentIdentity(dict):
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[str]:
         """
-        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -6084,10 +6137,10 @@ class RegistryGeoreplication(dict):
                  tags: Optional[Mapping[str, str]] = None,
                  zone_redundancy_enabled: Optional[bool] = None):
         """
-        :param str location: A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
+        :param str location: A location where the container registry should be geo-replicated.
         :param bool regional_endpoint_enabled: Whether regional endpoint is enabled for this Container Registry?
         :param Mapping[str, str] tags: A mapping of tags to assign to this replication location.
-        :param bool zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
+        :param bool zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
         """
         pulumi.set(__self__, "location", location)
         if regional_endpoint_enabled is not None:
@@ -6101,7 +6154,7 @@ class RegistryGeoreplication(dict):
     @pulumi.getter
     def location(self) -> str:
         """
-        A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
+        A location where the container registry should be geo-replicated.
         """
         return pulumi.get(self, "location")
 
@@ -6125,7 +6178,7 @@ class RegistryGeoreplication(dict):
     @pulumi.getter(name="zoneRedundancyEnabled")
     def zone_redundancy_enabled(self) -> Optional[bool]:
         """
-        Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
+        Whether zone redundancy is enabled for this replication location? Defaults to `false`.
         """
         return pulumi.get(self, "zone_redundancy_enabled")
 
@@ -6538,7 +6591,7 @@ class RegistryTaskDockerStep(dict):
         """
         :param str context_access_token: The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
         :param str context_path: The URL (absolute or relative) of the source context for this step.
-        :param str dockerfile_path: The  Dockerfile path relative to the source context.
+        :param str dockerfile_path: The Dockerfile path relative to the source context.
         :param Mapping[str, str] arguments: Specifies a map of arguments to be used when executing this step.
         :param bool cache_enabled: Should the image cache be enabled? Defaults to `true`.
         :param Sequence[str] image_names: Specifies a list of fully qualified image names including the repository and tag.
@@ -6582,7 +6635,7 @@ class RegistryTaskDockerStep(dict):
     @pulumi.getter(name="dockerfilePath")
     def dockerfile_path(self) -> str:
         """
-        The  Dockerfile path relative to the source context.
+        The Dockerfile path relative to the source context.
         """
         return pulumi.get(self, "dockerfile_path")
 
@@ -7953,6 +8006,35 @@ class GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIden
         The ID of the User Assigned Identity assigned to the Kubelets.
         """
         return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class GetKubernetesClusterKeyManagementServiceResult(dict):
+    def __init__(__self__, *,
+                 key_vault_key_id: str,
+                 key_vault_network_access: str):
+        """
+        :param str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        :param str key_vault_network_access: Network access of the key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "key_vault_network_access", key_vault_network_access)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        """
+        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="keyVaultNetworkAccess")
+    def key_vault_network_access(self) -> str:
+        """
+        Network access of the key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link.
+        """
+        return pulumi.get(self, "key_vault_network_access")
 
 
 @pulumi.output_type

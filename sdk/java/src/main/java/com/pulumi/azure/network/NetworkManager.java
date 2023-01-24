@@ -111,14 +111,14 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Specifies the Azure Region where the Network Managers should exist.
+     * Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return Specifies the Azure Region where the Network Managers should exist.
+     * @return Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {

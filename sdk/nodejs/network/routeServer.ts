@@ -101,7 +101,7 @@ export class RouteServer extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     public /*out*/ readonly routingState!: pulumi.Output<string>;
     /**
-     * The SKU of the Route Server. The only possible value is `Standard`.
+     * The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -196,7 +196,7 @@ export interface RouteServerState {
     resourceGroupName?: pulumi.Input<string>;
     routingState?: pulumi.Input<string>;
     /**
-     * The SKU of the Route Server. The only possible value is `Standard`.
+     * The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -236,7 +236,7 @@ export interface RouteServerArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU of the Route Server. The only possible value is `Standard`.
+     * The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
      */
     sku: pulumi.Input<string>;
     /**

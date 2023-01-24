@@ -91,11 +91,11 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly containers!: pulumi.Output<outputs.containerservice.GroupContainer[]>;
     /**
-     * A `diagnostics` block as documented below.
+     * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
      */
     public readonly diagnostics!: pulumi.Output<outputs.containerservice.GroupDiagnostics | undefined>;
     /**
-     * A `dnsConfig` block as documented below.
+     * A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
      */
     public readonly dnsConfig!: pulumi.Output<outputs.containerservice.GroupDnsConfig | undefined>;
     /**
@@ -258,11 +258,11 @@ export interface GroupState {
      */
     containers?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainer>[]>;
     /**
-     * A `diagnostics` block as documented below.
+     * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
      */
     diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics>;
     /**
-     * A `dnsConfig` block as documented below.
+     * A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
      */
     dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
     /**
@@ -352,11 +352,11 @@ export interface GroupArgs {
      */
     containers: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainer>[]>;
     /**
-     * A `diagnostics` block as documented below.
+     * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
      */
     diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics>;
     /**
-     * A `dnsConfig` block as documented below.
+     * A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
      */
     dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
     /**

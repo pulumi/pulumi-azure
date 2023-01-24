@@ -130,14 +130,14 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
         return this.primaryAuthorizationKey;
     }
     /**
-     * A `rbac_authorization` block as defined below.
+     * A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="rbacAuthorizations", type=List.class, parameters={IntegrationRuntimeSelfHostedRbacAuthorization.class})
     private Output</* @Nullable */ List<IntegrationRuntimeSelfHostedRbacAuthorization>> rbacAuthorizations;
 
     /**
-     * @return A `rbac_authorization` block as defined below.
+     * @return A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<IntegrationRuntimeSelfHostedRbacAuthorization>>> rbacAuthorizations() {

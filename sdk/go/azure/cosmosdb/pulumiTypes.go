@@ -753,7 +753,7 @@ func (o AccountConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.IntPtrOut
 type AccountCorsRule struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+	// A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -777,7 +777,7 @@ type AccountCorsRuleInput interface {
 type AccountCorsRuleArgs struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+	// A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
@@ -869,7 +869,7 @@ func (o AccountCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+// A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
@@ -923,7 +923,7 @@ func (o AccountCorsRulePtrOutput) AllowedHeaders() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+// A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountCorsRulePtrOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountCorsRule) []string {
 		if v == nil {
@@ -968,7 +968,7 @@ type AccountGeoLocation struct {
 	FailoverPriority int `pulumi:"failoverPriority"`
 	// The ID of the virtual network subnet.
 	Id *string `pulumi:"id"`
-	// The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+	// The name of the Azure region to host replicated data.
 	Location string `pulumi:"location"`
 	// Should zone redundancy be enabled for this region? Defaults to `false`.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
@@ -990,7 +990,7 @@ type AccountGeoLocationArgs struct {
 	FailoverPriority pulumi.IntInput `pulumi:"failoverPriority"`
 	// The ID of the virtual network subnet.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+	// The name of the Azure region to host replicated data.
 	Location pulumi.StringInput `pulumi:"location"`
 	// Should zone redundancy be enabled for this region? Defaults to `false`.
 	ZoneRedundant pulumi.BoolPtrInput `pulumi:"zoneRedundant"`
@@ -1057,7 +1057,7 @@ func (o AccountGeoLocationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountGeoLocation) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+// The name of the Azure region to host replicated data.
 func (o AccountGeoLocationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountGeoLocation) string { return v.Location }).(pulumi.StringOutput)
 }

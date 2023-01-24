@@ -92,14 +92,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/virtualNetworkPeering:VirtualNetworkPeering")
 public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
     /**
-     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+     * Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
      * 
      */
     @Export(name="allowForwardedTraffic", type=Boolean.class, parameters={})
     private Output<Boolean> allowForwardedTraffic;
 
     /**
-     * @return Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+     * @return Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
      * 
      */
     public Output<Boolean> allowForwardedTraffic() {
@@ -148,54 +148,42 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+     * The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="remoteVirtualNetworkId", type=String.class, parameters={})
     private Output<String> remoteVirtualNetworkId;
 
     /**
-     * @return The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+     * @return The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> remoteVirtualNetworkId() {
         return this.remoteVirtualNetworkId;
     }
     /**
-     * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-     * created.
+     * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-     * created.
+     * @return The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * Controls if remote gateways can be used on
-     * the local virtual network. If the flag is set to `true`, and
-     * `allow_gateway_transit` on the remote peering is also `true`, virtual network will
-     * use gateways of remote virtual network for transit. Only one peering can
-     * have this flag set to `true`. This flag cannot be set if virtual network
-     * already has a gateway. Defaults to `false`.
+     * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
      */
     @Export(name="useRemoteGateways", type=Boolean.class, parameters={})
     private Output<Boolean> useRemoteGateways;
 
     /**
-     * @return Controls if remote gateways can be used on
-     * the local virtual network. If the flag is set to `true`, and
-     * `allow_gateway_transit` on the remote peering is also `true`, virtual network will
-     * use gateways of remote virtual network for transit. Only one peering can
-     * have this flag set to `true`. This flag cannot be set if virtual network
-     * already has a gateway. Defaults to `false`.
+     * @return Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
      */
     public Output<Boolean> useRemoteGateways() {

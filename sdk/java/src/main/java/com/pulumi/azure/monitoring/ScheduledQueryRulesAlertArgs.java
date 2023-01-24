@@ -99,14 +99,14 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Whether this scheduled query rule is enabled.  Default is `true`.
+     * Whether this scheduled query rule is enabled. Default is `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether this scheduled query rule is enabled.  Default is `true`.
+     * @return Whether this scheduled query rule is enabled. Default is `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -114,14 +114,14 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+     * Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
      * 
      */
     @Import(name="frequency", required=true)
     private Output<Integer> frequency;
 
     /**
-     * @return Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+     * @return Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
      * 
      */
     public Output<Integer> frequency() {
@@ -234,14 +234,14 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+     * Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
      * 
      */
     @Import(name="throttling")
     private @Nullable Output<Integer> throttling;
 
     /**
-     * @return Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+     * @return Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
      * 
      */
     public Optional<Output<Integer>> throttling() {
@@ -249,14 +249,14 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+     * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
      * 
      */
     @Import(name="timeWindow", required=true)
     private Output<Integer> timeWindow;
 
     /**
-     * @return Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+     * @return Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
      * 
      */
     public Output<Integer> timeWindow() {
@@ -436,7 +436,7 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled Whether this scheduled query rule is enabled.  Default is `true`.
+         * @param enabled Whether this scheduled query rule is enabled. Default is `true`.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled Whether this scheduled query rule is enabled.  Default is `true`.
+         * @param enabled Whether this scheduled query rule is enabled. Default is `true`.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param frequency Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+         * @param frequency Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param frequency Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+         * @param frequency Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param throttling Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+         * @param throttling Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param throttling Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+         * @param throttling Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param timeWindow Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+         * @param timeWindow Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param timeWindow Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+         * @param timeWindow Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
          * 
          * @return builder
          * 

@@ -110,14 +110,14 @@ public class Healthbot extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+     * @return Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

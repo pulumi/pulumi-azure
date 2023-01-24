@@ -28,13 +28,13 @@ class ReplicatedVMManagedDiskArgs:
                  target_disk_encryption: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']] = None,
                  target_disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] disk_id: Id of disk that should be replicated.
-        :param pulumi.Input[str] staging_storage_account_id: Storage account that should be used for caching.
-        :param pulumi.Input[str] target_disk_type: What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
-        :param pulumi.Input[str] target_replica_disk_type: What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
-        :param pulumi.Input[str] target_resource_group_id: Resource group disk should belong to when a failover is done.
+        :param pulumi.Input[str] disk_id: Id of disk that should be replicated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] staging_storage_account_id: Storage account that should be used for caching. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_disk_type: What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_replica_disk_type: What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_resource_group_id: Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
         :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs'] target_disk_encryption: A `target_disk_encryption` block as defined below.
-        :param pulumi.Input[str] target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with.
+        :param pulumi.Input[str] target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
@@ -50,7 +50,7 @@ class ReplicatedVMManagedDiskArgs:
     @pulumi.getter(name="diskId")
     def disk_id(self) -> pulumi.Input[str]:
         """
-        Id of disk that should be replicated.
+        Id of disk that should be replicated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_id")
 
@@ -62,7 +62,7 @@ class ReplicatedVMManagedDiskArgs:
     @pulumi.getter(name="stagingStorageAccountId")
     def staging_storage_account_id(self) -> pulumi.Input[str]:
         """
-        Storage account that should be used for caching.
+        Storage account that should be used for caching. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "staging_storage_account_id")
 
@@ -74,7 +74,7 @@ class ReplicatedVMManagedDiskArgs:
     @pulumi.getter(name="targetDiskType")
     def target_disk_type(self) -> pulumi.Input[str]:
         """
-        What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+        What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_disk_type")
 
@@ -86,7 +86,7 @@ class ReplicatedVMManagedDiskArgs:
     @pulumi.getter(name="targetReplicaDiskType")
     def target_replica_disk_type(self) -> pulumi.Input[str]:
         """
-        What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+        What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_replica_disk_type")
 
@@ -98,7 +98,7 @@ class ReplicatedVMManagedDiskArgs:
     @pulumi.getter(name="targetResourceGroupId")
     def target_resource_group_id(self) -> pulumi.Input[str]:
         """
-        Resource group disk should belong to when a failover is done.
+        Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_group_id")
 
@@ -122,7 +122,7 @@ class ReplicatedVMManagedDiskArgs:
     @pulumi.getter(name="targetDiskEncryptionSetId")
     def target_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Disk Encryption Set that the Managed Disk will be associated with.
+        The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_disk_encryption_set_id")
 
@@ -252,12 +252,14 @@ class ReplicatedVMNetworkInterfaceArgs:
                  target_static_ip: Optional[pulumi.Input[str]] = None,
                  target_subnet_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] is_primary: If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
         :param pulumi.Input[str] recovery_public_ip_address_id: Id of the public IP object to use when a failover is done.
         :param pulumi.Input[str] source_network_interface_id: (Required if the network_interface block is specified) Id source network interface.
         :param pulumi.Input[str] target_static_ip: Static IP to assign when a failover is done.
         :param pulumi.Input[str] target_subnet_name: Name of the subnet to to use when a failover is done.
         """
+        if is_primary is not None:
+            warnings.warn("""this property is not used and will be removed in version 4.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""is_primary is deprecated: this property is not used and will be removed in version 4.0 of the provider""")
         if is_primary is not None:
             pulumi.set(__self__, "is_primary", is_primary)
         if recovery_public_ip_address_id is not None:
@@ -272,9 +274,6 @@ class ReplicatedVMNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="isPrimary")
     def is_primary(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
-        """
         return pulumi.get(self, "is_primary")
 
     @is_primary.setter

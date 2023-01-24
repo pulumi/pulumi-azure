@@ -6,6 +6,7 @@ package com.pulumi.azure.recoveryservices.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class VaultIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VaultIdentityArgs Empty = new VaultIdentityArgs();
+
+    /**
+     * A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+     * 
+     */
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
+
+    /**
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+     * 
+     */
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
+    }
 
     /**
      * The Principal ID associated with this Managed Service Identity.
@@ -46,14 +62,14 @@ public final class VaultIdentityArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public Output<String> type() {
@@ -63,6 +79,7 @@ public final class VaultIdentityArgs extends com.pulumi.resources.ResourceArgs {
     private VaultIdentityArgs() {}
 
     private VaultIdentityArgs(VaultIdentityArgs $) {
+        this.identityIds = $.identityIds;
         this.principalId = $.principalId;
         this.tenantId = $.tenantId;
         this.type = $.type;
@@ -84,6 +101,37 @@ public final class VaultIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(VaultIdentityArgs defaults) {
             $ = new VaultIdentityArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
+            $.identityIds = identityIds;
+            return this;
+        }
+
+        /**
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(List<String> identityIds) {
+            return identityIds(Output.of(identityIds));
+        }
+
+        /**
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
         }
 
         /**
@@ -129,7 +177,7 @@ public final class VaultIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 
@@ -140,7 +188,7 @@ public final class VaultIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 

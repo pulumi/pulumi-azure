@@ -33,16 +33,14 @@ public final class VirtualNetworkGatewayBgpSettingsArgs extends com.pulumi.resou
     }
 
     /**
-     * The weight added to routes which have been learned
-     * through BGP peering. Valid values can be between `0` and `100`.
+     * The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
      * 
      */
     @Import(name="peerWeight")
     private @Nullable Output<Integer> peerWeight;
 
     /**
-     * @return The weight added to routes which have been learned
-     * through BGP peering. Valid values can be between `0` and `100`.
+     * @return The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
      * 
      */
     public Optional<Output<Integer>> peerWeight() {
@@ -112,8 +110,7 @@ public final class VirtualNetworkGatewayBgpSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param peerWeight The weight added to routes which have been learned
-         * through BGP peering. Valid values can be between `0` and `100`.
+         * @param peerWeight The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
          * 
          * @return builder
          * 
@@ -124,8 +121,7 @@ public final class VirtualNetworkGatewayBgpSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param peerWeight The weight added to routes which have been learned
-         * through BGP peering. Valid values can be between `0` and `100`.
+         * @param peerWeight The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
          * 
          * @return builder
          * 

@@ -34,7 +34,7 @@ public final class FrontdoorBackendPool {
      */
     private String loadBalancingName;
     /**
-     * @return Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Backend Pool.
      * 
      */
     private String name;
@@ -69,7 +69,7 @@ public final class FrontdoorBackendPool {
         return this.loadBalancingName;
     }
     /**
-     * @return Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Backend Pool.
      * 
      */
     public String name() {

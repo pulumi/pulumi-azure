@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Lab.Inputs
         public Input<string>? PublicIpId { get; set; }
 
         /// <summary>
-        /// The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+        /// The resource ID of the Subnet for the network profile of the Lab Service Lab.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

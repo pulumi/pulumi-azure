@@ -151,14 +151,14 @@ public class LogzSubAccount extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `user` block as defined below.
+     * A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="user", type=LogzSubAccountUser.class, parameters={})
     private Output<LogzSubAccountUser> user;
 
     /**
-     * @return A `user` block as defined below.
+     * @return A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<LogzSubAccountUser> user() {

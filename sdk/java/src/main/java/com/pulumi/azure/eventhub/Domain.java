@@ -148,28 +148,28 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.inboundIpRules);
     }
     /**
-     * A `input_mapping_default_values` block as defined below.
+     * A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="inputMappingDefaultValues", type=DomainInputMappingDefaultValues.class, parameters={})
     private Output</* @Nullable */ DomainInputMappingDefaultValues> inputMappingDefaultValues;
 
     /**
-     * @return A `input_mapping_default_values` block as defined below.
+     * @return A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<DomainInputMappingDefaultValues>> inputMappingDefaultValues() {
         return Codegen.optional(this.inputMappingDefaultValues);
     }
     /**
-     * A `input_mapping_fields` block as defined below.
+     * A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="inputMappingFields", type=DomainInputMappingFields.class, parameters={})
     private Output</* @Nullable */ DomainInputMappingFields> inputMappingFields;
 
     /**
-     * @return A `input_mapping_fields` block as defined below.
+     * @return A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<DomainInputMappingFields>> inputMappingFields() {

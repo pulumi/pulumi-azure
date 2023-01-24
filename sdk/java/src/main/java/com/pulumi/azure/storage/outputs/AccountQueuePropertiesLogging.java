@@ -14,62 +14,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountQueuePropertiesLogging {
     /**
-     * @return Indicates whether all delete requests should be logged. Changing this forces a new resource.
+     * @return Indicates whether all delete requests should be logged.
      * 
      */
     private Boolean delete;
     /**
-     * @return Indicates whether all read requests should be logged. Changing this forces a new resource.
+     * @return Indicates whether all read requests should be logged.
      * 
      */
     private Boolean read;
     /**
-     * @return Specifies the number of days that logs will be retained. Changing this forces a new resource.
+     * @return Specifies the number of days that logs will be retained.
      * 
      */
     private @Nullable Integer retentionPolicyDays;
     /**
-     * @return The version of storage analytics to configure. Changing this forces a new resource.
+     * @return The version of storage analytics to configure.
      * 
      */
     private String version;
     /**
-     * @return Indicates whether all write requests should be logged. Changing this forces a new resource.
+     * @return Indicates whether all write requests should be logged.
      * 
      */
     private Boolean write;
 
     private AccountQueuePropertiesLogging() {}
     /**
-     * @return Indicates whether all delete requests should be logged. Changing this forces a new resource.
+     * @return Indicates whether all delete requests should be logged.
      * 
      */
     public Boolean delete() {
         return this.delete;
     }
     /**
-     * @return Indicates whether all read requests should be logged. Changing this forces a new resource.
+     * @return Indicates whether all read requests should be logged.
      * 
      */
     public Boolean read() {
         return this.read;
     }
     /**
-     * @return Specifies the number of days that logs will be retained. Changing this forces a new resource.
+     * @return Specifies the number of days that logs will be retained.
      * 
      */
     public Optional<Integer> retentionPolicyDays() {
         return Optional.ofNullable(this.retentionPolicyDays);
     }
     /**
-     * @return The version of storage analytics to configure. Changing this forces a new resource.
+     * @return The version of storage analytics to configure.
      * 
      */
     public String version() {
         return this.version;
     }
     /**
-     * @return Indicates whether all write requests should be logged. Changing this forces a new resource.
+     * @return Indicates whether all write requests should be logged.
      * 
      */
     public Boolean write() {

@@ -34,14 +34,14 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
     }
 
     /**
-     * A `diff_disk_settings` block as defined above.
+     * A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diffDiskSettings")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs> diffDiskSettings;
 
     /**
-     * @return A `diff_disk_settings` block as defined above.
+     * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs>> diffDiskSettings() {
@@ -159,7 +159,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         }
 
         /**
-         * @param diffDiskSettings A `diff_disk_settings` block as defined above.
+         * @param diffDiskSettings A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         }
 
         /**
-         * @param diffDiskSettings A `diff_disk_settings` block as defined above.
+         * @param diffDiskSettings A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

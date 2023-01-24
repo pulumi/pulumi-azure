@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string>? EventHubNamespace { get; set; }
 
         /// <summary>
-        /// The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+        /// The name of the EventHub Receiver, must be unique within action group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

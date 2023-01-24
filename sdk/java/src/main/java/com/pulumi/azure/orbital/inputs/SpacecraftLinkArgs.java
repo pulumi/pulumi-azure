@@ -60,14 +60,14 @@ public final class SpacecraftLinkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Name of the link. Changing this forces a new resource to be created.
+     * Name of the link.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the link. Changing this forces a new resource to be created.
+     * @return Name of the link.
      * 
      */
     public Output<String> name() {
@@ -181,7 +181,7 @@ public final class SpacecraftLinkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Name of the link. Changing this forces a new resource to be created.
+         * @param name Name of the link.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class SpacecraftLinkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Name of the link. Changing this forces a new resource to be created.
+         * @param name Name of the link.
          * 
          * @return builder
          * 

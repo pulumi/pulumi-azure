@@ -47,18 +47,25 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+     * Indicate that system assigned identity should be used or not. Defaults to `true`.
      * 
      */
     @Import(name="useSystemAssignedIdentity")
     private @Nullable Output<Boolean> useSystemAssignedIdentity;
 
     /**
-     * @return Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+     * @return Indicate that system assigned identity should be used or not. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> useSystemAssignedIdentity() {
         return Optional.ofNullable(this.useSystemAssignedIdentity);
+    }
+
+    @Import(name="userAssignedIdentityId")
+    private @Nullable Output<String> userAssignedIdentityId;
+
+    public Optional<Output<String>> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
     }
 
     private VaultEncryptionArgs() {}
@@ -67,6 +74,7 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
         this.infrastructureEncryptionEnabled = $.infrastructureEncryptionEnabled;
         this.keyId = $.keyId;
         this.useSystemAssignedIdentity = $.useSystemAssignedIdentity;
+        this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
 
     public static Builder builder() {
@@ -130,7 +138,7 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -141,13 +149,22 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. Defaults to `true`.
          * 
          * @return builder
          * 
          */
         public Builder useSystemAssignedIdentity(Boolean useSystemAssignedIdentity) {
             return useSystemAssignedIdentity(Output.of(useSystemAssignedIdentity));
+        }
+
+        public Builder userAssignedIdentityId(@Nullable Output<String> userAssignedIdentityId) {
+            $.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
+
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            return userAssignedIdentityId(Output.of(userAssignedIdentityId));
         }
 
         public VaultEncryptionArgs build() {

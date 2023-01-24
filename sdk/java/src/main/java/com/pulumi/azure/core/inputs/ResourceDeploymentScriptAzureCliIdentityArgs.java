@@ -15,14 +15,14 @@ public final class ResourceDeploymentScriptAzureCliIdentityArgs extends com.pulu
     public static final ResourceDeploymentScriptAzureCliIdentityArgs Empty = new ResourceDeploymentScriptAzureCliIdentityArgs();
 
     /**
-     * Specifies the list of user-assigned managed identity IDs associated with the resource.
+     * Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="identityIds", required=true)
     private Output<List<String>> identityIds;
 
     /**
-     * @return Specifies the list of user-assigned managed identity IDs associated with the resource.
+     * @return Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<String>> identityIds() {
@@ -30,14 +30,14 @@ public final class ResourceDeploymentScriptAzureCliIdentityArgs extends com.pulu
     }
 
     /**
-     * Type of the managed identity. The only possible value is `UserAssigned`.
+     * Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of the managed identity. The only possible value is `UserAssigned`.
+     * @return Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -70,7 +70,7 @@ public final class ResourceDeploymentScriptAzureCliIdentityArgs extends com.pulu
         }
 
         /**
-         * @param identityIds Specifies the list of user-assigned managed identity IDs associated with the resource.
+         * @param identityIds Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ResourceDeploymentScriptAzureCliIdentityArgs extends com.pulu
         }
 
         /**
-         * @param identityIds Specifies the list of user-assigned managed identity IDs associated with the resource.
+         * @param identityIds Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ResourceDeploymentScriptAzureCliIdentityArgs extends com.pulu
         }
 
         /**
-         * @param identityIds Specifies the list of user-assigned managed identity IDs associated with the resource.
+         * @param identityIds Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ResourceDeploymentScriptAzureCliIdentityArgs extends com.pulu
         }
 
         /**
-         * @param type Type of the managed identity. The only possible value is `UserAssigned`.
+         * @param type Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class ResourceDeploymentScriptAzureCliIdentityArgs extends com.pulu
         }
 
         /**
-         * @param type Type of the managed identity. The only possible value is `UserAssigned`.
+         * @param type Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

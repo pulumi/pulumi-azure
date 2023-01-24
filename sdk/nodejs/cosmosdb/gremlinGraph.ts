@@ -92,7 +92,7 @@ export class GremlinGraph extends pulumi.CustomResource {
     public readonly accountName!: pulumi.Output<string>;
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.GremlinGraphAutoscaleSettings | undefined>;
     /**
-     * A `conflictResolutionPolicy` blocks as defined below.
+     * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly conflictResolutionPolicy!: pulumi.Output<outputs.cosmosdb.GremlinGraphConflictResolutionPolicy>;
     /**
@@ -199,7 +199,7 @@ export interface GremlinGraphState {
     accountName?: pulumi.Input<string>;
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
-     * A `conflictResolutionPolicy` blocks as defined below.
+     * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
     conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>;
     /**
@@ -250,7 +250,7 @@ export interface GremlinGraphArgs {
     accountName: pulumi.Input<string>;
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
-     * A `conflictResolutionPolicy` blocks as defined below.
+     * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
     conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>;
     /**

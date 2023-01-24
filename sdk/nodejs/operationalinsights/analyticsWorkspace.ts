@@ -67,7 +67,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public readonly cmkForQueryForced!: pulumi.Output<boolean | undefined>;
     /**
-     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+     * The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
      */
     public readonly dailyQuotaGb!: pulumi.Output<number | undefined>;
     /**
@@ -91,7 +91,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly primarySharedKey!: pulumi.Output<string>;
     /**
-     * The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+     * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
      */
     public readonly reservationCapacityInGbPerDay!: pulumi.Output<number>;
     /**
@@ -188,7 +188,7 @@ export interface AnalyticsWorkspaceState {
      */
     cmkForQueryForced?: pulumi.Input<boolean>;
     /**
-     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+     * The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
      */
     dailyQuotaGb?: pulumi.Input<number>;
     /**
@@ -212,7 +212,7 @@ export interface AnalyticsWorkspaceState {
      */
     primarySharedKey?: pulumi.Input<string>;
     /**
-     * The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+     * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
      */
     reservationCapacityInGbPerDay?: pulumi.Input<number>;
     /**
@@ -254,7 +254,7 @@ export interface AnalyticsWorkspaceArgs {
      */
     cmkForQueryForced?: pulumi.Input<boolean>;
     /**
-     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+     * The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
      */
     dailyQuotaGb?: pulumi.Input<number>;
     /**
@@ -274,7 +274,7 @@ export interface AnalyticsWorkspaceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+     * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
      */
     reservationCapacityInGbPerDay?: pulumi.Input<number>;
     /**

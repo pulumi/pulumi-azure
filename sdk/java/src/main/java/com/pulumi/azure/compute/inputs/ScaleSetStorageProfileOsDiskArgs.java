@@ -81,14 +81,14 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set). Changing this forces a new resource to be created.
+     * Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set). Changing this forces a new resource to be created.
+     * @return Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set).
      * 
      */
     public Optional<Output<String>> name() {
@@ -244,7 +244,7 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set). Changing this forces a new resource to be created.
+         * @param name Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set).
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ScaleSetStorageProfileOsDiskArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set). Changing this forces a new resource to be created.
+         * @param name Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set).
          * 
          * @return builder
          * 

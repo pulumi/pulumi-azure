@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Datadog.Outputs
         /// </summary>
         public readonly string Email;
         /// <summary>
-        /// The name which should be used for this user_info.
+        /// The name which should be used for this user_info. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Phone number of the user used by Datadog for contacting them if needed.
+        /// Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PhoneNumber;
 

@@ -25,7 +25,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
      */
     private @Nullable Integer idleTimeoutInMinutes;
     /**
-     * @return One or more `ip_tag` blocks as defined above.
+     * @return One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
@@ -40,7 +40,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
      */
     private @Nullable String publicIpPrefixId;
     /**
-     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String version;
@@ -61,7 +61,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         return Optional.ofNullable(this.idleTimeoutInMinutes);
     }
     /**
-     * @return One or more `ip_tag` blocks as defined above.
+     * @return One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     public List<WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags() {
@@ -82,7 +82,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         return Optional.ofNullable(this.publicIpPrefixId);
     }
     /**
-     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> version() {

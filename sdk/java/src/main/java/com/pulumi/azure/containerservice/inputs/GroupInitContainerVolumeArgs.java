@@ -34,14 +34,14 @@ public final class GroupInitContainerVolumeArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A `git_repo` block as defined below.
+     * A `git_repo` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="gitRepo")
     private @Nullable Output<GroupInitContainerVolumeGitRepoArgs> gitRepo;
 
     /**
-     * @return A `git_repo` block as defined below.
+     * @return A `git_repo` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<GroupInitContainerVolumeGitRepoArgs>> gitRepo() {
@@ -207,7 +207,7 @@ public final class GroupInitContainerVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param gitRepo A `git_repo` block as defined below.
+         * @param gitRepo A `git_repo` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class GroupInitContainerVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param gitRepo A `git_repo` block as defined below.
+         * @param gitRepo A `git_repo` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

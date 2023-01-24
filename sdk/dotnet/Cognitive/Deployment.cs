@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> CognitiveAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A `model` block as defined below.
+        /// A `model` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("model")]
         public Output<Outputs.DeploymentModel> Model { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string?> RaiPolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// A `scale` block as defined below.
+        /// A `scale` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("scale")]
         public Output<Outputs.DeploymentScale> Scale { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string> CognitiveAccountId { get; set; } = null!;
 
         /// <summary>
-        /// A `model` block as defined below.
+        /// A `model` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("model", required: true)]
         public Input<Inputs.DeploymentModelArgs> Model { get; set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? RaiPolicyName { get; set; }
 
         /// <summary>
-        /// A `scale` block as defined below.
+        /// A `scale` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scale", required: true)]
         public Input<Inputs.DeploymentScaleArgs> Scale { get; set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? CognitiveAccountId { get; set; }
 
         /// <summary>
-        /// A `model` block as defined below.
+        /// A `model` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("model")]
         public Input<Inputs.DeploymentModelGetArgs>? Model { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? RaiPolicyName { get; set; }
 
         /// <summary>
-        /// A `scale` block as defined below.
+        /// A `scale` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scale")]
         public Input<Inputs.DeploymentScaleGetArgs>? Scale { get; set; }

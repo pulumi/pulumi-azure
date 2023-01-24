@@ -13,8 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class ScaleSetStorageProfileImageReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the ID of the (custom) image to use to create the virtual
-        /// machine scale set, as in the example below.
+        /// Specifies the ID of the (custom) image to use to create the virtual machine scale set, as in the example below.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

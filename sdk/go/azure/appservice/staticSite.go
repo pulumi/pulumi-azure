@@ -84,6 +84,10 @@ func NewStaticSite(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiKey",
+	})
+	opts = append(opts, secrets)
 	var resource StaticSite
 	err := ctx.RegisterResource("azure:appservice/staticSite:StaticSite", name, args, &resource, opts...)
 	if err != nil {

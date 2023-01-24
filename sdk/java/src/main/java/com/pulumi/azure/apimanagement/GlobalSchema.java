@@ -79,16 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:apimanagement/globalSchema:GlobalSchema")
 public class GlobalSchema extends com.pulumi.resources.CustomResource {
     /**
-     * The Name of the API Management Service where the API exists. Changing this forces a
-     * new resource to be created.
+     * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
-     * @return The Name of the API Management Service where the API exists. Changing this forces a
-     * new resource to be created.
+     * @return The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> apiManagementName() {
@@ -109,16 +107,14 @@ public class GlobalSchema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The Name of the Resource Group in which the API Management Service exists. Changing
-     * this forces a new resource to be created.
+     * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The Name of the Resource Group in which the API Management Service exists. Changing
-     * this forces a new resource to be created.
+     * @return The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

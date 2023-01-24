@@ -17,7 +17,7 @@ public final class ManagementPolicyRuleActionsVersion {
      */
     private @Nullable Integer changeTierToArchiveAfterDaysSinceCreation;
     /**
-     * @return The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     private @Nullable Integer changeTierToCoolAfterDaysSinceCreation;
@@ -41,7 +41,7 @@ public final class ManagementPolicyRuleActionsVersion {
         return Optional.ofNullable(this.changeTierToArchiveAfterDaysSinceCreation);
     }
     /**
-     * @return The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     public Optional<Integer> changeTierToCoolAfterDaysSinceCreation() {

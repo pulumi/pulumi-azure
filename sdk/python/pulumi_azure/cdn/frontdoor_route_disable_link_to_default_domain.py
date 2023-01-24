@@ -18,7 +18,7 @@ class FrontdoorRouteDisableLinkToDefaultDomainArgs:
                  cdn_frontdoor_route_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a FrontdoorRouteDisableLinkToDefaultDomain resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         :param pulumi.Input[str] cdn_frontdoor_route_id: The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         """
         if cdn_frontdoor_custom_domain_ids is not None:
@@ -34,7 +34,7 @@ class FrontdoorRouteDisableLinkToDefaultDomainArgs:
     @pulumi.getter(name="cdnFrontdoorCustomDomainIds")
     def cdn_frontdoor_custom_domain_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+        The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         """
         return pulumi.get(self, "cdn_frontdoor_custom_domain_ids")
 
@@ -62,7 +62,7 @@ class _FrontdoorRouteDisableLinkToDefaultDomainState:
                  cdn_frontdoor_route_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FrontdoorRouteDisableLinkToDefaultDomain resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         :param pulumi.Input[str] cdn_frontdoor_route_id: The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         """
         if cdn_frontdoor_custom_domain_ids is not None:
@@ -80,7 +80,7 @@ class _FrontdoorRouteDisableLinkToDefaultDomainState:
     @pulumi.getter(name="cdnFrontdoorCustomDomainIds")
     def cdn_frontdoor_custom_domain_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+        The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         """
         return pulumi.get(self, "cdn_frontdoor_custom_domain_ids")
 
@@ -138,7 +138,7 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         :param pulumi.Input[str] cdn_frontdoor_route_id: The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         """
         ...
@@ -231,7 +231,7 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         :param pulumi.Input[str] cdn_frontdoor_route_id: The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -246,7 +246,7 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorCustomDomainIds")
     def cdn_frontdoor_custom_domain_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+        The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         """
         return pulumi.get(self, "cdn_frontdoor_custom_domain_ids")
 

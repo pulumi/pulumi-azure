@@ -23,7 +23,7 @@ public final class FrontdoorBackendPoolLoadBalancing {
      */
     private @Nullable String id;
     /**
-     * @return Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Load Balancer.
      * 
      */
     private String name;
@@ -54,7 +54,7 @@ public final class FrontdoorBackendPoolLoadBalancing {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Load Balancer.
      * 
      */
     public String name() {

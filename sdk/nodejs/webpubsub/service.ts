@@ -74,8 +74,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly aadAuthEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the number of units associated with this Web PubSub resource. Valid values are:
-     * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+     * Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     public /*out*/ readonly externalIp!: pulumi.Output<string>;
@@ -144,8 +143,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Whether to request client certificate during TLS handshake? Defaults
-     * to `false`.
+     * Whether to request client certificate during TLS handshake? Defaults to `false`.
      */
     public readonly tlsClientCertEnabled!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly version!: pulumi.Output<string>;
@@ -230,8 +228,7 @@ export interface ServiceState {
      */
     aadAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the number of units associated with this Web PubSub resource. Valid values are:
-     * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+     * Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      */
     capacity?: pulumi.Input<number>;
     externalIp?: pulumi.Input<string>;
@@ -300,8 +297,7 @@ export interface ServiceState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Whether to request client certificate during TLS handshake? Defaults
-     * to `false`.
+     * Whether to request client certificate during TLS handshake? Defaults to `false`.
      */
     tlsClientCertEnabled?: pulumi.Input<boolean>;
     version?: pulumi.Input<string>;
@@ -316,8 +312,7 @@ export interface ServiceArgs {
      */
     aadAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the number of units associated with this Web PubSub resource. Valid values are:
-     * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+     * Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      */
     capacity?: pulumi.Input<number>;
     /**
@@ -357,8 +352,7 @@ export interface ServiceArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Whether to request client certificate during TLS handshake? Defaults
-     * to `false`.
+     * Whether to request client certificate during TLS handshake? Defaults to `false`.
      */
     tlsClientCertEnabled?: pulumi.Input<boolean>;
 }

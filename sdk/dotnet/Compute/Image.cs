@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Compute
     /// Images can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/images/image1
+    ///  $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/images/image1
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/image:Image")]
@@ -157,14 +157,13 @@ namespace Pulumi.Azure.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the image. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the image. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `os_disk` elements as defined below.
+        /// One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("osDisk")]
         public Output<Outputs.ImageOsDisk?> OsDisk { get; private set; } = null!;
@@ -189,7 +188,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+        /// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zoneResilient")]
         public Output<bool?> ZoneResilient { get; private set; } = null!;
@@ -266,14 +265,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the image. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// One or more `os_disk` elements as defined below.
+        /// One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.ImageOsDiskArgs>? OsDisk { get; set; }
@@ -304,7 +302,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+        /// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneResilient")]
         public Input<bool>? ZoneResilient { get; set; }
@@ -343,14 +341,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the image. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// One or more `os_disk` elements as defined below.
+        /// One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.ImageOsDiskGetArgs>? OsDisk { get; set; }
@@ -381,7 +378,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+        /// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneResilient")]
         public Input<bool>? ZoneResilient { get; set; }

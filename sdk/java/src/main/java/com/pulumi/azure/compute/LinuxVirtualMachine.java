@@ -172,14 +172,14 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.adminPassword);
     }
     /**
-     * One or more `admin_ssh_key` blocks as defined below.
+     * One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="adminSshKeys", type=List.class, parameters={LinuxVirtualMachineAdminSshKey.class})
     private Output</* @Nullable */ List<LinuxVirtualMachineAdminSshKey>> adminSshKeys;
 
     /**
-     * @return One or more `admin_ssh_key` blocks as defined below.
+     * @return One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<LinuxVirtualMachineAdminSshKey>>> adminSshKeys() {

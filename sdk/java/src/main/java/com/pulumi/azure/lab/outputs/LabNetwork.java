@@ -22,7 +22,7 @@ public final class LabNetwork {
      */
     private @Nullable String publicIpId;
     /**
-     * @return The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+     * @return The resource ID of the Subnet for the network profile of the Lab Service Lab.
      * 
      */
     private @Nullable String subnetId;
@@ -43,7 +43,7 @@ public final class LabNetwork {
         return Optional.ofNullable(this.publicIpId);
     }
     /**
-     * @return The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+     * @return The resource ID of the Subnet for the network profile of the Lab Service Lab.
      * 
      */
     public Optional<String> subnetId() {

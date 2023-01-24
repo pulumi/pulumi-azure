@@ -226,7 +226,7 @@ type WindowsVirtualMachine struct {
 	VirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"virtualMachineScaleSetId"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
-	// One or more `winrmListener` blocks as defined below.
+	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayOutput `pulumi:"winrmListeners"`
 	// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
@@ -390,7 +390,7 @@ type windowsVirtualMachineState struct {
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
-	// One or more `winrmListener` blocks as defined below.
+	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 	WinrmListeners []WindowsVirtualMachineWinrmListener `pulumi:"winrmListeners"`
 	// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
 	Zone *string `pulumi:"zone"`
@@ -497,7 +497,7 @@ type WindowsVirtualMachineState struct {
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
-	// One or more `winrmListener` blocks as defined below.
+	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayInput
 	// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
 	Zone pulumi.StringPtrInput
@@ -598,7 +598,7 @@ type windowsVirtualMachineArgs struct {
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
-	// One or more `winrmListener` blocks as defined below.
+	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 	WinrmListeners []WindowsVirtualMachineWinrmListener `pulumi:"winrmListeners"`
 	// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
 	Zone *string `pulumi:"zone"`
@@ -696,7 +696,7 @@ type WindowsVirtualMachineArgs struct {
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
-	// One or more `winrmListener` blocks as defined below.
+	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayInput
 	// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
 	Zone pulumi.StringPtrInput
@@ -1049,7 +1049,7 @@ func (o WindowsVirtualMachineOutput) VtpmEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolPtrOutput { return v.VtpmEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// One or more `winrmListener` blocks as defined below.
+// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOutput) WinrmListeners() WindowsVirtualMachineWinrmListenerArrayOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) WindowsVirtualMachineWinrmListenerArrayOutput { return v.WinrmListeners }).(WindowsVirtualMachineWinrmListenerArrayOutput)
 }

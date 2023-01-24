@@ -76,7 +76,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly cognitiveAccountId!: pulumi.Output<string>;
     /**
-     * A `model` block as defined below.
+     * A `model` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly model!: pulumi.Output<outputs.cognitive.DeploymentModel>;
     /**
@@ -88,7 +88,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly raiPolicyName!: pulumi.Output<string | undefined>;
     /**
-     * A `scale` block as defined below.
+     * A `scale` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly scale!: pulumi.Output<outputs.cognitive.DeploymentScale>;
 
@@ -141,7 +141,7 @@ export interface DeploymentState {
      */
     cognitiveAccountId?: pulumi.Input<string>;
     /**
-     * A `model` block as defined below.
+     * A `model` block as defined below. Changing this forces a new resource to be created.
      */
     model?: pulumi.Input<inputs.cognitive.DeploymentModel>;
     /**
@@ -153,7 +153,7 @@ export interface DeploymentState {
      */
     raiPolicyName?: pulumi.Input<string>;
     /**
-     * A `scale` block as defined below.
+     * A `scale` block as defined below. Changing this forces a new resource to be created.
      */
     scale?: pulumi.Input<inputs.cognitive.DeploymentScale>;
 }
@@ -167,7 +167,7 @@ export interface DeploymentArgs {
      */
     cognitiveAccountId: pulumi.Input<string>;
     /**
-     * A `model` block as defined below.
+     * A `model` block as defined below. Changing this forces a new resource to be created.
      */
     model: pulumi.Input<inputs.cognitive.DeploymentModel>;
     /**
@@ -179,7 +179,7 @@ export interface DeploymentArgs {
      */
     raiPolicyName?: pulumi.Input<string>;
     /**
-     * A `scale` block as defined below.
+     * A `scale` block as defined below. Changing this forces a new resource to be created.
      */
     scale: pulumi.Input<inputs.cognitive.DeploymentScale>;
 }

@@ -72,8 +72,7 @@ type Service struct {
 
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled pulumi.BoolPtrOutput `pulumi:"aadAuthEnabled"`
-	// Specifies the number of units associated with this Web PubSub resource. Valid values are:
-	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity   pulumi.IntPtrOutput `pulumi:"capacity"`
 	ExternalIp pulumi.StringOutput `pulumi:"externalIp"`
 	// The FQDN of the Web PubSub service.
@@ -108,8 +107,7 @@ type Service struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Whether to request client certificate during TLS handshake? Defaults
-	// to `false`.
+	// Whether to request client certificate during TLS handshake? Defaults to `false`.
 	TlsClientCertEnabled pulumi.BoolPtrOutput `pulumi:"tlsClientCertEnabled"`
 	Version              pulumi.StringOutput  `pulumi:"version"`
 }
@@ -158,8 +156,7 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
-	// Specifies the number of units associated with this Web PubSub resource. Valid values are:
-	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity   *int    `pulumi:"capacity"`
 	ExternalIp *string `pulumi:"externalIp"`
 	// The FQDN of the Web PubSub service.
@@ -194,8 +191,7 @@ type serviceState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether to request client certificate during TLS handshake? Defaults
-	// to `false`.
+	// Whether to request client certificate during TLS handshake? Defaults to `false`.
 	TlsClientCertEnabled *bool   `pulumi:"tlsClientCertEnabled"`
 	Version              *string `pulumi:"version"`
 }
@@ -203,8 +199,7 @@ type serviceState struct {
 type ServiceState struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled pulumi.BoolPtrInput
-	// Specifies the number of units associated with this Web PubSub resource. Valid values are:
-	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity   pulumi.IntPtrInput
 	ExternalIp pulumi.StringPtrInput
 	// The FQDN of the Web PubSub service.
@@ -239,8 +234,7 @@ type ServiceState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether to request client certificate during TLS handshake? Defaults
-	// to `false`.
+	// Whether to request client certificate during TLS handshake? Defaults to `false`.
 	TlsClientCertEnabled pulumi.BoolPtrInput
 	Version              pulumi.StringPtrInput
 }
@@ -252,8 +246,7 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
-	// Specifies the number of units associated with this Web PubSub resource. Valid values are:
-	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity *int `pulumi:"capacity"`
 	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
@@ -273,8 +266,7 @@ type serviceArgs struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether to request client certificate during TLS handshake? Defaults
-	// to `false`.
+	// Whether to request client certificate during TLS handshake? Defaults to `false`.
 	TlsClientCertEnabled *bool `pulumi:"tlsClientCertEnabled"`
 }
 
@@ -282,8 +274,7 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled pulumi.BoolPtrInput
-	// Specifies the number of units associated with this Web PubSub resource. Valid values are:
-	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity pulumi.IntPtrInput
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
@@ -303,8 +294,7 @@ type ServiceArgs struct {
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether to request client certificate during TLS handshake? Defaults
-	// to `false`.
+	// Whether to request client certificate during TLS handshake? Defaults to `false`.
 	TlsClientCertEnabled pulumi.BoolPtrInput
 }
 
@@ -400,8 +390,7 @@ func (o ServiceOutput) AadAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.AadAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the number of units associated with this Web PubSub resource. Valid values are:
-// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 func (o ServiceOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -490,8 +479,7 @@ func (o ServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Whether to request client certificate during TLS handshake? Defaults
-// to `false`.
+// Whether to request client certificate during TLS handshake? Defaults to `false`.
 func (o ServiceOutput) TlsClientCertEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.TlsClientCertEnabled }).(pulumi.BoolPtrOutput)
 }

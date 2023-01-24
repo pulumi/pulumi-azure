@@ -79,14 +79,14 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
     }
 
     /**
-     * Should client certificate issuer DN be verified?  Defaults to `false`.
+     * Should client certificate issuer DN be verified? Defaults to `false`.
      * 
      */
     @Import(name="verifyClientCertIssuerDn")
     private @Nullable Output<Boolean> verifyClientCertIssuerDn;
 
     /**
-     * @return Should client certificate issuer DN be verified?  Defaults to `false`.
+     * @return Should client certificate issuer DN be verified? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> verifyClientCertIssuerDn() {
@@ -216,7 +216,7 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         }
 
         /**
-         * @param verifyClientCertIssuerDn Should client certificate issuer DN be verified?  Defaults to `false`.
+         * @param verifyClientCertIssuerDn Should client certificate issuer DN be verified? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         }
 
         /**
-         * @param verifyClientCertIssuerDn Should client certificate issuer DN be verified?  Defaults to `false`.
+         * @param verifyClientCertIssuerDn Should client certificate issuer DN be verified? Defaults to `false`.
          * 
          * @return builder
          * 

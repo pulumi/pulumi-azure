@@ -69,6 +69,14 @@ export class IPGroup extends pulumi.CustomResource {
      */
     public readonly cidrs!: pulumi.Output<string[] | undefined>;
     /**
+     * A `firewallIds` block as defined below.
+     */
+    public /*out*/ readonly firewallIds!: pulumi.Output<string[]>;
+    /**
+     * A `firewallPolicyIds` block as defined below.
+     */
+    public /*out*/ readonly firewallPolicyIds!: pulumi.Output<string[]>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -99,6 +107,8 @@ export class IPGroup extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as IPGroupState | undefined;
             resourceInputs["cidrs"] = state ? state.cidrs : undefined;
+            resourceInputs["firewallIds"] = state ? state.firewallIds : undefined;
+            resourceInputs["firewallPolicyIds"] = state ? state.firewallPolicyIds : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -113,6 +123,8 @@ export class IPGroup extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["firewallIds"] = undefined /*out*/;
+            resourceInputs["firewallPolicyIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IPGroup.__pulumiType, name, resourceInputs, opts);
@@ -127,6 +139,14 @@ export interface IPGroupState {
      * A list of CIDRs or IP addresses.
      */
     cidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `firewallIds` block as defined below.
+     */
+    firewallIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `firewallPolicyIds` block as defined below.
+     */
+    firewallPolicyIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

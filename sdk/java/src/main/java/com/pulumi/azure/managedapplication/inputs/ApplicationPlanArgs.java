@@ -16,14 +16,14 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
     public static final ApplicationPlanArgs Empty = new ApplicationPlanArgs();
 
     /**
-     * Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+     * Specifies the name of the plan from the marketplace.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+     * @return Specifies the name of the plan from the marketplace.
      * 
      */
     public Output<String> name() {
@@ -119,7 +119,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the plan from the marketplace.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the plan from the marketplace.
          * 
          * @return builder
          * 

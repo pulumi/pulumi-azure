@@ -222,14 +222,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customNetworkInterfaceName);
     }
     /**
-     * One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
+     * One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      * 
      */
     @Export(name="ipConfigurations", type=List.class, parameters={EndpointIpConfiguration.class})
     private Output</* @Nullable */ List<EndpointIpConfiguration>> ipConfigurations;
 
     /**
-     * @return One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
+     * @return One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      * 
      */
     public Output<Optional<List<EndpointIpConfiguration>>> ipConfigurations() {

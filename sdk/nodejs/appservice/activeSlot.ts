@@ -58,7 +58,7 @@ export class ActiveSlot extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+     * The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
      */
     public readonly appServiceName!: pulumi.Output<string>;
     /**
@@ -111,7 +111,7 @@ export class ActiveSlot extends pulumi.CustomResource {
  */
 export interface ActiveSlotState {
     /**
-     * The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+     * The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
      */
     appServiceName?: pulumi.Input<string>;
     /**
@@ -129,7 +129,7 @@ export interface ActiveSlotState {
  */
 export interface ActiveSlotArgs {
     /**
-     * The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+     * The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
      */
     appServiceName: pulumi.Input<string>;
     /**

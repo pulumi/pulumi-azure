@@ -48,14 +48,14 @@ public final class FrontdoorFrontendEndpointArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
+     * Specifies the name of the `frontend_endpoint`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
+     * @return Specifies the name of the `frontend_endpoint`.
      * 
      */
     public Output<String> name() {
@@ -179,7 +179,7 @@ public final class FrontdoorFrontendEndpointArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the `frontend_endpoint`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class FrontdoorFrontendEndpointArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the `frontend_endpoint`.
          * 
          * @return builder
          * 

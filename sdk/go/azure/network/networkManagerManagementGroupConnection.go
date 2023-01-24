@@ -113,15 +113,14 @@ type NetworkManagerManagementGroupConnection struct {
 	pulumi.CustomResourceState
 
 	// The Connection state of the Network Manager Management Group Connection.
-	// *
 	ConnectionState pulumi.StringOutput `pulumi:"connectionState"`
 	// A description of the Network Manager Management Group Connection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies the ID of the target Management Group.
+	// Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringOutput `pulumi:"managementGroupId"`
 	// Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the ID of the Network Manager which the Management Group is connected to.
+	// Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
 	NetworkManagerId pulumi.StringOutput `pulumi:"networkManagerId"`
 }
 
@@ -161,29 +160,27 @@ func GetNetworkManagerManagementGroupConnection(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NetworkManagerManagementGroupConnection resources.
 type networkManagerManagementGroupConnectionState struct {
 	// The Connection state of the Network Manager Management Group Connection.
-	// *
 	ConnectionState *string `pulumi:"connectionState"`
 	// A description of the Network Manager Management Group Connection.
 	Description *string `pulumi:"description"`
-	// Specifies the ID of the target Management Group.
+	// Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the ID of the Network Manager which the Management Group is connected to.
+	// Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
 	NetworkManagerId *string `pulumi:"networkManagerId"`
 }
 
 type NetworkManagerManagementGroupConnectionState struct {
 	// The Connection state of the Network Manager Management Group Connection.
-	// *
 	ConnectionState pulumi.StringPtrInput
 	// A description of the Network Manager Management Group Connection.
 	Description pulumi.StringPtrInput
-	// Specifies the ID of the target Management Group.
+	// Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrInput
 	// Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the ID of the Network Manager which the Management Group is connected to.
+	// Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
 	NetworkManagerId pulumi.StringPtrInput
 }
 
@@ -194,11 +191,11 @@ func (NetworkManagerManagementGroupConnectionState) ElementType() reflect.Type {
 type networkManagerManagementGroupConnectionArgs struct {
 	// A description of the Network Manager Management Group Connection.
 	Description *string `pulumi:"description"`
-	// Specifies the ID of the target Management Group.
+	// Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	// Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the ID of the Network Manager which the Management Group is connected to.
+	// Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
 	NetworkManagerId string `pulumi:"networkManagerId"`
 }
 
@@ -206,11 +203,11 @@ type networkManagerManagementGroupConnectionArgs struct {
 type NetworkManagerManagementGroupConnectionArgs struct {
 	// A description of the Network Manager Management Group Connection.
 	Description pulumi.StringPtrInput
-	// Specifies the ID of the target Management Group.
+	// Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringInput
 	// Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the ID of the Network Manager which the Management Group is connected to.
+	// Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
 	NetworkManagerId pulumi.StringInput
 }
 
@@ -302,7 +299,6 @@ func (o NetworkManagerManagementGroupConnectionOutput) ToNetworkManagerManagemen
 }
 
 // The Connection state of the Network Manager Management Group Connection.
-// *
 func (o NetworkManagerManagementGroupConnectionOutput) ConnectionState() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerManagementGroupConnection) pulumi.StringOutput { return v.ConnectionState }).(pulumi.StringOutput)
 }
@@ -312,7 +308,7 @@ func (o NetworkManagerManagementGroupConnectionOutput) Description() pulumi.Stri
 	return o.ApplyT(func(v *NetworkManagerManagementGroupConnection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the ID of the target Management Group.
+// Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
 func (o NetworkManagerManagementGroupConnectionOutput) ManagementGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerManagementGroupConnection) pulumi.StringOutput { return v.ManagementGroupId }).(pulumi.StringOutput)
 }
@@ -322,7 +318,7 @@ func (o NetworkManagerManagementGroupConnectionOutput) Name() pulumi.StringOutpu
 	return o.ApplyT(func(v *NetworkManagerManagementGroupConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the ID of the Network Manager which the Management Group is connected to.
+// Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
 func (o NetworkManagerManagementGroupConnectionOutput) NetworkManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerManagementGroupConnection) pulumi.StringOutput { return v.NetworkManagerId }).(pulumi.StringOutput)
 }

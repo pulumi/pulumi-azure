@@ -24,7 +24,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
      */
     private @Nullable Integer customerAsn;
     /**
-     * @return The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+     * @return The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
      * 
      */
     private @Nullable String routingRegistryName;
@@ -45,7 +45,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
         return Optional.ofNullable(this.customerAsn);
     }
     /**
-     * @return The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+     * @return The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
      * 
      */
     public Optional<String> routingRegistryName() {

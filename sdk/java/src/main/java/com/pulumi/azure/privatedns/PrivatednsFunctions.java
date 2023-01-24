@@ -1425,8 +1425,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.ResolverInboundEndpoint;
-     * import com.pulumi.azure.privatedns.ResolverInboundEndpointArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1440,7 +1440,8 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ResolverInboundEndpoint(&#34;example&#34;, ResolverInboundEndpointArgs.builder()        
+     *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
+     *             .name(&#34;example-drie&#34;)
      *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
      *             .build());
      * 
@@ -1462,8 +1463,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.ResolverInboundEndpoint;
-     * import com.pulumi.azure.privatedns.ResolverInboundEndpointArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1477,7 +1478,8 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ResolverInboundEndpoint(&#34;example&#34;, ResolverInboundEndpointArgs.builder()        
+     *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
+     *             .name(&#34;example-drie&#34;)
      *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
      *             .build());
      * 
@@ -1499,8 +1501,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.ResolverInboundEndpoint;
-     * import com.pulumi.azure.privatedns.ResolverInboundEndpointArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1514,7 +1516,8 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ResolverInboundEndpoint(&#34;example&#34;, ResolverInboundEndpointArgs.builder()        
+     *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
+     *             .name(&#34;example-drie&#34;)
      *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
      *             .build());
      * 
@@ -1536,8 +1539,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.ResolverInboundEndpoint;
-     * import com.pulumi.azure.privatedns.ResolverInboundEndpointArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1551,7 +1554,8 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ResolverInboundEndpoint(&#34;example&#34;, ResolverInboundEndpointArgs.builder()        
+     *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
+     *             .name(&#34;example-drie&#34;)
      *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
      *             .build());
      * 

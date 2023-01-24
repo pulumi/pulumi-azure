@@ -73,7 +73,7 @@ type IntegrationRuntimeSelfHosted struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The primary integration runtime authentication key.
 	PrimaryAuthorizationKey pulumi.StringOutput `pulumi:"primaryAuthorizationKey"`
-	// A `rbacAuthorization` block as defined below.
+	// A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput `pulumi:"rbacAuthorizations"`
 	// The secondary integration runtime authentication key.
 	SecondaryAuthorizationKey pulumi.StringOutput `pulumi:"secondaryAuthorizationKey"`
@@ -119,7 +119,7 @@ type integrationRuntimeSelfHostedState struct {
 	Name *string `pulumi:"name"`
 	// The primary integration runtime authentication key.
 	PrimaryAuthorizationKey *string `pulumi:"primaryAuthorizationKey"`
-	// A `rbacAuthorization` block as defined below.
+	// A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
 	RbacAuthorizations []IntegrationRuntimeSelfHostedRbacAuthorization `pulumi:"rbacAuthorizations"`
 	// The secondary integration runtime authentication key.
 	SecondaryAuthorizationKey *string `pulumi:"secondaryAuthorizationKey"`
@@ -134,7 +134,7 @@ type IntegrationRuntimeSelfHostedState struct {
 	Name pulumi.StringPtrInput
 	// The primary integration runtime authentication key.
 	PrimaryAuthorizationKey pulumi.StringPtrInput
-	// A `rbacAuthorization` block as defined below.
+	// A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput
 	// The secondary integration runtime authentication key.
 	SecondaryAuthorizationKey pulumi.StringPtrInput
@@ -151,7 +151,7 @@ type integrationRuntimeSelfHostedArgs struct {
 	Description *string `pulumi:"description"`
 	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name *string `pulumi:"name"`
-	// A `rbacAuthorization` block as defined below.
+	// A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
 	RbacAuthorizations []IntegrationRuntimeSelfHostedRbacAuthorization `pulumi:"rbacAuthorizations"`
 }
 
@@ -163,7 +163,7 @@ type IntegrationRuntimeSelfHostedArgs struct {
 	Description pulumi.StringPtrInput
 	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name pulumi.StringPtrInput
-	// A `rbacAuthorization` block as defined below.
+	// A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput
 }
 
@@ -274,7 +274,7 @@ func (o IntegrationRuntimeSelfHostedOutput) PrimaryAuthorizationKey() pulumi.Str
 	return o.ApplyT(func(v *IntegrationRuntimeSelfHosted) pulumi.StringOutput { return v.PrimaryAuthorizationKey }).(pulumi.StringOutput)
 }
 
-// A `rbacAuthorization` block as defined below.
+// A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
 func (o IntegrationRuntimeSelfHostedOutput) RbacAuthorizations() IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSelfHosted) IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput {
 		return v.RbacAuthorizations

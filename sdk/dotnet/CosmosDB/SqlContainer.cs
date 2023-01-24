@@ -97,7 +97,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analytical_storage_ttl` on an existing Cosmos DB SQL Container.
+        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         /// </summary>
         [Output("analyticalStorageTtl")]
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<Outputs.SqlContainerAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below.
+        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("conflictResolutionPolicy")]
         public Output<Outputs.SqlContainerConflictResolutionPolicy> ConflictResolutionPolicy { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analytical_storage_ttl` on an existing Cosmos DB SQL Container.
+        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.SqlContainerAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below.
+        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("conflictResolutionPolicy")]
         public Input<Inputs.SqlContainerConflictResolutionPolicyArgs>? ConflictResolutionPolicy { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analytical_storage_ttl` on an existing Cosmos DB SQL Container.
+        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
@@ -325,7 +325,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.SqlContainerAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below.
+        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("conflictResolutionPolicy")]
         public Input<Inputs.SqlContainerConflictResolutionPolicyGetArgs>? ConflictResolutionPolicy { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ManagedApplication.Inputs
     public sealed class ApplicationPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+        /// Specifies the name of the plan from the marketplace.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

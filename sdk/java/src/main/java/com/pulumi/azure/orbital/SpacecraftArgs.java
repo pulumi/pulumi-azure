@@ -19,14 +19,14 @@ public final class SpacecraftArgs extends com.pulumi.resources.ResourceArgs {
     public static final SpacecraftArgs Empty = new SpacecraftArgs();
 
     /**
-     * A `links` block as defined below.
+     * A `links` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="links", required=true)
     private Output<List<SpacecraftLinkArgs>> links;
 
     /**
-     * @return A `links` block as defined below.
+     * @return A `links` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<SpacecraftLinkArgs>> links() {
@@ -124,14 +124,14 @@ public final class SpacecraftArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="twoLineElements", required=true)
     private Output<List<String>> twoLineElements;
 
     /**
-     * @return A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+     * @return A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<String>> twoLineElements() {
@@ -170,7 +170,7 @@ public final class SpacecraftArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param links A `links` block as defined below.
+         * @param links A `links` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class SpacecraftArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param links A `links` block as defined below.
+         * @param links A `links` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class SpacecraftArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param links A `links` block as defined below.
+         * @param links A `links` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class SpacecraftArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param twoLineElements A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+         * @param twoLineElements A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class SpacecraftArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param twoLineElements A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+         * @param twoLineElements A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class SpacecraftArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param twoLineElements A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+         * @param twoLineElements A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

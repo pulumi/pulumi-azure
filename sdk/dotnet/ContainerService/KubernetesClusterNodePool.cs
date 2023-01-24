@@ -92,13 +92,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> EnableAutoScaling { get; private set; } = null!;
 
         /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        /// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
         /// </summary>
         [Output("enableHostEncryption")]
         public Output<bool?> EnableHostEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+        /// Should each node have a Public IP Address? Changing this forces a new resource to be created.
         /// </summary>
         [Output("enableNodePublicIp")]
         public Output<bool?> EnableNodePublicIp { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> HostGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// A `kubelet_config` block as defined below.
+        /// A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("kubeletConfig")]
         public Output<Outputs.KubernetesClusterNodePoolKubeletConfig?> KubeletConfig { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> KubernetesClusterId { get; private set; } = null!;
 
         /// <summary>
-        /// A `linux_os_config` block as defined below.
+        /// A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("linuxOsConfig")]
         public Output<Outputs.KubernetesClusterNodePoolLinuxOsConfig?> LinuxOsConfig { get; private set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> VnetSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A `windows_profile` block as documented below.
+        /// A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("windowsProfile")]
         public Output<Outputs.KubernetesClusterNodePoolWindowsProfile?> WindowsProfile { get; private set; } = null!;
@@ -378,13 +378,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        /// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableHostEncryption")]
         public Input<bool>? EnableHostEncryption { get; set; }
 
         /// <summary>
-        /// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+        /// Should each node have a Public IP Address? Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableNodePublicIp")]
         public Input<bool>? EnableNodePublicIp { get; set; }
@@ -408,7 +408,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? HostGroupId { get; set; }
 
         /// <summary>
-        /// A `kubelet_config` block as defined below.
+        /// A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kubeletConfig")]
         public Input<Inputs.KubernetesClusterNodePoolKubeletConfigArgs>? KubeletConfig { get; set; }
@@ -426,7 +426,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> KubernetesClusterId { get; set; } = null!;
 
         /// <summary>
-        /// A `linux_os_config` block as defined below.
+        /// A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("linuxOsConfig")]
         public Input<Inputs.KubernetesClusterNodePoolLinuxOsConfigArgs>? LinuxOsConfig { get; set; }
@@ -600,7 +600,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? VnetSubnetId { get; set; }
 
         /// <summary>
-        /// A `windows_profile` block as documented below.
+        /// A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterNodePoolWindowsProfileArgs>? WindowsProfile { get; set; }
@@ -650,13 +650,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        /// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableHostEncryption")]
         public Input<bool>? EnableHostEncryption { get; set; }
 
         /// <summary>
-        /// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+        /// Should each node have a Public IP Address? Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableNodePublicIp")]
         public Input<bool>? EnableNodePublicIp { get; set; }
@@ -680,7 +680,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? HostGroupId { get; set; }
 
         /// <summary>
-        /// A `kubelet_config` block as defined below.
+        /// A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kubeletConfig")]
         public Input<Inputs.KubernetesClusterNodePoolKubeletConfigGetArgs>? KubeletConfig { get; set; }
@@ -698,7 +698,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? KubernetesClusterId { get; set; }
 
         /// <summary>
-        /// A `linux_os_config` block as defined below.
+        /// A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("linuxOsConfig")]
         public Input<Inputs.KubernetesClusterNodePoolLinuxOsConfigGetArgs>? LinuxOsConfig { get; set; }
@@ -872,7 +872,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? VnetSubnetId { get; set; }
 
         /// <summary>
-        /// A `windows_profile` block as documented below.
+        /// A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterNodePoolWindowsProfileGetArgs>? WindowsProfile { get; set; }

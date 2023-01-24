@@ -97,7 +97,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         }
 
         /// <summary>
-        /// The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+        /// The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
         /// </summary>
         [Input("reverseProxyEndpointPort")]
         public Input<int>? ReverseProxyEndpointPort { get; set; }

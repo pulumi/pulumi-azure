@@ -149,14 +149,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.diskEncryptionEnabled);
     }
     /**
-     * Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
+     * Is the cluster&#39;s double encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     @Export(name="doubleEncryptionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> doubleEncryptionEnabled;
 
     /**
-     * @return Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
+     * @return Is the cluster&#39;s double encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> doubleEncryptionEnabled() {

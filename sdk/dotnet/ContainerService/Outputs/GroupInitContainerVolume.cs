@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? EmptyDir;
         /// <summary>
-        /// A `git_repo` block as defined below.
+        /// A `git_repo` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.GroupInitContainerVolumeGitRepo? GitRepo;
         /// <summary>

@@ -73,6 +73,10 @@ export class Vault extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.recoveryservices.VaultIdentity | undefined>;
     /**
+     * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     */
+    public readonly immutability!: pulumi.Output<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -80,6 +84,10 @@ export class Vault extends pulumi.CustomResource {
      * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Is it enabled to access the vault from public networks. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
@@ -117,8 +125,10 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["crossRegionRestoreEnabled"] = state ? state.crossRegionRestoreEnabled : undefined;
             resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["immutability"] = state ? state.immutability : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["softDeleteEnabled"] = state ? state.softDeleteEnabled : undefined;
@@ -135,8 +145,10 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["crossRegionRestoreEnabled"] = args ? args.crossRegionRestoreEnabled : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["immutability"] = args ? args.immutability : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["softDeleteEnabled"] = args ? args.softDeleteEnabled : undefined;
@@ -165,6 +177,10 @@ export interface VaultState {
      */
     identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity>;
     /**
+     * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     */
+    immutability?: pulumi.Input<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -172,6 +188,10 @@ export interface VaultState {
      * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Is it enabled to access the vault from public networks. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
@@ -211,6 +231,10 @@ export interface VaultArgs {
      */
     identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity>;
     /**
+     * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     */
+    immutability?: pulumi.Input<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -218,6 +242,10 @@ export interface VaultArgs {
      * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Is it enabled to access the vault from public networks. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */

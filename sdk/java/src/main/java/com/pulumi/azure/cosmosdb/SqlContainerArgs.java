@@ -37,14 +37,14 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analytical_storage_ttl` on an existing Cosmos DB SQL Container.
+     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      * 
      */
     @Import(name="analyticalStorageTtl")
     private @Nullable Output<Integer> analyticalStorageTtl;
 
     /**
-     * @return The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analytical_storage_ttl` on an existing Cosmos DB SQL Container.
+     * @return The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      * 
      */
     public Optional<Output<Integer>> analyticalStorageTtl() {
@@ -67,14 +67,14 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `conflict_resolution_policy` blocks as defined below.
+     * A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="conflictResolutionPolicy")
     private @Nullable Output<SqlContainerConflictResolutionPolicyArgs> conflictResolutionPolicy;
 
     /**
-     * @return A `conflict_resolution_policy` blocks as defined below.
+     * @return A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<SqlContainerConflictResolutionPolicyArgs>> conflictResolutionPolicy() {
@@ -274,7 +274,7 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param analyticalStorageTtl The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analytical_storage_ttl` on an existing Cosmos DB SQL Container.
+         * @param analyticalStorageTtl The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param analyticalStorageTtl The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analytical_storage_ttl` on an existing Cosmos DB SQL Container.
+         * @param analyticalStorageTtl The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below.
+         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below.
+         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

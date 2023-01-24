@@ -31,9 +31,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      */
     private @Nullable String aadTenant;
     /**
-     * @return The address space out of which IP addresses for
-     * vpn clients will be taken. You can provide more than one address space, e.g.
-     * in CIDR notation.
+     * @return The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
      * 
      */
     private List<String> addressSpaces;
@@ -96,9 +94,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         return Optional.ofNullable(this.aadTenant);
     }
     /**
-     * @return The address space out of which IP addresses for
-     * vpn clients will be taken. You can provide more than one address space, e.g.
-     * in CIDR notation.
+     * @return The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
      * 
      */
     public List<String> addressSpaces() {

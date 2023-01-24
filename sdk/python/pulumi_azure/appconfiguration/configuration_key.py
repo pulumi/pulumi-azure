@@ -30,7 +30,7 @@ class ConfigurationKeyArgs:
         :param pulumi.Input[str] key: The name of the App Configuration Key to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the App Configuration Key. This should only be set when type is set to `kv`.
         :param pulumi.Input[str] etag: (Optional) The ETag of the key.
-        :param pulumi.Input[str] label: The label of the App Configuration Key.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] label: The label of the App Configuration Key. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Key be Locked to prevent changes?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
@@ -108,7 +108,7 @@ class ConfigurationKeyArgs:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        The label of the App Configuration Key.  Changing this forces a new resource to be created.
+        The label of the App Configuration Key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "label")
 
@@ -196,7 +196,7 @@ class _ConfigurationKeyState:
         :param pulumi.Input[str] content_type: The content type of the App Configuration Key. This should only be set when type is set to `kv`.
         :param pulumi.Input[str] etag: (Optional) The ETag of the key.
         :param pulumi.Input[str] key: The name of the App Configuration Key to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] label: The label of the App Configuration Key.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] label: The label of the App Configuration Key. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Key be Locked to prevent changes?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
@@ -276,7 +276,7 @@ class _ConfigurationKeyState:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        The label of the App Configuration Key.  Changing this forces a new resource to be created.
+        The label of the App Configuration Key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "label")
 
@@ -442,13 +442,13 @@ class ConfigurationKey(pulumi.CustomResource):
         App Configuration Keys can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/label1
+         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/label1
         ```
 
          If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/%00
+         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/%00
         ```
 
         :param str resource_name: The name of the resource.
@@ -457,7 +457,7 @@ class ConfigurationKey(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: The content type of the App Configuration Key. This should only be set when type is set to `kv`.
         :param pulumi.Input[str] etag: (Optional) The ETag of the key.
         :param pulumi.Input[str] key: The name of the App Configuration Key to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] label: The label of the App Configuration Key.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] label: The label of the App Configuration Key. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Key be Locked to prevent changes?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
@@ -551,13 +551,13 @@ class ConfigurationKey(pulumi.CustomResource):
         App Configuration Keys can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/label1
+         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/label1
         ```
 
          If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/%00
+         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/%00
         ```
 
         :param str resource_name: The name of the resource.
@@ -639,7 +639,7 @@ class ConfigurationKey(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: The content type of the App Configuration Key. This should only be set when type is set to `kv`.
         :param pulumi.Input[str] etag: (Optional) The ETag of the key.
         :param pulumi.Input[str] key: The name of the App Configuration Key to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] label: The label of the App Configuration Key.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] label: The label of the App Configuration Key. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Key be Locked to prevent changes?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
@@ -698,7 +698,7 @@ class ConfigurationKey(pulumi.CustomResource):
     @pulumi.getter
     def label(self) -> pulumi.Output[Optional[str]]:
         """
-        The label of the App Configuration Key.  Changing this forces a new resource to be created.
+        The label of the App Configuration Key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "label")
 

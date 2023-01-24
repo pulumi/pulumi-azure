@@ -65,14 +65,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `encryption` block as defined below.
+     * An `encryption` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="encryption")
     private @Nullable Output<WorkspaceEncryptionArgs> encryption;
 
     /**
-     * @return An `encryption` block as defined below.
+     * @return An `encryption` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<WorkspaceEncryptionArgs>> encryption() {
@@ -418,7 +418,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryption An `encryption` block as defined below.
+         * @param encryption An `encryption` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryption An `encryption` block as defined below.
+         * @param encryption An `encryption` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

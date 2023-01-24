@@ -126,14 +126,14 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
     }
 
     /**
-     * Leverages an instance pool within the linked ADB instance as defined by  `instance_pool` block below.
+     * Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
      * 
      */
     @Import(name="instancePool")
     private @Nullable Output<LinkedServiceAzureDatabricksInstancePoolArgs> instancePool;
 
     /**
-     * @return Leverages an instance pool within the linked ADB instance as defined by  `instance_pool` block below.
+     * @return Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
      * 
      */
     public Optional<Output<LinkedServiceAzureDatabricksInstancePoolArgs>> instancePool() {
@@ -201,14 +201,14 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
     }
 
     /**
-     * Creates new clusters within the linked ADB instance as defined in the  `new_cluster_config` block below.
+     * Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
      * 
      */
     @Import(name="newClusterConfig")
     private @Nullable Output<LinkedServiceAzureDatabricksNewClusterConfigArgs> newClusterConfig;
 
     /**
-     * @return Creates new clusters within the linked ADB instance as defined in the  `new_cluster_config` block below.
+     * @return Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
      * 
      */
     public Optional<Output<LinkedServiceAzureDatabricksNewClusterConfigArgs>> newClusterConfig() {
@@ -425,7 +425,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param instancePool Leverages an instance pool within the linked ADB instance as defined by  `instance_pool` block below.
+         * @param instancePool Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param instancePool Leverages an instance pool within the linked ADB instance as defined by  `instance_pool` block below.
+         * @param instancePool Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param newClusterConfig Creates new clusters within the linked ADB instance as defined in the  `new_cluster_config` block below.
+         * @param newClusterConfig Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param newClusterConfig Creates new clusters within the linked ADB instance as defined in the  `new_cluster_config` block below.
+         * @param newClusterConfig Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
          * 
          * @return builder
          * 

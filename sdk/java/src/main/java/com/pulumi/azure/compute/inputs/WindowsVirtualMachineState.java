@@ -782,14 +782,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `winrm_listener` blocks as defined below.
+     * One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="winrmListeners")
     private @Nullable Output<List<WindowsVirtualMachineWinrmListenerArgs>> winrmListeners;
 
     /**
-     * @return One or more `winrm_listener` blocks as defined below.
+     * @return One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<WindowsVirtualMachineWinrmListenerArgs>>> winrmListeners() {
@@ -1997,7 +1997,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param winrmListeners One or more `winrm_listener` blocks as defined below.
+         * @param winrmListeners One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -2008,7 +2008,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param winrmListeners One or more `winrm_listener` blocks as defined below.
+         * @param winrmListeners One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -2018,7 +2018,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param winrmListeners One or more `winrm_listener` blocks as defined below.
+         * @param winrmListeners One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

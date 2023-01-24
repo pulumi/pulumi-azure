@@ -176,14 +176,14 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
         return this.routingState;
     }
     /**
-     * The SKU of the Route Server. The only possible value is `Standard`.
+     * The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
-     * @return The SKU of the Route Server. The only possible value is `Standard`.
+     * @return The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sku() {

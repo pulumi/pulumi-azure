@@ -154,7 +154,7 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
      */
     public readonly existingClusterId!: pulumi.Output<string | undefined>;
     /**
-     * Leverages an instance pool within the linked ADB instance as defined by  `instancePool` block below.
+     * Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
      */
     public readonly instancePool!: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksInstancePool | undefined>;
     /**
@@ -174,7 +174,7 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
+     * Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
      */
     public readonly newClusterConfig!: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksNewClusterConfig | undefined>;
     /**
@@ -272,7 +272,7 @@ export interface LinkedServiceAzureDatabricksState {
      */
     existingClusterId?: pulumi.Input<string>;
     /**
-     * Leverages an instance pool within the linked ADB instance as defined by  `instancePool` block below.
+     * Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
      */
     instancePool?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksInstancePool>;
     /**
@@ -292,7 +292,7 @@ export interface LinkedServiceAzureDatabricksState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
+     * Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
      */
     newClusterConfig?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksNewClusterConfig>;
     /**
@@ -334,7 +334,7 @@ export interface LinkedServiceAzureDatabricksArgs {
      */
     existingClusterId?: pulumi.Input<string>;
     /**
-     * Leverages an instance pool within the linked ADB instance as defined by  `instancePool` block below.
+     * Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
      */
     instancePool?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksInstancePool>;
     /**
@@ -354,7 +354,7 @@ export interface LinkedServiceAzureDatabricksArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
+     * Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
      */
     newClusterConfig?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksNewClusterConfig>;
     /**

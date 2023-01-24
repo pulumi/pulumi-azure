@@ -22,7 +22,7 @@ public final class VirtualNetworkSubnet {
      */
     private @Nullable String id;
     /**
-     * @return The name of the subnet. Changing this forces a new resource to be created.
+     * @return The name of the subnet.
      * 
      */
     private String name;
@@ -48,7 +48,7 @@ public final class VirtualNetworkSubnet {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The name of the subnet. Changing this forces a new resource to be created.
+     * @return The name of the subnet.
      * 
      */
     public String name() {

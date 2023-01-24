@@ -183,7 +183,7 @@ namespace Pulumi.Azure.PrivateLink
         public Output<string?> CustomNetworkInterfaceName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
+        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         /// </summary>
         [Output("ipConfigurations")]
         public Output<ImmutableArray<Outputs.EndpointIpConfiguration>> IpConfigurations { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.PrivateLink
         private InputList<Inputs.EndpointIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
+        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         /// </summary>
         public InputList<Inputs.EndpointIpConfigurationArgs> IpConfigurations
         {
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.PrivateLink
         private InputList<Inputs.EndpointIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
+        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         /// </summary>
         public InputList<Inputs.EndpointIpConfigurationGetArgs> IpConfigurations
         {

@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Batch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+        /// A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.PoolNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.Batch
         public Output<bool?> StopPendingResizeOperation { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        /// A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageImageReference")]
         public Output<Outputs.PoolStorageImageReference> StorageImageReference { get; private set; } = null!;
@@ -489,7 +489,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+        /// A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.PoolNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
@@ -534,7 +534,7 @@ namespace Pulumi.Azure.Batch
         public Input<bool>? StopPendingResizeOperation { get; set; }
 
         /// <summary>
-        /// A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        /// A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageImageReference", required: true)]
         public Input<Inputs.PoolStorageImageReferenceArgs> StorageImageReference { get; set; } = null!;
@@ -722,7 +722,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+        /// A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.PoolNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
@@ -767,7 +767,7 @@ namespace Pulumi.Azure.Batch
         public Input<bool>? StopPendingResizeOperation { get; set; }
 
         /// <summary>
-        /// A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        /// A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageImageReference")]
         public Input<Inputs.PoolStorageImageReferenceGetArgs>? StorageImageReference { get; set; }

@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string?> ScriptContent { get; private set; } = null!;
 
         /// <summary>
-        /// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        /// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         /// </summary>
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.Kusto
         }
 
         /// <summary>
-        /// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        /// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.Kusto
         }
 
         /// <summary>
-        /// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        /// The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

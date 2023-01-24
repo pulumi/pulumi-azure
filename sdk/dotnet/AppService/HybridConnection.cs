@@ -116,7 +116,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> RelayName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> RelayId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? RelayName { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

@@ -17,14 +17,14 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
     public static final OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs Empty = new OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs();
 
     /**
-     * Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`. Defaults to `false`.
+     * Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`. Defaults to `false`.
+     * @return Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
      * 
      */
     public Output<Boolean> enabled() {
@@ -72,7 +72,7 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
         }
 
         /**
-         * @param enabled Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`. Defaults to `false`.
+         * @param enabled Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
         }
 
         /**
-         * @param enabled Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`. Defaults to `false`.
+         * @param enabled Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
          * 
          * @return builder
          * 

@@ -50,7 +50,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? PhpVersion;
         /// <summary>
-        /// The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
+        /// The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
         /// </summary>
         public readonly string? PythonVersion;
         /// <summary>

@@ -91,7 +91,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ManagedPipelineMode;
         /// <summary>
-        /// Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        /// Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         /// </summary>
         public readonly string? MinimumTlsVersion;
         /// <summary>
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsFunctionAppSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
-        /// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        /// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         /// </summary>
         public readonly string? ScmMinimumTlsVersion;
         public readonly string? ScmType;

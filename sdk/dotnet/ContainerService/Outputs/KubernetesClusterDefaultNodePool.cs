@@ -26,11 +26,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? EnableAutoScaling;
         /// <summary>
-        /// Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        /// Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? EnableHostEncryption;
         /// <summary>
-        /// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+        /// Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? EnableNodePublicIp;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? HostGroupId;
         /// <summary>
-        /// A `kubelet_config` block as defined below.
+        /// A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolKubeletConfig? KubeletConfig;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? KubeletDiskType;
         /// <summary>
-        /// A `linux_os_config` block as defined below.
+        /// A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolLinuxOsConfig? LinuxOsConfig;
         /// <summary>
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? NodePublicIpPrefixId;
         /// <summary>
-        /// A list of the taints added to new nodes during node pool create and scale.
+        /// A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> NodeTaints;
         /// <summary>

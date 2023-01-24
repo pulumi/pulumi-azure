@@ -78,14 +78,14 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+     * The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
      * 
      */
     @Import(name="lockMode")
     private @Nullable Output<String> lockMode;
 
     /**
-     * @return The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+     * @return The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
      * 
      */
     public Optional<Output<String>> lockMode() {
@@ -305,7 +305,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockMode The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+         * @param lockMode The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockMode The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+         * @param lockMode The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
     public sealed class IntegrationRuntimeSelfHostedRbacAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+        /// The resource identifier of the integration runtime to be shared.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;

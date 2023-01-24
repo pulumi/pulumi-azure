@@ -102,7 +102,7 @@ type EnterpriseDatabase struct {
 	LinkedDatabaseGroupNickname pulumi.StringPtrOutput `pulumi:"linkedDatabaseGroupNickname"`
 	// A list of database resources to link with this database with a maximum of 5.
 	LinkedDatabaseIds pulumi.StringArrayOutput `pulumi:"linkedDatabaseIds"`
-	// A `module` block as defined below.
+	// A `module` block as defined below. Changing this forces a new resource to be created.
 	Modules EnterpriseDatabaseModuleArrayOutput `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -167,7 +167,7 @@ type enterpriseDatabaseState struct {
 	LinkedDatabaseGroupNickname *string `pulumi:"linkedDatabaseGroupNickname"`
 	// A list of database resources to link with this database with a maximum of 5.
 	LinkedDatabaseIds []string `pulumi:"linkedDatabaseIds"`
-	// A `module` block as defined below.
+	// A `module` block as defined below. Changing this forces a new resource to be created.
 	Modules []EnterpriseDatabaseModule `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name *string `pulumi:"name"`
@@ -196,7 +196,7 @@ type EnterpriseDatabaseState struct {
 	LinkedDatabaseGroupNickname pulumi.StringPtrInput
 	// A list of database resources to link with this database with a maximum of 5.
 	LinkedDatabaseIds pulumi.StringArrayInput
-	// A `module` block as defined below.
+	// A `module` block as defined below. Changing this forces a new resource to be created.
 	Modules EnterpriseDatabaseModuleArrayInput
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringPtrInput
@@ -229,7 +229,7 @@ type enterpriseDatabaseArgs struct {
 	LinkedDatabaseGroupNickname *string `pulumi:"linkedDatabaseGroupNickname"`
 	// A list of database resources to link with this database with a maximum of 5.
 	LinkedDatabaseIds []string `pulumi:"linkedDatabaseIds"`
-	// A `module` block as defined below.
+	// A `module` block as defined below. Changing this forces a new resource to be created.
 	Modules []EnterpriseDatabaseModule `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name *string `pulumi:"name"`
@@ -255,7 +255,7 @@ type EnterpriseDatabaseArgs struct {
 	LinkedDatabaseGroupNickname pulumi.StringPtrInput
 	// A list of database resources to link with this database with a maximum of 5.
 	LinkedDatabaseIds pulumi.StringArrayInput
-	// A `module` block as defined below.
+	// A `module` block as defined below. Changing this forces a new resource to be created.
 	Modules EnterpriseDatabaseModuleArrayInput
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringPtrInput
@@ -384,7 +384,7 @@ func (o EnterpriseDatabaseOutput) LinkedDatabaseIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) pulumi.StringArrayOutput { return v.LinkedDatabaseIds }).(pulumi.StringArrayOutput)
 }
 
-// A `module` block as defined below.
+// A `module` block as defined below. Changing this forces a new resource to be created.
 func (o EnterpriseDatabaseOutput) Modules() EnterpriseDatabaseModuleArrayOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) EnterpriseDatabaseModuleArrayOutput { return v.Modules }).(EnterpriseDatabaseModuleArrayOutput)
 }

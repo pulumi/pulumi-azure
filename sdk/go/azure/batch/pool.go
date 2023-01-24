@@ -182,7 +182,7 @@ type Pool struct {
 	Mounts PoolMountArrayOutput `pulumi:"mounts"`
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
+	// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
 	NetworkConfiguration PoolNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
 	NodeAgentSkuId pulumi.StringOutput `pulumi:"nodeAgentSkuId"`
@@ -195,7 +195,7 @@ type Pool struct {
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
 	StartTask                  PoolStartTaskPtrOutput `pulumi:"startTask"`
 	StopPendingResizeOperation pulumi.BoolPtrOutput   `pulumi:"stopPendingResizeOperation"`
-	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
+	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferenceOutput `pulumi:"storageImageReference"`
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayOutput `pulumi:"taskSchedulingPolicies"`
@@ -283,7 +283,7 @@ type poolState struct {
 	Mounts []PoolMount `pulumi:"mounts"`
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
+	// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
 	NetworkConfiguration *PoolNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
 	NodeAgentSkuId *string `pulumi:"nodeAgentSkuId"`
@@ -296,7 +296,7 @@ type poolState struct {
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
 	StartTask                  *PoolStartTask `pulumi:"startTask"`
 	StopPendingResizeOperation *bool          `pulumi:"stopPendingResizeOperation"`
-	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
+	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference *PoolStorageImageReference `pulumi:"storageImageReference"`
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies []PoolTaskSchedulingPolicy `pulumi:"taskSchedulingPolicies"`
@@ -341,7 +341,7 @@ type PoolState struct {
 	Mounts PoolMountArrayInput
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
+	// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
 	NetworkConfiguration PoolNetworkConfigurationPtrInput
 	// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
 	NodeAgentSkuId pulumi.StringPtrInput
@@ -354,7 +354,7 @@ type PoolState struct {
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
 	StartTask                  PoolStartTaskPtrInput
 	StopPendingResizeOperation pulumi.BoolPtrInput
-	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
+	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferencePtrInput
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayInput
@@ -403,7 +403,7 @@ type poolArgs struct {
 	Mounts []PoolMount `pulumi:"mounts"`
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
+	// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
 	NetworkConfiguration *PoolNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
 	NodeAgentSkuId string `pulumi:"nodeAgentSkuId"`
@@ -416,7 +416,7 @@ type poolArgs struct {
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
 	StartTask                  *PoolStartTask `pulumi:"startTask"`
 	StopPendingResizeOperation *bool          `pulumi:"stopPendingResizeOperation"`
-	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
+	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReference `pulumi:"storageImageReference"`
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies []PoolTaskSchedulingPolicy `pulumi:"taskSchedulingPolicies"`
@@ -462,7 +462,7 @@ type PoolArgs struct {
 	Mounts PoolMountArrayInput
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
+	// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
 	NetworkConfiguration PoolNetworkConfigurationPtrInput
 	// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
 	NodeAgentSkuId pulumi.StringInput
@@ -475,7 +475,7 @@ type PoolArgs struct {
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
 	StartTask                  PoolStartTaskPtrInput
 	StopPendingResizeOperation pulumi.BoolPtrInput
-	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
+	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferenceInput
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayInput
@@ -654,7 +654,7 @@ func (o PoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
+// A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
 func (o PoolOutput) NetworkConfiguration() PoolNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *Pool) PoolNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(PoolNetworkConfigurationPtrOutput)
 }
@@ -688,7 +688,7 @@ func (o PoolOutput) StopPendingResizeOperation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.BoolPtrOutput { return v.StopPendingResizeOperation }).(pulumi.BoolPtrOutput)
 }
 
-// A `storageImageReference` for the virtual machines that will compose the Batch pool.
+// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 func (o PoolOutput) StorageImageReference() PoolStorageImageReferenceOutput {
 	return o.ApplyT(func(v *Pool) PoolStorageImageReferenceOutput { return v.StorageImageReference }).(PoolStorageImageReferenceOutput)
 }

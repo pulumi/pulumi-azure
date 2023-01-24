@@ -33,14 +33,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `model` block as defined below.
+     * A `model` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="model", required=true)
     private Output<DeploymentModelArgs> model;
 
     /**
-     * @return A `model` block as defined below.
+     * @return A `model` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<DeploymentModelArgs> model() {
@@ -78,14 +78,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `scale` block as defined below.
+     * A `scale` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scale", required=true)
     private Output<DeploymentScaleArgs> scale;
 
     /**
-     * @return A `scale` block as defined below.
+     * @return A `scale` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<DeploymentScaleArgs> scale() {
@@ -142,7 +142,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param model A `model` block as defined below.
+         * @param model A `model` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param model A `model` block as defined below.
+         * @param model A `model` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scale A `scale` block as defined below.
+         * @param scale A `scale` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scale A `scale` block as defined below.
+         * @param scale A `scale` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

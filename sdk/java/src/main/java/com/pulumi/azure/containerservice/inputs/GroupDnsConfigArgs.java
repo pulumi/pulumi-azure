@@ -17,14 +17,14 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
     public static final GroupDnsConfigArgs Empty = new GroupDnsConfigArgs();
 
     /**
-     * A list of nameservers the containers will search out to resolve requests.
+     * A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="nameservers", required=true)
     private Output<List<String>> nameservers;
 
     /**
-     * @return A list of nameservers the containers will search out to resolve requests.
+     * @return A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<String>> nameservers() {
@@ -32,14 +32,14 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+     * A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="options")
     private @Nullable Output<List<String>> options;
 
     /**
-     * @return A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+     * @return A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> options() {
@@ -47,14 +47,14 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A list of search domains that DNS requests will search along.
+     * A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="searchDomains")
     private @Nullable Output<List<String>> searchDomains;
 
     /**
-     * @return A list of search domains that DNS requests will search along.
+     * @return A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> searchDomains() {
@@ -88,7 +88,7 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param nameservers A list of nameservers the containers will search out to resolve requests.
+         * @param nameservers A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param nameservers A list of nameservers the containers will search out to resolve requests.
+         * @param nameservers A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param nameservers A list of nameservers the containers will search out to resolve requests.
+         * @param nameservers A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+         * @param options A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+         * @param options A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+         * @param options A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param searchDomains A list of search domains that DNS requests will search along.
+         * @param searchDomains A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param searchDomains A list of search domains that DNS requests will search along.
+         * @param searchDomains A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param searchDomains A list of search domains that DNS requests will search along.
+         * @param searchDomains A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

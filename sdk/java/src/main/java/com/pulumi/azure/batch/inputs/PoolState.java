@@ -276,14 +276,14 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+     * A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="networkConfiguration")
     private @Nullable Output<PoolNetworkConfigurationArgs> networkConfiguration;
 
     /**
-     * @return A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+     * @return A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<PoolNetworkConfigurationArgs>> networkConfiguration() {
@@ -373,14 +373,14 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+     * A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageImageReference")
     private @Nullable Output<PoolStorageImageReferenceArgs> storageImageReference;
 
     /**
-     * @return A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+     * @return A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<PoolStorageImageReferenceArgs>> storageImageReference() {
@@ -885,7 +885,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+         * @param networkConfiguration A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -896,7 +896,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+         * @param networkConfiguration A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1030,7 +1030,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageImageReference A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+         * @param storageImageReference A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1041,7 +1041,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageImageReference A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+         * @param storageImageReference A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

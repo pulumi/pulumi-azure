@@ -70,19 +70,15 @@ type EventHubNamespace struct {
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId pulumi.StringPtrOutput `pulumi:"dedicatedClusterId"`
-	// The primary connection string for the authorization
-	// rule `RootManageSharedAccessKey`.
+	// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString pulumi.StringOutput `pulumi:"defaultPrimaryConnectionString"`
-	// The alias of the primary connection string for the authorization
-	// rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	// The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
 	DefaultPrimaryConnectionStringAlias pulumi.StringOutput `pulumi:"defaultPrimaryConnectionStringAlias"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey pulumi.StringOutput `pulumi:"defaultPrimaryKey"`
-	// The secondary connection string for the
-	// authorization rule `RootManageSharedAccessKey`.
+	// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryConnectionString pulumi.StringOutput `pulumi:"defaultSecondaryConnectionString"`
-	// The alias of the secondary connection string for the
-	// authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	// The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
 	DefaultSecondaryConnectionStringAlias pulumi.StringOutput `pulumi:"defaultSecondaryConnectionStringAlias"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
@@ -162,19 +158,15 @@ type eventHubNamespaceState struct {
 	Capacity *int `pulumi:"capacity"`
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId *string `pulumi:"dedicatedClusterId"`
-	// The primary connection string for the authorization
-	// rule `RootManageSharedAccessKey`.
+	// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString *string `pulumi:"defaultPrimaryConnectionString"`
-	// The alias of the primary connection string for the authorization
-	// rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	// The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
 	DefaultPrimaryConnectionStringAlias *string `pulumi:"defaultPrimaryConnectionStringAlias"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey *string `pulumi:"defaultPrimaryKey"`
-	// The secondary connection string for the
-	// authorization rule `RootManageSharedAccessKey`.
+	// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryConnectionString *string `pulumi:"defaultSecondaryConnectionString"`
-	// The alias of the secondary connection string for the
-	// authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	// The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
 	DefaultSecondaryConnectionStringAlias *string `pulumi:"defaultSecondaryConnectionStringAlias"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey *string `pulumi:"defaultSecondaryKey"`
@@ -211,19 +203,15 @@ type EventHubNamespaceState struct {
 	Capacity pulumi.IntPtrInput
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId pulumi.StringPtrInput
-	// The primary connection string for the authorization
-	// rule `RootManageSharedAccessKey`.
+	// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString pulumi.StringPtrInput
-	// The alias of the primary connection string for the authorization
-	// rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	// The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
 	DefaultPrimaryConnectionStringAlias pulumi.StringPtrInput
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey pulumi.StringPtrInput
-	// The secondary connection string for the
-	// authorization rule `RootManageSharedAccessKey`.
+	// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryConnectionString pulumi.StringPtrInput
-	// The alias of the secondary connection string for the
-	// authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	// The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
 	DefaultSecondaryConnectionStringAlias pulumi.StringPtrInput
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringPtrInput
@@ -426,14 +414,12 @@ func (o EventHubNamespaceOutput) DedicatedClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringPtrOutput { return v.DedicatedClusterId }).(pulumi.StringPtrOutput)
 }
 
-// The primary connection string for the authorization
-// rule `RootManageSharedAccessKey`.
+// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
 func (o EventHubNamespaceOutput) DefaultPrimaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringOutput { return v.DefaultPrimaryConnectionString }).(pulumi.StringOutput)
 }
 
-// The alias of the primary connection string for the authorization
-// rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+// The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
 func (o EventHubNamespaceOutput) DefaultPrimaryConnectionStringAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringOutput { return v.DefaultPrimaryConnectionStringAlias }).(pulumi.StringOutput)
 }
@@ -443,14 +429,12 @@ func (o EventHubNamespaceOutput) DefaultPrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringOutput { return v.DefaultPrimaryKey }).(pulumi.StringOutput)
 }
 
-// The secondary connection string for the
-// authorization rule `RootManageSharedAccessKey`.
+// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
 func (o EventHubNamespaceOutput) DefaultSecondaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringOutput { return v.DefaultSecondaryConnectionString }).(pulumi.StringOutput)
 }
 
-// The alias of the secondary connection string for the
-// authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+// The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
 func (o EventHubNamespaceOutput) DefaultSecondaryConnectionStringAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringOutput { return v.DefaultSecondaryConnectionStringAlias }).(pulumi.StringOutput)
 }

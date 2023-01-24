@@ -24,17 +24,12 @@ public final class HubEventHandler {
      */
     private @Nullable List<String> systemEvents;
     /**
-     * @return The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-     * available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-     * comes in. Example: `http://example.com/api/{hub}/{event}`.
+     * @return The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
      * 
      */
     private String urlTemplate;
     /**
-     * @return Specify the matching event names. There are 3 kind of patterns supported:
-     * * `*` matches any event name
-     * * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-     * * The single event name, for example `event1`, it matches `event1`.
+     * @return Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
      * 
      */
     private @Nullable String userEventPattern;
@@ -55,19 +50,14 @@ public final class HubEventHandler {
         return this.systemEvents == null ? List.of() : this.systemEvents;
     }
     /**
-     * @return The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-     * available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-     * comes in. Example: `http://example.com/api/{hub}/{event}`.
+     * @return The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
      * 
      */
     public String urlTemplate() {
         return this.urlTemplate;
     }
     /**
-     * @return Specify the matching event names. There are 3 kind of patterns supported:
-     * * `*` matches any event name
-     * * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-     * * The single event name, for example `event1`, it matches `event1`.
+     * @return Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
      * 
      */
     public Optional<String> userEventPattern() {

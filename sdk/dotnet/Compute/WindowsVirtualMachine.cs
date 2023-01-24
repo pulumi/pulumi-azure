@@ -415,7 +415,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> VtpmEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below.
+        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("winrmListeners")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineWinrmListener>> WinrmListeners { get; private set; } = null!;
@@ -801,7 +801,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineWinrmListenerArgs>? _winrmListeners;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below.
+        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineWinrmListenerArgs> WinrmListeners
         {
@@ -1189,7 +1189,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineWinrmListenerGetArgs>? _winrmListeners;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below.
+        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineWinrmListenerGetArgs> WinrmListeners
         {

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Iot.Inputs
     public sealed class IotHubDpsIpFilterRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+        /// The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;

@@ -41,8 +41,7 @@ class InsightsArgs:
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -201,8 +200,7 @@ class InsightsArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Application Insights component. Changing this forces a
-        new resource to be created.
+        Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -294,8 +292,7 @@ class _InsightsState:
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
@@ -487,8 +484,7 @@ class _InsightsState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Application Insights component. Changing this forces a
-        new resource to be created.
+        Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -635,8 +631,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
@@ -805,8 +800,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
@@ -937,8 +931,7 @@ class Insights(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Application Insights component. Changing this forces a
-        new resource to be created.
+        Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

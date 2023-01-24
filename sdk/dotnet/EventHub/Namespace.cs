@@ -65,8 +65,7 @@ namespace Pulumi.Azure.EventHub
         public Output<Outputs.NamespaceCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
 
         /// <summary>
-        /// The primary connection string for the authorization
-        /// rule `RootManageSharedAccessKey`.
+        /// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         [Output("defaultPrimaryConnectionString")]
         public Output<string> DefaultPrimaryConnectionString { get; private set; } = null!;
@@ -78,8 +77,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> DefaultPrimaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// The secondary connection string for the
-        /// authorization rule `RootManageSharedAccessKey`.
+        /// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         [Output("defaultSecondaryConnectionString")]
         public Output<string> DefaultSecondaryConnectionString { get; private set; } = null!;
@@ -115,8 +113,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -242,8 +239,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -309,8 +305,7 @@ namespace Pulumi.Azure.EventHub
         private Input<string>? _defaultPrimaryConnectionString;
 
         /// <summary>
-        /// The primary connection string for the authorization
-        /// rule `RootManageSharedAccessKey`.
+        /// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         public Input<string>? DefaultPrimaryConnectionString
         {
@@ -342,8 +337,7 @@ namespace Pulumi.Azure.EventHub
         private Input<string>? _defaultSecondaryConnectionString;
 
         /// <summary>
-        /// The secondary connection string for the
-        /// authorization rule `RootManageSharedAccessKey`.
+        /// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         public Input<string>? DefaultSecondaryConnectionString
         {
@@ -396,8 +390,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

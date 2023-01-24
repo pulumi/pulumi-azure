@@ -143,7 +143,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly osProfile!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetOsProfile | undefined>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as documented below. Changing this forces a new resource to be created.
      */
     public readonly plan!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetPlan | undefined>;
     /**
@@ -381,7 +381,7 @@ export interface OrchestratedVirtualMachineScaleSetState {
      */
     osProfile?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfile>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as documented below. Changing this forces a new resource to be created.
      */
     plan?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetPlan>;
     /**
@@ -523,7 +523,7 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      */
     osProfile?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfile>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as documented below. Changing this forces a new resource to be created.
      */
     plan?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetPlan>;
     /**

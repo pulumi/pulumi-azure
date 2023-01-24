@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? ManagedDiskType;
         /// <summary>
-        /// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
+        /// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
         /// </summary>
         public readonly string? Name;
         /// <summary>

@@ -102,8 +102,7 @@ type LogProfile struct {
 	Categories pulumi.StringArrayOutput `pulumi:"categories"`
 	// List of regions for which Activity Log events are stored or streamed.
 	Locations pulumi.StringArrayOutput `pulumi:"locations"`
-	// The name of the Log Profile. Changing this forces a
-	// new resource to be created.
+	// The name of the Log Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
 	RetentionPolicy LogProfileRetentionPolicyOutput `pulumi:"retentionPolicy"`
@@ -155,8 +154,7 @@ type logProfileState struct {
 	Categories []string `pulumi:"categories"`
 	// List of regions for which Activity Log events are stored or streamed.
 	Locations []string `pulumi:"locations"`
-	// The name of the Log Profile. Changing this forces a
-	// new resource to be created.
+	// The name of the Log Profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
 	RetentionPolicy *LogProfileRetentionPolicy `pulumi:"retentionPolicy"`
@@ -171,8 +169,7 @@ type LogProfileState struct {
 	Categories pulumi.StringArrayInput
 	// List of regions for which Activity Log events are stored or streamed.
 	Locations pulumi.StringArrayInput
-	// The name of the Log Profile. Changing this forces a
-	// new resource to be created.
+	// The name of the Log Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
 	RetentionPolicy LogProfileRetentionPolicyPtrInput
@@ -191,8 +188,7 @@ type logProfileArgs struct {
 	Categories []string `pulumi:"categories"`
 	// List of regions for which Activity Log events are stored or streamed.
 	Locations []string `pulumi:"locations"`
-	// The name of the Log Profile. Changing this forces a
-	// new resource to be created.
+	// The name of the Log Profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
 	RetentionPolicy LogProfileRetentionPolicy `pulumi:"retentionPolicy"`
@@ -208,8 +204,7 @@ type LogProfileArgs struct {
 	Categories pulumi.StringArrayInput
 	// List of regions for which Activity Log events are stored or streamed.
 	Locations pulumi.StringArrayInput
-	// The name of the Log Profile. Changing this forces a
-	// new resource to be created.
+	// The name of the Log Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
 	RetentionPolicy LogProfileRetentionPolicyInput
@@ -316,8 +311,7 @@ func (o LogProfileOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogProfile) pulumi.StringArrayOutput { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// The name of the Log Profile. Changing this forces a
-// new resource to be created.
+// The name of the Log Profile. Changing this forces a new resource to be created.
 func (o LogProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger
     {
         /// <summary>
-        /// The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+        /// The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
         /// </summary>
         public readonly int? PrivateMemoryKb;
         /// <summary>

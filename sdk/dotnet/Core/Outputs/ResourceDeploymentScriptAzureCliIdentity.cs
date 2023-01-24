@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Core.Outputs
     public sealed class ResourceDeploymentScriptAzureCliIdentity
     {
         /// <summary>
-        /// Specifies the list of user-assigned managed identity IDs associated with the resource.
+        /// Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// Type of the managed identity. The only possible value is `UserAssigned`.
+        /// Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 

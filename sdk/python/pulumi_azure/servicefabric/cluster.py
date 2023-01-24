@@ -54,7 +54,7 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClientCertificateCommonNameArgs']]] client_certificate_common_names: A `client_certificate_common_name` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClientCertificateThumbprintArgs']]] client_certificate_thumbprints: One or more `client_certificate_thumbprint` blocks as defined below.
         :param pulumi.Input[str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
-        :param pulumi.Input['ClusterDiagnosticsConfigArgs'] diagnostics_config: A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterDiagnosticsConfigArgs'] diagnostics_config: A `diagnostics_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterFabricSettingArgs']]] fabric_settings: One or more `fabric_settings` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
@@ -266,7 +266,7 @@ class ClusterArgs:
     @pulumi.getter(name="diagnosticsConfig")
     def diagnostics_config(self) -> Optional[pulumi.Input['ClusterDiagnosticsConfigArgs']]:
         """
-        A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+        A `diagnostics_config` block as defined below.
         """
         return pulumi.get(self, "diagnostics_config")
 
@@ -420,7 +420,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClientCertificateThumbprintArgs']]] client_certificate_thumbprints: One or more `client_certificate_thumbprint` blocks as defined below.
         :param pulumi.Input[str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         :param pulumi.Input[str] cluster_endpoint: The Cluster Endpoint for this Service Fabric Cluster.
-        :param pulumi.Input['ClusterDiagnosticsConfigArgs'] diagnostics_config: A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterDiagnosticsConfigArgs'] diagnostics_config: A `diagnostics_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterFabricSettingArgs']]] fabric_settings: One or more `fabric_settings` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] management_endpoint: Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
@@ -586,7 +586,7 @@ class _ClusterState:
     @pulumi.getter(name="diagnosticsConfig")
     def diagnostics_config(self) -> Optional[pulumi.Input['ClusterDiagnosticsConfigArgs']]:
         """
-        A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+        A `diagnostics_config` block as defined below.
         """
         return pulumi.get(self, "diagnostics_config")
 
@@ -848,7 +848,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClientCertificateCommonNameArgs']]]] client_certificate_common_names: A `client_certificate_common_name` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: One or more `client_certificate_thumbprint` blocks as defined below.
         :param pulumi.Input[str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterDiagnosticsConfigArgs']] diagnostics_config: A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ClusterDiagnosticsConfigArgs']] diagnostics_config: A `diagnostics_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterFabricSettingArgs']]]] fabric_settings: One or more `fabric_settings` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] management_endpoint: Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
@@ -1038,7 +1038,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: One or more `client_certificate_thumbprint` blocks as defined below.
         :param pulumi.Input[str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         :param pulumi.Input[str] cluster_endpoint: The Cluster Endpoint for this Service Fabric Cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterDiagnosticsConfigArgs']] diagnostics_config: A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ClusterDiagnosticsConfigArgs']] diagnostics_config: A `diagnostics_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterFabricSettingArgs']]]] fabric_settings: One or more `fabric_settings` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] management_endpoint: Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
@@ -1153,7 +1153,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="diagnosticsConfig")
     def diagnostics_config(self) -> pulumi.Output[Optional['outputs.ClusterDiagnosticsConfig']]:
         """
-        A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+        A `diagnostics_config` block as defined below.
         """
         return pulumi.get(self, "diagnostics_config")
 

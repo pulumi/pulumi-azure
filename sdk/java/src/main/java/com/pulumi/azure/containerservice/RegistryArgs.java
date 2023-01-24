@@ -40,14 +40,14 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
      * 
      */
     @Import(name="anonymousPullEnabled")
     private @Nullable Output<Boolean> anonymousPullEnabled;
 
     /**
-     * @return Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+     * @return Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
      * 
      */
     public Optional<Output<Boolean>> anonymousPullEnabled() {
@@ -55,14 +55,14 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+     * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      * 
      */
     @Import(name="dataEndpointEnabled")
     private @Nullable Output<Boolean> dataEndpointEnabled;
 
     /**
-     * @return Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+     * @return Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      * 
      */
     public Optional<Output<Boolean>> dataEndpointEnabled() {
@@ -250,14 +250,14 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+     * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      * 
      */
     @Import(name="sku", required=true)
     private Output<String> sku;
 
     /**
-     * @return The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+     * @return The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      * 
      */
     public Output<String> sku() {
@@ -373,7 +373,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param anonymousPullEnabled Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+         * @param anonymousPullEnabled Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param anonymousPullEnabled Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+         * @param anonymousPullEnabled Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataEndpointEnabled Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+         * @param dataEndpointEnabled Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataEndpointEnabled Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+         * @param dataEndpointEnabled Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
          * 
          * @return builder
          * 
@@ -677,7 +677,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+         * @param sku The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
          * 
          * @return builder
          * 
@@ -688,7 +688,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+         * @param sku The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
          * 
          * @return builder
          * 

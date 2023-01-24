@@ -107,7 +107,7 @@ type OrchestratedVirtualMachineScaleSet struct {
 	OsDisk OrchestratedVirtualMachineScaleSetOsDiskPtrOutput `pulumi:"osDisk"`
 	// An `osProfile` block as defined below.
 	OsProfile OrchestratedVirtualMachineScaleSetOsProfilePtrOutput `pulumi:"osProfile"`
-	// A `plan` block as documented below.
+	// A `plan` block as documented below. Changing this forces a new resource to be created.
 	Plan OrchestratedVirtualMachineScaleSetPlanPtrOutput `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
@@ -219,7 +219,7 @@ type orchestratedVirtualMachineScaleSetState struct {
 	OsDisk *OrchestratedVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
 	// An `osProfile` block as defined below.
 	OsProfile *OrchestratedVirtualMachineScaleSetOsProfile `pulumi:"osProfile"`
-	// A `plan` block as documented below.
+	// A `plan` block as documented below. Changing this forces a new resource to be created.
 	Plan *OrchestratedVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
@@ -290,7 +290,7 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	OsDisk OrchestratedVirtualMachineScaleSetOsDiskPtrInput
 	// An `osProfile` block as defined below.
 	OsProfile OrchestratedVirtualMachineScaleSetOsProfilePtrInput
-	// A `plan` block as documented below.
+	// A `plan` block as documented below. Changing this forces a new resource to be created.
 	Plan OrchestratedVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrInput
@@ -365,7 +365,7 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	OsDisk *OrchestratedVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
 	// An `osProfile` block as defined below.
 	OsProfile *OrchestratedVirtualMachineScaleSetOsProfile `pulumi:"osProfile"`
-	// A `plan` block as documented below.
+	// A `plan` block as documented below. Changing this forces a new resource to be created.
 	Plan *OrchestratedVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
@@ -435,7 +435,7 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	OsDisk OrchestratedVirtualMachineScaleSetOsDiskPtrInput
 	// An `osProfile` block as defined below.
 	OsProfile OrchestratedVirtualMachineScaleSetOsProfilePtrInput
-	// A `plan` block as documented below.
+	// A `plan` block as documented below. Changing this forces a new resource to be created.
 	Plan OrchestratedVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntInput
@@ -667,7 +667,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) OsProfile() OrchestratedVirtua
 	}).(OrchestratedVirtualMachineScaleSetOsProfilePtrOutput)
 }
 
-// A `plan` block as documented below.
+// A `plan` block as documented below. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOutput) Plan() OrchestratedVirtualMachineScaleSetPlanPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetPlanPtrOutput {
 		return v.Plan

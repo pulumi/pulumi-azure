@@ -180,7 +180,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<ImmutableArray<Outputs.ScalingPlanHostPool>> HostPools { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+        /// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+        /// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
 
         /// <summary>
-        /// The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+        /// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+        /// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
 
         /// <summary>
-        /// The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+        /// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+        /// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

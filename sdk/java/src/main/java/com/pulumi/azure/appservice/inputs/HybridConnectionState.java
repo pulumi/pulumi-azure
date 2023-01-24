@@ -99,14 +99,14 @@ public final class HybridConnectionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+     * @return The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -322,7 +322,7 @@ public final class HybridConnectionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class HybridConnectionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

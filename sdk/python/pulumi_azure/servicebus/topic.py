@@ -31,34 +31,22 @@ class TopicArgs:
         The set of arguments for constructing a Topic resource.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
                this topic in. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the
-               Topic is automatically deleted, minimum of 5 minutes.
-        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-               TTL value is set on the message itself.
-        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which
-               duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side
-               batched operations are enabled. Defaults to false.
-        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
-               are enabled. An express topic holds a message in memory temporarily before writing
-               it to persistent storage. Defaults to false.
+        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
+        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
+        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side batched operations are enabled.
+        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
-               a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
-               memory allocated for the topic. For supported values see the "Queue/topic size"
-               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
-        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
-        :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
-               supports ordering. Defaults to false.
+        :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
         """
         pulumi.set(__self__, "namespace_id", namespace_id)
         if auto_delete_on_idle is not None:
@@ -103,8 +91,7 @@ class TopicArgs:
     @pulumi.getter(name="autoDeleteOnIdle")
     def auto_delete_on_idle(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration of the idle interval after which the
-        Topic is automatically deleted, minimum of 5 minutes.
+        The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
@@ -116,8 +103,7 @@ class TopicArgs:
     @pulumi.getter(name="defaultMessageTtl")
     def default_message_ttl(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-        TTL value is set on the message itself.
+        The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
         """
         return pulumi.get(self, "default_message_ttl")
 
@@ -129,8 +115,7 @@ class TopicArgs:
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
     def duplicate_detection_history_time_window(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration during which
-        duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
         """
         return pulumi.get(self, "duplicate_detection_history_time_window")
 
@@ -142,8 +127,7 @@ class TopicArgs:
     @pulumi.getter(name="enableBatchedOperations")
     def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls if server-side
-        batched operations are enabled. Defaults to false.
+        Boolean flag which controls if server-side batched operations are enabled.
         """
         return pulumi.get(self, "enable_batched_operations")
 
@@ -155,9 +139,7 @@ class TopicArgs:
     @pulumi.getter(name="enableExpress")
     def enable_express(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether Express Entities
-        are enabled. An express topic holds a message in memory temporarily before writing
-        it to persistent storage. Defaults to false.
+        Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         """
         return pulumi.get(self, "enable_express")
 
@@ -183,9 +165,7 @@ class TopicArgs:
     @pulumi.getter(name="maxMessageSizeInKilobytes")
     def max_message_size_in_kilobytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value which controls the maximum size of
-        a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -197,9 +177,7 @@ class TopicArgs:
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value which controls the size of
-        memory allocated for the topic. For supported values see the "Queue/topic size"
-        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         """
         return pulumi.get(self, "max_size_in_megabytes")
 
@@ -211,8 +189,7 @@ class TopicArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the ServiceBus Topic resource. Changing this forces a
-        new resource to be created.
+        Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -250,8 +227,7 @@ class TopicArgs:
     @pulumi.getter(name="supportOrdering")
     def support_ordering(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether the Topic
-        supports ordering. Defaults to false.
+        Boolean flag which controls whether the Topic supports ordering.
         """
         return pulumi.get(self, "support_ordering")
 
@@ -280,36 +256,24 @@ class _TopicState:
                  support_ordering: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Topic resources.
-        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the
-               Topic is automatically deleted, minimum of 5 minutes.
-        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-               TTL value is set on the message itself.
-        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which
-               duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side
-               batched operations are enabled. Defaults to false.
-        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
-               are enabled. An express topic holds a message in memory temporarily before writing
-               it to persistent storage. Defaults to false.
+        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
+        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
+        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side batched operations are enabled.
+        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
-               a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
-               memory allocated for the topic. For supported values see the "Queue/topic size"
-               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
-        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
                this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
-        :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
-               supports ordering. Defaults to false.
+        :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
         """
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
@@ -346,8 +310,7 @@ class _TopicState:
     @pulumi.getter(name="autoDeleteOnIdle")
     def auto_delete_on_idle(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration of the idle interval after which the
-        Topic is automatically deleted, minimum of 5 minutes.
+        The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
@@ -359,8 +322,7 @@ class _TopicState:
     @pulumi.getter(name="defaultMessageTtl")
     def default_message_ttl(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-        TTL value is set on the message itself.
+        The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
         """
         return pulumi.get(self, "default_message_ttl")
 
@@ -372,8 +334,7 @@ class _TopicState:
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
     def duplicate_detection_history_time_window(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration during which
-        duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
         """
         return pulumi.get(self, "duplicate_detection_history_time_window")
 
@@ -385,8 +346,7 @@ class _TopicState:
     @pulumi.getter(name="enableBatchedOperations")
     def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls if server-side
-        batched operations are enabled. Defaults to false.
+        Boolean flag which controls if server-side batched operations are enabled.
         """
         return pulumi.get(self, "enable_batched_operations")
 
@@ -398,9 +358,7 @@ class _TopicState:
     @pulumi.getter(name="enableExpress")
     def enable_express(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether Express Entities
-        are enabled. An express topic holds a message in memory temporarily before writing
-        it to persistent storage. Defaults to false.
+        Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         """
         return pulumi.get(self, "enable_express")
 
@@ -426,9 +384,7 @@ class _TopicState:
     @pulumi.getter(name="maxMessageSizeInKilobytes")
     def max_message_size_in_kilobytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value which controls the maximum size of
-        a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -440,9 +396,7 @@ class _TopicState:
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value which controls the size of
-        memory allocated for the topic. For supported values see the "Queue/topic size"
-        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         """
         return pulumi.get(self, "max_size_in_megabytes")
 
@@ -454,8 +408,7 @@ class _TopicState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the ServiceBus Topic resource. Changing this forces a
-        new resource to be created.
+        Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -524,8 +477,7 @@ class _TopicState:
     @pulumi.getter(name="supportOrdering")
     def support_ordering(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether the Topic
-        supports ordering. Defaults to false.
+        Boolean flag which controls whether the Topic supports ordering.
         """
         return pulumi.get(self, "support_ordering")
 
@@ -587,36 +539,24 @@ class Topic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the
-               Topic is automatically deleted, minimum of 5 minutes.
-        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-               TTL value is set on the message itself.
-        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which
-               duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side
-               batched operations are enabled. Defaults to false.
-        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
-               are enabled. An express topic holds a message in memory temporarily before writing
-               it to persistent storage. Defaults to false.
+        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
+        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
+        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side batched operations are enabled.
+        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
-               a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
-               memory allocated for the topic. For supported values see the "Queue/topic size"
-               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
-        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
                this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
-        :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
-               supports ordering. Defaults to false.
+        :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
         """
         ...
     @overload
@@ -744,36 +684,24 @@ class Topic(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the
-               Topic is automatically deleted, minimum of 5 minutes.
-        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-               TTL value is set on the message itself.
-        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which
-               duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side
-               batched operations are enabled. Defaults to false.
-        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
-               are enabled. An express topic holds a message in memory temporarily before writing
-               it to persistent storage. Defaults to false.
+        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
+        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
+        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side batched operations are enabled.
+        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable Changing this forces a new resource to be created.
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
-               a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
-               memory allocated for the topic. For supported values see the "Queue/topic size"
-               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
-        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
                this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
-        :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
-               supports ordering. Defaults to false.
+        :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -800,8 +728,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="autoDeleteOnIdle")
     def auto_delete_on_idle(self) -> pulumi.Output[str]:
         """
-        The ISO 8601 timespan duration of the idle interval after which the
-        Topic is automatically deleted, minimum of 5 minutes.
+        The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
@@ -809,8 +736,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="defaultMessageTtl")
     def default_message_ttl(self) -> pulumi.Output[str]:
         """
-        The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-        TTL value is set on the message itself.
+        The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
         """
         return pulumi.get(self, "default_message_ttl")
 
@@ -818,8 +744,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
     def duplicate_detection_history_time_window(self) -> pulumi.Output[str]:
         """
-        The ISO 8601 timespan duration during which
-        duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
         """
         return pulumi.get(self, "duplicate_detection_history_time_window")
 
@@ -827,8 +752,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="enableBatchedOperations")
     def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag which controls if server-side
-        batched operations are enabled. Defaults to false.
+        Boolean flag which controls if server-side batched operations are enabled.
         """
         return pulumi.get(self, "enable_batched_operations")
 
@@ -836,9 +760,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="enableExpress")
     def enable_express(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag which controls whether Express Entities
-        are enabled. An express topic holds a message in memory temporarily before writing
-        it to persistent storage. Defaults to false.
+        Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         """
         return pulumi.get(self, "enable_express")
 
@@ -856,9 +778,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="maxMessageSizeInKilobytes")
     def max_message_size_in_kilobytes(self) -> pulumi.Output[int]:
         """
-        Integer value which controls the maximum size of
-        a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -866,9 +786,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> pulumi.Output[int]:
         """
-        Integer value which controls the size of
-        memory allocated for the topic. For supported values see the "Queue/topic size"
-        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         """
         return pulumi.get(self, "max_size_in_megabytes")
 
@@ -876,8 +794,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the ServiceBus Topic resource. Changing this forces a
-        new resource to be created.
+        Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -922,8 +839,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="supportOrdering")
     def support_ordering(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag which controls whether the Topic
-        supports ordering. Defaults to false.
+        Boolean flag which controls whether the Topic supports ordering.
         """
         return pulumi.get(self, "support_ordering")
 

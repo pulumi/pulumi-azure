@@ -69,7 +69,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>> AppMetadata { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+        /// The ID of the Linux Web App this Deployment Slot will be part of.
         /// </summary>
         [Output("appServiceId")]
         public Output<string> AppServiceId { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.AppService
     public sealed class LinuxWebAppSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+        /// The ID of the Linux Web App this Deployment Slot will be part of.
         /// </summary>
         [Input("appServiceId", required: true)]
         public Input<string> AppServiceId { get; set; } = null!;
@@ -451,7 +451,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+        /// The ID of the Linux Web App this Deployment Slot will be part of.
         /// </summary>
         [Input("appServiceId")]
         public Input<string>? AppServiceId { get; set; }

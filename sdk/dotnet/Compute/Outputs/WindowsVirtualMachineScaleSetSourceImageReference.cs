@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class WindowsVirtualMachineScaleSetSourceImageReference
     {
         /// <summary>
-        /// Specifies the offer of the image used to create the virtual machines.
+        /// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Offer;
         /// <summary>
-        /// Specifies the publisher of the image used to create the virtual machines.
+        /// Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Publisher;
         /// <summary>

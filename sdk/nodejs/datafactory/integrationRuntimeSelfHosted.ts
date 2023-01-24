@@ -76,7 +76,7 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryAuthorizationKey!: pulumi.Output<string>;
     /**
-     * A `rbacAuthorization` block as defined below.
+     * A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly rbacAuthorizations!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization[] | undefined>;
     /**
@@ -141,7 +141,7 @@ export interface IntegrationRuntimeSelfHostedState {
      */
     primaryAuthorizationKey?: pulumi.Input<string>;
     /**
-     * A `rbacAuthorization` block as defined below.
+     * A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
      */
     rbacAuthorizations?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization>[]>;
     /**
@@ -167,7 +167,7 @@ export interface IntegrationRuntimeSelfHostedArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `rbacAuthorization` block as defined below.
+     * A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
      */
     rbacAuthorizations?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization>[]>;
 }

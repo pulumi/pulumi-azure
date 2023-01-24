@@ -14,25 +14,19 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class VirtualNetworkGatewayIpConfiguration
     {
         /// <summary>
-        /// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        /// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Defines how the private IP address
-        /// of the gateways virtual interface is assigned. Valid options are `Static` or
-        /// `Dynamic`. Defaults to `Dynamic`.
+        /// Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
         /// </summary>
         public readonly string? PrivateIpAddressAllocation;
         /// <summary>
-        /// The ID of the public IP address to associate
-        /// with the Virtual Network Gateway.
+        /// The ID of the public IP address to associate with the Virtual Network Gateway.
         /// </summary>
         public readonly string PublicIpAddressId;
         /// <summary>
-        /// The ID of the gateway subnet of a virtual network in
-        /// which the virtual network gateway will be created. It is mandatory that
-        /// the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-        /// network can contain at most a single Virtual Network Gateway.
+        /// The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
         /// </summary>
         public readonly string SubnetId;
 

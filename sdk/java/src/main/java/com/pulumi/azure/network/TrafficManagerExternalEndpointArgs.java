@@ -51,16 +51,14 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the Azure location of the Endpoint,
-     * this must be specified for Profiles using the `Performance` routing method.
+     * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      * 
      */
     @Import(name="endpointLocation")
     private @Nullable Output<String> endpointLocation;
 
     /**
-     * @return Specifies the Azure location of the Endpoint,
-     * this must be specified for Profiles using the `Performance` routing method.
+     * @return Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      * 
      */
     public Optional<Output<String>> endpointLocation() {
@@ -98,20 +96,14 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * @return Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -134,14 +126,14 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more `subnet` blocks as defined below
+     * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subnets")
     private @Nullable Output<List<TrafficManagerExternalEndpointSubnetArgs>> subnets;
 
     /**
-     * @return One or more `subnet` blocks as defined below
+     * @return One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<TrafficManagerExternalEndpointSubnetArgs>>> subnets() {
@@ -264,8 +256,7 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param endpointLocation Specifies the Azure location of the Endpoint,
-         * this must be specified for Profiles using the `Performance` routing method.
+         * @param endpointLocation Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
          * 
          * @return builder
          * 
@@ -276,8 +267,7 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param endpointLocation Specifies the Azure location of the Endpoint,
-         * this must be specified for Profiles using the `Performance` routing method.
+         * @param endpointLocation Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
          * 
          * @return builder
          * 
@@ -339,10 +329,7 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param priority Specifies the priority of this Endpoint, this must be
-         * specified for Profiles using the `Priority` traffic routing method. Supports
-         * values between 1 and 1000, with no Endpoints sharing the same value. If
-         * omitted the value will be computed in order of creation.
+         * @param priority Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
          * 
          * @return builder
          * 
@@ -353,10 +340,7 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param priority Specifies the priority of this Endpoint, this must be
-         * specified for Profiles using the `Priority` traffic routing method. Supports
-         * values between 1 and 1000, with no Endpoints sharing the same value. If
-         * omitted the value will be computed in order of creation.
+         * @param priority Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
          * 
          * @return builder
          * 
@@ -387,7 +371,7 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param subnets One or more `subnet` blocks as defined below
+         * @param subnets One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -398,7 +382,7 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param subnets One or more `subnet` blocks as defined below
+         * @param subnets One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -408,7 +392,7 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param subnets One or more `subnet` blocks as defined below
+         * @param subnets One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

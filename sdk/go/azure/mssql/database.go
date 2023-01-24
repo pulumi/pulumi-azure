@@ -123,7 +123,7 @@ type Database struct {
 	RecoverDatabaseId pulumi.StringPtrOutput `pulumi:"recoverDatabaseId"`
 	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
 	RestoreDroppedDatabaseId pulumi.StringPtrOutput `pulumi:"restoreDroppedDatabaseId"`
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
+	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
 	RestorePointInTime pulumi.StringOutput `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName pulumi.StringOutput `pulumi:"sampleName"`
@@ -131,7 +131,7 @@ type Database struct {
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyOutput `pulumi:"shortTermRetentionPolicy"`
-	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
@@ -213,7 +213,7 @@ type databaseState struct {
 	RecoverDatabaseId *string `pulumi:"recoverDatabaseId"`
 	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
 	RestoreDroppedDatabaseId *string `pulumi:"restoreDroppedDatabaseId"`
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
+	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName *string `pulumi:"sampleName"`
@@ -221,7 +221,7 @@ type databaseState struct {
 	ServerId *string `pulumi:"serverId"`
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy *DatabaseShortTermRetentionPolicy `pulumi:"shortTermRetentionPolicy"`
-	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
 	SkuName *string `pulumi:"skuName"`
 	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
@@ -272,7 +272,7 @@ type DatabaseState struct {
 	RecoverDatabaseId pulumi.StringPtrInput
 	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
 	RestoreDroppedDatabaseId pulumi.StringPtrInput
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
+	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName pulumi.StringPtrInput
@@ -280,7 +280,7 @@ type DatabaseState struct {
 	ServerId pulumi.StringPtrInput
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyPtrInput
-	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
 	SkuName pulumi.StringPtrInput
 	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
 	StorageAccountType pulumi.StringPtrInput
@@ -335,7 +335,7 @@ type databaseArgs struct {
 	RecoverDatabaseId *string `pulumi:"recoverDatabaseId"`
 	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
 	RestoreDroppedDatabaseId *string `pulumi:"restoreDroppedDatabaseId"`
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
+	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName *string `pulumi:"sampleName"`
@@ -343,7 +343,7 @@ type databaseArgs struct {
 	ServerId string `pulumi:"serverId"`
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy *DatabaseShortTermRetentionPolicy `pulumi:"shortTermRetentionPolicy"`
-	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
 	SkuName *string `pulumi:"skuName"`
 	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
@@ -395,7 +395,7 @@ type DatabaseArgs struct {
 	RecoverDatabaseId pulumi.StringPtrInput
 	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
 	RestoreDroppedDatabaseId pulumi.StringPtrInput
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
+	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName pulumi.StringPtrInput
@@ -403,7 +403,7 @@ type DatabaseArgs struct {
 	ServerId pulumi.StringInput
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyPtrInput
-	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+	// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
 	SkuName pulumi.StringPtrInput
 	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
 	StorageAccountType pulumi.StringPtrInput
@@ -594,7 +594,7 @@ func (o DatabaseOutput) RestoreDroppedDatabaseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.RestoreDroppedDatabaseId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
+// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
 func (o DatabaseOutput) RestorePointInTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.RestorePointInTime }).(pulumi.StringOutput)
 }
@@ -614,7 +614,7 @@ func (o DatabaseOutput) ShortTermRetentionPolicy() DatabaseShortTermRetentionPol
 	return o.ApplyT(func(v *Database) DatabaseShortTermRetentionPolicyOutput { return v.ShortTermRetentionPolicy }).(DatabaseShortTermRetentionPolicyOutput)
 }
 
-// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
 func (o DatabaseOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

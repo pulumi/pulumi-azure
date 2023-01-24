@@ -79,14 +79,14 @@ public final class RegistryTaskDockerStepArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The  Dockerfile path relative to the source context.
+     * The Dockerfile path relative to the source context.
      * 
      */
     @Import(name="dockerfilePath", required=true)
     private Output<String> dockerfilePath;
 
     /**
-     * @return The  Dockerfile path relative to the source context.
+     * @return The Dockerfile path relative to the source context.
      * 
      */
     public Output<String> dockerfilePath() {
@@ -270,7 +270,7 @@ public final class RegistryTaskDockerStepArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dockerfilePath The  Dockerfile path relative to the source context.
+         * @param dockerfilePath The Dockerfile path relative to the source context.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class RegistryTaskDockerStepArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dockerfilePath The  Dockerfile path relative to the source context.
+         * @param dockerfilePath The Dockerfile path relative to the source context.
          * 
          * @return builder
          * 

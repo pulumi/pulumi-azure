@@ -127,8 +127,7 @@ type TemplateDeployment struct {
 	// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
 	// specified within the template, and this provider will not be aware of this.
 	DeploymentMode pulumi.StringOutput `pulumi:"deploymentMode"`
-	// Specifies the name of the template deployment. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the template deployment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
 	Outputs pulumi.StringMapOutput `pulumi:"outputs"`
@@ -181,8 +180,7 @@ type templateDeploymentState struct {
 	// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
 	// specified within the template, and this provider will not be aware of this.
 	DeploymentMode *string `pulumi:"deploymentMode"`
-	// Specifies the name of the template deployment. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the template deployment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
 	Outputs map[string]string `pulumi:"outputs"`
@@ -201,8 +199,7 @@ type TemplateDeploymentState struct {
 	// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
 	// specified within the template, and this provider will not be aware of this.
 	DeploymentMode pulumi.StringPtrInput
-	// Specifies the name of the template deployment. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the template deployment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
 	Outputs pulumi.StringMapInput
@@ -225,8 +222,7 @@ type templateDeploymentArgs struct {
 	// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
 	// specified within the template, and this provider will not be aware of this.
 	DeploymentMode string `pulumi:"deploymentMode"`
-	// Specifies the name of the template deployment. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the template deployment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name and value pairs that define the deployment parameters for the template.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -244,8 +240,7 @@ type TemplateDeploymentArgs struct {
 	// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
 	// specified within the template, and this provider will not be aware of this.
 	DeploymentMode pulumi.StringInput
-	// Specifies the name of the template deployment. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the template deployment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name and value pairs that define the deployment parameters for the template.
 	Parameters pulumi.StringMapInput
@@ -351,8 +346,7 @@ func (o TemplateDeploymentOutput) DeploymentMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateDeployment) pulumi.StringOutput { return v.DeploymentMode }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the template deployment. Changing this forces a
-// new resource to be created.
+// Specifies the name of the template deployment. Changing this forces a new resource to be created.
 func (o TemplateDeploymentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateDeployment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

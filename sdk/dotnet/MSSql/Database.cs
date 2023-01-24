@@ -181,7 +181,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> RestoreDroppedDatabaseId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         /// </summary>
         [Output("restorePointInTime")]
         public Output<string> RestorePointInTime { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.MSSql
         public Output<Outputs.DatabaseShortTermRetentionPolicy> ShortTermRetentionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+        /// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? RestoreDroppedDatabaseId { get; set; }
 
         /// <summary>
-        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         /// </summary>
         [Input("restorePointInTime")]
         public Input<string>? RestorePointInTime { get; set; }
@@ -419,7 +419,7 @@ namespace Pulumi.Azure.MSSql
         public Input<Inputs.DatabaseShortTermRetentionPolicyArgs>? ShortTermRetentionPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+        /// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -577,7 +577,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? RestoreDroppedDatabaseId { get; set; }
 
         /// <summary>
-        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         /// </summary>
         [Input("restorePointInTime")]
         public Input<string>? RestorePointInTime { get; set; }
@@ -601,7 +601,7 @@ namespace Pulumi.Azure.MSSql
         public Input<Inputs.DatabaseShortTermRetentionPolicyGetArgs>? ShortTermRetentionPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+        /// Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

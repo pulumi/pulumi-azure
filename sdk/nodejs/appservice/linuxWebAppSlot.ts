@@ -75,7 +75,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly appMetadata!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+     * The ID of the Linux Web App this Deployment Slot will be part of.
      */
     public readonly appServiceId!: pulumi.Output<string>;
     /**
@@ -283,7 +283,7 @@ export interface LinuxWebAppSlotState {
      */
     appMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+     * The ID of the Linux Web App this Deployment Slot will be part of.
      */
     appServiceId?: pulumi.Input<string>;
     /**
@@ -401,7 +401,7 @@ export interface LinuxWebAppSlotState {
  */
 export interface LinuxWebAppSlotArgs {
     /**
-     * The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+     * The ID of the Linux Web App this Deployment Slot will be part of.
      */
     appServiceId: pulumi.Input<string>;
     /**

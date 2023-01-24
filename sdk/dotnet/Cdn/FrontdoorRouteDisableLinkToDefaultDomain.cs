@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorRouteDisableLinkToDefaultDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+        /// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         /// </summary>
         [Output("cdnFrontdoorCustomDomainIds")]
         public Output<ImmutableArray<string>> CdnFrontdoorCustomDomainIds { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorCustomDomainIds;
 
         /// <summary>
-        /// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+        /// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         /// </summary>
         [Obsolete(@"the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value")]
         public InputList<string> CdnFrontdoorCustomDomainIds
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorCustomDomainIds;
 
         /// <summary>
-        /// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+        /// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         /// </summary>
         [Obsolete(@"the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value")]
         public InputList<string> CdnFrontdoorCustomDomainIds

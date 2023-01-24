@@ -93,11 +93,11 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly enableAutoScaling!: pulumi.Output<boolean | undefined>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      */
     public readonly enableHostEncryption!: pulumi.Output<boolean | undefined>;
     /**
-     * Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
      */
     public readonly enableNodePublicIp!: pulumi.Output<boolean | undefined>;
     /**
@@ -113,7 +113,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly hostGroupId!: pulumi.Output<string | undefined>;
     /**
-     * A `kubeletConfig` block as defined below.
+     * A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly kubeletConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolKubeletConfig | undefined>;
     /**
@@ -125,7 +125,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly kubernetesClusterId!: pulumi.Output<string>;
     /**
-     * A `linuxOsConfig` block as defined below.
+     * A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly linuxOsConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolLinuxOsConfig | undefined>;
     /**
@@ -229,7 +229,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly vnetSubnetId!: pulumi.Output<string | undefined>;
     /**
-     * A `windowsProfile` block as documented below.
+     * A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
      */
     public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolWindowsProfile | undefined>;
     /**
@@ -365,11 +365,11 @@ export interface KubernetesClusterNodePoolState {
      */
     enableAutoScaling?: pulumi.Input<boolean>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      */
     enableHostEncryption?: pulumi.Input<boolean>;
     /**
-     * Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
      */
     enableNodePublicIp?: pulumi.Input<boolean>;
     /**
@@ -385,7 +385,7 @@ export interface KubernetesClusterNodePoolState {
      */
     hostGroupId?: pulumi.Input<string>;
     /**
-     * A `kubeletConfig` block as defined below.
+     * A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
      */
     kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
     /**
@@ -397,7 +397,7 @@ export interface KubernetesClusterNodePoolState {
      */
     kubernetesClusterId?: pulumi.Input<string>;
     /**
-     * A `linuxOsConfig` block as defined below.
+     * A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
      */
     linuxOsConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolLinuxOsConfig>;
     /**
@@ -501,7 +501,7 @@ export interface KubernetesClusterNodePoolState {
      */
     vnetSubnetId?: pulumi.Input<string>;
     /**
-     * A `windowsProfile` block as documented below.
+     * A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolWindowsProfile>;
     /**
@@ -531,11 +531,11 @@ export interface KubernetesClusterNodePoolArgs {
      */
     enableAutoScaling?: pulumi.Input<boolean>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      */
     enableHostEncryption?: pulumi.Input<boolean>;
     /**
-     * Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
      */
     enableNodePublicIp?: pulumi.Input<boolean>;
     /**
@@ -551,7 +551,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     hostGroupId?: pulumi.Input<string>;
     /**
-     * A `kubeletConfig` block as defined below.
+     * A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
      */
     kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
     /**
@@ -563,7 +563,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     kubernetesClusterId: pulumi.Input<string>;
     /**
-     * A `linuxOsConfig` block as defined below.
+     * A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
      */
     linuxOsConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolLinuxOsConfig>;
     /**
@@ -667,7 +667,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     vnetSubnetId?: pulumi.Input<string>;
     /**
-     * A `windowsProfile` block as documented below.
+     * A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolWindowsProfile>;
     /**

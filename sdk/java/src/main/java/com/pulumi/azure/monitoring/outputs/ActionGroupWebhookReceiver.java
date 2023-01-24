@@ -19,7 +19,7 @@ public final class ActionGroupWebhookReceiver {
      */
     private @Nullable ActionGroupWebhookReceiverAadAuth aadAuth;
     /**
-     * @return The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+     * @return The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
      * 
      */
     private String name;
@@ -43,7 +43,7 @@ public final class ActionGroupWebhookReceiver {
         return Optional.ofNullable(this.aadAuth);
     }
     /**
-     * @return The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+     * @return The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
      * 
      */
     public String name() {

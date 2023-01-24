@@ -96,7 +96,6 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// The Connection state of the Network Manager Management Group Connection.
-        /// *
         /// </summary>
         [Output("connectionState")]
         public Output<string> ConnectionState { get; private set; } = null!;
@@ -108,7 +107,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the target Management Group.
+        /// Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managementGroupId")]
         public Output<string> ManagementGroupId { get; private set; } = null!;
@@ -120,7 +119,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the Network Manager which the Management Group is connected to.
+        /// Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("networkManagerId")]
         public Output<string> NetworkManagerId { get; private set; } = null!;
@@ -178,7 +177,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the target Management Group.
+        /// Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
@@ -190,7 +189,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the Network Manager which the Management Group is connected to.
+        /// Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkManagerId", required: true)]
         public Input<string> NetworkManagerId { get; set; } = null!;
@@ -205,7 +204,6 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// The Connection state of the Network Manager Management Group Connection.
-        /// *
         /// </summary>
         [Input("connectionState")]
         public Input<string>? ConnectionState { get; set; }
@@ -217,7 +215,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the target Management Group.
+        /// Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }
@@ -229,7 +227,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the Network Manager which the Management Group is connected to.
+        /// Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkManagerId")]
         public Input<string>? NetworkManagerId { get; set; }

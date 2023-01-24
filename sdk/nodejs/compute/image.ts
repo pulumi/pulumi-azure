@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  * Images can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/images/image1
+ *  $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/images/image1
  * ```
  */
 export class Image extends pulumi.CustomResource {
@@ -128,12 +128,11 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the image. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the image. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * One or more `osDisk` elements as defined below.
+     * One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.ImageOsDisk | undefined>;
     /**
@@ -150,7 +149,7 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+     * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly zoneResilient!: pulumi.Output<boolean | undefined>;
 
@@ -214,12 +213,11 @@ export interface ImageState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the image. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the image. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * One or more `osDisk` elements as defined below.
+     * One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
      */
     osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
     /**
@@ -236,7 +234,7 @@ export interface ImageState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+     * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     zoneResilient?: pulumi.Input<boolean>;
 }
@@ -259,12 +257,11 @@ export interface ImageArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the image. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the image. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * One or more `osDisk` elements as defined below.
+     * One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
      */
     osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
     /**
@@ -281,7 +278,7 @@ export interface ImageArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+     * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     zoneResilient?: pulumi.Input<boolean>;
 }

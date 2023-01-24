@@ -260,7 +260,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> StorageAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
+        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         /// </summary>
         [Output("storageAccountShareName")]
         public Output<string> StorageAccountShareName { get; private set; } = null!;
@@ -452,7 +452,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string> StorageAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
+        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         /// </summary>
         [Input("storageAccountShareName")]
         public Input<string>? StorageAccountShareName { get; set; }
@@ -650,7 +650,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
-        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
+        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         /// </summary>
         [Input("storageAccountShareName")]
         public Input<string>? StorageAccountShareName { get; set; }

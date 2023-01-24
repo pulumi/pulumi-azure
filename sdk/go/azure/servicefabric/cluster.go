@@ -89,7 +89,7 @@ type Cluster struct {
 	ClusterCodeVersion pulumi.StringOutput `pulumi:"clusterCodeVersion"`
 	// The Cluster Endpoint for this Service Fabric Cluster.
 	ClusterEndpoint pulumi.StringOutput `pulumi:"clusterEndpoint"`
-	// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
+	// A `diagnosticsConfig` block as defined below.
 	DiagnosticsConfig ClusterDiagnosticsConfigPtrOutput `pulumi:"diagnosticsConfig"`
 	// One or more `fabricSettings` blocks as defined below.
 	FabricSettings ClusterFabricSettingArrayOutput `pulumi:"fabricSettings"`
@@ -186,7 +186,7 @@ type clusterState struct {
 	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
 	// The Cluster Endpoint for this Service Fabric Cluster.
 	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
-	// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
+	// A `diagnosticsConfig` block as defined below.
 	DiagnosticsConfig *ClusterDiagnosticsConfig `pulumi:"diagnosticsConfig"`
 	// One or more `fabricSettings` blocks as defined below.
 	FabricSettings []ClusterFabricSetting `pulumi:"fabricSettings"`
@@ -237,7 +237,7 @@ type ClusterState struct {
 	ClusterCodeVersion pulumi.StringPtrInput
 	// The Cluster Endpoint for this Service Fabric Cluster.
 	ClusterEndpoint pulumi.StringPtrInput
-	// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
+	// A `diagnosticsConfig` block as defined below.
 	DiagnosticsConfig ClusterDiagnosticsConfigPtrInput
 	// One or more `fabricSettings` blocks as defined below.
 	FabricSettings ClusterFabricSettingArrayInput
@@ -290,7 +290,7 @@ type clusterArgs struct {
 	ClientCertificateThumbprints []ClusterClientCertificateThumbprint `pulumi:"clientCertificateThumbprints"`
 	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
 	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
-	// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
+	// A `diagnosticsConfig` block as defined below.
 	DiagnosticsConfig *ClusterDiagnosticsConfig `pulumi:"diagnosticsConfig"`
 	// One or more `fabricSettings` blocks as defined below.
 	FabricSettings []ClusterFabricSetting `pulumi:"fabricSettings"`
@@ -340,7 +340,7 @@ type ClusterArgs struct {
 	ClientCertificateThumbprints ClusterClientCertificateThumbprintArrayInput
 	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
 	ClusterCodeVersion pulumi.StringPtrInput
-	// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
+	// A `diagnosticsConfig` block as defined below.
 	DiagnosticsConfig ClusterDiagnosticsConfigPtrInput
 	// One or more `fabricSettings` blocks as defined below.
 	FabricSettings ClusterFabricSettingArrayInput
@@ -501,7 +501,7 @@ func (o ClusterOutput) ClusterEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterEndpoint }).(pulumi.StringOutput)
 }
 
-// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
+// A `diagnosticsConfig` block as defined below.
 func (o ClusterOutput) DiagnosticsConfig() ClusterDiagnosticsConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterDiagnosticsConfigPtrOutput { return v.DiagnosticsConfig }).(ClusterDiagnosticsConfigPtrOutput)
 }

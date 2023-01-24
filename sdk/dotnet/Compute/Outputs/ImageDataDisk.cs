@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int? Lun;
         /// <summary>
-        /// Specifies the ID of the managed disk resource that you want to use to create the image.
+        /// Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? ManagedDiskId;
         /// <summary>

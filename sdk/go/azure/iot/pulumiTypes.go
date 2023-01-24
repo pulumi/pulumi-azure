@@ -321,7 +321,7 @@ type IoTHubEndpoint struct {
 	IdentityId *string `pulumi:"identityId"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
-	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name string `pulumi:"name"`
 	// The resource group in which the endpoint will be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -361,7 +361,7 @@ type IoTHubEndpointArgs struct {
 	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
-	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The resource group in which the endpoint will be created.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
@@ -470,7 +470,7 @@ func (o IoTHubEndpointOutput) MaxChunkSizeInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *int { return v.MaxChunkSizeInBytes }).(pulumi.IntPtrOutput)
 }
 
-// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 func (o IoTHubEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2291,7 +2291,7 @@ func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) Id() pulumi
 }
 
 type IotHubDpsIpFilterRule struct {
-	// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+	// The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
 	Action string `pulumi:"action"`
 	// The IP address range in CIDR notation for the rule.
 	IpMask string `pulumi:"ipMask"`
@@ -2313,7 +2313,7 @@ type IotHubDpsIpFilterRuleInput interface {
 }
 
 type IotHubDpsIpFilterRuleArgs struct {
-	// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+	// The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
 	Action pulumi.StringInput `pulumi:"action"`
 	// The IP address range in CIDR notation for the rule.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
@@ -2374,7 +2374,7 @@ func (o IotHubDpsIpFilterRuleOutput) ToIotHubDpsIpFilterRuleOutputWithContext(ct
 	return o
 }
 
-// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+// The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
 func (o IotHubDpsIpFilterRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDpsIpFilterRule) string { return v.Action }).(pulumi.StringOutput)
 }

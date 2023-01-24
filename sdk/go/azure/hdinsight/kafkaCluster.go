@@ -146,7 +146,7 @@ type KafkaCluster struct {
 	//
 	// Deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
 	Roles KafkaClusterRolesOutput `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile KafkaClusterSecurityProfilePtrOutput `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
 	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
@@ -244,7 +244,7 @@ type kafkaClusterState struct {
 	//
 	// Deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
 	Roles *KafkaClusterRoles `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *KafkaClusterSecurityProfile `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
 	SshEndpoint *string `pulumi:"sshEndpoint"`
@@ -296,7 +296,7 @@ type KafkaClusterState struct {
 	//
 	// Deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
 	Roles KafkaClusterRolesPtrInput
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile KafkaClusterSecurityProfilePtrInput
 	// The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
 	SshEndpoint pulumi.StringPtrInput
@@ -348,7 +348,7 @@ type kafkaClusterArgs struct {
 	//
 	// Deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
 	Roles KafkaClusterRoles `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *KafkaClusterSecurityProfile `pulumi:"securityProfile"`
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 *KafkaClusterStorageAccountGen2 `pulumi:"storageAccountGen2"`
@@ -395,7 +395,7 @@ type KafkaClusterArgs struct {
 	//
 	// Deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
 	Roles KafkaClusterRolesInput
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile KafkaClusterSecurityProfilePtrInput
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 KafkaClusterStorageAccountGen2PtrInput
@@ -582,7 +582,7 @@ func (o KafkaClusterOutput) Roles() KafkaClusterRolesOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterRolesOutput { return v.Roles }).(KafkaClusterRolesOutput)
 }
 
-// A `securityProfile` block as defined below.
+// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 func (o KafkaClusterOutput) SecurityProfile() KafkaClusterSecurityProfilePtrOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterSecurityProfilePtrOutput { return v.SecurityProfile }).(KafkaClusterSecurityProfilePtrOutput)
 }

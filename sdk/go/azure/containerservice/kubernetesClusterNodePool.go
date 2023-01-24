@@ -90,9 +90,9 @@ type KubernetesClusterNodePool struct {
 	CustomCaTrustEnabled pulumi.BoolPtrOutput `pulumi:"customCaTrustEnabled"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrOutput `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrOutput `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
@@ -100,13 +100,13 @@ type KubernetesClusterNodePool struct {
 	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrOutput `pulumi:"hostGroupId"`
-	// A `kubeletConfig` block as defined below.
+	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrOutput `pulumi:"kubeletConfig"`
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType pulumi.StringOutput `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
-	// A `linuxOsConfig` block as defined below.
+	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrOutput `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
 	MaxCount pulumi.IntPtrOutput `pulumi:"maxCount"`
@@ -158,7 +158,7 @@ type KubernetesClusterNodePool struct {
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrOutput `pulumi:"vnetSubnetId"`
-	// A `windowsProfile` block as documented below.
+	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrOutput `pulumi:"windowsProfile"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrOutput `pulumi:"workloadRuntime"`
@@ -207,9 +207,9 @@ type kubernetesClusterNodePoolState struct {
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
@@ -217,13 +217,13 @@ type kubernetesClusterNodePoolState struct {
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
-	// A `kubeletConfig` block as defined below.
+	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
 	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId *string `pulumi:"kubernetesClusterId"`
-	// A `linuxOsConfig` block as defined below.
+	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig *KubernetesClusterNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
 	MaxCount *int `pulumi:"maxCount"`
@@ -275,7 +275,7 @@ type kubernetesClusterNodePoolState struct {
 	VmSize *string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
-	// A `windowsProfile` block as documented below.
+	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
@@ -290,9 +290,9 @@ type KubernetesClusterNodePoolState struct {
 	CustomCaTrustEnabled pulumi.BoolPtrInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling pulumi.BoolPtrInput
-	// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrInput
-	// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
@@ -300,13 +300,13 @@ type KubernetesClusterNodePoolState struct {
 	FipsEnabled pulumi.BoolPtrInput
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput
-	// A `kubeletConfig` block as defined below.
+	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringPtrInput
-	// A `linuxOsConfig` block as defined below.
+	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrInput
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
 	MaxCount pulumi.IntPtrInput
@@ -358,7 +358,7 @@ type KubernetesClusterNodePoolState struct {
 	VmSize pulumi.StringPtrInput
 	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput
-	// A `windowsProfile` block as documented below.
+	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrInput
@@ -377,9 +377,9 @@ type kubernetesClusterNodePoolArgs struct {
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
@@ -387,13 +387,13 @@ type kubernetesClusterNodePoolArgs struct {
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
-	// A `kubeletConfig` block as defined below.
+	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
 	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`
-	// A `linuxOsConfig` block as defined below.
+	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig *KubernetesClusterNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
 	MaxCount *int `pulumi:"maxCount"`
@@ -445,7 +445,7 @@ type kubernetesClusterNodePoolArgs struct {
 	VmSize string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
-	// A `windowsProfile` block as documented below.
+	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
@@ -461,9 +461,9 @@ type KubernetesClusterNodePoolArgs struct {
 	CustomCaTrustEnabled pulumi.BoolPtrInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling pulumi.BoolPtrInput
-	// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrInput
-	// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
@@ -471,13 +471,13 @@ type KubernetesClusterNodePoolArgs struct {
 	FipsEnabled pulumi.BoolPtrInput
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput
-	// A `kubeletConfig` block as defined below.
+	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
 	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringInput
-	// A `linuxOsConfig` block as defined below.
+	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrInput
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
 	MaxCount pulumi.IntPtrInput
@@ -529,7 +529,7 @@ type KubernetesClusterNodePoolArgs struct {
 	VmSize pulumi.StringInput
 	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput
-	// A `windowsProfile` block as documented below.
+	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrInput
@@ -639,12 +639,12 @@ func (o KubernetesClusterNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableHostEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+// Should each node have a Public IP Address? Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -664,7 +664,7 @@ func (o KubernetesClusterNodePoolOutput) HostGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.HostGroupId }).(pulumi.StringPtrOutput)
 }
 
-// A `kubeletConfig` block as defined below.
+// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) KubeletConfig() KubernetesClusterNodePoolKubeletConfigPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) KubernetesClusterNodePoolKubeletConfigPtrOutput {
 		return v.KubeletConfig
@@ -681,7 +681,7 @@ func (o KubernetesClusterNodePoolOutput) KubernetesClusterId() pulumi.StringOutp
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringOutput { return v.KubernetesClusterId }).(pulumi.StringOutput)
 }
 
-// A `linuxOsConfig` block as defined below.
+// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) LinuxOsConfig() KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
 		return v.LinuxOsConfig
@@ -815,7 +815,7 @@ func (o KubernetesClusterNodePoolOutput) VnetSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// A `windowsProfile` block as documented below.
+// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) WindowsProfile() KubernetesClusterNodePoolWindowsProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) KubernetesClusterNodePoolWindowsProfilePtrOutput {
 		return v.WindowsProfile

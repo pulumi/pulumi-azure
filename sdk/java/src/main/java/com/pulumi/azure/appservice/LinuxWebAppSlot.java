@@ -111,14 +111,14 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return this.appMetadata;
     }
     /**
-     * The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+     * The ID of the Linux Web App this Deployment Slot will be part of.
      * 
      */
     @Export(name="appServiceId", type=String.class, parameters={})
     private Output<String> appServiceId;
 
     /**
-     * @return The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+     * @return The ID of the Linux Web App this Deployment Slot will be part of.
      * 
      */
     public Output<String> appServiceId() {

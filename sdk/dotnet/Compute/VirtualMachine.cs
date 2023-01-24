@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.VirtualMachineStorageDataDisk>> StorageDataDisks { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_image_reference` block as defined below.
+        /// A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageImageReference")]
         public Output<Outputs.VirtualMachineStorageImageReference> StorageImageReference { get; private set; } = null!;
@@ -448,7 +448,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `storage_image_reference` block as defined below.
+        /// A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageImageReference")]
         public Input<Inputs.VirtualMachineStorageImageReferenceArgs>? StorageImageReference { get; set; }
@@ -624,7 +624,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `storage_image_reference` block as defined below.
+        /// A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageImageReference")]
         public Input<Inputs.VirtualMachineStorageImageReferenceGetArgs>? StorageImageReference { get; set; }

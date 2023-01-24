@@ -4385,6 +4385,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "lab/schedule",
+  "fqn": "pulumi_azure.lab",
+  "classes": {
+   "azure:lab/schedule:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "lab/servicePlan",
   "fqn": "pulumi_azure.lab",
   "classes": {
@@ -4717,6 +4725,14 @@ _utilities.register(
   "fqn": "pulumi_azure.machinelearning",
   "classes": {
    "azure:machinelearning/computeInstance:ComputeInstance": "ComputeInstance"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "machinelearning/datastoreBlobstorage",
+  "fqn": "pulumi_azure.machinelearning",
+  "classes": {
+   "azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage": "DatastoreBlobstorage"
   }
  },
  {
@@ -5821,6 +5837,22 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup": "NetworkManagerNetworkGroup"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkManagerScopeConnection",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection": "NetworkManagerScopeConnection"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkManagerStaticMember",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerStaticMember:NetworkManagerStaticMember": "NetworkManagerStaticMember"
   }
  },
  {
@@ -6957,6 +6989,14 @@ _utilities.register(
   "fqn": "pulumi_azure.sentinel",
   "classes": {
    "azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii": "DataConnectorThreatIntelligenceTaxii"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sentinel/logAnalyticsWorkspaceOnboarding",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding": "LogAnalyticsWorkspaceOnboarding"
   }
  },
  {

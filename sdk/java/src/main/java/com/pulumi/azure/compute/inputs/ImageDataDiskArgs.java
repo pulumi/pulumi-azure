@@ -62,14 +62,14 @@ public final class ImageDataDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the ID of the managed disk resource that you want to use to create the image.
+     * Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managedDiskId")
     private @Nullable Output<String> managedDiskId;
 
     /**
-     * @return Specifies the ID of the managed disk resource that you want to use to create the image.
+     * @return Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> managedDiskId() {
@@ -183,7 +183,7 @@ public final class ImageDataDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedDiskId Specifies the ID of the managed disk resource that you want to use to create the image.
+         * @param managedDiskId Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ImageDataDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedDiskId Specifies the ID of the managed disk resource that you want to use to create the image.
+         * @param managedDiskId Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

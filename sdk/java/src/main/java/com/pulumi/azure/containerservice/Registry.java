@@ -209,7 +209,7 @@ import javax.annotation.Nullable;
  * Container Registries can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
+ *  $ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
  * ```
  * 
  */
@@ -258,28 +258,28 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return this.adminUsername;
     }
     /**
-     * Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
      * 
      */
     @Export(name="anonymousPullEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> anonymousPullEnabled;
 
     /**
-     * @return Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+     * @return Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
      * 
      */
     public Output<Optional<Boolean>> anonymousPullEnabled() {
         return Codegen.optional(this.anonymousPullEnabled);
     }
     /**
-     * Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+     * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      * 
      */
     @Export(name="dataEndpointEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> dataEndpointEnabled;
 
     /**
-     * @return Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+     * @return Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      * 
      */
     public Output<Optional<Boolean>> dataEndpointEnabled() {
@@ -468,14 +468,14 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return this.retentionPolicy;
     }
     /**
-     * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+     * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      * 
      */
     @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
-     * @return The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+     * @return The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      * 
      */
     public Output<String> sku() {

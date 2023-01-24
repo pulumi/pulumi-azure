@@ -34,7 +34,7 @@ class GremlinGraphArgs:
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
-        :param pulumi.Input['GremlinGraphConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below.
+        :param pulumi.Input['GremlinGraphConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
         :param pulumi.Input['GremlinGraphIndexPolicyArgs'] index_policy: The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
@@ -124,7 +124,7 @@ class GremlinGraphArgs:
     @pulumi.getter(name="conflictResolutionPolicy")
     def conflict_resolution_policy(self) -> Optional[pulumi.Input['GremlinGraphConflictResolutionPolicyArgs']]:
         """
-        A `conflict_resolution_policy` blocks as defined below.
+        A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "conflict_resolution_policy")
 
@@ -223,7 +223,7 @@ class _GremlinGraphState:
         """
         Input properties used for looking up and filtering GremlinGraph resources.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
-        :param pulumi.Input['GremlinGraphConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below.
+        :param pulumi.Input['GremlinGraphConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
         :param pulumi.Input['GremlinGraphIndexPolicyArgs'] index_policy: The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
@@ -284,7 +284,7 @@ class _GremlinGraphState:
     @pulumi.getter(name="conflictResolutionPolicy")
     def conflict_resolution_policy(self) -> Optional[pulumi.Input['GremlinGraphConflictResolutionPolicyArgs']]:
         """
-        A `conflict_resolution_policy` blocks as defined below.
+        A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "conflict_resolution_policy")
 
@@ -470,7 +470,7 @@ class GremlinGraph(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
         :param pulumi.Input[pulumi.InputType['GremlinGraphIndexPolicyArgs']] index_policy: The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
@@ -621,7 +621,7 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
         :param pulumi.Input[pulumi.InputType['GremlinGraphIndexPolicyArgs']] index_policy: The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
@@ -667,7 +667,7 @@ class GremlinGraph(pulumi.CustomResource):
     @pulumi.getter(name="conflictResolutionPolicy")
     def conflict_resolution_policy(self) -> pulumi.Output['outputs.GremlinGraphConflictResolutionPolicy']:
         """
-        A `conflict_resolution_policy` blocks as defined below.
+        A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "conflict_resolution_policy")
 

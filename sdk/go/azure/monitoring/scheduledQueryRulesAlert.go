@@ -36,9 +36,9 @@ type ScheduledQueryRulesAlert struct {
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether this scheduled query rule is enabled.  Default is `true`.
+	// Whether this scheduled query rule is enabled. Default is `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+	// Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
 	Frequency pulumi.IntOutput `pulumi:"frequency"`
 	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -54,9 +54,9 @@ type ScheduledQueryRulesAlert struct {
 	Severity pulumi.IntPtrOutput `pulumi:"severity"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+	// Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
 	Throttling pulumi.IntPtrOutput `pulumi:"throttling"`
-	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
 	TimeWindow pulumi.IntOutput `pulumi:"timeWindow"`
 	// A `trigger` block as defined below.
 	Trigger ScheduledQueryRulesAlertTriggerOutput `pulumi:"trigger"`
@@ -123,9 +123,9 @@ type scheduledQueryRulesAlertState struct {
 	DataSourceId *string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
-	// Whether this scheduled query rule is enabled.  Default is `true`.
+	// Whether this scheduled query rule is enabled. Default is `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+	// Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
 	Frequency *int `pulumi:"frequency"`
 	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -141,9 +141,9 @@ type scheduledQueryRulesAlertState struct {
 	Severity *int `pulumi:"severity"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+	// Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
 	Throttling *int `pulumi:"throttling"`
-	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
 	TimeWindow *int `pulumi:"timeWindow"`
 	// A `trigger` block as defined below.
 	Trigger *ScheduledQueryRulesAlertTrigger `pulumi:"trigger"`
@@ -161,9 +161,9 @@ type ScheduledQueryRulesAlertState struct {
 	DataSourceId pulumi.StringPtrInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
-	// Whether this scheduled query rule is enabled.  Default is `true`.
+	// Whether this scheduled query rule is enabled. Default is `true`.
 	Enabled pulumi.BoolPtrInput
-	// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+	// Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
 	Frequency pulumi.IntPtrInput
 	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -179,9 +179,9 @@ type ScheduledQueryRulesAlertState struct {
 	Severity pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+	// Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
 	Throttling pulumi.IntPtrInput
-	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
 	TimeWindow pulumi.IntPtrInput
 	// A `trigger` block as defined below.
 	Trigger ScheduledQueryRulesAlertTriggerPtrInput
@@ -203,9 +203,9 @@ type scheduledQueryRulesAlertArgs struct {
 	DataSourceId string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
-	// Whether this scheduled query rule is enabled.  Default is `true`.
+	// Whether this scheduled query rule is enabled. Default is `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+	// Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
 	Frequency int `pulumi:"frequency"`
 	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -221,9 +221,9 @@ type scheduledQueryRulesAlertArgs struct {
 	Severity *int `pulumi:"severity"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+	// Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
 	Throttling *int `pulumi:"throttling"`
-	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
 	TimeWindow int `pulumi:"timeWindow"`
 	// A `trigger` block as defined below.
 	Trigger ScheduledQueryRulesAlertTrigger `pulumi:"trigger"`
@@ -242,9 +242,9 @@ type ScheduledQueryRulesAlertArgs struct {
 	DataSourceId pulumi.StringInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
-	// Whether this scheduled query rule is enabled.  Default is `true`.
+	// Whether this scheduled query rule is enabled. Default is `true`.
 	Enabled pulumi.BoolPtrInput
-	// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+	// Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
 	Frequency pulumi.IntInput
 	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -260,9 +260,9 @@ type ScheduledQueryRulesAlertArgs struct {
 	Severity pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+	// Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
 	Throttling pulumi.IntPtrInput
-	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
 	TimeWindow pulumi.IntInput
 	// A `trigger` block as defined below.
 	Trigger ScheduledQueryRulesAlertTriggerInput
@@ -381,12 +381,12 @@ func (o ScheduledQueryRulesAlertOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether this scheduled query rule is enabled.  Default is `true`.
+// Whether this scheduled query rule is enabled. Default is `true`.
 func (o ScheduledQueryRulesAlertOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+// Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
 func (o ScheduledQueryRulesAlertOutput) Frequency() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.IntOutput { return v.Frequency }).(pulumi.IntOutput)
 }
@@ -426,12 +426,12 @@ func (o ScheduledQueryRulesAlertOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+// Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
 func (o ScheduledQueryRulesAlertOutput) Throttling() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.IntPtrOutput { return v.Throttling }).(pulumi.IntPtrOutput)
 }
 
-// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
 func (o ScheduledQueryRulesAlertOutput) TimeWindow() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.IntOutput { return v.TimeWindow }).(pulumi.IntOutput)
 }

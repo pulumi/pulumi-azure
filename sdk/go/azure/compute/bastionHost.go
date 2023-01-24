@@ -102,11 +102,11 @@ type BastionHost struct {
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
 	FileCopyEnabled pulumi.BoolPtrOutput `pulumi:"fileCopyEnabled"`
-	// A `ipConfiguration` block as defined below.
+	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
 	IpConfiguration BastionHostIpConfigurationPtrOutput `pulumi:"ipConfiguration"`
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 	IpConnectEnabled pulumi.BoolPtrOutput `pulumi:"ipConnectEnabled"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -162,11 +162,11 @@ type bastionHostState struct {
 	DnsName *string `pulumi:"dnsName"`
 	// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
 	FileCopyEnabled *bool `pulumi:"fileCopyEnabled"`
-	// A `ipConfiguration` block as defined below.
+	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
 	IpConfiguration *BastionHostIpConfiguration `pulumi:"ipConfiguration"`
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 	IpConnectEnabled *bool `pulumi:"ipConnectEnabled"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -191,11 +191,11 @@ type BastionHostState struct {
 	DnsName pulumi.StringPtrInput
 	// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
 	FileCopyEnabled pulumi.BoolPtrInput
-	// A `ipConfiguration` block as defined below.
+	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
 	IpConfiguration BastionHostIpConfigurationPtrInput
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 	IpConnectEnabled pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -222,11 +222,11 @@ type bastionHostArgs struct {
 	CopyPasteEnabled *bool `pulumi:"copyPasteEnabled"`
 	// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
 	FileCopyEnabled *bool `pulumi:"fileCopyEnabled"`
-	// A `ipConfiguration` block as defined below.
+	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
 	IpConfiguration *BastionHostIpConfiguration `pulumi:"ipConfiguration"`
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 	IpConnectEnabled *bool `pulumi:"ipConnectEnabled"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -250,11 +250,11 @@ type BastionHostArgs struct {
 	CopyPasteEnabled pulumi.BoolPtrInput
 	// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
 	FileCopyEnabled pulumi.BoolPtrInput
-	// A `ipConfiguration` block as defined below.
+	// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
 	IpConfiguration BastionHostIpConfigurationPtrInput
 	// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 	IpConnectEnabled pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -374,7 +374,7 @@ func (o BastionHostOutput) FileCopyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.FileCopyEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `ipConfiguration` block as defined below.
+// A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
 func (o BastionHostOutput) IpConfiguration() BastionHostIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *BastionHost) BastionHostIpConfigurationPtrOutput { return v.IpConfiguration }).(BastionHostIpConfigurationPtrOutput)
 }
@@ -384,7 +384,7 @@ func (o BastionHostOutput) IpConnectEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.IpConnectEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
 func (o BastionHostOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

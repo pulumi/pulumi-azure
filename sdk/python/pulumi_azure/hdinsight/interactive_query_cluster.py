@@ -52,7 +52,7 @@ class InteractiveQueryClusterArgs:
         :param pulumi.Input['InteractiveQueryClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterNetworkArgs'] network: A `network` block as defined below.
-        :param pulumi.Input['InteractiveQueryClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
@@ -274,7 +274,7 @@ class InteractiveQueryClusterArgs:
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> Optional[pulumi.Input['InteractiveQueryClusterSecurityProfileArgs']]:
         """
-        A `security_profile` block as defined below.
+        A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 
@@ -372,7 +372,7 @@ class _InteractiveQueryClusterState:
         :param pulumi.Input['InteractiveQueryClusterNetworkArgs'] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterRolesArgs'] roles: A `roles` block as defined below.
-        :param pulumi.Input['InteractiveQueryClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
         :param pulumi.Input['InteractiveQueryClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
@@ -606,7 +606,7 @@ class _InteractiveQueryClusterState:
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> Optional[pulumi.Input['InteractiveQueryClusterSecurityProfileArgs']]:
         """
-        A `security_profile` block as defined below.
+        A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 
@@ -791,7 +791,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
@@ -998,7 +998,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
@@ -1155,7 +1155,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> pulumi.Output[Optional['outputs.InteractiveQueryClusterSecurityProfile']]:
         """
-        A `security_profile` block as defined below.
+        A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 

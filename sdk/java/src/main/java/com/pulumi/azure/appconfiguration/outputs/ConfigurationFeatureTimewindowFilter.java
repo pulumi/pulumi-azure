@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationFeatureTimewindowFilter {
     /**
-     * @return The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+     * @return The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
      * 
      */
     private @Nullable String end;
@@ -24,7 +24,7 @@ public final class ConfigurationFeatureTimewindowFilter {
 
     private ConfigurationFeatureTimewindowFilter() {}
     /**
-     * @return The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+     * @return The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
      * 
      */
     public Optional<String> end() {

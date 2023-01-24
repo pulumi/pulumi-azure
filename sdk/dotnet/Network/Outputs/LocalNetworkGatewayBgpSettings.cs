@@ -18,13 +18,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int Asn;
         /// <summary>
-        /// The BGP peering address and BGP identifier
-        /// of this BGP speaker.
+        /// The BGP peering address and BGP identifier of this BGP speaker.
         /// </summary>
         public readonly string BgpPeeringAddress;
         /// <summary>
-        /// The weight added to routes learned from this
-        /// BGP speaker.
+        /// The weight added to routes learned from this BGP speaker.
         /// </summary>
         public readonly int? PeerWeight;
 

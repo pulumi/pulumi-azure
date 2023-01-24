@@ -529,8 +529,8 @@ class StandardConnectionString(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The name of the Connection String. Changing this forces a new resource to be created.
-        :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        :param str name: The name of the Connection String.
+        :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         :param str value: The value for the Connection String.
         """
         pulumi.set(__self__, "name", name)
@@ -541,7 +541,7 @@ class StandardConnectionString(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Connection String. Changing this forces a new resource to be created.
+        The name of the Connection String.
         """
         return pulumi.get(self, "name")
 
@@ -549,7 +549,7 @@ class StandardConnectionString(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         """
         return pulumi.get(self, "type")
 

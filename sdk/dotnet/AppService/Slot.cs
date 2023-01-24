@@ -174,7 +174,7 @@ namespace Pulumi.Azure.AppService
     public partial class Slot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+        /// The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Output("appServiceName")]
         public Output<string> AppServiceName { get; private set; } = null!;
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.AppService
     public sealed class SlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+        /// The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Input("appServiceName", required: true)]
         public Input<string> AppServiceName { get; set; } = null!;
@@ -468,7 +468,7 @@ namespace Pulumi.Azure.AppService
     public sealed class SlotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+        /// The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Input("appServiceName")]
         public Input<string>? AppServiceName { get; set; }

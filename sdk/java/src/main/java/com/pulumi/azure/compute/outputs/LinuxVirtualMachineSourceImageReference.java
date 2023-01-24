@@ -10,50 +10,50 @@ import java.util.Objects;
 @CustomType
 public final class LinuxVirtualMachineSourceImageReference {
     /**
-     * @return Specifies the offer of the image used to create the virtual machines.
+     * @return Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     private String offer;
     /**
-     * @return Specifies the publisher of the image used to create the virtual machines.
+     * @return Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     private String publisher;
     /**
-     * @return Specifies the SKU of the image used to create the virtual machines.
+     * @return Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     private String sku;
     /**
-     * @return Specifies the version of the image used to create the virtual machines.
+     * @return Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     private String version;
 
     private LinuxVirtualMachineSourceImageReference() {}
     /**
-     * @return Specifies the offer of the image used to create the virtual machines.
+     * @return Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public String offer() {
         return this.offer;
     }
     /**
-     * @return Specifies the publisher of the image used to create the virtual machines.
+     * @return Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public String publisher() {
         return this.publisher;
     }
     /**
-     * @return Specifies the SKU of the image used to create the virtual machines.
+     * @return Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public String sku() {
         return this.sku;
     }
     /**
-     * @return Specifies the version of the image used to create the virtual machines.
+     * @return Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public String version() {

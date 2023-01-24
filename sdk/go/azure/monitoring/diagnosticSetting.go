@@ -51,11 +51,10 @@ import (
 //				StorageAccountId: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (*string, error) {
 //					return &exampleAccount.Id, nil
 //				}).(pulumi.StringPtrOutput),
-//				Logs: monitoring.DiagnosticSettingLogArray{
-//					&monitoring.DiagnosticSettingLogArgs{
+//				EnabledLogs: monitoring.DiagnosticSettingEnabledLogArray{
+//					&monitoring.DiagnosticSettingEnabledLogArgs{
 //						Category: pulumi.String("AuditEvent"),
-//						Enabled:  pulumi.Bool(false),
-//						RetentionPolicy: &monitoring.DiagnosticSettingLogRetentionPolicyArgs{
+//						RetentionPolicy: &monitoring.DiagnosticSettingEnabledLogRetentionPolicyArgs{
 //							Enabled: pulumi.Bool(false),
 //						},
 //					},
@@ -96,7 +95,7 @@ type DiagnosticSetting struct {
 	EventhubAuthorizationRuleId pulumi.StringPtrOutput `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringPtrOutput `pulumi:"eventhubName"`
-	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType pulumi.StringPtrOutput `pulumi:"logAnalyticsDestinationType"`
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
@@ -154,7 +153,7 @@ type diagnosticSettingState struct {
 	EventhubAuthorizationRuleId *string `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
 	EventhubName *string `pulumi:"eventhubName"`
-	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
@@ -181,7 +180,7 @@ type DiagnosticSettingState struct {
 	EventhubAuthorizationRuleId pulumi.StringPtrInput
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringPtrInput
-	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType pulumi.StringPtrInput
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
@@ -212,7 +211,7 @@ type diagnosticSettingArgs struct {
 	EventhubAuthorizationRuleId *string `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
 	EventhubName *string `pulumi:"eventhubName"`
-	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
@@ -240,7 +239,7 @@ type DiagnosticSettingArgs struct {
 	EventhubAuthorizationRuleId pulumi.StringPtrInput
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringPtrInput
-	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType pulumi.StringPtrInput
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
@@ -362,7 +361,7 @@ func (o DiagnosticSettingOutput) EventhubName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.EventhubName }).(pulumi.StringPtrOutput)
 }
 
-// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 func (o DiagnosticSettingOutput) LogAnalyticsDestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.LogAnalyticsDestinationType }).(pulumi.StringPtrOutput)
 }

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<int>? Lun { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the managed disk resource that you want to use to create the image.
+        /// Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedDiskId")]
         public Input<string>? ManagedDiskId { get; set; }

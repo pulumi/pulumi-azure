@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class SourceControlSlotGithubActionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `code_configuration` block as detailed below.
+        /// A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("codeConfiguration")]
         public Input<Inputs.SourceControlSlotGithubActionConfigurationCodeConfigurationGetArgs>? CodeConfiguration { get; set; }

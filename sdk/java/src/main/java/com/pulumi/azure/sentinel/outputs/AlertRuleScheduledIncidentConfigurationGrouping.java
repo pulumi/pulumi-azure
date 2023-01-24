@@ -24,7 +24,7 @@ public final class AlertRuleScheduledIncidentConfigurationGrouping {
      */
     private @Nullable String entityMatchingMethod;
     /**
-     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     private @Nullable List<String> groupByAlertDetails;
@@ -65,7 +65,7 @@ public final class AlertRuleScheduledIncidentConfigurationGrouping {
         return Optional.ofNullable(this.entityMatchingMethod);
     }
     /**
-     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     public List<String> groupByAlertDetails() {

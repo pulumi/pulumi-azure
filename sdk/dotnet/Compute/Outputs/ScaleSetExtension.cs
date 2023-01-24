@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
-        /// Specifies the name of the extension. Changing this forces a new resource to be created.
+        /// Specifies the name of the extension.
         /// </summary>
         public readonly string Name;
         /// <summary>

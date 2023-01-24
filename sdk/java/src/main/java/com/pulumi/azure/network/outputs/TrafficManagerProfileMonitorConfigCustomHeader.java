@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class TrafficManagerProfileMonitorConfigCustomHeader {
     /**
-     * @return The name of the custom header. Changing this forces a new resource to be created.
+     * @return The name of the custom header.
      * 
      */
     private String name;
@@ -22,7 +22,7 @@ public final class TrafficManagerProfileMonitorConfigCustomHeader {
 
     private TrafficManagerProfileMonitorConfigCustomHeader() {}
     /**
-     * @return The name of the custom header. Changing this forces a new resource to be created.
+     * @return The name of the custom header.
      * 
      */
     public String name() {

@@ -33,8 +33,7 @@ class ServiceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
-        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are:
-               Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
@@ -42,8 +41,7 @@ class ServiceArgs:
         :param pulumi.Input[str] name: The name of the Web PubSub service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults
-               to `false`.
+        :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -108,8 +106,7 @@ class ServiceArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of units associated with this Web PubSub resource. Valid values are:
-        Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         """
         return pulumi.get(self, "capacity")
 
@@ -205,8 +202,7 @@ class ServiceArgs:
     @pulumi.getter(name="tlsClientCertEnabled")
     def tls_client_cert_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to request client certificate during TLS handshake? Defaults
-        to `false`.
+        Whether to request client certificate during TLS handshake? Defaults to `false`.
         """
         return pulumi.get(self, "tls_client_cert_enabled")
 
@@ -242,8 +238,7 @@ class _ServiceState:
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
-        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are:
-               Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         :param pulumi.Input[str] hostname: The FQDN of the Web PubSub service.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
@@ -260,8 +255,7 @@ class _ServiceState:
         :param pulumi.Input[int] server_port: The publicly accessible port of the Web PubSub service which is designed for customer server side use.
         :param pulumi.Input[str] sku: Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults
-               to `false`.
+        :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
         """
         if aad_auth_enabled is not None:
             pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
@@ -322,8 +316,7 @@ class _ServiceState:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of units associated with this Web PubSub resource. Valid values are:
-        Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         """
         return pulumi.get(self, "capacity")
 
@@ -536,8 +529,7 @@ class _ServiceState:
     @pulumi.getter(name="tlsClientCertEnabled")
     def tls_client_cert_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to request client certificate during TLS handshake? Defaults
-        to `false`.
+        Whether to request client certificate during TLS handshake? Defaults to `false`.
         """
         return pulumi.get(self, "tls_client_cert_enabled")
 
@@ -610,8 +602,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
-        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are:
-               Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
@@ -621,8 +612,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults
-               to `false`.
+        :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
         """
         ...
     @overload
@@ -766,8 +756,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
-        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are:
-               Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         :param pulumi.Input[str] hostname: The FQDN of the Web PubSub service.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']] live_trace: A `live_trace` block as defined below.
@@ -784,8 +773,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[int] server_port: The publicly accessible port of the Web PubSub service which is designed for customer server side use.
         :param pulumi.Input[str] sku: Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults
-               to `false`.
+        :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -826,8 +814,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def capacity(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the number of units associated with this Web PubSub resource. Valid values are:
-        Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         """
         return pulumi.get(self, "capacity")
 
@@ -968,8 +955,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="tlsClientCertEnabled")
     def tls_client_cert_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether to request client certificate during TLS handshake? Defaults
-        to `false`.
+        Whether to request client certificate during TLS handshake? Defaults to `false`.
         """
         return pulumi.get(self, "tls_client_cert_enabled")
 

@@ -14,14 +14,14 @@ public final class StandardConnectionStringArgs extends com.pulumi.resources.Res
     public static final StandardConnectionStringArgs Empty = new StandardConnectionStringArgs();
 
     /**
-     * The name of the Connection String. Changing this forces a new resource to be created.
+     * The name of the Connection String.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Connection String. Changing this forces a new resource to be created.
+     * @return The name of the Connection String.
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class StandardConnectionStringArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+     * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+     * @return The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
      * 
      */
     public Output<String> type() {
@@ -85,7 +85,7 @@ public final class StandardConnectionStringArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the Connection String. Changing this forces a new resource to be created.
+         * @param name The name of the Connection String.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class StandardConnectionStringArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the Connection String. Changing this forces a new resource to be created.
+         * @param name The name of the Connection String.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class StandardConnectionStringArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         * @param type The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class StandardConnectionStringArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         * @param type The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
          * 
          * @return builder
          * 

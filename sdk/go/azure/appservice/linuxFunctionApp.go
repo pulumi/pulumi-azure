@@ -57,7 +57,7 @@ import (
 //				ResourceGroupName:       exampleResourceGroup.Name,
 //				Location:                exampleResourceGroup.Location,
 //				StorageAccountName:      exampleAccount.Name,
-//				StorageAccountAccessKey: exampleAccount.PrimaryConnectionString,
+//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				ServicePlanId:           exampleServicePlan.ID(),
 //				SiteConfig:              nil,
 //			})

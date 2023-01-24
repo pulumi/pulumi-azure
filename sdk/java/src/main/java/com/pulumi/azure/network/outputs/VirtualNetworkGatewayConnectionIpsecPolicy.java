@@ -13,33 +13,27 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNetworkGatewayConnectionIpsecPolicy {
     /**
-     * @return The DH group used in IKE phase 1 for initial SA. Valid
-     * options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
-     * `ECP256`, `ECP384`, or `None`.
+     * @return The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
      * 
      */
     private String dhGroup;
     /**
-     * @return The IKE encryption algorithm. Valid
-     * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
+     * @return The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
      * 
      */
     private String ikeEncryption;
     /**
-     * @return The IKE integrity algorithm. Valid
-     * options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+     * @return The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
      * 
      */
     private String ikeIntegrity;
     /**
-     * @return The IPSec encryption algorithm. Valid
-     * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+     * @return The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
      * 
      */
     private String ipsecEncryption;
     /**
-     * @return The IPSec integrity algorithm. Valid
-     * options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+     * @return The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
      * 
      */
     private String ipsecIntegrity;
@@ -51,55 +45,47 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicy {
      */
     private String pfsGroup;
     /**
-     * @return The IPSec SA payload size in KB. Must be at least
-     * `1024` KB. Defaults to `102400000` KB.
+     * @return The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
      * 
      */
     private @Nullable Integer saDatasize;
     /**
-     * @return The IPSec SA lifetime in seconds. Must be at least
-     * `300` seconds. Defaults to `27000` seconds.
+     * @return The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
      * 
      */
     private @Nullable Integer saLifetime;
 
     private VirtualNetworkGatewayConnectionIpsecPolicy() {}
     /**
-     * @return The DH group used in IKE phase 1 for initial SA. Valid
-     * options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
-     * `ECP256`, `ECP384`, or `None`.
+     * @return The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
      * 
      */
     public String dhGroup() {
         return this.dhGroup;
     }
     /**
-     * @return The IKE encryption algorithm. Valid
-     * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
+     * @return The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
      * 
      */
     public String ikeEncryption() {
         return this.ikeEncryption;
     }
     /**
-     * @return The IKE integrity algorithm. Valid
-     * options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+     * @return The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
      * 
      */
     public String ikeIntegrity() {
         return this.ikeIntegrity;
     }
     /**
-     * @return The IPSec encryption algorithm. Valid
-     * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+     * @return The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
      * 
      */
     public String ipsecEncryption() {
         return this.ipsecEncryption;
     }
     /**
-     * @return The IPSec integrity algorithm. Valid
-     * options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+     * @return The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
      * 
      */
     public String ipsecIntegrity() {
@@ -115,16 +101,14 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicy {
         return this.pfsGroup;
     }
     /**
-     * @return The IPSec SA payload size in KB. Must be at least
-     * `1024` KB. Defaults to `102400000` KB.
+     * @return The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
      * 
      */
     public Optional<Integer> saDatasize() {
         return Optional.ofNullable(this.saDatasize);
     }
     /**
-     * @return The IPSec SA lifetime in seconds. Must be at least
-     * `300` seconds. Defaults to `27000` seconds.
+     * @return The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
      * 
      */
     public Optional<Integer> saLifetime() {

@@ -92,7 +92,7 @@ type Service struct {
 	Policy ServicePolicyOutput `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
-	// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+	// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
 	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
 	// A `protocols` block as defined below.
 	Protocols ServiceProtocolsOutput `pulumi:"protocols"`
@@ -203,7 +203,7 @@ type serviceState struct {
 	Policy *ServicePolicy `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl *string `pulumi:"portalUrl"`
-	// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+	// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	// A `protocols` block as defined below.
 	Protocols *ServiceProtocols `pulumi:"protocols"`
@@ -274,7 +274,7 @@ type ServiceState struct {
 	Policy ServicePolicyPtrInput
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl pulumi.StringPtrInput
-	// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+	// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
 	PrivateIpAddresses pulumi.StringArrayInput
 	// A `protocols` block as defined below.
 	Protocols ServiceProtocolsPtrInput
@@ -594,7 +594,7 @@ func (o ServiceOutput) PortalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.PortalUrl }).(pulumi.StringOutput)
 }
 
-// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
 func (o ServiceOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringArrayOutput { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
 }

@@ -9939,7 +9939,7 @@ func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) VnetId() pulumi.Strin
 }
 
 type IntegrationRuntimeSelfHostedRbacAuthorization struct {
-	// The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+	// The resource identifier of the integration runtime to be shared.
 	ResourceId string `pulumi:"resourceId"`
 }
 
@@ -9955,7 +9955,7 @@ type IntegrationRuntimeSelfHostedRbacAuthorizationInput interface {
 }
 
 type IntegrationRuntimeSelfHostedRbacAuthorizationArgs struct {
-	// The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+	// The resource identifier of the integration runtime to be shared.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 }
 
@@ -10010,7 +10010,7 @@ func (o IntegrationRuntimeSelfHostedRbacAuthorizationOutput) ToIntegrationRuntim
 	return o
 }
 
-// The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+// The resource identifier of the integration runtime to be shared.
 func (o IntegrationRuntimeSelfHostedRbacAuthorizationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSelfHostedRbacAuthorization) string { return v.ResourceId }).(pulumi.StringOutput)
 }
@@ -12709,7 +12709,7 @@ type LinkedServiceAzureDatabricksNewClusterConfig struct {
 	LogDestination *string `pulumi:"logDestination"`
 	// Specifies the maximum number of worker nodes. It should be between 1 and 25000.
 	MaxNumberOfWorkers *int `pulumi:"maxNumberOfWorkers"`
-	// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+	// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
 	MinNumberOfWorkers *int `pulumi:"minNumberOfWorkers"`
 	// Node type for the new cluster.
 	NodeType string `pulumi:"nodeType"`
@@ -12743,7 +12743,7 @@ type LinkedServiceAzureDatabricksNewClusterConfigArgs struct {
 	LogDestination pulumi.StringPtrInput `pulumi:"logDestination"`
 	// Specifies the maximum number of worker nodes. It should be between 1 and 25000.
 	MaxNumberOfWorkers pulumi.IntPtrInput `pulumi:"maxNumberOfWorkers"`
-	// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+	// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
 	MinNumberOfWorkers pulumi.IntPtrInput `pulumi:"minNumberOfWorkers"`
 	// Node type for the new cluster.
 	NodeType pulumi.StringInput `pulumi:"nodeType"`
@@ -12860,7 +12860,7 @@ func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) MaxNumberOfWorkers()
 	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *int { return v.MaxNumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
 func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *int { return v.MinNumberOfWorkers }).(pulumi.IntPtrOutput)
 }
@@ -12966,7 +12966,7 @@ func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) MaxNumberOfWorker
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
 func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) *int {
 		if v == nil {

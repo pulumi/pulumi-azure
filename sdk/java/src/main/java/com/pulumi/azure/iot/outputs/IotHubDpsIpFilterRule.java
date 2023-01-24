@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IotHubDpsIpFilterRule {
     /**
-     * @return The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+     * @return The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
      * 
      */
     private String action;
@@ -34,7 +34,7 @@ public final class IotHubDpsIpFilterRule {
 
     private IotHubDpsIpFilterRule() {}
     /**
-     * @return The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+     * @return The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
      * 
      */
     public String action() {

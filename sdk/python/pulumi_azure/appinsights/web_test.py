@@ -38,8 +38,7 @@ class WebTestArgs:
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
@@ -178,8 +177,7 @@ class WebTestArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Application Insights WebTest. Changing this forces a
-        new resource to be created.
+        Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -251,8 +249,7 @@ class _WebTestState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
         :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -387,8 +384,7 @@ class _WebTestState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Application Insights WebTest. Changing this forces a
-        new resource to be created.
+        Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -527,8 +523,7 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
         :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -684,8 +679,7 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
         :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
-        :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -779,8 +773,7 @@ class WebTest(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Application Insights WebTest. Changing this forces a
-        new resource to be created.
+        Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

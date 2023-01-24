@@ -154,7 +154,7 @@ export class HadoopCluster extends pulumi.CustomResource {
      */
     public readonly roles!: pulumi.Output<outputs.hdinsight.HadoopClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly securityProfile!: pulumi.Output<outputs.hdinsight.HadoopClusterSecurityProfile | undefined>;
     /**
@@ -321,7 +321,7 @@ export interface HadoopClusterState {
      */
     roles?: pulumi.Input<inputs.hdinsight.HadoopClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     securityProfile?: pulumi.Input<inputs.hdinsight.HadoopClusterSecurityProfile>;
     /**
@@ -404,7 +404,7 @@ export interface HadoopClusterArgs {
      */
     roles: pulumi.Input<inputs.hdinsight.HadoopClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     securityProfile?: pulumi.Input<inputs.hdinsight.HadoopClusterSecurityProfile>;
     /**

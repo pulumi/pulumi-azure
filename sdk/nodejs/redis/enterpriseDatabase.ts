@@ -102,7 +102,7 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
      */
     public readonly linkedDatabaseIds!: pulumi.Output<string[] | undefined>;
     /**
-     * A `module` block as defined below.
+     * A `module` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly modules!: pulumi.Output<outputs.redis.EnterpriseDatabaseModule[] | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface EnterpriseDatabaseState {
      */
     linkedDatabaseIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `module` block as defined below.
+     * A `module` block as defined below. Changing this forces a new resource to be created.
      */
     modules?: pulumi.Input<pulumi.Input<inputs.redis.EnterpriseDatabaseModule>[]>;
     /**
@@ -263,7 +263,7 @@ export interface EnterpriseDatabaseArgs {
      */
     linkedDatabaseIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `module` block as defined below.
+     * A `module` block as defined below. Changing this forces a new resource to be created.
      */
     modules?: pulumi.Input<pulumi.Input<inputs.redis.EnterpriseDatabaseModule>[]>;
     /**

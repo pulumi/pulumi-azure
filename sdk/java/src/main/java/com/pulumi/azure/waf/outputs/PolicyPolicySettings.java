@@ -24,7 +24,7 @@ public final class PolicyPolicySettings {
      */
     private @Nullable Integer fileUploadLimitInMb;
     /**
-     * @return The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
+     * @return The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
      * 
      */
     private @Nullable Integer maxRequestBodySizeInKb;
@@ -55,7 +55,7 @@ public final class PolicyPolicySettings {
         return Optional.ofNullable(this.fileUploadLimitInMb);
     }
     /**
-     * @return The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
+     * @return The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
      * 
      */
     public Optional<Integer> maxRequestBodySizeInKb() {

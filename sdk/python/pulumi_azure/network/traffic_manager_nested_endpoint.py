@@ -31,26 +31,18 @@ class TrafficManagerNestedEndpointArgs:
                  weight: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a TrafficManagerNestedEndpoint resource.
-        :param pulumi.Input[int] minimum_child_endpoints: This argument specifies the minimum number
-               of endpoints that must be ‘online’ in the child profile in order for the
-               parent profile to direct traffic to any of the endpoints in that child
-               profile. This value must be larger than `0`.
+        :param pulumi.Input[int] minimum_child_endpoints: This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to
-               target.
+        :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to target.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
-        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
-               this must be specified for Profiles using the `Performance` routing method.
+        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[int] minimum_required_child_endpoints_ipv4: This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         :param pulumi.Input[int] minimum_required_child_endpoints_ipv6: This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
-               specified for Profiles using the `Priority` traffic routing method. Supports
-               values between 1 and 1000, with no Endpoints sharing the same value. If
-               omitted the value will be computed in order of creation.
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below
+        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
         pulumi.set(__self__, "minimum_child_endpoints", minimum_child_endpoints)
@@ -81,10 +73,7 @@ class TrafficManagerNestedEndpointArgs:
     @pulumi.getter(name="minimumChildEndpoints")
     def minimum_child_endpoints(self) -> pulumi.Input[int]:
         """
-        This argument specifies the minimum number
-        of endpoints that must be ‘online’ in the child profile in order for the
-        parent profile to direct traffic to any of the endpoints in that child
-        profile. This value must be larger than `0`.
+        This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         """
         return pulumi.get(self, "minimum_child_endpoints")
 
@@ -108,8 +97,7 @@ class TrafficManagerNestedEndpointArgs:
     @pulumi.getter(name="targetResourceId")
     def target_resource_id(self) -> pulumi.Input[str]:
         """
-        The resource id of an Azure resource to
-        target.
+        The resource id of an Azure resource to target.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -145,8 +133,7 @@ class TrafficManagerNestedEndpointArgs:
     @pulumi.getter(name="endpointLocation")
     def endpoint_location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Azure location of the Endpoint,
-        this must be specified for Profiles using the `Performance` routing method.
+        Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         """
         return pulumi.get(self, "endpoint_location")
 
@@ -206,10 +193,7 @@ class TrafficManagerNestedEndpointArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the priority of this Endpoint, this must be
-        specified for Profiles using the `Priority` traffic routing method. Supports
-        values between 1 and 1000, with no Endpoints sharing the same value. If
-        omitted the value will be computed in order of creation.
+        Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         """
         return pulumi.get(self, "priority")
 
@@ -221,7 +205,7 @@ class TrafficManagerNestedEndpointArgs:
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]:
         """
-        One or more `subnet` blocks as defined below
+        One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnets")
 
@@ -262,24 +246,16 @@ class _TrafficManagerNestedEndpointState:
         Input properties used for looking up and filtering TrafficManagerNestedEndpoint resources.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
-        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
-               this must be specified for Profiles using the `Performance` routing method.
+        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
-        :param pulumi.Input[int] minimum_child_endpoints: This argument specifies the minimum number
-               of endpoints that must be ‘online’ in the child profile in order for the
-               parent profile to direct traffic to any of the endpoints in that child
-               profile. This value must be larger than `0`.
+        :param pulumi.Input[int] minimum_child_endpoints: This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         :param pulumi.Input[int] minimum_required_child_endpoints_ipv4: This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         :param pulumi.Input[int] minimum_required_child_endpoints_ipv6: This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
-               specified for Profiles using the `Priority` traffic routing method. Supports
-               values between 1 and 1000, with no Endpoints sharing the same value. If
-               omitted the value will be computed in order of creation.
+        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below
-        :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to
-               target.
+        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to target.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
         if custom_headers is not None:
@@ -337,8 +313,7 @@ class _TrafficManagerNestedEndpointState:
     @pulumi.getter(name="endpointLocation")
     def endpoint_location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Azure location of the Endpoint,
-        this must be specified for Profiles using the `Performance` routing method.
+        Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         """
         return pulumi.get(self, "endpoint_location")
 
@@ -362,10 +337,7 @@ class _TrafficManagerNestedEndpointState:
     @pulumi.getter(name="minimumChildEndpoints")
     def minimum_child_endpoints(self) -> Optional[pulumi.Input[int]]:
         """
-        This argument specifies the minimum number
-        of endpoints that must be ‘online’ in the child profile in order for the
-        parent profile to direct traffic to any of the endpoints in that child
-        profile. This value must be larger than `0`.
+        This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         """
         return pulumi.get(self, "minimum_child_endpoints")
 
@@ -413,10 +385,7 @@ class _TrafficManagerNestedEndpointState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the priority of this Endpoint, this must be
-        specified for Profiles using the `Priority` traffic routing method. Supports
-        values between 1 and 1000, with no Endpoints sharing the same value. If
-        omitted the value will be computed in order of creation.
+        Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         """
         return pulumi.get(self, "priority")
 
@@ -440,7 +409,7 @@ class _TrafficManagerNestedEndpointState:
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]:
         """
-        One or more `subnet` blocks as defined below
+        One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnets")
 
@@ -452,8 +421,7 @@ class _TrafficManagerNestedEndpointState:
     @pulumi.getter(name="targetResourceId")
     def target_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource id of an Azure resource to
-        target.
+        The resource id of an Azure resource to target.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -558,24 +526,16 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
-        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
-               this must be specified for Profiles using the `Performance` routing method.
+        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
-        :param pulumi.Input[int] minimum_child_endpoints: This argument specifies the minimum number
-               of endpoints that must be ‘online’ in the child profile in order for the
-               parent profile to direct traffic to any of the endpoints in that child
-               profile. This value must be larger than `0`.
+        :param pulumi.Input[int] minimum_child_endpoints: This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         :param pulumi.Input[int] minimum_required_child_endpoints_ipv4: This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         :param pulumi.Input[int] minimum_required_child_endpoints_ipv6: This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
-               specified for Profiles using the `Priority` traffic routing method. Supports
-               values between 1 and 1000, with no Endpoints sharing the same value. If
-               omitted the value will be computed in order of creation.
+        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below
-        :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to
-               target.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to target.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
         ...
@@ -733,24 +693,16 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
-        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
-               this must be specified for Profiles using the `Performance` routing method.
+        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
-        :param pulumi.Input[int] minimum_child_endpoints: This argument specifies the minimum number
-               of endpoints that must be ‘online’ in the child profile in order for the
-               parent profile to direct traffic to any of the endpoints in that child
-               profile. This value must be larger than `0`.
+        :param pulumi.Input[int] minimum_child_endpoints: This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         :param pulumi.Input[int] minimum_required_child_endpoints_ipv4: This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         :param pulumi.Input[int] minimum_required_child_endpoints_ipv6: This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
-               specified for Profiles using the `Priority` traffic routing method. Supports
-               values between 1 and 1000, with no Endpoints sharing the same value. If
-               omitted the value will be computed in order of creation.
+        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below
-        :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to
-               target.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to target.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -792,8 +744,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="endpointLocation")
     def endpoint_location(self) -> pulumi.Output[str]:
         """
-        Specifies the Azure location of the Endpoint,
-        this must be specified for Profiles using the `Performance` routing method.
+        Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         """
         return pulumi.get(self, "endpoint_location")
 
@@ -809,10 +760,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="minimumChildEndpoints")
     def minimum_child_endpoints(self) -> pulumi.Output[int]:
         """
-        This argument specifies the minimum number
-        of endpoints that must be ‘online’ in the child profile in order for the
-        parent profile to direct traffic to any of the endpoints in that child
-        profile. This value must be larger than `0`.
+        This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         """
         return pulumi.get(self, "minimum_child_endpoints")
 
@@ -844,10 +792,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[int]:
         """
-        Specifies the priority of this Endpoint, this must be
-        specified for Profiles using the `Priority` traffic routing method. Supports
-        values between 1 and 1000, with no Endpoints sharing the same value. If
-        omitted the value will be computed in order of creation.
+        Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         """
         return pulumi.get(self, "priority")
 
@@ -863,7 +808,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def subnets(self) -> pulumi.Output[Optional[Sequence['outputs.TrafficManagerNestedEndpointSubnet']]]:
         """
-        One or more `subnet` blocks as defined below
+        One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnets")
 
@@ -871,8 +816,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="targetResourceId")
     def target_resource_id(self) -> pulumi.Output[str]:
         """
-        The resource id of an Azure resource to
-        target.
+        The resource id of an Azure resource to target.
         """
         return pulumi.get(self, "target_resource_id")
 

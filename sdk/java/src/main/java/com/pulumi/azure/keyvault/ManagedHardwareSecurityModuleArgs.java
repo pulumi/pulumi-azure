@@ -96,14 +96,14 @@ public final class ManagedHardwareSecurityModuleArgs extends com.pulumi.resource
     }
 
     /**
-     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
      * 
      */
     @Import(name="purgeProtectionEnabled")
     private @Nullable Output<Boolean> purgeProtectionEnabled;
 
     /**
-     * @return Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+     * @return Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> purgeProtectionEnabled() {
@@ -335,7 +335,7 @@ public final class ManagedHardwareSecurityModuleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class ManagedHardwareSecurityModuleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

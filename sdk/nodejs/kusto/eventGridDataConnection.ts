@@ -153,7 +153,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      */
     public readonly managedIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
@@ -293,7 +293,7 @@ export interface EventGridDataConnectionState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      */
     managedIdentityResourceId?: pulumi.Input<string>;
     /**
@@ -363,7 +363,7 @@ export interface EventGridDataConnectionArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      */
     managedIdentityResourceId?: pulumi.Input<string>;
     /**

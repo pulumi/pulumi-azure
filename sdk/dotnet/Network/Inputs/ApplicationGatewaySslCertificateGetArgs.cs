@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Network.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// Password for the pfx file specified in data.  Required if `data` is set.
+        /// Password for the pfx file specified in data. Required if `data` is set.
         /// </summary>
         public Input<string>? Password
         {

@@ -157,14 +157,14 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cors);
     }
     /**
-     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="environmentVariables", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> environmentVariables;
 
     /**
-     * @return Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * @return Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Map<String,String>>> environmentVariables() {
@@ -241,14 +241,14 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
         return this.quota;
     }
     /**
-     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sensitiveEnvironmentVariables", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> sensitiveEnvironmentVariables;
 
     /**
-     * @return Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * @return Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Map<String,String>>> sensitiveEnvironmentVariables() {

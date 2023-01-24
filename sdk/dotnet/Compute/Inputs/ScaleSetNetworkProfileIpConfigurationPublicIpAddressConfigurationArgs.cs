@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<int> IdleTimeout { get; set; } = null!;
 
         /// <summary>
-        /// The name of the public IP address configuration Changing this forces a new resource to be created.
+        /// The name of the public IP address configuration
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

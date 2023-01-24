@@ -83,10 +83,9 @@ type Cache struct {
 	Identity CacheIdentityPtrOutput `pulumi:"identity"`
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
-	// The name of the Redis instance. Changing this forces a
-	// new resource to be created.
+	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayOutput `pulumi:"patchSchedules"`
@@ -190,10 +189,9 @@ type cacheState struct {
 	Identity *CacheIdentity `pulumi:"identity"`
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the Redis instance. Changing this forces a
-	// new resource to be created.
+	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules []CachePatchSchedule `pulumi:"patchSchedules"`
@@ -250,10 +248,9 @@ type CacheState struct {
 	Identity CacheIdentityPtrInput
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the Redis instance. Changing this forces a
-	// new resource to be created.
+	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayInput
@@ -312,10 +309,9 @@ type cacheArgs struct {
 	Identity *CacheIdentity `pulumi:"identity"`
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the Redis instance. Changing this forces a
-	// new resource to be created.
+	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules []CachePatchSchedule `pulumi:"patchSchedules"`
@@ -359,10 +355,9 @@ type CacheArgs struct {
 	Identity CacheIdentityPtrInput
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the Redis instance. Changing this forces a
-	// new resource to be created.
+	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayInput
@@ -511,13 +506,12 @@ func (o CacheOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 func (o CacheOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Redis instance. Changing this forces a
-// new resource to be created.
+// The name of the Redis instance. Changing this forces a new resource to be created.
 func (o CacheOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

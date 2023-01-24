@@ -111,7 +111,8 @@ def get_resolver_inbound_endpoint(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.privatedns.ResolverInboundEndpoint("example", private_dns_resolver_id="example-private-dns-resolver-id")
+    example = azure.privatedns.get_resolver_inbound_endpoint(name="example-drie",
+        private_dns_resolver_id="example-private-dns-resolver-id")
     ```
 
 
@@ -146,7 +147,8 @@ def get_resolver_inbound_endpoint_output(name: Optional[pulumi.Input[str]] = Non
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.privatedns.ResolverInboundEndpoint("example", private_dns_resolver_id="example-private-dns-resolver-id")
+    example = azure.privatedns.get_resolver_inbound_endpoint(name="example-drie",
+        private_dns_resolver_id="example-private-dns-resolver-id")
     ```
 
 

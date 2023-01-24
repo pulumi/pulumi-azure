@@ -46,7 +46,7 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_ranges: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
-        :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
@@ -182,7 +182,7 @@ class ClusterArgs:
     @pulumi.getter(name="doubleEncryptionEnabled")
     def double_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+        Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "double_encryption_enabled")
 
@@ -405,7 +405,7 @@ class _ClusterState:
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
-        :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
@@ -538,7 +538,7 @@ class _ClusterState:
     @pulumi.getter(name="doubleEncryptionEnabled")
     def double_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+        Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "double_encryption_enabled")
 
@@ -827,7 +827,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_ranges: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
-        :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
@@ -1002,7 +1002,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
-        :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
@@ -1096,7 +1096,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="doubleEncryptionEnabled")
     def double_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+        Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "double_encryption_enabled")
 

@@ -111,7 +111,6 @@ import javax.annotation.Nullable;
 public class NetworkManagerManagementGroupConnection extends com.pulumi.resources.CustomResource {
     /**
      * The Connection state of the Network Manager Management Group Connection.
-     * *
      * 
      */
     @Export(name="connectionState", type=String.class, parameters={})
@@ -119,7 +118,6 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
 
     /**
      * @return The Connection state of the Network Manager Management Group Connection.
-     * *
      * 
      */
     public Output<String> connectionState() {
@@ -140,14 +138,14 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
         return Codegen.optional(this.description);
     }
     /**
-     * Specifies the ID of the target Management Group.
+     * Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="managementGroupId", type=String.class, parameters={})
     private Output<String> managementGroupId;
 
     /**
-     * @return Specifies the ID of the target Management Group.
+     * @return Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> managementGroupId() {
@@ -168,14 +166,14 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
         return this.name;
     }
     /**
-     * Specifies the ID of the Network Manager which the Management Group is connected to.
+     * Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="networkManagerId", type=String.class, parameters={})
     private Output<String> networkManagerId;
 
     /**
-     * @return Specifies the ID of the Network Manager which the Management Group is connected to.
+     * @return Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> networkManagerId() {

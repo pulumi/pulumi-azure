@@ -82,7 +82,7 @@ type SourceControl struct {
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	Branch pulumi.StringOutput `pulumi:"branch"`
-	// A `githubActionConfiguration` block as defined below.
+	// A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
 	GithubActionConfiguration SourceControlGithubActionConfigurationPtrOutput `pulumi:"githubActionConfiguration"`
 	// The URL for the repository. Changing this forces a new resource to be created.
 	RepoUrl pulumi.StringOutput `pulumi:"repoUrl"`
@@ -136,7 +136,7 @@ type sourceControlState struct {
 	AppId *string `pulumi:"appId"`
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	Branch *string `pulumi:"branch"`
-	// A `githubActionConfiguration` block as defined below.
+	// A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
 	GithubActionConfiguration *SourceControlGithubActionConfiguration `pulumi:"githubActionConfiguration"`
 	// The URL for the repository. Changing this forces a new resource to be created.
 	RepoUrl *string `pulumi:"repoUrl"`
@@ -159,7 +159,7 @@ type SourceControlState struct {
 	AppId pulumi.StringPtrInput
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	Branch pulumi.StringPtrInput
-	// A `githubActionConfiguration` block as defined below.
+	// A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
 	GithubActionConfiguration SourceControlGithubActionConfigurationPtrInput
 	// The URL for the repository. Changing this forces a new resource to be created.
 	RepoUrl pulumi.StringPtrInput
@@ -186,7 +186,7 @@ type sourceControlArgs struct {
 	AppId string `pulumi:"appId"`
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	Branch *string `pulumi:"branch"`
-	// A `githubActionConfiguration` block as defined below.
+	// A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
 	GithubActionConfiguration *SourceControlGithubActionConfiguration `pulumi:"githubActionConfiguration"`
 	// The URL for the repository. Changing this forces a new resource to be created.
 	RepoUrl *string `pulumi:"repoUrl"`
@@ -206,7 +206,7 @@ type SourceControlArgs struct {
 	AppId pulumi.StringInput
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	Branch pulumi.StringPtrInput
-	// A `githubActionConfiguration` block as defined below.
+	// A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
 	GithubActionConfiguration SourceControlGithubActionConfigurationPtrInput
 	// The URL for the repository. Changing this forces a new resource to be created.
 	RepoUrl pulumi.StringPtrInput
@@ -317,7 +317,7 @@ func (o SourceControlOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceControl) pulumi.StringOutput { return v.Branch }).(pulumi.StringOutput)
 }
 
-// A `githubActionConfiguration` block as defined below.
+// A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
 func (o SourceControlOutput) GithubActionConfiguration() SourceControlGithubActionConfigurationPtrOutput {
 	return o.ApplyT(func(v *SourceControl) SourceControlGithubActionConfigurationPtrOutput {
 		return v.GithubActionConfiguration

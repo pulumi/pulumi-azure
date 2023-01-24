@@ -26,14 +26,14 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
     public static final LinuxWebAppSlotArgs Empty = new LinuxWebAppSlotArgs();
 
     /**
-     * The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+     * The ID of the Linux Web App this Deployment Slot will be part of.
      * 
      */
     @Import(name="appServiceId", required=true)
     private Output<String> appServiceId;
 
     /**
-     * @return The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+     * @return The ID of the Linux Web App this Deployment Slot will be part of.
      * 
      */
     public Output<String> appServiceId() {
@@ -369,7 +369,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param appServiceId The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+         * @param appServiceId The ID of the Linux Web App this Deployment Slot will be part of.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param appServiceId The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+         * @param appServiceId The ID of the Linux Web App this Deployment Slot will be part of.
          * 
          * @return builder
          * 

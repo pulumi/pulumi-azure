@@ -19,13 +19,13 @@ namespace Pulumi.Azure.Datadog.Inputs
         public Input<string> Email { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this user_info.
+        /// The name which should be used for this user_info. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Phone number of the user used by Datadog for contacting them if needed.
+        /// Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
         /// </summary>
         [Input("phoneNumber")]
         public Input<string>? PhoneNumber { get; set; }

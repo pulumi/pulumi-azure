@@ -119,6 +119,8 @@ type KubernetesCluster struct {
 	ImageCleanerIntervalHours pulumi.IntPtrOutput `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrOutput `pulumi:"ingressApplicationGateway"`
+	// A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+	KeyManagementService KubernetesClusterKeyManagementServicePtrOutput `pulumi:"keyManagementService"`
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderPtrOutput `pulumi:"keyVaultSecretsProvider"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -129,7 +131,7 @@ type KubernetesCluster struct {
 	KubeConfigRaw pulumi.StringOutput `pulumi:"kubeConfigRaw"`
 	// A `kubeConfig` block as defined below.
 	KubeConfigs KubernetesClusterKubeConfigArrayOutput `pulumi:"kubeConfigs"`
-	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+	// A `kubeletIdentity` block as defined below.
 	KubeletIdentity KubernetesClusterKubeletIdentityOutput `pulumi:"kubeletIdentity"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
@@ -147,7 +149,7 @@ type KubernetesCluster struct {
 	MonitorMetrics KubernetesClusterMonitorMetricsPtrOutput `pulumi:"monitorMetrics"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `networkProfile` block as defined below.
+	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 	NetworkProfile KubernetesClusterNetworkProfileOutput `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
@@ -279,6 +281,8 @@ type kubernetesClusterState struct {
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
+	// A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+	KeyManagementService *KubernetesClusterKeyManagementService `pulumi:"keyManagementService"`
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider *KubernetesClusterKeyVaultSecretsProvider `pulumi:"keyVaultSecretsProvider"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -289,7 +293,7 @@ type kubernetesClusterState struct {
 	KubeConfigRaw *string `pulumi:"kubeConfigRaw"`
 	// A `kubeConfig` block as defined below.
 	KubeConfigs []KubernetesClusterKubeConfig `pulumi:"kubeConfigs"`
-	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+	// A `kubeletIdentity` block as defined below.
 	KubeletIdentity *KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentity"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
@@ -307,7 +311,7 @@ type kubernetesClusterState struct {
 	MonitorMetrics *KubernetesClusterMonitorMetrics `pulumi:"monitorMetrics"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `networkProfile` block as defined below.
+	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
@@ -398,6 +402,8 @@ type KubernetesClusterState struct {
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
+	// A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+	KeyManagementService KubernetesClusterKeyManagementServicePtrInput
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderPtrInput
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -408,7 +414,7 @@ type KubernetesClusterState struct {
 	KubeConfigRaw pulumi.StringPtrInput
 	// A `kubeConfig` block as defined below.
 	KubeConfigs KubernetesClusterKubeConfigArrayInput
-	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+	// A `kubeletIdentity` block as defined below.
 	KubeletIdentity KubernetesClusterKubeletIdentityPtrInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	KubernetesVersion pulumi.StringPtrInput
@@ -426,7 +432,7 @@ type KubernetesClusterState struct {
 	MonitorMetrics KubernetesClusterMonitorMetricsPtrInput
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `networkProfile` block as defined below.
+	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
@@ -517,9 +523,11 @@ type kubernetesClusterArgs struct {
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
+	// A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+	KeyManagementService *KubernetesClusterKeyManagementService `pulumi:"keyManagementService"`
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider *KubernetesClusterKeyVaultSecretsProvider `pulumi:"keyVaultSecretsProvider"`
-	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+	// A `kubeletIdentity` block as defined below.
 	KubeletIdentity *KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentity"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
@@ -537,7 +545,7 @@ type kubernetesClusterArgs struct {
 	MonitorMetrics *KubernetesClusterMonitorMetrics `pulumi:"monitorMetrics"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `networkProfile` block as defined below.
+	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
@@ -619,9 +627,11 @@ type KubernetesClusterArgs struct {
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
+	// A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+	KeyManagementService KubernetesClusterKeyManagementServicePtrInput
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderPtrInput
-	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+	// A `kubeletIdentity` block as defined below.
 	KubeletIdentity KubernetesClusterKubeletIdentityPtrInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
 	KubernetesVersion pulumi.StringPtrInput
@@ -639,7 +649,7 @@ type KubernetesClusterArgs struct {
 	MonitorMetrics KubernetesClusterMonitorMetricsPtrInput
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `networkProfile` block as defined below.
+	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
@@ -879,6 +889,13 @@ func (o KubernetesClusterOutput) IngressApplicationGateway() KubernetesClusterIn
 	}).(KubernetesClusterIngressApplicationGatewayPtrOutput)
 }
 
+// A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+func (o KubernetesClusterOutput) KeyManagementService() KubernetesClusterKeyManagementServicePtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterKeyManagementServicePtrOutput {
+		return v.KeyManagementService
+	}).(KubernetesClusterKeyManagementServicePtrOutput)
+}
+
 // A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 func (o KubernetesClusterOutput) KeyVaultSecretsProvider() KubernetesClusterKeyVaultSecretsProviderPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterKeyVaultSecretsProviderPtrOutput {
@@ -906,7 +923,7 @@ func (o KubernetesClusterOutput) KubeConfigs() KubernetesClusterKubeConfigArrayO
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterKubeConfigArrayOutput { return v.KubeConfigs }).(KubernetesClusterKubeConfigArrayOutput)
 }
 
-// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+// A `kubeletIdentity` block as defined below.
 func (o KubernetesClusterOutput) KubeletIdentity() KubernetesClusterKubeletIdentityOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterKubeletIdentityOutput { return v.KubeletIdentity }).(KubernetesClusterKubeletIdentityOutput)
 }
@@ -951,7 +968,7 @@ func (o KubernetesClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `networkProfile` block as defined below.
+// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 func (o KubernetesClusterOutput) NetworkProfile() KubernetesClusterNetworkProfileOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterNetworkProfileOutput { return v.NetworkProfile }).(KubernetesClusterNetworkProfileOutput)
 }

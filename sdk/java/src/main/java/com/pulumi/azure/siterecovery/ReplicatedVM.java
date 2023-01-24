@@ -267,14 +267,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:siterecovery/replicatedVM:ReplicatedVM")
 public class ReplicatedVM extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `managed_disk` block as defined below.
+     * One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="managedDisks", type=List.class, parameters={ReplicatedVMManagedDisk.class})
     private Output</* @Nullable */ List<ReplicatedVMManagedDisk>> managedDisks;
 
     /**
-     * @return One or more `managed_disk` block as defined below.
+     * @return One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<ReplicatedVMManagedDisk>>> managedDisks() {

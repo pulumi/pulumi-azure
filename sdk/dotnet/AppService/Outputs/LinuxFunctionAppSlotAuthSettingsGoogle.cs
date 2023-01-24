@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        /// The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         /// </summary>
         public readonly string? ClientSecret;
         /// <summary>

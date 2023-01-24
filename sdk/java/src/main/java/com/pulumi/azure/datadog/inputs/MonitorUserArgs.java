@@ -31,14 +31,14 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this user_info.
+     * The name which should be used for this user_info. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this user_info.
+     * @return The name which should be used for this user_info. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -46,14 +46,14 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Phone number of the user used by Datadog for contacting them if needed.
+     * Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="phoneNumber")
     private @Nullable Output<String> phoneNumber;
 
     /**
-     * @return Phone number of the user used by Datadog for contacting them if needed.
+     * @return Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> phoneNumber() {
@@ -108,7 +108,7 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this user_info.
+         * @param name The name which should be used for this user_info. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this user_info.
+         * @param name The name which should be used for this user_info. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param phoneNumber Phone number of the user used by Datadog for contacting them if needed.
+         * @param phoneNumber Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class MonitorUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param phoneNumber Phone number of the user used by Datadog for contacting them if needed.
+         * @param phoneNumber Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

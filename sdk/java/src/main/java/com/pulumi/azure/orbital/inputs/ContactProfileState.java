@@ -50,14 +50,14 @@ public final class ContactProfileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of spacecraft links. A `links` block as defined below.
+     * A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="links")
     private @Nullable Output<List<ContactProfileLinkArgs>> links;
 
     /**
-     * @return A list of spacecraft links. A `links` block as defined below.
+     * @return A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<ContactProfileLinkArgs>>> links() {
@@ -245,7 +245,7 @@ public final class ContactProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param links A list of spacecraft links. A `links` block as defined below.
+         * @param links A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ContactProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param links A list of spacecraft links. A `links` block as defined below.
+         * @param links A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class ContactProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param links A list of spacecraft links. A `links` block as defined below.
+         * @param links A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

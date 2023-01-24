@@ -64,7 +64,7 @@ type EnterpriseCluster struct {
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -117,7 +117,7 @@ type enterpriseClusterState struct {
 	Hostname *string `pulumi:"hostname"`
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location *string `pulumi:"location"`
-	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name *string `pulumi:"name"`
@@ -136,7 +136,7 @@ type EnterpriseClusterState struct {
 	Hostname pulumi.StringPtrInput
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location pulumi.StringPtrInput
-	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name pulumi.StringPtrInput
@@ -157,7 +157,7 @@ func (EnterpriseClusterState) ElementType() reflect.Type {
 type enterpriseClusterArgs struct {
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location *string `pulumi:"location"`
-	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name *string `pulumi:"name"`
@@ -175,7 +175,7 @@ type enterpriseClusterArgs struct {
 type EnterpriseClusterArgs struct {
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location pulumi.StringPtrInput
-	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name pulumi.StringPtrInput
@@ -286,7 +286,7 @@ func (o EnterpriseClusterOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnterpriseCluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
 func (o EnterpriseClusterOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseCluster) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }

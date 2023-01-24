@@ -17,7 +17,7 @@ public final class FrontdoorRouteDisableLinkToDefaultDomainState extends com.pul
     public static final FrontdoorRouteDisableLinkToDefaultDomainState Empty = new FrontdoorRouteDisableLinkToDefaultDomainState();
 
     /**
-     * The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+     * The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      * 
      * @deprecated
      * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
@@ -28,7 +28,7 @@ public final class FrontdoorRouteDisableLinkToDefaultDomainState extends com.pul
     private @Nullable Output<List<String>> cdnFrontdoorCustomDomainIds;
 
     /**
-     * @return The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+     * @return The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      * 
      * @deprecated
      * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
@@ -88,7 +88,7 @@ public final class FrontdoorRouteDisableLinkToDefaultDomainState extends com.pul
         }
 
         /**
-         * @param cdnFrontdoorCustomDomainIds The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+         * @param cdnFrontdoorCustomDomainIds The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class FrontdoorRouteDisableLinkToDefaultDomainState extends com.pul
         }
 
         /**
-         * @param cdnFrontdoorCustomDomainIds The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+         * @param cdnFrontdoorCustomDomainIds The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class FrontdoorRouteDisableLinkToDefaultDomainState extends com.pul
         }
 
         /**
-         * @param cdnFrontdoorCustomDomainIds The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+         * @param cdnFrontdoorCustomDomainIds The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
          * 
          * @return builder
          * 

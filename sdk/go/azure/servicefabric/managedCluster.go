@@ -102,9 +102,9 @@ type ManagedCluster struct {
 	NodeTypes ManagedClusterNodeTypeArrayOutput `pulumi:"nodeTypes"`
 	// Administrator password for the VMs that will be created as part of this cluster.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// The name of the Resource Group where the Resource Group should exist.
+	// The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+	// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Resource Group.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -133,6 +133,13 @@ func NewManagedCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource ManagedCluster
 	err := ctx.RegisterResource("azure:servicefabric/managedCluster:ManagedCluster", name, args, &resource, opts...)
 	if err != nil {
@@ -179,9 +186,9 @@ type managedClusterState struct {
 	NodeTypes []ManagedClusterNodeType `pulumi:"nodeTypes"`
 	// Administrator password for the VMs that will be created as part of this cluster.
 	Password *string `pulumi:"password"`
-	// The name of the Resource Group where the Resource Group should exist.
+	// The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+	// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Resource Group.
 	Tags map[string]string `pulumi:"tags"`
@@ -216,9 +223,9 @@ type ManagedClusterState struct {
 	NodeTypes ManagedClusterNodeTypeArrayInput
 	// Administrator password for the VMs that will be created as part of this cluster.
 	Password pulumi.StringPtrInput
-	// The name of the Resource Group where the Resource Group should exist.
+	// The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+	// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Resource Group.
 	Tags pulumi.StringMapInput
@@ -257,9 +264,9 @@ type managedClusterArgs struct {
 	NodeTypes []ManagedClusterNodeType `pulumi:"nodeTypes"`
 	// Administrator password for the VMs that will be created as part of this cluster.
 	Password *string `pulumi:"password"`
-	// The name of the Resource Group where the Resource Group should exist.
+	// The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+	// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Resource Group.
 	Tags map[string]string `pulumi:"tags"`
@@ -295,9 +302,9 @@ type ManagedClusterArgs struct {
 	NodeTypes ManagedClusterNodeTypeArrayInput
 	// Administrator password for the VMs that will be created as part of this cluster.
 	Password pulumi.StringPtrInput
-	// The name of the Resource Group where the Resource Group should exist.
+	// The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	ResourceGroupName pulumi.StringInput
-	// SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+	// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Resource Group.
 	Tags pulumi.StringMapInput
@@ -454,12 +461,12 @@ func (o ManagedClusterOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Resource Group where the Resource Group should exist.
+// The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 func (o ManagedClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
 func (o ManagedClusterOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }

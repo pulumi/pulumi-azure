@@ -183,18 +183,14 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Integer value which controls the maximum size of
-     * a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     @Import(name="maxMessageSizeInKilobytes")
     private @Nullable Output<Integer> maxMessageSizeInKilobytes;
 
     /**
-     * @return Integer value which controls the maximum size of
-     * a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     public Optional<Output<Integer>> maxMessageSizeInKilobytes() {
@@ -580,9 +576,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of
-         * a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34;
-         * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
          * 
          * @return builder
          * 
@@ -593,9 +587,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of
-         * a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34;
-         * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
          * 
          * @return builder
          * 

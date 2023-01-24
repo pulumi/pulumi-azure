@@ -18,14 +18,14 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
     public static final AccountQueuePropertiesHourMetricsArgs Empty = new AccountQueuePropertiesHourMetricsArgs();
 
     /**
-     * Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+     * Indicates whether hour metrics are enabled for the Queue service.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+     * @return Indicates whether hour metrics are enabled for the Queue service.
      * 
      */
     public Output<Boolean> enabled() {
@@ -48,14 +48,14 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
     }
 
     /**
-     * Specifies the number of days that logs will be retained. Changing this forces a new resource.
+     * Specifies the number of days that logs will be retained.
      * 
      */
     @Import(name="retentionPolicyDays")
     private @Nullable Output<Integer> retentionPolicyDays;
 
     /**
-     * @return Specifies the number of days that logs will be retained. Changing this forces a new resource.
+     * @return Specifies the number of days that logs will be retained.
      * 
      */
     public Optional<Output<Integer>> retentionPolicyDays() {
@@ -63,14 +63,14 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
     }
 
     /**
-     * The version of storage analytics to configure. Changing this forces a new resource.
+     * The version of storage analytics to configure.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return The version of storage analytics to configure. Changing this forces a new resource.
+     * @return The version of storage analytics to configure.
      * 
      */
     public Output<String> version() {
@@ -105,7 +105,7 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param enabled Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+         * @param enabled Indicates whether hour metrics are enabled for the Queue service.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param enabled Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+         * @param enabled Indicates whether hour metrics are enabled for the Queue service.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param retentionPolicyDays Specifies the number of days that logs will be retained. Changing this forces a new resource.
+         * @param retentionPolicyDays Specifies the number of days that logs will be retained.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param retentionPolicyDays Specifies the number of days that logs will be retained. Changing this forces a new resource.
+         * @param retentionPolicyDays Specifies the number of days that logs will be retained.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param version The version of storage analytics to configure. Changing this forces a new resource.
+         * @param version The version of storage analytics to configure.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param version The version of storage analytics to configure. Changing this forces a new resource.
+         * @param version The version of storage analytics to configure.
          * 
          * @return builder
          * 

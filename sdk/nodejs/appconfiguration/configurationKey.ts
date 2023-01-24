@@ -95,13 +95,13 @@ import * as utilities from "../utilities";
  * App Configuration Keys can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/label1
+ *  $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/label1
  * ```
  *
  *  If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
  *
  * ```sh
- *  $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/%00
+ *  $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/%00
  * ```
  */
 export class ConfigurationKey extends pulumi.CustomResource {
@@ -149,7 +149,7 @@ export class ConfigurationKey extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * The label of the App Configuration Key.  Changing this forces a new resource to be created.
+     * The label of the App Configuration Key. Changing this forces a new resource to be created.
      */
     public readonly label!: pulumi.Output<string | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface ConfigurationKeyState {
      */
     key?: pulumi.Input<string>;
     /**
-     * The label of the App Configuration Key.  Changing this forces a new resource to be created.
+     * The label of the App Configuration Key. Changing this forces a new resource to be created.
      */
     label?: pulumi.Input<string>;
     /**
@@ -287,7 +287,7 @@ export interface ConfigurationKeyArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * The label of the App Configuration Key.  Changing this forces a new resource to be created.
+     * The label of the App Configuration Key. Changing this forces a new resource to be created.
      */
     label?: pulumi.Input<string>;
     /**

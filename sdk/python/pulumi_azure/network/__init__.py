@@ -65,6 +65,8 @@ from .network_interface_security_group_association import *
 from .network_manager import *
 from .network_manager_management_group_connection import *
 from .network_manager_network_group import *
+from .network_manager_scope_connection import *
+from .network_manager_static_member import *
 from .network_manager_subscription_connection import *
 from .network_packet_capture import *
 from .network_security_group import *

@@ -129,7 +129,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `schema` block as defined below. Changing this forces a new resource to be created.
+        /// A `schema` block as defined below.
         /// </summary>
         [Output("schema")]
         public Output<Outputs.CassandraTableSchema> Schema { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `schema` block as defined below. Changing this forces a new resource to be created.
+        /// A `schema` block as defined below.
         /// </summary>
         [Input("schema", required: true)]
         public Input<Inputs.CassandraTableSchemaArgs> Schema { get; set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `schema` block as defined below. Changing this forces a new resource to be created.
+        /// A `schema` block as defined below.
         /// </summary>
         [Input("schema")]
         public Input<Inputs.CassandraTableSchemaGetArgs>? Schema { get; set; }

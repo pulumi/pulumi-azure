@@ -154,7 +154,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/images/image1
+//	$ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/images/image1
 //
 // ```
 type Image struct {
@@ -167,10 +167,9 @@ type Image struct {
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the image. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// One or more `osDisk` elements as defined below.
+	// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
 	OsDisk ImageOsDiskPtrOutput `pulumi:"osDisk"`
 	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
@@ -179,7 +178,7 @@ type Image struct {
 	SourceVirtualMachineId pulumi.StringPtrOutput `pulumi:"sourceVirtualMachineId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+	// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneResilient pulumi.BoolPtrOutput `pulumi:"zoneResilient"`
 }
 
@@ -222,10 +221,9 @@ type imageState struct {
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the image. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// One or more `osDisk` elements as defined below.
+	// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
 	OsDisk *ImageOsDisk `pulumi:"osDisk"`
 	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
@@ -234,7 +232,7 @@ type imageState struct {
 	SourceVirtualMachineId *string `pulumi:"sourceVirtualMachineId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+	// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneResilient *bool `pulumi:"zoneResilient"`
 }
 
@@ -246,10 +244,9 @@ type ImageState struct {
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the image. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// One or more `osDisk` elements as defined below.
+	// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
 	OsDisk ImageOsDiskPtrInput
 	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
@@ -258,7 +255,7 @@ type ImageState struct {
 	SourceVirtualMachineId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+	// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneResilient pulumi.BoolPtrInput
 }
 
@@ -274,10 +271,9 @@ type imageArgs struct {
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the image. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// One or more `osDisk` elements as defined below.
+	// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
 	OsDisk *ImageOsDisk `pulumi:"osDisk"`
 	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
@@ -286,7 +282,7 @@ type imageArgs struct {
 	SourceVirtualMachineId *string `pulumi:"sourceVirtualMachineId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+	// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneResilient *bool `pulumi:"zoneResilient"`
 }
 
@@ -299,10 +295,9 @@ type ImageArgs struct {
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the image. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// One or more `osDisk` elements as defined below.
+	// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
 	OsDisk ImageOsDiskPtrInput
 	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
@@ -311,7 +306,7 @@ type ImageArgs struct {
 	SourceVirtualMachineId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+	// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneResilient pulumi.BoolPtrInput
 }
 
@@ -418,13 +413,12 @@ func (o ImageOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the image. Changing this forces a
-// new resource to be created.
+// Specifies the name of the image. Changing this forces a new resource to be created.
 func (o ImageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// One or more `osDisk` elements as defined below.
+// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
 func (o ImageOutput) OsDisk() ImageOsDiskPtrOutput {
 	return o.ApplyT(func(v *Image) ImageOsDiskPtrOutput { return v.OsDisk }).(ImageOsDiskPtrOutput)
 }
@@ -445,7 +439,7 @@ func (o ImageOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
 func (o ImageOutput) ZoneResilient() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.BoolPtrOutput { return v.ZoneResilient }).(pulumi.BoolPtrOutput)
 }

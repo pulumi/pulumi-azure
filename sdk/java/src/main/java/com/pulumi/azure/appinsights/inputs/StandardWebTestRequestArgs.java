@@ -34,14 +34,14 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Should the following of redirects be enabled?
+     * Should the following of redirects be enabled? Defaults to `true`.
      * 
      */
     @Import(name="followRedirectsEnabled")
     private @Nullable Output<Boolean> followRedirectsEnabled;
 
     /**
-     * @return Should the following of redirects be enabled?
+     * @return Should the following of redirects be enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> followRedirectsEnabled() {
@@ -79,14 +79,14 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Should the parsing of dependend requests be enabled?
+     * Should the parsing of dependend requests be enabled? Defaults to `true`.
      * 
      */
     @Import(name="parseDependentRequestsEnabled")
     private @Nullable Output<Boolean> parseDependentRequestsEnabled;
 
     /**
-     * @return Should the parsing of dependend requests be enabled?
+     * @return Should the parsing of dependend requests be enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> parseDependentRequestsEnabled() {
@@ -159,7 +159,7 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param followRedirectsEnabled Should the following of redirects be enabled?
+         * @param followRedirectsEnabled Should the following of redirects be enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param followRedirectsEnabled Should the following of redirects be enabled?
+         * @param followRedirectsEnabled Should the following of redirects be enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param parseDependentRequestsEnabled Should the parsing of dependend requests be enabled?
+         * @param parseDependentRequestsEnabled Should the parsing of dependend requests be enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class StandardWebTestRequestArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param parseDependentRequestsEnabled Should the parsing of dependend requests be enabled?
+         * @param parseDependentRequestsEnabled Should the parsing of dependend requests be enabled? Defaults to `true`.
          * 
          * @return builder
          * 

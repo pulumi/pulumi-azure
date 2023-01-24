@@ -34,7 +34,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
+        /// Specifies the name of the Routing Rule.
         /// </summary>
         public readonly string Name;
         /// <summary>

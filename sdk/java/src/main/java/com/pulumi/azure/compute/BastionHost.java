@@ -145,14 +145,14 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fileCopyEnabled);
     }
     /**
-     * A `ip_configuration` block as defined below.
+     * A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="ipConfiguration", type=BastionHostIpConfiguration.class, parameters={})
     private Output</* @Nullable */ BastionHostIpConfiguration> ipConfiguration;
 
     /**
-     * @return A `ip_configuration` block as defined below.
+     * @return A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<BastionHostIpConfiguration>> ipConfiguration() {
@@ -173,14 +173,14 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipConnectEnabled);
     }
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+     * @return Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      * 
      */
     public Output<String> location() {

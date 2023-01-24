@@ -27,9 +27,8 @@ import * as utilities from "../utilities";
  * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting", {
  *     targetResourceId: exampleKeyVault.apply(exampleKeyVault => exampleKeyVault.id),
  *     storageAccountId: exampleAccount.apply(exampleAccount => exampleAccount.id),
- *     logs: [{
+ *     enabledLogs: [{
  *         category: "AuditEvent",
- *         enabled: false,
  *         retentionPolicy: {
  *             enabled: false,
  *         },
@@ -92,7 +91,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly eventhubName!: pulumi.Output<string | undefined>;
     /**
-     * When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
      */
     public readonly logAnalyticsDestinationType!: pulumi.Output<string | undefined>;
     /**
@@ -189,7 +188,7 @@ export interface DiagnosticSettingState {
      */
     eventhubName?: pulumi.Input<string>;
     /**
-     * When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
      */
     logAnalyticsDestinationType?: pulumi.Input<string>;
     /**
@@ -241,7 +240,7 @@ export interface DiagnosticSettingArgs {
      */
     eventhubName?: pulumi.Input<string>;
     /**
-     * When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
      */
     logAnalyticsDestinationType?: pulumi.Input<string>;
     /**

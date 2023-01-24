@@ -372,14 +372,14 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return this.roles;
     }
     /**
-     * A `security_profile` block as defined below.
+     * A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="securityProfile", type=KafkaClusterSecurityProfile.class, parameters={})
     private Output</* @Nullable */ KafkaClusterSecurityProfile> securityProfile;
 
     /**
-     * @return A `security_profile` block as defined below.
+     * @return A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<KafkaClusterSecurityProfile>> securityProfile() {

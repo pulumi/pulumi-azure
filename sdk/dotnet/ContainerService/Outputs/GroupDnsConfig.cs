@@ -14,15 +14,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GroupDnsConfig
     {
         /// <summary>
-        /// A list of nameservers the containers will search out to resolve requests.
+        /// A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> Nameservers;
         /// <summary>
-        /// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+        /// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> Options;
         /// <summary>
-        /// A list of search domains that DNS requests will search along.
+        /// A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> SearchDomains;
 

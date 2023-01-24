@@ -62,7 +62,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? PlacementProperties;
         /// <summary>
-        /// The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+        /// The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
         /// </summary>
         public readonly int? ReverseProxyEndpointPort;
 

@@ -12,38 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity {
     /**
-     * @return The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+     * @return The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String clientId;
     /**
-     * @return The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+     * @return The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String objectId;
     /**
-     * @return The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+     * @return The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String userAssignedIdentityId;
 
     private KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity() {}
     /**
-     * @return The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+     * @return The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> clientId() {
         return Optional.ofNullable(this.clientId);
     }
     /**
-     * @return The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+     * @return The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> objectId() {
         return Optional.ofNullable(this.objectId);
     }
     /**
-     * @return The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+     * @return The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> userAssignedIdentityId() {

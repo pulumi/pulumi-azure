@@ -94,7 +94,7 @@ export class LogzMonitor extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly plan!: pulumi.Output<outputs.monitoring.LogzMonitorPlan>;
     /**
@@ -110,7 +110,7 @@ export class LogzMonitor extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A `user` block as defined below.
+     * A `user` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly user!: pulumi.Output<outputs.monitoring.LogzMonitorUser>;
 
@@ -195,7 +195,7 @@ export interface LogzMonitorState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     plan?: pulumi.Input<inputs.monitoring.LogzMonitorPlan>;
     /**
@@ -211,7 +211,7 @@ export interface LogzMonitorState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `user` block as defined below.
+     * A `user` block as defined below. Changing this forces a new resource to be created.
      */
     user?: pulumi.Input<inputs.monitoring.LogzMonitorUser>;
 }
@@ -241,7 +241,7 @@ export interface LogzMonitorArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     plan: pulumi.Input<inputs.monitoring.LogzMonitorPlan>;
     /**
@@ -253,7 +253,7 @@ export interface LogzMonitorArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `user` block as defined below.
+     * A `user` block as defined below. Changing this forces a new resource to be created.
      */
     user: pulumi.Input<inputs.monitoring.LogzMonitorUser>;
 }

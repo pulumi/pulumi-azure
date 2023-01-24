@@ -97,7 +97,7 @@ export class CertificateOrder extends pulumi.CustomResource {
      */
     public /*out*/ readonly isPrivateKeyExternal!: pulumi.Output<boolean>;
     /**
-     * Certificate key size.  Defaults to `2048`.
+     * Certificate key size. Defaults to `2048`.
      */
     public readonly keySize!: pulumi.Output<number | undefined>;
     /**
@@ -133,7 +133,7 @@ export class CertificateOrder extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Duration in years (must be between `1` and `3`).  Defaults to `1`.
+     * Duration in years (must be between `1` and `3`). Defaults to `1`.
      */
     public readonly validityInYears!: pulumi.Output<number | undefined>;
 
@@ -240,7 +240,7 @@ export interface CertificateOrderState {
      */
     isPrivateKeyExternal?: pulumi.Input<boolean>;
     /**
-     * Certificate key size.  Defaults to `2048`.
+     * Certificate key size. Defaults to `2048`.
      */
     keySize?: pulumi.Input<number>;
     /**
@@ -276,7 +276,7 @@ export interface CertificateOrderState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Duration in years (must be between `1` and `3`).  Defaults to `1`.
+     * Duration in years (must be between `1` and `3`). Defaults to `1`.
      */
     validityInYears?: pulumi.Input<number>;
 }
@@ -298,7 +298,7 @@ export interface CertificateOrderArgs {
      */
     distinguishedName?: pulumi.Input<string>;
     /**
-     * Certificate key size.  Defaults to `2048`.
+     * Certificate key size. Defaults to `2048`.
      */
     keySize?: pulumi.Input<number>;
     /**
@@ -322,7 +322,7 @@ export interface CertificateOrderArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Duration in years (must be between `1` and `3`).  Defaults to `1`.
+     * Duration in years (must be between `1` and `3`). Defaults to `1`.
      */
     validityInYears?: pulumi.Input<number>;
 }

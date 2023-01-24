@@ -413,14 +413,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return this.storageDataDisks;
     }
     /**
-     * A `storage_image_reference` block as defined below.
+     * A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageImageReference", type=VirtualMachineStorageImageReference.class, parameters={})
     private Output<VirtualMachineStorageImageReference> storageImageReference;
 
     /**
-     * @return A `storage_image_reference` block as defined below.
+     * @return A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<VirtualMachineStorageImageReference> storageImageReference() {

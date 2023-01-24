@@ -99,14 +99,11 @@ type TrafficManagerAzureEndpoint struct {
 	GeoMappings pulumi.StringArrayOutput `pulumi:"geoMappings"`
 	// The name of the Azure Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be
-	// specified for Profiles using the `Priority` traffic routing method. Supports
-	// values between 1 and 1000, with no Endpoints sharing the same value. If
-	// omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
-	// One or more `subnet` blocks as defined below
+	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 	Subnets TrafficManagerAzureEndpointSubnetArrayOutput `pulumi:"subnets"`
 	// The ID of the Azure Resource which should be used as a target.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
@@ -157,14 +154,11 @@ type trafficManagerAzureEndpointState struct {
 	GeoMappings []string `pulumi:"geoMappings"`
 	// The name of the Azure Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be
-	// specified for Profiles using the `Priority` traffic routing method. Supports
-	// values between 1 and 1000, with no Endpoints sharing the same value. If
-	// omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority *int `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId *string `pulumi:"profileId"`
-	// One or more `subnet` blocks as defined below
+	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 	Subnets []TrafficManagerAzureEndpointSubnet `pulumi:"subnets"`
 	// The ID of the Azure Resource which should be used as a target.
 	TargetResourceId *string `pulumi:"targetResourceId"`
@@ -181,14 +175,11 @@ type TrafficManagerAzureEndpointState struct {
 	GeoMappings pulumi.StringArrayInput
 	// The name of the Azure Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the priority of this Endpoint, this must be
-	// specified for Profiles using the `Priority` traffic routing method. Supports
-	// values between 1 and 1000, with no Endpoints sharing the same value. If
-	// omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority pulumi.IntPtrInput
 	// The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringPtrInput
-	// One or more `subnet` blocks as defined below
+	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 	Subnets TrafficManagerAzureEndpointSubnetArrayInput
 	// The ID of the Azure Resource which should be used as a target.
 	TargetResourceId pulumi.StringPtrInput
@@ -209,14 +200,11 @@ type trafficManagerAzureEndpointArgs struct {
 	GeoMappings []string `pulumi:"geoMappings"`
 	// The name of the Azure Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be
-	// specified for Profiles using the `Priority` traffic routing method. Supports
-	// values between 1 and 1000, with no Endpoints sharing the same value. If
-	// omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority *int `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId string `pulumi:"profileId"`
-	// One or more `subnet` blocks as defined below
+	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 	Subnets []TrafficManagerAzureEndpointSubnet `pulumi:"subnets"`
 	// The ID of the Azure Resource which should be used as a target.
 	TargetResourceId string `pulumi:"targetResourceId"`
@@ -234,14 +222,11 @@ type TrafficManagerAzureEndpointArgs struct {
 	GeoMappings pulumi.StringArrayInput
 	// The name of the Azure Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the priority of this Endpoint, this must be
-	// specified for Profiles using the `Priority` traffic routing method. Supports
-	// values between 1 and 1000, with no Endpoints sharing the same value. If
-	// omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority pulumi.IntPtrInput
 	// The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringInput
-	// One or more `subnet` blocks as defined below
+	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 	Subnets TrafficManagerAzureEndpointSubnetArrayInput
 	// The ID of the Azure Resource which should be used as a target.
 	TargetResourceId pulumi.StringInput
@@ -358,10 +343,7 @@ func (o TrafficManagerAzureEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficManagerAzureEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the priority of this Endpoint, this must be
-// specified for Profiles using the `Priority` traffic routing method. Supports
-// values between 1 and 1000, with no Endpoints sharing the same value. If
-// omitted the value will be computed in order of creation.
+// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 func (o TrafficManagerAzureEndpointOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficManagerAzureEndpoint) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
@@ -371,7 +353,7 @@ func (o TrafficManagerAzureEndpointOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficManagerAzureEndpoint) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
-// One or more `subnet` blocks as defined below
+// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 func (o TrafficManagerAzureEndpointOutput) Subnets() TrafficManagerAzureEndpointSubnetArrayOutput {
 	return o.ApplyT(func(v *TrafficManagerAzureEndpoint) TrafficManagerAzureEndpointSubnetArrayOutput { return v.Subnets }).(TrafficManagerAzureEndpointSubnetArrayOutput)
 }

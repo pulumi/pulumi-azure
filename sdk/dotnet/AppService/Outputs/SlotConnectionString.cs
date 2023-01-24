@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class SlotConnectionString
     {
         /// <summary>
-        /// The name of the Connection String. Changing this forces a new resource to be created.
+        /// The name of the Connection String.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
         /// </summary>
         public readonly string Type;
         /// <summary>

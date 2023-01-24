@@ -36,16 +36,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the number of units associated with this Web PubSub resource. Valid values are:
-     * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+     * Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      * 
      */
     @Import(name="capacity")
     private @Nullable Output<Integer> capacity;
 
     /**
-     * @return Specifies the number of units associated with this Web PubSub resource. Valid values are:
-     * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+     * @return Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      * 
      */
     public Optional<Output<Integer>> capacity() {
@@ -300,16 +298,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to request client certificate during TLS handshake? Defaults
-     * to `false`.
+     * Whether to request client certificate during TLS handshake? Defaults to `false`.
      * 
      */
     @Import(name="tlsClientCertEnabled")
     private @Nullable Output<Boolean> tlsClientCertEnabled;
 
     /**
-     * @return Whether to request client certificate during TLS handshake? Defaults
-     * to `false`.
+     * @return Whether to request client certificate during TLS handshake? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> tlsClientCertEnabled() {
@@ -389,8 +385,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacity Specifies the number of units associated with this Web PubSub resource. Valid values are:
-         * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+         * @param capacity Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
          * 
          * @return builder
          * 
@@ -401,8 +396,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacity Specifies the number of units associated with this Web PubSub resource. Valid values are:
-         * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+         * @param capacity Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
          * 
          * @return builder
          * 
@@ -757,8 +751,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsClientCertEnabled Whether to request client certificate during TLS handshake? Defaults
-         * to `false`.
+         * @param tlsClientCertEnabled Whether to request client certificate during TLS handshake? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -769,8 +762,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsClientCertEnabled Whether to request client certificate during TLS handshake? Defaults
-         * to `false`.
+         * @param tlsClientCertEnabled Whether to request client certificate during TLS handshake? Defaults to `false`.
          * 
          * @return builder
          * 

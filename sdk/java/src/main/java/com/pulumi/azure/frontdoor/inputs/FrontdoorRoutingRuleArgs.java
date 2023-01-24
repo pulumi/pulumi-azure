@@ -95,14 +95,14 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
+     * Specifies the name of the Routing Rule.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Routing Rule.
      * 
      */
     public Output<String> name() {
@@ -296,7 +296,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Routing Rule.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Routing Rule.
          * 
          * @return builder
          * 

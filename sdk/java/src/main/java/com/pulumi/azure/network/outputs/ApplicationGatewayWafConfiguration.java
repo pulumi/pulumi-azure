@@ -42,12 +42,12 @@ public final class ApplicationGatewayWafConfiguration {
      */
     private String firewallMode;
     /**
-     * @return The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+     * @return The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
      * 
      */
     private @Nullable Integer maxRequestBodySizeKb;
     /**
-     * @return Is Request Body Inspection enabled?  Defaults to `true`.
+     * @return Is Request Body Inspection enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean requestBodyCheck;
@@ -99,14 +99,14 @@ public final class ApplicationGatewayWafConfiguration {
         return this.firewallMode;
     }
     /**
-     * @return The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+     * @return The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
      * 
      */
     public Optional<Integer> maxRequestBodySizeKb() {
         return Optional.ofNullable(this.maxRequestBodySizeKb);
     }
     /**
-     * @return Is Request Body Inspection enabled?  Defaults to `true`.
+     * @return Is Request Body Inspection enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> requestBodyCheck() {

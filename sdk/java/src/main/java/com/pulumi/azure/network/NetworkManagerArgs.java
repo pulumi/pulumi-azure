@@ -34,14 +34,14 @@ public final class NetworkManagerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the Azure Region where the Network Managers should exist.
+     * Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Specifies the Azure Region where the Network Managers should exist.
+     * @return Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -175,7 +175,7 @@ public final class NetworkManagerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param location Specifies the Azure Region where the Network Managers should exist.
+         * @param location Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class NetworkManagerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param location Specifies the Azure Region where the Network Managers should exist.
+         * @param location Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

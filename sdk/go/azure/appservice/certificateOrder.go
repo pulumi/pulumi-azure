@@ -79,7 +79,7 @@ type CertificateOrder struct {
 	IntermediateThumbprint pulumi.StringOutput `pulumi:"intermediateThumbprint"`
 	// Whether the private key is external or not.
 	IsPrivateKeyExternal pulumi.BoolOutput `pulumi:"isPrivateKeyExternal"`
-	// Certificate key size.  Defaults to `2048`.
+	// Certificate key size. Defaults to `2048`.
 	KeySize pulumi.IntPtrOutput `pulumi:"keySize"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -97,7 +97,7 @@ type CertificateOrder struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// (Optional) A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
+	// Duration in years (must be between `1` and `3`). Defaults to `1`.
 	ValidityInYears pulumi.IntPtrOutput `pulumi:"validityInYears"`
 }
 
@@ -151,7 +151,7 @@ type certificateOrderState struct {
 	IntermediateThumbprint *string `pulumi:"intermediateThumbprint"`
 	// Whether the private key is external or not.
 	IsPrivateKeyExternal *bool `pulumi:"isPrivateKeyExternal"`
-	// Certificate key size.  Defaults to `2048`.
+	// Certificate key size. Defaults to `2048`.
 	KeySize *int `pulumi:"keySize"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location *string `pulumi:"location"`
@@ -169,7 +169,7 @@ type certificateOrderState struct {
 	Status *string `pulumi:"status"`
 	// (Optional) A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
+	// Duration in years (must be between `1` and `3`). Defaults to `1`.
 	ValidityInYears *int `pulumi:"validityInYears"`
 }
 
@@ -192,7 +192,7 @@ type CertificateOrderState struct {
 	IntermediateThumbprint pulumi.StringPtrInput
 	// Whether the private key is external or not.
 	IsPrivateKeyExternal pulumi.BoolPtrInput
-	// Certificate key size.  Defaults to `2048`.
+	// Certificate key size. Defaults to `2048`.
 	KeySize pulumi.IntPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location pulumi.StringPtrInput
@@ -210,7 +210,7 @@ type CertificateOrderState struct {
 	Status pulumi.StringPtrInput
 	// (Optional) A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
+	// Duration in years (must be between `1` and `3`). Defaults to `1`.
 	ValidityInYears pulumi.IntPtrInput
 }
 
@@ -225,7 +225,7 @@ type certificateOrderArgs struct {
 	Csr *string `pulumi:"csr"`
 	// The Distinguished Name for the App Service Certificate Order.
 	DistinguishedName *string `pulumi:"distinguishedName"`
-	// Certificate key size.  Defaults to `2048`.
+	// Certificate key size. Defaults to `2048`.
 	KeySize *int `pulumi:"keySize"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location *string `pulumi:"location"`
@@ -237,7 +237,7 @@ type certificateOrderArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// (Optional) A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
+	// Duration in years (must be between `1` and `3`). Defaults to `1`.
 	ValidityInYears *int `pulumi:"validityInYears"`
 }
 
@@ -249,7 +249,7 @@ type CertificateOrderArgs struct {
 	Csr pulumi.StringPtrInput
 	// The Distinguished Name for the App Service Certificate Order.
 	DistinguishedName pulumi.StringPtrInput
-	// Certificate key size.  Defaults to `2048`.
+	// Certificate key size. Defaults to `2048`.
 	KeySize pulumi.IntPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location pulumi.StringPtrInput
@@ -261,7 +261,7 @@ type CertificateOrderArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// (Optional) A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
+	// Duration in years (must be between `1` and `3`). Defaults to `1`.
 	ValidityInYears pulumi.IntPtrInput
 }
 
@@ -397,7 +397,7 @@ func (o CertificateOrderOutput) IsPrivateKeyExternal() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.BoolOutput { return v.IsPrivateKeyExternal }).(pulumi.BoolOutput)
 }
 
-// Certificate key size.  Defaults to `2048`.
+// Certificate key size. Defaults to `2048`.
 func (o CertificateOrderOutput) KeySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.IntPtrOutput { return v.KeySize }).(pulumi.IntPtrOutput)
 }
@@ -442,7 +442,7 @@ func (o CertificateOrderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Duration in years (must be between `1` and `3`).  Defaults to `1`.
+// Duration in years (must be between `1` and `3`). Defaults to `1`.
 func (o CertificateOrderOutput) ValidityInYears() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.IntPtrOutput { return v.ValidityInYears }).(pulumi.IntPtrOutput)
 }

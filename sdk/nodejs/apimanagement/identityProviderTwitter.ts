@@ -113,13 +113,13 @@ export class IdentityProviderTwitter extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             resourceInputs["apiSecretKey"] = args?.apiSecretKey ? pulumi.secret(args.apiSecretKey) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["apiSecretKey"] };
+        const secretOpts = { additionalSecretOutputs: ["apiKey", "apiSecretKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(IdentityProviderTwitter.__pulumiType, name, resourceInputs, opts);
     }

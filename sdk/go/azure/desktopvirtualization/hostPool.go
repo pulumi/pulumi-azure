@@ -82,7 +82,7 @@ type HostPool struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
+	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
 	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 	// `Persistent` should be used if the host pool type is `Personal`
 	LoadBalancerType pulumi.StringOutput `pulumi:"loadBalancerType"`
@@ -155,7 +155,7 @@ type hostPoolState struct {
 	Description *string `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
+	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
 	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 	// `Persistent` should be used if the host pool type is `Personal`
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
@@ -191,7 +191,7 @@ type HostPoolState struct {
 	Description pulumi.StringPtrInput
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName pulumi.StringPtrInput
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
+	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
 	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 	// `Persistent` should be used if the host pool type is `Personal`
 	LoadBalancerType pulumi.StringPtrInput
@@ -231,7 +231,7 @@ type hostPoolArgs struct {
 	Description *string `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
+	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
 	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 	// `Persistent` should be used if the host pool type is `Personal`
 	LoadBalancerType string `pulumi:"loadBalancerType"`
@@ -268,7 +268,7 @@ type HostPoolArgs struct {
 	Description pulumi.StringPtrInput
 	// A friendly name for the Virtual Desktop Host Pool.
 	FriendlyName pulumi.StringPtrInput
-	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
+	// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
 	// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 	// `Persistent` should be used if the host pool type is `Personal`
 	LoadBalancerType pulumi.StringInput
@@ -399,7 +399,7 @@ func (o HostPoolOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
+// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
 // `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
 // `Persistent` should be used if the host pool type is `Personal`
 func (o HostPoolOutput) LoadBalancerType() pulumi.StringOutput {

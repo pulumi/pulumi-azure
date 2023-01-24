@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Kusto
         public Output<bool?> DiskEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+        /// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         /// </summary>
         [Output("doubleEncryptionEnabled")]
         public Output<bool?> DoubleEncryptionEnabled { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? DiskEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+        /// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         /// </summary>
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
@@ -464,7 +464,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? DiskEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+        /// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         /// </summary>
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }

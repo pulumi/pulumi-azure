@@ -10840,13 +10840,13 @@ type ServiceAdditionalLocation struct {
 	GatewayRegionalUrl *string `pulumi:"gatewayRegionalUrl"`
 	// The name of the Azure Region in which the API Management Service should be expanded to.
 	Location string `pulumi:"location"`
-	// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+	// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	// ID of a standard SKU IPv4 Public IP.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
-	// A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceAdditionalLocationVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// A list of availability zones. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
@@ -10872,13 +10872,13 @@ type ServiceAdditionalLocationArgs struct {
 	GatewayRegionalUrl pulumi.StringPtrInput `pulumi:"gatewayRegionalUrl"`
 	// The name of the Azure Region in which the API Management Service should be expanded to.
 	Location pulumi.StringInput `pulumi:"location"`
-	// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+	// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
 	PrivateIpAddresses pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
 	// ID of a standard SKU IPv4 Public IP.
 	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
-	// A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceAdditionalLocationVirtualNetworkConfigurationPtrInput `pulumi:"virtualNetworkConfiguration"`
 	// A list of availability zones. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
@@ -10955,7 +10955,7 @@ func (o ServiceAdditionalLocationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocation) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
 func (o ServiceAdditionalLocationOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocation) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -10970,7 +10970,7 @@ func (o ServiceAdditionalLocationOutput) PublicIpAddresses() pulumi.StringArrayO
 	return o.ApplyT(func(v ServiceAdditionalLocation) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
+// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 func (o ServiceAdditionalLocationOutput) VirtualNetworkConfiguration() ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocation) *ServiceAdditionalLocationVirtualNetworkConfiguration {
 		return v.VirtualNetworkConfiguration

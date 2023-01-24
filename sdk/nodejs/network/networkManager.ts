@@ -79,7 +79,7 @@ export class NetworkManager extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the Azure Region where the Network Managers should exist.
+     * Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -162,7 +162,7 @@ export interface NetworkManagerState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the Azure Region where the Network Managers should exist.
+     * Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface NetworkManagerArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the Azure Region where the Network Managers should exist.
+     * Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**

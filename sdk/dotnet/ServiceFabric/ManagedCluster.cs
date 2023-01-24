@@ -144,13 +144,13 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Resource Group should exist.
+        /// The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        /// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -196,6 +196,10 @@ namespace Pulumi.Azure.ServiceFabric
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -303,20 +307,30 @@ namespace Pulumi.Azure.ServiceFabric
             set => _nodeTypes = value;
         }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Administrator password for the VMs that will be created as part of this cluster.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
-        /// The name of the Resource Group where the Resource Group should exist.
+        /// The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        /// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -437,20 +451,30 @@ namespace Pulumi.Azure.ServiceFabric
             set => _nodeTypes = value;
         }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Administrator password for the VMs that will be created as part of this cluster.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
-        /// The name of the Resource Group where the Resource Group should exist.
+        /// The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+        /// SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

@@ -85,11 +85,11 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly inboundIpRules!: pulumi.Output<outputs.eventhub.DomainInboundIpRule[] | undefined>;
     /**
-     * A `inputMappingDefaultValues` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly inputMappingDefaultValues!: pulumi.Output<outputs.eventhub.DomainInputMappingDefaultValues | undefined>;
     /**
-     * A `inputMappingFields` block as defined below.
+     * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly inputMappingFields!: pulumi.Output<outputs.eventhub.DomainInputMappingFields | undefined>;
     /**
@@ -215,11 +215,11 @@ export interface DomainState {
      */
     inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.DomainInboundIpRule>[]>;
     /**
-     * A `inputMappingDefaultValues` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.DomainInputMappingDefaultValues>;
     /**
-     * A `inputMappingFields` block as defined below.
+     * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingFields?: pulumi.Input<inputs.eventhub.DomainInputMappingFields>;
     /**
@@ -281,11 +281,11 @@ export interface DomainArgs {
      */
     inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.DomainInboundIpRule>[]>;
     /**
-     * A `inputMappingDefaultValues` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.DomainInputMappingDefaultValues>;
     /**
-     * A `inputMappingFields` block as defined below.
+     * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingFields?: pulumi.Input<inputs.eventhub.DomainInputMappingFields>;
     /**

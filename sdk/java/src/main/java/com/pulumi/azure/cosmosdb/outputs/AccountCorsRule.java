@@ -17,7 +17,7 @@ public final class AccountCorsRule {
      */
     private List<String> allowedHeaders;
     /**
-     * @return A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+     * @return A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
      * 
      */
     private List<String> allowedMethods;
@@ -46,7 +46,7 @@ public final class AccountCorsRule {
         return this.allowedHeaders;
     }
     /**
-     * @return A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+     * @return A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
      * 
      */
     public List<String> allowedMethods() {

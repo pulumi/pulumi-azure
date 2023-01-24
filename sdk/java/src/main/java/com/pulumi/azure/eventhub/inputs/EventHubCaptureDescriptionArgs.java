@@ -79,14 +79,14 @@ public final class EventHubCaptureDescriptionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+     * Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
      * 
      */
     @Import(name="sizeLimitInBytes")
     private @Nullable Output<Integer> sizeLimitInBytes;
 
     /**
-     * @return Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+     * @return Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
      * 
      */
     public Optional<Output<Integer>> sizeLimitInBytes() {
@@ -94,14 +94,14 @@ public final class EventHubCaptureDescriptionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+     * Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
      * 
      */
     @Import(name="skipEmptyArchives")
     private @Nullable Output<Boolean> skipEmptyArchives;
 
     /**
-     * @return Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+     * @return Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> skipEmptyArchives() {
@@ -222,7 +222,7 @@ public final class EventHubCaptureDescriptionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sizeLimitInBytes Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+         * @param sizeLimitInBytes Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class EventHubCaptureDescriptionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sizeLimitInBytes Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+         * @param sizeLimitInBytes Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class EventHubCaptureDescriptionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param skipEmptyArchives Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+         * @param skipEmptyArchives Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class EventHubCaptureDescriptionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param skipEmptyArchives Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+         * @param skipEmptyArchives Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
          * 
          * @return builder
          * 

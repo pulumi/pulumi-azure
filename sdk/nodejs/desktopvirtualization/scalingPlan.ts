@@ -158,7 +158,7 @@ export class ScalingPlan extends pulumi.CustomResource {
      */
     public readonly hostPools!: pulumi.Output<outputs.desktopvirtualization.ScalingPlanHostPool[] | undefined>;
     /**
-     * The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+     * The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -166,7 +166,7 @@ export class ScalingPlan extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+     * The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -253,7 +253,7 @@ export interface ScalingPlanState {
      */
     hostPools?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingPlanHostPool>[]>;
     /**
-     * The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+     * The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -261,7 +261,7 @@ export interface ScalingPlanState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+     * The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -299,7 +299,7 @@ export interface ScalingPlanArgs {
      */
     hostPools?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingPlanHostPool>[]>;
     /**
-     * The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+     * The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -307,7 +307,7 @@ export interface ScalingPlanArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+     * The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

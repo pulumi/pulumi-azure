@@ -68,16 +68,14 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the image. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the image. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the image. Changing this forces a
-     * new resource to be created.
+     * @return Specifies the name of the image. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -85,14 +83,14 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `os_disk` elements as defined below.
+     * One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="osDisk")
     private @Nullable Output<ImageOsDiskArgs> osDisk;
 
     /**
-     * @return One or more `os_disk` elements as defined below.
+     * @return One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<ImageOsDiskArgs>> osDisk() {
@@ -147,14 +145,14 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+     * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zoneResilient")
     private @Nullable Output<Boolean> zoneResilient;
 
     /**
-     * @return Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+     * @return Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> zoneResilient() {
@@ -269,8 +267,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the image. Changing this forces a
-         * new resource to be created.
+         * @param name Specifies the name of the image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -281,8 +278,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the image. Changing this forces a
-         * new resource to be created.
+         * @param name Specifies the name of the image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -292,7 +288,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osDisk One or more `os_disk` elements as defined below.
+         * @param osDisk One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -303,7 +299,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osDisk One or more `os_disk` elements as defined below.
+         * @param osDisk One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -378,7 +374,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneResilient Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+         * @param zoneResilient Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -389,7 +385,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneResilient Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+         * @param zoneResilient Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -32,14 +32,14 @@ public final class ActionGroupEmailReceiverArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+     * The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+     * @return The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
      * 
      */
     public Output<String> name() {
@@ -109,7 +109,7 @@ public final class ActionGroupEmailReceiverArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+         * @param name The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ActionGroupEmailReceiverArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+         * @param name The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
          * 
          * @return builder
          * 

@@ -86,14 +86,14 @@ public final class CassandraTableState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `schema` block as defined below. Changing this forces a new resource to be created.
+     * A `schema` block as defined below.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<CassandraTableSchemaArgs> schema;
 
     /**
-     * @return A `schema` block as defined below. Changing this forces a new resource to be created.
+     * @return A `schema` block as defined below.
      * 
      */
     public Optional<Output<CassandraTableSchemaArgs>> schema() {
@@ -231,7 +231,7 @@ public final class CassandraTableState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param schema A `schema` block as defined below. Changing this forces a new resource to be created.
+         * @param schema A `schema` block as defined below.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class CassandraTableState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param schema A `schema` block as defined below. Changing this forces a new resource to be created.
+         * @param schema A `schema` block as defined below.
          * 
          * @return builder
          * 

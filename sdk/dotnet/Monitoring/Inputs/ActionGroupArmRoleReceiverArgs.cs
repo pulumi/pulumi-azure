@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class ActionGroupArmRoleReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the ARM role receiver. Changing this forces a new resource to be created.
+        /// The name of the ARM role receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

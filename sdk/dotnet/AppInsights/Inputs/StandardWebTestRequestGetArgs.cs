@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// Should the following of redirects be enabled?
+        /// Should the following of redirects be enabled? Defaults to `true`.
         /// </summary>
         [Input("followRedirectsEnabled")]
         public Input<bool>? FollowRedirectsEnabled { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
         public Input<string>? HttpVerb { get; set; }
 
         /// <summary>
-        /// Should the parsing of dependend requests be enabled?
+        /// Should the parsing of dependend requests be enabled? Defaults to `true`.
         /// </summary>
         [Input("parseDependentRequestsEnabled")]
         public Input<bool>? ParseDependentRequestsEnabled { get; set; }

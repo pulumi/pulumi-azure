@@ -26,7 +26,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyCustomRuleMatchCondition> MatchConditions;
         /// <summary>
-        /// Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
+        /// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>

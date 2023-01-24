@@ -124,8 +124,7 @@ export class TemplateDeployment extends pulumi.CustomResource {
      */
     public readonly deploymentMode!: pulumi.Output<string>;
     /**
-     * Specifies the name of the template deployment. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the template deployment. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -201,8 +200,7 @@ export interface TemplateDeploymentState {
      */
     deploymentMode?: pulumi.Input<string>;
     /**
-     * Specifies the name of the template deployment. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the template deployment. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -238,8 +236,7 @@ export interface TemplateDeploymentArgs {
      */
     deploymentMode: pulumi.Input<string>;
     /**
-     * Specifies the name of the template deployment. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the template deployment. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

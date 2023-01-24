@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Core.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies the list of user-assigned managed identity IDs associated with the resource.
+        /// Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Core.Inputs
         }
 
         /// <summary>
-        /// Type of the managed identity. The only possible value is `UserAssigned`.
+        /// Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

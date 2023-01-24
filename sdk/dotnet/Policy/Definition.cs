@@ -100,9 +100,7 @@ namespace Pulumi.Azure.Policy
         public Output<string?> ManagementGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The metadata for the policy definition. This
-        /// is a JSON string representing additional metadata that should be stored
-        /// with the policy definition.
+        /// The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
         /// </summary>
         [Output("metadata")]
         public Output<string> Metadata { get; private set; } = null!;
@@ -114,23 +112,19 @@ namespace Pulumi.Azure.Policy
         public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the policy definition. Changing this forces a
-        /// new resource to be created.
+        /// The name of the policy definition. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for the policy definition. This field
-        /// is a JSON string that allows you to parameterize your policy definition.
+        /// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
         /// </summary>
         [Output("parameters")]
         public Output<string?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The policy rule for the policy definition. This
-        /// is a JSON string representing the rule that contains an if and
-        /// a then block.
+        /// The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         /// </summary>
         [Output("policyRule")]
         public Output<string?> PolicyRule { get; private set; } = null!;
@@ -212,9 +206,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? ManagementGroupId { get; set; }
 
         /// <summary>
-        /// The metadata for the policy definition. This
-        /// is a JSON string representing additional metadata that should be stored
-        /// with the policy definition.
+        /// The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
         /// </summary>
         [Input("metadata")]
         public Input<string>? Metadata { get; set; }
@@ -226,23 +218,19 @@ namespace Pulumi.Azure.Policy
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
-        /// The name of the policy definition. Changing this forces a
-        /// new resource to be created.
+        /// The name of the policy definition. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Parameters for the policy definition. This field
-        /// is a JSON string that allows you to parameterize your policy definition.
+        /// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
 
         /// <summary>
-        /// The policy rule for the policy definition. This
-        /// is a JSON string representing the rule that contains an if and
-        /// a then block.
+        /// The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         /// </summary>
         [Input("policyRule")]
         public Input<string>? PolicyRule { get; set; }
@@ -280,9 +268,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? ManagementGroupId { get; set; }
 
         /// <summary>
-        /// The metadata for the policy definition. This
-        /// is a JSON string representing additional metadata that should be stored
-        /// with the policy definition.
+        /// The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
         /// </summary>
         [Input("metadata")]
         public Input<string>? Metadata { get; set; }
@@ -294,23 +280,19 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// The name of the policy definition. Changing this forces a
-        /// new resource to be created.
+        /// The name of the policy definition. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Parameters for the policy definition. This field
-        /// is a JSON string that allows you to parameterize your policy definition.
+        /// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
 
         /// <summary>
-        /// The policy rule for the policy definition. This
-        /// is a JSON string representing the rule that contains an if and
-        /// a then block.
+        /// The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         /// </summary>
         [Input("policyRule")]
         public Input<string>? PolicyRule { get; set; }

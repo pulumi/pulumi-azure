@@ -144,7 +144,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> PortalUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        /// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         /// </summary>
         [Output("privateIpAddresses")]
         public Output<ImmutableArray<string>> PrivateIpAddresses { get; private set; } = null!;
@@ -597,7 +597,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _privateIpAddresses;
 
         /// <summary>
-        /// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        /// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         /// </summary>
         public InputList<string> PrivateIpAddresses
         {

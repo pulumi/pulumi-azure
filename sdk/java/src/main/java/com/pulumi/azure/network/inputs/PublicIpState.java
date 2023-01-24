@@ -64,14 +64,14 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+     * Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      * 
      */
     @Import(name="domainNameLabel")
     private @Nullable Output<String> domainNameLabel;
 
     /**
-     * @return Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+     * @return Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      * 
      */
     public Optional<Output<String>> domainNameLabel() {
@@ -409,7 +409,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainNameLabel Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+         * @param domainNameLabel Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainNameLabel Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+         * @param domainNameLabel Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
          * 
          * @return builder
          * 

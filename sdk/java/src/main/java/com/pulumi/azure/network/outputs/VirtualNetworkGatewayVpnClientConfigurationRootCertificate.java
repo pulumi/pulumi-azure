@@ -10,32 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
     /**
-     * @return A user-defined name of the root certificate. Changing this forces a new resource to be created.
+     * @return A user-defined name of the root certificate.
      * 
      */
     private String name;
     /**
-     * @return The public certificate of the root certificate
-     * authority. The certificate must be provided in Base-64 encoded X.509 format
-     * (PEM). In particular, this argument *must not* include the
-     * `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+     * @return The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
      * 
      */
     private String publicCertData;
 
     private VirtualNetworkGatewayVpnClientConfigurationRootCertificate() {}
     /**
-     * @return A user-defined name of the root certificate. Changing this forces a new resource to be created.
+     * @return A user-defined name of the root certificate.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The public certificate of the root certificate
-     * authority. The certificate must be provided in Base-64 encoded X.509 format
-     * (PEM). In particular, this argument *must not* include the
-     * `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+     * @return The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
      * 
      */
     public String publicCertData() {

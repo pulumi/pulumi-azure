@@ -31,21 +31,16 @@ class ExtensionArgs:
         """
         The set of arguments for constructing a Extension resource.
         :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The type of extension, available types for a publisher can
-               be found using the Azure CLI.
-        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
-               use, available versions can be found using the Azure CLI.
+        :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
-        :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
-               the latest minor version update to the `type_handler_version` specified.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] protected_settings: The protected_settings passed to the
-               extension, like settings, these are specified as a JSON object in a string.
+        :param pulumi.Input[str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
-        :param pulumi.Input[str] settings: The settings passed to the extension, these are
-               specified as a JSON object in a string.
+        :param pulumi.Input[str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "publisher", publisher)
@@ -85,8 +80,7 @@ class ExtensionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of extension, available types for a publisher can
-        be found using the Azure CLI.
+        The type of extension, available types for a publisher can be found using the Azure CLI.
         """
         return pulumi.get(self, "type")
 
@@ -98,8 +92,7 @@ class ExtensionArgs:
     @pulumi.getter(name="typeHandlerVersion")
     def type_handler_version(self) -> pulumi.Input[str]:
         """
-        Specifies the version of the extension to
-        use, available versions can be found using the Azure CLI.
+        Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         """
         return pulumi.get(self, "type_handler_version")
 
@@ -123,8 +116,7 @@ class ExtensionArgs:
     @pulumi.getter(name="autoUpgradeMinorVersion")
     def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the platform deploys
-        the latest minor version update to the `type_handler_version` specified.
+        Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
 
@@ -172,8 +164,7 @@ class ExtensionArgs:
     @pulumi.getter(name="protectedSettings")
     def protected_settings(self) -> Optional[pulumi.Input[str]]:
         """
-        The protected_settings passed to the
-        extension, like settings, these are specified as a JSON object in a string.
+        The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         """
         return pulumi.get(self, "protected_settings")
 
@@ -197,8 +188,7 @@ class ExtensionArgs:
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[str]]:
         """
-        The settings passed to the extension, these are
-        specified as a JSON object in a string.
+        The settings passed to the extension, these are specified as a JSON object in a string.
         """
         return pulumi.get(self, "settings")
 
@@ -236,22 +226,17 @@ class _ExtensionState:
                  virtual_machine_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Extension resources.
-        :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
-               the latest minor version update to the `type_handler_version` specified.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] protected_settings: The protected_settings passed to the
-               extension, like settings, these are specified as a JSON object in a string.
+        :param pulumi.Input[str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
         :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] settings: The settings passed to the extension, these are
-               specified as a JSON object in a string.
+        :param pulumi.Input[str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: The type of extension, available types for a publisher can
-               be found using the Azure CLI.
-        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
-               use, available versions can be found using the Azure CLI.
+        :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         """
         if auto_upgrade_minor_version is not None:
@@ -283,8 +268,7 @@ class _ExtensionState:
     @pulumi.getter(name="autoUpgradeMinorVersion")
     def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the platform deploys
-        the latest minor version update to the `type_handler_version` specified.
+        Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
 
@@ -332,8 +316,7 @@ class _ExtensionState:
     @pulumi.getter(name="protectedSettings")
     def protected_settings(self) -> Optional[pulumi.Input[str]]:
         """
-        The protected_settings passed to the
-        extension, like settings, these are specified as a JSON object in a string.
+        The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         """
         return pulumi.get(self, "protected_settings")
 
@@ -369,8 +352,7 @@ class _ExtensionState:
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[str]]:
         """
-        The settings passed to the extension, these are
-        specified as a JSON object in a string.
+        The settings passed to the extension, these are specified as a JSON object in a string.
         """
         return pulumi.get(self, "settings")
 
@@ -394,8 +376,7 @@ class _ExtensionState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of extension, available types for a publisher can
-        be found using the Azure CLI.
+        The type of extension, available types for a publisher can be found using the Azure CLI.
         """
         return pulumi.get(self, "type")
 
@@ -407,8 +388,7 @@ class _ExtensionState:
     @pulumi.getter(name="typeHandlerVersion")
     def type_handler_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the version of the extension to
-        use, available versions can be found using the Azure CLI.
+        Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         """
         return pulumi.get(self, "type_handler_version")
 
@@ -541,22 +521,17 @@ class Extension(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
-               the latest minor version update to the `type_handler_version` specified.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] protected_settings: The protected_settings passed to the
-               extension, like settings, these are specified as a JSON object in a string.
+        :param pulumi.Input[str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         :param pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
         :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] settings: The settings passed to the extension, these are
-               specified as a JSON object in a string.
+        :param pulumi.Input[str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: The type of extension, available types for a publisher can
-               be found using the Azure CLI.
-        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
-               use, available versions can be found using the Azure CLI.
+        :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         """
         ...
@@ -744,22 +719,17 @@ class Extension(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
-               the latest minor version update to the `type_handler_version` specified.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] protected_settings: The protected_settings passed to the
-               extension, like settings, these are specified as a JSON object in a string.
+        :param pulumi.Input[str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         :param pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
         :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] settings: The settings passed to the extension, these are
-               specified as a JSON object in a string.
+        :param pulumi.Input[str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: The type of extension, available types for a publisher can
-               be found using the Azure CLI.
-        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
-               use, available versions can be found using the Azure CLI.
+        :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -784,8 +754,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter(name="autoUpgradeMinorVersion")
     def auto_upgrade_minor_version(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if the platform deploys
-        the latest minor version update to the `type_handler_version` specified.
+        Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
 
@@ -817,8 +786,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter(name="protectedSettings")
     def protected_settings(self) -> pulumi.Output[Optional[str]]:
         """
-        The protected_settings passed to the
-        extension, like settings, these are specified as a JSON object in a string.
+        The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         """
         return pulumi.get(self, "protected_settings")
 
@@ -842,8 +810,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter
     def settings(self) -> pulumi.Output[Optional[str]]:
         """
-        The settings passed to the extension, these are
-        specified as a JSON object in a string.
+        The settings passed to the extension, these are specified as a JSON object in a string.
         """
         return pulumi.get(self, "settings")
 
@@ -859,8 +826,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of extension, available types for a publisher can
-        be found using the Azure CLI.
+        The type of extension, available types for a publisher can be found using the Azure CLI.
         """
         return pulumi.get(self, "type")
 
@@ -868,8 +834,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter(name="typeHandlerVersion")
     def type_handler_version(self) -> pulumi.Output[str]:
         """
-        Specifies the version of the extension to
-        use, available versions can be found using the Azure CLI.
+        Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         """
         return pulumi.get(self, "type_handler_version")
 

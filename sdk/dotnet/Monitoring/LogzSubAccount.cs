@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `user` block as defined below.
+        /// A `user` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("user")]
         public Output<Outputs.LogzSubAccountUser> User { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `user` block as defined below.
+        /// A `user` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("user", required: true)]
         public Input<Inputs.LogzSubAccountUserArgs> User { get; set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `user` block as defined below.
+        /// A `user` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("user")]
         public Input<Inputs.LogzSubAccountUserGetArgs>? User { get; set; }

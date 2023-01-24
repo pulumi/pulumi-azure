@@ -94,7 +94,7 @@ export class BastionHost extends pulumi.CustomResource {
      */
     public readonly fileCopyEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A `ipConfiguration` block as defined below.
+     * A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly ipConfiguration!: pulumi.Output<outputs.compute.BastionHostIpConfiguration | undefined>;
     /**
@@ -102,7 +102,7 @@ export class BastionHost extends pulumi.CustomResource {
      */
     public readonly ipConnectEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -201,7 +201,7 @@ export interface BastionHostState {
      */
     fileCopyEnabled?: pulumi.Input<boolean>;
     /**
-     * A `ipConfiguration` block as defined below.
+     * A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
     /**
@@ -209,7 +209,7 @@ export interface BastionHostState {
      */
     ipConnectEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      */
     location?: pulumi.Input<string>;
     /**
@@ -255,7 +255,7 @@ export interface BastionHostArgs {
      */
     fileCopyEnabled?: pulumi.Input<boolean>;
     /**
-     * A `ipConfiguration` block as defined below.
+     * A `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
     /**
@@ -263,7 +263,7 @@ export interface BastionHostArgs {
      */
     ipConnectEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      */
     location?: pulumi.Input<string>;
     /**

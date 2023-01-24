@@ -68,14 +68,14 @@ public final class EventGridTopicState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `input_mapping_default_values` block as defined below.
+     * A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="inputMappingDefaultValues")
     private @Nullable Output<EventGridTopicInputMappingDefaultValuesArgs> inputMappingDefaultValues;
 
     /**
-     * @return A `input_mapping_default_values` block as defined below.
+     * @return A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<EventGridTopicInputMappingDefaultValuesArgs>> inputMappingDefaultValues() {
@@ -83,14 +83,14 @@ public final class EventGridTopicState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `input_mapping_fields` block as defined below.
+     * A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="inputMappingFields")
     private @Nullable Output<EventGridTopicInputMappingFieldsArgs> inputMappingFields;
 
     /**
-     * @return A `input_mapping_fields` block as defined below.
+     * @return A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<EventGridTopicInputMappingFieldsArgs>> inputMappingFields() {
@@ -343,7 +343,7 @@ public final class EventGridTopicState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param inputMappingDefaultValues A `input_mapping_default_values` block as defined below.
+         * @param inputMappingDefaultValues A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class EventGridTopicState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param inputMappingDefaultValues A `input_mapping_default_values` block as defined below.
+         * @param inputMappingDefaultValues A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class EventGridTopicState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param inputMappingFields A `input_mapping_fields` block as defined below.
+         * @param inputMappingFields A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class EventGridTopicState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param inputMappingFields A `input_mapping_fields` block as defined below.
+         * @param inputMappingFields A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

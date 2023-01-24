@@ -66,18 +66,14 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
     }
 
     /**
-     * The address space out of which IP addresses for
-     * vpn clients will be taken. You can provide more than one address space, e.g.
-     * in CIDR notation.
+     * The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
      * 
      */
     @Import(name="addressSpaces", required=true)
     private Output<List<String>> addressSpaces;
 
     /**
-     * @return The address space out of which IP addresses for
-     * vpn clients will be taken. You can provide more than one address space, e.g.
-     * in CIDR notation.
+     * @return The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
      * 
      */
     public Output<List<String>> addressSpaces() {
@@ -281,9 +277,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param addressSpaces The address space out of which IP addresses for
-         * vpn clients will be taken. You can provide more than one address space, e.g.
-         * in CIDR notation.
+         * @param addressSpaces The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
          * 
          * @return builder
          * 
@@ -294,9 +288,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param addressSpaces The address space out of which IP addresses for
-         * vpn clients will be taken. You can provide more than one address space, e.g.
-         * in CIDR notation.
+         * @param addressSpaces The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
          * 
          * @return builder
          * 
@@ -306,9 +298,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param addressSpaces The address space out of which IP addresses for
-         * vpn clients will be taken. You can provide more than one address space, e.g.
-         * in CIDR notation.
+         * @param addressSpaces The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
          * 
          * @return builder
          * 

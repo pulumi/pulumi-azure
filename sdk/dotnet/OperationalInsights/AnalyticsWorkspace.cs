@@ -61,7 +61,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<bool?> CmkForQueryForced { get; private set; } = null!;
 
         /// <summary>
-        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        /// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         /// </summary>
         [Output("dailyQuotaGb")]
         public Output<double?> DailyQuotaGb { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string> PrimarySharedKey { get; private set; } = null!;
 
         /// <summary>
-        /// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        /// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
         /// </summary>
         [Output("reservationCapacityInGbPerDay")]
         public Output<int> ReservationCapacityInGbPerDay { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<bool>? CmkForQueryForced { get; set; }
 
         /// <summary>
-        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        /// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         /// </summary>
         [Input("dailyQuotaGb")]
         public Input<double>? DailyQuotaGb { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        /// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
         /// </summary>
         [Input("reservationCapacityInGbPerDay")]
         public Input<int>? ReservationCapacityInGbPerDay { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<bool>? CmkForQueryForced { get; set; }
 
         /// <summary>
-        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        /// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         /// </summary>
         [Input("dailyQuotaGb")]
         public Input<double>? DailyQuotaGb { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.OperationalInsights
         }
 
         /// <summary>
-        /// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        /// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
         /// </summary>
         [Input("reservationCapacityInGbPerDay")]
         public Input<int>? ReservationCapacityInGbPerDay { get; set; }

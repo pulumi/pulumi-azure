@@ -318,14 +318,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="plan")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetPlanArgs> plan;
 
     /**
-     * @return A `plan` block as documented below.
+     * @return A `plan` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetPlanArgs>> plan() {
@@ -1029,7 +1029,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param plan A `plan` block as documented below.
+         * @param plan A `plan` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1040,7 +1040,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param plan A `plan` block as documented below.
+         * @param plan A `plan` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

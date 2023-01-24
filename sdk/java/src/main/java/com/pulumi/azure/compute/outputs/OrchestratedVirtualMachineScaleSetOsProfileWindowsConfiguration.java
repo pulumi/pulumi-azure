@@ -26,7 +26,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      */
     private String adminUsername;
     /**
-     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String computerNamePrefix;
@@ -66,7 +66,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      */
     private @Nullable String timezone;
     /**
-     * @return One or more `winrm_listener` blocks as defined below.
+     * @return One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners;
@@ -87,7 +87,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         return this.adminUsername;
     }
     /**
-     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> computerNamePrefix() {
@@ -143,7 +143,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         return Optional.ofNullable(this.timezone);
     }
     /**
-     * @return One or more `winrm_listener` blocks as defined below.
+     * @return One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners() {

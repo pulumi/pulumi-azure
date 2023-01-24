@@ -248,14 +248,14 @@ public final class SparkClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `security_profile` block as defined below.
+     * A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="securityProfile")
     private @Nullable Output<SparkClusterSecurityProfileArgs> securityProfile;
 
     /**
-     * @return A `security_profile` block as defined below.
+     * @return A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<SparkClusterSecurityProfileArgs>> securityProfile() {
@@ -705,7 +705,7 @@ public final class SparkClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityProfile A `security_profile` block as defined below.
+         * @param securityProfile A `security_profile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -716,7 +716,7 @@ public final class SparkClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityProfile A `security_profile` block as defined below.
+         * @param securityProfile A `security_profile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

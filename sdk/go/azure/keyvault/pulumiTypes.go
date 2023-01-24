@@ -1246,7 +1246,7 @@ type CertifiateCertificatePolicyX509CertificateProperties struct {
 	KeyUsages []string `pulumi:"keyUsages"`
 	// The Certificate's Subject. Changing this forces a new resource to be created.
 	Subject string `pulumi:"subject"`
-	// A `subjectAlternativeNames` block as defined below.
+	// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
 	SubjectAlternativeNames *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
 	// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
 	ValidityInMonths int `pulumi:"validityInMonths"`
@@ -1270,7 +1270,7 @@ type CertifiateCertificatePolicyX509CertificatePropertiesArgs struct {
 	KeyUsages pulumi.StringArrayInput `pulumi:"keyUsages"`
 	// The Certificate's Subject. Changing this forces a new resource to be created.
 	Subject pulumi.StringInput `pulumi:"subject"`
-	// A `subjectAlternativeNames` block as defined below.
+	// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
 	SubjectAlternativeNames CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
 	// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
 	ValidityInMonths pulumi.IntInput `pulumi:"validityInMonths"`
@@ -1368,7 +1368,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) Subject() pu
 	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) string { return v.Subject }).(pulumi.StringOutput)
 }
 
-// A `subjectAlternativeNames` block as defined below.
+// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) SubjectAlternativeNames() CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
@@ -1434,7 +1434,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) Subject()
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `subjectAlternativeNames` block as defined below.
+// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) SubjectAlternativeNames() CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		if v == nil {
@@ -2871,7 +2871,7 @@ type CertificateCertificatePolicyX509CertificateProperties struct {
 	KeyUsages []string `pulumi:"keyUsages"`
 	// The Certificate's Subject. Changing this forces a new resource to be created.
 	Subject string `pulumi:"subject"`
-	// A `subjectAlternativeNames` block as defined below.
+	// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
 	SubjectAlternativeNames *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
 	// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
 	ValidityInMonths int `pulumi:"validityInMonths"`
@@ -2895,7 +2895,7 @@ type CertificateCertificatePolicyX509CertificatePropertiesArgs struct {
 	KeyUsages pulumi.StringArrayInput `pulumi:"keyUsages"`
 	// The Certificate's Subject. Changing this forces a new resource to be created.
 	Subject pulumi.StringInput `pulumi:"subject"`
-	// A `subjectAlternativeNames` block as defined below.
+	// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
 	SubjectAlternativeNames CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
 	// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
 	ValidityInMonths pulumi.IntInput `pulumi:"validityInMonths"`
@@ -2993,7 +2993,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) Subject() p
 	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) string { return v.Subject }).(pulumi.StringOutput)
 }
 
-// A `subjectAlternativeNames` block as defined below.
+// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) SubjectAlternativeNames() CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
@@ -3059,7 +3059,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) Subject(
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `subjectAlternativeNames` block as defined below.
+// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) SubjectAlternativeNames() CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		if v == nil {

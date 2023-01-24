@@ -137,12 +137,12 @@ class _ServerState:
         :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[str] name: The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] orderer_endpoints: An array of the Fluid Relay Orderer endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] orderer_endpoints: An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
         :param pulumi.Input[str] primary_key: The primary key for this server.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[str] secondary_key: The secondary key for this server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: An array of service endpoints for this Fluid Relay Server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_endpoints: An array of storage endpoints for this Fluid Relay Server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_endpoints: An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
         :param pulumi.Input[str] storage_sku: Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Fluid Relay Server.
         """
@@ -223,7 +223,7 @@ class _ServerState:
     @pulumi.getter(name="ordererEndpoints")
     def orderer_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array of the Fluid Relay Orderer endpoints.
+        An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
         """
         return pulumi.get(self, "orderer_endpoints")
 
@@ -283,7 +283,7 @@ class _ServerState:
     @pulumi.getter(name="storageEndpoints")
     def storage_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array of storage endpoints for this Fluid Relay Server.
+        An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
         """
         return pulumi.get(self, "storage_endpoints")
 
@@ -468,12 +468,12 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[str] name: The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] orderer_endpoints: An array of the Fluid Relay Orderer endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] orderer_endpoints: An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
         :param pulumi.Input[str] primary_key: The primary key for this server.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[str] secondary_key: The secondary key for this server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: An array of service endpoints for this Fluid Relay Server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_endpoints: An array of storage endpoints for this Fluid Relay Server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_endpoints: An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
         :param pulumi.Input[str] storage_sku: Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Fluid Relay Server.
         """
@@ -531,7 +531,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="ordererEndpoints")
     def orderer_endpoints(self) -> pulumi.Output[Sequence[str]]:
         """
-        An array of the Fluid Relay Orderer endpoints.
+        An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
         """
         return pulumi.get(self, "orderer_endpoints")
 
@@ -571,7 +571,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="storageEndpoints")
     def storage_endpoints(self) -> pulumi.Output[Sequence[str]]:
         """
-        An array of storage endpoints for this Fluid Relay Server.
+        An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
         """
         return pulumi.get(self, "storage_endpoints")
 

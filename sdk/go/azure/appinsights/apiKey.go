@@ -116,8 +116,7 @@ type ApiKey struct {
 	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
 	// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringOutput `pulumi:"applicationInsightsId"`
-	// Specifies the name of the Application Insights API key. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 	ReadPermissions pulumi.StringArrayOutput `pulumi:"readPermissions"`
@@ -165,8 +164,7 @@ type apiKeyState struct {
 	ApiKey *string `pulumi:"apiKey"`
 	// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId *string `pulumi:"applicationInsightsId"`
-	// Specifies the name of the Application Insights API key. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 	ReadPermissions []string `pulumi:"readPermissions"`
@@ -179,8 +177,7 @@ type ApiKeyState struct {
 	ApiKey pulumi.StringPtrInput
 	// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringPtrInput
-	// Specifies the name of the Application Insights API key. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 	ReadPermissions pulumi.StringArrayInput
@@ -195,8 +192,7 @@ func (ApiKeyState) ElementType() reflect.Type {
 type apiKeyArgs struct {
 	// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId string `pulumi:"applicationInsightsId"`
-	// Specifies the name of the Application Insights API key. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 	ReadPermissions []string `pulumi:"readPermissions"`
@@ -208,8 +204,7 @@ type apiKeyArgs struct {
 type ApiKeyArgs struct {
 	// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringInput
-	// Specifies the name of the Application Insights API key. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
 	ReadPermissions pulumi.StringArrayInput
@@ -314,8 +309,7 @@ func (o ApiKeyOutput) ApplicationInsightsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApplicationInsightsId }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Application Insights API key. Changing this forces a
-// new resource to be created.
+// Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
 func (o ApiKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

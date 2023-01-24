@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class ScheduledQueryRulesLogCriteriaDimension
     {
         /// <summary>
-        /// Name of the dimension. Changing this forces a new resource to be created.
+        /// Name of the dimension.
         /// </summary>
         public readonly string Name;
         /// <summary>

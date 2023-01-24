@@ -65,7 +65,7 @@ namespace Pulumi.Azure.ApiManagement
     public partial class Subscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Determines whether tracing can be enabled.  Defaults to `true`.
+        /// Determines whether tracing can be enabled. Defaults to `true`.
         /// </summary>
         [Output("allowTracing")]
         public Output<bool?> AllowTracing { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class SubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether tracing can be enabled.  Defaults to `true`.
+        /// Determines whether tracing can be enabled. Defaults to `true`.
         /// </summary>
         [Input("allowTracing")]
         public Input<bool>? AllowTracing { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class SubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether tracing can be enabled.  Defaults to `true`.
+        /// Determines whether tracing can be enabled. Defaults to `true`.
         /// </summary>
         [Input("allowTracing")]
         public Input<bool>? AllowTracing { get; set; }

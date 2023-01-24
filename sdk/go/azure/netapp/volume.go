@@ -31,7 +31,7 @@ type Volume struct {
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrOutput `pulumi:"azureVmwareDataStoreEnabled"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringOutput `pulumi:"createFromSnapshotResourceId"`
-	// A `dataProtectionReplication` block as defined below.
+	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrOutput `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrOutput `pulumi:"dataProtectionSnapshotPolicy"`
@@ -67,7 +67,7 @@ type Volume struct {
 	ThroughputInMibps pulumi.Float64Output `pulumi:"throughputInMibps"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringOutput `pulumi:"volumePath"`
-	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
@@ -127,7 +127,7 @@ type volumeState struct {
 	AzureVmwareDataStoreEnabled *bool `pulumi:"azureVmwareDataStoreEnabled"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
-	// A `dataProtectionReplication` block as defined below.
+	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy *VolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
@@ -163,7 +163,7 @@ type volumeState struct {
 	ThroughputInMibps *float64 `pulumi:"throughputInMibps"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath *string `pulumi:"volumePath"`
-	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
 	Zone *string `pulumi:"zone"`
 }
 
@@ -174,7 +174,7 @@ type VolumeState struct {
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
-	// A `dataProtectionReplication` block as defined below.
+	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrInput
@@ -210,7 +210,7 @@ type VolumeState struct {
 	ThroughputInMibps pulumi.Float64PtrInput
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringPtrInput
-	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
 	Zone pulumi.StringPtrInput
 }
 
@@ -225,7 +225,7 @@ type volumeArgs struct {
 	AzureVmwareDataStoreEnabled *bool `pulumi:"azureVmwareDataStoreEnabled"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
-	// A `dataProtectionReplication` block as defined below.
+	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy *VolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
@@ -259,7 +259,7 @@ type volumeArgs struct {
 	ThroughputInMibps *float64 `pulumi:"throughputInMibps"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath string `pulumi:"volumePath"`
-	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
 	Zone *string `pulumi:"zone"`
 }
 
@@ -271,7 +271,7 @@ type VolumeArgs struct {
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
-	// A `dataProtectionReplication` block as defined below.
+	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrInput
@@ -305,7 +305,7 @@ type VolumeArgs struct {
 	ThroughputInMibps pulumi.Float64PtrInput
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringInput
-	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
 	Zone pulumi.StringPtrInput
 }
 
@@ -411,7 +411,7 @@ func (o VolumeOutput) CreateFromSnapshotResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.CreateFromSnapshotResourceId }).(pulumi.StringOutput)
 }
 
-// A `dataProtectionReplication` block as defined below.
+// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 func (o VolumeOutput) DataProtectionReplication() VolumeDataProtectionReplicationPtrOutput {
 	return o.ApplyT(func(v *Volume) VolumeDataProtectionReplicationPtrOutput { return v.DataProtectionReplication }).(VolumeDataProtectionReplicationPtrOutput)
 }
@@ -501,7 +501,7 @@ func (o VolumeOutput) VolumePath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.VolumePath }).(pulumi.StringOutput)
 }
 
-// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
 func (o VolumeOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Zone }).(pulumi.StringPtrOutput)
 }

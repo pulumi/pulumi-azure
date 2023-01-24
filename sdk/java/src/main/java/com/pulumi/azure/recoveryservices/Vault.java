@@ -114,6 +114,20 @@ public class Vault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
+     * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     * 
+     */
+    @Export(name="immutability", type=String.class, parameters={})
+    private Output<String> immutability;
+
+    /**
+     * @return Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     * 
+     */
+    public Output<String> immutability() {
+        return this.immutability;
+    }
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -140,6 +154,20 @@ public class Vault extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Is it enabled to access the vault from public networks. Defaults to `true`.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Is it enabled to access the vault from public networks. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.

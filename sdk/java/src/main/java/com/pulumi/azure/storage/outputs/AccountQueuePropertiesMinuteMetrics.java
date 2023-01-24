@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountQueuePropertiesMinuteMetrics {
     /**
-     * @return Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+     * @return Indicates whether minute metrics are enabled for the Queue service.
      * 
      */
     private Boolean enabled;
@@ -24,19 +24,19 @@ public final class AccountQueuePropertiesMinuteMetrics {
      */
     private @Nullable Boolean includeApis;
     /**
-     * @return Specifies the number of days that logs will be retained. Changing this forces a new resource.
+     * @return Specifies the number of days that logs will be retained.
      * 
      */
     private @Nullable Integer retentionPolicyDays;
     /**
-     * @return The version of storage analytics to configure. Changing this forces a new resource.
+     * @return The version of storage analytics to configure.
      * 
      */
     private String version;
 
     private AccountQueuePropertiesMinuteMetrics() {}
     /**
-     * @return Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+     * @return Indicates whether minute metrics are enabled for the Queue service.
      * 
      */
     public Boolean enabled() {
@@ -50,14 +50,14 @@ public final class AccountQueuePropertiesMinuteMetrics {
         return Optional.ofNullable(this.includeApis);
     }
     /**
-     * @return Specifies the number of days that logs will be retained. Changing this forces a new resource.
+     * @return Specifies the number of days that logs will be retained.
      * 
      */
     public Optional<Integer> retentionPolicyDays() {
         return Optional.ofNullable(this.retentionPolicyDays);
     }
     /**
-     * @return The version of storage analytics to configure. Changing this forces a new resource.
+     * @return The version of storage analytics to configure.
      * 
      */
     public String version() {

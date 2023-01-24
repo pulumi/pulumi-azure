@@ -71,11 +71,11 @@ export class ManagedDiskSasToken extends pulumi.CustomResource {
     }
 
     /**
-     * The level of access required on the disk. Supported are Read, Write.
+     * The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
      */
     public readonly accessLevel!: pulumi.Output<string>;
     /**
-     * The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds.
+     * The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
      */
     public readonly durationInSeconds!: pulumi.Output<number>;
     /**
@@ -132,11 +132,11 @@ export class ManagedDiskSasToken extends pulumi.CustomResource {
  */
 export interface ManagedDiskSasTokenState {
     /**
-     * The level of access required on the disk. Supported are Read, Write.
+     * The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
      */
     accessLevel?: pulumi.Input<string>;
     /**
-     * The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds.
+     * The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
      */
     durationInSeconds?: pulumi.Input<number>;
     /**
@@ -154,11 +154,11 @@ export interface ManagedDiskSasTokenState {
  */
 export interface ManagedDiskSasTokenArgs {
     /**
-     * The level of access required on the disk. Supported are Read, Write.
+     * The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
      */
     accessLevel: pulumi.Input<string>;
     /**
-     * The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds.
+     * The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
      */
     durationInSeconds: pulumi.Input<number>;
     /**

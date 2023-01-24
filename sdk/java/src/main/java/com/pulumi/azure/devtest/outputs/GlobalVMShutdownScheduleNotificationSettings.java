@@ -19,7 +19,7 @@ public final class GlobalVMShutdownScheduleNotificationSettings {
      */
     private @Nullable String email;
     /**
-     * @return Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+     * @return Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
      * 
      */
     private Boolean enabled;
@@ -43,7 +43,7 @@ public final class GlobalVMShutdownScheduleNotificationSettings {
         return Optional.ofNullable(this.email);
     }
     /**
-     * @return Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+     * @return Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
      * 
      */
     public Boolean enabled() {

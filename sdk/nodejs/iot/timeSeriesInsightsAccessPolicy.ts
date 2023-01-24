@@ -72,7 +72,7 @@ export class TimeSeriesInsightsAccessPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The id of the principal in Azure Active Directory.
+     * The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
      */
     public readonly principalObjectId!: pulumi.Output<string>;
     /**
@@ -137,7 +137,7 @@ export interface TimeSeriesInsightsAccessPolicyState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The id of the principal in Azure Active Directory.
+     * The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
      */
     principalObjectId?: pulumi.Input<string>;
     /**
@@ -163,7 +163,7 @@ export interface TimeSeriesInsightsAccessPolicyArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The id of the principal in Azure Active Directory.
+     * The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
      */
     principalObjectId: pulumi.Input<string>;
     /**

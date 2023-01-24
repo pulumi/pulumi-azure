@@ -137,7 +137,7 @@ func (o PrivateCloudCircuitArrayOutput) Index(i pulumi.IntInput) PrivateCloudCir
 type PrivateCloudManagementCluster struct {
 	// A list of hosts in the management cluster.
 	Hosts []string `pulumi:"hosts"`
-	// The ID of the  management cluster.
+	// The ID of the management cluster.
 	Id *int `pulumi:"id"`
 	// The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
 	Size int `pulumi:"size"`
@@ -157,7 +157,7 @@ type PrivateCloudManagementClusterInput interface {
 type PrivateCloudManagementClusterArgs struct {
 	// A list of hosts in the management cluster.
 	Hosts pulumi.StringArrayInput `pulumi:"hosts"`
-	// The ID of the  management cluster.
+	// The ID of the management cluster.
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
 	Size pulumi.IntInput `pulumi:"size"`
@@ -245,7 +245,7 @@ func (o PrivateCloudManagementClusterOutput) Hosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrivateCloudManagementCluster) []string { return v.Hosts }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the  management cluster.
+// The ID of the management cluster.
 func (o PrivateCloudManagementClusterOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PrivateCloudManagementCluster) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
@@ -289,7 +289,7 @@ func (o PrivateCloudManagementClusterPtrOutput) Hosts() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ID of the  management cluster.
+// The ID of the management cluster.
 func (o PrivateCloudManagementClusterPtrOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PrivateCloudManagementCluster) *int {
 		if v == nil {

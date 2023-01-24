@@ -109,14 +109,14 @@ public final class LinkedServiceAzureDatabricksNewClusterConfigArgs extends com.
     }
 
     /**
-     * Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+     * Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
      * 
      */
     @Import(name="minNumberOfWorkers")
     private @Nullable Output<Integer> minNumberOfWorkers;
 
     /**
-     * @return Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+     * @return Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> minNumberOfWorkers() {
@@ -338,7 +338,7 @@ public final class LinkedServiceAzureDatabricksNewClusterConfigArgs extends com.
         }
 
         /**
-         * @param minNumberOfWorkers Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+         * @param minNumberOfWorkers Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class LinkedServiceAzureDatabricksNewClusterConfigArgs extends com.
         }
 
         /**
-         * @param minNumberOfWorkers Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+         * @param minNumberOfWorkers Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
          * 
          * @return builder
          * 

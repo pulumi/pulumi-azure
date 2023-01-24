@@ -190,7 +190,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly storageDataDisks!: pulumi.Output<outputs.compute.VirtualMachineStorageDataDisk[]>;
     /**
-     * A `storageImageReference` block as defined below.
+     * A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly storageImageReference!: pulumi.Output<outputs.compute.VirtualMachineStorageImageReference>;
     /**
@@ -372,7 +372,7 @@ export interface VirtualMachineState {
      */
     storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**
-     * A `storageImageReference` block as defined below.
+     * A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
      */
     storageImageReference?: pulumi.Input<inputs.compute.VirtualMachineStorageImageReference>;
     /**
@@ -474,7 +474,7 @@ export interface VirtualMachineArgs {
      */
     storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**
-     * A `storageImageReference` block as defined below.
+     * A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
      */
     storageImageReference?: pulumi.Input<inputs.compute.VirtualMachineStorageImageReference>;
     /**

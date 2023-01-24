@@ -35,7 +35,7 @@ public final class RegistryTaskDockerStep {
      */
     private String contextPath;
     /**
-     * @return The  Dockerfile path relative to the source context.
+     * @return The Dockerfile path relative to the source context.
      * 
      */
     private String dockerfilePath;
@@ -90,7 +90,7 @@ public final class RegistryTaskDockerStep {
         return this.contextPath;
     }
     /**
-     * @return The  Dockerfile path relative to the source context.
+     * @return The Dockerfile path relative to the source context.
      * 
      */
     public String dockerfilePath() {

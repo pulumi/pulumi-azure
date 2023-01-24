@@ -91,8 +91,7 @@ type LinkedServiceAzureFileStorage struct {
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput `pulumi:"keyVaultPassword"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -166,8 +165,7 @@ type linkedServiceAzureFileStorageState struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceAzureFileStorageKeyVaultPassword `pulumi:"keyVaultPassword"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -196,8 +194,7 @@ type LinkedServiceAzureFileStorageState struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceAzureFileStorageKeyVaultPasswordPtrInput
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
@@ -230,8 +227,7 @@ type linkedServiceAzureFileStorageArgs struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceAzureFileStorageKeyVaultPassword `pulumi:"keyVaultPassword"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -261,8 +257,7 @@ type LinkedServiceAzureFileStorageArgs struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceAzureFileStorageKeyVaultPasswordPtrInput
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
@@ -406,8 +401,7 @@ func (o LinkedServiceAzureFileStorageOutput) KeyVaultPassword() LinkedServiceAzu
 	}).(LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput)
 }
 
-// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o LinkedServiceAzureFileStorageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureFileStorage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

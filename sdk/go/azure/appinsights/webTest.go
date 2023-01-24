@@ -97,8 +97,7 @@ type WebTest struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Application Insights WebTest. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -171,8 +170,7 @@ type webTestState struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Application Insights WebTest. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -202,8 +200,7 @@ type WebTestState struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Application Insights WebTest. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
 	ResourceGroupName pulumi.StringPtrInput
@@ -237,8 +234,7 @@ type webTestArgs struct {
 	Kind string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Application Insights WebTest. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -268,8 +264,7 @@ type WebTestArgs struct {
 	Kind pulumi.StringInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Application Insights WebTest. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
 	ResourceGroupName pulumi.StringInput
@@ -408,8 +403,7 @@ func (o WebTestOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebTest) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Application Insights WebTest. Changing this forces a
-// new resource to be created.
+// Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
 func (o WebTestOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebTest) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

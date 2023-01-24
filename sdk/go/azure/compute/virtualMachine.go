@@ -174,7 +174,7 @@ type VirtualMachine struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `storageDataDisk` blocks as defined below.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayOutput `pulumi:"storageDataDisks"`
-	// A `storageImageReference` block as defined below.
+	// A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
 	StorageImageReference VirtualMachineStorageImageReferenceOutput `pulumi:"storageImageReference"`
 	// A `storageOsDisk` block as defined below.
 	StorageOsDisk VirtualMachineStorageOsDiskOutput `pulumi:"storageOsDisk"`
@@ -265,7 +265,7 @@ type virtualMachineState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `storageDataDisk` blocks as defined below.
 	StorageDataDisks []VirtualMachineStorageDataDisk `pulumi:"storageDataDisks"`
-	// A `storageImageReference` block as defined below.
+	// A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
 	StorageImageReference *VirtualMachineStorageImageReference `pulumi:"storageImageReference"`
 	// A `storageOsDisk` block as defined below.
 	StorageOsDisk *VirtualMachineStorageOsDisk `pulumi:"storageOsDisk"`
@@ -316,7 +316,7 @@ type VirtualMachineState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `storageDataDisk` blocks as defined below.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayInput
-	// A `storageImageReference` block as defined below.
+	// A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
 	StorageImageReference VirtualMachineStorageImageReferencePtrInput
 	// A `storageOsDisk` block as defined below.
 	StorageOsDisk VirtualMachineStorageOsDiskPtrInput
@@ -371,7 +371,7 @@ type virtualMachineArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `storageDataDisk` blocks as defined below.
 	StorageDataDisks []VirtualMachineStorageDataDisk `pulumi:"storageDataDisks"`
-	// A `storageImageReference` block as defined below.
+	// A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
 	StorageImageReference *VirtualMachineStorageImageReference `pulumi:"storageImageReference"`
 	// A `storageOsDisk` block as defined below.
 	StorageOsDisk VirtualMachineStorageOsDisk `pulumi:"storageOsDisk"`
@@ -423,7 +423,7 @@ type VirtualMachineArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// One or more `storageDataDisk` blocks as defined below.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayInput
-	// A `storageImageReference` block as defined below.
+	// A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
 	StorageImageReference VirtualMachineStorageImageReferencePtrInput
 	// A `storageOsDisk` block as defined below.
 	StorageOsDisk VirtualMachineStorageOsDiskInput
@@ -617,7 +617,7 @@ func (o VirtualMachineOutput) StorageDataDisks() VirtualMachineStorageDataDiskAr
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineStorageDataDiskArrayOutput { return v.StorageDataDisks }).(VirtualMachineStorageDataDiskArrayOutput)
 }
 
-// A `storageImageReference` block as defined below.
+// A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
 func (o VirtualMachineOutput) StorageImageReference() VirtualMachineStorageImageReferenceOutput {
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineStorageImageReferenceOutput { return v.StorageImageReference }).(VirtualMachineStorageImageReferenceOutput)
 }

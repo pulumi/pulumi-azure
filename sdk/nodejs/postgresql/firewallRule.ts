@@ -87,8 +87,7 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     public readonly endIpAddress!: pulumi.Output<string>;
     /**
-     * Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -156,8 +155,7 @@ export interface FirewallRuleState {
      */
     endIpAddress?: pulumi.Input<string>;
     /**
-     * Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -183,8 +181,7 @@ export interface FirewallRuleArgs {
      */
     endIpAddress: pulumi.Input<string>;
     /**
-     * Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

@@ -67,29 +67,23 @@ export class Topic extends pulumi.CustomResource {
     }
 
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the
-     * Topic is automatically deleted, minimum of 5 minutes.
+     * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string>;
     /**
-     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-     * TTL value is set on the message itself.
+     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      */
     public readonly defaultMessageTtl!: pulumi.Output<string>;
     /**
-     * The ISO 8601 timespan duration during which
-     * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
      */
     public readonly duplicateDetectionHistoryTimeWindow!: pulumi.Output<string>;
     /**
-     * Boolean flag which controls if server-side
-     * batched operations are enabled. Defaults to false.
+     * Boolean flag which controls if server-side batched operations are enabled.
      */
     public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean flag which controls whether Express Entities
-     * are enabled. An express topic holds a message in memory temporarily before writing
-     * it to persistent storage. Defaults to false.
+     * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      */
     public readonly enableExpress!: pulumi.Output<boolean | undefined>;
     /**
@@ -99,20 +93,15 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
     /**
-     * Integer value which controls the maximum size of
-     * a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     public readonly maxMessageSizeInKilobytes!: pulumi.Output<number>;
     /**
-     * Integer value which controls the size of
-     * memory allocated for the topic. For supported values see the "Queue/topic size"
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+     * Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     public readonly maxSizeInMegabytes!: pulumi.Output<number>;
     /**
-     * Specifies the name of the ServiceBus Topic resource. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -133,8 +122,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Boolean flag which controls whether the Topic
-     * supports ordering. Defaults to false.
+     * Boolean flag which controls whether the Topic supports ordering.
      */
     public readonly supportOrdering!: pulumi.Output<boolean | undefined>;
 
@@ -199,29 +187,23 @@ export class Topic extends pulumi.CustomResource {
  */
 export interface TopicState {
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the
-     * Topic is automatically deleted, minimum of 5 minutes.
+     * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
     /**
-     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-     * TTL value is set on the message itself.
+     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      */
     defaultMessageTtl?: pulumi.Input<string>;
     /**
-     * The ISO 8601 timespan duration during which
-     * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
      */
     duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls if server-side
-     * batched operations are enabled. Defaults to false.
+     * Boolean flag which controls if server-side batched operations are enabled.
      */
     enableBatchedOperations?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether Express Entities
-     * are enabled. An express topic holds a message in memory temporarily before writing
-     * it to persistent storage. Defaults to false.
+     * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      */
     enableExpress?: pulumi.Input<boolean>;
     /**
@@ -231,20 +213,15 @@ export interface TopicState {
      */
     enablePartitioning?: pulumi.Input<boolean>;
     /**
-     * Integer value which controls the maximum size of
-     * a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
-     * Integer value which controls the size of
-     * memory allocated for the topic. For supported values see the "Queue/topic size"
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+     * Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     maxSizeInMegabytes?: pulumi.Input<number>;
     /**
-     * Specifies the name of the ServiceBus Topic resource. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -265,8 +242,7 @@ export interface TopicState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether the Topic
-     * supports ordering. Defaults to false.
+     * Boolean flag which controls whether the Topic supports ordering.
      */
     supportOrdering?: pulumi.Input<boolean>;
 }
@@ -276,29 +252,23 @@ export interface TopicState {
  */
 export interface TopicArgs {
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the
-     * Topic is automatically deleted, minimum of 5 minutes.
+     * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
     /**
-     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-     * TTL value is set on the message itself.
+     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      */
     defaultMessageTtl?: pulumi.Input<string>;
     /**
-     * The ISO 8601 timespan duration during which
-     * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
      */
     duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls if server-side
-     * batched operations are enabled. Defaults to false.
+     * Boolean flag which controls if server-side batched operations are enabled.
      */
     enableBatchedOperations?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether Express Entities
-     * are enabled. An express topic holds a message in memory temporarily before writing
-     * it to persistent storage. Defaults to false.
+     * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      */
     enableExpress?: pulumi.Input<boolean>;
     /**
@@ -308,20 +278,15 @@ export interface TopicArgs {
      */
     enablePartitioning?: pulumi.Input<boolean>;
     /**
-     * Integer value which controls the maximum size of
-     * a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
-     * Integer value which controls the size of
-     * memory allocated for the topic. For supported values see the "Queue/topic size"
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+     * Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     maxSizeInMegabytes?: pulumi.Input<number>;
     /**
-     * Specifies the name of the ServiceBus Topic resource. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -340,8 +305,7 @@ export interface TopicArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether the Topic
-     * supports ordering. Defaults to false.
+     * Boolean flag which controls whether the Topic supports ordering.
      */
     supportOrdering?: pulumi.Input<boolean>;
 }

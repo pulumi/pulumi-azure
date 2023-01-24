@@ -26,15 +26,10 @@ class HubEventHandlerArgs:
                  system_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_event_pattern: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] url_template: The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-               available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-               comes in. Example: `http://example.com/api/{hub}/{event}`.
+        :param pulumi.Input[str] url_template: The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
         :param pulumi.Input['HubEventHandlerAuthArgs'] auth: An `auth` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_events: Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
-        :param pulumi.Input[str] user_event_pattern: Specify the matching event names. There are 3 kind of patterns supported:
-               * `*` matches any event name
-               * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-               * The single event name, for example `event1`, it matches `event1`.
+        :param pulumi.Input[str] user_event_pattern: Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
         """
         pulumi.set(__self__, "url_template", url_template)
         if auth is not None:
@@ -48,9 +43,7 @@ class HubEventHandlerArgs:
     @pulumi.getter(name="urlTemplate")
     def url_template(self) -> pulumi.Input[str]:
         """
-        The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-        available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-        comes in. Example: `http://example.com/api/{hub}/{event}`.
+        The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
         """
         return pulumi.get(self, "url_template")
 
@@ -86,10 +79,7 @@ class HubEventHandlerArgs:
     @pulumi.getter(name="userEventPattern")
     def user_event_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the matching event names. There are 3 kind of patterns supported:
-        * `*` matches any event name
-        * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-        * The single event name, for example `event1`, it matches `event1`.
+        Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
         """
         return pulumi.get(self, "user_event_pattern")
 

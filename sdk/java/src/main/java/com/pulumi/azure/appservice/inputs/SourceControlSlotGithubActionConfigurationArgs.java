@@ -18,14 +18,14 @@ public final class SourceControlSlotGithubActionConfigurationArgs extends com.pu
     public static final SourceControlSlotGithubActionConfigurationArgs Empty = new SourceControlSlotGithubActionConfigurationArgs();
 
     /**
-     * A `code_configuration` block as detailed below.
+     * A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="codeConfiguration")
     private @Nullable Output<SourceControlSlotGithubActionConfigurationCodeConfigurationArgs> codeConfiguration;
 
     /**
-     * @return A `code_configuration` block as detailed below.
+     * @return A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<SourceControlSlotGithubActionConfigurationCodeConfigurationArgs>> codeConfiguration() {
@@ -105,7 +105,7 @@ public final class SourceControlSlotGithubActionConfigurationArgs extends com.pu
         }
 
         /**
-         * @param codeConfiguration A `code_configuration` block as detailed below.
+         * @param codeConfiguration A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class SourceControlSlotGithubActionConfigurationArgs extends com.pu
         }
 
         /**
-         * @param codeConfiguration A `code_configuration` block as detailed below.
+         * @param codeConfiguration A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

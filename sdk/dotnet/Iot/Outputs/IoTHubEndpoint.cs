@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly int? MaxChunkSizeInBytes;
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         /// </summary>
         public readonly string Name;
         /// <summary>

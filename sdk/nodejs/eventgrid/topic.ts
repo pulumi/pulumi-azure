@@ -76,11 +76,11 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly inboundIpRules!: pulumi.Output<outputs.eventgrid.TopicInboundIpRule[] | undefined>;
     /**
-     * A `inputMappingDefaultValues` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly inputMappingDefaultValues!: pulumi.Output<outputs.eventgrid.TopicInputMappingDefaultValues | undefined>;
     /**
-     * A `inputMappingFields` block as defined below.
+     * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly inputMappingFields!: pulumi.Output<outputs.eventgrid.TopicInputMappingFields | undefined>;
     /**
@@ -193,11 +193,11 @@ export interface TopicState {
      */
     inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.TopicInboundIpRule>[]>;
     /**
-     * A `inputMappingDefaultValues` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingDefaultValues?: pulumi.Input<inputs.eventgrid.TopicInputMappingDefaultValues>;
     /**
-     * A `inputMappingFields` block as defined below.
+     * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingFields?: pulumi.Input<inputs.eventgrid.TopicInputMappingFields>;
     /**
@@ -251,11 +251,11 @@ export interface TopicArgs {
      */
     inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.TopicInboundIpRule>[]>;
     /**
-     * A `inputMappingDefaultValues` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingDefaultValues?: pulumi.Input<inputs.eventgrid.TopicInputMappingDefaultValues>;
     /**
-     * A `inputMappingFields` block as defined below.
+     * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingFields?: pulumi.Input<inputs.eventgrid.TopicInputMappingFields>;
     /**

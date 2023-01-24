@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.OrchestratedVirtualMachineScaleSetOsProfile?> OsProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as documented below.
+        /// A `plan` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetPlan?> Plan { get; private set; } = null!;
@@ -444,7 +444,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// A `plan` block as documented below.
+        /// A `plan` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetPlanArgs>? Plan { get; set; }
@@ -690,7 +690,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileGetArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// A `plan` block as documented below.
+        /// A `plan` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetPlanGetArgs>? Plan { get; set; }

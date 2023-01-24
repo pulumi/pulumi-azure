@@ -14,14 +14,14 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
     public static final WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs Empty = new WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs();
 
     /**
-     * The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+     * The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="tag", required=true)
     private Output<String> tag;
 
     /**
-     * @return The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+     * @return The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> tag() {
@@ -29,14 +29,14 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
     }
 
     /**
-     * The Type of IP Tag, such as `FirstPartyUsage`.
+     * The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The Type of IP Tag, such as `FirstPartyUsage`.
+     * @return The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -69,7 +69,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         }
 
         /**
-         * @param tag The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+         * @param tag The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         }
 
         /**
-         * @param tag The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+         * @param tag The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         }
 
         /**
-         * @param type The Type of IP Tag, such as `FirstPartyUsage`.
+         * @param type The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         }
 
         /**
-         * @param type The Type of IP Tag, such as `FirstPartyUsage`.
+         * @param type The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

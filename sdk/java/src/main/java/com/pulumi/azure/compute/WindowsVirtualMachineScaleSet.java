@@ -157,14 +157,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.additionalCapabilities);
     }
     /**
-     * One or more `additional_unattend_content` blocks as defined below.
+     * One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="additionalUnattendContents", type=List.class, parameters={WindowsVirtualMachineScaleSetAdditionalUnattendContent.class})
     private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetAdditionalUnattendContent>> additionalUnattendContents;
 
     /**
-     * @return One or more `additional_unattend_content` blocks as defined below.
+     * @return One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<WindowsVirtualMachineScaleSetAdditionalUnattendContent>>> additionalUnattendContents() {
@@ -575,14 +575,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.overprovision);
     }
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="plan", type=WindowsVirtualMachineScaleSetPlan.class, parameters={})
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetPlan> plan;
 
     /**
-     * @return A `plan` block as defined below.
+     * @return A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<WindowsVirtualMachineScaleSetPlan>> plan() {
@@ -659,14 +659,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return this.resourceGroupName;
     }
     /**
-     * A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+     * A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="rollingUpgradePolicy", type=WindowsVirtualMachineScaleSetRollingUpgradePolicy.class, parameters={})
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetRollingUpgradePolicy> rollingUpgradePolicy;
 
     /**
-     * @return A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+     * @return A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<WindowsVirtualMachineScaleSetRollingUpgradePolicy>> rollingUpgradePolicy() {
@@ -913,14 +913,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.vtpmEnabled);
     }
     /**
-     * One or more `winrm_listener` blocks as defined below.
+     * One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="winrmListeners", type=List.class, parameters={WindowsVirtualMachineScaleSetWinrmListener.class})
     private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetWinrmListener>> winrmListeners;
 
     /**
-     * @return One or more `winrm_listener` blocks as defined below.
+     * @return One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<WindowsVirtualMachineScaleSetWinrmListener>>> winrmListeners() {

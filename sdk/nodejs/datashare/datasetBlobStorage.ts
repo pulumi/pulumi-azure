@@ -121,7 +121,7 @@ export class DatasetBlobStorage extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `storageAccount` block as defined below.
+     * A `storageAccount` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly storageAccount!: pulumi.Output<outputs.datashare.DatasetBlobStorageStorageAccount>;
 
@@ -198,7 +198,7 @@ export interface DatasetBlobStorageState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `storageAccount` block as defined below.
+     * A `storageAccount` block as defined below. Changing this forces a new resource to be created.
      */
     storageAccount?: pulumi.Input<inputs.datashare.DatasetBlobStorageStorageAccount>;
 }
@@ -228,7 +228,7 @@ export interface DatasetBlobStorageArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `storageAccount` block as defined below.
+     * A `storageAccount` block as defined below. Changing this forces a new resource to be created.
      */
     storageAccount: pulumi.Input<inputs.datashare.DatasetBlobStorageStorageAccount>;
 }

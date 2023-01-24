@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Datadog.Outputs
         /// </summary>
         public readonly string ApplicationKey;
         /// <summary>
-        /// The ID of the enterprise_app.
+        /// The ID of the enterprise_app. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? EnterpriseAppId;
         /// <summary>

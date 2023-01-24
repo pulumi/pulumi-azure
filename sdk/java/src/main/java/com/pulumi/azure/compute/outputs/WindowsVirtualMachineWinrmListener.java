@@ -17,7 +17,7 @@ public final class WindowsVirtualMachineWinrmListener {
      */
     private @Nullable String certificateUrl;
     /**
-     * @return Specifies the protocol of listener. Possible values are `Http` or `Https`
+     * @return Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
      * 
      */
     private String protocol;
@@ -31,7 +31,7 @@ public final class WindowsVirtualMachineWinrmListener {
         return Optional.ofNullable(this.certificateUrl);
     }
     /**
-     * @return Specifies the protocol of listener. Possible values are `Http` or `Https`
+     * @return Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
      * 
      */
     public String protocol() {

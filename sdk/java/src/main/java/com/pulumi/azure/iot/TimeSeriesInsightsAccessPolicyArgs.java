@@ -47,14 +47,14 @@ public final class TimeSeriesInsightsAccessPolicyArgs extends com.pulumi.resourc
     }
 
     /**
-     * The id of the principal in Azure Active Directory.
+     * The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="principalObjectId", required=true)
     private Output<String> principalObjectId;
 
     /**
-     * @return The id of the principal in Azure Active Directory.
+     * @return The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> principalObjectId() {
@@ -162,7 +162,7 @@ public final class TimeSeriesInsightsAccessPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param principalObjectId The id of the principal in Azure Active Directory.
+         * @param principalObjectId The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class TimeSeriesInsightsAccessPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param principalObjectId The id of the principal in Azure Active Directory.
+         * @param principalObjectId The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

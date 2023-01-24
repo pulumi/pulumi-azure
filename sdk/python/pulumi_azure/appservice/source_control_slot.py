@@ -28,7 +28,7 @@ class SourceControlSlotArgs:
         The set of arguments for constructing a SourceControlSlot resource.
         :param pulumi.Input[str] slot_id: The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] branch: The URL for the repository. Changing this forces a new resource to be created.
-        :param pulumi.Input['SourceControlSlotGithubActionConfigurationArgs'] github_action_configuration: A `github_action_configuration` block as detailed below.
+        :param pulumi.Input['SourceControlSlotGithubActionConfigurationArgs'] github_action_configuration: A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The branch name to use for deployments. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_local_git: Should the Slot use local Git configuration. Changing this forces a new resource to be created.
@@ -79,7 +79,7 @@ class SourceControlSlotArgs:
     @pulumi.getter(name="githubActionConfiguration")
     def github_action_configuration(self) -> Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationArgs']]:
         """
-        A `github_action_configuration` block as detailed below.
+        A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "github_action_configuration")
 
@@ -164,7 +164,7 @@ class _SourceControlSlotState:
         """
         Input properties used for looking up and filtering SourceControlSlot resources.
         :param pulumi.Input[str] branch: The URL for the repository. Changing this forces a new resource to be created.
-        :param pulumi.Input['SourceControlSlotGithubActionConfigurationArgs'] github_action_configuration: A `github_action_configuration` block as detailed below.
+        :param pulumi.Input['SourceControlSlotGithubActionConfigurationArgs'] github_action_configuration: A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The branch name to use for deployments. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created.
         :param pulumi.Input[str] scm_type: The SCM Type in use. This value is decoded by the service from the repository information supplied.
@@ -211,7 +211,7 @@ class _SourceControlSlotState:
     @pulumi.getter(name="githubActionConfiguration")
     def github_action_configuration(self) -> Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationArgs']]:
         """
-        A `github_action_configuration` block as detailed below.
+        A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "github_action_configuration")
 
@@ -370,7 +370,7 @@ class SourceControlSlot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The URL for the repository. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SourceControlSlotGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['SourceControlSlotGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The branch name to use for deployments. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created.
         :param pulumi.Input[str] slot_id: The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
@@ -493,7 +493,7 @@ class SourceControlSlot(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The URL for the repository. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SourceControlSlotGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['SourceControlSlotGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The branch name to use for deployments. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created.
         :param pulumi.Input[str] scm_type: The SCM Type in use. This value is decoded by the service from the repository information supplied.
@@ -531,7 +531,7 @@ class SourceControlSlot(pulumi.CustomResource):
     @pulumi.getter(name="githubActionConfiguration")
     def github_action_configuration(self) -> pulumi.Output[Optional['outputs.SourceControlSlotGithubActionConfiguration']]:
         """
-        A `github_action_configuration` block as detailed below.
+        A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "github_action_configuration")
 

@@ -17,18 +17,14 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
     public static final VirtualNetworkGatewayConnectionIpsecPolicyArgs Empty = new VirtualNetworkGatewayConnectionIpsecPolicyArgs();
 
     /**
-     * The DH group used in IKE phase 1 for initial SA. Valid
-     * options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
-     * `ECP256`, `ECP384`, or `None`.
+     * The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
      * 
      */
     @Import(name="dhGroup", required=true)
     private Output<String> dhGroup;
 
     /**
-     * @return The DH group used in IKE phase 1 for initial SA. Valid
-     * options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
-     * `ECP256`, `ECP384`, or `None`.
+     * @return The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
      * 
      */
     public Output<String> dhGroup() {
@@ -36,16 +32,14 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
     }
 
     /**
-     * The IKE encryption algorithm. Valid
-     * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
+     * The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
      * 
      */
     @Import(name="ikeEncryption", required=true)
     private Output<String> ikeEncryption;
 
     /**
-     * @return The IKE encryption algorithm. Valid
-     * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
+     * @return The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
      * 
      */
     public Output<String> ikeEncryption() {
@@ -53,16 +47,14 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
     }
 
     /**
-     * The IKE integrity algorithm. Valid
-     * options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+     * The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
      * 
      */
     @Import(name="ikeIntegrity", required=true)
     private Output<String> ikeIntegrity;
 
     /**
-     * @return The IKE integrity algorithm. Valid
-     * options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+     * @return The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
      * 
      */
     public Output<String> ikeIntegrity() {
@@ -70,16 +62,14 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
     }
 
     /**
-     * The IPSec encryption algorithm. Valid
-     * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+     * The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
      * 
      */
     @Import(name="ipsecEncryption", required=true)
     private Output<String> ipsecEncryption;
 
     /**
-     * @return The IPSec encryption algorithm. Valid
-     * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+     * @return The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
      * 
      */
     public Output<String> ipsecEncryption() {
@@ -87,16 +77,14 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
     }
 
     /**
-     * The IPSec integrity algorithm. Valid
-     * options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+     * The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
      * 
      */
     @Import(name="ipsecIntegrity", required=true)
     private Output<String> ipsecIntegrity;
 
     /**
-     * @return The IPSec integrity algorithm. Valid
-     * options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+     * @return The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
      * 
      */
     public Output<String> ipsecIntegrity() {
@@ -123,16 +111,14 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
     }
 
     /**
-     * The IPSec SA payload size in KB. Must be at least
-     * `1024` KB. Defaults to `102400000` KB.
+     * The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
      * 
      */
     @Import(name="saDatasize")
     private @Nullable Output<Integer> saDatasize;
 
     /**
-     * @return The IPSec SA payload size in KB. Must be at least
-     * `1024` KB. Defaults to `102400000` KB.
+     * @return The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
      * 
      */
     public Optional<Output<Integer>> saDatasize() {
@@ -140,16 +126,14 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
     }
 
     /**
-     * The IPSec SA lifetime in seconds. Must be at least
-     * `300` seconds. Defaults to `27000` seconds.
+     * The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
      * 
      */
     @Import(name="saLifetime")
     private @Nullable Output<Integer> saLifetime;
 
     /**
-     * @return The IPSec SA lifetime in seconds. Must be at least
-     * `300` seconds. Defaults to `27000` seconds.
+     * @return The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
      * 
      */
     public Optional<Output<Integer>> saLifetime() {
@@ -188,9 +172,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param dhGroup The DH group used in IKE phase 1 for initial SA. Valid
-         * options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
-         * `ECP256`, `ECP384`, or `None`.
+         * @param dhGroup The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
          * 
          * @return builder
          * 
@@ -201,9 +183,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param dhGroup The DH group used in IKE phase 1 for initial SA. Valid
-         * options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
-         * `ECP256`, `ECP384`, or `None`.
+         * @param dhGroup The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
          * 
          * @return builder
          * 
@@ -213,8 +193,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param ikeEncryption The IKE encryption algorithm. Valid
-         * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
+         * @param ikeEncryption The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
          * 
          * @return builder
          * 
@@ -225,8 +204,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param ikeEncryption The IKE encryption algorithm. Valid
-         * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
+         * @param ikeEncryption The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
          * 
          * @return builder
          * 
@@ -236,8 +214,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param ikeIntegrity The IKE integrity algorithm. Valid
-         * options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+         * @param ikeIntegrity The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
          * 
          * @return builder
          * 
@@ -248,8 +225,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param ikeIntegrity The IKE integrity algorithm. Valid
-         * options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+         * @param ikeIntegrity The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
          * 
          * @return builder
          * 
@@ -259,8 +235,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param ipsecEncryption The IPSec encryption algorithm. Valid
-         * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+         * @param ipsecEncryption The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
          * 
          * @return builder
          * 
@@ -271,8 +246,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param ipsecEncryption The IPSec encryption algorithm. Valid
-         * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+         * @param ipsecEncryption The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
          * 
          * @return builder
          * 
@@ -282,8 +256,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param ipsecIntegrity The IPSec integrity algorithm. Valid
-         * options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+         * @param ipsecIntegrity The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
          * 
          * @return builder
          * 
@@ -294,8 +267,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param ipsecIntegrity The IPSec integrity algorithm. Valid
-         * options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+         * @param ipsecIntegrity The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
          * 
          * @return builder
          * 
@@ -330,8 +302,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param saDatasize The IPSec SA payload size in KB. Must be at least
-         * `1024` KB. Defaults to `102400000` KB.
+         * @param saDatasize The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
          * 
          * @return builder
          * 
@@ -342,8 +313,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param saDatasize The IPSec SA payload size in KB. Must be at least
-         * `1024` KB. Defaults to `102400000` KB.
+         * @param saDatasize The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
          * 
          * @return builder
          * 
@@ -353,8 +323,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param saLifetime The IPSec SA lifetime in seconds. Must be at least
-         * `300` seconds. Defaults to `27000` seconds.
+         * @param saLifetime The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
          * 
          * @return builder
          * 
@@ -365,8 +334,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         /**
-         * @param saLifetime The IPSec SA lifetime in seconds. Must be at least
-         * `300` seconds. Defaults to `27000` seconds.
+         * @param saLifetime The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
          * 
          * @return builder
          * 

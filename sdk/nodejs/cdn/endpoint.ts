@@ -119,7 +119,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly originPath!: pulumi.Output<string>;
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
      */
     public readonly origins!: pulumi.Output<outputs.cdn.EndpointOrigin[]>;
     /**
@@ -268,7 +268,7 @@ export interface EndpointState {
      */
     originPath?: pulumi.Input<string>;
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
      */
     origins?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[]>;
     /**
@@ -346,7 +346,7 @@ export interface EndpointArgs {
      */
     originPath?: pulumi.Input<string>;
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
      */
     origins: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[]>;
     /**

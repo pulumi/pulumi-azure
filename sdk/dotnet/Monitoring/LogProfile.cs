@@ -93,8 +93,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<string>> Locations { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Log Profile. Changing this forces a
-        /// new resource to be created.
+        /// The name of the Log Profile. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -188,8 +187,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// The name of the Log Profile. Changing this forces a
-        /// new resource to be created.
+        /// The name of the Log Profile. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -245,8 +243,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// The name of the Log Profile. Changing this forces a
-        /// new resource to be created.
+        /// The name of the Log Profile. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

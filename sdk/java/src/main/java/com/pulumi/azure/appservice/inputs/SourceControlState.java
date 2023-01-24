@@ -48,14 +48,14 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `github_action_configuration` block as defined below.
+     * A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="githubActionConfiguration")
     private @Nullable Output<SourceControlGithubActionConfigurationArgs> githubActionConfiguration;
 
     /**
-     * @return A `github_action_configuration` block as defined below.
+     * @return A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<SourceControlGithubActionConfigurationArgs>> githubActionConfiguration() {
@@ -243,7 +243,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param githubActionConfiguration A `github_action_configuration` block as defined below.
+         * @param githubActionConfiguration A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param githubActionConfiguration A `github_action_configuration` block as defined below.
+         * @param githubActionConfiguration A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

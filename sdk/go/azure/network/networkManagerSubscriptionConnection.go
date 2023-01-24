@@ -87,7 +87,7 @@ type NetworkManagerSubscriptionConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the ID of the Network Manager which the Subscription is connected to.
 	NetworkManagerId pulumi.StringOutput `pulumi:"networkManagerId"`
-	// Specifies the ID of the target Subscription.
+	// Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 }
 
@@ -134,7 +134,7 @@ type networkManagerSubscriptionConnectionState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Network Manager which the Subscription is connected to.
 	NetworkManagerId *string `pulumi:"networkManagerId"`
-	// Specifies the ID of the target Subscription.
+	// Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
@@ -147,7 +147,7 @@ type NetworkManagerSubscriptionConnectionState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the Network Manager which the Subscription is connected to.
 	NetworkManagerId pulumi.StringPtrInput
-	// Specifies the ID of the target Subscription.
+	// Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringPtrInput
 }
 
@@ -162,7 +162,7 @@ type networkManagerSubscriptionConnectionArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Network Manager which the Subscription is connected to.
 	NetworkManagerId string `pulumi:"networkManagerId"`
-	// Specifies the ID of the target Subscription.
+	// Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
 	SubscriptionId string `pulumi:"subscriptionId"`
 }
 
@@ -174,7 +174,7 @@ type NetworkManagerSubscriptionConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the Network Manager which the Subscription is connected to.
 	NetworkManagerId pulumi.StringInput
-	// Specifies the ID of the target Subscription.
+	// Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringInput
 }
 
@@ -285,7 +285,7 @@ func (o NetworkManagerSubscriptionConnectionOutput) NetworkManagerId() pulumi.St
 	return o.ApplyT(func(v *NetworkManagerSubscriptionConnection) pulumi.StringOutput { return v.NetworkManagerId }).(pulumi.StringOutput)
 }
 
-// Specifies the ID of the target Subscription.
+// Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
 func (o NetworkManagerSubscriptionConnectionOutput) SubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerSubscriptionConnection) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
 }

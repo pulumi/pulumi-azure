@@ -14,14 +14,14 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
     public static final WindowsVirtualMachineSourceImageReferenceArgs Empty = new WindowsVirtualMachineSourceImageReferenceArgs();
 
     /**
-     * Specifies the offer of the image used to create the virtual machines.
+     * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="offer", required=true)
     private Output<String> offer;
 
     /**
-     * @return Specifies the offer of the image used to create the virtual machines.
+     * @return Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> offer() {
@@ -29,14 +29,14 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
     }
 
     /**
-     * Specifies the publisher of the image used to create the virtual machines.
+     * Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="publisher", required=true)
     private Output<String> publisher;
 
     /**
-     * @return Specifies the publisher of the image used to create the virtual machines.
+     * @return Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> publisher() {
@@ -44,14 +44,14 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
     }
 
     /**
-     * Specifies the SKU of the image used to create the virtual machines.
+     * Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sku", required=true)
     private Output<String> sku;
 
     /**
-     * @return Specifies the SKU of the image used to create the virtual machines.
+     * @return Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sku() {
@@ -59,14 +59,14 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
     }
 
     /**
-     * Specifies the version of the image used to create the virtual machines.
+     * Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return Specifies the version of the image used to create the virtual machines.
+     * @return Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> version() {
@@ -101,7 +101,7 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
         }
 
         /**
-         * @param offer Specifies the offer of the image used to create the virtual machines.
+         * @param offer Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
         }
 
         /**
-         * @param offer Specifies the offer of the image used to create the virtual machines.
+         * @param offer Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
         }
 
         /**
-         * @param publisher Specifies the publisher of the image used to create the virtual machines.
+         * @param publisher Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
         }
 
         /**
-         * @param publisher Specifies the publisher of the image used to create the virtual machines.
+         * @param publisher Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
         }
 
         /**
-         * @param sku Specifies the SKU of the image used to create the virtual machines.
+         * @param sku Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
         }
 
         /**
-         * @param sku Specifies the SKU of the image used to create the virtual machines.
+         * @param sku Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
         }
 
         /**
-         * @param version Specifies the version of the image used to create the virtual machines.
+         * @param version Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class WindowsVirtualMachineSourceImageReferenceArgs extends com.pul
         }
 
         /**
-         * @param version Specifies the version of the image used to create the virtual machines.
+         * @param version Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

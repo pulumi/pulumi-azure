@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
+        /// Specifies the size of virtual machines in a scale set.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

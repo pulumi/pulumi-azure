@@ -142,28 +142,28 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.enableAutoScaling);
     }
     /**
-     * Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     @Export(name="enableHostEncryption", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableHostEncryption;
 
     /**
-     * @return Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> enableHostEncryption() {
         return Codegen.optional(this.enableHostEncryption);
     }
     /**
-     * Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
      * 
      */
     @Export(name="enableNodePublicIp", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableNodePublicIp;
 
     /**
-     * @return Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+     * @return Should each node have a Public IP Address? Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> enableNodePublicIp() {
@@ -212,14 +212,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.hostGroupId);
     }
     /**
-     * A `kubelet_config` block as defined below.
+     * A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="kubeletConfig", type=KubernetesClusterNodePoolKubeletConfig.class, parameters={})
     private Output</* @Nullable */ KubernetesClusterNodePoolKubeletConfig> kubeletConfig;
 
     /**
-     * @return A `kubelet_config` block as defined below.
+     * @return A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<KubernetesClusterNodePoolKubeletConfig>> kubeletConfig() {
@@ -254,14 +254,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return this.kubernetesClusterId;
     }
     /**
-     * A `linux_os_config` block as defined below.
+     * A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="linuxOsConfig", type=KubernetesClusterNodePoolLinuxOsConfig.class, parameters={})
     private Output</* @Nullable */ KubernetesClusterNodePoolLinuxOsConfig> linuxOsConfig;
 
     /**
-     * @return A `linux_os_config` block as defined below.
+     * @return A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<KubernetesClusterNodePoolLinuxOsConfig>> linuxOsConfig() {
@@ -618,14 +618,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.vnetSubnetId);
     }
     /**
-     * A `windows_profile` block as documented below.
+     * A `windows_profile` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="windowsProfile", type=KubernetesClusterNodePoolWindowsProfile.class, parameters={})
     private Output</* @Nullable */ KubernetesClusterNodePoolWindowsProfile> windowsProfile;
 
     /**
-     * @return A `windows_profile` block as documented below.
+     * @return A `windows_profile` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<KubernetesClusterNodePoolWindowsProfile>> windowsProfile() {

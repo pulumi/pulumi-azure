@@ -119,7 +119,7 @@ type WindowsVirtualMachineScaleSet struct {
 
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput `pulumi:"additionalCapabilities"`
-	// One or more `additionalUnattendContent` blocks as defined below.
+	// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
 	AdditionalUnattendContents WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput `pulumi:"additionalUnattendContents"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
@@ -179,7 +179,7 @@ type WindowsVirtualMachineScaleSet struct {
 	OsDisk WindowsVirtualMachineScaleSetOsDiskOutput `pulumi:"osDisk"`
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrOutput `pulumi:"overprovision"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan WindowsVirtualMachineScaleSetPlanPtrOutput `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
@@ -191,7 +191,7 @@ type WindowsVirtualMachineScaleSet struct {
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn WindowsVirtualMachineScaleSetScaleInOutput `pulumi:"scaleIn"`
@@ -229,7 +229,7 @@ type WindowsVirtualMachineScaleSet struct {
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
-	// One or more `winrmListener` blocks as defined below.
+	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayOutput `pulumi:"winrmListeners"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
@@ -300,7 +300,7 @@ func GetWindowsVirtualMachineScaleSet(ctx *pulumi.Context,
 type windowsVirtualMachineScaleSetState struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *WindowsVirtualMachineScaleSetAdditionalCapabilities `pulumi:"additionalCapabilities"`
-	// One or more `additionalUnattendContent` blocks as defined below.
+	// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
 	AdditionalUnattendContents []WindowsVirtualMachineScaleSetAdditionalUnattendContent `pulumi:"additionalUnattendContents"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword *string `pulumi:"adminPassword"`
@@ -360,7 +360,7 @@ type windowsVirtualMachineScaleSetState struct {
 	OsDisk *WindowsVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *WindowsVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
@@ -372,7 +372,7 @@ type windowsVirtualMachineScaleSetState struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 	RollingUpgradePolicy *WindowsVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn *WindowsVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
@@ -410,7 +410,7 @@ type windowsVirtualMachineScaleSetState struct {
 	UserData *string `pulumi:"userData"`
 	// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
-	// One or more `winrmListener` blocks as defined below.
+	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 	WinrmListeners []WindowsVirtualMachineScaleSetWinrmListener `pulumi:"winrmListeners"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
@@ -421,7 +421,7 @@ type windowsVirtualMachineScaleSetState struct {
 type WindowsVirtualMachineScaleSetState struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput
-	// One or more `additionalUnattendContent` blocks as defined below.
+	// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
 	AdditionalUnattendContents WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayInput
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringPtrInput
@@ -481,7 +481,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	OsDisk WindowsVirtualMachineScaleSetOsDiskPtrInput
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan WindowsVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrInput
@@ -493,7 +493,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// A `scaleIn` block as defined below.
 	ScaleIn WindowsVirtualMachineScaleSetScaleInPtrInput
@@ -531,7 +531,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	UserData pulumi.StringPtrInput
 	// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
-	// One or more `winrmListener` blocks as defined below.
+	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance pulumi.BoolPtrInput
@@ -546,7 +546,7 @@ func (WindowsVirtualMachineScaleSetState) ElementType() reflect.Type {
 type windowsVirtualMachineScaleSetArgs struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *WindowsVirtualMachineScaleSetAdditionalCapabilities `pulumi:"additionalCapabilities"`
-	// One or more `additionalUnattendContent` blocks as defined below.
+	// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
 	AdditionalUnattendContents []WindowsVirtualMachineScaleSetAdditionalUnattendContent `pulumi:"additionalUnattendContents"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword string `pulumi:"adminPassword"`
@@ -606,7 +606,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	OsDisk WindowsVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *WindowsVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
@@ -618,7 +618,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 	RollingUpgradePolicy *WindowsVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn *WindowsVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
@@ -654,7 +654,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	UserData *string `pulumi:"userData"`
 	// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
-	// One or more `winrmListener` blocks as defined below.
+	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 	WinrmListeners []WindowsVirtualMachineScaleSetWinrmListener `pulumi:"winrmListeners"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
@@ -666,7 +666,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 type WindowsVirtualMachineScaleSetArgs struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput
-	// One or more `additionalUnattendContent` blocks as defined below.
+	// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
 	AdditionalUnattendContents WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayInput
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringInput
@@ -726,7 +726,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	OsDisk WindowsVirtualMachineScaleSetOsDiskInput
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan WindowsVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrInput
@@ -738,7 +738,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// A `scaleIn` block as defined below.
 	ScaleIn WindowsVirtualMachineScaleSetScaleInPtrInput
@@ -774,7 +774,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	UserData pulumi.StringPtrInput
 	// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
-	// One or more `winrmListener` blocks as defined below.
+	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance pulumi.BoolPtrInput
@@ -876,7 +876,7 @@ func (o WindowsVirtualMachineScaleSetOutput) AdditionalCapabilities() WindowsVir
 	}).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
 }
 
-// One or more `additionalUnattendContent` blocks as defined below.
+// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOutput) AdditionalUnattendContents() WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput {
 		return v.AdditionalUnattendContents
@@ -1046,7 +1046,7 @@ func (o WindowsVirtualMachineScaleSetOutput) Overprovision() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.Overprovision }).(pulumi.BoolPtrOutput)
 }
 
-// A `plan` block as defined below.
+// A `plan` block as defined below. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOutput) Plan() WindowsVirtualMachineScaleSetPlanPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetPlanPtrOutput { return v.Plan }).(WindowsVirtualMachineScaleSetPlanPtrOutput)
 }
@@ -1076,7 +1076,7 @@ func (o WindowsVirtualMachineScaleSetOutput) ResourceGroupName() pulumi.StringOu
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOutput) RollingUpgradePolicy() WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
 		return v.RollingUpgradePolicy
@@ -1180,7 +1180,7 @@ func (o WindowsVirtualMachineScaleSetOutput) VtpmEnabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.VtpmEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// One or more `winrmListener` blocks as defined below.
+// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOutput) WinrmListeners() WindowsVirtualMachineScaleSetWinrmListenerArrayOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetWinrmListenerArrayOutput {
 		return v.WinrmListeners

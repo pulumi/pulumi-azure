@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<int>? MaxChunkSizeInBytes { get; set; }
 
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

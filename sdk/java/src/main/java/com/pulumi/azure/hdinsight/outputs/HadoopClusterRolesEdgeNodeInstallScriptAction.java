@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
     /**
-     * @return The name of the install script action. Changing this forces a new resource to be created.
+     * @return The name of the install script action.
      * 
      */
     private String name;
@@ -22,14 +22,14 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
      */
     private @Nullable String parameters;
     /**
-     * @return The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+     * @return The URI pointing to the script to run during the installation of the edge node.
      * 
      */
     private String uri;
 
     private HadoopClusterRolesEdgeNodeInstallScriptAction() {}
     /**
-     * @return The name of the install script action. Changing this forces a new resource to be created.
+     * @return The name of the install script action.
      * 
      */
     public String name() {
@@ -43,7 +43,7 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
         return Optional.ofNullable(this.parameters);
     }
     /**
-     * @return The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+     * @return The URI pointing to the script to run during the installation of the edge node.
      * 
      */
     public String uri() {

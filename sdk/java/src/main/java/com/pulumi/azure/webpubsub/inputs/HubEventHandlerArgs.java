@@ -48,18 +48,14 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-     * available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-     * comes in. Example: `http://example.com/api/{hub}/{event}`.
+     * The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
      * 
      */
     @Import(name="urlTemplate", required=true)
     private Output<String> urlTemplate;
 
     /**
-     * @return The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-     * available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-     * comes in. Example: `http://example.com/api/{hub}/{event}`.
+     * @return The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
      * 
      */
     public Output<String> urlTemplate() {
@@ -67,20 +63,14 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specify the matching event names. There are 3 kind of patterns supported:
-     * * `*` matches any event name
-     * * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-     * * The single event name, for example `event1`, it matches `event1`.
+     * Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
      * 
      */
     @Import(name="userEventPattern")
     private @Nullable Output<String> userEventPattern;
 
     /**
-     * @return Specify the matching event names. There are 3 kind of patterns supported:
-     * * `*` matches any event name
-     * * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-     * * The single event name, for example `event1`, it matches `event1`.
+     * @return Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
      * 
      */
     public Optional<Output<String>> userEventPattern() {
@@ -167,9 +157,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param urlTemplate The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-         * available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-         * comes in. Example: `http://example.com/api/{hub}/{event}`.
+         * @param urlTemplate The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
          * 
          * @return builder
          * 
@@ -180,9 +168,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param urlTemplate The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-         * available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-         * comes in. Example: `http://example.com/api/{hub}/{event}`.
+         * @param urlTemplate The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
          * 
          * @return builder
          * 
@@ -192,10 +178,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param userEventPattern Specify the matching event names. There are 3 kind of patterns supported:
-         * * `*` matches any event name
-         * * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-         * * The single event name, for example `event1`, it matches `event1`.
+         * @param userEventPattern Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
          * 
          * @return builder
          * 
@@ -206,10 +189,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param userEventPattern Specify the matching event names. There are 3 kind of patterns supported:
-         * * `*` matches any event name
-         * * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-         * * The single event name, for example `event1`, it matches `event1`.
+         * @param userEventPattern Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
          * 
          * @return builder
          * 

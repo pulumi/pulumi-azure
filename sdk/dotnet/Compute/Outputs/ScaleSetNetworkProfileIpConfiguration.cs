@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerInboundNatRulesIds;
         /// <summary>
-        /// Specifies name of the IP configuration. Changing this forces a new resource to be created.
+        /// Specifies name of the IP configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>

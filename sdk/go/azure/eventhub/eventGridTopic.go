@@ -72,9 +72,9 @@ type EventGridTopic struct {
 	Identity EventGridTopicIdentityPtrOutput `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules EventGridTopicInboundIpRuleArrayOutput `pulumi:"inboundIpRules"`
-	// A `inputMappingDefaultValues` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 	InputMappingDefaultValues EventGridTopicInputMappingDefaultValuesPtrOutput `pulumi:"inputMappingDefaultValues"`
-	// A `inputMappingFields` block as defined below.
+	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields EventGridTopicInputMappingFieldsPtrOutput `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrOutput `pulumi:"inputSchema"`
@@ -139,9 +139,9 @@ type eventGridTopicState struct {
 	Identity *EventGridTopicIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []EventGridTopicInboundIpRule `pulumi:"inboundIpRules"`
-	// A `inputMappingDefaultValues` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 	InputMappingDefaultValues *EventGridTopicInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
-	// A `inputMappingFields` block as defined below.
+	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields *EventGridTopicInputMappingFields `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema *string `pulumi:"inputSchema"`
@@ -170,9 +170,9 @@ type EventGridTopicState struct {
 	Identity EventGridTopicIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules EventGridTopicInboundIpRuleArrayInput
-	// A `inputMappingDefaultValues` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 	InputMappingDefaultValues EventGridTopicInputMappingDefaultValuesPtrInput
-	// A `inputMappingFields` block as defined below.
+	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields EventGridTopicInputMappingFieldsPtrInput
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrInput
@@ -203,9 +203,9 @@ type eventGridTopicArgs struct {
 	Identity *EventGridTopicIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []EventGridTopicInboundIpRule `pulumi:"inboundIpRules"`
-	// A `inputMappingDefaultValues` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 	InputMappingDefaultValues *EventGridTopicInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
-	// A `inputMappingFields` block as defined below.
+	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields *EventGridTopicInputMappingFields `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema *string `pulumi:"inputSchema"`
@@ -229,9 +229,9 @@ type EventGridTopicArgs struct {
 	Identity EventGridTopicIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules EventGridTopicInboundIpRuleArrayInput
-	// A `inputMappingDefaultValues` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 	InputMappingDefaultValues EventGridTopicInputMappingDefaultValuesPtrInput
-	// A `inputMappingFields` block as defined below.
+	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields EventGridTopicInputMappingFieldsPtrInput
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrInput
@@ -351,14 +351,14 @@ func (o EventGridTopicOutput) InboundIpRules() EventGridTopicInboundIpRuleArrayO
 	return o.ApplyT(func(v *EventGridTopic) EventGridTopicInboundIpRuleArrayOutput { return v.InboundIpRules }).(EventGridTopicInboundIpRuleArrayOutput)
 }
 
-// A `inputMappingDefaultValues` block as defined below.
+// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 func (o EventGridTopicOutput) InputMappingDefaultValues() EventGridTopicInputMappingDefaultValuesPtrOutput {
 	return o.ApplyT(func(v *EventGridTopic) EventGridTopicInputMappingDefaultValuesPtrOutput {
 		return v.InputMappingDefaultValues
 	}).(EventGridTopicInputMappingDefaultValuesPtrOutput)
 }
 
-// A `inputMappingFields` block as defined below.
+// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 func (o EventGridTopicOutput) InputMappingFields() EventGridTopicInputMappingFieldsPtrOutput {
 	return o.ApplyT(func(v *EventGridTopic) EventGridTopicInputMappingFieldsPtrOutput { return v.InputMappingFields }).(EventGridTopicInputMappingFieldsPtrOutput)
 }

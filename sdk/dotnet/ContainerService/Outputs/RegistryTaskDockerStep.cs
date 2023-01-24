@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string ContextPath;
         /// <summary>
-        /// The  Dockerfile path relative to the source context.
+        /// The Dockerfile path relative to the source context.
         /// </summary>
         public readonly string DockerfilePath;
         /// <summary>

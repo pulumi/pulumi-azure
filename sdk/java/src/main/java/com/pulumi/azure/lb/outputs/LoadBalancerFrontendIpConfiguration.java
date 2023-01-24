@@ -33,7 +33,7 @@ public final class LoadBalancerFrontendIpConfiguration {
      */
     private @Nullable List<String> loadBalancerRules;
     /**
-     * @return Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+     * @return Specifies the name of the frontend IP configuration.
      * 
      */
     private String name;
@@ -73,7 +73,7 @@ public final class LoadBalancerFrontendIpConfiguration {
      */
     private @Nullable String subnetId;
     /**
-     * @return Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+     * @return Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
      * 
      */
     private @Nullable List<String> zones;
@@ -108,7 +108,7 @@ public final class LoadBalancerFrontendIpConfiguration {
         return this.loadBalancerRules == null ? List.of() : this.loadBalancerRules;
     }
     /**
-     * @return Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+     * @return Specifies the name of the frontend IP configuration.
      * 
      */
     public String name() {
@@ -164,7 +164,7 @@ public final class LoadBalancerFrontendIpConfiguration {
         return Optional.ofNullable(this.subnetId);
     }
     /**
-     * @return Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+     * @return Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
      * 
      */
     public List<String> zones() {

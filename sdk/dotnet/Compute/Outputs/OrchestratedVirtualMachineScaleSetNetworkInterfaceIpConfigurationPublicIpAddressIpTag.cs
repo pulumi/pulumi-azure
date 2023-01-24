@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag
     {
         /// <summary>
-        /// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+        /// The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Tag;
         /// <summary>
-        /// The Type of IP Tag, such as `FirstPartyUsage`.
+        /// The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 

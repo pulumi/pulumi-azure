@@ -63,14 +63,14 @@ public final class SpringCloudServiceNetworkArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Ingress read time out in seconds. Changing this forces a new resource to be created.
+     * Ingress read time out in seconds.
      * 
      */
     @Import(name="readTimeoutSeconds")
     private @Nullable Output<Integer> readTimeoutSeconds;
 
     /**
-     * @return Ingress read time out in seconds. Changing this forces a new resource to be created.
+     * @return Ingress read time out in seconds.
      * 
      */
     public Optional<Output<Integer>> readTimeoutSeconds() {
@@ -210,7 +210,7 @@ public final class SpringCloudServiceNetworkArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param readTimeoutSeconds Ingress read time out in seconds. Changing this forces a new resource to be created.
+         * @param readTimeoutSeconds Ingress read time out in seconds.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class SpringCloudServiceNetworkArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param readTimeoutSeconds Ingress read time out in seconds. Changing this forces a new resource to be created.
+         * @param readTimeoutSeconds Ingress read time out in seconds.
          * 
          * @return builder
          * 

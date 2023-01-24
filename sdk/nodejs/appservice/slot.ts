@@ -146,7 +146,7 @@ export class Slot extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+     * The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
      */
     public readonly appServiceName!: pulumi.Output<string>;
     /**
@@ -295,7 +295,7 @@ export class Slot extends pulumi.CustomResource {
  */
 export interface SlotState {
     /**
-     * The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+     * The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
      */
     appServiceName?: pulumi.Input<string>;
     /**
@@ -377,7 +377,7 @@ export interface SlotState {
  */
 export interface SlotArgs {
     /**
-     * The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+     * The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
      */
     appServiceName: pulumi.Input<string>;
     /**

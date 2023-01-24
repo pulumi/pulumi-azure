@@ -247,9 +247,7 @@ namespace Pulumi.Azure.Network
     public partial class VirtualNetworkGatewayConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The authorization key associated with the
-        /// Express Route Circuit. This field is required only if the type is an
-        /// ExpressRoute connection.
+        /// The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
         /// </summary>
         [Output("authorizationKey")]
         public Output<string?> AuthorizationKey { get; private set; } = null!;
@@ -288,8 +286,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> EgressNatRuleIds { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) is enabled
-        /// for this connection. Defaults to `false`.
+        /// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
         /// </summary>
         [Output("enableBgp")]
         public Output<bool> EnableBgp { get; private set; } = null!;
@@ -327,8 +324,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> LocalAzureIpAddressEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the local network gateway
-        /// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+        /// The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
         /// </summary>
         [Output("localNetworkGatewayId")]
         public Output<string?> LocalNetworkGatewayId { get; private set; } = null!;
@@ -340,8 +336,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the connection. Changing the name forces a
-        /// new resource to be created.
+        /// The name of the connection. Changing the name forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -365,8 +360,7 @@ namespace Pulumi.Azure.Network
         public Output<int> RoutingWeight { get; private set; } = null!;
 
         /// <summary>
-        /// The shared IPSec key. A key could be provided if a
-        /// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+        /// The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         /// </summary>
         [Output("sharedKey")]
         public Output<string?> SharedKey { get; private set; } = null!;
@@ -392,9 +386,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, policy-based traffic
-        /// selectors are enabled for this connection. Enabling policy-based traffic
-        /// selectors requires an `ipsec_policy` block. Defaults to `false`.
+        /// If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
         /// </summary>
         [Output("usePolicyBasedTrafficSelectors")]
         public Output<bool> UsePolicyBasedTrafficSelectors { get; private set; } = null!;
@@ -460,9 +452,7 @@ namespace Pulumi.Azure.Network
         private Input<string>? _authorizationKey;
 
         /// <summary>
-        /// The authorization key associated with the
-        /// Express Route Circuit. This field is required only if the type is an
-        /// ExpressRoute connection.
+        /// The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
         /// </summary>
         public Input<string>? AuthorizationKey
         {
@@ -514,8 +504,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) is enabled
-        /// for this connection. Defaults to `false`.
+        /// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
         /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
@@ -559,8 +548,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? LocalAzureIpAddressEnabled { get; set; }
 
         /// <summary>
-        /// The ID of the local network gateway
-        /// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+        /// The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
         /// </summary>
         [Input("localNetworkGatewayId")]
         public Input<string>? LocalNetworkGatewayId { get; set; }
@@ -572,8 +560,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the connection. Changing the name forces a
-        /// new resource to be created.
+        /// The name of the connection. Changing the name forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -600,8 +587,7 @@ namespace Pulumi.Azure.Network
         private Input<string>? _sharedKey;
 
         /// <summary>
-        /// The shared IPSec key. A key could be provided if a
-        /// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+        /// The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         /// </summary>
         public Input<string>? SharedKey
         {
@@ -640,9 +626,7 @@ namespace Pulumi.Azure.Network
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// If `true`, policy-based traffic
-        /// selectors are enabled for this connection. Enabling policy-based traffic
-        /// selectors requires an `ipsec_policy` block. Defaults to `false`.
+        /// If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
         /// </summary>
         [Input("usePolicyBasedTrafficSelectors")]
         public Input<bool>? UsePolicyBasedTrafficSelectors { get; set; }
@@ -665,9 +649,7 @@ namespace Pulumi.Azure.Network
         private Input<string>? _authorizationKey;
 
         /// <summary>
-        /// The authorization key associated with the
-        /// Express Route Circuit. This field is required only if the type is an
-        /// ExpressRoute connection.
+        /// The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
         /// </summary>
         public Input<string>? AuthorizationKey
         {
@@ -719,8 +701,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) is enabled
-        /// for this connection. Defaults to `false`.
+        /// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
         /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
@@ -764,8 +745,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? LocalAzureIpAddressEnabled { get; set; }
 
         /// <summary>
-        /// The ID of the local network gateway
-        /// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+        /// The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
         /// </summary>
         [Input("localNetworkGatewayId")]
         public Input<string>? LocalNetworkGatewayId { get; set; }
@@ -777,8 +757,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the connection. Changing the name forces a
-        /// new resource to be created.
+        /// The name of the connection. Changing the name forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -805,8 +784,7 @@ namespace Pulumi.Azure.Network
         private Input<string>? _sharedKey;
 
         /// <summary>
-        /// The shared IPSec key. A key could be provided if a
-        /// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+        /// The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         /// </summary>
         public Input<string>? SharedKey
         {
@@ -845,9 +823,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// If `true`, policy-based traffic
-        /// selectors are enabled for this connection. Enabling policy-based traffic
-        /// selectors requires an `ipsec_policy` block. Defaults to `false`.
+        /// If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
         /// </summary>
         [Input("usePolicyBasedTrafficSelectors")]
         public Input<bool>? UsePolicyBasedTrafficSelectors { get; set; }

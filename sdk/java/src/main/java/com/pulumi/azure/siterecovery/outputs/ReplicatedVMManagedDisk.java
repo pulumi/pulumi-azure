@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatedVMManagedDisk {
     /**
-     * @return Id of disk that should be replicated.
+     * @return Id of disk that should be replicated. Changing this forces a new resource to be created.
      * 
      */
     private String diskId;
     /**
-     * @return Storage account that should be used for caching.
+     * @return Storage account that should be used for caching. Changing this forces a new resource to be created.
      * 
      */
     private String stagingStorageAccountId;
@@ -28,36 +28,36 @@ public final class ReplicatedVMManagedDisk {
      */
     private @Nullable ReplicatedVMManagedDiskTargetDiskEncryption targetDiskEncryption;
     /**
-     * @return The Disk Encryption Set that the Managed Disk will be associated with.
+     * @return The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String targetDiskEncryptionSetId;
     /**
-     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
      * 
      */
     private String targetDiskType;
     /**
-     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
      * 
      */
     private String targetReplicaDiskType;
     /**
-     * @return Resource group disk should belong to when a failover is done.
+     * @return Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     private String targetResourceGroupId;
 
     private ReplicatedVMManagedDisk() {}
     /**
-     * @return Id of disk that should be replicated.
+     * @return Id of disk that should be replicated. Changing this forces a new resource to be created.
      * 
      */
     public String diskId() {
         return this.diskId;
     }
     /**
-     * @return Storage account that should be used for caching.
+     * @return Storage account that should be used for caching. Changing this forces a new resource to be created.
      * 
      */
     public String stagingStorageAccountId() {
@@ -71,28 +71,28 @@ public final class ReplicatedVMManagedDisk {
         return Optional.ofNullable(this.targetDiskEncryption);
     }
     /**
-     * @return The Disk Encryption Set that the Managed Disk will be associated with.
+     * @return The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> targetDiskEncryptionSetId() {
         return Optional.ofNullable(this.targetDiskEncryptionSetId);
     }
     /**
-     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
      * 
      */
     public String targetDiskType() {
         return this.targetDiskType;
     }
     /**
-     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
      * 
      */
     public String targetReplicaDiskType() {
         return this.targetReplicaDiskType;
     }
     /**
-     * @return Resource group disk should belong to when a failover is done.
+     * @return Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     public String targetResourceGroupId() {

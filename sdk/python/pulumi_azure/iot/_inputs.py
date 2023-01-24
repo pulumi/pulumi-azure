@@ -162,7 +162,7 @@ class IoTHubEndpointArgs:
                  max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         :param pulumi.Input[str] type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         :param pulumi.Input[str] authentication_type: The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         :param pulumi.Input[int] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
@@ -205,7 +205,7 @@ class IoTHubEndpointArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         """
         return pulumi.get(self, "name")
 
@@ -1114,7 +1114,7 @@ class IotHubDpsIpFilterRuleArgs:
                  name: pulumi.Input[str],
                  target: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] action: The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+        :param pulumi.Input[str] action: The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
         :param pulumi.Input[str] ip_mask: The IP address range in CIDR notation for the rule.
         :param pulumi.Input[str] name: The name of the filter.
         :param pulumi.Input[str] target: Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
@@ -1129,7 +1129,7 @@ class IotHubDpsIpFilterRuleArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+        The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
         """
         return pulumi.get(self, "action")
 

@@ -25,7 +25,7 @@ class IntegrationRuntimeSelfHostedArgs:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]] rbac_authorizations: A `rbac_authorization` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]] rbac_authorizations: A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
@@ -75,7 +75,7 @@ class IntegrationRuntimeSelfHostedArgs:
     @pulumi.getter(name="rbacAuthorizations")
     def rbac_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]:
         """
-        A `rbac_authorization` block as defined below.
+        A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "rbac_authorizations")
 
@@ -99,7 +99,7 @@ class _IntegrationRuntimeSelfHostedState:
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[str] primary_authorization_key: The primary integration runtime authentication key.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]] rbac_authorizations: A `rbac_authorization` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]] rbac_authorizations: A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_authorization_key: The secondary integration runtime authentication key.
         """
         if data_factory_id is not None:
@@ -167,7 +167,7 @@ class _IntegrationRuntimeSelfHostedState:
     @pulumi.getter(name="rbacAuthorizations")
     def rbac_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]:
         """
-        A `rbac_authorization` block as defined below.
+        A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "rbac_authorizations")
 
@@ -227,7 +227,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -322,7 +322,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[str] primary_authorization_key: The primary integration runtime authentication key.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_authorization_key: The secondary integration runtime authentication key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -373,7 +373,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
     @pulumi.getter(name="rbacAuthorizations")
     def rbac_authorizations(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationRuntimeSelfHostedRbacAuthorization']]]:
         """
-        A `rbac_authorization` block as defined below.
+        A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "rbac_authorizations")
 

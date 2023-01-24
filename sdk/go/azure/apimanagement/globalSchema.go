@@ -82,13 +82,11 @@ import (
 type GlobalSchema struct {
 	pulumi.CustomResourceState
 
-	// The Name of the API Management Service where the API exists. Changing this forces a
-	// new resource to be created.
+	// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// The description of the schema.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Name of the Resource Group in which the API Management Service exists. Changing
-	// this forces a new resource to be created.
+	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A unique identifier for this Schema. Changing this forces a new resource to be created.
 	SchemaId pulumi.StringOutput `pulumi:"schemaId"`
@@ -142,13 +140,11 @@ func GetGlobalSchema(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlobalSchema resources.
 type globalSchemaState struct {
-	// The Name of the API Management Service where the API exists. Changing this forces a
-	// new resource to be created.
+	// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// The description of the schema.
 	Description *string `pulumi:"description"`
-	// The Name of the Resource Group in which the API Management Service exists. Changing
-	// this forces a new resource to be created.
+	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A unique identifier for this Schema. Changing this forces a new resource to be created.
 	SchemaId *string `pulumi:"schemaId"`
@@ -159,13 +155,11 @@ type globalSchemaState struct {
 }
 
 type GlobalSchemaState struct {
-	// The Name of the API Management Service where the API exists. Changing this forces a
-	// new resource to be created.
+	// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
 	// The description of the schema.
 	Description pulumi.StringPtrInput
-	// The Name of the Resource Group in which the API Management Service exists. Changing
-	// this forces a new resource to be created.
+	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A unique identifier for this Schema. Changing this forces a new resource to be created.
 	SchemaId pulumi.StringPtrInput
@@ -180,13 +174,11 @@ func (GlobalSchemaState) ElementType() reflect.Type {
 }
 
 type globalSchemaArgs struct {
-	// The Name of the API Management Service where the API exists. Changing this forces a
-	// new resource to be created.
+	// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// The description of the schema.
 	Description *string `pulumi:"description"`
-	// The Name of the Resource Group in which the API Management Service exists. Changing
-	// this forces a new resource to be created.
+	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A unique identifier for this Schema. Changing this forces a new resource to be created.
 	SchemaId string `pulumi:"schemaId"`
@@ -198,13 +190,11 @@ type globalSchemaArgs struct {
 
 // The set of arguments for constructing a GlobalSchema resource.
 type GlobalSchemaArgs struct {
-	// The Name of the API Management Service where the API exists. Changing this forces a
-	// new resource to be created.
+	// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
 	// The description of the schema.
 	Description pulumi.StringPtrInput
-	// The Name of the Resource Group in which the API Management Service exists. Changing
-	// this forces a new resource to be created.
+	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A unique identifier for this Schema. Changing this forces a new resource to be created.
 	SchemaId pulumi.StringInput
@@ -301,8 +291,7 @@ func (o GlobalSchemaOutput) ToGlobalSchemaOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The Name of the API Management Service where the API exists. Changing this forces a
-// new resource to be created.
+// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
 func (o GlobalSchemaOutput) ApiManagementName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalSchema) pulumi.StringOutput { return v.ApiManagementName }).(pulumi.StringOutput)
 }
@@ -312,8 +301,7 @@ func (o GlobalSchemaOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalSchema) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Name of the Resource Group in which the API Management Service exists. Changing
-// this forces a new resource to be created.
+// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 func (o GlobalSchemaOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalSchema) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

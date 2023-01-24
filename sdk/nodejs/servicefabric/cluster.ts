@@ -103,7 +103,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterEndpoint!: pulumi.Output<string>;
     /**
-     * A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
+     * A `diagnosticsConfig` block as defined below.
      */
     public readonly diagnosticsConfig!: pulumi.Output<outputs.servicefabric.ClusterDiagnosticsConfig | undefined>;
     /**
@@ -291,7 +291,7 @@ export interface ClusterState {
      */
     clusterEndpoint?: pulumi.Input<string>;
     /**
-     * A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
+     * A `diagnosticsConfig` block as defined below.
      */
     diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig>;
     /**
@@ -389,7 +389,7 @@ export interface ClusterArgs {
      */
     clusterCodeVersion?: pulumi.Input<string>;
     /**
-     * A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
+     * A `diagnosticsConfig` block as defined below.
      */
     diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig>;
     /**

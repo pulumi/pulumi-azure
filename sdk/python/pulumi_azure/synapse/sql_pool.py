@@ -21,6 +21,7 @@ class SqlPoolArgs:
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 geo_backup_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_database_id: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input['SqlPoolRestoreArgs']] = None,
@@ -32,9 +33,10 @@ class SqlPoolArgs:
         :param pulumi.Input[str] collation: The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled?
+        :param pulumi.Input[bool] geo_backup_policy_enabled: Is geo-backup policy enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         :param pulumi.Input[str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
-        :param pulumi.Input['SqlPoolRestoreArgs'] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        :param pulumi.Input['SqlPoolRestoreArgs'] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse SQL Pool.
         """
         pulumi.set(__self__, "sku_name", sku_name)
@@ -45,6 +47,8 @@ class SqlPoolArgs:
             pulumi.set(__self__, "create_mode", create_mode)
         if data_encrypted is not None:
             pulumi.set(__self__, "data_encrypted", data_encrypted)
+        if geo_backup_policy_enabled is not None:
+            pulumi.set(__self__, "geo_backup_policy_enabled", geo_backup_policy_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if recovery_database_id is not None:
@@ -115,6 +119,18 @@ class SqlPoolArgs:
         pulumi.set(self, "data_encrypted", value)
 
     @property
+    @pulumi.getter(name="geoBackupPolicyEnabled")
+    def geo_backup_policy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is geo-backup policy enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "geo_backup_policy_enabled")
+
+    @geo_backup_policy_enabled.setter
+    def geo_backup_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "geo_backup_policy_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -142,7 +158,7 @@ class SqlPoolArgs:
     @pulumi.getter
     def restore(self) -> Optional[pulumi.Input['SqlPoolRestoreArgs']]:
         """
-        A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "restore")
 
@@ -169,6 +185,7 @@ class _SqlPoolState:
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 geo_backup_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_database_id: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input['SqlPoolRestoreArgs']] = None,
@@ -180,9 +197,10 @@ class _SqlPoolState:
         :param pulumi.Input[str] collation: The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled?
+        :param pulumi.Input[bool] geo_backup_policy_enabled: Is geo-backup policy enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         :param pulumi.Input[str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
-        :param pulumi.Input['SqlPoolRestoreArgs'] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        :param pulumi.Input['SqlPoolRestoreArgs'] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse SQL Pool.
@@ -193,6 +211,8 @@ class _SqlPoolState:
             pulumi.set(__self__, "create_mode", create_mode)
         if data_encrypted is not None:
             pulumi.set(__self__, "data_encrypted", data_encrypted)
+        if geo_backup_policy_enabled is not None:
+            pulumi.set(__self__, "geo_backup_policy_enabled", geo_backup_policy_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if recovery_database_id is not None:
@@ -243,6 +263,18 @@ class _SqlPoolState:
         pulumi.set(self, "data_encrypted", value)
 
     @property
+    @pulumi.getter(name="geoBackupPolicyEnabled")
+    def geo_backup_policy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is geo-backup policy enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "geo_backup_policy_enabled")
+
+    @geo_backup_policy_enabled.setter
+    def geo_backup_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "geo_backup_policy_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -270,7 +302,7 @@ class _SqlPoolState:
     @pulumi.getter
     def restore(self) -> Optional[pulumi.Input['SqlPoolRestoreArgs']]:
         """
-        A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "restore")
 
@@ -323,6 +355,7 @@ class SqlPool(pulumi.CustomResource):
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 geo_backup_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_database_id: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']]] = None,
@@ -375,9 +408,10 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[str] collation: The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled?
+        :param pulumi.Input[bool] geo_backup_policy_enabled: Is geo-backup policy enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         :param pulumi.Input[str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
-        :param pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        :param pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse SQL Pool.
@@ -446,6 +480,7 @@ class SqlPool(pulumi.CustomResource):
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 geo_backup_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_database_id: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']]] = None,
@@ -464,6 +499,7 @@ class SqlPool(pulumi.CustomResource):
             __props__.__dict__["collation"] = collation
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["data_encrypted"] = data_encrypted
+            __props__.__dict__["geo_backup_policy_enabled"] = geo_backup_policy_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["recovery_database_id"] = recovery_database_id
             __props__.__dict__["restore"] = restore
@@ -487,6 +523,7 @@ class SqlPool(pulumi.CustomResource):
             collation: Optional[pulumi.Input[str]] = None,
             create_mode: Optional[pulumi.Input[str]] = None,
             data_encrypted: Optional[pulumi.Input[bool]] = None,
+            geo_backup_policy_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             recovery_database_id: Optional[pulumi.Input[str]] = None,
             restore: Optional[pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']]] = None,
@@ -503,9 +540,10 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[str] collation: The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled?
+        :param pulumi.Input[bool] geo_backup_policy_enabled: Is geo-backup policy enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         :param pulumi.Input[str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
-        :param pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        :param pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse SQL Pool.
@@ -517,6 +555,7 @@ class SqlPool(pulumi.CustomResource):
         __props__.__dict__["collation"] = collation
         __props__.__dict__["create_mode"] = create_mode
         __props__.__dict__["data_encrypted"] = data_encrypted
+        __props__.__dict__["geo_backup_policy_enabled"] = geo_backup_policy_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["recovery_database_id"] = recovery_database_id
         __props__.__dict__["restore"] = restore
@@ -550,6 +589,14 @@ class SqlPool(pulumi.CustomResource):
         return pulumi.get(self, "data_encrypted")
 
     @property
+    @pulumi.getter(name="geoBackupPolicyEnabled")
+    def geo_backup_policy_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is geo-backup policy enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "geo_backup_policy_enabled")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -569,7 +616,7 @@ class SqlPool(pulumi.CustomResource):
     @pulumi.getter
     def restore(self) -> pulumi.Output[Optional['outputs.SqlPoolRestore']]:
         """
-        A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "restore")
 

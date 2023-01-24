@@ -16,14 +16,14 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
     public static final ContactProfileLinkArgs Empty = new ContactProfileLinkArgs();
 
     /**
-     * A list of contact profile link channels. A `channels` block as defined below.
+     * A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="channels", required=true)
     private Output<List<ContactProfileLinkChannelArgs>> channels;
 
     /**
-     * @return A list of contact profile link channels. A `channels` block as defined below.
+     * @return A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<ContactProfileLinkChannelArgs>> channels() {
@@ -103,7 +103,7 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param channels A list of contact profile link channels. A `channels` block as defined below.
+         * @param channels A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param channels A list of contact profile link channels. A `channels` block as defined below.
+         * @param channels A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param channels A list of contact profile link channels. A `channels` block as defined below.
+         * @param channels A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

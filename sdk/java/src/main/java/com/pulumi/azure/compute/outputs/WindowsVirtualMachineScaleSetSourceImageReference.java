@@ -10,12 +10,12 @@ import java.util.Objects;
 @CustomType
 public final class WindowsVirtualMachineScaleSetSourceImageReference {
     /**
-     * @return Specifies the offer of the image used to create the virtual machines.
+     * @return Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     private String offer;
     /**
-     * @return Specifies the publisher of the image used to create the virtual machines.
+     * @return Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     private String publisher;
@@ -32,14 +32,14 @@ public final class WindowsVirtualMachineScaleSetSourceImageReference {
 
     private WindowsVirtualMachineScaleSetSourceImageReference() {}
     /**
-     * @return Specifies the offer of the image used to create the virtual machines.
+     * @return Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public String offer() {
         return this.offer;
     }
     /**
-     * @return Specifies the publisher of the image used to create the virtual machines.
+     * @return Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
      */
     public String publisher() {

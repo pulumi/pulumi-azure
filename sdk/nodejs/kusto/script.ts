@@ -128,7 +128,7 @@ export class Script extends pulumi.CustomResource {
      */
     public readonly scriptContent!: pulumi.Output<string | undefined>;
     /**
-     * The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
     public readonly url!: pulumi.Output<string | undefined>;
 
@@ -201,7 +201,7 @@ export interface ScriptState {
      */
     scriptContent?: pulumi.Input<string>;
     /**
-     * The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
     url?: pulumi.Input<string>;
 }
@@ -235,7 +235,7 @@ export interface ScriptArgs {
      */
     scriptContent?: pulumi.Input<string>;
     /**
-     * The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
     url?: pulumi.Input<string>;
 }

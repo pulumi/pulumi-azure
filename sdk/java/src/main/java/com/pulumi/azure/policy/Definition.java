@@ -146,18 +146,14 @@ public class Definition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.managementGroupId);
     }
     /**
-     * The metadata for the policy definition. This
-     * is a JSON string representing additional metadata that should be stored
-     * with the policy definition.
+     * The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
      * 
      */
     @Export(name="metadata", type=String.class, parameters={})
     private Output<String> metadata;
 
     /**
-     * @return The metadata for the policy definition. This
-     * is a JSON string representing additional metadata that should be stored
-     * with the policy definition.
+     * @return The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
      * 
      */
     public Output<String> metadata() {
@@ -178,50 +174,42 @@ public class Definition extends com.pulumi.resources.CustomResource {
         return this.mode;
     }
     /**
-     * The name of the policy definition. Changing this forces a
-     * new resource to be created.
+     * The name of the policy definition. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the policy definition. Changing this forces a
-     * new resource to be created.
+     * @return The name of the policy definition. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Parameters for the policy definition. This field
-     * is a JSON string that allows you to parameterize your policy definition.
+     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
      * 
      */
     @Export(name="parameters", type=String.class, parameters={})
     private Output</* @Nullable */ String> parameters;
 
     /**
-     * @return Parameters for the policy definition. This field
-     * is a JSON string that allows you to parameterize your policy definition.
+     * @return Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
      * 
      */
     public Output<Optional<String>> parameters() {
         return Codegen.optional(this.parameters);
     }
     /**
-     * The policy rule for the policy definition. This
-     * is a JSON string representing the rule that contains an if and
-     * a then block.
+     * The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
      * 
      */
     @Export(name="policyRule", type=String.class, parameters={})
     private Output</* @Nullable */ String> policyRule;
 
     /**
-     * @return The policy rule for the policy definition. This
-     * is a JSON string representing the rule that contains an if and
-     * a then block.
+     * @return The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
      * 
      */
     public Output<Optional<String>> policyRule() {

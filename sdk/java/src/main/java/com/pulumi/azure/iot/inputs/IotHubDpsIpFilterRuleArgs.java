@@ -16,14 +16,14 @@ public final class IotHubDpsIpFilterRuleArgs extends com.pulumi.resources.Resour
     public static final IotHubDpsIpFilterRuleArgs Empty = new IotHubDpsIpFilterRuleArgs();
 
     /**
-     * The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+     * The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+     * @return The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
      * 
      */
     public Output<String> action() {
@@ -103,7 +103,7 @@ public final class IotHubDpsIpFilterRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param action The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+         * @param action The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class IotHubDpsIpFilterRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param action The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+         * @param action The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
          * 
          * @return builder
          * 

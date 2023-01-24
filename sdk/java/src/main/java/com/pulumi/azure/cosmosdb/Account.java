@@ -175,14 +175,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.backup;
     }
     /**
-     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      * 
      */
     @Export(name="capabilities", type=List.class, parameters={AccountCapability.class})
     private Output<List<AccountCapability>> capabilities;
 
     /**
-     * @return The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+     * @return The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      * 
      */
     public Output<List<AccountCapability>> capabilities() {

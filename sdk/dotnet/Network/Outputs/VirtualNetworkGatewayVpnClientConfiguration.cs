@@ -27,9 +27,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? AadTenant;
         /// <summary>
-        /// The address space out of which IP addresses for
-        /// vpn clients will be taken. You can provide more than one address space, e.g.
-        /// in CIDR notation.
+        /// The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
         /// </summary>
         public readonly ImmutableArray<string> AddressSpaces;
         /// <summary>

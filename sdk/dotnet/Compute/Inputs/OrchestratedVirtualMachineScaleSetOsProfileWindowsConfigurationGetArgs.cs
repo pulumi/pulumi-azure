@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> AdminUsername { get; set; } = null!;
 
         /// <summary>
-        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerGetArgs>? _winrmListeners;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below.
+        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerGetArgs> WinrmListeners
         {

@@ -26,7 +26,7 @@ class DatasetBlobStorageArgs:
         The set of arguments for constructing a DatasetBlobStorage resource.
         :param pulumi.Input[str] container_name: The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] data_share_id: The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        :param pulumi.Input['DatasetBlobStorageStorageAccountArgs'] storage_account: A `storage_account` block as defined below.
+        :param pulumi.Input['DatasetBlobStorageStorageAccountArgs'] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] file_path: The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] folder_path: The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
@@ -69,7 +69,7 @@ class DatasetBlobStorageArgs:
     @pulumi.getter(name="storageAccount")
     def storage_account(self) -> pulumi.Input['DatasetBlobStorageStorageAccountArgs']:
         """
-        A `storage_account` block as defined below.
+        A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account")
 
@@ -132,7 +132,7 @@ class _DatasetBlobStorageState:
         :param pulumi.Input[str] file_path: The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] folder_path: The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        :param pulumi.Input['DatasetBlobStorageStorageAccountArgs'] storage_account: A `storage_account` block as defined below.
+        :param pulumi.Input['DatasetBlobStorageStorageAccountArgs'] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
@@ -225,7 +225,7 @@ class _DatasetBlobStorageState:
     @pulumi.getter(name="storageAccount")
     def storage_account(self) -> Optional[pulumi.Input['DatasetBlobStorageStorageAccountArgs']]:
         """
-        A `storage_account` block as defined below.
+        A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account")
 
@@ -306,7 +306,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[str] file_path: The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] folder_path: The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        :param pulumi.Input[pulumi.InputType['DatasetBlobStorageStorageAccountArgs']] storage_account: A `storage_account` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetBlobStorageStorageAccountArgs']] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -440,7 +440,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[str] file_path: The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] folder_path: The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        :param pulumi.Input[pulumi.InputType['DatasetBlobStorageStorageAccountArgs']] storage_account: A `storage_account` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetBlobStorageStorageAccountArgs']] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -507,7 +507,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
     @pulumi.getter(name="storageAccount")
     def storage_account(self) -> pulumi.Output['outputs.DatasetBlobStorageStorageAccount']:
         """
-        A `storage_account` block as defined below.
+        A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account")
 

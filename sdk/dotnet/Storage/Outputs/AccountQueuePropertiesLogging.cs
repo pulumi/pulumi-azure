@@ -14,23 +14,23 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountQueuePropertiesLogging
     {
         /// <summary>
-        /// Indicates whether all delete requests should be logged. Changing this forces a new resource.
+        /// Indicates whether all delete requests should be logged.
         /// </summary>
         public readonly bool Delete;
         /// <summary>
-        /// Indicates whether all read requests should be logged. Changing this forces a new resource.
+        /// Indicates whether all read requests should be logged.
         /// </summary>
         public readonly bool Read;
         /// <summary>
-        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// Specifies the number of days that logs will be retained.
         /// </summary>
         public readonly int? RetentionPolicyDays;
         /// <summary>
-        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// The version of storage analytics to configure.
         /// </summary>
         public readonly string Version;
         /// <summary>
-        /// Indicates whether all write requests should be logged. Changing this forces a new resource.
+        /// Indicates whether all write requests should be logged.
         /// </summary>
         public readonly bool Write;
 

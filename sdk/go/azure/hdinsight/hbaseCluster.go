@@ -137,7 +137,7 @@ type HBaseCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles HBaseClusterRolesOutput `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile HBaseClusterSecurityProfilePtrOutput `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
 	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
@@ -227,7 +227,7 @@ type hbaseClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles *HBaseClusterRoles `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *HBaseClusterSecurityProfile `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
 	SshEndpoint *string `pulumi:"sshEndpoint"`
@@ -271,7 +271,7 @@ type HBaseClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
 	Roles HBaseClusterRolesPtrInput
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile HBaseClusterSecurityProfilePtrInput
 	// The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
 	SshEndpoint pulumi.StringPtrInput
@@ -317,7 +317,7 @@ type hbaseClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles HBaseClusterRoles `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *HBaseClusterSecurityProfile `pulumi:"securityProfile"`
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 *HBaseClusterStorageAccountGen2 `pulumi:"storageAccountGen2"`
@@ -358,7 +358,7 @@ type HBaseClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
 	Roles HBaseClusterRolesInput
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile HBaseClusterSecurityProfilePtrInput
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 HBaseClusterStorageAccountGen2PtrInput
@@ -528,7 +528,7 @@ func (o HBaseClusterOutput) Roles() HBaseClusterRolesOutput {
 	return o.ApplyT(func(v *HBaseCluster) HBaseClusterRolesOutput { return v.Roles }).(HBaseClusterRolesOutput)
 }
 
-// A `securityProfile` block as defined below.
+// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 func (o HBaseClusterOutput) SecurityProfile() HBaseClusterSecurityProfilePtrOutput {
 	return o.ApplyT(func(v *HBaseCluster) HBaseClusterSecurityProfilePtrOutput { return v.SecurityProfile }).(HBaseClusterSecurityProfilePtrOutput)
 }

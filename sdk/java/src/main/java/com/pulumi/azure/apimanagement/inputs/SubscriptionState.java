@@ -17,14 +17,14 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
     public static final SubscriptionState Empty = new SubscriptionState();
 
     /**
-     * Determines whether tracing can be enabled.  Defaults to `true`.
+     * Determines whether tracing can be enabled. Defaults to `true`.
      * 
      */
     @Import(name="allowTracing")
     private @Nullable Output<Boolean> allowTracing;
 
     /**
-     * @return Determines whether tracing can be enabled.  Defaults to `true`.
+     * @return Determines whether tracing can be enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> allowTracing() {
@@ -216,7 +216,7 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowTracing Determines whether tracing can be enabled.  Defaults to `true`.
+         * @param allowTracing Determines whether tracing can be enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowTracing Determines whether tracing can be enabled.  Defaults to `true`.
+         * @param allowTracing Determines whether tracing can be enabled. Defaults to `true`.
          * 
          * @return builder
          * 

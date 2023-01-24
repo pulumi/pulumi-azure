@@ -40,7 +40,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<string>? _privateIpAddresses;
 
         /// <summary>
-        /// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        /// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         /// </summary>
         public InputList<string> PrivateIpAddresses
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         }
 
         /// <summary>
-        /// A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+        /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         /// </summary>
         [Input("virtualNetworkConfiguration")]
         public Input<Inputs.ServiceAdditionalLocationVirtualNetworkConfigurationGetArgs>? VirtualNetworkConfiguration { get; set; }

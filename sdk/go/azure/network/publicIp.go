@@ -13,6 +13,8 @@ import (
 
 // Manages a Public IP Address.
 //
+// > **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `network.NetworkInterface`) it is recommended to set the `lifecycle` argument `createBeforeDestroy = true`. Otherwise, it can fail to disassociate on destruction.
+//
 // ## Example Usage
 //
 // ```go
@@ -69,7 +71,7 @@ type PublicIp struct {
 	DdosProtectionMode pulumi.StringPtrOutput `pulumi:"ddosProtectionMode"`
 	// The ID of DDoS protection plan associated with the public IP.
 	DdosProtectionPlanId pulumi.StringPtrOutput `pulumi:"ddosProtectionPlanId"`
-	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+	// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrOutput `pulumi:"domainNameLabel"`
 	// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
@@ -144,7 +146,7 @@ type publicIpState struct {
 	DdosProtectionMode *string `pulumi:"ddosProtectionMode"`
 	// The ID of DDoS protection plan associated with the public IP.
 	DdosProtectionPlanId *string `pulumi:"ddosProtectionPlanId"`
-	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+	// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
 	// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
@@ -185,7 +187,7 @@ type PublicIpState struct {
 	DdosProtectionMode pulumi.StringPtrInput
 	// The ID of DDoS protection plan associated with the public IP.
 	DdosProtectionPlanId pulumi.StringPtrInput
-	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+	// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
 	EdgeZone pulumi.StringPtrInput
@@ -230,7 +232,7 @@ type publicIpArgs struct {
 	DdosProtectionMode *string `pulumi:"ddosProtectionMode"`
 	// The ID of DDoS protection plan associated with the public IP.
 	DdosProtectionPlanId *string `pulumi:"ddosProtectionPlanId"`
-	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+	// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
 	// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
@@ -268,7 +270,7 @@ type PublicIpArgs struct {
 	DdosProtectionMode pulumi.StringPtrInput
 	// The ID of DDoS protection plan associated with the public IP.
 	DdosProtectionPlanId pulumi.StringPtrInput
-	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+	// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
 	EdgeZone pulumi.StringPtrInput
@@ -400,7 +402,7 @@ func (o PublicIpOutput) DdosProtectionPlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.DdosProtectionPlanId }).(pulumi.StringPtrOutput)
 }
 
-// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 func (o PublicIpOutput) DomainNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.DomainNameLabel }).(pulumi.StringPtrOutput)
 }

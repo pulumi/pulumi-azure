@@ -89,13 +89,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<Outputs.GroupContainer>> Containers { get; private set; } = null!;
 
         /// <summary>
-        /// A `diagnostics` block as documented below.
+        /// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("diagnostics")]
         public Output<Outputs.GroupDiagnostics?> Diagnostics { get; private set; } = null!;
 
         /// <summary>
-        /// A `dns_config` block as documented below.
+        /// A `dns_config` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dnsConfig")]
         public Output<Outputs.GroupDnsConfig?> DnsConfig { get; private set; } = null!;
@@ -270,13 +270,13 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `diagnostics` block as documented below.
+        /// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diagnostics")]
         public Input<Inputs.GroupDiagnosticsArgs>? Diagnostics { get; set; }
 
         /// <summary>
-        /// A `dns_config` block as documented below.
+        /// A `dns_config` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.GroupDnsConfigArgs>? DnsConfig { get; set; }
@@ -431,13 +431,13 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `diagnostics` block as documented below.
+        /// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diagnostics")]
         public Input<Inputs.GroupDiagnosticsGetArgs>? Diagnostics { get; set; }
 
         /// <summary>
-        /// A `dns_config` block as documented below.
+        /// A `dns_config` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.GroupDnsConfigGetArgs>? DnsConfig { get; set; }

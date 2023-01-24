@@ -21,8 +21,10 @@ class VaultArgs:
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
+                 immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_mode_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -33,8 +35,10 @@ class VaultArgs:
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
         :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -47,10 +51,14 @@ class VaultArgs:
             pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if immutability is not None:
+            pulumi.set(__self__, "immutability", immutability)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if soft_delete_enabled is not None:
             pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
         if storage_mode_type is not None:
@@ -120,6 +128,18 @@ class VaultArgs:
 
     @property
     @pulumi.getter
+    def immutability(self) -> Optional[pulumi.Input[str]]:
+        """
+        Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+        """
+        return pulumi.get(self, "immutability")
+
+    @immutability.setter
+    def immutability(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "immutability", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -141,6 +161,18 @@ class VaultArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is it enabled to access the vault from public networks. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="softDeleteEnabled")
@@ -185,8 +217,10 @@ class _VaultState:
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
+                 immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
@@ -197,8 +231,10 @@ class _VaultState:
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
@@ -211,10 +247,14 @@ class _VaultState:
             pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if immutability is not None:
+            pulumi.set(__self__, "immutability", immutability)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
@@ -264,6 +304,18 @@ class _VaultState:
 
     @property
     @pulumi.getter
+    def immutability(self) -> Optional[pulumi.Input[str]]:
+        """
+        Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+        """
+        return pulumi.get(self, "immutability")
+
+    @immutability.setter
+    def immutability(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "immutability", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -285,6 +337,18 @@ class _VaultState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is it enabled to access the vault from public networks. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -355,8 +419,10 @@ class Vault(pulumi.CustomResource):
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
+                 immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
@@ -393,8 +459,10 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VaultEncryptionArgs']] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
@@ -450,8 +518,10 @@ class Vault(pulumi.CustomResource):
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
+                 immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
@@ -469,8 +539,10 @@ class Vault(pulumi.CustomResource):
             __props__.__dict__["cross_region_restore_enabled"] = cross_region_restore_enabled
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["immutability"] = immutability
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -493,8 +565,10 @@ class Vault(pulumi.CustomResource):
             cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
             encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
+            immutability: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
@@ -510,8 +584,10 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VaultEncryptionArgs']] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
@@ -525,8 +601,10 @@ class Vault(pulumi.CustomResource):
         __props__.__dict__["cross_region_restore_enabled"] = cross_region_restore_enabled
         __props__.__dict__["encryption"] = encryption
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["immutability"] = immutability
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
         __props__.__dict__["soft_delete_enabled"] = soft_delete_enabled
@@ -560,6 +638,14 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def immutability(self) -> pulumi.Output[str]:
+        """
+        Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+        """
+        return pulumi.get(self, "immutability")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -573,6 +659,14 @@ class Vault(pulumi.CustomResource):
         Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is it enabled to access the vault from public networks. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

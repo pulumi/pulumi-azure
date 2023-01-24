@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppInsights.Outputs
         /// </summary>
         public readonly string? Body;
         /// <summary>
-        /// Should the following of redirects be enabled?
+        /// Should the following of redirects be enabled? Defaults to `true`.
         /// </summary>
         public readonly bool? FollowRedirectsEnabled;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppInsights.Outputs
         /// </summary>
         public readonly string? HttpVerb;
         /// <summary>
-        /// Should the parsing of dependend requests be enabled?
+        /// Should the parsing of dependend requests be enabled? Defaults to `true`.
         /// </summary>
         public readonly bool? ParseDependentRequestsEnabled;
         /// <summary>

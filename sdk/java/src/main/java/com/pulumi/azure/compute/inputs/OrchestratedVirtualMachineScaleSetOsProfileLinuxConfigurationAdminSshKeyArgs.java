@@ -14,14 +14,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     public static final OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs();
 
     /**
-     * The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+     * The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
      * 
      */
     @Import(name="publicKey", required=true)
     private Output<String> publicKey;
 
     /**
-     * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+     * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
      * 
      */
     public Output<String> publicKey() {
@@ -29,14 +29,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     }
 
     /**
-     * The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+     * The Username for which this Public SSH Key should be configured.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+     * @return The Username for which this Public SSH Key should be configured.
      * 
      */
     public Output<String> username() {
@@ -69,7 +69,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param publicKey The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+         * @param publicKey The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param publicKey The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+         * @param publicKey The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param username The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+         * @param username The Username for which this Public SSH Key should be configured.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param username The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+         * @param username The Username for which this Public SSH Key should be configured.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ManagedApplication.Outputs
     public sealed class ApplicationPlan
     {
         /// <summary>
-        /// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+        /// Specifies the name of the plan from the marketplace.
         /// </summary>
         public readonly string Name;
         /// <summary>

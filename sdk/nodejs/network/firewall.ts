@@ -98,7 +98,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      */
     public readonly managementIpConfiguration!: pulumi.Output<outputs.network.FirewallManagementIpConfiguration | undefined>;
     /**
@@ -114,7 +114,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+     * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -217,7 +217,7 @@ export interface FirewallState {
      */
     location?: pulumi.Input<string>;
     /**
-     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      */
     managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration>;
     /**
@@ -233,7 +233,7 @@ export interface FirewallState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+     * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -279,7 +279,7 @@ export interface FirewallArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      */
     managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration>;
     /**
@@ -295,7 +295,7 @@ export interface FirewallArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+     * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
      */
     skuName: pulumi.Input<string>;
     /**

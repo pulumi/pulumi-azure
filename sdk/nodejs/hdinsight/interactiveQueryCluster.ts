@@ -158,7 +158,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
      */
     public readonly roles!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly securityProfile!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterSecurityProfile | undefined>;
     /**
@@ -331,7 +331,7 @@ export interface InteractiveQueryClusterState {
      */
     roles?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     securityProfile?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterSecurityProfile>;
     /**
@@ -418,7 +418,7 @@ export interface InteractiveQueryClusterArgs {
      */
     roles: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     securityProfile?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterSecurityProfile>;
     /**

@@ -63,7 +63,7 @@ import (
 type ActiveSlot struct {
 	pulumi.CustomResourceState
 
-	// The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+	// The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
 	AppServiceName pulumi.StringOutput `pulumi:"appServiceName"`
 	// The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
 	AppServiceSlotName pulumi.StringOutput `pulumi:"appServiceSlotName"`
@@ -109,7 +109,7 @@ func GetActiveSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActiveSlot resources.
 type activeSlotState struct {
-	// The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+	// The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
 	AppServiceName *string `pulumi:"appServiceName"`
 	// The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
 	AppServiceSlotName *string `pulumi:"appServiceSlotName"`
@@ -118,7 +118,7 @@ type activeSlotState struct {
 }
 
 type ActiveSlotState struct {
-	// The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+	// The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
 	AppServiceName pulumi.StringPtrInput
 	// The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
 	AppServiceSlotName pulumi.StringPtrInput
@@ -131,7 +131,7 @@ func (ActiveSlotState) ElementType() reflect.Type {
 }
 
 type activeSlotArgs struct {
-	// The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+	// The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
 	AppServiceName string `pulumi:"appServiceName"`
 	// The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
 	AppServiceSlotName string `pulumi:"appServiceSlotName"`
@@ -141,7 +141,7 @@ type activeSlotArgs struct {
 
 // The set of arguments for constructing a ActiveSlot resource.
 type ActiveSlotArgs struct {
-	// The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+	// The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
 	AppServiceName pulumi.StringInput
 	// The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
 	AppServiceSlotName pulumi.StringInput
@@ -236,7 +236,7 @@ func (o ActiveSlotOutput) ToActiveSlotOutputWithContext(ctx context.Context) Act
 	return o
 }
 
-// The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+// The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
 func (o ActiveSlotOutput) AppServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveSlot) pulumi.StringOutput { return v.AppServiceName }).(pulumi.StringOutput)
 }

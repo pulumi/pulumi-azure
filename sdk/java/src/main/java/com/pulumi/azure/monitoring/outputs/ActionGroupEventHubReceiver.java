@@ -32,7 +32,7 @@ public final class ActionGroupEventHubReceiver {
      */
     private @Nullable String eventHubNamespace;
     /**
-     * @return The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+     * @return The name of the EventHub Receiver, must be unique within action group.
      * 
      */
     private String name;
@@ -79,7 +79,7 @@ public final class ActionGroupEventHubReceiver {
         return Optional.ofNullable(this.eventHubNamespace);
     }
     /**
-     * @return The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+     * @return The name of the EventHub Receiver, must be unique within action group.
      * 
      */
     public String name() {

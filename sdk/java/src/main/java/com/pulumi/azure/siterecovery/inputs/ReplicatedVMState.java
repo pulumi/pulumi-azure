@@ -19,14 +19,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     public static final ReplicatedVMState Empty = new ReplicatedVMState();
 
     /**
-     * One or more `managed_disk` block as defined below.
+     * One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managedDisks")
     private @Nullable Output<List<ReplicatedVMManagedDiskArgs>> managedDisks;
 
     /**
-     * @return One or more `managed_disk` block as defined below.
+     * @return One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<ReplicatedVMManagedDiskArgs>>> managedDisks() {
@@ -282,7 +282,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block as defined below.
+         * @param managedDisks One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block as defined below.
+         * @param managedDisks One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block as defined below.
+         * @param managedDisks One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

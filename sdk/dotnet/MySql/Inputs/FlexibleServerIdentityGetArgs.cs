@@ -16,7 +16,7 @@ namespace Pulumi.Azure.MySql.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+        /// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block as defined below.
         /// </summary>
         public InputList<string> IdentityIds
         {

@@ -33,12 +33,11 @@ class ImageArgs:
         :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input['ImageOsDiskArgs'] os_disk: One or more `os_disk` elements as defined below.
+        :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a new resource to be created.
+        :param pulumi.Input['ImageOsDiskArgs'] os_disk: One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if data_disks is not None:
@@ -112,8 +111,7 @@ class ImageArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the image. Changing this forces a
-        new resource to be created.
+        Specifies the name of the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -125,7 +123,7 @@ class ImageArgs:
     @pulumi.getter(name="osDisk")
     def os_disk(self) -> Optional[pulumi.Input['ImageOsDiskArgs']]:
         """
-        One or more `os_disk` elements as defined below.
+        One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_disk")
 
@@ -161,7 +159,7 @@ class ImageArgs:
     @pulumi.getter(name="zoneResilient")
     def zone_resilient(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+        Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_resilient")
 
@@ -188,14 +186,13 @@ class _ImageState:
         :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input['ImageOsDiskArgs'] os_disk: One or more `os_disk` elements as defined below.
+        :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a new resource to be created.
+        :param pulumi.Input['ImageOsDiskArgs'] os_disk: One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create. Changing this forces a new resource to be created.
                the image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         if data_disks is not None:
             pulumi.set(__self__, "data_disks", data_disks)
@@ -257,8 +254,7 @@ class _ImageState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the image. Changing this forces a
-        new resource to be created.
+        Specifies the name of the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -270,7 +266,7 @@ class _ImageState:
     @pulumi.getter(name="osDisk")
     def os_disk(self) -> Optional[pulumi.Input['ImageOsDiskArgs']]:
         """
-        One or more `os_disk` elements as defined below.
+        One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_disk")
 
@@ -319,7 +315,7 @@ class _ImageState:
     @pulumi.getter(name="zoneResilient")
     def zone_resilient(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+        Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_resilient")
 
@@ -414,7 +410,7 @@ class Image(pulumi.CustomResource):
         Images can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/images/image1
+         $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/images/image1
         ```
 
         :param str resource_name: The name of the resource.
@@ -423,14 +419,13 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ImageOsDiskArgs']] os_disk: One or more `os_disk` elements as defined below.
+        :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ImageOsDiskArgs']] os_disk: One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create. Changing this forces a new resource to be created.
                the image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -509,7 +504,7 @@ class Image(pulumi.CustomResource):
         Images can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/images/image1
+         $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/images/image1
         ```
 
         :param str resource_name: The name of the resource.
@@ -586,14 +581,13 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ImageOsDiskArgs']] os_disk: One or more `os_disk` elements as defined below.
+        :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ImageOsDiskArgs']] os_disk: One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create. Changing this forces a new resource to be created.
                the image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -639,8 +633,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the image. Changing this forces a
-        new resource to be created.
+        Specifies the name of the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -648,7 +641,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter(name="osDisk")
     def os_disk(self) -> pulumi.Output[Optional['outputs.ImageOsDisk']]:
         """
-        One or more `os_disk` elements as defined below.
+        One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_disk")
 
@@ -681,7 +674,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter(name="zoneResilient")
     def zone_resilient(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+        Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_resilient")
 

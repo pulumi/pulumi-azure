@@ -18,6 +18,7 @@ import javax.annotation.Nullable;
  * Manages a Front Door (standard/premium) Security Policy.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -93,6 +94,7 @@ import javax.annotation.Nullable;
  *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
  *                             .cdnFrontdoorDomainId(azurerm_cdn_frontdoor_custom_domain.domain1().id())
  *                             .build())
+ *                         .patternsToMatch(&#34;/*&#34;)
  *                         .build())
  *                     .build())
  *                 .build())

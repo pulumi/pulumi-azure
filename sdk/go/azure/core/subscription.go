@@ -177,7 +177,7 @@ type Subscription struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the Tenant to which the subscription belongs.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+	// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
 	Workload pulumi.StringPtrOutput `pulumi:"workload"`
 }
 
@@ -225,7 +225,7 @@ type subscriptionState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Tenant to which the subscription belongs.
 	TenantId *string `pulumi:"tenantId"`
-	// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+	// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
 	Workload *string `pulumi:"workload"`
 }
 
@@ -242,7 +242,7 @@ type SubscriptionState struct {
 	Tags pulumi.StringMapInput
 	// The ID of the Tenant to which the subscription belongs.
 	TenantId pulumi.StringPtrInput
-	// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+	// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
 	Workload pulumi.StringPtrInput
 }
 
@@ -261,7 +261,7 @@ type subscriptionArgs struct {
 	SubscriptionName string `pulumi:"subscriptionName"`
 	// A mapping of tags to assign to the Subscription.
 	Tags map[string]string `pulumi:"tags"`
-	// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+	// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
 	Workload *string `pulumi:"workload"`
 }
 
@@ -277,7 +277,7 @@ type SubscriptionArgs struct {
 	SubscriptionName pulumi.StringInput
 	// A mapping of tags to assign to the Subscription.
 	Tags pulumi.StringMapInput
-	// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+	// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
 	Workload pulumi.StringPtrInput
 }
 
@@ -398,7 +398,7 @@ func (o SubscriptionOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
 func (o SubscriptionOutput) Workload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.Workload }).(pulumi.StringPtrOutput)
 }

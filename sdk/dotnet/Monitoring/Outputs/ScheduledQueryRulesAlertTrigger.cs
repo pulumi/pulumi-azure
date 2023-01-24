@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+        /// Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
         /// </summary>
         public readonly double Threshold;
 

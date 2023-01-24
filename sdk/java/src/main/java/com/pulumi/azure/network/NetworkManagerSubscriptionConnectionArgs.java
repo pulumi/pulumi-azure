@@ -61,14 +61,14 @@ public final class NetworkManagerSubscriptionConnectionArgs extends com.pulumi.r
     }
 
     /**
-     * Specifies the ID of the target Subscription.
+     * Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subscriptionId", required=true)
     private Output<String> subscriptionId;
 
     /**
-     * @return Specifies the ID of the target Subscription.
+     * @return Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> subscriptionId() {
@@ -166,7 +166,7 @@ public final class NetworkManagerSubscriptionConnectionArgs extends com.pulumi.r
         }
 
         /**
-         * @param subscriptionId Specifies the ID of the target Subscription.
+         * @param subscriptionId Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class NetworkManagerSubscriptionConnectionArgs extends com.pulumi.r
         }
 
         /**
-         * @param subscriptionId Specifies the ID of the target Subscription.
+         * @param subscriptionId Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

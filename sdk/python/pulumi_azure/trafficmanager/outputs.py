@@ -194,7 +194,7 @@ class ProfileMonitorConfigCustomHeader(dict):
                  name: str,
                  value: str):
         """
-        :param str name: The name of the custom header. Changing this forces a new resource to be created.
+        :param str name: The name of the custom header.
         :param str value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
@@ -204,7 +204,7 @@ class ProfileMonitorConfigCustomHeader(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the custom header. Changing this forces a new resource to be created.
+        The name of the custom header.
         """
         return pulumi.get(self, "name")
 

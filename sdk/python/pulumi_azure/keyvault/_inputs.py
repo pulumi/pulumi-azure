@@ -504,7 +504,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
         :param pulumi.Input[str] subject: The Certificate's Subject. Changing this forces a new resource to be created.
         :param pulumi.Input[int] validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
-        :param pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below.
+        :param pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "key_usages", key_usages)
         pulumi.set(__self__, "subject", subject)
@@ -566,7 +566,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]:
         """
-        A `subject_alternative_names` block as defined below.
+        A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subject_alternative_names")
 
@@ -1094,7 +1094,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
         :param pulumi.Input[str] subject: The Certificate's Subject. Changing this forces a new resource to be created.
         :param pulumi.Input[int] validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
-        :param pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below.
+        :param pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "key_usages", key_usages)
         pulumi.set(__self__, "subject", subject)
@@ -1156,7 +1156,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]:
         """
-        A `subject_alternative_names` block as defined below.
+        A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subject_alternative_names")
 

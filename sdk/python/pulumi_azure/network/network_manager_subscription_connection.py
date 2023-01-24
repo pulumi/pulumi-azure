@@ -21,7 +21,7 @@ class NetworkManagerSubscriptionConnectionArgs:
         """
         The set of arguments for constructing a NetworkManagerSubscriptionConnection resource.
         :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Subscription is connected to.
-        :param pulumi.Input[str] subscription_id: Specifies the ID of the target Subscription.
+        :param pulumi.Input[str] subscription_id: Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of the Network Manager Subscription Connection.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Subscription Network Manager Connection. Changing this forces a new Network Subscription Network Manager Connection to be created.
         """
@@ -48,7 +48,7 @@ class NetworkManagerSubscriptionConnectionArgs:
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> pulumi.Input[str]:
         """
-        Specifies the ID of the target Subscription.
+        Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -95,7 +95,7 @@ class _NetworkManagerSubscriptionConnectionState:
         :param pulumi.Input[str] description: A description of the Network Manager Subscription Connection.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Subscription Network Manager Connection. Changing this forces a new Network Subscription Network Manager Connection to be created.
         :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Subscription is connected to.
-        :param pulumi.Input[str] subscription_id: Specifies the ID of the target Subscription.
+        :param pulumi.Input[str] subscription_id: Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
         """
         if connection_state is not None:
             pulumi.set(__self__, "connection_state", connection_state)
@@ -160,7 +160,7 @@ class _NetworkManagerSubscriptionConnectionState:
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ID of the target Subscription.
+        Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -216,7 +216,7 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the Network Manager Subscription Connection.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Subscription Network Manager Connection. Changing this forces a new Network Subscription Network Manager Connection to be created.
         :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Subscription is connected to.
-        :param pulumi.Input[str] subscription_id: Specifies the ID of the target Subscription.
+        :param pulumi.Input[str] subscription_id: Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -319,7 +319,7 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the Network Manager Subscription Connection.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Subscription Network Manager Connection. Changing this forces a new Network Subscription Network Manager Connection to be created.
         :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager which the Subscription is connected to.
-        :param pulumi.Input[str] subscription_id: Specifies the ID of the target Subscription.
+        :param pulumi.Input[str] subscription_id: Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -368,7 +368,7 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> pulumi.Output[str]:
         """
-        Specifies the ID of the target Subscription.
+        Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subscription_id")
 

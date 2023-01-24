@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class TrafficManagerProfileMonitorConfigCustomHeader
     {
         /// <summary>
-        /// The name of the custom header. Changing this forces a new resource to be created.
+        /// The name of the custom header.
         /// </summary>
         public readonly string Name;
         /// <summary>

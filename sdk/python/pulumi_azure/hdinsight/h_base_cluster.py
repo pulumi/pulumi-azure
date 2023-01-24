@@ -50,7 +50,7 @@ class HBaseClusterArgs:
         :param pulumi.Input['HBaseClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['HBaseClusterNetworkArgs'] network: A `network` block as defined below.
-        :param pulumi.Input['HBaseClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
+        :param pulumi.Input['HBaseClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['HBaseClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight HBase Cluster.
@@ -258,7 +258,7 @@ class HBaseClusterArgs:
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']]:
         """
-        A `security_profile` block as defined below.
+        A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 
@@ -354,7 +354,7 @@ class _HBaseClusterState:
         :param pulumi.Input['HBaseClusterNetworkArgs'] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HBaseClusterRolesArgs'] roles: A `roles` block as defined below.
-        :param pulumi.Input['HBaseClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
+        :param pulumi.Input['HBaseClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
         :param pulumi.Input['HBaseClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
@@ -574,7 +574,7 @@ class _HBaseClusterState:
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']]:
         """
-        A `security_profile` block as defined below.
+        A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 
@@ -757,7 +757,7 @@ class HBaseCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight HBase Cluster.
@@ -960,7 +960,7 @@ class HBaseCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
         :param pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
@@ -1108,7 +1108,7 @@ class HBaseCluster(pulumi.CustomResource):
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> pulumi.Output[Optional['outputs.HBaseClusterSecurityProfile']]:
         """
-        A `security_profile` block as defined below.
+        A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 

@@ -15,7 +15,7 @@ public final class ActionGroupAzureAppPushReceiver {
      */
     private String emailAddress;
     /**
-     * @return The name of the Azure app push receiver. Changing this forces a new resource to be created.
+     * @return The name of the Azure app push receiver.
      * 
      */
     private String name;
@@ -29,7 +29,7 @@ public final class ActionGroupAzureAppPushReceiver {
         return this.emailAddress;
     }
     /**
-     * @return The name of the Azure app push receiver. Changing this forces a new resource to be created.
+     * @return The name of the Azure app push receiver.
      * 
      */
     public String name() {

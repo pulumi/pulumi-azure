@@ -338,14 +338,14 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
         return this.roles;
     }
     /**
-     * A `security_profile` block as defined below.
+     * A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="securityProfile", type=InteractiveQueryClusterSecurityProfile.class, parameters={})
     private Output</* @Nullable */ InteractiveQueryClusterSecurityProfile> securityProfile;
 
     /**
-     * @return A `security_profile` block as defined below.
+     * @return A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<InteractiveQueryClusterSecurityProfile>> securityProfile() {

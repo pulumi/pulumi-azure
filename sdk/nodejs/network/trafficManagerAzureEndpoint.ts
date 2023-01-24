@@ -101,10 +101,7 @@ export class TrafficManagerAzureEndpoint extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
     public readonly priority!: pulumi.Output<number>;
     /**
@@ -112,7 +109,7 @@ export class TrafficManagerAzureEndpoint extends pulumi.CustomResource {
      */
     public readonly profileId!: pulumi.Output<string>;
     /**
-     * One or more `subnet` blocks as defined below
+     * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly subnets!: pulumi.Output<outputs.network.TrafficManagerAzureEndpointSubnet[] | undefined>;
     /**
@@ -190,10 +187,7 @@ export interface TrafficManagerAzureEndpointState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
     priority?: pulumi.Input<number>;
     /**
@@ -201,7 +195,7 @@ export interface TrafficManagerAzureEndpointState {
      */
     profileId?: pulumi.Input<string>;
     /**
-     * One or more `subnet` blocks as defined below
+     * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
     subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerAzureEndpointSubnet>[]>;
     /**
@@ -235,10 +229,7 @@ export interface TrafficManagerAzureEndpointArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
     priority?: pulumi.Input<number>;
     /**
@@ -246,7 +237,7 @@ export interface TrafficManagerAzureEndpointArgs {
      */
     profileId: pulumi.Input<string>;
     /**
-     * One or more `subnet` blocks as defined below
+     * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
     subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerAzureEndpointSubnet>[]>;
     /**

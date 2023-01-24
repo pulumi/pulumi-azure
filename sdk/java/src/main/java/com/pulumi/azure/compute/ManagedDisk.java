@@ -279,14 +279,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.galleryImageReferenceId);
     }
     /**
-     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="hyperVGeneration", type=String.class, parameters={})
     private Output</* @Nullable */ String> hyperVGeneration;
 
     /**
-     * @return The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+     * @return The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> hyperVGeneration() {
@@ -391,14 +391,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.onDemandBurstingEnabled);
     }
     /**
-     * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+     * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      * 
      */
     @Export(name="osType", type=String.class, parameters={})
     private Output</* @Nullable */ String> osType;
 
     /**
-     * @return Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+     * @return Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      * 
      */
     public Output<Optional<String>> osType() {
@@ -447,14 +447,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.secureVmDiskEncryptionSetId);
     }
     /**
-     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="securityType", type=String.class, parameters={})
     private Output</* @Nullable */ String> securityType;
 
     /**
-     * @return Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+     * @return Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> securityType() {
@@ -475,28 +475,28 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceResourceId);
     }
     /**
-     * URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
+     * URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceUri", type=String.class, parameters={})
     private Output<String> sourceUri;
 
     /**
-     * @return URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
+     * @return URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourceUri() {
         return this.sourceUri;
     }
     /**
-     * The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
+     * The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountId", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
-     * @return The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
+     * @return The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> storageAccountId() {

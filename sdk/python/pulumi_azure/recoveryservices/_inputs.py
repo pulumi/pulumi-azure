@@ -19,16 +19,19 @@ class VaultEncryptionArgs:
     def __init__(__self__, *,
                  infrastructure_encryption_enabled: pulumi.Input[bool],
                  key_id: pulumi.Input[str],
-                 use_system_assigned_identity: Optional[pulumi.Input[bool]] = None):
+                 use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Enabling/Disabling the Double Encryption state.
         :param pulumi.Input[str] key_id: The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
-        :param pulumi.Input[bool] use_system_assigned_identity: Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+        :param pulumi.Input[bool] use_system_assigned_identity: Indicate that system assigned identity should be used or not. Defaults to `true`.
         """
         pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         pulumi.set(__self__, "key_id", key_id)
         if use_system_assigned_identity is not None:
             pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
@@ -58,7 +61,7 @@ class VaultEncryptionArgs:
     @pulumi.getter(name="useSystemAssignedIdentity")
     def use_system_assigned_identity(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+        Indicate that system assigned identity should be used or not. Defaults to `true`.
         """
         return pulumi.get(self, "use_system_assigned_identity")
 
@@ -66,19 +69,32 @@ class VaultEncryptionArgs:
     def use_system_assigned_identity(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_system_assigned_identity", value)
 
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
 
 @pulumi.input_type
 class VaultIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -88,13 +104,25 @@ class VaultIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter(name="principalId")

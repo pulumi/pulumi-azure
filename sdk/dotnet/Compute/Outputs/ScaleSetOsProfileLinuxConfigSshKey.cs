@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class ScaleSetOsProfileLinuxConfigSshKey
     {
+        /// <summary>
+        /// The Public SSH Key which should be written to the `path` defined above.
+        /// </summary>
         public readonly string? KeyData;
+        /// <summary>
+        /// The path of the destination file on the virtual machine
+        /// </summary>
         public readonly string Path;
 
         [OutputConstructor]

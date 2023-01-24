@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Lab.Outputs
         /// </summary>
         public readonly string? PublicIpId;
         /// <summary>
-        /// The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+        /// The resource ID of the Subnet for the network profile of the Lab Service Lab.
         /// </summary>
         public readonly string? SubnetId;
 

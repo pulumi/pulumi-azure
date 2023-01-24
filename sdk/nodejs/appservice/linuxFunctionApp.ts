@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     storageAccountName: exampleAccount.name,
- *     storageAccountAccessKey: exampleAccount.primaryConnectionString,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     servicePlanId: exampleServicePlan.id,
  *     siteConfig: {},
  * });

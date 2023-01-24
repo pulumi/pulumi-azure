@@ -60,8 +60,7 @@ namespace Pulumi.Azure.ApiManagement
     public partial class GlobalSchema : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Name of the API Management Service where the API exists. Changing this forces a
-        /// new resource to be created.
+        /// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("apiManagementName")]
         public Output<string> ApiManagementName { get; private set; } = null!;
@@ -73,8 +72,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Name of the Resource Group in which the API Management Service exists. Changing
-        /// this forces a new resource to be created.
+        /// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -144,8 +142,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class GlobalSchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Name of the API Management Service where the API exists. Changing this forces a
-        /// new resource to be created.
+        /// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiManagementName", required: true)]
         public Input<string> ApiManagementName { get; set; } = null!;
@@ -157,8 +154,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Name of the Resource Group in which the API Management Service exists. Changing
-        /// this forces a new resource to be created.
+        /// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -190,8 +186,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class GlobalSchemaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Name of the API Management Service where the API exists. Changing this forces a
-        /// new resource to be created.
+        /// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiManagementName")]
         public Input<string>? ApiManagementName { get; set; }
@@ -203,8 +198,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Name of the Resource Group in which the API Management Service exists. Changing
-        /// this forces a new resource to be created.
+        /// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

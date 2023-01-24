@@ -33,14 +33,14 @@ public final class ScaleSetOsProfileLinuxConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+     * One or more `ssh_keys` blocks as defined below.
      * 
      */
     @Import(name="sshKeys")
     private @Nullable Output<List<ScaleSetOsProfileLinuxConfigSshKeyArgs>> sshKeys;
 
     /**
-     * @return Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+     * @return One or more `ssh_keys` blocks as defined below.
      * 
      */
     public Optional<Output<List<ScaleSetOsProfileLinuxConfigSshKeyArgs>>> sshKeys() {
@@ -94,7 +94,7 @@ public final class ScaleSetOsProfileLinuxConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sshKeys Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+         * @param sshKeys One or more `ssh_keys` blocks as defined below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ScaleSetOsProfileLinuxConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sshKeys Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+         * @param sshKeys One or more `ssh_keys` blocks as defined below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ScaleSetOsProfileLinuxConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sshKeys Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+         * @param sshKeys One or more `ssh_keys` blocks as defined below.
          * 
          * @return builder
          * 
