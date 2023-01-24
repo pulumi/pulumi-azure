@@ -197,8 +197,8 @@ github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
 github.com/hashicorp/go-azure-helpers v0.47.0 h1:E90ZN2hqMtzI+tfGWCnNtyLZYG4csoKSs+hWZZ8ywSM=
 github.com/hashicorp/go-azure-helpers v0.47.0/go.mod h1:WiJNl0fD6PoM/MYuGTZ8yuzIaXQR3m2H2g6+EJ8nSwc=
-github.com/hashicorp/go-azure-sdk v0.20230105.1121404 h1:Tvzo98JY2y+cQxvjS+9S0MqyKZedQOhR1grM4PYSwzY=
-github.com/hashicorp/go-azure-sdk v0.20230105.1121404/go.mod h1:BEjoURzcFwd+K3MqkbOt9jArIIrsqpBQ2Gz6DdemFIs=
+github.com/hashicorp/go-azure-sdk v0.20230117.1125206 h1:EGmAHbDWHtV2kNbBz0FwR9Dkdba452l0p4we5luRdoc=
+github.com/hashicorp/go-azure-sdk v0.20230117.1125206/go.mod h1:BEjoURzcFwd+K3MqkbOt9jArIIrsqpBQ2Gz6DdemFIs=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -306,8 +306,8 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230113195931-4c17414dc0c7 h1:x5uG6R7wXu1SMXpbQBFxVK3qvBSZRLHViU1ItyyDgYw=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230113195931-4c17414dc0c7/go.mod h1:NSuDYXvhbTQ0Z//dTex3BAJe82xqDQrupI2jKg7JEsI=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230124232131-6cf92535f410 h1:SEuINB3hlu7hmm+SbhBpafJAJf8SJzQTRXQbreMfauI=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230124232131-6cf92535f410/go.mod h1:wV2lu4zfbrDwPvPEdo/RsxHO//0kkO8zdZSLxI72odA=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=
