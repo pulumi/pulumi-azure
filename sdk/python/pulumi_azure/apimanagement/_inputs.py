@@ -5020,10 +5020,10 @@ class ServiceAdditionalLocationArgs:
         :param pulumi.Input[int] capacity: The number of compute units in this region. Defaults to the capacity of the main region.
         :param pulumi.Input[bool] gateway_disabled: Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-        :param pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "location", location)
@@ -5096,7 +5096,7 @@ class ServiceAdditionalLocationArgs:
     @pulumi.getter(name="privateIpAddresses")
     def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         """
         return pulumi.get(self, "private_ip_addresses")
 
@@ -5132,7 +5132,7 @@ class ServiceAdditionalLocationArgs:
     @pulumi.getter(name="virtualNetworkConfiguration")
     def virtual_network_configuration(self) -> Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']]:
         """
-        A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+        A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         """
         return pulumi.get(self, "virtual_network_configuration")
 

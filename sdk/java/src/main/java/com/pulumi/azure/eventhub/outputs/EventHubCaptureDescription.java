@@ -35,12 +35,12 @@ public final class EventHubCaptureDescription {
      */
     private @Nullable Integer intervalInSeconds;
     /**
-     * @return Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+     * @return Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
      * 
      */
     private @Nullable Integer sizeLimitInBytes;
     /**
-     * @return Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+     * @return Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
      * 
      */
     private @Nullable Boolean skipEmptyArchives;
@@ -75,14 +75,14 @@ public final class EventHubCaptureDescription {
         return Optional.ofNullable(this.intervalInSeconds);
     }
     /**
-     * @return Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+     * @return Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
      * 
      */
     public Optional<Integer> sizeLimitInBytes() {
         return Optional.ofNullable(this.sizeLimitInBytes);
     }
     /**
-     * @return Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+     * @return Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
      * 
      */
     public Optional<Boolean> skipEmptyArchives() {

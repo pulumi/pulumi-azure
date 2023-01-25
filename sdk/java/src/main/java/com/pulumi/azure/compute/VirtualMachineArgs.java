@@ -315,14 +315,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `storage_image_reference` block as defined below.
+     * A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageImageReference")
     private @Nullable Output<VirtualMachineStorageImageReferenceArgs> storageImageReference;
 
     /**
-     * @return A `storage_image_reference` block as defined below.
+     * @return A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<VirtualMachineStorageImageReferenceArgs>> storageImageReference() {
@@ -866,7 +866,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageImageReference A `storage_image_reference` block as defined below.
+         * @param storageImageReference A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -877,7 +877,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageImageReference A `storage_image_reference` block as defined below.
+         * @param storageImageReference A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

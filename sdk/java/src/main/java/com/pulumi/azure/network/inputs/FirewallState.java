@@ -81,14 +81,14 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
+     * A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managementIpConfiguration")
     private @Nullable Output<FirewallManagementIpConfigurationArgs> managementIpConfiguration;
 
     /**
-     * @return A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
+     * @return A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<FirewallManagementIpConfigurationArgs>> managementIpConfiguration() {
@@ -141,14 +141,14 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+     * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+     * @return SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -372,7 +372,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managementIpConfiguration A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
+         * @param managementIpConfiguration A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managementIpConfiguration A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
+         * @param managementIpConfiguration A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+         * @param skuName SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+         * @param skuName SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

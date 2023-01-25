@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Avs.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Hosts;
         /// <summary>
-        /// The ID of the  management cluster.
+        /// The ID of the management cluster.
         /// </summary>
         public readonly int? Id;
         /// <summary>

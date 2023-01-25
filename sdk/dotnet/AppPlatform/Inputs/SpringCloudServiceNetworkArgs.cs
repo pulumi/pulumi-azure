@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         }
 
         /// <summary>
-        /// Ingress read time out in seconds. Changing this forces a new resource to be created.
+        /// Ingress read time out in seconds.
         /// </summary>
         [Input("readTimeoutSeconds")]
         public Input<int>? ReadTimeoutSeconds { get; set; }

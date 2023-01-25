@@ -20,6 +20,7 @@ __all__ = [
     'LabVirtualMachineImageReferenceArgs',
     'LabVirtualMachineNonAdminUserArgs',
     'LabVirtualMachineSkuArgs',
+    'ScheduleRecurrenceArgs',
     'ServicePlanDefaultAutoShutdownArgs',
     'ServicePlanDefaultConnectionArgs',
     'ServicePlanSupportArgs',
@@ -144,7 +145,7 @@ class LabNetworkArgs:
         """
         :param pulumi.Input[str] load_balancer_id: The resource ID of the Load Balancer for the network profile of the Lab Service Lab.
         :param pulumi.Input[str] public_ip_id: The resource ID of the Public IP for the network profile of the Lab Service Lab.
-        :param pulumi.Input[str] subnet_id: The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The resource ID of the Subnet for the network profile of the Lab Service Lab.
         """
         if load_balancer_id is not None:
             pulumi.set(__self__, "load_balancer_id", load_balancer_id)
@@ -181,7 +182,7 @@ class LabNetworkArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+        The resource ID of the Subnet for the network profile of the Lab Service Lab.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -577,8 +578,8 @@ class LabVirtualMachineNonAdminUserArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: The password for the user. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The password for the user.
+        :param pulumi.Input[str] username: The username to use when signing in to Lab Service Lab VMs.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -587,7 +588,7 @@ class LabVirtualMachineNonAdminUserArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The password for the user. Changing this forces a new resource to be created.
+        The password for the user.
         """
         return pulumi.get(self, "password")
 
@@ -599,7 +600,7 @@ class LabVirtualMachineNonAdminUserArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+        The username to use when signing in to Lab Service Lab VMs.
         """
         return pulumi.get(self, "username")
 
@@ -643,6 +644,75 @@ class LabVirtualMachineSkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ScheduleRecurrenceArgs:
+    def __init__(__self__, *,
+                 expiration_date: pulumi.Input[str],
+                 frequency: pulumi.Input[str],
+                 interval: Optional[pulumi.Input[int]] = None,
+                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] expiration_date: When the recurrence will expire in RFC-3339 format.
+        :param pulumi.Input[str] frequency: The frequency of the recurrence. Possible values are `Daily` and `Weekly`.
+        :param pulumi.Input[int] interval: The interval to invoke the schedule on. Possible values are between `1` and `365`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: The interval to invoke the schedule on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+        pulumi.set(__self__, "expiration_date", expiration_date)
+        pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if week_days is not None:
+            pulumi.set(__self__, "week_days", week_days)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> pulumi.Input[str]:
+        """
+        When the recurrence will expire in RFC-3339 format.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @expiration_date.setter
+    def expiration_date(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expiration_date", value)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> pulumi.Input[str]:
+        """
+        The frequency of the recurrence. Possible values are `Daily` and `Weekly`.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval to invoke the schedule on. Possible values are between `1` and `365`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="weekDays")
+    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The interval to invoke the schedule on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+        return pulumi.get(self, "week_days")
+
+    @week_days.setter
+    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "week_days", value)
 
 
 @pulumi.input_type

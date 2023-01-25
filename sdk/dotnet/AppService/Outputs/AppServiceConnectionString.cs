@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         /// </summary>
         public readonly string Type;
         /// <summary>

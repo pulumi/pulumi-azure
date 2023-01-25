@@ -83,8 +83,7 @@ type ExpressRouteCircuitAuthorization struct {
 	AuthorizationUseStatus pulumi.StringOutput `pulumi:"authorizationUseStatus"`
 	// The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
 	ExpressRouteCircuitName pulumi.StringOutput `pulumi:"expressRouteCircuitName"`
-	// The name of the ExpressRoute circuit. Changing this forces a
-	// new resource to be created.
+	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to Changing this forces a new resource to be created.
 	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -136,8 +135,7 @@ type expressRouteCircuitAuthorizationState struct {
 	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
 	// The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
 	ExpressRouteCircuitName *string `pulumi:"expressRouteCircuitName"`
-	// The name of the ExpressRoute circuit. Changing this forces a
-	// new resource to be created.
+	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to Changing this forces a new resource to be created.
 	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -151,8 +149,7 @@ type ExpressRouteCircuitAuthorizationState struct {
 	AuthorizationUseStatus pulumi.StringPtrInput
 	// The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
 	ExpressRouteCircuitName pulumi.StringPtrInput
-	// The name of the ExpressRoute circuit. Changing this forces a
-	// new resource to be created.
+	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to Changing this forces a new resource to be created.
 	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -166,8 +163,7 @@ func (ExpressRouteCircuitAuthorizationState) ElementType() reflect.Type {
 type expressRouteCircuitAuthorizationArgs struct {
 	// The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
 	ExpressRouteCircuitName string `pulumi:"expressRouteCircuitName"`
-	// The name of the ExpressRoute circuit. Changing this forces a
-	// new resource to be created.
+	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to Changing this forces a new resource to be created.
 	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -178,8 +174,7 @@ type expressRouteCircuitAuthorizationArgs struct {
 type ExpressRouteCircuitAuthorizationArgs struct {
 	// The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
 	ExpressRouteCircuitName pulumi.StringInput
-	// The name of the ExpressRoute circuit. Changing this forces a
-	// new resource to be created.
+	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to Changing this forces a new resource to be created.
 	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -288,8 +283,7 @@ func (o ExpressRouteCircuitAuthorizationOutput) ExpressRouteCircuitName() pulumi
 	return o.ApplyT(func(v *ExpressRouteCircuitAuthorization) pulumi.StringOutput { return v.ExpressRouteCircuitName }).(pulumi.StringOutput)
 }
 
-// The name of the ExpressRoute circuit. Changing this forces a
-// new resource to be created.
+// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 func (o ExpressRouteCircuitAuthorizationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitAuthorization) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

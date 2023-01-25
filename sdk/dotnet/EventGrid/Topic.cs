@@ -71,13 +71,13 @@ namespace Pulumi.Azure.EventGrid
         public Output<ImmutableArray<Outputs.TopicInboundIpRule>> InboundIpRules { get; private set; } = null!;
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below.
+        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("inputMappingDefaultValues")]
         public Output<Outputs.TopicInputMappingDefaultValues?> InputMappingDefaultValues { get; private set; } = null!;
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below.
+        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("inputMappingFields")]
         public Output<Outputs.TopicInputMappingFields?> InputMappingFields { get; private set; } = null!;
@@ -210,13 +210,13 @@ namespace Pulumi.Azure.EventGrid
         }
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below.
+        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingDefaultValues")]
         public Input<Inputs.TopicInputMappingDefaultValuesArgs>? InputMappingDefaultValues { get; set; }
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below.
+        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingFields")]
         public Input<Inputs.TopicInputMappingFieldsArgs>? InputMappingFields { get; set; }
@@ -302,13 +302,13 @@ namespace Pulumi.Azure.EventGrid
         }
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below.
+        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingDefaultValues")]
         public Input<Inputs.TopicInputMappingDefaultValuesGetArgs>? InputMappingDefaultValues { get; set; }
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below.
+        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingFields")]
         public Input<Inputs.TopicInputMappingFieldsGetArgs>? InputMappingFields { get; set; }

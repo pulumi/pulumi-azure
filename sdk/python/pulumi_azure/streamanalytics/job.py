@@ -40,14 +40,14 @@ class JobArgs:
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
-        :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
-        :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         :param pulumi.Input['JobIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
@@ -150,7 +150,7 @@ class JobArgs:
     @pulumi.getter(name="eventsLateArrivalMaxDelayInSeconds")
     def events_late_arrival_max_delay_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
         """
         return pulumi.get(self, "events_late_arrival_max_delay_in_seconds")
 
@@ -174,7 +174,7 @@ class JobArgs:
     @pulumi.getter(name="eventsOutOfOrderPolicy")
     def events_out_of_order_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         """
         return pulumi.get(self, "events_out_of_order_policy")
 
@@ -234,7 +234,7 @@ class JobArgs:
     @pulumi.getter(name="outputErrorPolicy")
     def output_error_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         """
         return pulumi.get(self, "output_error_policy")
 
@@ -317,15 +317,15 @@ class _JobState:
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
-        :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
-        :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         :param pulumi.Input['JobIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] job_id: The Job ID assigned by the Stream Analytics Job.
         :param pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
@@ -410,7 +410,7 @@ class _JobState:
     @pulumi.getter(name="eventsLateArrivalMaxDelayInSeconds")
     def events_late_arrival_max_delay_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
         """
         return pulumi.get(self, "events_late_arrival_max_delay_in_seconds")
 
@@ -434,7 +434,7 @@ class _JobState:
     @pulumi.getter(name="eventsOutOfOrderPolicy")
     def events_out_of_order_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         """
         return pulumi.get(self, "events_out_of_order_policy")
 
@@ -506,7 +506,7 @@ class _JobState:
     @pulumi.getter(name="outputErrorPolicy")
     def output_error_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         """
         return pulumi.get(self, "output_error_policy")
 
@@ -652,14 +652,14 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
-        :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
-        :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         :param pulumi.Input[pulumi.InputType['JobIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobJobStorageAccountArgs']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
@@ -811,15 +811,15 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] content_storage_policy: The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
-        :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
         :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
-        :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         :param pulumi.Input[pulumi.InputType['JobIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] job_id: The Job ID assigned by the Stream Analytics Job.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobJobStorageAccountArgs']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
@@ -879,7 +879,7 @@ class Job(pulumi.CustomResource):
     @pulumi.getter(name="eventsLateArrivalMaxDelayInSeconds")
     def events_late_arrival_max_delay_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
         """
         return pulumi.get(self, "events_late_arrival_max_delay_in_seconds")
 
@@ -895,7 +895,7 @@ class Job(pulumi.CustomResource):
     @pulumi.getter(name="eventsOutOfOrderPolicy")
     def events_out_of_order_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         """
         return pulumi.get(self, "events_out_of_order_policy")
 
@@ -943,7 +943,7 @@ class Job(pulumi.CustomResource):
     @pulumi.getter(name="outputErrorPolicy")
     def output_error_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         """
         return pulumi.get(self, "output_error_policy")
 

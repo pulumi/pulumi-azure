@@ -173,7 +173,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/label1
+//	$ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/label1
 //
 // ```
 //
@@ -181,7 +181,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/%00
+//	$ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/%00
 //
 // ```
 type ConfigurationKey struct {
@@ -195,7 +195,7 @@ type ConfigurationKey struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The name of the App Configuration Key to create. Changing this forces a new resource to be created.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// The label of the App Configuration Key.  Changing this forces a new resource to be created.
+	// The label of the App Configuration Key. Changing this forces a new resource to be created.
 	Label pulumi.StringPtrOutput `pulumi:"label"`
 	// Should this App Configuration Key be Locked to prevent changes?
 	Locked pulumi.BoolPtrOutput `pulumi:"locked"`
@@ -252,7 +252,7 @@ type configurationKeyState struct {
 	Etag *string `pulumi:"etag"`
 	// The name of the App Configuration Key to create. Changing this forces a new resource to be created.
 	Key *string `pulumi:"key"`
-	// The label of the App Configuration Key.  Changing this forces a new resource to be created.
+	// The label of the App Configuration Key. Changing this forces a new resource to be created.
 	Label *string `pulumi:"label"`
 	// Should this App Configuration Key be Locked to prevent changes?
 	Locked *bool `pulumi:"locked"`
@@ -275,7 +275,7 @@ type ConfigurationKeyState struct {
 	Etag pulumi.StringPtrInput
 	// The name of the App Configuration Key to create. Changing this forces a new resource to be created.
 	Key pulumi.StringPtrInput
-	// The label of the App Configuration Key.  Changing this forces a new resource to be created.
+	// The label of the App Configuration Key. Changing this forces a new resource to be created.
 	Label pulumi.StringPtrInput
 	// Should this App Configuration Key be Locked to prevent changes?
 	Locked pulumi.BoolPtrInput
@@ -302,7 +302,7 @@ type configurationKeyArgs struct {
 	Etag *string `pulumi:"etag"`
 	// The name of the App Configuration Key to create. Changing this forces a new resource to be created.
 	Key string `pulumi:"key"`
-	// The label of the App Configuration Key.  Changing this forces a new resource to be created.
+	// The label of the App Configuration Key. Changing this forces a new resource to be created.
 	Label *string `pulumi:"label"`
 	// Should this App Configuration Key be Locked to prevent changes?
 	Locked *bool `pulumi:"locked"`
@@ -326,7 +326,7 @@ type ConfigurationKeyArgs struct {
 	Etag pulumi.StringPtrInput
 	// The name of the App Configuration Key to create. Changing this forces a new resource to be created.
 	Key pulumi.StringInput
-	// The label of the App Configuration Key.  Changing this forces a new resource to be created.
+	// The label of the App Configuration Key. Changing this forces a new resource to be created.
 	Label pulumi.StringPtrInput
 	// Should this App Configuration Key be Locked to prevent changes?
 	Locked pulumi.BoolPtrInput
@@ -447,7 +447,7 @@ func (o ConfigurationKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// The label of the App Configuration Key.  Changing this forces a new resource to be created.
+// The label of the App Configuration Key. Changing this forces a new resource to be created.
 func (o ConfigurationKeyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationKey) pulumi.StringPtrOutput { return v.Label }).(pulumi.StringPtrOutput)
 }

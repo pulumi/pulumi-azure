@@ -99,16 +99,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.aadAuthEnabled);
     }
     /**
-     * Specifies the number of units associated with this Web PubSub resource. Valid values are:
-     * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+     * Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      * 
      */
     @Export(name="capacity", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> capacity;
 
     /**
-     * @return Specifies the number of units associated with this Web PubSub resource. Valid values are:
-     * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+     * @return Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      * 
      */
     public Output<Optional<Integer>> capacity() {
@@ -345,16 +343,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Whether to request client certificate during TLS handshake? Defaults
-     * to `false`.
+     * Whether to request client certificate during TLS handshake? Defaults to `false`.
      * 
      */
     @Export(name="tlsClientCertEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> tlsClientCertEnabled;
 
     /**
-     * @return Whether to request client certificate during TLS handshake? Defaults
-     * to `false`.
+     * @return Whether to request client certificate during TLS handshake? Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> tlsClientCertEnabled() {

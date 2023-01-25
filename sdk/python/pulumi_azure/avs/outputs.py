@@ -103,7 +103,7 @@ class PrivateCloudManagementCluster(dict):
         """
         :param int size: The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
         :param Sequence[str] hosts: A list of hosts in the management cluster.
-        :param int id: The ID of the  management cluster.
+        :param int id: The ID of the management cluster.
         """
         pulumi.set(__self__, "size", size)
         if hosts is not None:
@@ -131,7 +131,7 @@ class PrivateCloudManagementCluster(dict):
     @pulumi.getter
     def id(self) -> Optional[int]:
         """
-        The ID of the  management cluster.
+        The ID of the management cluster.
         """
         return pulumi.get(self, "id")
 

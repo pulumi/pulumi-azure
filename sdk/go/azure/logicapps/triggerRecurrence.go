@@ -79,7 +79,7 @@ type TriggerRecurrence struct {
 	Schedule TriggerRecurrenceSchedulePtrOutput `pulumi:"schedule"`
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
-	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+	// Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 }
 
@@ -133,7 +133,7 @@ type triggerRecurrenceState struct {
 	Schedule *TriggerRecurrenceSchedule `pulumi:"schedule"`
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime *string `pulumi:"startTime"`
-	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+	// Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -150,7 +150,7 @@ type TriggerRecurrenceState struct {
 	Schedule TriggerRecurrenceSchedulePtrInput
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime pulumi.StringPtrInput
-	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+	// Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
 	TimeZone pulumi.StringPtrInput
 }
 
@@ -171,7 +171,7 @@ type triggerRecurrenceArgs struct {
 	Schedule *TriggerRecurrenceSchedule `pulumi:"schedule"`
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime *string `pulumi:"startTime"`
-	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+	// Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -189,7 +189,7 @@ type TriggerRecurrenceArgs struct {
 	Schedule TriggerRecurrenceSchedulePtrInput
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime pulumi.StringPtrInput
-	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+	// Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
 	TimeZone pulumi.StringPtrInput
 }
 
@@ -310,7 +310,7 @@ func (o TriggerRecurrenceOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TriggerRecurrence) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+// Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
 func (o TriggerRecurrenceOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerRecurrence) pulumi.StringOutput { return v.TimeZone }).(pulumi.StringOutput)
 }

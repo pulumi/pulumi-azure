@@ -9,56 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Front Door (standard/premium) Security Policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {resourceGroupName: exampleResourceGroup.name});
- * const exampleFrontdoorFirewallPolicy = new azure.cdn.FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: exampleFrontdoorProfile.skuName,
- *     enabled: true,
- *     mode: "Prevention",
- *     redirectUrl: "https://www.contoso.com",
- *     customBlockResponseStatusCode: 403,
- *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
- *     customRules: [{
- *         name: "Rule1",
- *         enabled: true,
- *         priority: 1,
- *         rateLimitDurationInMinutes: 1,
- *         rateLimitThreshold: 10,
- *         type: "MatchRule",
- *         action: "Block",
- *         matchConditions: [{
- *             matchVariable: "RemoteAddr",
- *             operator: "IPMatch",
- *             negationCondition: false,
- *             matchValues: [
- *                 "192.168.1.0/24",
- *                 "10.0.1.0/24",
- *             ],
- *         }],
- *     }],
- * });
- * const exampleFrontdoorSecurityPolicy = new azure.cdn.FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy", {
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     securityPolicies: {
- *         firewall: {
- *             cdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.id,
- *             association: {
- *                 domains: [{
- *                     cdnFrontdoorDomainId: azurerm_cdn_frontdoor_custom_domain.domain1.id,
- *                 }],
- *             },
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Front Door Security Policies can be imported using the `resource id`, e.g.

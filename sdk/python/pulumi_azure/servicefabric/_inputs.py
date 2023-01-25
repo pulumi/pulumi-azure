@@ -456,7 +456,7 @@ class ClusterNodeTypeArgs:
         :param pulumi.Input[bool] is_stateless: Should this node type run only stateless services?
         :param pulumi.Input[bool] multiple_availability_zones: Does this node type span availability zones?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-        :param pulumi.Input[int] reverse_proxy_endpoint_port: The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+        :param pulumi.Input[int] reverse_proxy_endpoint_port: The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
         """
         pulumi.set(__self__, "client_endpoint_port", client_endpoint_port)
         pulumi.set(__self__, "http_endpoint_port", http_endpoint_port)
@@ -628,7 +628,7 @@ class ClusterNodeTypeArgs:
     @pulumi.getter(name="reverseProxyEndpointPort")
     def reverse_proxy_endpoint_port(self) -> Optional[pulumi.Input[int]]:
         """
-        The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+        The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
         """
         return pulumi.get(self, "reverse_proxy_endpoint_port")
 

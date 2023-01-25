@@ -48,14 +48,14 @@ public final class AlertRuleScheduledIncidentConfigurationGroupingArgs extends c
     }
 
     /**
-     * A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     @Import(name="groupByAlertDetails")
     private @Nullable Output<List<String>> groupByAlertDetails;
 
     /**
-     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     public Optional<Output<List<String>>> groupByAlertDetails() {
@@ -195,7 +195,7 @@ public final class AlertRuleScheduledIncidentConfigurationGroupingArgs extends c
         }
 
         /**
-         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class AlertRuleScheduledIncidentConfigurationGroupingArgs extends c
         }
 
         /**
-         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class AlertRuleScheduledIncidentConfigurationGroupingArgs extends c
         }
 
         /**
-         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
          * 
          * @return builder
          * 

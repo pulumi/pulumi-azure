@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class AlertProcessingRuleActionGroupScheduleRecurrenceWeekly
     {
         /// <summary>
-        /// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        /// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
         /// </summary>
         public readonly ImmutableArray<string> DaysOfWeeks;
         /// <summary>

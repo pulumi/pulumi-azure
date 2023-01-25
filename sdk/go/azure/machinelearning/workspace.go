@@ -428,7 +428,7 @@ type Workspace struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
 	DiscoveryUrl pulumi.StringOutput `pulumi:"discoveryUrl"`
-	// An `encryption` block as defined below.
+	// An `encryption` block as defined below. Changing this forces a new resource to be created.
 	Encryption WorkspaceEncryptionPtrOutput `pulumi:"encryption"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
@@ -516,7 +516,7 @@ type workspaceState struct {
 	Description *string `pulumi:"description"`
 	// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
 	DiscoveryUrl *string `pulumi:"discoveryUrl"`
-	// An `encryption` block as defined below.
+	// An `encryption` block as defined below. Changing this forces a new resource to be created.
 	Encryption *WorkspaceEncryption `pulumi:"encryption"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -561,7 +561,7 @@ type WorkspaceState struct {
 	Description pulumi.StringPtrInput
 	// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
 	DiscoveryUrl pulumi.StringPtrInput
-	// An `encryption` block as defined below.
+	// An `encryption` block as defined below. Changing this forces a new resource to be created.
 	Encryption WorkspaceEncryptionPtrInput
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
@@ -608,7 +608,7 @@ type workspaceArgs struct {
 	ContainerRegistryId *string `pulumi:"containerRegistryId"`
 	// The description of this Machine Learning Workspace.
 	Description *string `pulumi:"description"`
-	// An `encryption` block as defined below.
+	// An `encryption` block as defined below. Changing this forces a new resource to be created.
 	Encryption *WorkspaceEncryption `pulumi:"encryption"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -652,7 +652,7 @@ type WorkspaceArgs struct {
 	ContainerRegistryId pulumi.StringPtrInput
 	// The description of this Machine Learning Workspace.
 	Description pulumi.StringPtrInput
-	// An `encryption` block as defined below.
+	// An `encryption` block as defined below. Changing this forces a new resource to be created.
 	Encryption WorkspaceEncryptionPtrInput
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
@@ -795,7 +795,7 @@ func (o WorkspaceOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.DiscoveryUrl }).(pulumi.StringOutput)
 }
 
-// An `encryption` block as defined below.
+// An `encryption` block as defined below. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) Encryption() WorkspaceEncryptionPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceEncryptionPtrOutput { return v.Encryption }).(WorkspaceEncryptionPtrOutput)
 }

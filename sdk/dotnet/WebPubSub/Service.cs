@@ -66,8 +66,7 @@ namespace Pulumi.Azure.WebPubSub
         public Output<bool?> AadAuthEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of units associated with this Web PubSub resource. Valid values are:
-        /// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        /// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         /// </summary>
         [Output("capacity")]
         public Output<int?> Capacity { get; private set; } = null!;
@@ -172,8 +171,7 @@ namespace Pulumi.Azure.WebPubSub
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to request client certificate during TLS handshake? Defaults
-        /// to `false`.
+        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
         /// </summary>
         [Output("tlsClientCertEnabled")]
         public Output<bool?> TlsClientCertEnabled { get; private set; } = null!;
@@ -241,8 +239,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? AadAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the number of units associated with this Web PubSub resource. Valid values are:
-        /// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        /// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -308,8 +305,7 @@ namespace Pulumi.Azure.WebPubSub
         }
 
         /// <summary>
-        /// Whether to request client certificate during TLS handshake? Defaults
-        /// to `false`.
+        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
         /// </summary>
         [Input("tlsClientCertEnabled")]
         public Input<bool>? TlsClientCertEnabled { get; set; }
@@ -329,8 +325,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? AadAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the number of units associated with this Web PubSub resource. Valid values are:
-        /// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        /// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -481,8 +476,7 @@ namespace Pulumi.Azure.WebPubSub
         }
 
         /// <summary>
-        /// Whether to request client certificate during TLS handshake? Defaults
-        /// to `false`.
+        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
         /// </summary>
         [Input("tlsClientCertEnabled")]
         public Input<bool>? TlsClientCertEnabled { get; set; }

@@ -96,11 +96,13 @@ type SqlPool struct {
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// Is transparent data encryption enabled?
 	DataEncrypted pulumi.BoolPtrOutput `pulumi:"dataEncrypted"`
+	// Is geo-backup policy enabled? Defaults to `true`.
+	GeoBackupPolicyEnabled pulumi.BoolPtrOutput `pulumi:"geoBackupPolicyEnabled"`
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
 	RecoveryDatabaseId pulumi.StringPtrOutput `pulumi:"recoveryDatabaseId"`
-	// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`.
+	// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
 	Restore SqlPoolRestorePtrOutput `pulumi:"restore"`
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
@@ -151,11 +153,13 @@ type sqlPoolState struct {
 	CreateMode *string `pulumi:"createMode"`
 	// Is transparent data encryption enabled?
 	DataEncrypted *bool `pulumi:"dataEncrypted"`
+	// Is geo-backup policy enabled? Defaults to `true`.
+	GeoBackupPolicyEnabled *bool `pulumi:"geoBackupPolicyEnabled"`
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
 	RecoveryDatabaseId *string `pulumi:"recoveryDatabaseId"`
-	// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`.
+	// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
 	Restore *SqlPoolRestore `pulumi:"restore"`
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName *string `pulumi:"skuName"`
@@ -172,11 +176,13 @@ type SqlPoolState struct {
 	CreateMode pulumi.StringPtrInput
 	// Is transparent data encryption enabled?
 	DataEncrypted pulumi.BoolPtrInput
+	// Is geo-backup policy enabled? Defaults to `true`.
+	GeoBackupPolicyEnabled pulumi.BoolPtrInput
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
 	RecoveryDatabaseId pulumi.StringPtrInput
-	// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`.
+	// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
 	Restore SqlPoolRestorePtrInput
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName pulumi.StringPtrInput
@@ -197,11 +203,13 @@ type sqlPoolArgs struct {
 	CreateMode *string `pulumi:"createMode"`
 	// Is transparent data encryption enabled?
 	DataEncrypted *bool `pulumi:"dataEncrypted"`
+	// Is geo-backup policy enabled? Defaults to `true`.
+	GeoBackupPolicyEnabled *bool `pulumi:"geoBackupPolicyEnabled"`
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
 	RecoveryDatabaseId *string `pulumi:"recoveryDatabaseId"`
-	// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`.
+	// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
 	Restore *SqlPoolRestore `pulumi:"restore"`
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName string `pulumi:"skuName"`
@@ -219,11 +227,13 @@ type SqlPoolArgs struct {
 	CreateMode pulumi.StringPtrInput
 	// Is transparent data encryption enabled?
 	DataEncrypted pulumi.BoolPtrInput
+	// Is geo-backup policy enabled? Defaults to `true`.
+	GeoBackupPolicyEnabled pulumi.BoolPtrInput
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
 	RecoveryDatabaseId pulumi.StringPtrInput
-	// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`.
+	// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
 	Restore SqlPoolRestorePtrInput
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName pulumi.StringInput
@@ -335,6 +345,11 @@ func (o SqlPoolOutput) DataEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.BoolPtrOutput { return v.DataEncrypted }).(pulumi.BoolPtrOutput)
 }
 
+// Is geo-backup policy enabled? Defaults to `true`.
+func (o SqlPoolOutput) GeoBackupPolicyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.BoolPtrOutput { return v.GeoBackupPolicyEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
 func (o SqlPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -345,7 +360,7 @@ func (o SqlPoolOutput) RecoveryDatabaseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.RecoveryDatabaseId }).(pulumi.StringPtrOutput)
 }
 
-// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`.
+// A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
 func (o SqlPoolOutput) Restore() SqlPoolRestorePtrOutput {
 	return o.ApplyT(func(v *SqlPool) SqlPoolRestorePtrOutput { return v.Restore }).(SqlPoolRestorePtrOutput)
 }

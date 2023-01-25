@@ -83,7 +83,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<Outputs.WorkflowIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        /// The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         /// </summary>
         [Output("integrationServiceEnvironmentId")]
         public Output<string?> IntegrationServiceEnvironmentId { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<Inputs.WorkflowIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        /// The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         /// </summary>
         [Input("integrationServiceEnvironmentId")]
         public Input<string>? IntegrationServiceEnvironmentId { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<Inputs.WorkflowIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        /// The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         /// </summary>
         [Input("integrationServiceEnvironmentId")]
         public Input<string>? IntegrationServiceEnvironmentId { get; set; }

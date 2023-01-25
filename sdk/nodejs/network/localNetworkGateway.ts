@@ -61,13 +61,11 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
     }
 
     /**
-     * The list of string CIDRs representing the
-     * address spaces the gateway exposes.
+     * The list of string CIDRs representing the address spaces the gateway exposes.
      */
     public readonly addressSpaces!: pulumi.Output<string[] | undefined>;
     /**
-     * A `bgpSettings` block as defined below containing the
-     * Local Network Gateway's BGP speaker settings.
+     * A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
      */
     public readonly bgpSettings!: pulumi.Output<outputs.network.LocalNetworkGatewayBgpSettings | undefined>;
     /**
@@ -140,13 +138,11 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
  */
 export interface LocalNetworkGatewayState {
     /**
-     * The list of string CIDRs representing the
-     * address spaces the gateway exposes.
+     * The list of string CIDRs representing the address spaces the gateway exposes.
      */
     addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `bgpSettings` block as defined below containing the
-     * Local Network Gateway's BGP speaker settings.
+     * A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
      */
     bgpSettings?: pulumi.Input<inputs.network.LocalNetworkGatewayBgpSettings>;
     /**
@@ -180,13 +176,11 @@ export interface LocalNetworkGatewayState {
  */
 export interface LocalNetworkGatewayArgs {
     /**
-     * The list of string CIDRs representing the
-     * address spaces the gateway exposes.
+     * The list of string CIDRs representing the address spaces the gateway exposes.
      */
     addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `bgpSettings` block as defined below containing the
-     * Local Network Gateway's BGP speaker settings.
+     * A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
      */
     bgpSettings?: pulumi.Input<inputs.network.LocalNetworkGatewayBgpSettings>;
     /**

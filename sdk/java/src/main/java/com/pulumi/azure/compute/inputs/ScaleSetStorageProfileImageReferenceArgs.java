@@ -16,16 +16,14 @@ public final class ScaleSetStorageProfileImageReferenceArgs extends com.pulumi.r
     public static final ScaleSetStorageProfileImageReferenceArgs Empty = new ScaleSetStorageProfileImageReferenceArgs();
 
     /**
-     * Specifies the ID of the (custom) image to use to create the virtual
-     * machine scale set, as in the example below.
+     * Specifies the ID of the (custom) image to use to create the virtual machine scale set, as in the example below.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return Specifies the ID of the (custom) image to use to create the virtual
-     * machine scale set, as in the example below.
+     * @return Specifies the ID of the (custom) image to use to create the virtual machine scale set, as in the example below.
      * 
      */
     public Optional<Output<String>> id() {
@@ -121,8 +119,7 @@ public final class ScaleSetStorageProfileImageReferenceArgs extends com.pulumi.r
         }
 
         /**
-         * @param id Specifies the ID of the (custom) image to use to create the virtual
-         * machine scale set, as in the example below.
+         * @param id Specifies the ID of the (custom) image to use to create the virtual machine scale set, as in the example below.
          * 
          * @return builder
          * 
@@ -133,8 +130,7 @@ public final class ScaleSetStorageProfileImageReferenceArgs extends com.pulumi.r
         }
 
         /**
-         * @param id Specifies the ID of the (custom) image to use to create the virtual
-         * machine scale set, as in the example below.
+         * @param id Specifies the ID of the (custom) image to use to create the virtual machine scale set, as in the example below.
          * 
          * @return builder
          * 

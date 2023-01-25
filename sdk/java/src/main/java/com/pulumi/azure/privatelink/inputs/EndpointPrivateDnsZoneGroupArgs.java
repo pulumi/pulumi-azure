@@ -32,14 +32,14 @@ public final class EndpointPrivateDnsZoneGroupArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
+     * Specifies the Name of the Private DNS Zone Group.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
+     * @return Specifies the Name of the Private DNS Zone Group.
      * 
      */
     public Output<String> name() {
@@ -109,7 +109,7 @@ public final class EndpointPrivateDnsZoneGroupArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
+         * @param name Specifies the Name of the Private DNS Zone Group.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class EndpointPrivateDnsZoneGroupArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
+         * @param name Specifies the Name of the Private DNS Zone Group.
          * 
          * @return builder
          * 

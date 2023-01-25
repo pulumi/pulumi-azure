@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
-        /// The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+        /// The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
         /// </summary>
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;

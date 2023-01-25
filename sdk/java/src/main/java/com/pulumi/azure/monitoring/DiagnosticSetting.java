@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
  * import com.pulumi.azure.monitoring.DiagnosticSetting;
  * import com.pulumi.azure.monitoring.DiagnosticSettingArgs;
- * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingLogArgs;
- * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingLogRetentionPolicyArgs;
+ * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledLogArgs;
+ * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledLogRetentionPolicyArgs;
  * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricArgs;
  * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricRetentionPolicyArgs;
  * import java.util.List;
@@ -70,10 +70,9 @@ import javax.annotation.Nullable;
  *         var exampleDiagnosticSetting = new DiagnosticSetting(&#34;exampleDiagnosticSetting&#34;, DiagnosticSettingArgs.builder()        
  *             .targetResourceId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult).applyValue(exampleKeyVault -&gt; exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id())))
  *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult).applyValue(exampleAccount -&gt; exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id())))
- *             .logs(DiagnosticSettingLogArgs.builder()
+ *             .enabledLogs(DiagnosticSettingEnabledLogArgs.builder()
  *                 .category(&#34;AuditEvent&#34;)
- *                 .enabled(false)
- *                 .retentionPolicy(DiagnosticSettingLogRetentionPolicyArgs.builder()
+ *                 .retentionPolicy(DiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
  *                     .enabled(false)
  *                     .build())
  *                 .build())
@@ -143,14 +142,14 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventhubName);
     }
     /**
-     * When set to &#39;Dedicated&#39; logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
      * 
      */
     @Export(name="logAnalyticsDestinationType", type=String.class, parameters={})
     private Output</* @Nullable */ String> logAnalyticsDestinationType;
 
     /**
-     * @return When set to &#39;Dedicated&#39; logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * @return Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
      * 
      */
     public Output<Optional<String>> logAnalyticsDestinationType() {

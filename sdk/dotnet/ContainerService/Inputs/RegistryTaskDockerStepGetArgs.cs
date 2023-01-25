@@ -53,7 +53,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> ContextPath { get; set; } = null!;
 
         /// <summary>
-        /// The  Dockerfile path relative to the source context.
+        /// The Dockerfile path relative to the source context.
         /// </summary>
         [Input("dockerfilePath", required: true)]
         public Input<string> DockerfilePath { get; set; } = null!;

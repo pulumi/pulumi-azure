@@ -38,7 +38,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly string? SubscriptionId;
         /// <summary>
-        /// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+        /// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 

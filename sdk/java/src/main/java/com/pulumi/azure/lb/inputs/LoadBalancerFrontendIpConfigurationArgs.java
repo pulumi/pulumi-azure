@@ -77,14 +77,14 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
     }
 
     /**
-     * Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+     * Specifies the name of the frontend IP configuration.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+     * @return Specifies the name of the frontend IP configuration.
      * 
      */
     public Output<String> name() {
@@ -197,14 +197,14 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
     }
 
     /**
-     * Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+     * Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
      * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+     * @return Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -352,7 +352,7 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param name Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the frontend IP configuration.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param name Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the frontend IP configuration.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+         * @param zones Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+         * @param zones Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class LoadBalancerFrontendIpConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+         * @param zones Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
          * 
          * @return builder
          * 

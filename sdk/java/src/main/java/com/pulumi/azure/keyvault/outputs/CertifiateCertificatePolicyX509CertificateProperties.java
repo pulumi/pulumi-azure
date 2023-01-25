@@ -30,7 +30,7 @@ public final class CertifiateCertificatePolicyX509CertificateProperties {
      */
     private String subject;
     /**
-     * @return A `subject_alternative_names` block as defined below.
+     * @return A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames subjectAlternativeNames;
@@ -63,7 +63,7 @@ public final class CertifiateCertificatePolicyX509CertificateProperties {
         return this.subject;
     }
     /**
-     * @return A `subject_alternative_names` block as defined below.
+     * @return A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames> subjectAlternativeNames() {

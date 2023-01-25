@@ -85,8 +85,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
      */
     public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -94,7 +93,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
+     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storageAccountKey` and `useManagedIdentity`.
      */
     public readonly servicePrincipalId!: pulumi.Output<string | undefined>;
     /**
@@ -102,7 +101,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
      */
     public readonly servicePrincipalKey!: pulumi.Output<string | undefined>;
     /**
-     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
+     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
      */
     public readonly storageAccountKey!: pulumi.Output<string | undefined>;
     /**
@@ -196,8 +195,7 @@ export interface LinkedServiceDataLakeStorageGen2State {
      */
     integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**
@@ -205,7 +203,7 @@ export interface LinkedServiceDataLakeStorageGen2State {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
+     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storageAccountKey` and `useManagedIdentity`.
      */
     servicePrincipalId?: pulumi.Input<string>;
     /**
@@ -213,7 +211,7 @@ export interface LinkedServiceDataLakeStorageGen2State {
      */
     servicePrincipalKey?: pulumi.Input<string>;
     /**
-     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
+     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
      */
     storageAccountKey?: pulumi.Input<string>;
     /**
@@ -255,8 +253,7 @@ export interface LinkedServiceDataLakeStorageGen2Args {
      */
     integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**
@@ -264,7 +261,7 @@ export interface LinkedServiceDataLakeStorageGen2Args {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
+     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storageAccountKey` and `useManagedIdentity`.
      */
     servicePrincipalId?: pulumi.Input<string>;
     /**
@@ -272,7 +269,7 @@ export interface LinkedServiceDataLakeStorageGen2Args {
      */
     servicePrincipalKey?: pulumi.Input<string>;
     /**
-     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
+     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
      */
     storageAccountKey?: pulumi.Input<string>;
     /**

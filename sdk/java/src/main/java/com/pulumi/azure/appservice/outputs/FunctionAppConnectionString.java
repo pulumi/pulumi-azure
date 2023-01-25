@@ -10,12 +10,12 @@ import java.util.Objects;
 @CustomType
 public final class FunctionAppConnectionString {
     /**
-     * @return The name of the Connection String. Changing this forces a new resource to be created.
+     * @return The name of the Connection String.
      * 
      */
     private String name;
     /**
-     * @return The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+     * @return The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
      * 
      */
     private String type;
@@ -27,14 +27,14 @@ public final class FunctionAppConnectionString {
 
     private FunctionAppConnectionString() {}
     /**
-     * @return The name of the Connection String. Changing this forces a new resource to be created.
+     * @return The name of the Connection String.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+     * @return The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
      * 
      */
     public String type() {

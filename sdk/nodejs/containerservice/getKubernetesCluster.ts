@@ -101,6 +101,10 @@ export interface GetKubernetesClusterResult {
      */
     readonly ingressApplicationGateways: outputs.containerservice.GetKubernetesClusterIngressApplicationGateway[];
     /**
+     * A `keyManagementService` block as documented below.
+     */
+    readonly keyManagementServices: outputs.containerservice.GetKubernetesClusterKeyManagementService[];
+    /**
      * A `keyVaultSecretsProvider` block as documented below.
      */
     readonly keyVaultSecretsProviders: outputs.containerservice.GetKubernetesClusterKeyVaultSecretsProvider[];

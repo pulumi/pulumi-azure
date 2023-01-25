@@ -179,7 +179,7 @@ type LinkedServiceAzureDatabricks struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The clusterId of an existing cluster within the linked ADB instance.
 	ExistingClusterId pulumi.StringPtrOutput `pulumi:"existingClusterId"`
-	// Leverages an instance pool within the linked ADB instance as defined by  `instancePool` block below.
+	// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
 	InstancePool LinkedServiceAzureDatabricksInstancePoolPtrOutput `pulumi:"instancePool"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
@@ -189,7 +189,7 @@ type LinkedServiceAzureDatabricks struct {
 	MsiWorkSpaceResourceId pulumi.StringPtrOutput `pulumi:"msiWorkSpaceResourceId"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
+	// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrOutput `pulumi:"newClusterConfig"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -251,7 +251,7 @@ type linkedServiceAzureDatabricksState struct {
 	Description *string `pulumi:"description"`
 	// The clusterId of an existing cluster within the linked ADB instance.
 	ExistingClusterId *string `pulumi:"existingClusterId"`
-	// Leverages an instance pool within the linked ADB instance as defined by  `instancePool` block below.
+	// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
 	InstancePool *LinkedServiceAzureDatabricksInstancePool `pulumi:"instancePool"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
@@ -261,7 +261,7 @@ type linkedServiceAzureDatabricksState struct {
 	MsiWorkSpaceResourceId *string `pulumi:"msiWorkSpaceResourceId"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
+	// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
 	NewClusterConfig *LinkedServiceAzureDatabricksNewClusterConfig `pulumi:"newClusterConfig"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -282,7 +282,7 @@ type LinkedServiceAzureDatabricksState struct {
 	Description pulumi.StringPtrInput
 	// The clusterId of an existing cluster within the linked ADB instance.
 	ExistingClusterId pulumi.StringPtrInput
-	// Leverages an instance pool within the linked ADB instance as defined by  `instancePool` block below.
+	// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
 	InstancePool LinkedServiceAzureDatabricksInstancePoolPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
@@ -292,7 +292,7 @@ type LinkedServiceAzureDatabricksState struct {
 	MsiWorkSpaceResourceId pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
+	// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
@@ -317,7 +317,7 @@ type linkedServiceAzureDatabricksArgs struct {
 	Description *string `pulumi:"description"`
 	// The clusterId of an existing cluster within the linked ADB instance.
 	ExistingClusterId *string `pulumi:"existingClusterId"`
-	// Leverages an instance pool within the linked ADB instance as defined by  `instancePool` block below.
+	// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
 	InstancePool *LinkedServiceAzureDatabricksInstancePool `pulumi:"instancePool"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
@@ -327,7 +327,7 @@ type linkedServiceAzureDatabricksArgs struct {
 	MsiWorkSpaceResourceId *string `pulumi:"msiWorkSpaceResourceId"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
+	// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
 	NewClusterConfig *LinkedServiceAzureDatabricksNewClusterConfig `pulumi:"newClusterConfig"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -349,7 +349,7 @@ type LinkedServiceAzureDatabricksArgs struct {
 	Description pulumi.StringPtrInput
 	// The clusterId of an existing cluster within the linked ADB instance.
 	ExistingClusterId pulumi.StringPtrInput
-	// Leverages an instance pool within the linked ADB instance as defined by  `instancePool` block below.
+	// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
 	InstancePool LinkedServiceAzureDatabricksInstancePoolPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
@@ -359,7 +359,7 @@ type LinkedServiceAzureDatabricksArgs struct {
 	MsiWorkSpaceResourceId pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
+	// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
@@ -487,7 +487,7 @@ func (o LinkedServiceAzureDatabricksOutput) ExistingClusterId() pulumi.StringPtr
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) pulumi.StringPtrOutput { return v.ExistingClusterId }).(pulumi.StringPtrOutput)
 }
 
-// Leverages an instance pool within the linked ADB instance as defined by  `instancePool` block below.
+// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
 func (o LinkedServiceAzureDatabricksOutput) InstancePool() LinkedServiceAzureDatabricksInstancePoolPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) LinkedServiceAzureDatabricksInstancePoolPtrOutput {
 		return v.InstancePool
@@ -516,7 +516,7 @@ func (o LinkedServiceAzureDatabricksOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
+// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
 func (o LinkedServiceAzureDatabricksOutput) NewClusterConfig() LinkedServiceAzureDatabricksNewClusterConfigPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) LinkedServiceAzureDatabricksNewClusterConfigPtrOutput {
 		return v.NewClusterConfig

@@ -63,7 +63,7 @@ public final class IoTHubEndpoint {
      */
     private @Nullable Integer maxChunkSizeInBytes;
     /**
-     * @return The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+     * @return The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      * 
      */
     private String name;
@@ -150,7 +150,7 @@ public final class IoTHubEndpoint {
         return Optional.ofNullable(this.maxChunkSizeInBytes);
     }
     /**
-     * @return The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+     * @return The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      * 
      */
     public String name() {

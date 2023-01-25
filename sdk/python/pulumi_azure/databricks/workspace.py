@@ -32,7 +32,7 @@ class WorkspaceArgs:
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
         :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as documented below.
         :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
@@ -86,7 +86,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
         """
-        The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+        The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
         """
         return pulumi.get(self, "sku")
 
@@ -261,7 +261,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] network_security_group_rules_required: Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]] storage_account_identities: A `storage_account_identity` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_id: The unique identifier of the databricks workspace in Databricks control plane.
@@ -450,7 +450,7 @@ class _WorkspaceState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+        The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
         """
         return pulumi.get(self, "sku")
 
@@ -548,7 +548,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] network_security_group_rules_required: Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -670,7 +670,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] network_security_group_rules_required: Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceStorageAccountIdentityArgs']]]] storage_account_identities: A `storage_account_identity` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_id: The unique identifier of the databricks workspace in Databricks control plane.
@@ -799,7 +799,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
         """
-        The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+        The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
         """
         return pulumi.get(self, "sku")
 

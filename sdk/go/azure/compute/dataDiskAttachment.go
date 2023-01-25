@@ -144,7 +144,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/virtualMachines/machine1/dataDisks/disk1
+//	$ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1/dataDisks/disk1
 //
 // ```
 type DataDiskAttachment struct {

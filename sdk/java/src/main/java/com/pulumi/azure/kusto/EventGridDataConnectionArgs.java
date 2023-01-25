@@ -152,14 +152,14 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      * 
      */
     @Import(name="managedIdentityResourceId")
     private @Nullable Output<String> managedIdentityResourceId;
 
     /**
-     * @return Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     * @return Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      * 
      */
     public Optional<Output<String>> managedIdentityResourceId() {
@@ -485,7 +485,7 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param managedIdentityResourceId Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+         * @param managedIdentityResourceId Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param managedIdentityResourceId Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+         * @param managedIdentityResourceId Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
          * 
          * @return builder
          * 

@@ -141,7 +141,7 @@ type ManagedDisk struct {
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId pulumi.StringPtrOutput `pulumi:"galleryImageReferenceId"`
-	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
 	ImageReferenceId pulumi.StringPtrOutput `pulumi:"imageReferenceId"`
@@ -157,7 +157,7 @@ type ManagedDisk struct {
 	NetworkAccessPolicy pulumi.StringPtrOutput `pulumi:"networkAccessPolicy"`
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	OnDemandBurstingEnabled pulumi.BoolPtrOutput `pulumi:"onDemandBurstingEnabled"`
-	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -165,13 +165,13 @@ type ManagedDisk struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	SecureVmDiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"secureVmDiskEncryptionSetId"`
-	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType pulumi.StringPtrOutput `pulumi:"securityType"`
 	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrOutput `pulumi:"sourceResourceId"`
-	// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
+	// URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	SourceUri pulumi.StringOutput `pulumi:"sourceUri"`
-	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType pulumi.StringOutput `pulumi:"storageAccountType"`
@@ -247,7 +247,7 @@ type managedDiskState struct {
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId *string `pulumi:"galleryImageReferenceId"`
-	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
 	ImageReferenceId *string `pulumi:"imageReferenceId"`
@@ -263,7 +263,7 @@ type managedDiskState struct {
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
-	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -271,13 +271,13 @@ type managedDiskState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
-	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType *string `pulumi:"securityType"`
 	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
+	// URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	SourceUri *string `pulumi:"sourceUri"`
-	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
@@ -316,7 +316,7 @@ type ManagedDiskState struct {
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId pulumi.StringPtrInput
-	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrInput
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
 	ImageReferenceId pulumi.StringPtrInput
@@ -332,7 +332,7 @@ type ManagedDiskState struct {
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	OnDemandBurstingEnabled pulumi.BoolPtrInput
-	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -340,13 +340,13 @@ type ManagedDiskState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput
-	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType pulumi.StringPtrInput
 	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrInput
-	// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
+	// URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	SourceUri pulumi.StringPtrInput
-	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType pulumi.StringPtrInput
@@ -389,7 +389,7 @@ type managedDiskArgs struct {
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId *string `pulumi:"galleryImageReferenceId"`
-	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
 	ImageReferenceId *string `pulumi:"imageReferenceId"`
@@ -405,7 +405,7 @@ type managedDiskArgs struct {
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
-	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -413,13 +413,13 @@ type managedDiskArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
-	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType *string `pulumi:"securityType"`
 	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
+	// URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	SourceUri *string `pulumi:"sourceUri"`
-	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
@@ -459,7 +459,7 @@ type ManagedDiskArgs struct {
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId pulumi.StringPtrInput
-	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrInput
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
 	ImageReferenceId pulumi.StringPtrInput
@@ -475,7 +475,7 @@ type ManagedDiskArgs struct {
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	OnDemandBurstingEnabled pulumi.BoolPtrInput
-	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -483,13 +483,13 @@ type ManagedDiskArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput
-	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 	SecurityType pulumi.StringPtrInput
 	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrInput
-	// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
+	// URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	SourceUri pulumi.StringPtrInput
-	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType pulumi.StringInput
@@ -647,7 +647,7 @@ func (o ManagedDiskOutput) GalleryImageReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.GalleryImageReferenceId }).(pulumi.StringPtrOutput)
 }
 
-// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
 func (o ManagedDiskOutput) HyperVGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
 }
@@ -687,7 +687,7 @@ func (o ManagedDiskOutput) OnDemandBurstingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.OnDemandBurstingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 func (o ManagedDiskOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
 }
@@ -707,7 +707,7 @@ func (o ManagedDiskOutput) SecureVmDiskEncryptionSetId() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.SecureVmDiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 func (o ManagedDiskOutput) SecurityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.SecurityType }).(pulumi.StringPtrOutput)
 }
@@ -717,12 +717,12 @@ func (o ManagedDiskOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
+// URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 func (o ManagedDiskOutput) SourceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.SourceUri }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
+// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 func (o ManagedDiskOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }

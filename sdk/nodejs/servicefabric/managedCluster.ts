@@ -128,11 +128,11 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * The name of the Resource Group where the Resource Group should exist.
+     * The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+     * SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -203,7 +203,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodeTypes"] = args ? args.nodeTypes : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -211,6 +211,8 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ManagedCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -268,11 +270,11 @@ export interface ManagedClusterState {
      */
     password?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Resource Group should exist.
+     * The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+     * SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -342,11 +344,11 @@ export interface ManagedClusterArgs {
      */
     password?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Resource Group should exist.
+     * The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+     * SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
      */
     sku?: pulumi.Input<string>;
     /**

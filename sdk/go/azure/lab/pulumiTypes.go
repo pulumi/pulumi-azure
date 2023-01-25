@@ -365,7 +365,7 @@ type LabNetwork struct {
 	LoadBalancerId *string `pulumi:"loadBalancerId"`
 	// The resource ID of the Public IP for the network profile of the Lab Service Lab.
 	PublicIpId *string `pulumi:"publicIpId"`
-	// The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+	// The resource ID of the Subnet for the network profile of the Lab Service Lab.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -385,7 +385,7 @@ type LabNetworkArgs struct {
 	LoadBalancerId pulumi.StringPtrInput `pulumi:"loadBalancerId"`
 	// The resource ID of the Public IP for the network profile of the Lab Service Lab.
 	PublicIpId pulumi.StringPtrInput `pulumi:"publicIpId"`
-	// The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+	// The resource ID of the Subnet for the network profile of the Lab Service Lab.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -476,7 +476,7 @@ func (o LabNetworkOutput) PublicIpId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabNetwork) *string { return v.PublicIpId }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+// The resource ID of the Subnet for the network profile of the Lab Service Lab.
 func (o LabNetworkOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabNetwork) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -525,7 +525,7 @@ func (o LabNetworkPtrOutput) PublicIpId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+// The resource ID of the Subnet for the network profile of the Lab Service Lab.
 func (o LabNetworkPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabNetwork) *string {
 		if v == nil {
@@ -1544,9 +1544,9 @@ func (o LabVirtualMachineImageReferencePtrOutput) Version() pulumi.StringPtrOutp
 }
 
 type LabVirtualMachineNonAdminUser struct {
-	// The password for the user. Changing this forces a new resource to be created.
+	// The password for the user.
 	Password string `pulumi:"password"`
-	// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+	// The username to use when signing in to Lab Service Lab VMs.
 	Username string `pulumi:"username"`
 }
 
@@ -1562,9 +1562,9 @@ type LabVirtualMachineNonAdminUserInput interface {
 }
 
 type LabVirtualMachineNonAdminUserArgs struct {
-	// The password for the user. Changing this forces a new resource to be created.
+	// The password for the user.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+	// The username to use when signing in to Lab Service Lab VMs.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1645,12 +1645,12 @@ func (o LabVirtualMachineNonAdminUserOutput) ToLabVirtualMachineNonAdminUserPtrO
 	}).(LabVirtualMachineNonAdminUserPtrOutput)
 }
 
-// The password for the user. Changing this forces a new resource to be created.
+// The password for the user.
 func (o LabVirtualMachineNonAdminUserOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v LabVirtualMachineNonAdminUser) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+// The username to use when signing in to Lab Service Lab VMs.
 func (o LabVirtualMachineNonAdminUserOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v LabVirtualMachineNonAdminUser) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1679,7 +1679,7 @@ func (o LabVirtualMachineNonAdminUserPtrOutput) Elem() LabVirtualMachineNonAdmin
 	}).(LabVirtualMachineNonAdminUserOutput)
 }
 
-// The password for the user. Changing this forces a new resource to be created.
+// The password for the user.
 func (o LabVirtualMachineNonAdminUserPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineNonAdminUser) *string {
 		if v == nil {
@@ -1689,7 +1689,7 @@ func (o LabVirtualMachineNonAdminUserPtrOutput) Password() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+// The username to use when signing in to Lab Service Lab VMs.
 func (o LabVirtualMachineNonAdminUserPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineNonAdminUser) *string {
 		if v == nil {
@@ -1853,6 +1853,200 @@ func (o LabVirtualMachineSkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+type ScheduleRecurrence struct {
+	// When the recurrence will expire in RFC-3339 format.
+	ExpirationDate string `pulumi:"expirationDate"`
+	// The frequency of the recurrence. Possible values are `Daily` and `Weekly`.
+	Frequency string `pulumi:"frequency"`
+	// The interval to invoke the schedule on. Possible values are between `1` and `365`.
+	Interval *int `pulumi:"interval"`
+	// The interval to invoke the schedule on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+	WeekDays []string `pulumi:"weekDays"`
+}
+
+// ScheduleRecurrenceInput is an input type that accepts ScheduleRecurrenceArgs and ScheduleRecurrenceOutput values.
+// You can construct a concrete instance of `ScheduleRecurrenceInput` via:
+//
+//	ScheduleRecurrenceArgs{...}
+type ScheduleRecurrenceInput interface {
+	pulumi.Input
+
+	ToScheduleRecurrenceOutput() ScheduleRecurrenceOutput
+	ToScheduleRecurrenceOutputWithContext(context.Context) ScheduleRecurrenceOutput
+}
+
+type ScheduleRecurrenceArgs struct {
+	// When the recurrence will expire in RFC-3339 format.
+	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`
+	// The frequency of the recurrence. Possible values are `Daily` and `Weekly`.
+	Frequency pulumi.StringInput `pulumi:"frequency"`
+	// The interval to invoke the schedule on. Possible values are between `1` and `365`.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The interval to invoke the schedule on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+}
+
+func (ScheduleRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleRecurrence)(nil)).Elem()
+}
+
+func (i ScheduleRecurrenceArgs) ToScheduleRecurrenceOutput() ScheduleRecurrenceOutput {
+	return i.ToScheduleRecurrenceOutputWithContext(context.Background())
+}
+
+func (i ScheduleRecurrenceArgs) ToScheduleRecurrenceOutputWithContext(ctx context.Context) ScheduleRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRecurrenceOutput)
+}
+
+func (i ScheduleRecurrenceArgs) ToScheduleRecurrencePtrOutput() ScheduleRecurrencePtrOutput {
+	return i.ToScheduleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i ScheduleRecurrenceArgs) ToScheduleRecurrencePtrOutputWithContext(ctx context.Context) ScheduleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRecurrenceOutput).ToScheduleRecurrencePtrOutputWithContext(ctx)
+}
+
+// ScheduleRecurrencePtrInput is an input type that accepts ScheduleRecurrenceArgs, ScheduleRecurrencePtr and ScheduleRecurrencePtrOutput values.
+// You can construct a concrete instance of `ScheduleRecurrencePtrInput` via:
+//
+//	        ScheduleRecurrenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduleRecurrencePtrInput interface {
+	pulumi.Input
+
+	ToScheduleRecurrencePtrOutput() ScheduleRecurrencePtrOutput
+	ToScheduleRecurrencePtrOutputWithContext(context.Context) ScheduleRecurrencePtrOutput
+}
+
+type scheduleRecurrencePtrType ScheduleRecurrenceArgs
+
+func ScheduleRecurrencePtr(v *ScheduleRecurrenceArgs) ScheduleRecurrencePtrInput {
+	return (*scheduleRecurrencePtrType)(v)
+}
+
+func (*scheduleRecurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduleRecurrence)(nil)).Elem()
+}
+
+func (i *scheduleRecurrencePtrType) ToScheduleRecurrencePtrOutput() ScheduleRecurrencePtrOutput {
+	return i.ToScheduleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *scheduleRecurrencePtrType) ToScheduleRecurrencePtrOutputWithContext(ctx context.Context) ScheduleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRecurrencePtrOutput)
+}
+
+type ScheduleRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (ScheduleRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleRecurrence)(nil)).Elem()
+}
+
+func (o ScheduleRecurrenceOutput) ToScheduleRecurrenceOutput() ScheduleRecurrenceOutput {
+	return o
+}
+
+func (o ScheduleRecurrenceOutput) ToScheduleRecurrenceOutputWithContext(ctx context.Context) ScheduleRecurrenceOutput {
+	return o
+}
+
+func (o ScheduleRecurrenceOutput) ToScheduleRecurrencePtrOutput() ScheduleRecurrencePtrOutput {
+	return o.ToScheduleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (o ScheduleRecurrenceOutput) ToScheduleRecurrencePtrOutputWithContext(ctx context.Context) ScheduleRecurrencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleRecurrence) *ScheduleRecurrence {
+		return &v
+	}).(ScheduleRecurrencePtrOutput)
+}
+
+// When the recurrence will expire in RFC-3339 format.
+func (o ScheduleRecurrenceOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleRecurrence) string { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+// The frequency of the recurrence. Possible values are `Daily` and `Weekly`.
+func (o ScheduleRecurrenceOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleRecurrence) string { return v.Frequency }).(pulumi.StringOutput)
+}
+
+// The interval to invoke the schedule on. Possible values are between `1` and `365`.
+func (o ScheduleRecurrenceOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScheduleRecurrence) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The interval to invoke the schedule on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+func (o ScheduleRecurrenceOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleRecurrence) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+}
+
+type ScheduleRecurrencePtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduleRecurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduleRecurrence)(nil)).Elem()
+}
+
+func (o ScheduleRecurrencePtrOutput) ToScheduleRecurrencePtrOutput() ScheduleRecurrencePtrOutput {
+	return o
+}
+
+func (o ScheduleRecurrencePtrOutput) ToScheduleRecurrencePtrOutputWithContext(ctx context.Context) ScheduleRecurrencePtrOutput {
+	return o
+}
+
+func (o ScheduleRecurrencePtrOutput) Elem() ScheduleRecurrenceOutput {
+	return o.ApplyT(func(v *ScheduleRecurrence) ScheduleRecurrence {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleRecurrence
+		return ret
+	}).(ScheduleRecurrenceOutput)
+}
+
+// When the recurrence will expire in RFC-3339 format.
+func (o ScheduleRecurrencePtrOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpirationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The frequency of the recurrence. Possible values are `Daily` and `Weekly`.
+func (o ScheduleRecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interval to invoke the schedule on. Possible values are between `1` and `365`.
+func (o ScheduleRecurrencePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScheduleRecurrence) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The interval to invoke the schedule on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+func (o ScheduleRecurrencePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScheduleRecurrence) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeekDays
+	}).(pulumi.StringArrayOutput)
 }
 
 type ServicePlanDefaultAutoShutdown struct {
@@ -2458,6 +2652,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineNonAdminUserPtrInput)(nil)).Elem(), LabVirtualMachineNonAdminUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineSkuInput)(nil)).Elem(), LabVirtualMachineSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineSkuPtrInput)(nil)).Elem(), LabVirtualMachineSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRecurrenceInput)(nil)).Elem(), ScheduleRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleRecurrencePtrInput)(nil)).Elem(), ScheduleRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlanDefaultAutoShutdownInput)(nil)).Elem(), ServicePlanDefaultAutoShutdownArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlanDefaultAutoShutdownPtrInput)(nil)).Elem(), ServicePlanDefaultAutoShutdownArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlanDefaultConnectionInput)(nil)).Elem(), ServicePlanDefaultConnectionArgs{})
@@ -2484,6 +2680,8 @@ func init() {
 	pulumi.RegisterOutputType(LabVirtualMachineNonAdminUserPtrOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineSkuOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineSkuPtrOutput{})
+	pulumi.RegisterOutputType(ScheduleRecurrenceOutput{})
+	pulumi.RegisterOutputType(ScheduleRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(ServicePlanDefaultAutoShutdownOutput{})
 	pulumi.RegisterOutputType(ServicePlanDefaultAutoShutdownPtrOutput{})
 	pulumi.RegisterOutputType(ServicePlanDefaultConnectionOutput{})

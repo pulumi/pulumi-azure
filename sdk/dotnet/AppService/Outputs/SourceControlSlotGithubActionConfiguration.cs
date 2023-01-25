@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class SourceControlSlotGithubActionConfiguration
     {
         /// <summary>
-        /// A `code_configuration` block as detailed below.
+        /// A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.SourceControlSlotGithubActionConfigurationCodeConfiguration? CodeConfiguration;
         /// <summary>

@@ -11,19 +11,19 @@ import (
 )
 
 type ReplicatedVMManagedDisk struct {
-	// Id of disk that should be replicated.
+	// Id of disk that should be replicated. Changing this forces a new resource to be created.
 	DiskId string `pulumi:"diskId"`
-	// Storage account that should be used for caching.
+	// Storage account that should be used for caching. Changing this forces a new resource to be created.
 	StagingStorageAccountId string `pulumi:"stagingStorageAccountId"`
 	// A `targetDiskEncryption` block as defined below.
 	TargetDiskEncryption *ReplicatedVMManagedDiskTargetDiskEncryption `pulumi:"targetDiskEncryption"`
-	// The Disk Encryption Set that the Managed Disk will be associated with.
+	// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 	TargetDiskEncryptionSetId *string `pulumi:"targetDiskEncryptionSetId"`
-	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 	TargetDiskType string `pulumi:"targetDiskType"`
-	// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+	// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 	TargetReplicaDiskType string `pulumi:"targetReplicaDiskType"`
-	// Resource group disk should belong to when a failover is done.
+	// Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
 	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
 }
 
@@ -39,19 +39,19 @@ type ReplicatedVMManagedDiskInput interface {
 }
 
 type ReplicatedVMManagedDiskArgs struct {
-	// Id of disk that should be replicated.
+	// Id of disk that should be replicated. Changing this forces a new resource to be created.
 	DiskId pulumi.StringInput `pulumi:"diskId"`
-	// Storage account that should be used for caching.
+	// Storage account that should be used for caching. Changing this forces a new resource to be created.
 	StagingStorageAccountId pulumi.StringInput `pulumi:"stagingStorageAccountId"`
 	// A `targetDiskEncryption` block as defined below.
 	TargetDiskEncryption ReplicatedVMManagedDiskTargetDiskEncryptionPtrInput `pulumi:"targetDiskEncryption"`
-	// The Disk Encryption Set that the Managed Disk will be associated with.
+	// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 	TargetDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"targetDiskEncryptionSetId"`
-	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 	TargetDiskType pulumi.StringInput `pulumi:"targetDiskType"`
-	// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+	// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 	TargetReplicaDiskType pulumi.StringInput `pulumi:"targetReplicaDiskType"`
-	// Resource group disk should belong to when a failover is done.
+	// Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
 	TargetResourceGroupId pulumi.StringInput `pulumi:"targetResourceGroupId"`
 }
 
@@ -106,12 +106,12 @@ func (o ReplicatedVMManagedDiskOutput) ToReplicatedVMManagedDiskOutputWithContex
 	return o
 }
 
-// Id of disk that should be replicated.
+// Id of disk that should be replicated. Changing this forces a new resource to be created.
 func (o ReplicatedVMManagedDiskOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) string { return v.DiskId }).(pulumi.StringOutput)
 }
 
-// Storage account that should be used for caching.
+// Storage account that should be used for caching. Changing this forces a new resource to be created.
 func (o ReplicatedVMManagedDiskOutput) StagingStorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) string { return v.StagingStorageAccountId }).(pulumi.StringOutput)
 }
@@ -123,22 +123,22 @@ func (o ReplicatedVMManagedDiskOutput) TargetDiskEncryption() ReplicatedVMManage
 	}).(ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput)
 }
 
-// The Disk Encryption Set that the Managed Disk will be associated with.
+// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 func (o ReplicatedVMManagedDiskOutput) TargetDiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) *string { return v.TargetDiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 func (o ReplicatedVMManagedDiskOutput) TargetDiskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) string { return v.TargetDiskType }).(pulumi.StringOutput)
 }
 
-// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 func (o ReplicatedVMManagedDiskOutput) TargetReplicaDiskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) string { return v.TargetReplicaDiskType }).(pulumi.StringOutput)
 }
 
-// Resource group disk should belong to when a failover is done.
+// Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
 func (o ReplicatedVMManagedDiskOutput) TargetResourceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) string { return v.TargetResourceGroupId }).(pulumi.StringOutput)
 }
@@ -636,7 +636,7 @@ func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) Va
 }
 
 type ReplicatedVMNetworkInterface struct {
-	// If this is the primary network interface used for failover. If there is only one `networkInterface` block, this is automatically set to `true`.
+	// Deprecated: this property is not used and will be removed in version 4.0 of the provider
 	IsPrimary *bool `pulumi:"isPrimary"`
 	// Id of the public IP object to use when a failover is done.
 	RecoveryPublicIpAddressId *string `pulumi:"recoveryPublicIpAddressId"`
@@ -660,7 +660,7 @@ type ReplicatedVMNetworkInterfaceInput interface {
 }
 
 type ReplicatedVMNetworkInterfaceArgs struct {
-	// If this is the primary network interface used for failover. If there is only one `networkInterface` block, this is automatically set to `true`.
+	// Deprecated: this property is not used and will be removed in version 4.0 of the provider
 	IsPrimary pulumi.BoolPtrInput `pulumi:"isPrimary"`
 	// Id of the public IP object to use when a failover is done.
 	RecoveryPublicIpAddressId pulumi.StringPtrInput `pulumi:"recoveryPublicIpAddressId"`
@@ -723,7 +723,7 @@ func (o ReplicatedVMNetworkInterfaceOutput) ToReplicatedVMNetworkInterfaceOutput
 	return o
 }
 
-// If this is the primary network interface used for failover. If there is only one `networkInterface` block, this is automatically set to `true`.
+// Deprecated: this property is not used and will be removed in version 4.0 of the provider
 func (o ReplicatedVMNetworkInterfaceOutput) IsPrimary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *bool { return v.IsPrimary }).(pulumi.BoolPtrOutput)
 }

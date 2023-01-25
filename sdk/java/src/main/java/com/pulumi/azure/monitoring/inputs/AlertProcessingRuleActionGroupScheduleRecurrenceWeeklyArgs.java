@@ -17,14 +17,14 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs ex
     public static final AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs Empty = new AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs();
 
     /**
-     * Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+     * Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
      * 
      */
     @Import(name="daysOfWeeks", required=true)
     private Output<List<String>> daysOfWeeks;
 
     /**
-     * @return Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+     * @return Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
      * 
      */
     public Output<List<String>> daysOfWeeks() {
@@ -88,7 +88,7 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs ex
         }
 
         /**
-         * @param daysOfWeeks Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+         * @param daysOfWeeks Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs ex
         }
 
         /**
-         * @param daysOfWeeks Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+         * @param daysOfWeeks Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs ex
         }
 
         /**
-         * @param daysOfWeeks Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+         * @param daysOfWeeks Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
          * 
          * @return builder
          * 

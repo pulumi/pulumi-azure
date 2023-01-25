@@ -126,14 +126,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.dataLocale;
     }
     /**
-     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
      * 
      */
     @Export(name="eventsLateArrivalMaxDelayInSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> eventsLateArrivalMaxDelayInSeconds;
 
     /**
-     * @return Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+     * @return Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
      * 
      */
     public Output<Optional<Integer>> eventsLateArrivalMaxDelayInSeconds() {
@@ -154,14 +154,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventsOutOfOrderMaxDelayInSeconds);
     }
     /**
-     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
      * 
      */
     @Export(name="eventsOutOfOrderPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventsOutOfOrderPolicy;
 
     /**
-     * @return Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+     * @return Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
      * 
      */
     public Output<Optional<String>> eventsOutOfOrderPolicy() {
@@ -238,14 +238,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
      * 
      */
     @Export(name="outputErrorPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> outputErrorPolicy;
 
     /**
-     * @return Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+     * @return Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
      * 
      */
     public Output<Optional<String>> outputErrorPolicy() {

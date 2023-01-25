@@ -16,14 +16,14 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
     public static final VirtualNetworkGatewayIpConfigurationArgs Empty = new VirtualNetworkGatewayIpConfigurationArgs();
 
     /**
-     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,18 +31,14 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Defines how the private IP address
-     * of the gateways virtual interface is assigned. Valid options are `Static` or
-     * `Dynamic`. Defaults to `Dynamic`.
+     * Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
      * 
      */
     @Import(name="privateIpAddressAllocation")
     private @Nullable Output<String> privateIpAddressAllocation;
 
     /**
-     * @return Defines how the private IP address
-     * of the gateways virtual interface is assigned. Valid options are `Static` or
-     * `Dynamic`. Defaults to `Dynamic`.
+     * @return Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
      * 
      */
     public Optional<Output<String>> privateIpAddressAllocation() {
@@ -50,16 +46,14 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * The ID of the public IP address to associate
-     * with the Virtual Network Gateway.
+     * The ID of the public IP address to associate with the Virtual Network Gateway.
      * 
      */
     @Import(name="publicIpAddressId", required=true)
     private Output<String> publicIpAddressId;
 
     /**
-     * @return The ID of the public IP address to associate
-     * with the Virtual Network Gateway.
+     * @return The ID of the public IP address to associate with the Virtual Network Gateway.
      * 
      */
     public Output<String> publicIpAddressId() {
@@ -67,20 +61,14 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * The ID of the gateway subnet of a virtual network in
-     * which the virtual network gateway will be created. It is mandatory that
-     * the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-     * network can contain at most a single Virtual Network Gateway.
+     * The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the gateway subnet of a virtual network in
-     * which the virtual network gateway will be created. It is mandatory that
-     * the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-     * network can contain at most a single Virtual Network Gateway.
+     * @return The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
      * 
      */
     public Output<String> subnetId() {
@@ -115,7 +103,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
          * 
          * @return builder
          * 
@@ -126,7 +114,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
          * 
          * @return builder
          * 
@@ -136,9 +124,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param privateIpAddressAllocation Defines how the private IP address
-         * of the gateways virtual interface is assigned. Valid options are `Static` or
-         * `Dynamic`. Defaults to `Dynamic`.
+         * @param privateIpAddressAllocation Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
          * 
          * @return builder
          * 
@@ -149,9 +135,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param privateIpAddressAllocation Defines how the private IP address
-         * of the gateways virtual interface is assigned. Valid options are `Static` or
-         * `Dynamic`. Defaults to `Dynamic`.
+         * @param privateIpAddressAllocation Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
          * 
          * @return builder
          * 
@@ -161,8 +145,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param publicIpAddressId The ID of the public IP address to associate
-         * with the Virtual Network Gateway.
+         * @param publicIpAddressId The ID of the public IP address to associate with the Virtual Network Gateway.
          * 
          * @return builder
          * 
@@ -173,8 +156,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param publicIpAddressId The ID of the public IP address to associate
-         * with the Virtual Network Gateway.
+         * @param publicIpAddressId The ID of the public IP address to associate with the Virtual Network Gateway.
          * 
          * @return builder
          * 
@@ -184,10 +166,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param subnetId The ID of the gateway subnet of a virtual network in
-         * which the virtual network gateway will be created. It is mandatory that
-         * the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-         * network can contain at most a single Virtual Network Gateway.
+         * @param subnetId The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
          * 
          * @return builder
          * 
@@ -198,10 +177,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param subnetId The ID of the gateway subnet of a virtual network in
-         * which the virtual network gateway will be created. It is mandatory that
-         * the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-         * network can contain at most a single Virtual Network Gateway.
+         * @param subnetId The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
          * 
          * @return builder
          * 

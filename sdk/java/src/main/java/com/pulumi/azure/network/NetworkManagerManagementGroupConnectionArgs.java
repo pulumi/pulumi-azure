@@ -31,14 +31,14 @@ public final class NetworkManagerManagementGroupConnectionArgs extends com.pulum
     }
 
     /**
-     * Specifies the ID of the target Management Group.
+     * Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managementGroupId", required=true)
     private Output<String> managementGroupId;
 
     /**
-     * @return Specifies the ID of the target Management Group.
+     * @return Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> managementGroupId() {
@@ -61,14 +61,14 @@ public final class NetworkManagerManagementGroupConnectionArgs extends com.pulum
     }
 
     /**
-     * Specifies the ID of the Network Manager which the Management Group is connected to.
+     * Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="networkManagerId", required=true)
     private Output<String> networkManagerId;
 
     /**
-     * @return Specifies the ID of the Network Manager which the Management Group is connected to.
+     * @return Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> networkManagerId() {
@@ -124,7 +124,7 @@ public final class NetworkManagerManagementGroupConnectionArgs extends com.pulum
         }
 
         /**
-         * @param managementGroupId Specifies the ID of the target Management Group.
+         * @param managementGroupId Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class NetworkManagerManagementGroupConnectionArgs extends com.pulum
         }
 
         /**
-         * @param managementGroupId Specifies the ID of the target Management Group.
+         * @param managementGroupId Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class NetworkManagerManagementGroupConnectionArgs extends com.pulum
         }
 
         /**
-         * @param networkManagerId Specifies the ID of the Network Manager which the Management Group is connected to.
+         * @param networkManagerId Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class NetworkManagerManagementGroupConnectionArgs extends com.pulum
         }
 
         /**
-         * @param networkManagerId Specifies the ID of the Network Manager which the Management Group is connected to.
+         * @param networkManagerId Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

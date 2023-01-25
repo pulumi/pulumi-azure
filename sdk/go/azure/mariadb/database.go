@@ -80,8 +80,7 @@ type Database struct {
 	Charset pulumi.StringOutput `pulumi:"charset"`
 	// Specifies the Collation for the MariaDB Database, which needs [to be a valid MariaDB Collation](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created.
 	Collation pulumi.StringOutput `pulumi:"collation"`
-	// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -134,8 +133,7 @@ type databaseState struct {
 	Charset *string `pulumi:"charset"`
 	// Specifies the Collation for the MariaDB Database, which needs [to be a valid MariaDB Collation](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -148,8 +146,7 @@ type DatabaseState struct {
 	Charset pulumi.StringPtrInput
 	// Specifies the Collation for the MariaDB Database, which needs [to be a valid MariaDB Collation](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -166,8 +163,7 @@ type databaseArgs struct {
 	Charset string `pulumi:"charset"`
 	// Specifies the Collation for the MariaDB Database, which needs [to be a valid MariaDB Collation](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created.
 	Collation string `pulumi:"collation"`
-	// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -181,8 +177,7 @@ type DatabaseArgs struct {
 	Charset pulumi.StringInput
 	// Specifies the Collation for the MariaDB Database, which needs [to be a valid MariaDB Collation](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created.
 	Collation pulumi.StringInput
-	// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -287,8 +282,7 @@ func (o DatabaseOutput) Collation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Collation }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a
-// new resource to be created.
+// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created.
 func (o DatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -155,14 +155,14 @@ public class Workflow extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+     * The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
      * 
      */
     @Export(name="integrationServiceEnvironmentId", type=String.class, parameters={})
     private Output</* @Nullable */ String> integrationServiceEnvironmentId;
 
     /**
-     * @return The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+     * @return The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
      * 
      */
     public Output<Optional<String>> integrationServiceEnvironmentId() {

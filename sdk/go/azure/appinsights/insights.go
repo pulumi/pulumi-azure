@@ -133,8 +133,7 @@ type Insights struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Application Insights component. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -212,8 +211,7 @@ type insightsState struct {
 	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Application Insights component. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -252,8 +250,7 @@ type InsightsState struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Application Insights component. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -290,8 +287,7 @@ type insightsArgs struct {
 	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Application Insights component. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -325,8 +321,7 @@ type InsightsArgs struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Application Insights component. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -487,8 +482,7 @@ func (o InsightsOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insights) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Application Insights component. Changing this forces a
-// new resource to be created.
+// Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
 func (o InsightsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insights) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

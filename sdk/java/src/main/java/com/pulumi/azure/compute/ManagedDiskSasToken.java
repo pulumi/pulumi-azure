@@ -84,28 +84,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/managedDiskSasToken:ManagedDiskSasToken")
 public class ManagedDiskSasToken extends com.pulumi.resources.CustomResource {
     /**
-     * The level of access required on the disk. Supported are Read, Write.
+     * The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="accessLevel", type=String.class, parameters={})
     private Output<String> accessLevel;
 
     /**
-     * @return The level of access required on the disk. Supported are Read, Write.
+     * @return The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> accessLevel() {
         return this.accessLevel;
     }
     /**
-     * The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds.
+     * The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="durationInSeconds", type=Integer.class, parameters={})
     private Output<Integer> durationInSeconds;
 
     /**
-     * @return The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds.
+     * @return The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds. Changing this forces a new resource to be created.
      * 
      */
     public Output<Integer> durationInSeconds() {

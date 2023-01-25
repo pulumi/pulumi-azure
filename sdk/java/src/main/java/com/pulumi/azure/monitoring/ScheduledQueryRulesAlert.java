@@ -107,28 +107,28 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.description);
     }
     /**
-     * Whether this scheduled query rule is enabled.  Default is `true`.
+     * Whether this scheduled query rule is enabled. Default is `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Whether this scheduled query rule is enabled.  Default is `true`.
+     * @return Whether this scheduled query rule is enabled. Default is `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+     * Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
      * 
      */
     @Export(name="frequency", type=Integer.class, parameters={})
     private Output<Integer> frequency;
 
     /**
-     * @return Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+     * @return Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
      * 
      */
     public Output<Integer> frequency() {
@@ -233,28 +233,28 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.tags);
     }
     /**
-     * Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+     * Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
      * 
      */
     @Export(name="throttling", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> throttling;
 
     /**
-     * @return Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+     * @return Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
      * 
      */
     public Output<Optional<Integer>> throttling() {
         return Codegen.optional(this.throttling);
     }
     /**
-     * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+     * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
      * 
      */
     @Export(name="timeWindow", type=Integer.class, parameters={})
     private Output<Integer> timeWindow;
 
     /**
-     * @return Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+     * @return Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
      * 
      */
     public Output<Integer> timeWindow() {

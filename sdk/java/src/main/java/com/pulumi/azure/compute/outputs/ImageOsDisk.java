@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ImageOsDisk {
     /**
-     * @return Specifies the URI in Azure storage of the blob that you want to use to create the image.
+     * @return Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String blobUri;
@@ -45,7 +45,7 @@ public final class ImageOsDisk {
 
     private ImageOsDisk() {}
     /**
-     * @return Specifies the URI in Azure storage of the blob that you want to use to create the image.
+     * @return Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> blobUri() {

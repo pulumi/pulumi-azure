@@ -19,16 +19,14 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     public static final ExtensionArgs Empty = new ExtensionArgs();
 
     /**
-     * Specifies if the platform deploys
-     * the latest minor version update to the `type_handler_version` specified.
+     * Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
      * 
      */
     @Import(name="autoUpgradeMinorVersion")
     private @Nullable Output<Boolean> autoUpgradeMinorVersion;
 
     /**
-     * @return Specifies if the platform deploys
-     * the latest minor version update to the `type_handler_version` specified.
+     * @return Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
      * 
      */
     public Optional<Output<Boolean>> autoUpgradeMinorVersion() {
@@ -81,16 +79,14 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The protected_settings passed to the
-     * extension, like settings, these are specified as a JSON object in a string.
+     * The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
      */
     @Import(name="protectedSettings")
     private @Nullable Output<String> protectedSettings;
 
     /**
-     * @return The protected_settings passed to the
-     * extension, like settings, these are specified as a JSON object in a string.
+     * @return The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
      */
     public Optional<Output<String>> protectedSettings() {
@@ -128,16 +124,14 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The settings passed to the extension, these are
-     * specified as a JSON object in a string.
+     * The settings passed to the extension, these are specified as a JSON object in a string.
      * 
      */
     @Import(name="settings")
     private @Nullable Output<String> settings;
 
     /**
-     * @return The settings passed to the extension, these are
-     * specified as a JSON object in a string.
+     * @return The settings passed to the extension, these are specified as a JSON object in a string.
      * 
      */
     public Optional<Output<String>> settings() {
@@ -160,16 +154,14 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of extension, available types for a publisher can
-     * be found using the Azure CLI.
+     * The type of extension, available types for a publisher can be found using the Azure CLI.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of extension, available types for a publisher can
-     * be found using the Azure CLI.
+     * @return The type of extension, available types for a publisher can be found using the Azure CLI.
      * 
      */
     public Output<String> type() {
@@ -177,16 +169,14 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the version of the extension to
-     * use, available versions can be found using the Azure CLI.
+     * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      */
     @Import(name="typeHandlerVersion", required=true)
     private Output<String> typeHandlerVersion;
 
     /**
-     * @return Specifies the version of the extension to
-     * use, available versions can be found using the Azure CLI.
+     * @return Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      */
     public Output<String> typeHandlerVersion() {
@@ -244,8 +234,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoUpgradeMinorVersion Specifies if the platform deploys
-         * the latest minor version update to the `type_handler_version` specified.
+         * @param autoUpgradeMinorVersion Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
          * 
          * @return builder
          * 
@@ -256,8 +245,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoUpgradeMinorVersion Specifies if the platform deploys
-         * the latest minor version update to the `type_handler_version` specified.
+         * @param autoUpgradeMinorVersion Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
          * 
          * @return builder
          * 
@@ -330,8 +318,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedSettings The protected_settings passed to the
-         * extension, like settings, these are specified as a JSON object in a string.
+         * @param protectedSettings The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
          * 
          * @return builder
          * 
@@ -342,8 +329,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedSettings The protected_settings passed to the
-         * extension, like settings, these are specified as a JSON object in a string.
+         * @param protectedSettings The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
          * 
          * @return builder
          * 
@@ -395,8 +381,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param settings The settings passed to the extension, these are
-         * specified as a JSON object in a string.
+         * @param settings The settings passed to the extension, these are specified as a JSON object in a string.
          * 
          * @return builder
          * 
@@ -407,8 +392,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param settings The settings passed to the extension, these are
-         * specified as a JSON object in a string.
+         * @param settings The settings passed to the extension, these are specified as a JSON object in a string.
          * 
          * @return builder
          * 
@@ -439,8 +423,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of extension, available types for a publisher can
-         * be found using the Azure CLI.
+         * @param type The type of extension, available types for a publisher can be found using the Azure CLI.
          * 
          * @return builder
          * 
@@ -451,8 +434,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of extension, available types for a publisher can
-         * be found using the Azure CLI.
+         * @param type The type of extension, available types for a publisher can be found using the Azure CLI.
          * 
          * @return builder
          * 
@@ -462,8 +444,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param typeHandlerVersion Specifies the version of the extension to
-         * use, available versions can be found using the Azure CLI.
+         * @param typeHandlerVersion Specifies the version of the extension to use, available versions can be found using the Azure CLI.
          * 
          * @return builder
          * 
@@ -474,8 +455,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param typeHandlerVersion Specifies the version of the extension to
-         * use, available versions can be found using the Azure CLI.
+         * @param typeHandlerVersion Specifies the version of the extension to use, available versions can be found using the Azure CLI.
          * 
          * @return builder
          * 

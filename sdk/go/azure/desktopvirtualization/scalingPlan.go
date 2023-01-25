@@ -174,11 +174,11 @@ type ScalingPlan struct {
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// One or more `hostPool` blocks as defined below.
 	HostPools ScalingPlanHostPoolArrayOutput `pulumi:"hostPools"`
-	// The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+	// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+	// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `schedule` blocks as defined below.
 	Schedules ScalingPlanScheduleArrayOutput `pulumi:"schedules"`
@@ -234,11 +234,11 @@ type scalingPlanState struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// One or more `hostPool` blocks as defined below.
 	HostPools []ScalingPlanHostPool `pulumi:"hostPools"`
-	// The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+	// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+	// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `schedule` blocks as defined below.
 	Schedules []ScalingPlanSchedule `pulumi:"schedules"`
@@ -257,11 +257,11 @@ type ScalingPlanState struct {
 	FriendlyName pulumi.StringPtrInput
 	// One or more `hostPool` blocks as defined below.
 	HostPools ScalingPlanHostPoolArrayInput
-	// The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+	// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+	// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `schedule` blocks as defined below.
 	Schedules ScalingPlanScheduleArrayInput
@@ -284,11 +284,11 @@ type scalingPlanArgs struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// One or more `hostPool` blocks as defined below.
 	HostPools []ScalingPlanHostPool `pulumi:"hostPools"`
-	// The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+	// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+	// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `schedule` blocks as defined below.
 	Schedules []ScalingPlanSchedule `pulumi:"schedules"`
@@ -308,11 +308,11 @@ type ScalingPlanArgs struct {
 	FriendlyName pulumi.StringPtrInput
 	// One or more `hostPool` blocks as defined below.
 	HostPools ScalingPlanHostPoolArrayInput
-	// The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+	// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+	// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	ResourceGroupName pulumi.StringInput
 	// One or more `schedule` blocks as defined below.
 	Schedules ScalingPlanScheduleArrayInput
@@ -429,7 +429,7 @@ func (o ScalingPlanOutput) HostPools() ScalingPlanHostPoolArrayOutput {
 	return o.ApplyT(func(v *ScalingPlan) ScalingPlanHostPoolArrayOutput { return v.HostPools }).(ScalingPlanHostPoolArrayOutput)
 }
 
-// The Azure Region where the Virtual Desktop Scaling Plan  should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
+// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 func (o ScalingPlanOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -439,7 +439,7 @@ func (o ScalingPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan  to be created.
+// The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 func (o ScalingPlanOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

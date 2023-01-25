@@ -51,7 +51,7 @@ class GlobalVMShutdownScheduleNotificationSettings(dict):
                  time_in_minutes: Optional[int] = None,
                  webhook_url: Optional[str] = None):
         """
-        :param bool enabled: Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+        :param bool enabled: Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
         :param str email: E-mail address to which the notification will be sent.
         :param int time_in_minutes: Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
         :param str webhook_url: The webhook URL to which the notification will be sent.
@@ -68,7 +68,7 @@ class GlobalVMShutdownScheduleNotificationSettings(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+        Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
         """
         return pulumi.get(self, "enabled")
 

@@ -135,7 +135,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> AdminPassword { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `admin_ssh_key` blocks as defined below.
+        /// One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("adminSshKeys")]
         public Output<ImmutableArray<Outputs.LinuxVirtualMachineAdminSshKey>> AdminSshKeys { get; private set; } = null!;
@@ -493,7 +493,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.LinuxVirtualMachineAdminSshKeyArgs>? _adminSshKeys;
 
         /// <summary>
-        /// One or more `admin_ssh_key` blocks as defined below.
+        /// One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.LinuxVirtualMachineAdminSshKeyArgs> AdminSshKeys
         {
@@ -815,7 +815,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.LinuxVirtualMachineAdminSshKeyGetArgs>? _adminSshKeys;
 
         /// <summary>
-        /// One or more `admin_ssh_key` blocks as defined below.
+        /// One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.LinuxVirtualMachineAdminSshKeyGetArgs> AdminSshKeys
         {

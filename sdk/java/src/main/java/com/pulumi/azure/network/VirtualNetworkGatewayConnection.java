@@ -259,18 +259,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection")
 public class VirtualNetworkGatewayConnection extends com.pulumi.resources.CustomResource {
     /**
-     * The authorization key associated with the
-     * Express Route Circuit. This field is required only if the type is an
-     * ExpressRoute connection.
+     * The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
      * 
      */
     @Export(name="authorizationKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> authorizationKey;
 
     /**
-     * @return The authorization key associated with the
-     * Express Route Circuit. This field is required only if the type is an
-     * ExpressRoute connection.
+     * @return The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
      * 
      */
     public Output<Optional<String>> authorizationKey() {
@@ -353,16 +349,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return Codegen.optional(this.egressNatRuleIds);
     }
     /**
-     * If `true`, BGP (Border Gateway Protocol) is enabled
-     * for this connection. Defaults to `false`.
+     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
      * 
      */
     @Export(name="enableBgp", type=Boolean.class, parameters={})
     private Output<Boolean> enableBgp;
 
     /**
-     * @return If `true`, BGP (Border Gateway Protocol) is enabled
-     * for this connection. Defaults to `false`.
+     * @return If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
      * 
      */
     public Output<Boolean> enableBgp() {
@@ -443,16 +437,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return Codegen.optional(this.localAzureIpAddressEnabled);
     }
     /**
-     * The ID of the local network gateway
-     * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+     * The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      * 
      */
     @Export(name="localNetworkGatewayId", type=String.class, parameters={})
     private Output</* @Nullable */ String> localNetworkGatewayId;
 
     /**
-     * @return The ID of the local network gateway
-     * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+     * @return The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      * 
      */
     public Output<Optional<String>> localNetworkGatewayId() {
@@ -473,16 +465,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return this.location;
     }
     /**
-     * The name of the connection. Changing the name forces a
-     * new resource to be created.
+     * The name of the connection. Changing the name forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the connection. Changing the name forces a
-     * new resource to be created.
+     * @return The name of the connection. Changing the name forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -531,16 +521,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return this.routingWeight;
     }
     /**
-     * The shared IPSec key. A key could be provided if a
-     * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+     * The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      * 
      */
     @Export(name="sharedKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> sharedKey;
 
     /**
-     * @return The shared IPSec key. A key could be provided if a
-     * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+     * @return The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      * 
      */
     public Output<Optional<String>> sharedKey() {
@@ -593,18 +581,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return this.type;
     }
     /**
-     * If `true`, policy-based traffic
-     * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsec_policy` block. Defaults to `false`.
+     * If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
      * 
      */
     @Export(name="usePolicyBasedTrafficSelectors", type=Boolean.class, parameters={})
     private Output<Boolean> usePolicyBasedTrafficSelectors;
 
     /**
-     * @return If `true`, policy-based traffic
-     * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsec_policy` block. Defaults to `false`.
+     * @return If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
      * 
      */
     public Output<Boolean> usePolicyBasedTrafficSelectors() {

@@ -33,13 +33,13 @@ import * as utilities from "../utilities";
  * App Configuration Features can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
+ *  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
  * ```
  *
  *  If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
  *
  * ```sh
- *  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
+ *  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
  * ```
  */
 export class ConfigurationFeature extends pulumi.CustomResource {
@@ -84,7 +84,7 @@ export class ConfigurationFeature extends pulumi.CustomResource {
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly etag!: pulumi.Output<string>;
     /**
-     * The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+     * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      */
     public readonly label!: pulumi.Output<string | undefined>;
     /**
@@ -176,7 +176,7 @@ export interface ConfigurationFeatureState {
     enabled?: pulumi.Input<boolean>;
     etag?: pulumi.Input<string>;
     /**
-     * The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+     * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      */
     label?: pulumi.Input<string>;
     /**
@@ -223,7 +223,7 @@ export interface ConfigurationFeatureArgs {
     enabled?: pulumi.Input<boolean>;
     etag?: pulumi.Input<string>;
     /**
-     * The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+     * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      */
     label?: pulumi.Input<string>;
     /**

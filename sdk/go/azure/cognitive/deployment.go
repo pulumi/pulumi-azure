@@ -77,13 +77,13 @@ type Deployment struct {
 
 	// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
 	CognitiveAccountId pulumi.StringOutput `pulumi:"cognitiveAccountId"`
-	// A `model` block as defined below.
+	// A `model` block as defined below. Changing this forces a new resource to be created.
 	Model DeploymentModelOutput `pulumi:"model"`
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of RAI policy. Changing this forces a new resource to be created.
 	RaiPolicyName pulumi.StringPtrOutput `pulumi:"raiPolicyName"`
-	// A `scale` block as defined below.
+	// A `scale` block as defined below. Changing this forces a new resource to be created.
 	Scale DeploymentScaleOutput `pulumi:"scale"`
 }
 
@@ -127,26 +127,26 @@ func GetDeployment(ctx *pulumi.Context,
 type deploymentState struct {
 	// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
 	CognitiveAccountId *string `pulumi:"cognitiveAccountId"`
-	// A `model` block as defined below.
+	// A `model` block as defined below. Changing this forces a new resource to be created.
 	Model *DeploymentModel `pulumi:"model"`
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of RAI policy. Changing this forces a new resource to be created.
 	RaiPolicyName *string `pulumi:"raiPolicyName"`
-	// A `scale` block as defined below.
+	// A `scale` block as defined below. Changing this forces a new resource to be created.
 	Scale *DeploymentScale `pulumi:"scale"`
 }
 
 type DeploymentState struct {
 	// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
 	CognitiveAccountId pulumi.StringPtrInput
-	// A `model` block as defined below.
+	// A `model` block as defined below. Changing this forces a new resource to be created.
 	Model DeploymentModelPtrInput
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of RAI policy. Changing this forces a new resource to be created.
 	RaiPolicyName pulumi.StringPtrInput
-	// A `scale` block as defined below.
+	// A `scale` block as defined below. Changing this forces a new resource to be created.
 	Scale DeploymentScalePtrInput
 }
 
@@ -157,13 +157,13 @@ func (DeploymentState) ElementType() reflect.Type {
 type deploymentArgs struct {
 	// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
 	CognitiveAccountId string `pulumi:"cognitiveAccountId"`
-	// A `model` block as defined below.
+	// A `model` block as defined below. Changing this forces a new resource to be created.
 	Model DeploymentModel `pulumi:"model"`
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of RAI policy. Changing this forces a new resource to be created.
 	RaiPolicyName *string `pulumi:"raiPolicyName"`
-	// A `scale` block as defined below.
+	// A `scale` block as defined below. Changing this forces a new resource to be created.
 	Scale DeploymentScale `pulumi:"scale"`
 }
 
@@ -171,13 +171,13 @@ type deploymentArgs struct {
 type DeploymentArgs struct {
 	// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
 	CognitiveAccountId pulumi.StringInput
-	// A `model` block as defined below.
+	// A `model` block as defined below. Changing this forces a new resource to be created.
 	Model DeploymentModelInput
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of RAI policy. Changing this forces a new resource to be created.
 	RaiPolicyName pulumi.StringPtrInput
-	// A `scale` block as defined below.
+	// A `scale` block as defined below. Changing this forces a new resource to be created.
 	Scale DeploymentScaleInput
 }
 
@@ -273,7 +273,7 @@ func (o DeploymentOutput) CognitiveAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.CognitiveAccountId }).(pulumi.StringOutput)
 }
 
-// A `model` block as defined below.
+// A `model` block as defined below. Changing this forces a new resource to be created.
 func (o DeploymentOutput) Model() DeploymentModelOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentModelOutput { return v.Model }).(DeploymentModelOutput)
 }
@@ -288,7 +288,7 @@ func (o DeploymentOutput) RaiPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.RaiPolicyName }).(pulumi.StringPtrOutput)
 }
 
-// A `scale` block as defined below.
+// A `scale` block as defined below. Changing this forces a new resource to be created.
 func (o DeploymentOutput) Scale() DeploymentScaleOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentScaleOutput { return v.Scale }).(DeploymentScaleOutput)
 }

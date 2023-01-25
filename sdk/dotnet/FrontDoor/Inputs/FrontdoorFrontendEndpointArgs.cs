@@ -25,7 +25,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
+        /// Specifies the name of the `frontend_endpoint`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

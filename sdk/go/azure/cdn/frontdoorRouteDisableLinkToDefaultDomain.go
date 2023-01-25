@@ -57,7 +57,7 @@ import (
 type FrontdoorRouteDisableLinkToDefaultDomain struct {
 	pulumi.CustomResourceState
 
-	// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+	// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	//
 	// Deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value
 	CdnFrontdoorCustomDomainIds pulumi.StringArrayOutput `pulumi:"cdnFrontdoorCustomDomainIds"`
@@ -102,7 +102,7 @@ func GetFrontdoorRouteDisableLinkToDefaultDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorRouteDisableLinkToDefaultDomain resources.
 type frontdoorRouteDisableLinkToDefaultDomainState struct {
-	// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+	// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	//
 	// Deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value
 	CdnFrontdoorCustomDomainIds []string `pulumi:"cdnFrontdoorCustomDomainIds"`
@@ -113,7 +113,7 @@ type frontdoorRouteDisableLinkToDefaultDomainState struct {
 }
 
 type FrontdoorRouteDisableLinkToDefaultDomainState struct {
-	// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+	// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	//
 	// Deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value
 	CdnFrontdoorCustomDomainIds pulumi.StringArrayInput
@@ -128,7 +128,7 @@ func (FrontdoorRouteDisableLinkToDefaultDomainState) ElementType() reflect.Type 
 }
 
 type frontdoorRouteDisableLinkToDefaultDomainArgs struct {
-	// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+	// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	//
 	// Deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value
 	CdnFrontdoorCustomDomainIds []string `pulumi:"cdnFrontdoorCustomDomainIds"`
@@ -140,7 +140,7 @@ type frontdoorRouteDisableLinkToDefaultDomainArgs struct {
 
 // The set of arguments for constructing a FrontdoorRouteDisableLinkToDefaultDomain resource.
 type FrontdoorRouteDisableLinkToDefaultDomainArgs struct {
-	// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+	// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 	//
 	// Deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value
 	CdnFrontdoorCustomDomainIds pulumi.StringArrayInput
@@ -237,7 +237,7 @@ func (o FrontdoorRouteDisableLinkToDefaultDomainOutput) ToFrontdoorRouteDisableL
 	return o
 }
 
-// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. Changing this forces a new Front Door Route Disable Link To Default Domain to be created.
+// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
 //
 // Deprecated: the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value
 func (o FrontdoorRouteDisableLinkToDefaultDomainOutput) CdnFrontdoorCustomDomainIds() pulumi.StringArrayOutput {

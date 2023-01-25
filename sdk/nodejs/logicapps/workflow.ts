@@ -83,7 +83,7 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.logicapps.WorkflowIdentity | undefined>;
     /**
-     * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+     * The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
      */
     public readonly integrationServiceEnvironmentId!: pulumi.Output<string | undefined>;
     /**
@@ -220,7 +220,7 @@ export interface WorkflowState {
      */
     identity?: pulumi.Input<inputs.logicapps.WorkflowIdentity>;
     /**
-     * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+     * The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
      */
     integrationServiceEnvironmentId?: pulumi.Input<string>;
     /**
@@ -286,7 +286,7 @@ export interface WorkflowArgs {
      */
     identity?: pulumi.Input<inputs.logicapps.WorkflowIdentity>;
     /**
-     * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+     * The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
      */
     integrationServiceEnvironmentId?: pulumi.Input<string>;
     /**

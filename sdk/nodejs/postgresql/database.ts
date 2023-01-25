@@ -80,8 +80,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string>;
     /**
-     * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -149,8 +148,7 @@ export interface DatabaseState {
      */
     collation?: pulumi.Input<string>;
     /**
-     * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -176,8 +174,7 @@ export interface DatabaseArgs {
      */
     collation: pulumi.Input<string>;
     /**
-     * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

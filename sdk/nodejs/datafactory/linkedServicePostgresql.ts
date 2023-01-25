@@ -85,8 +85,7 @@ export class LinkedServicePostgresql extends pulumi.CustomResource {
      */
     public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -166,8 +165,7 @@ export interface LinkedServicePostgresqlState {
      */
     integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**
@@ -205,8 +203,7 @@ export interface LinkedServicePostgresqlArgs {
      */
     integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**

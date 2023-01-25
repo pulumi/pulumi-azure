@@ -159,6 +159,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly ingressApplicationGateway!: pulumi.Output<outputs.containerservice.KubernetesClusterIngressApplicationGateway | undefined>;
     /**
+     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     */
+    public readonly keyManagementService!: pulumi.Output<outputs.containerservice.KubernetesClusterKeyManagementService | undefined>;
+    /**
      * A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
      */
     public readonly keyVaultSecretsProvider!: pulumi.Output<outputs.containerservice.KubernetesClusterKeyVaultSecretsProvider | undefined>;
@@ -179,7 +183,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly kubeConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeConfig[]>;
     /**
-     * A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+     * A `kubeletIdentity` block as defined below.
      */
     public readonly kubeletIdentity!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeletIdentity>;
     /**
@@ -215,7 +219,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `networkProfile` block as defined below.
+     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly networkProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNetworkProfile>;
     /**
@@ -341,6 +345,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["imageCleanerEnabled"] = state ? state.imageCleanerEnabled : undefined;
             resourceInputs["imageCleanerIntervalHours"] = state ? state.imageCleanerIntervalHours : undefined;
             resourceInputs["ingressApplicationGateway"] = state ? state.ingressApplicationGateway : undefined;
+            resourceInputs["keyManagementService"] = state ? state.keyManagementService : undefined;
             resourceInputs["keyVaultSecretsProvider"] = state ? state.keyVaultSecretsProvider : undefined;
             resourceInputs["kubeAdminConfigRaw"] = state ? state.kubeAdminConfigRaw : undefined;
             resourceInputs["kubeAdminConfigs"] = state ? state.kubeAdminConfigs : undefined;
@@ -405,6 +410,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["imageCleanerEnabled"] = args ? args.imageCleanerEnabled : undefined;
             resourceInputs["imageCleanerIntervalHours"] = args ? args.imageCleanerIntervalHours : undefined;
             resourceInputs["ingressApplicationGateway"] = args ? args.ingressApplicationGateway : undefined;
+            resourceInputs["keyManagementService"] = args ? args.keyManagementService : undefined;
             resourceInputs["keyVaultSecretsProvider"] = args ? args.keyVaultSecretsProvider : undefined;
             resourceInputs["kubeletIdentity"] = args ? args.kubeletIdentity : undefined;
             resourceInputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
@@ -541,6 +547,10 @@ export interface KubernetesClusterState {
      */
     ingressApplicationGateway?: pulumi.Input<inputs.containerservice.KubernetesClusterIngressApplicationGateway>;
     /**
+     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     */
+    keyManagementService?: pulumi.Input<inputs.containerservice.KubernetesClusterKeyManagementService>;
+    /**
      * A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
      */
     keyVaultSecretsProvider?: pulumi.Input<inputs.containerservice.KubernetesClusterKeyVaultSecretsProvider>;
@@ -561,7 +571,7 @@ export interface KubernetesClusterState {
      */
     kubeConfigs?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeConfig>[]>;
     /**
-     * A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+     * A `kubeletIdentity` block as defined below.
      */
     kubeletIdentity?: pulumi.Input<inputs.containerservice.KubernetesClusterKubeletIdentity>;
     /**
@@ -597,7 +607,7 @@ export interface KubernetesClusterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `networkProfile` block as defined below.
+     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      */
     networkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfile>;
     /**
@@ -771,11 +781,15 @@ export interface KubernetesClusterArgs {
      */
     ingressApplicationGateway?: pulumi.Input<inputs.containerservice.KubernetesClusterIngressApplicationGateway>;
     /**
+     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     */
+    keyManagementService?: pulumi.Input<inputs.containerservice.KubernetesClusterKeyManagementService>;
+    /**
      * A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
      */
     keyVaultSecretsProvider?: pulumi.Input<inputs.containerservice.KubernetesClusterKeyVaultSecretsProvider>;
     /**
-     * A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+     * A `kubeletIdentity` block as defined below.
      */
     kubeletIdentity?: pulumi.Input<inputs.containerservice.KubernetesClusterKubeletIdentity>;
     /**
@@ -811,7 +825,7 @@ export interface KubernetesClusterArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `networkProfile` block as defined below.
+     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      */
     networkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfile>;
     /**

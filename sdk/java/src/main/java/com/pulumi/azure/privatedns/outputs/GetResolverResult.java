@@ -16,19 +16,19 @@ public final class GetResolverResult {
      */
     private String id;
     /**
-     * @return Azure Region where the Private DNS Resolver exists.
+     * @return The Azure Region where the Private DNS Resolver exists.
      * 
      */
     private String location;
     private String name;
     private String resourceGroupName;
     /**
-     * @return Mapping of tags which should be assigned to the Private DNS Resolver.
+     * @return The tags assigned to the Private DNS Resolver.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return ID of the Virtual Network that is linked to the Private DNS Resolver.
+     * @return The ID of the Virtual Network that is linked to the Private DNS Resolver.
      * 
      */
     private String virtualNetworkId;
@@ -42,7 +42,7 @@ public final class GetResolverResult {
         return this.id;
     }
     /**
-     * @return Azure Region where the Private DNS Resolver exists.
+     * @return The Azure Region where the Private DNS Resolver exists.
      * 
      */
     public String location() {
@@ -55,14 +55,14 @@ public final class GetResolverResult {
         return this.resourceGroupName;
     }
     /**
-     * @return Mapping of tags which should be assigned to the Private DNS Resolver.
+     * @return The tags assigned to the Private DNS Resolver.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return ID of the Virtual Network that is linked to the Private DNS Resolver.
+     * @return The ID of the Virtual Network that is linked to the Private DNS Resolver.
      * 
      */
     public String virtualNetworkId() {

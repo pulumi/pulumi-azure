@@ -34,12 +34,12 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Boolean enableAutoScaling;
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+     * @return Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean enableHostEncryption;
     /**
-     * @return Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+     * @return Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean enableNodePublicIp;
@@ -54,7 +54,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String hostGroupId;
     /**
-     * @return A `kubelet_config` block as defined below.
+     * @return A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig;
@@ -64,7 +64,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String kubeletDiskType;
     /**
-     * @return A `linux_os_config` block as defined below.
+     * @return A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig;
@@ -109,7 +109,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String nodePublicIpPrefixId;
     /**
-     * @return A list of the taints added to new nodes during node pool create and scale.
+     * @return A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<String> nodeTaints;
@@ -217,14 +217,14 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.enableAutoScaling);
     }
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+     * @return Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> enableHostEncryption() {
         return Optional.ofNullable(this.enableHostEncryption);
     }
     /**
-     * @return Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+     * @return Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> enableNodePublicIp() {
@@ -245,7 +245,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.hostGroupId);
     }
     /**
-     * @return A `kubelet_config` block as defined below.
+     * @return A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<KubernetesClusterDefaultNodePoolKubeletConfig> kubeletConfig() {
@@ -259,7 +259,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.kubeletDiskType);
     }
     /**
-     * @return A `linux_os_config` block as defined below.
+     * @return A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<KubernetesClusterDefaultNodePoolLinuxOsConfig> linuxOsConfig() {
@@ -322,7 +322,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.nodePublicIpPrefixId);
     }
     /**
-     * @return A list of the taints added to new nodes during node pool create and scale.
+     * @return A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
      * 
      */
     public List<String> nodeTaints() {

@@ -10,50 +10,50 @@ import java.util.Objects;
 @CustomType
 public final class KafkaClusterMetastoresOozie {
     /**
-     * @return The external Oozie metastore&#39;s existing SQL database.  Changing this forces a new resource to be created.
+     * @return The external Oozie metastore&#39;s existing SQL database. Changing this forces a new resource to be created.
      * 
      */
     private String databaseName;
     /**
-     * @return The external Oozie metastore&#39;s existing SQL server admin password.  Changing this forces a new resource to be created.
+     * @return The external Oozie metastore&#39;s existing SQL server admin password. Changing this forces a new resource to be created.
      * 
      */
     private String password;
     /**
-     * @return The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+     * @return The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
      * 
      */
     private String server;
     /**
-     * @return The external Oozie metastore&#39;s existing SQL server admin username.  Changing this forces a new resource to be created.
+     * @return The external Oozie metastore&#39;s existing SQL server admin username. Changing this forces a new resource to be created.
      * 
      */
     private String username;
 
     private KafkaClusterMetastoresOozie() {}
     /**
-     * @return The external Oozie metastore&#39;s existing SQL database.  Changing this forces a new resource to be created.
+     * @return The external Oozie metastore&#39;s existing SQL database. Changing this forces a new resource to be created.
      * 
      */
     public String databaseName() {
         return this.databaseName;
     }
     /**
-     * @return The external Oozie metastore&#39;s existing SQL server admin password.  Changing this forces a new resource to be created.
+     * @return The external Oozie metastore&#39;s existing SQL server admin password. Changing this forces a new resource to be created.
      * 
      */
     public String password() {
         return this.password;
     }
     /**
-     * @return The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+     * @return The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
      * 
      */
     public String server() {
         return this.server;
     }
     /**
-     * @return The external Oozie metastore&#39;s existing SQL server admin username.  Changing this forces a new resource to be created.
+     * @return The external Oozie metastore&#39;s existing SQL server admin username. Changing this forces a new resource to be created.
      * 
      */
     public String username() {

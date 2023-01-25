@@ -154,14 +154,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     }
 
     /**
-     * Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
      * 
      */
     @Import(name="terminateTls")
     private @Nullable Output<Boolean> terminateTls;
 
     /**
-     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
      * 
      */
     public Optional<Output<Boolean>> terminateTls() {
@@ -477,7 +477,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param terminateTls Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+         * @param terminateTls Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param terminateTls Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+         * @param terminateTls Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
          * 
          * @return builder
          * 

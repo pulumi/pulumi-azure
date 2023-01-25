@@ -48,14 +48,14 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+     * Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
      * 
      */
     @Import(name="hourInterval")
     private @Nullable Output<Integer> hourInterval;
 
     /**
-     * @return Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+     * @return Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
      * 
      */
     public Optional<Output<Integer>> hourInterval() {
@@ -163,7 +163,7 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hourInterval Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+         * @param hourInterval Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hourInterval Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+         * @param hourInterval Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
          * 
          * @return builder
          * 

@@ -38,7 +38,7 @@ class LinuxWebAppSlotArgs:
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LinuxWebAppSlot resource.
-        :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input['LinuxWebAppSlotSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
         :param pulumi.Input['LinuxWebAppSlotAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
@@ -102,7 +102,7 @@ class LinuxWebAppSlotArgs:
     @pulumi.getter(name="appServiceId")
     def app_service_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+        The ID of the Linux Web App this Deployment Slot will be part of.
         """
         return pulumi.get(self, "app_service_id")
 
@@ -374,7 +374,7 @@ class _LinuxWebAppSlotState:
         """
         Input properties used for looking up and filtering LinuxWebAppSlot resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_metadata: A `app_metadata` block as defined below.
-        :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
         :param pulumi.Input['LinuxWebAppSlotAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['LinuxWebAppSlotBackupArgs'] backup: A `backup` block as defined below.
@@ -478,7 +478,7 @@ class _LinuxWebAppSlotState:
     @pulumi.getter(name="appServiceId")
     def app_service_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+        The ID of the Linux Web App this Deployment Slot will be part of.
         """
         return pulumi.get(self, "app_service_id")
 
@@ -872,7 +872,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotBackupArgs']] backup: A `backup` block as defined below.
@@ -1058,7 +1058,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_metadata: A `app_metadata` block as defined below.
-        :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotBackupArgs']] backup: A `backup` block as defined below.
@@ -1134,7 +1134,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="appServiceId")
     def app_service_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+        The ID of the Linux Web App this Deployment Slot will be part of.
         """
         return pulumi.get(self, "app_service_id")
 

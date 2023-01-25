@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  * Images can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/images/image1
+ *  $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/images/image1
  * ```
  * 
  */
@@ -212,30 +212,28 @@ public class Image extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Specifies the name of the image. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the image. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the image. Changing this forces a
-     * new resource to be created.
+     * @return Specifies the name of the image. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * One or more `os_disk` elements as defined below.
+     * One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="osDisk", type=ImageOsDisk.class, parameters={})
     private Output</* @Nullable */ ImageOsDisk> osDisk;
 
     /**
-     * @return One or more `os_disk` elements as defined below.
+     * @return One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<ImageOsDisk>> osDisk() {
@@ -286,14 +284,14 @@ public class Image extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+     * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zoneResilient", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneResilient;
 
     /**
-     * @return Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+     * @return Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> zoneResilient() {

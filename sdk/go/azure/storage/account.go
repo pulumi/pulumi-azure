@@ -138,9 +138,9 @@ type Account struct {
 
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	AccountKind pulumi.StringPtrOutput `pulumi:"accountKind"`
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
 	AccountReplicationType pulumi.StringOutput `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringOutput `pulumi:"accountTier"`
@@ -162,12 +162,11 @@ type Account struct {
 	DefaultToOauthAuthentication pulumi.BoolPtrOutput `pulumi:"defaultToOauthAuthentication"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
-	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-	// for more information. Defaults to `true`.
+	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly pulumi.BoolPtrOutput `pulumi:"enableHttpsTrafficOnly"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
-	// An `immutabilityPolicy` block as defined below.
+	// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
 	ImmutabilityPolicy AccountImmutabilityPolicyPtrOutput `pulumi:"immutabilityPolicy"`
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
@@ -324,9 +323,9 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	AccountKind *string `pulumi:"accountKind"`
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
 	AccountReplicationType *string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier *string `pulumi:"accountTier"`
@@ -348,12 +347,11 @@ type accountState struct {
 	DefaultToOauthAuthentication *bool `pulumi:"defaultToOauthAuthentication"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-	// for more information. Defaults to `true`.
+	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
-	// An `immutabilityPolicy` block as defined below.
+	// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
 	ImmutabilityPolicy *AccountImmutabilityPolicy `pulumi:"immutabilityPolicy"`
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
@@ -464,9 +462,9 @@ type accountState struct {
 type AccountState struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier pulumi.StringPtrInput
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	AccountKind pulumi.StringPtrInput
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
 	AccountReplicationType pulumi.StringPtrInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringPtrInput
@@ -488,12 +486,11 @@ type AccountState struct {
 	DefaultToOauthAuthentication pulumi.BoolPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-	// for more information. Defaults to `true`.
+	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
-	// An `immutabilityPolicy` block as defined below.
+	// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
 	ImmutabilityPolicy AccountImmutabilityPolicyPtrInput
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
@@ -608,9 +605,9 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	AccountKind *string `pulumi:"accountKind"`
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
 	AccountReplicationType string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier string `pulumi:"accountTier"`
@@ -632,12 +629,11 @@ type accountArgs struct {
 	DefaultToOauthAuthentication *bool `pulumi:"defaultToOauthAuthentication"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-	// for more information. Defaults to `true`.
+	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
-	// An `immutabilityPolicy` block as defined below.
+	// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
 	ImmutabilityPolicy *AccountImmutabilityPolicy `pulumi:"immutabilityPolicy"`
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
@@ -685,9 +681,9 @@ type accountArgs struct {
 type AccountArgs struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier pulumi.StringPtrInput
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	AccountKind pulumi.StringPtrInput
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
 	AccountReplicationType pulumi.StringInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringInput
@@ -709,12 +705,11 @@ type AccountArgs struct {
 	DefaultToOauthAuthentication pulumi.BoolPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-	// for more information. Defaults to `true`.
+	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
-	// An `immutabilityPolicy` block as defined below.
+	// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
 	ImmutabilityPolicy AccountImmutabilityPolicyPtrInput
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
@@ -850,12 +845,12 @@ func (o AccountOutput) AccessTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccessTier }).(pulumi.StringOutput)
 }
 
-// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 func (o AccountOutput) AccountKind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.AccountKind }).(pulumi.StringPtrOutput)
 }
 
-// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
 func (o AccountOutput) AccountReplicationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccountReplicationType }).(pulumi.StringOutput)
 }
@@ -910,8 +905,7 @@ func (o AccountOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }
 
-// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-// for more information. Defaults to `true`.
+// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
 func (o AccountOutput) EnableHttpsTrafficOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.EnableHttpsTrafficOnly }).(pulumi.BoolPtrOutput)
 }
@@ -921,7 +915,7 @@ func (o AccountOutput) Identity() AccountIdentityPtrOutput {
 	return o.ApplyT(func(v *Account) AccountIdentityPtrOutput { return v.Identity }).(AccountIdentityPtrOutput)
 }
 
-// An `immutabilityPolicy` block as defined below.
+// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
 func (o AccountOutput) ImmutabilityPolicy() AccountImmutabilityPolicyPtrOutput {
 	return o.ApplyT(func(v *Account) AccountImmutabilityPolicyPtrOutput { return v.ImmutabilityPolicy }).(AccountImmutabilityPolicyPtrOutput)
 }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Iot.Outputs
     public sealed class IotHubDpsIpFilterRule
     {
         /// <summary>
-        /// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+        /// The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
         /// </summary>
         public readonly string Action;
         /// <summary>

@@ -137,7 +137,7 @@ type HadoopCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles HadoopClusterRolesOutput `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile HadoopClusterSecurityProfilePtrOutput `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
 	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
@@ -227,7 +227,7 @@ type hadoopClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles *HadoopClusterRoles `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *HadoopClusterSecurityProfile `pulumi:"securityProfile"`
 	// The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
 	SshEndpoint *string `pulumi:"sshEndpoint"`
@@ -271,7 +271,7 @@ type HadoopClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
 	Roles HadoopClusterRolesPtrInput
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile HadoopClusterSecurityProfilePtrInput
 	// The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
 	SshEndpoint pulumi.StringPtrInput
@@ -317,7 +317,7 @@ type hadoopClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
 	Roles HadoopClusterRoles `pulumi:"roles"`
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *HadoopClusterSecurityProfile `pulumi:"securityProfile"`
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 *HadoopClusterStorageAccountGen2 `pulumi:"storageAccountGen2"`
@@ -358,7 +358,7 @@ type HadoopClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
 	Roles HadoopClusterRolesInput
-	// A `securityProfile` block as defined below.
+	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile HadoopClusterSecurityProfilePtrInput
 	// A `storageAccountGen2` block as defined below.
 	StorageAccountGen2 HadoopClusterStorageAccountGen2PtrInput
@@ -528,7 +528,7 @@ func (o HadoopClusterOutput) Roles() HadoopClusterRolesOutput {
 	return o.ApplyT(func(v *HadoopCluster) HadoopClusterRolesOutput { return v.Roles }).(HadoopClusterRolesOutput)
 }
 
-// A `securityProfile` block as defined below.
+// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 func (o HadoopClusterOutput) SecurityProfile() HadoopClusterSecurityProfilePtrOutput {
 	return o.ApplyT(func(v *HadoopCluster) HadoopClusterSecurityProfilePtrOutput { return v.SecurityProfile }).(HadoopClusterSecurityProfilePtrOutput)
 }

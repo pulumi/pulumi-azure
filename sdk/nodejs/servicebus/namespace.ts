@@ -71,8 +71,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly customerManagedKey!: pulumi.Output<outputs.servicebus.NamespaceCustomerManagedKey | undefined>;
     /**
-     * The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
     public /*out*/ readonly defaultPrimaryConnectionString!: pulumi.Output<string>;
     /**
@@ -80,8 +79,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultPrimaryKey!: pulumi.Output<string>;
     /**
-     * The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
     public /*out*/ readonly defaultSecondaryConnectionString!: pulumi.Output<string>;
     /**
@@ -105,8 +103,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly minimumTlsVersion!: pulumi.Output<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -207,8 +204,7 @@ export interface NamespaceState {
      */
     customerManagedKey?: pulumi.Input<inputs.servicebus.NamespaceCustomerManagedKey>;
     /**
-     * The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
     defaultPrimaryConnectionString?: pulumi.Input<string>;
     /**
@@ -216,8 +212,7 @@ export interface NamespaceState {
      */
     defaultPrimaryKey?: pulumi.Input<string>;
     /**
-     * The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
     defaultSecondaryConnectionString?: pulumi.Input<string>;
     /**
@@ -241,8 +236,7 @@ export interface NamespaceState {
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -297,8 +291,7 @@ export interface NamespaceArgs {
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

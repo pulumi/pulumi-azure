@@ -79,14 +79,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.createFromSnapshotResourceId;
     }
     /**
-     * A `data_protection_replication` block as defined below.
+     * A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dataProtectionReplication", type=VolumeDataProtectionReplication.class, parameters={})
     private Output</* @Nullable */ VolumeDataProtectionReplication> dataProtectionReplication;
 
     /**
-     * @return A `data_protection_replication` block as defined below.
+     * @return A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<VolumeDataProtectionReplication>> dataProtectionReplication() {
@@ -331,14 +331,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.volumePath;
     }
     /**
-     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
      * 
      */
     @Export(name="zone", type=String.class, parameters={})
     private Output</* @Nullable */ String> zone;
 
     /**
-     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
      * 
      */
     public Output<Optional<String>> zone() {

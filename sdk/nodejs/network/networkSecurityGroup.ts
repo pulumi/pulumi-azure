@@ -81,7 +81,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the security rule. Changing this forces a new resource to be created.
+     * The name of the security rule.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export interface NetworkSecurityGroupState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the security rule. Changing this forces a new resource to be created.
+     * The name of the security rule.
      */
     name?: pulumi.Input<string>;
     /**
@@ -166,7 +166,7 @@ export interface NetworkSecurityGroupArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the security rule. Changing this forces a new resource to be created.
+     * The name of the security rule.
      */
     name?: pulumi.Input<string>;
     /**

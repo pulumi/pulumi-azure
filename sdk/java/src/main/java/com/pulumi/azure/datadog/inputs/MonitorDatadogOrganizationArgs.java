@@ -46,14 +46,14 @@ public final class MonitorDatadogOrganizationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the enterprise_app.
+     * The ID of the enterprise_app. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="enterpriseAppId")
     private @Nullable Output<String> enterpriseAppId;
 
     /**
-     * @return The ID of the enterprise_app.
+     * @return The ID of the enterprise_app. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> enterpriseAppId() {
@@ -209,7 +209,7 @@ public final class MonitorDatadogOrganizationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param enterpriseAppId The ID of the enterprise_app.
+         * @param enterpriseAppId The ID of the enterprise_app. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class MonitorDatadogOrganizationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param enterpriseAppId The ID of the enterprise_app.
+         * @param enterpriseAppId The ID of the enterprise_app. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -254,7 +254,7 @@ class AccountCorsRuleArgs:
                  max_age_in_seconds: pulumi.Input[int]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: A list of response headers that are exposed to CORS clients.
         :param pulumi.Input[int] max_age_in_seconds: The number of seconds the client should cache a preflight response.
@@ -281,7 +281,7 @@ class AccountCorsRuleArgs:
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         """
         return pulumi.get(self, "allowed_methods")
 
@@ -335,7 +335,7 @@ class AccountGeoLocationArgs:
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] failover_priority: The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
-        :param pulumi.Input[str] location: The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: The name of the Azure region to host replicated data.
         :param pulumi.Input[str] id: The ID of the virtual network subnet.
         :param pulumi.Input[bool] zone_redundant: Should zone redundancy be enabled for this region? Defaults to `false`.
         """
@@ -362,7 +362,7 @@ class AccountGeoLocationArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input[str]:
         """
-        The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+        The name of the Azure region to host replicated data.
         """
         return pulumi.get(self, "location")
 

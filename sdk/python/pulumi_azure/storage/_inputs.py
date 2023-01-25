@@ -1023,10 +1023,10 @@ class AccountQueuePropertiesHourMetricsArgs:
                  include_apis: Optional[pulumi.Input[bool]] = None,
                  retention_policy_days: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] enabled: Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
-        :param pulumi.Input[str] version: The version of storage analytics to configure. Changing this forces a new resource.
+        :param pulumi.Input[bool] enabled: Indicates whether hour metrics are enabled for the Queue service.
+        :param pulumi.Input[str] version: The version of storage analytics to configure.
         :param pulumi.Input[bool] include_apis: Indicates whether metrics should generate summary statistics for called API operations.
-        :param pulumi.Input[int] retention_policy_days: Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        :param pulumi.Input[int] retention_policy_days: Specifies the number of days that logs will be retained.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "version", version)
@@ -1039,7 +1039,7 @@ class AccountQueuePropertiesHourMetricsArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+        Indicates whether hour metrics are enabled for the Queue service.
         """
         return pulumi.get(self, "enabled")
 
@@ -1051,7 +1051,7 @@ class AccountQueuePropertiesHourMetricsArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        The version of storage analytics to configure. Changing this forces a new resource.
+        The version of storage analytics to configure.
         """
         return pulumi.get(self, "version")
 
@@ -1075,7 +1075,7 @@ class AccountQueuePropertiesHourMetricsArgs:
     @pulumi.getter(name="retentionPolicyDays")
     def retention_policy_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        Specifies the number of days that logs will be retained.
         """
         return pulumi.get(self, "retention_policy_days")
 
@@ -1093,11 +1093,11 @@ class AccountQueuePropertiesLoggingArgs:
                  write: pulumi.Input[bool],
                  retention_policy_days: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] delete: Indicates whether all delete requests should be logged. Changing this forces a new resource.
-        :param pulumi.Input[bool] read: Indicates whether all read requests should be logged. Changing this forces a new resource.
-        :param pulumi.Input[str] version: The version of storage analytics to configure. Changing this forces a new resource.
-        :param pulumi.Input[bool] write: Indicates whether all write requests should be logged. Changing this forces a new resource.
-        :param pulumi.Input[int] retention_policy_days: Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        :param pulumi.Input[bool] delete: Indicates whether all delete requests should be logged.
+        :param pulumi.Input[bool] read: Indicates whether all read requests should be logged.
+        :param pulumi.Input[str] version: The version of storage analytics to configure.
+        :param pulumi.Input[bool] write: Indicates whether all write requests should be logged.
+        :param pulumi.Input[int] retention_policy_days: Specifies the number of days that logs will be retained.
         """
         pulumi.set(__self__, "delete", delete)
         pulumi.set(__self__, "read", read)
@@ -1110,7 +1110,7 @@ class AccountQueuePropertiesLoggingArgs:
     @pulumi.getter
     def delete(self) -> pulumi.Input[bool]:
         """
-        Indicates whether all delete requests should be logged. Changing this forces a new resource.
+        Indicates whether all delete requests should be logged.
         """
         return pulumi.get(self, "delete")
 
@@ -1122,7 +1122,7 @@ class AccountQueuePropertiesLoggingArgs:
     @pulumi.getter
     def read(self) -> pulumi.Input[bool]:
         """
-        Indicates whether all read requests should be logged. Changing this forces a new resource.
+        Indicates whether all read requests should be logged.
         """
         return pulumi.get(self, "read")
 
@@ -1134,7 +1134,7 @@ class AccountQueuePropertiesLoggingArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        The version of storage analytics to configure. Changing this forces a new resource.
+        The version of storage analytics to configure.
         """
         return pulumi.get(self, "version")
 
@@ -1146,7 +1146,7 @@ class AccountQueuePropertiesLoggingArgs:
     @pulumi.getter
     def write(self) -> pulumi.Input[bool]:
         """
-        Indicates whether all write requests should be logged. Changing this forces a new resource.
+        Indicates whether all write requests should be logged.
         """
         return pulumi.get(self, "write")
 
@@ -1158,7 +1158,7 @@ class AccountQueuePropertiesLoggingArgs:
     @pulumi.getter(name="retentionPolicyDays")
     def retention_policy_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        Specifies the number of days that logs will be retained.
         """
         return pulumi.get(self, "retention_policy_days")
 
@@ -1175,10 +1175,10 @@ class AccountQueuePropertiesMinuteMetricsArgs:
                  include_apis: Optional[pulumi.Input[bool]] = None,
                  retention_policy_days: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] enabled: Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
-        :param pulumi.Input[str] version: The version of storage analytics to configure. Changing this forces a new resource.
+        :param pulumi.Input[bool] enabled: Indicates whether minute metrics are enabled for the Queue service.
+        :param pulumi.Input[str] version: The version of storage analytics to configure.
         :param pulumi.Input[bool] include_apis: Indicates whether metrics should generate summary statistics for called API operations.
-        :param pulumi.Input[int] retention_policy_days: Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        :param pulumi.Input[int] retention_policy_days: Specifies the number of days that logs will be retained.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "version", version)
@@ -1191,7 +1191,7 @@ class AccountQueuePropertiesMinuteMetricsArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+        Indicates whether minute metrics are enabled for the Queue service.
         """
         return pulumi.get(self, "enabled")
 
@@ -1203,7 +1203,7 @@ class AccountQueuePropertiesMinuteMetricsArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        The version of storage analytics to configure. Changing this forces a new resource.
+        The version of storage analytics to configure.
         """
         return pulumi.get(self, "version")
 
@@ -1227,7 +1227,7 @@ class AccountQueuePropertiesMinuteMetricsArgs:
     @pulumi.getter(name="retentionPolicyDays")
     def retention_policy_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        Specifies the number of days that logs will be retained.
         """
         return pulumi.get(self, "retention_policy_days")
 
@@ -2501,7 +2501,7 @@ class ManagementPolicyRuleActionsVersionArgs:
                  tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] change_tier_to_archive_after_days_since_creation: The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
-        :param pulumi.Input[int] change_tier_to_cool_after_days_since_creation: The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+        :param pulumi.Input[int] change_tier_to_cool_after_days_since_creation: The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
         :param pulumi.Input[int] delete_after_days_since_creation: The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
         :param pulumi.Input[int] tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
         """
@@ -2530,7 +2530,7 @@ class ManagementPolicyRuleActionsVersionArgs:
     @pulumi.getter(name="changeTierToCoolAfterDaysSinceCreation")
     def change_tier_to_cool_after_days_since_creation(self) -> Optional[pulumi.Input[int]]:
         """
-        The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+        The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
         """
         return pulumi.get(self, "change_tier_to_cool_after_days_since_creation")
 

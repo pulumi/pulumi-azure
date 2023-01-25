@@ -70,7 +70,7 @@ export class Healthbot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -138,7 +138,7 @@ export interface HealthbotState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -164,7 +164,7 @@ export interface HealthbotArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

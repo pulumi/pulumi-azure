@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? CertificateUrl { get; set; }
 
         /// <summary>
-        /// Specifies the protocol of listener. Possible values are `Http` or `Https`
+        /// Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

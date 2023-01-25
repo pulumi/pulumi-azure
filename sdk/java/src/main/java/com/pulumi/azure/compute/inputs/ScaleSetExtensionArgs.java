@@ -33,14 +33,14 @@ public final class ScaleSetExtensionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the name of the extension. Changing this forces a new resource to be created.
+     * Specifies the name of the extension.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the extension. Changing this forces a new resource to be created.
+     * @return Specifies the name of the extension.
      * 
      */
     public Output<String> name() {
@@ -190,7 +190,7 @@ public final class ScaleSetExtensionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Specifies the name of the extension. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the extension.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ScaleSetExtensionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Specifies the name of the extension. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the extension.
          * 
          * @return builder
          * 

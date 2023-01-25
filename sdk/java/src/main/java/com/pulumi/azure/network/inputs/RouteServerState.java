@@ -102,14 +102,14 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU of the Route Server. The only possible value is `Standard`.
+     * The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU of the Route Server. The only possible value is `Standard`.
+     * @return The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -309,7 +309,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Route Server. The only possible value is `Standard`.
+         * @param sku The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Route Server. The only possible value is `Standard`.
+         * @param sku The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

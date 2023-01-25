@@ -234,7 +234,7 @@ func (o ConfigurationFeatureTargetingFilterGroupArrayOutput) Index(i pulumi.IntI
 }
 
 type ConfigurationFeatureTimewindowFilter struct {
-	// The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+	// The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
 	End *string `pulumi:"end"`
 	// The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
 	Start *string `pulumi:"start"`
@@ -252,7 +252,7 @@ type ConfigurationFeatureTimewindowFilterInput interface {
 }
 
 type ConfigurationFeatureTimewindowFilterArgs struct {
-	// The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+	// The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
 	Start pulumi.StringPtrInput `pulumi:"start"`
@@ -309,7 +309,7 @@ func (o ConfigurationFeatureTimewindowFilterOutput) ToConfigurationFeatureTimewi
 	return o
 }
 
-// The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+// The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
 func (o ConfigurationFeatureTimewindowFilterOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationFeatureTimewindowFilter) *string { return v.End }).(pulumi.StringPtrOutput)
 }

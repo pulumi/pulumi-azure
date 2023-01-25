@@ -81,82 +81,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:servicebus/topic:Topic")
 public class Topic extends com.pulumi.resources.CustomResource {
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the
-     * Topic is automatically deleted, minimum of 5 minutes.
+     * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      * 
      */
     @Export(name="autoDeleteOnIdle", type=String.class, parameters={})
     private Output<String> autoDeleteOnIdle;
 
     /**
-     * @return The ISO 8601 timespan duration of the idle interval after which the
-     * Topic is automatically deleted, minimum of 5 minutes.
+     * @return The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      * 
      */
     public Output<String> autoDeleteOnIdle() {
         return this.autoDeleteOnIdle;
     }
     /**
-     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-     * TTL value is set on the message itself.
+     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      * 
      */
     @Export(name="defaultMessageTtl", type=String.class, parameters={})
     private Output<String> defaultMessageTtl;
 
     /**
-     * @return The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-     * TTL value is set on the message itself.
+     * @return The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      * 
      */
     public Output<String> defaultMessageTtl() {
         return this.defaultMessageTtl;
     }
     /**
-     * The ISO 8601 timespan duration during which
-     * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
      * 
      */
     @Export(name="duplicateDetectionHistoryTimeWindow", type=String.class, parameters={})
     private Output<String> duplicateDetectionHistoryTimeWindow;
 
     /**
-     * @return The ISO 8601 timespan duration during which
-     * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+     * @return The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
      * 
      */
     public Output<String> duplicateDetectionHistoryTimeWindow() {
         return this.duplicateDetectionHistoryTimeWindow;
     }
     /**
-     * Boolean flag which controls if server-side
-     * batched operations are enabled. Defaults to false.
+     * Boolean flag which controls if server-side batched operations are enabled.
      * 
      */
     @Export(name="enableBatchedOperations", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableBatchedOperations;
 
     /**
-     * @return Boolean flag which controls if server-side
-     * batched operations are enabled. Defaults to false.
+     * @return Boolean flag which controls if server-side batched operations are enabled.
      * 
      */
     public Output<Optional<Boolean>> enableBatchedOperations() {
         return Codegen.optional(this.enableBatchedOperations);
     }
     /**
-     * Boolean flag which controls whether Express Entities
-     * are enabled. An express topic holds a message in memory temporarily before writing
-     * it to persistent storage. Defaults to false.
+     * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
      */
     @Export(name="enableExpress", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableExpress;
 
     /**
-     * @return Boolean flag which controls whether Express Entities
-     * are enabled. An express topic holds a message in memory temporarily before writing
-     * it to persistent storage. Defaults to false.
+     * @return Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
      */
     public Output<Optional<Boolean>> enableExpress() {
@@ -181,52 +169,42 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enablePartitioning);
     }
     /**
-     * Integer value which controls the maximum size of
-     * a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     @Export(name="maxMessageSizeInKilobytes", type=Integer.class, parameters={})
     private Output<Integer> maxMessageSizeInKilobytes;
 
     /**
-     * @return Integer value which controls the maximum size of
-     * a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * @return Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     public Output<Integer> maxMessageSizeInKilobytes() {
         return this.maxMessageSizeInKilobytes;
     }
     /**
-     * Integer value which controls the size of
-     * memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+     * Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      * 
      */
     @Export(name="maxSizeInMegabytes", type=Integer.class, parameters={})
     private Output<Integer> maxSizeInMegabytes;
 
     /**
-     * @return Integer value which controls the size of
-     * memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+     * @return Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      * 
      */
     public Output<Integer> maxSizeInMegabytes() {
         return this.maxSizeInMegabytes;
     }
     /**
-     * Specifies the name of the ServiceBus Topic resource. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the ServiceBus Topic resource. Changing this forces a
-     * new resource to be created.
+     * @return Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -293,16 +271,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.status);
     }
     /**
-     * Boolean flag which controls whether the Topic
-     * supports ordering. Defaults to false.
+     * Boolean flag which controls whether the Topic supports ordering.
      * 
      */
     @Export(name="supportOrdering", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> supportOrdering;
 
     /**
-     * @return Boolean flag which controls whether the Topic
-     * supports ordering. Defaults to false.
+     * @return Boolean flag which controls whether the Topic supports ordering.
      * 
      */
     public Output<Optional<Boolean>> supportOrdering() {

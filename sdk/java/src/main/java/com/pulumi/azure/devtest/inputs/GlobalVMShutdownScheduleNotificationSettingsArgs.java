@@ -33,14 +33,14 @@ public final class GlobalVMShutdownScheduleNotificationSettingsArgs extends com.
     }
 
     /**
-     * Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+     * Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+     * @return Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
      * 
      */
     public Output<Boolean> enabled() {
@@ -126,7 +126,7 @@ public final class GlobalVMShutdownScheduleNotificationSettingsArgs extends com.
         }
 
         /**
-         * @param enabled Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+         * @param enabled Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class GlobalVMShutdownScheduleNotificationSettingsArgs extends com.
         }
 
         /**
-         * @param enabled Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+         * @param enabled Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
          * 
          * @return builder
          * 

@@ -95,7 +95,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         /// </summary>
         [Output("purgeProtectionEnabled")]
         public Output<bool?> PurgeProtectionEnabled { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         /// </summary>
         [Input("purgeProtectionEnabled")]
         public Input<bool>? PurgeProtectionEnabled { get; set; }
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         /// </summary>
         [Input("purgeProtectionEnabled")]
         public Input<bool>? PurgeProtectionEnabled { get; set; }

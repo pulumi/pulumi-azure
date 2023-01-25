@@ -21,7 +21,7 @@ public final class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigura
      */
     private Integer idleTimeout;
     /**
-     * @return The name of the public IP address configuration Changing this forces a new resource to be created.
+     * @return The name of the public IP address configuration
      * 
      */
     private String name;
@@ -42,7 +42,7 @@ public final class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigura
         return this.idleTimeout;
     }
     /**
-     * @return The name of the public IP address configuration Changing this forces a new resource to be created.
+     * @return The name of the public IP address configuration
      * 
      */
     public String name() {

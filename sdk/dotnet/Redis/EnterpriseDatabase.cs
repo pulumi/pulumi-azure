@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Redis
         public Output<ImmutableArray<string>> LinkedDatabaseIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `module` block as defined below.
+        /// A `module` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("modules")]
         public Output<ImmutableArray<Outputs.EnterpriseDatabaseModule>> Modules { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.Redis
         private InputList<Inputs.EnterpriseDatabaseModuleArgs>? _modules;
 
         /// <summary>
-        /// A `module` block as defined below.
+        /// A `module` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.EnterpriseDatabaseModuleArgs> Modules
         {
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.Redis
         private InputList<Inputs.EnterpriseDatabaseModuleGetArgs>? _modules;
 
         /// <summary>
-        /// A `module` block as defined below.
+        /// A `module` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.EnterpriseDatabaseModuleGetArgs> Modules
         {

@@ -184,7 +184,7 @@ namespace Pulumi.Azure.HDInsight
         public Output<Outputs.HBaseClusterRoles> Roles { get; private set; } = null!;
 
         /// <summary>
-        /// A `security_profile` block as defined below.
+        /// A `security_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("securityProfile")]
         public Output<Outputs.HBaseClusterSecurityProfile?> SecurityProfile { get; private set; } = null!;
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.HDInsight
         public Input<Inputs.HBaseClusterRolesArgs> Roles { get; set; } = null!;
 
         /// <summary>
-        /// A `security_profile` block as defined below.
+        /// A `security_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityProfile")]
         public Input<Inputs.HBaseClusterSecurityProfileArgs>? SecurityProfile { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Azure.HDInsight
         public Input<Inputs.HBaseClusterRolesGetArgs>? Roles { get; set; }
 
         /// <summary>
-        /// A `security_profile` block as defined below.
+        /// A `security_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityProfile")]
         public Input<Inputs.HBaseClusterSecurityProfileGetArgs>? SecurityProfile { get; set; }

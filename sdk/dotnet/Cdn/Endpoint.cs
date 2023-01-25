@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> OriginPath { get; private set; } = null!;
 
         /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("origins")]
         public Output<ImmutableArray<Outputs.EndpointOrigin>> Origins { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointOriginArgs>? _origins;
 
         /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.EndpointOriginArgs> Origins
         {
@@ -466,7 +466,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointOriginGetArgs>? _origins;
 
         /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.EndpointOriginGetArgs> Origins
         {

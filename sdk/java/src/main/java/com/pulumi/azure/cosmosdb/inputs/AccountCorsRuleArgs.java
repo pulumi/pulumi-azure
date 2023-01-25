@@ -31,14 +31,14 @@ public final class AccountCorsRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+     * A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
      * 
      */
     @Import(name="allowedMethods", required=true)
     private Output<List<String>> allowedMethods;
 
     /**
-     * @return A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+     * @return A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
      * 
      */
     public Output<List<String>> allowedMethods() {
@@ -150,7 +150,7 @@ public final class AccountCorsRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowedMethods A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+         * @param allowedMethods A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class AccountCorsRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowedMethods A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+         * @param allowedMethods A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class AccountCorsRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowedMethods A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+         * @param allowedMethods A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          * 
          * @return builder
          * 

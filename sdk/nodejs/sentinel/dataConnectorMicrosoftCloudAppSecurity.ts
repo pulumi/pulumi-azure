@@ -88,7 +88,7 @@ export class DataConnectorMicrosoftCloudAppSecurity extends pulumi.CustomResourc
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+     * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -147,7 +147,7 @@ export interface DataConnectorMicrosoftCloudAppSecurityState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+     * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -173,7 +173,7 @@ export interface DataConnectorMicrosoftCloudAppSecurityArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+     * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      */
     tenantId?: pulumi.Input<string>;
 }

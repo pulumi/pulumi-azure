@@ -22,6 +22,7 @@ from .extension import *
 from .gallery_application import *
 from .gallery_application_version import *
 from .get_availability_set import *
+from .get_bastion_host import *
 from .get_confidential_ledger import *
 from .get_dedicated_host import *
 from .get_dedicated_host_group import *

@@ -83,6 +83,8 @@ type LookupKubernetesClusterResult struct {
 	Identities []GetKubernetesClusterIdentity `pulumi:"identities"`
 	// An `ingressApplicationGateway` block as documented below.
 	IngressApplicationGateways []GetKubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateways"`
+	// A `keyManagementService` block as documented below.
+	KeyManagementServices []GetKubernetesClusterKeyManagementService `pulumi:"keyManagementServices"`
 	// A `keyVaultSecretsProvider` block as documented below.
 	KeyVaultSecretsProviders []GetKubernetesClusterKeyVaultSecretsProvider `pulumi:"keyVaultSecretsProviders"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
@@ -245,6 +247,13 @@ func (o LookupKubernetesClusterResultOutput) IngressApplicationGateways() GetKub
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterIngressApplicationGateway {
 		return v.IngressApplicationGateways
 	}).(GetKubernetesClusterIngressApplicationGatewayArrayOutput)
+}
+
+// A `keyManagementService` block as documented below.
+func (o LookupKubernetesClusterResultOutput) KeyManagementServices() GetKubernetesClusterKeyManagementServiceArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterKeyManagementService {
+		return v.KeyManagementServices
+	}).(GetKubernetesClusterKeyManagementServiceArrayOutput)
 }
 
 // A `keyVaultSecretsProvider` block as documented below.

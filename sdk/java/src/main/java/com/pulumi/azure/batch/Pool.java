@@ -391,14 +391,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+     * A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="networkConfiguration", type=PoolNetworkConfiguration.class, parameters={})
     private Output</* @Nullable */ PoolNetworkConfiguration> networkConfiguration;
 
     /**
-     * @return A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+     * @return A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<PoolNetworkConfiguration>> networkConfiguration() {
@@ -481,14 +481,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.stopPendingResizeOperation);
     }
     /**
-     * A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+     * A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageImageReference", type=PoolStorageImageReference.class, parameters={})
     private Output<PoolStorageImageReference> storageImageReference;
 
     /**
-     * @return A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+     * @return A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
      * 
      */
     public Output<PoolStorageImageReference> storageImageReference() {

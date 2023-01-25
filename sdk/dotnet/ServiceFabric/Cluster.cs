@@ -111,7 +111,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<string> ClusterEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+        /// A `diagnostics_config` block as defined below.
         /// </summary>
         [Output("diagnosticsConfig")]
         public Output<Outputs.ClusterDiagnosticsConfig?> DiagnosticsConfig { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string>? ClusterCodeVersion { get; set; }
 
         /// <summary>
-        /// A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+        /// A `diagnostics_config` block as defined below.
         /// </summary>
         [Input("diagnosticsConfig")]
         public Input<Inputs.ClusterDiagnosticsConfigArgs>? DiagnosticsConfig { get; set; }
@@ -501,7 +501,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string>? ClusterEndpoint { get; set; }
 
         /// <summary>
-        /// A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+        /// A `diagnostics_config` block as defined below.
         /// </summary>
         [Input("diagnosticsConfig")]
         public Input<Inputs.ClusterDiagnosticsConfigGetArgs>? DiagnosticsConfig { get; set; }

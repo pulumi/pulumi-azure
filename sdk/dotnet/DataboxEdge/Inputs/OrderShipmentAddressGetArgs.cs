@@ -16,7 +16,7 @@ namespace Pulumi.Azure.DataboxEdge.Inputs
         private InputList<string>? _addresses;
 
         /// <summary>
-        /// The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+        /// The list of upto 3 lines for address information.
         /// </summary>
         public InputList<string> Addresses
         {

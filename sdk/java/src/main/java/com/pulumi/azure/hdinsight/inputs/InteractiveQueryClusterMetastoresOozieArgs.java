@@ -14,14 +14,14 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
     public static final InteractiveQueryClusterMetastoresOozieArgs Empty = new InteractiveQueryClusterMetastoresOozieArgs();
 
     /**
-     * The external Oozie metastore&#39;s existing SQL database.  Changing this forces a new resource to be created.
+     * The external Oozie metastore&#39;s existing SQL database. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return The external Oozie metastore&#39;s existing SQL database.  Changing this forces a new resource to be created.
+     * @return The external Oozie metastore&#39;s existing SQL database. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> databaseName() {
@@ -29,14 +29,14 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
     }
 
     /**
-     * The external Oozie metastore&#39;s existing SQL server admin password.  Changing this forces a new resource to be created.
+     * The external Oozie metastore&#39;s existing SQL server admin password. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return The external Oozie metastore&#39;s existing SQL server admin password.  Changing this forces a new resource to be created.
+     * @return The external Oozie metastore&#39;s existing SQL server admin password. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> password() {
@@ -44,14 +44,14 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
     }
 
     /**
-     * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+     * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="server", required=true)
     private Output<String> server;
 
     /**
-     * @return The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+     * @return The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> server() {
@@ -59,14 +59,14 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
     }
 
     /**
-     * The external Oozie metastore&#39;s existing SQL server admin username.  Changing this forces a new resource to be created.
+     * The external Oozie metastore&#39;s existing SQL server admin username. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return The external Oozie metastore&#39;s existing SQL server admin username.  Changing this forces a new resource to be created.
+     * @return The external Oozie metastore&#39;s existing SQL server admin username. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> username() {
@@ -101,7 +101,7 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
         }
 
         /**
-         * @param databaseName The external Oozie metastore&#39;s existing SQL database.  Changing this forces a new resource to be created.
+         * @param databaseName The external Oozie metastore&#39;s existing SQL database. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
         }
 
         /**
-         * @param databaseName The external Oozie metastore&#39;s existing SQL database.  Changing this forces a new resource to be created.
+         * @param databaseName The external Oozie metastore&#39;s existing SQL database. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
         }
 
         /**
-         * @param password The external Oozie metastore&#39;s existing SQL server admin password.  Changing this forces a new resource to be created.
+         * @param password The external Oozie metastore&#39;s existing SQL server admin password. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
         }
 
         /**
-         * @param password The external Oozie metastore&#39;s existing SQL server admin password.  Changing this forces a new resource to be created.
+         * @param password The external Oozie metastore&#39;s existing SQL server admin password. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
         }
 
         /**
-         * @param server The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         * @param server The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
         }
 
         /**
-         * @param server The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         * @param server The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
         }
 
         /**
-         * @param username The external Oozie metastore&#39;s existing SQL server admin username.  Changing this forces a new resource to be created.
+         * @param username The external Oozie metastore&#39;s existing SQL server admin username. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class InteractiveQueryClusterMetastoresOozieArgs extends com.pulumi
         }
 
         /**
-         * @param username The external Oozie metastore&#39;s existing SQL server admin username.  Changing this forces a new resource to be created.
+         * @param username The external Oozie metastore&#39;s existing SQL server admin username. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

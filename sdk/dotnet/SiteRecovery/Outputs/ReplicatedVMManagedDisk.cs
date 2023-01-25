@@ -14,11 +14,11 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     public sealed class ReplicatedVMManagedDisk
     {
         /// <summary>
-        /// Id of disk that should be replicated.
+        /// Id of disk that should be replicated. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string DiskId;
         /// <summary>
-        /// Storage account that should be used for caching.
+        /// Storage account that should be used for caching. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string StagingStorageAccountId;
         /// <summary>
@@ -26,19 +26,19 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// </summary>
         public readonly Outputs.ReplicatedVMManagedDiskTargetDiskEncryption? TargetDiskEncryption;
         /// <summary>
-        /// The Disk Encryption Set that the Managed Disk will be associated with.
+        /// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? TargetDiskEncryptionSetId;
         /// <summary>
-        /// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+        /// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string TargetDiskType;
         /// <summary>
-        /// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+        /// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string TargetReplicaDiskType;
         /// <summary>
-        /// Resource group disk should belong to when a failover is done.
+        /// Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string TargetResourceGroupId;
 

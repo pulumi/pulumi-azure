@@ -45,14 +45,14 @@ public final class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigura
     }
 
     /**
-     * The name of the public IP address configuration Changing this forces a new resource to be created.
+     * The name of the public IP address configuration
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the public IP address configuration Changing this forces a new resource to be created.
+     * @return The name of the public IP address configuration
      * 
      */
     public Output<String> name() {
@@ -128,7 +128,7 @@ public final class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigura
         }
 
         /**
-         * @param name The name of the public IP address configuration Changing this forces a new resource to be created.
+         * @param name The name of the public IP address configuration
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigura
         }
 
         /**
-         * @param name The name of the public IP address configuration Changing this forces a new resource to be created.
+         * @param name The name of the public IP address configuration
          * 
          * @return builder
          * 

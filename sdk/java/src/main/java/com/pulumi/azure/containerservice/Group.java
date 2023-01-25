@@ -115,28 +115,28 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.containers;
     }
     /**
-     * A `diagnostics` block as documented below.
+     * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="diagnostics", type=GroupDiagnostics.class, parameters={})
     private Output</* @Nullable */ GroupDiagnostics> diagnostics;
 
     /**
-     * @return A `diagnostics` block as documented below.
+     * @return A `diagnostics` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<GroupDiagnostics>> diagnostics() {
         return Codegen.optional(this.diagnostics);
     }
     /**
-     * A `dns_config` block as documented below.
+     * A `dns_config` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dnsConfig", type=GroupDnsConfig.class, parameters={})
     private Output</* @Nullable */ GroupDnsConfig> dnsConfig;
 
     /**
-     * @return A `dns_config` block as documented below.
+     * @return A `dns_config` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<GroupDnsConfig>> dnsConfig() {

@@ -61,14 +61,14 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `admin_ssh_key` blocks as defined below.
+     * One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="adminSshKeys")
     private @Nullable Output<List<LinuxVirtualMachineAdminSshKeyArgs>> adminSshKeys;
 
     /**
-     * @return One or more `admin_ssh_key` blocks as defined below.
+     * @return One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<LinuxVirtualMachineAdminSshKeyArgs>>> adminSshKeys() {
@@ -800,7 +800,7 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param adminSshKeys One or more `admin_ssh_key` blocks as defined below.
+         * @param adminSshKeys One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -811,7 +811,7 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param adminSshKeys One or more `admin_ssh_key` blocks as defined below.
+         * @param adminSshKeys One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -821,7 +821,7 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param adminSshKeys One or more `admin_ssh_key` blocks as defined below.
+         * @param adminSshKeys One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

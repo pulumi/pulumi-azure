@@ -96,14 +96,14 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+     * The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
      * 
      */
     @Import(name="maxRequestBodySizeKb")
     private @Nullable Output<Integer> maxRequestBodySizeKb;
 
     /**
-     * @return The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+     * @return The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
      * 
      */
     public Optional<Output<Integer>> maxRequestBodySizeKb() {
@@ -111,14 +111,14 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * Is Request Body Inspection enabled?  Defaults to `true`.
+     * Is Request Body Inspection enabled? Defaults to `true`.
      * 
      */
     @Import(name="requestBodyCheck")
     private @Nullable Output<Boolean> requestBodyCheck;
 
     /**
-     * @return Is Request Body Inspection enabled?  Defaults to `true`.
+     * @return Is Request Body Inspection enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> requestBodyCheck() {
@@ -313,7 +313,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param maxRequestBodySizeKb The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+         * @param maxRequestBodySizeKb The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param maxRequestBodySizeKb The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+         * @param maxRequestBodySizeKb The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param requestBodyCheck Is Request Body Inspection enabled?  Defaults to `true`.
+         * @param requestBodyCheck Is Request Body Inspection enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param requestBodyCheck Is Request Body Inspection enabled?  Defaults to `true`.
+         * @param requestBodyCheck Is Request Body Inspection enabled? Defaults to `true`.
          * 
          * @return builder
          * 

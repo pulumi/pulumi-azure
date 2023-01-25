@@ -1570,7 +1570,7 @@ export namespace apimanagement {
          */
         location: string;
         /**
-         * The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+         * The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
          */
         privateIpAddresses: string[];
         /**
@@ -1582,7 +1582,7 @@ export namespace apimanagement {
          */
         publicIpAddresses: string[];
         /**
-         * A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
+         * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
          */
         virtualNetworkConfiguration?: outputs.apimanagement.ServiceAdditionalLocationVirtualNetworkConfiguration;
         /**
@@ -2085,7 +2085,7 @@ export namespace appconfiguration {
 
     export interface ConfigurationFeatureTimewindowFilter {
         /**
-         * The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+         * The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
          */
         end?: string;
         /**
@@ -2304,7 +2304,7 @@ export namespace appinsights {
          */
         body?: string;
         /**
-         * Should the following of redirects be enabled?
+         * Should the following of redirects be enabled? Defaults to `true`.
          */
         followRedirectsEnabled?: boolean;
         /**
@@ -2316,7 +2316,7 @@ export namespace appinsights {
          */
         httpVerb?: string;
         /**
-         * Should the parsing of dependend requests be enabled?
+         * Should the parsing of dependend requests be enabled? Defaults to `true`.
          */
         parseDependentRequestsEnabled?: boolean;
         /**
@@ -2795,7 +2795,7 @@ export namespace appplatform {
          */
         subscriptionId?: string;
         /**
-         * The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+         * The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -3072,7 +3072,7 @@ export namespace appplatform {
          */
         label?: string;
         /**
-         * A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+         * A name to identify on the Git repository, required only if repos exists.
          */
         name: string;
         /**
@@ -3156,7 +3156,7 @@ export namespace appplatform {
          */
         cidrRanges: string[];
         /**
-         * Ingress read time out in seconds. Changing this forces a new resource to be created.
+         * Ingress read time out in seconds.
          */
         readTimeoutSeconds?: number;
         /**
@@ -3378,7 +3378,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
          */
         type: string;
         /**
@@ -3825,7 +3825,7 @@ export namespace appservice {
          */
         subscriptionId?: string;
         /**
-         * The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+         * The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -3999,11 +3999,11 @@ export namespace appservice {
 
     export interface FunctionAppConnectionString {
         /**
-         * The name of the Connection String. Changing this forces a new resource to be created.
+         * The name of the Connection String.
          */
         name: string;
         /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
          */
         type: string;
         /**
@@ -4380,11 +4380,11 @@ export namespace appservice {
 
     export interface FunctionAppSlotConnectionString {
         /**
-         * The name of the Connection String. Changing this forces a new resource to be created.
+         * The name of the Connection String.
          */
         name: string;
         /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
          */
         type: string;
         /**
@@ -7859,7 +7859,7 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         * The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
@@ -8071,7 +8071,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -8095,7 +8095,7 @@ export namespace appservice {
          */
         scmIpRestrictions: outputs.appservice.LinuxFunctionAppSiteConfigScmIpRestriction[];
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         scmType: string;
@@ -8154,7 +8154,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: string;
         /**
-         * The version of Python to run. Possible values include `3.6`, `3.7`, `3.8`, and `3.9`.
+         * The version of Python to run. Possible values are `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: string;
         /**
@@ -8438,7 +8438,7 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         * The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
@@ -8663,7 +8663,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -8687,7 +8687,7 @@ export namespace appservice {
          */
         scmIpRestrictions: outputs.appservice.LinuxFunctionAppSlotSiteConfigScmIpRestriction[];
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         /**
@@ -8749,7 +8749,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: string;
         /**
-         * The version of Python to use. Possible values include `3.9`, `3.8`, and `3.7`.
+         * The version of Python to use. Possible values are `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: string;
         /**
@@ -9098,7 +9098,7 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         * The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
@@ -9380,7 +9380,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -9396,7 +9396,7 @@ export namespace appservice {
          */
         scmIpRestrictions: outputs.appservice.LinuxWebAppSiteConfigScmIpRestriction[];
         /**
-         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         scmType: string;
@@ -9460,7 +9460,7 @@ export namespace appservice {
          */
         phpVersion?: string;
         /**
-         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
+         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
          */
         pythonVersion?: string;
         /**
@@ -9811,7 +9811,7 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         * The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
@@ -10097,7 +10097,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -10113,7 +10113,7 @@ export namespace appservice {
          */
         scmIpRestrictions: outputs.appservice.LinuxWebAppSlotSiteConfigScmIpRestriction[];
         /**
-         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         scmType: string;
@@ -10174,7 +10174,7 @@ export namespace appservice {
          */
         phpVersion?: string;
         /**
-         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
+         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
          */
         pythonVersion?: string;
         /**
@@ -10605,11 +10605,11 @@ export namespace appservice {
 
     export interface SlotConnectionString {
         /**
-         * The name of the Connection String. Changing this forces a new resource to be created.
+         * The name of the Connection String.
          */
         name: string;
         /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
          */
         type: string;
         /**
@@ -10993,7 +10993,7 @@ export namespace appservice {
 
     export interface SourceControlGithubActionConfiguration {
         /**
-         * A `codeConfiguration` block as defined above.
+         * A `codeConfiguration` block as defined above. Changing this forces a new resource to be created.
          */
         codeConfiguration?: outputs.appservice.SourceControlGithubActionConfigurationCodeConfiguration;
         /**
@@ -11036,7 +11036,7 @@ export namespace appservice {
 
     export interface SourceControlSlotGithubActionConfiguration {
         /**
-         * A `codeConfiguration` block as detailed below.
+         * A `codeConfiguration` block as detailed below. Changing this forces a new resource to be created.
          */
         codeConfiguration?: outputs.appservice.SourceControlSlotGithubActionConfigurationCodeConfiguration;
         /**
@@ -11225,7 +11225,7 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         * The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
@@ -11428,7 +11428,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -11452,7 +11452,7 @@ export namespace appservice {
          */
         scmIpRestrictions: outputs.appservice.WindowsFunctionAppSiteConfigScmIpRestriction[];
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         scmType: string;
@@ -11765,7 +11765,7 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         * The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
@@ -11978,7 +11978,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -12002,7 +12002,7 @@ export namespace appservice {
          */
         scmIpRestrictions: outputs.appservice.WindowsFunctionAppSlotSiteConfigScmIpRestriction[];
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         /**
@@ -12048,11 +12048,11 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotSiteConfigApplicationStack {
         /**
-         * The version of .Net. Possible values are `3.1`, `6` and `7`
+         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: string;
         /**
-         * The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
+         * The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
          */
         javaVersion?: string;
         /**
@@ -12386,7 +12386,7 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         * The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
@@ -12665,7 +12665,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -12681,7 +12681,7 @@ export namespace appservice {
          */
         scmIpRestrictions: outputs.appservice.WindowsWebAppSiteConfigScmIpRestriction[];
         /**
-         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         scmType: string;
@@ -12734,7 +12734,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: string;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
          */
         dotnetVersion: string;
         /**
@@ -12814,7 +12814,7 @@ export namespace appservice {
 
     export interface WindowsWebAppSiteConfigAutoHealSettingTrigger {
         /**
-         * The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+         * The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
          */
         privateMemoryKb?: number;
         /**
@@ -13166,7 +13166,7 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         * The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
@@ -13451,7 +13451,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -13467,7 +13467,7 @@ export namespace appservice {
          */
         scmIpRestrictions: outputs.appservice.WindowsWebAppSlotSiteConfigScmIpRestriction[];
         /**
-         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         scmType: string;
@@ -13517,7 +13517,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: string;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
          */
         dotnetVersion: string;
         /**
@@ -13541,7 +13541,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PHP to use when `currentStack` is set to `php`. Possible values include `v7.4` and `Off`.
+         * The version of PHP to use when `currentStack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
          */
         phpVersion: string;
         /**
@@ -13597,7 +13597,7 @@ export namespace appservice {
 
     export interface WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
         /**
-         * The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+         * The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
          */
         privateMemoryKb?: number;
         /**
@@ -14414,7 +14414,7 @@ export namespace avs {
          */
         hosts: string[];
         /**
-         * The ID of the  management cluster.
+         * The ID of the management cluster.
          */
         id: number;
         /**
@@ -14499,7 +14499,7 @@ export namespace backup {
          */
         hourDuration?: number;
         /**
-         * Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+         * Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
          */
         hourInterval?: number;
         /**
@@ -15599,7 +15599,7 @@ export namespace batch {
          */
         sourceAddressPrefix: string;
         /**
-         * The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+         * The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`. Changing this forces a new resource to be created.
          */
         sourcePortRanges: string[];
     }
@@ -17604,7 +17604,7 @@ export namespace compute {
          */
         tenantId: string;
         /**
-         * The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * The type of Managed Service Identity that is configured on this Disk Encryption Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -17659,6 +17659,21 @@ export namespace compute {
          * The storage account type for the Gallery Application Version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`.
          */
         storageAccountType?: string;
+    }
+
+    export interface GetBastionHostIpConfiguration {
+        /**
+         * The name of the Bastion Host.
+         */
+        name: string;
+        /**
+         * Reference to a Public IP Address associated to this Bastion Host.
+         */
+        publicIpAddressId: string;
+        /**
+         * Reference to the subnet in which this Bastion Host has been created.
+         */
+        subnetId: string;
     }
 
     export interface GetConfidentialLedgerAzureadBasedServicePrincipal {
@@ -18154,7 +18169,7 @@ export namespace compute {
          */
         lun?: number;
         /**
-         * Specifies the ID of the managed disk resource that you want to use to create the image.
+         * Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
          */
         managedDiskId?: string;
         /**
@@ -18165,7 +18180,7 @@ export namespace compute {
 
     export interface ImageOsDisk {
         /**
-         * Specifies the URI in Azure storage of the blob that you want to use to create the image.
+         * Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
          */
         blobUri: string;
         /**
@@ -18581,7 +18596,7 @@ export namespace compute {
          */
         idleTimeoutInMinutes: number;
         /**
-         * One or more `ipTag` blocks as defined above.
+         * One or more `ipTag` blocks as defined above. Changing this forces a new resource to be created.
          */
         ipTags?: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
         /**
@@ -18593,18 +18608,18 @@ export namespace compute {
          */
         publicIpPrefixId?: string;
         /**
-         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
          */
         version?: string;
     }
 
     export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
         /**
-         * The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+         * The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
          */
         tag: string;
         /**
-         * The Type of IP Tag, such as `FirstPartyUsage`.
+         * The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -18728,11 +18743,11 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetSourceImageReference {
         /**
-         * Specifies the offer of the image used to create the virtual machines.
+         * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         offer: string;
         /**
-         * Specifies the publisher of the image used to create the virtual machines.
+         * Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         publisher: string;
         /**
@@ -18798,19 +18813,19 @@ export namespace compute {
 
     export interface LinuxVirtualMachineSourceImageReference {
         /**
-         * Specifies the offer of the image used to create the virtual machines.
+         * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         offer: string;
         /**
-         * Specifies the publisher of the image used to create the virtual machines.
+         * Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         publisher: string;
         /**
-         * Specifies the SKU of the image used to create the virtual machines.
+         * Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         sku: string;
         /**
-         * Specifies the version of the image used to create the virtual machines.
+         * Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         version: string;
     }
@@ -18872,7 +18887,7 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
         /**
-         * Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`. Defaults to `false`.
+         * Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
          */
         enabled: boolean;
         /**
@@ -19072,7 +19087,7 @@ export namespace compute {
          */
         idleTimeoutInMinutes: number;
         /**
-         * One or more `ipTag` blocks as defined above.
+         * One or more `ipTag` blocks as defined above. Changing this forces a new resource to be created.
          */
         ipTags?: outputs.compute.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
         /**
@@ -19095,11 +19110,11 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
         /**
-         * The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+         * The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
          */
         tag: string;
         /**
-         * The Type of IP Tag, such as `FirstPartyUsage`.
+         * The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -19110,7 +19125,7 @@ export namespace compute {
          */
         caching: string;
         /**
-         * A `diffDiskSettings` block as defined above.
+         * A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
          */
         diffDiskSettings?: outputs.compute.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings;
         /**
@@ -19171,7 +19186,7 @@ export namespace compute {
          */
         adminUsername: string;
         /**
-         * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+         * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
          */
         computerNamePrefix: string;
         /**
@@ -19198,11 +19213,11 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey {
         /**
-         * The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+         * The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
          */
         publicKey: string;
         /**
-         * The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+         * The Username for which this Public SSH Key should be configured.
          */
         username: string;
     }
@@ -19235,7 +19250,7 @@ export namespace compute {
          */
         adminUsername: string;
         /**
-         * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+         * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
          */
         computerNamePrefix: string;
         /**
@@ -19267,7 +19282,7 @@ export namespace compute {
          */
         timezone?: string;
         /**
-         * One or more `winrmListener` blocks as defined below.
+         * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
          */
         winrmListeners?: outputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener[];
     }
@@ -19296,11 +19311,11 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener {
         /**
-         * The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+         * The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
          */
         certificateUrl?: string;
         /**
-         * Specifies the protocol of listener. Possible values are `Http` or `Https`
+         * Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
          */
         protocol: string;
     }
@@ -19405,7 +19420,7 @@ export namespace compute {
          */
         autoUpgradeMinorVersion?: boolean;
         /**
-         * Specifies the name of the extension. Changing this forces a new resource to be created.
+         * Specifies the name of the extension.
          */
         name: string;
         /**
@@ -19464,7 +19479,7 @@ export namespace compute {
          */
         ipForwarding?: boolean;
         /**
-         * Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
+         * Specifies the name of the network interface configuration.
          */
         name: string;
         /**
@@ -19502,7 +19517,7 @@ export namespace compute {
          */
         loadBalancerInboundNatRulesIds: string[];
         /**
-         * Specifies name of the IP configuration. Changing this forces a new resource to be created.
+         * Specifies name of the IP configuration.
          */
         name: string;
         /**
@@ -19529,7 +19544,7 @@ export namespace compute {
          */
         idleTimeout: number;
         /**
-         * The name of the public IP address configuration Changing this forces a new resource to be created.
+         * The name of the public IP address configuration
          */
         name: string;
     }
@@ -19559,13 +19574,19 @@ export namespace compute {
          */
         disablePasswordAuthentication?: boolean;
         /**
-         * Specifies a collection of `path` and `keyData` to be placed on the virtual machine.
+         * One or more `sshKeys` blocks as defined below.
          */
         sshKeys?: outputs.compute.ScaleSetOsProfileLinuxConfigSshKey[];
     }
 
     export interface ScaleSetOsProfileLinuxConfigSshKey {
+        /**
+         * The Public SSH Key which should be written to the `path` defined above.
+         */
         keyData?: string;
+        /**
+         * The path of the destination file on the virtual machine
+         */
         path: string;
     }
 
@@ -19575,7 +19596,7 @@ export namespace compute {
          */
         sourceVaultId: string;
         /**
-         * (Required, on windows machines) A collection of Vault Certificates as documented below
+         * (Required, on Windows machines) One or more `vaultCertificates` blocks as defined below.
          */
         vaultCertificates?: outputs.compute.ScaleSetOsProfileSecretVaultCertificate[];
     }
@@ -19691,7 +19712,7 @@ export namespace compute {
 
     export interface ScaleSetPlan {
         /**
-         * Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+         * Specifies the name of the image from the marketplace.
          */
         name: string;
         /**
@@ -19729,7 +19750,7 @@ export namespace compute {
          */
         capacity: number;
         /**
-         * Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
+         * Specifies the size of virtual machines in a scale set.
          */
         name: string;
         /**
@@ -19763,8 +19784,7 @@ export namespace compute {
 
     export interface ScaleSetStorageProfileImageReference {
         /**
-         * Specifies the ID of the (custom) image to use to create the virtual
-         * machine scale set, as in the example below.
+         * Specifies the ID of the (custom) image to use to create the virtual machine scale set, as in the example below.
          */
         id?: string;
         /**
@@ -19805,7 +19825,7 @@ export namespace compute {
          */
         managedDiskType: string;
         /**
-         * Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
+         * Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
          */
         name?: string;
         /**
@@ -19854,7 +19874,7 @@ export namespace compute {
          */
         diskEncryptionSetId?: string;
         /**
-         * The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
+         * The Azure Region in which this Image Version should exist.
          */
         name: string;
         /**
@@ -20575,7 +20595,7 @@ export namespace compute {
          */
         idleTimeoutInMinutes: number;
         /**
-         * One or more `ipTag` blocks as defined above.
+         * One or more `ipTag` blocks as defined above. Changing this forces a new resource to be created.
          */
         ipTags?: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
         /**
@@ -20587,18 +20607,18 @@ export namespace compute {
          */
         publicIpPrefixId?: string;
         /**
-         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
          */
         version?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
         /**
-         * The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+         * The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
          */
         tag: string;
         /**
-         * The Type of IP Tag, such as `FirstPartyUsage`.
+         * The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -20726,11 +20746,11 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetSourceImageReference {
         /**
-         * Specifies the offer of the image used to create the virtual machines.
+         * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         offer: string;
         /**
-         * Specifies the publisher of the image used to create the virtual machines.
+         * Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         publisher: string;
         /**
@@ -20811,19 +20831,19 @@ export namespace compute {
 
     export interface WindowsVirtualMachineSourceImageReference {
         /**
-         * Specifies the offer of the image used to create the virtual machines.
+         * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         offer: string;
         /**
-         * Specifies the publisher of the image used to create the virtual machines.
+         * Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         publisher: string;
         /**
-         * Specifies the SKU of the image used to create the virtual machines.
+         * Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         sku: string;
         /**
-         * Specifies the version of the image used to create the virtual machines.
+         * Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         version: string;
     }
@@ -20845,7 +20865,7 @@ export namespace compute {
          */
         certificateUrl?: string;
         /**
-         * Specifies the protocol of listener. Possible values are `Http` or `Https`
+         * Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
          */
         protocol: string;
     }
@@ -21814,6 +21834,17 @@ export namespace containerservice {
         userAssignedIdentityId: string;
     }
 
+    export interface GetKubernetesClusterKeyManagementService {
+        /**
+         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
+         */
+        keyVaultKeyId: string;
+        /**
+         * Network access of the key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link.
+         */
+        keyVaultNetworkAccess: string;
+    }
+
     export interface GetKubernetesClusterKeyVaultSecretsProvider {
         /**
          * A `secretIdentity` block as documented below.
@@ -22231,7 +22262,7 @@ export namespace containerservice {
          */
         emptyDir?: boolean;
         /**
-         * A `gitRepo` block as defined below.
+         * A `gitRepo` block as defined below. Changing this forces a new resource to be created.
          */
         gitRepo?: outputs.containerservice.GroupContainerVolumeGitRepo;
         /**
@@ -22307,15 +22338,15 @@ export namespace containerservice {
 
     export interface GroupDnsConfig {
         /**
-         * A list of nameservers the containers will search out to resolve requests.
+         * A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
          */
         nameservers: string[];
         /**
-         * A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+         * A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
          */
         options?: string[];
         /**
-         * A list of search domains that DNS requests will search along.
+         * A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
          */
         searchDomains?: string[];
     }
@@ -22402,7 +22433,7 @@ export namespace containerservice {
          */
         emptyDir?: boolean;
         /**
-         * A `gitRepo` block as defined below.
+         * A `gitRepo` block as defined below. Changing this forces a new resource to be created.
          */
         gitRepo?: outputs.containerservice.GroupInitContainerVolumeGitRepo;
         /**
@@ -22588,11 +22619,11 @@ export namespace containerservice {
          */
         enableAutoScaling?: boolean;
         /**
-         * Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+         * Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
          */
         enableHostEncryption?: boolean;
         /**
-         * Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+         * Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
          */
         enableNodePublicIp?: boolean;
         /**
@@ -22604,7 +22635,7 @@ export namespace containerservice {
          */
         hostGroupId?: string;
         /**
-         * A `kubeletConfig` block as defined below.
+         * A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
          */
         kubeletConfig?: outputs.containerservice.KubernetesClusterDefaultNodePoolKubeletConfig;
         /**
@@ -22612,7 +22643,7 @@ export namespace containerservice {
          */
         kubeletDiskType: string;
         /**
-         * A `linuxOsConfig` block as defined below.
+         * A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
          */
         linuxOsConfig?: outputs.containerservice.KubernetesClusterDefaultNodePoolLinuxOsConfig;
         /**
@@ -22648,7 +22679,7 @@ export namespace containerservice {
          */
         nodePublicIpPrefixId?: string;
         /**
-         * A list of the taints added to new nodes during node pool create and scale.
+         * A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
          */
         nodeTaints?: string[];
         /**
@@ -22972,17 +23003,29 @@ export namespace containerservice {
 
     export interface KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity {
         /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         userAssignedIdentityId: string;
+    }
+
+    export interface KubernetesClusterKeyManagementService {
+        /**
+         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+         */
+        keyVaultKeyId: string;
+        /**
+         * Network access of the key vault
+         * Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+         */
+        keyVaultNetworkAccess?: string;
     }
 
     export interface KubernetesClusterKeyVaultSecretsProvider {
@@ -23002,15 +23045,15 @@ export namespace containerservice {
 
     export interface KubernetesClusterKeyVaultSecretsProviderSecretIdentity {
         /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         userAssignedIdentityId: string;
     }
@@ -23071,15 +23114,15 @@ export namespace containerservice {
 
     export interface KubernetesClusterKubeletIdentity {
         /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         userAssignedIdentityId: string;
     }
@@ -23171,7 +23214,7 @@ export namespace containerservice {
          */
         ipVersions: string[];
         /**
-         * A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`.
+         * A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`. Changing this forces a new resource to be created.
          */
         loadBalancerProfile: outputs.containerservice.KubernetesClusterNetworkProfileLoadBalancerProfile;
         /**
@@ -23179,7 +23222,7 @@ export namespace containerservice {
          */
         loadBalancerSku?: string;
         /**
-         * A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+         * A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
          */
         natGatewayProfile: outputs.containerservice.KubernetesClusterNetworkProfileNatGatewayProfile;
         /**
@@ -23474,15 +23517,15 @@ export namespace containerservice {
 
     export interface KubernetesClusterOmsAgentOmsAgentIdentity {
         /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         userAssignedIdentityId: string;
     }
@@ -23588,7 +23631,7 @@ export namespace containerservice {
 
     export interface RegistryGeoreplication {
         /**
-         * A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
+         * A location where the container registry should be geo-replicated.
          */
         location: string;
         /**
@@ -23600,7 +23643,7 @@ export namespace containerservice {
          */
         tags?: {[key: string]: string};
         /**
-         * Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
+         * Whether zone redundancy is enabled for this replication location? Defaults to `false`.
          */
         zoneRedundancyEnabled?: boolean;
     }
@@ -23720,7 +23763,7 @@ export namespace containerservice {
          */
         contextPath: string;
         /**
-         * The  Dockerfile path relative to the source context.
+         * The Dockerfile path relative to the source context.
          */
         dockerfilePath: string;
         /**
@@ -24086,11 +24129,11 @@ export namespace core {
 
     export interface ResourceDeploymentScriptAzureCliIdentity {
         /**
-         * Specifies the list of user-assigned managed identity IDs associated with the resource.
+         * Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
          */
         identityIds: string[];
         /**
-         * Type of the managed identity. The only possible value is `UserAssigned`.
+         * Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -24130,11 +24173,11 @@ export namespace core {
 
     export interface ResourceDeploymentScriptPowerShellIdentity {
         /**
-         * Specifies the list of user-assigned managed identity IDs associated with the resource.
+         * Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
          */
         identityIds: string[];
         /**
-         * Type of the managed identity. The only possible value is `UserAssigned`.
+         * Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -24359,7 +24402,7 @@ export namespace cosmosdb {
          */
         allowedHeaders: string[];
         /**
-         * A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+         * A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: string[];
         /**
@@ -24386,7 +24429,7 @@ export namespace cosmosdb {
          */
         id: string;
         /**
-         * The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+         * The name of the Azure region to host replicated data.
          */
         location: string;
         /**
@@ -25011,7 +25054,7 @@ export namespace databoxedge {
 
     export interface OrderShipmentAddress {
         /**
-         * The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+         * The list of upto 3 lines for address information.
          */
         addresses: string[];
         /**
@@ -25220,7 +25263,7 @@ export namespace datadog {
          */
         applicationKey: string;
         /**
-         * The ID of the enterprise_app.
+         * The ID of the enterprise_app. Changing this forces a new resource to be created.
          */
         enterpriseAppId?: string;
         /**
@@ -25322,11 +25365,11 @@ export namespace datadog {
          */
         email: string;
         /**
-         * The name which should be used for this user_info.
+         * The name which should be used for this user_info. Changing this forces a new resource to be created.
          */
         name: string;
         /**
-         * Phone number of the user used by Datadog for contacting them if needed.
+         * Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
          */
         phoneNumber?: string;
     }
@@ -26421,7 +26464,7 @@ export namespace datafactory {
 
     export interface IntegrationRuntimeSelfHostedRbacAuthorization {
         /**
-         * The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+         * The resource identifier of the integration runtime to be shared.
          */
         resourceId: string;
     }
@@ -26696,7 +26739,7 @@ export namespace datafactory {
          */
         maxNumberOfWorkers?: number;
         /**
-         * Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+         * Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
          */
         minNumberOfWorkers?: number;
         /**
@@ -27284,7 +27327,7 @@ export namespace devtest {
          */
         email?: string;
         /**
-         * Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+         * Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
          */
         enabled: boolean;
         /**
@@ -27801,7 +27844,7 @@ export namespace elasticcloud {
          */
         action: string;
         /**
-         * Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
+         * Specifies the name (key) of the Tag which should be filtered.
          */
         name: string;
         /**
@@ -29085,11 +29128,11 @@ export namespace eventhub {
          */
         intervalInSeconds?: number;
         /**
-         * Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+         * Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
          */
         sizeLimitInBytes?: number;
         /**
-         * Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+         * Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
          */
         skipEmptyArchives?: boolean;
     }
@@ -29745,7 +29788,7 @@ export namespace frontdoor {
          */
         matchConditions?: outputs.frontdoor.FirewallPolicyCustomRuleMatchCondition[];
         /**
-         * Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
+         * Gets name of the resource that is unique within a policy. This name can be used to access the resource.
          */
         name: string;
         /**
@@ -29909,7 +29952,7 @@ export namespace frontdoor {
          */
         loadBalancingName: string;
         /**
-         * Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
+         * Specifies the name of the Backend Pool.
          */
         name: string;
     }
@@ -29959,7 +30002,7 @@ export namespace frontdoor {
          */
         intervalInSeconds?: number;
         /**
-         * Specifies the name of the Health Probe. Changing this forces a new resource to be created.
+         * Specifies the name of the Health Probe.
          */
         name: string;
         /**
@@ -29986,7 +30029,7 @@ export namespace frontdoor {
          */
         id: string;
         /**
-         * Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
+         * Specifies the name of the Load Balancer.
          */
         name: string;
         /**
@@ -30028,7 +30071,7 @@ export namespace frontdoor {
          */
         id: string;
         /**
-         * Specifies the name of the `frontendEndpoint`. Changing this forces a new resource to be created.
+         * Specifies the name of the `frontendEndpoint`.
          */
         name: string;
         /**
@@ -30067,7 +30110,7 @@ export namespace frontdoor {
          */
         id: string;
         /**
-         * Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
+         * Specifies the name of the Routing Rule.
          */
         name: string;
         /**
@@ -30152,7 +30195,7 @@ export namespace frontdoor {
          */
         matchConditions?: outputs.frontdoor.RulesEngineRuleMatchCondition[];
         /**
-         * The name of the rule. Changing this forces a new resource to be created.
+         * The name of the rule.
          */
         name: string;
         /**
@@ -30323,57 +30366,57 @@ export namespace hdinsight {
 
     export interface HBaseClusterMetastoresAmbari {
         /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
 
     export interface HBaseClusterMetastoresHive {
         /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
 
     export interface HBaseClusterMetastoresOozie {
         /**
-         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
@@ -30421,7 +30464,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.HBaseClusterRolesHeadNodeScriptAction[];
         /**
@@ -30471,7 +30514,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.HBaseClusterRolesWorkerNodeScriptAction[];
         /**
@@ -30554,7 +30597,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.HBaseClusterRolesZookeeperNodeScriptAction[];
         /**
@@ -30739,57 +30782,57 @@ export namespace hdinsight {
 
     export interface HadoopClusterMetastoresAmbari {
         /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
 
     export interface HadoopClusterMetastoresHive {
         /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
 
     export interface HadoopClusterMetastoresOozie {
         /**
-         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
@@ -30847,7 +30890,7 @@ export namespace hdinsight {
         targetInstanceCount: number;
         uninstallScriptActions?: outputs.hdinsight.HadoopClusterRolesEdgeNodeUninstallScriptAction[];
         /**
-         * The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
          */
         vmSize: string;
     }
@@ -30877,7 +30920,7 @@ export namespace hdinsight {
 
     export interface HadoopClusterRolesEdgeNodeInstallScriptAction {
         /**
-         * The name of the install script action. Changing this forces a new resource to be created.
+         * The name of the install script action.
          */
         name: string;
         /**
@@ -30885,7 +30928,7 @@ export namespace hdinsight {
          */
         parameters?: string;
         /**
-         * The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+         * The URI pointing to the script to run during the installation of the edge node.
          */
         uri: string;
     }
@@ -30911,7 +30954,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.HadoopClusterRolesHeadNodeScriptAction[];
         /**
@@ -30961,7 +31004,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.HadoopClusterRolesWorkerNodeScriptAction[];
         /**
@@ -31059,7 +31102,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.HadoopClusterRolesZookeeperNodeScriptAction[];
         /**
@@ -31244,57 +31287,57 @@ export namespace hdinsight {
 
     export interface InteractiveQueryClusterMetastoresAmbari {
         /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
 
     export interface InteractiveQueryClusterMetastoresHive {
         /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
 
     export interface InteractiveQueryClusterMetastoresOozie {
         /**
-         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
@@ -31342,7 +31385,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.InteractiveQueryClusterRolesHeadNodeScriptAction[];
         /**
@@ -31392,7 +31435,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeScriptAction[];
         /**
@@ -31490,7 +31533,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.InteractiveQueryClusterRolesZookeeperNodeScriptAction[];
         /**
@@ -31675,57 +31718,57 @@ export namespace hdinsight {
 
     export interface KafkaClusterMetastoresAmbari {
         /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
 
     export interface KafkaClusterMetastoresHive {
         /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
 
     export interface KafkaClusterMetastoresOozie {
         /**
-         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
@@ -32083,57 +32126,57 @@ export namespace hdinsight {
 
     export interface SparkClusterMetastoresAmbari {
         /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
 
     export interface SparkClusterMetastoresHive {
         /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
 
     export interface SparkClusterMetastoresOozie {
         /**
-         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
          */
         databaseName: string;
         /**
-         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
          */
         password: string;
         /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
          */
         server: string;
         /**
-         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         * The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
          */
         username: string;
     }
@@ -32181,7 +32224,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.SparkClusterRolesHeadNodeScriptAction[];
         /**
@@ -32231,7 +32274,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.SparkClusterRolesWorkerNodeScriptAction[];
         /**
@@ -32329,7 +32372,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster.
+         * The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.SparkClusterRolesZookeeperNodeScriptAction[];
         /**
@@ -33040,7 +33083,7 @@ export namespace iot {
          */
         maxChunkSizeInBytes?: number;
         /**
-         * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+         * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
          */
         name: string;
         /**
@@ -33260,7 +33303,7 @@ export namespace iot {
 
     export interface IotHubDpsIpFilterRule {
         /**
-         * The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+         * The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
          */
         action: string;
         /**
@@ -33622,7 +33665,7 @@ export namespace keyvault {
          */
         subject: string;
         /**
-         * A `subjectAlternativeNames` block as defined below.
+         * A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
          */
         subjectAlternativeNames: outputs.keyvault.CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames;
         /**
@@ -33787,7 +33830,7 @@ export namespace keyvault {
          */
         subject: string;
         /**
-         * A `subjectAlternativeNames` block as defined below.
+         * A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
          */
         subjectAlternativeNames: outputs.keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames;
         /**
@@ -34231,7 +34274,7 @@ export namespace lab {
          */
         publicIpId: string;
         /**
-         * The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+         * The resource ID of the Subnet for the network profile of the Lab Service Lab.
          */
         subnetId?: string;
     }
@@ -34341,11 +34384,11 @@ export namespace lab {
 
     export interface LabVirtualMachineNonAdminUser {
         /**
-         * The password for the user. Changing this forces a new resource to be created.
+         * The password for the user.
          */
         password: string;
         /**
-         * The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+         * The username to use when signing in to Lab Service Lab VMs.
          */
         username: string;
     }
@@ -34359,6 +34402,25 @@ export namespace lab {
          * The name of the SKU. Changing this forces a new resource to be created.
          */
         name: string;
+    }
+
+    export interface ScheduleRecurrence {
+        /**
+         * When the recurrence will expire in RFC-3339 format.
+         */
+        expirationDate: string;
+        /**
+         * The frequency of the recurrence. Possible values are `Daily` and `Weekly`.
+         */
+        frequency: string;
+        /**
+         * The interval to invoke the schedule on. Possible values are between `1` and `365`.
+         */
+        interval?: number;
+        /**
+         * The interval to invoke the schedule on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+         */
+        weekDays?: string[];
     }
 
     export interface ServicePlanDefaultAutoShutdown {
@@ -34560,7 +34622,7 @@ export namespace lb {
          */
         loadBalancerRules: string[];
         /**
-         * Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+         * Specifies the name of the frontend IP configuration.
          */
         name: string;
         /**
@@ -34592,7 +34654,7 @@ export namespace lb {
          */
         subnetId: string;
         /**
-         * Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+         * Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
          */
         zones?: string[];
     }
@@ -34980,11 +35042,11 @@ export namespace logicapps {
 
     export interface StandardConnectionString {
         /**
-         * The name of the Connection String. Changing this forces a new resource to be created.
+         * The name of the Connection String.
          */
         name: string;
         /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
          */
         type: string;
         /**
@@ -35714,7 +35776,7 @@ export namespace maintenance {
 export namespace managedapplication {
     export interface ApplicationPlan {
         /**
-         * Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+         * Specifies the name of the plan from the marketplace.
          */
         name: string;
         /**
@@ -35820,7 +35882,7 @@ export namespace media {
          */
         liveBackoffInUnits?: number;
         /**
-         * The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMilliseconds`. For example, set  `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+         * The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMilliseconds`. For example, set `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
          */
         presentationWindowInUnits?: number;
         /**
@@ -35828,7 +35890,7 @@ export namespace media {
          */
         startInUnits?: number;
         /**
-         * Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1000. Or if you want to set `startInUnits` in 30 milliseconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1.  Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
+         * Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1000. Or if you want to set `startInUnits` in 30 milliseconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1. Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
          */
         unitTimescaleInMilliseconds: number;
     }
@@ -35871,7 +35933,7 @@ export namespace media {
          */
         liveBackoffInUnits?: number;
         /**
-         * The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMiliseconds`. For example, set  `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+         * The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMiliseconds`. For example, set `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
          */
         presentationWindowInUnits?: number;
         /**
@@ -35879,7 +35941,7 @@ export namespace media {
          */
         startInUnits?: number;
         /**
-         * Specified as the number of miliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1000. Or if you want to set `startInUnits` in 30 miliseconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1.  Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
+         * Specified as the number of miliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1000. Or if you want to set `startInUnits` in 30 miliseconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1. Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
          */
         unitTimescaleInMiliseconds?: number;
     }
@@ -36734,7 +36796,7 @@ export namespace monitoring {
 
     export interface ActionGroupArmRoleReceiver {
         /**
-         * The name of the ARM role receiver. Changing this forces a new resource to be created.
+         * The name of the ARM role receiver.
          */
         name: string;
         /**
@@ -36757,7 +36819,7 @@ export namespace monitoring {
          */
         isGlobalRunbook: boolean;
         /**
-         * The name of the automation runbook receiver. Changing this forces a new resource to be created.
+         * The name of the automation runbook receiver.
          */
         name: string;
         /**
@@ -36784,7 +36846,7 @@ export namespace monitoring {
          */
         emailAddress: string;
         /**
-         * The name of the Azure app push receiver. Changing this forces a new resource to be created.
+         * The name of the Azure app push receiver.
          */
         name: string;
     }
@@ -36803,7 +36865,7 @@ export namespace monitoring {
          */
         httpTriggerUrl: string;
         /**
-         * The name of the Azure Function receiver. Changing this forces a new resource to be created.
+         * The name of the Azure Function receiver.
          */
         name: string;
         /**
@@ -36818,7 +36880,7 @@ export namespace monitoring {
          */
         emailAddress: string;
         /**
-         * The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+         * The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
          */
         name: string;
         /**
@@ -36843,7 +36905,7 @@ export namespace monitoring {
          */
         eventHubNamespace: string;
         /**
-         * The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+         * The name of the EventHub Receiver, must be unique within action group.
          */
         name: string;
         /**
@@ -36866,7 +36928,7 @@ export namespace monitoring {
          */
         connectionId: string;
         /**
-         * The name of the ITSM receiver. Changing this forces a new resource to be created.
+         * The name of the ITSM receiver.
          */
         name: string;
         /**
@@ -36889,7 +36951,7 @@ export namespace monitoring {
          */
         callbackUrl: string;
         /**
-         * The name of the logic app receiver. Changing this forces a new resource to be created.
+         * The name of the logic app receiver.
          */
         name: string;
         /**
@@ -36908,7 +36970,7 @@ export namespace monitoring {
          */
         countryCode: string;
         /**
-         * The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+         * The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
          */
         name: string;
         /**
@@ -36923,7 +36985,7 @@ export namespace monitoring {
          */
         countryCode: string;
         /**
-         * The name of the voice receiver. Changing this forces a new resource to be created.
+         * The name of the voice receiver.
          */
         name: string;
         /**
@@ -36938,7 +37000,7 @@ export namespace monitoring {
          */
         aadAuth?: outputs.monitoring.ActionGroupWebhookReceiverAadAuth;
         /**
-         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
          */
         name: string;
         /**
@@ -37225,7 +37287,7 @@ export namespace monitoring {
          */
         recurrenceMonthlies?: number[];
         /**
-         * specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+         * specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
          */
         recurrenceWeeklies?: string[];
         /**
@@ -37568,7 +37630,7 @@ export namespace monitoring {
 
     export interface AlertProcessingRuleActionGroupScheduleRecurrenceWeekly {
         /**
-         * Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+         * Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
          */
         daysOfWeeks: string[];
         /**
@@ -37811,7 +37873,7 @@ export namespace monitoring {
 
     export interface AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
         /**
-         * Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+         * Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
          */
         daysOfWeeks: string[];
         /**
@@ -38103,7 +38165,7 @@ export namespace monitoring {
          */
         facilityNames: string[];
         /**
-         * Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+         * Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
          */
         logLevels: string[];
         /**
@@ -38932,7 +38994,7 @@ export namespace monitoring {
          */
         operator: string;
         /**
-         * Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+         * Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
          */
         threshold: number;
     }
@@ -38951,7 +39013,7 @@ export namespace monitoring {
          */
         operator: string;
         /**
-         * The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+         * The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
          */
         threshold: number;
     }
@@ -39034,14 +39096,14 @@ export namespace monitoring {
          */
         dimensions: outputs.monitoring.ScheduledQueryRulesLogCriteriaDimension[];
         /**
-         * Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+         * Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
          */
         metricName: string;
     }
 
     export interface ScheduledQueryRulesLogCriteriaDimension {
         /**
-         * Name of the dimension. Changing this forces a new resource to be created.
+         * Name of the dimension.
          */
         name: string;
         /**
@@ -39192,7 +39254,7 @@ export namespace mssql {
          */
         family?: string;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5` and `BC_DC`. Changing this forces a new resource to be created.
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5` and `BC_DC`.
          */
         name: string;
         /**
@@ -39653,7 +39715,7 @@ export namespace mysql {
 
     export interface FlexibleServerIdentity {
         /**
-         * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+         * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block as defined below.
          */
         identityIds?: string[];
         principalId: string;
@@ -40716,7 +40778,7 @@ export namespace network {
          */
         name: string;
         /**
-         * Password for the pfx file specified in data.  Required if `data` is set.
+         * Password for the pfx file specified in data. Required if `data` is set.
          */
         password?: string;
         /**
@@ -40731,20 +40793,19 @@ export namespace network {
          */
         cipherSuites?: string[];
         /**
-         * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
          */
         disabledProtocols?: string[];
         /**
-         * The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         * The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
          */
         minProtocolVersion?: string;
         /**
-         * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-         * are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+         * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
          */
         policyName?: string;
         /**
-         * The Type of the Policy. Possible values are `Predefined` and `Custom`.
+         * The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
          */
         policyType?: string;
     }
@@ -40767,7 +40828,7 @@ export namespace network {
          */
         trustedClientCertificateNames?: string[];
         /**
-         * Should client certificate issuer DN be verified?  Defaults to `false`.
+         * Should client certificate issuer DN be verified? Defaults to `false`.
          */
         verifyClientCertIssuerDn?: boolean;
     }
@@ -40778,20 +40839,19 @@ export namespace network {
          */
         cipherSuites?: string[];
         /**
-         * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
          */
         disabledProtocols?: string[];
         /**
-         * The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         * The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
          */
         minProtocolVersion?: string;
         /**
-         * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-         * are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+         * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
          */
         policyName?: string;
         /**
-         * The Type of the Policy. Possible values are `Predefined` and `Custom`.
+         * The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
          */
         policyType?: string;
     }
@@ -40947,11 +41007,11 @@ export namespace network {
          */
         firewallMode: string;
         /**
-         * The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+         * The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
          */
         maxRequestBodySizeKb?: number;
         /**
-         * Is Request Body Inspection enabled?  Defaults to `true`.
+         * Is Request Body Inspection enabled? Defaults to `true`.
          */
         requestBodyCheck?: boolean;
         /**
@@ -41023,7 +41083,7 @@ export namespace network {
          */
         customerAsn?: number;
         /**
-         * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+         * The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          */
         routingRegistryName?: string;
     }
@@ -41038,7 +41098,7 @@ export namespace network {
          */
         customerAsn?: number;
         /**
-         * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+         * The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          */
         routingRegistryName?: string;
     }
@@ -41271,7 +41331,7 @@ export namespace network {
          */
         name: string;
         /**
-         * A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+         * A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
          */
         protocols: string[];
         /**
@@ -41532,7 +41592,7 @@ export namespace network {
          */
         sourceIpGroups?: string[];
         /**
-         * Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
+         * Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
          */
         terminateTls?: boolean;
         /**
@@ -42377,13 +42437,11 @@ export namespace network {
          */
         asn: number;
         /**
-         * The BGP peering address and BGP identifier
-         * of this BGP speaker.
+         * The BGP peering address and BGP identifier of this BGP speaker.
          */
         bgpPeeringAddress: string;
         /**
-         * The weight added to routes learned from this
-         * BGP speaker.
+         * The weight added to routes learned from this BGP speaker.
          */
         peerWeight: number;
     }
@@ -42580,7 +42638,7 @@ export namespace network {
          */
         gatewayLoadBalancerFrontendIpConfigurationId: string;
         /**
-         * A name used for this IP Configuration. Changing this forces a new resource to be created.
+         * A name used for this IP Configuration.
          */
         name: string;
         /**
@@ -42707,7 +42765,7 @@ export namespace network {
          */
         direction: string;
         /**
-         * The name of the security rule. Changing this forces a new resource to be created.
+         * The name of the security rule.
          */
         name: string;
         /**
@@ -42941,7 +42999,7 @@ export namespace network {
          */
         addressPrefix: string;
         /**
-         * The name of the route. Changing this forces a new resource to be created.
+         * The name of the route.
          */
         name: string;
         /**
@@ -43117,7 +43175,7 @@ export namespace network {
 
     export interface TrafficManagerProfileMonitorConfigCustomHeader {
         /**
-         * The name of the custom header. Changing this forces a new resource to be created.
+         * The name of the custom header.
          */
         name: string;
         /**
@@ -43218,8 +43276,7 @@ export namespace network {
          */
         asn?: number;
         /**
-         * The weight added to routes which have been learned
-         * through BGP peering. Valid values can be between `0` and `100`.
+         * The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
          */
         peerWeight?: number;
         /**
@@ -43260,29 +43317,23 @@ export namespace network {
 
     export interface VirtualNetworkGatewayConnectionIpsecPolicy {
         /**
-         * The DH group used in IKE phase 1 for initial SA. Valid
-         * options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
-         * `ECP256`, `ECP384`, or `None`.
+         * The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
          */
         dhGroup: string;
         /**
-         * The IKE encryption algorithm. Valid
-         * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
+         * The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
          */
         ikeEncryption: string;
         /**
-         * The IKE integrity algorithm. Valid
-         * options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+         * The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
          */
         ikeIntegrity: string;
         /**
-         * The IPSec encryption algorithm. Valid
-         * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+         * The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
          */
         ipsecEncryption: string;
         /**
-         * The IPSec integrity algorithm. Valid
-         * options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+         * The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
          */
         ipsecIntegrity: string;
         /**
@@ -43292,13 +43343,11 @@ export namespace network {
          */
         pfsGroup: string;
         /**
-         * The IPSec SA payload size in KB. Must be at least
-         * `1024` KB. Defaults to `102400000` KB.
+         * The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
          */
         saDatasize: number;
         /**
-         * The IPSec SA lifetime in seconds. Must be at least
-         * `300` seconds. Defaults to `27000` seconds.
+         * The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
          */
         saLifetime: number;
     }
@@ -43323,25 +43372,19 @@ export namespace network {
 
     export interface VirtualNetworkGatewayIpConfiguration {
         /**
-         * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+         * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
          */
         name?: string;
         /**
-         * Defines how the private IP address
-         * of the gateways virtual interface is assigned. Valid options are `Static` or
-         * `Dynamic`. Defaults to `Dynamic`.
+         * Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
          */
         privateIpAddressAllocation?: string;
         /**
-         * The ID of the public IP address to associate
-         * with the Virtual Network Gateway.
+         * The ID of the public IP address to associate with the Virtual Network Gateway.
          */
         publicIpAddressId: string;
         /**
-         * The ID of the gateway subnet of a virtual network in
-         * which the virtual network gateway will be created. It is mandatory that
-         * the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-         * network can contain at most a single Virtual Network Gateway.
+         * The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
          */
         subnetId: string;
     }
@@ -43383,9 +43426,7 @@ export namespace network {
          */
         aadTenant?: string;
         /**
-         * The address space out of which IP addresses for
-         * vpn clients will be taken. You can provide more than one address space, e.g.
-         * in CIDR notation.
+         * The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
          */
         addressSpaces: string[];
         /**
@@ -43428,14 +43469,11 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
         /**
-         * A user-defined name of the root certificate. Changing this forces a new resource to be created.
+         * A user-defined name of the root certificate.
          */
         name: string;
         /**
-         * The public certificate of the root certificate
-         * authority. The certificate must be provided in Base-64 encoded X.509 format
-         * (PEM). In particular, this argument *must not* include the
-         * `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+         * The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
          */
         publicCertData: string;
     }
@@ -43450,7 +43488,7 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the subnet. Changing this forces a new resource to be created.
+         * The name of the subnet.
          */
         name: string;
         /**
@@ -44067,7 +44105,7 @@ export namespace operationalinsights {
 export namespace orbital {
     export interface ContactProfileLink {
         /**
-         * A list of contact profile link channels. A `channels` block as defined below.
+         * A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
          */
         channels: outputs.orbital.ContactProfileLinkChannel[];
         /**
@@ -44144,7 +44182,7 @@ export namespace orbital {
          */
         direction: string;
         /**
-         * Name of the link. Changing this forces a new resource to be created.
+         * Name of the link.
          */
         name: string;
         /**
@@ -44700,7 +44738,7 @@ export namespace privatelink {
          */
         id: string;
         /**
-         * Specifies the Name of the Private DNS Zone Group. Changing this forces a new `privateDnsZoneGroup` resource to be created.
+         * Specifies the Name of the Private DNS Zone Group.
          */
         name: string;
         /**
@@ -44879,12 +44917,17 @@ export namespace recoveryservices {
          */
         keyId: string;
         /**
-         * Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+         * Indicate that system assigned identity should be used or not. Defaults to `true`.
          */
         useSystemAssignedIdentity?: boolean;
+        userAssignedIdentityId?: string;
     }
 
     export interface VaultIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+         */
+        identityIds?: string[];
         /**
          * The Principal ID associated with this Managed Service Identity.
          */
@@ -44894,7 +44937,7 @@ export namespace recoveryservices {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -45409,7 +45452,7 @@ export namespace sentinel {
          */
         entityMatchingMethod?: string;
         /**
-         * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+         * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
          */
         groupByAlertDetails?: string[];
         /**
@@ -45884,7 +45927,7 @@ export namespace servicefabric {
          */
         placementProperties?: {[key: string]: string};
         /**
-         * The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+         * The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
          */
         reverseProxyEndpointPort?: number;
     }
@@ -46279,11 +46322,11 @@ export namespace signalr {
 export namespace siterecovery {
     export interface ReplicatedVMManagedDisk {
         /**
-         * Id of disk that should be replicated.
+         * Id of disk that should be replicated. Changing this forces a new resource to be created.
          */
         diskId: string;
         /**
-         * Storage account that should be used for caching.
+         * Storage account that should be used for caching. Changing this forces a new resource to be created.
          */
         stagingStorageAccountId: string;
         /**
@@ -46291,19 +46334,19 @@ export namespace siterecovery {
          */
         targetDiskEncryption?: outputs.siterecovery.ReplicatedVMManagedDiskTargetDiskEncryption;
         /**
-         * The Disk Encryption Set that the Managed Disk will be associated with.
+         * The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
          */
         targetDiskEncryptionSetId?: string;
         /**
-         * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+         * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
          */
         targetDiskType: string;
         /**
-         * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+         * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
          */
         targetReplicaDiskType: string;
         /**
-         * Resource group disk should belong to when a failover is done.
+         * Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
          */
         targetResourceGroupId: string;
     }
@@ -46343,7 +46386,7 @@ export namespace siterecovery {
 
     export interface ReplicatedVMNetworkInterface {
         /**
-         * If this is the primary network interface used for failover. If there is only one `networkInterface` block, this is automatically set to `true`.
+         * @deprecated this property is not used and will be removed in version 4.0 of the provider
          */
         isPrimary?: boolean;
         /**
@@ -46843,7 +46886,7 @@ export namespace storage {
 
     export interface AccountQueuePropertiesHourMetrics {
         /**
-         * Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+         * Indicates whether hour metrics are enabled for the Queue service.
          */
         enabled: boolean;
         /**
@@ -46851,41 +46894,41 @@ export namespace storage {
          */
         includeApis?: boolean;
         /**
-         * Specifies the number of days that logs will be retained. Changing this forces a new resource.
+         * Specifies the number of days that logs will be retained.
          */
         retentionPolicyDays?: number;
         /**
-         * The version of storage analytics to configure. Changing this forces a new resource.
+         * The version of storage analytics to configure.
          */
         version: string;
     }
 
     export interface AccountQueuePropertiesLogging {
         /**
-         * Indicates whether all delete requests should be logged. Changing this forces a new resource.
+         * Indicates whether all delete requests should be logged.
          */
         delete: boolean;
         /**
-         * Indicates whether all read requests should be logged. Changing this forces a new resource.
+         * Indicates whether all read requests should be logged.
          */
         read: boolean;
         /**
-         * Specifies the number of days that logs will be retained. Changing this forces a new resource.
+         * Specifies the number of days that logs will be retained.
          */
         retentionPolicyDays?: number;
         /**
-         * The version of storage analytics to configure. Changing this forces a new resource.
+         * The version of storage analytics to configure.
          */
         version: string;
         /**
-         * Indicates whether all write requests should be logged. Changing this forces a new resource.
+         * Indicates whether all write requests should be logged.
          */
         write: boolean;
     }
 
     export interface AccountQueuePropertiesMinuteMetrics {
         /**
-         * Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+         * Indicates whether minute metrics are enabled for the Queue service.
          */
         enabled: boolean;
         /**
@@ -46893,11 +46936,11 @@ export namespace storage {
          */
         includeApis?: boolean;
         /**
-         * Specifies the number of days that logs will be retained. Changing this forces a new resource.
+         * Specifies the number of days that logs will be retained.
          */
         retentionPolicyDays?: number;
         /**
-         * The version of storage analytics to configure. Changing this forces a new resource.
+         * The version of storage analytics to configure.
          */
         version: string;
     }
@@ -47578,7 +47621,7 @@ export namespace storage {
          */
         changeTierToArchiveAfterDaysSinceCreation?: number;
         /**
-         * The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+         * The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
          */
         changeTierToCoolAfterDaysSinceCreation?: number;
         /**
@@ -48215,7 +48258,7 @@ export namespace trafficmanager {
 
     export interface ProfileMonitorConfigCustomHeader {
         /**
-         * The name of the custom header. Changing this forces a new resource to be created.
+         * The name of the custom header.
          */
         name: string;
         /**
@@ -48420,7 +48463,7 @@ export namespace waf {
          */
         fileUploadLimitInMb?: number;
         /**
-         * The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
+         * The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
          */
         maxRequestBodySizeInKb?: number;
         /**
@@ -48457,16 +48500,11 @@ export namespace webpubsub {
          */
         systemEvents?: string[];
         /**
-         * The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
-         * available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
-         * comes in. Example: `http://example.com/api/{hub}/{event}`.
+         * The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
          */
         urlTemplate: string;
         /**
-         * Specify the matching event names. There are 3 kind of patterns supported:
-         * * `*` matches any event name
-         * * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
-         * * The single event name, for example `event1`, it matches `event1`.
+         * Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
          */
         userEventPattern?: string;
     }

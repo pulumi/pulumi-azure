@@ -85,7 +85,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly dataLocale!: pulumi.Output<string>;
     /**
-     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
      */
     public readonly eventsLateArrivalMaxDelayInSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -93,7 +93,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly eventsOutOfOrderMaxDelayInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
      */
     public readonly eventsOutOfOrderPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -117,7 +117,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
      */
     public readonly outputErrorPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface JobState {
      */
     dataLocale?: pulumi.Input<string>;
     /**
-     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
      */
     eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
     /**
@@ -233,7 +233,7 @@ export interface JobState {
      */
     eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
      */
     eventsOutOfOrderPolicy?: pulumi.Input<string>;
     /**
@@ -257,7 +257,7 @@ export interface JobState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
      */
     outputErrorPolicy?: pulumi.Input<string>;
     /**
@@ -303,7 +303,7 @@ export interface JobArgs {
      */
     dataLocale?: pulumi.Input<string>;
     /**
-     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
      */
     eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
     /**
@@ -311,7 +311,7 @@ export interface JobArgs {
      */
     eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
      */
     eventsOutOfOrderPolicy?: pulumi.Input<string>;
     /**
@@ -331,7 +331,7 @@ export interface JobArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
      */
     outputErrorPolicy?: pulumi.Input<string>;
     /**

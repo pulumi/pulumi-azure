@@ -84,7 +84,6 @@ export class NetworkManagerManagementGroupConnection extends pulumi.CustomResour
 
     /**
      * The Connection state of the Network Manager Management Group Connection.
-     * *
      */
     public /*out*/ readonly connectionState!: pulumi.Output<string>;
     /**
@@ -92,7 +91,7 @@ export class NetworkManagerManagementGroupConnection extends pulumi.CustomResour
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the ID of the target Management Group.
+     * Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      */
     public readonly managementGroupId!: pulumi.Output<string>;
     /**
@@ -100,7 +99,7 @@ export class NetworkManagerManagementGroupConnection extends pulumi.CustomResour
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the ID of the Network Manager which the Management Group is connected to.
+     * Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      */
     public readonly networkManagerId!: pulumi.Output<string>;
 
@@ -147,7 +146,6 @@ export class NetworkManagerManagementGroupConnection extends pulumi.CustomResour
 export interface NetworkManagerManagementGroupConnectionState {
     /**
      * The Connection state of the Network Manager Management Group Connection.
-     * *
      */
     connectionState?: pulumi.Input<string>;
     /**
@@ -155,7 +153,7 @@ export interface NetworkManagerManagementGroupConnectionState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the target Management Group.
+     * Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      */
     managementGroupId?: pulumi.Input<string>;
     /**
@@ -163,7 +161,7 @@ export interface NetworkManagerManagementGroupConnectionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the Network Manager which the Management Group is connected to.
+     * Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      */
     networkManagerId?: pulumi.Input<string>;
 }
@@ -177,7 +175,7 @@ export interface NetworkManagerManagementGroupConnectionArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the target Management Group.
+     * Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      */
     managementGroupId: pulumi.Input<string>;
     /**
@@ -185,7 +183,7 @@ export interface NetworkManagerManagementGroupConnectionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the Network Manager which the Management Group is connected to.
+     * Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      */
     networkManagerId: pulumi.Input<string>;
 }

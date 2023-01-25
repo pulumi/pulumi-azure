@@ -32,16 +32,14 @@ public final class LocalNetworkGatewayBgpSettingsArgs extends com.pulumi.resourc
     }
 
     /**
-     * The BGP peering address and BGP identifier
-     * of this BGP speaker.
+     * The BGP peering address and BGP identifier of this BGP speaker.
      * 
      */
     @Import(name="bgpPeeringAddress", required=true)
     private Output<String> bgpPeeringAddress;
 
     /**
-     * @return The BGP peering address and BGP identifier
-     * of this BGP speaker.
+     * @return The BGP peering address and BGP identifier of this BGP speaker.
      * 
      */
     public Output<String> bgpPeeringAddress() {
@@ -49,16 +47,14 @@ public final class LocalNetworkGatewayBgpSettingsArgs extends com.pulumi.resourc
     }
 
     /**
-     * The weight added to routes learned from this
-     * BGP speaker.
+     * The weight added to routes learned from this BGP speaker.
      * 
      */
     @Import(name="peerWeight")
     private @Nullable Output<Integer> peerWeight;
 
     /**
-     * @return The weight added to routes learned from this
-     * BGP speaker.
+     * @return The weight added to routes learned from this BGP speaker.
      * 
      */
     public Optional<Output<Integer>> peerWeight() {
@@ -113,8 +109,7 @@ public final class LocalNetworkGatewayBgpSettingsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param bgpPeeringAddress The BGP peering address and BGP identifier
-         * of this BGP speaker.
+         * @param bgpPeeringAddress The BGP peering address and BGP identifier of this BGP speaker.
          * 
          * @return builder
          * 
@@ -125,8 +120,7 @@ public final class LocalNetworkGatewayBgpSettingsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param bgpPeeringAddress The BGP peering address and BGP identifier
-         * of this BGP speaker.
+         * @param bgpPeeringAddress The BGP peering address and BGP identifier of this BGP speaker.
          * 
          * @return builder
          * 
@@ -136,8 +130,7 @@ public final class LocalNetworkGatewayBgpSettingsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param peerWeight The weight added to routes learned from this
-         * BGP speaker.
+         * @param peerWeight The weight added to routes learned from this BGP speaker.
          * 
          * @return builder
          * 
@@ -148,8 +141,7 @@ public final class LocalNetworkGatewayBgpSettingsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param peerWeight The weight added to routes learned from this
-         * BGP speaker.
+         * @param peerWeight The weight added to routes learned from this BGP speaker.
          * 
          * @return builder
          * 

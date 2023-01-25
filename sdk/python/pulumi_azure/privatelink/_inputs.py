@@ -330,7 +330,7 @@ class EndpointPrivateDnsZoneGroupArgs:
                  private_dns_zone_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
+        :param pulumi.Input[str] name: Specifies the Name of the Private DNS Zone Group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_dns_zone_ids: Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
         :param pulumi.Input[str] id: The ID of the Private DNS Zone Config.
         """
@@ -343,7 +343,7 @@ class EndpointPrivateDnsZoneGroupArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
+        Specifies the Name of the Private DNS Zone Group.
         """
         return pulumi.get(self, "name")
 

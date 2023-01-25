@@ -19,7 +19,7 @@ public final class ScaleSetOsProfileLinuxConfig {
      */
     private @Nullable Boolean disablePasswordAuthentication;
     /**
-     * @return Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+     * @return One or more `ssh_keys` blocks as defined below.
      * 
      */
     private @Nullable List<ScaleSetOsProfileLinuxConfigSshKey> sshKeys;
@@ -33,7 +33,7 @@ public final class ScaleSetOsProfileLinuxConfig {
         return Optional.ofNullable(this.disablePasswordAuthentication);
     }
     /**
-     * @return Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+     * @return One or more `ssh_keys` blocks as defined below.
      * 
      */
     public List<ScaleSetOsProfileLinuxConfigSshKey> sshKeys() {

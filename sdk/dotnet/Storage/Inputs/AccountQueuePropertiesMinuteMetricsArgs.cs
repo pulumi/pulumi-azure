@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountQueuePropertiesMinuteMetricsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+        /// Indicates whether minute metrics are enabled for the Queue service.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<bool>? IncludeApis { get; set; }
 
         /// <summary>
-        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// Specifies the number of days that logs will be retained.
         /// </summary>
         [Input("retentionPolicyDays")]
         public Input<int>? RetentionPolicyDays { get; set; }
 
         /// <summary>
-        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// The version of storage analytics to configure.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;

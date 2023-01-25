@@ -42,7 +42,7 @@ public final class ConnectionAuthentication {
      */
     private @Nullable String subscriptionId;
     /**
-     * @return The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+     * @return The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
      * 
      */
     private String type;
@@ -91,7 +91,7 @@ public final class ConnectionAuthentication {
         return Optional.ofNullable(this.subscriptionId);
     }
     /**
-     * @return The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+     * @return The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
      * 
      */
     public String type() {

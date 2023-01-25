@@ -140,16 +140,14 @@ public final class WebTestState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the Application Insights WebTest. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Application Insights WebTest. Changing this forces a
-     * new resource to be created.
+     * @return Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -439,8 +437,7 @@ public final class WebTestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Application Insights WebTest. Changing this forces a
-         * new resource to be created.
+         * @param name Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -451,8 +448,7 @@ public final class WebTestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Application Insights WebTest. Changing this forces a
-         * new resource to be created.
+         * @param name Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -219,14 +219,14 @@ public class Script extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scriptContent);
     }
     /**
-     * The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      * 
      */
     @Export(name="url", type=String.class, parameters={})
     private Output</* @Nullable */ String> url;
 
     /**
-     * @return The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * @return The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      * 
      */
     public Output<Optional<String>> url() {

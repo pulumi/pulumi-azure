@@ -12,8 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScaleSetStorageProfileImageReference {
     /**
-     * @return Specifies the ID of the (custom) image to use to create the virtual
-     * machine scale set, as in the example below.
+     * @return Specifies the ID of the (custom) image to use to create the virtual machine scale set, as in the example below.
      * 
      */
     private @Nullable String id;
@@ -40,8 +39,7 @@ public final class ScaleSetStorageProfileImageReference {
 
     private ScaleSetStorageProfileImageReference() {}
     /**
-     * @return Specifies the ID of the (custom) image to use to create the virtual
-     * machine scale set, as in the example below.
+     * @return Specifies the ID of the (custom) image to use to create the virtual machine scale set, as in the example below.
      * 
      */
     public Optional<String> id() {

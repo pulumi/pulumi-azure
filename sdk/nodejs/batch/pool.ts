@@ -192,7 +192,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
+     * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.batch.PoolNetworkConfiguration | undefined>;
     /**
@@ -217,7 +217,7 @@ export class Pool extends pulumi.CustomResource {
     public readonly startTask!: pulumi.Output<outputs.batch.PoolStartTask | undefined>;
     public readonly stopPendingResizeOperation!: pulumi.Output<boolean | undefined>;
     /**
-     * A `storageImageReference` for the virtual machines that will compose the Batch pool.
+     * A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
      */
     public readonly storageImageReference!: pulumi.Output<outputs.batch.PoolStorageImageReference>;
     /**
@@ -398,7 +398,7 @@ export interface PoolState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
+     * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      */
     networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
@@ -423,7 +423,7 @@ export interface PoolState {
     startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
     stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
-     * A `storageImageReference` for the virtual machines that will compose the Batch pool.
+     * A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
      */
     storageImageReference?: pulumi.Input<inputs.batch.PoolStorageImageReference>;
     /**
@@ -513,7 +513,7 @@ export interface PoolArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
+     * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      */
     networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
@@ -538,7 +538,7 @@ export interface PoolArgs {
     startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
     stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
-     * A `storageImageReference` for the virtual machines that will compose the Batch pool.
+     * A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
      */
     storageImageReference: pulumi.Input<inputs.batch.PoolStorageImageReference>;
     /**

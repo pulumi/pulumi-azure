@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DataboxEdge.Outputs
     public sealed class OrderShipmentAddress
     {
         /// <summary>
-        /// The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+        /// The list of upto 3 lines for address information.
         /// </summary>
         public readonly ImmutableArray<string> Addresses;
         /// <summary>

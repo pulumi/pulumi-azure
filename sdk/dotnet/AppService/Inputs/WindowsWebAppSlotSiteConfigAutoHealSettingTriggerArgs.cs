@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+        /// The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
         /// </summary>
         [Input("privateMemoryKb")]
         public Input<int>? PrivateMemoryKb { get; set; }

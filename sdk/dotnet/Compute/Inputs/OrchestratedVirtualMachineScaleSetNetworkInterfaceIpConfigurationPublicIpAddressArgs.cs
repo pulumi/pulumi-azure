@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs>? _ipTags;
 
         /// <summary>
-        /// One or more `ip_tag` blocks as defined above.
+        /// One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs> IpTags
         {

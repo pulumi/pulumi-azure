@@ -31,7 +31,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Health Probe. Changing this forces a new resource to be created.
+        /// Specifies the name of the Health Probe.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

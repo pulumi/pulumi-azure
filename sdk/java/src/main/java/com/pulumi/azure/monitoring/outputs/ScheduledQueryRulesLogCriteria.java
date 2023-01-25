@@ -17,7 +17,7 @@ public final class ScheduledQueryRulesLogCriteria {
      */
     private List<ScheduledQueryRulesLogCriteriaDimension> dimensions;
     /**
-     * @return Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+     * @return Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
      * 
      */
     private String metricName;
@@ -31,7 +31,7 @@ public final class ScheduledQueryRulesLogCriteria {
         return this.dimensions;
     }
     /**
-     * @return Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+     * @return Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
      * 
      */
     public String metricName() {

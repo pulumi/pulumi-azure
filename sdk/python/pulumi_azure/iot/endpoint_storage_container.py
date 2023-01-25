@@ -39,7 +39,7 @@ class EndpointStorageContainerArgs:
         :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the storage endpoint.
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
-        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "iothub_id", iothub_id)
@@ -199,7 +199,7 @@ class EndpointStorageContainerArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -235,7 +235,7 @@ class _EndpointStorageContainerState:
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the storage endpoint.
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
-        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         """
         if authentication_type is not None:
@@ -387,7 +387,7 @@ class _EndpointStorageContainerState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -484,7 +484,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the storage endpoint.
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
-        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         """
         ...
@@ -634,7 +634,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the storage endpoint.
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
-        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -739,7 +739,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

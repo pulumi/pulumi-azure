@@ -2551,7 +2551,7 @@ class ApplicationGatewaySslCertificate(dict):
         :param str data: PFX certificate. Required if `key_vault_secret_id` is not set.
         :param str id: The ID of the Rewrite Rule Set
         :param str key_vault_secret_id: Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
-        :param str password: Password for the pfx file specified in data.  Required if `data` is set.
+        :param str password: Password for the pfx file specified in data. Required if `data` is set.
         :param str public_cert_data: The Public Certificate Data associated with the SSL Certificate.
         """
         pulumi.set(__self__, "name", name)
@@ -2602,7 +2602,7 @@ class ApplicationGatewaySslCertificate(dict):
     @pulumi.getter
     def password(self) -> Optional[str]:
         """
-        Password for the pfx file specified in data.  Required if `data` is set.
+        Password for the pfx file specified in data. Required if `data` is set.
         """
         return pulumi.get(self, "password")
 
@@ -2650,11 +2650,10 @@ class ApplicationGatewaySslPolicy(dict):
                  policy_type: Optional[str] = None):
         """
         :param Sequence[str] cipher_suites: A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
-        :param Sequence[str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-        :param str min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-        :param str policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-               are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
-        :param str policy_type: The Type of the Policy. Possible values are `Predefined` and `Custom`.
+        :param Sequence[str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+        :param str min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+        :param str policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
+        :param str policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
         """
         if cipher_suites is not None:
             pulumi.set(__self__, "cipher_suites", cipher_suites)
@@ -2679,7 +2678,7 @@ class ApplicationGatewaySslPolicy(dict):
     @pulumi.getter(name="disabledProtocols")
     def disabled_protocols(self) -> Optional[Sequence[str]]:
         """
-        A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         """
         return pulumi.get(self, "disabled_protocols")
 
@@ -2687,7 +2686,7 @@ class ApplicationGatewaySslPolicy(dict):
     @pulumi.getter(name="minProtocolVersion")
     def min_protocol_version(self) -> Optional[str]:
         """
-        The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         """
         return pulumi.get(self, "min_protocol_version")
 
@@ -2695,8 +2694,7 @@ class ApplicationGatewaySslPolicy(dict):
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[str]:
         """
-        The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
+        The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
         """
         return pulumi.get(self, "policy_name")
 
@@ -2704,7 +2702,7 @@ class ApplicationGatewaySslPolicy(dict):
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional[str]:
         """
-        The Type of the Policy. Possible values are `Predefined` and `Custom`.
+        The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
         """
         return pulumi.get(self, "policy_type")
 
@@ -2743,7 +2741,7 @@ class ApplicationGatewaySslProfile(dict):
         :param str id: The ID of the Rewrite Rule Set
         :param 'ApplicationGatewaySslProfileSslPolicyArgs' ssl_policy: a `ssl_policy` block as defined below.
         :param Sequence[str] trusted_client_certificate_names: The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
-        :param bool verify_client_cert_issuer_dn: Should client certificate issuer DN be verified?  Defaults to `false`.
+        :param bool verify_client_cert_issuer_dn: Should client certificate issuer DN be verified? Defaults to `false`.
         """
         pulumi.set(__self__, "name", name)
         if id is not None:
@@ -2791,7 +2789,7 @@ class ApplicationGatewaySslProfile(dict):
     @pulumi.getter(name="verifyClientCertIssuerDn")
     def verify_client_cert_issuer_dn(self) -> Optional[bool]:
         """
-        Should client certificate issuer DN be verified?  Defaults to `false`.
+        Should client certificate issuer DN be verified? Defaults to `false`.
         """
         return pulumi.get(self, "verify_client_cert_issuer_dn")
 
@@ -2831,11 +2829,10 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
                  policy_type: Optional[str] = None):
         """
         :param Sequence[str] cipher_suites: A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
-        :param Sequence[str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-        :param str min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-        :param str policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-               are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
-        :param str policy_type: The Type of the Policy. Possible values are `Predefined` and `Custom`.
+        :param Sequence[str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+        :param str min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+        :param str policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
+        :param str policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
         """
         if cipher_suites is not None:
             pulumi.set(__self__, "cipher_suites", cipher_suites)
@@ -2860,7 +2857,7 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
     @pulumi.getter(name="disabledProtocols")
     def disabled_protocols(self) -> Optional[Sequence[str]]:
         """
-        A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         """
         return pulumi.get(self, "disabled_protocols")
 
@@ -2868,7 +2865,7 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
     @pulumi.getter(name="minProtocolVersion")
     def min_protocol_version(self) -> Optional[str]:
         """
-        The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         """
         return pulumi.get(self, "min_protocol_version")
 
@@ -2876,8 +2873,7 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[str]:
         """
-        The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
+        The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
         """
         return pulumi.get(self, "policy_name")
 
@@ -2885,7 +2881,7 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional[str]:
         """
-        The Type of the Policy. Possible values are `Predefined` and `Custom`.
+        The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
         """
         return pulumi.get(self, "policy_type")
 
@@ -3398,8 +3394,8 @@ class ApplicationGatewayWafConfiguration(dict):
         :param Sequence['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs'] disabled_rule_groups: one or more `disabled_rule_group` blocks as defined below.
         :param Sequence['ApplicationGatewayWafConfigurationExclusionArgs'] exclusions: one or more `exclusion` blocks as defined below.
         :param int file_upload_limit_mb: The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
-        :param int max_request_body_size_kb: The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
-        :param bool request_body_check: Is Request Body Inspection enabled?  Defaults to `true`.
+        :param int max_request_body_size_kb: The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
+        :param bool request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
         :param str rule_set_type: The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -3470,7 +3466,7 @@ class ApplicationGatewayWafConfiguration(dict):
     @pulumi.getter(name="maxRequestBodySizeKb")
     def max_request_body_size_kb(self) -> Optional[int]:
         """
-        The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+        The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
         """
         return pulumi.get(self, "max_request_body_size_kb")
 
@@ -3478,7 +3474,7 @@ class ApplicationGatewayWafConfiguration(dict):
     @pulumi.getter(name="requestBodyCheck")
     def request_body_check(self) -> Optional[bool]:
         """
-        Is Request Body Inspection enabled?  Defaults to `true`.
+        Is Request Body Inspection enabled? Defaults to `true`.
         """
         return pulumi.get(self, "request_body_check")
 
@@ -3717,7 +3713,7 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
         """
         :param Sequence[str] advertised_public_prefixes: A list of Advertised Public Prefixes.
         :param int customer_asn: The CustomerASN of the peering. Defaults to `0`.
-        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         if advertised_public_prefixes is not None:
             pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
@@ -3746,7 +3742,7 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
     @pulumi.getter(name="routingRegistryName")
     def routing_registry_name(self) -> Optional[str]:
         """
-        The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+        The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         return pulumi.get(self, "routing_registry_name")
 
@@ -3781,7 +3777,7 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
         """
         :param Sequence[str] advertised_public_prefixes: A list of Advertised Public Prefixes.
         :param int customer_asn: The CustomerASN of the peering. Defaults to `0`.
-        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
         if customer_asn is not None:
@@ -3809,7 +3805,7 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
     @pulumi.getter(name="routingRegistryName")
     def routing_registry_name(self) -> Optional[str]:
         """
-        The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+        The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         return pulumi.get(self, "routing_registry_name")
 
@@ -4639,7 +4635,7 @@ class FirewallNatRuleCollectionRule(dict):
         :param Sequence[str] destination_addresses: A list of destination IP addresses and/or IP ranges.
         :param Sequence[str] destination_ports: A list of destination ports.
         :param str name: Specifies the name of the rule.
-        :param Sequence[str] protocols: A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+        :param Sequence[str] protocols: A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
         :param str translated_address: The address of the service behind the Firewall.
         :param str translated_port: The port of the service behind the Firewall.
         :param str description: Specifies a description for the rule.
@@ -4687,7 +4683,7 @@ class FirewallNatRuleCollectionRule(dict):
     @pulumi.getter
     def protocols(self) -> Sequence[str]:
         """
-        A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+        A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
         """
         return pulumi.get(self, "protocols")
 
@@ -5528,7 +5524,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
         :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs'] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
-        :param bool terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+        :param bool terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
         :param Sequence[str] web_categories: Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
         """
         pulumi.set(__self__, "name", name)
@@ -5629,7 +5625,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @pulumi.getter(name="terminateTls")
     def terminate_tls(self) -> Optional[bool]:
         """
-        Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+        Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
         """
         return pulumi.get(self, "terminate_tls")
 
@@ -6239,10 +6235,8 @@ class LocalNetworkGatewayBgpSettings(dict):
                  peer_weight: Optional[int] = None):
         """
         :param int asn: The BGP speaker's ASN.
-        :param str bgp_peering_address: The BGP peering address and BGP identifier
-               of this BGP speaker.
-        :param int peer_weight: The weight added to routes learned from this
-               BGP speaker.
+        :param str bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
+        :param int peer_weight: The weight added to routes learned from this BGP speaker.
         """
         pulumi.set(__self__, "asn", asn)
         pulumi.set(__self__, "bgp_peering_address", bgp_peering_address)
@@ -6261,8 +6255,7 @@ class LocalNetworkGatewayBgpSettings(dict):
     @pulumi.getter(name="bgpPeeringAddress")
     def bgp_peering_address(self) -> str:
         """
-        The BGP peering address and BGP identifier
-        of this BGP speaker.
+        The BGP peering address and BGP identifier of this BGP speaker.
         """
         return pulumi.get(self, "bgp_peering_address")
 
@@ -6270,8 +6263,7 @@ class LocalNetworkGatewayBgpSettings(dict):
     @pulumi.getter(name="peerWeight")
     def peer_weight(self) -> Optional[int]:
         """
-        The weight added to routes learned from this
-        BGP speaker.
+        The weight added to routes learned from this BGP speaker.
         """
         return pulumi.get(self, "peer_weight")
 
@@ -6992,7 +6984,7 @@ class NetworkInterfaceIpConfiguration(dict):
                  public_ip_address_id: Optional[str] = None,
                  subnet_id: Optional[str] = None):
         """
-        :param str name: A name used for this IP Configuration. Changing this forces a new resource to be created.
+        :param str name: A name used for this IP Configuration.
         :param str private_ip_address_allocation: The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
         :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         :param bool primary: Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
@@ -7020,7 +7012,7 @@ class NetworkInterfaceIpConfiguration(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        A name used for this IP Configuration. Changing this forces a new resource to be created.
+        A name used for this IP Configuration.
         """
         return pulumi.get(self, "name")
 
@@ -7403,7 +7395,7 @@ class NetworkSecurityGroupSecurityRule(dict):
         """
         :param str access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param str direction: The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
-        :param str name: The name of the security rule. Changing this forces a new resource to be created.
+        :param str name: The name of the security rule.
         :param int priority: Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         :param str description: A description for this rule. Restricted to 140 characters.
@@ -7466,7 +7458,7 @@ class NetworkSecurityGroupSecurityRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the security rule. Changing this forces a new resource to be created.
+        The name of the security rule.
         """
         return pulumi.get(self, "name")
 
@@ -8333,7 +8325,7 @@ class RouteTableRoute(dict):
                  next_hop_in_ip_address: Optional[str] = None):
         """
         :param str address_prefix: The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
-        :param str name: The name of the route. Changing this forces a new resource to be created.
+        :param str name: The name of the route.
         :param str next_hop_type: The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
         :param str next_hop_in_ip_address: Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
@@ -8355,7 +8347,7 @@ class RouteTableRoute(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the route. Changing this forces a new resource to be created.
+        The name of the route.
         """
         return pulumi.get(self, "name")
 
@@ -8901,7 +8893,7 @@ class TrafficManagerProfileMonitorConfigCustomHeader(dict):
                  name: str,
                  value: str):
         """
-        :param str name: The name of the custom header. Changing this forces a new resource to be created.
+        :param str name: The name of the custom header.
         :param str value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
@@ -8911,7 +8903,7 @@ class TrafficManagerProfileMonitorConfigCustomHeader(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the custom header. Changing this forces a new resource to be created.
+        The name of the custom header.
         """
         return pulumi.get(self, "name")
 
@@ -9286,8 +9278,7 @@ class VirtualNetworkGatewayBgpSettings(dict):
                  peering_addresses: Optional[Sequence['outputs.VirtualNetworkGatewayBgpSettingsPeeringAddress']] = None):
         """
         :param int asn: The Autonomous System Number (ASN) to use as part of the BGP.
-        :param int peer_weight: The weight added to routes which have been learned
-               through BGP peering. Valid values can be between `0` and `100`.
+        :param int peer_weight: The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
         :param Sequence['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs'] peering_addresses: A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         """
         if asn is not None:
@@ -9309,8 +9300,7 @@ class VirtualNetworkGatewayBgpSettings(dict):
     @pulumi.getter(name="peerWeight")
     def peer_weight(self) -> Optional[int]:
         """
-        The weight added to routes which have been learned
-        through BGP peering. Valid values can be between `0` and `100`.
+        The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
         """
         return pulumi.get(self, "peer_weight")
 
@@ -9473,24 +9463,16 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
                  sa_datasize: Optional[int] = None,
                  sa_lifetime: Optional[int] = None):
         """
-        :param str dh_group: The DH group used in IKE phase 1 for initial SA. Valid
-               options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
-               `ECP256`, `ECP384`, or `None`.
-        :param str ike_encryption: The IKE encryption algorithm. Valid
-               options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
-        :param str ike_integrity: The IKE integrity algorithm. Valid
-               options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
-        :param str ipsec_encryption: The IPSec encryption algorithm. Valid
-               options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
-        :param str ipsec_integrity: The IPSec integrity algorithm. Valid
-               options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+        :param str dh_group: The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
+        :param str ike_encryption: The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
+        :param str ike_integrity: The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+        :param str ipsec_encryption: The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+        :param str ipsec_integrity: The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
         :param str pfs_group: The DH group used in IKE phase 2 for new child SA.
                Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
                or `None`.
-        :param int sa_datasize: The IPSec SA payload size in KB. Must be at least
-               `1024` KB. Defaults to `102400000` KB.
-        :param int sa_lifetime: The IPSec SA lifetime in seconds. Must be at least
-               `300` seconds. Defaults to `27000` seconds.
+        :param int sa_datasize: The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
+        :param int sa_lifetime: The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
         """
         pulumi.set(__self__, "dh_group", dh_group)
         pulumi.set(__self__, "ike_encryption", ike_encryption)
@@ -9507,9 +9489,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
     @pulumi.getter(name="dhGroup")
     def dh_group(self) -> str:
         """
-        The DH group used in IKE phase 1 for initial SA. Valid
-        options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
-        `ECP256`, `ECP384`, or `None`.
+        The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
         """
         return pulumi.get(self, "dh_group")
 
@@ -9517,8 +9497,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
     @pulumi.getter(name="ikeEncryption")
     def ike_encryption(self) -> str:
         """
-        The IKE encryption algorithm. Valid
-        options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
+        The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
         """
         return pulumi.get(self, "ike_encryption")
 
@@ -9526,8 +9505,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
     @pulumi.getter(name="ikeIntegrity")
     def ike_integrity(self) -> str:
         """
-        The IKE integrity algorithm. Valid
-        options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+        The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
         """
         return pulumi.get(self, "ike_integrity")
 
@@ -9535,8 +9513,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
     @pulumi.getter(name="ipsecEncryption")
     def ipsec_encryption(self) -> str:
         """
-        The IPSec encryption algorithm. Valid
-        options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+        The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
         """
         return pulumi.get(self, "ipsec_encryption")
 
@@ -9544,8 +9521,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
     @pulumi.getter(name="ipsecIntegrity")
     def ipsec_integrity(self) -> str:
         """
-        The IPSec integrity algorithm. Valid
-        options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+        The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
         """
         return pulumi.get(self, "ipsec_integrity")
 
@@ -9563,8 +9539,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
     @pulumi.getter(name="saDatasize")
     def sa_datasize(self) -> Optional[int]:
         """
-        The IPSec SA payload size in KB. Must be at least
-        `1024` KB. Defaults to `102400000` KB.
+        The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
         """
         return pulumi.get(self, "sa_datasize")
 
@@ -9572,8 +9547,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
     @pulumi.getter(name="saLifetime")
     def sa_lifetime(self) -> Optional[int]:
         """
-        The IPSec SA lifetime in seconds. Must be at least
-        `300` seconds. Defaults to `27000` seconds.
+        The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
         """
         return pulumi.get(self, "sa_lifetime")
 
@@ -9691,16 +9665,10 @@ class VirtualNetworkGatewayIpConfiguration(dict):
                  name: Optional[str] = None,
                  private_ip_address_allocation: Optional[str] = None):
         """
-        :param str public_ip_address_id: The ID of the public IP address to associate
-               with the Virtual Network Gateway.
-        :param str subnet_id: The ID of the gateway subnet of a virtual network in
-               which the virtual network gateway will be created. It is mandatory that
-               the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-               network can contain at most a single Virtual Network Gateway.
-        :param str name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
-        :param str private_ip_address_allocation: Defines how the private IP address
-               of the gateways virtual interface is assigned. Valid options are `Static` or
-               `Dynamic`. Defaults to `Dynamic`.
+        :param str public_ip_address_id: The ID of the public IP address to associate with the Virtual Network Gateway.
+        :param str subnet_id: The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
+        :param str name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
+        :param str private_ip_address_allocation: Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
         """
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -9713,8 +9681,7 @@ class VirtualNetworkGatewayIpConfiguration(dict):
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> str:
         """
-        The ID of the public IP address to associate
-        with the Virtual Network Gateway.
+        The ID of the public IP address to associate with the Virtual Network Gateway.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -9722,10 +9689,7 @@ class VirtualNetworkGatewayIpConfiguration(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        The ID of the gateway subnet of a virtual network in
-        which the virtual network gateway will be created. It is mandatory that
-        the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-        network can contain at most a single Virtual Network Gateway.
+        The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -9733,7 +9697,7 @@ class VirtualNetworkGatewayIpConfiguration(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
         """
         return pulumi.get(self, "name")
 
@@ -9741,9 +9705,7 @@ class VirtualNetworkGatewayIpConfiguration(dict):
     @pulumi.getter(name="privateIpAddressAllocation")
     def private_ip_address_allocation(self) -> Optional[str]:
         """
-        Defines how the private IP address
-        of the gateways virtual interface is assigned. Valid options are `Static` or
-        `Dynamic`. Defaults to `Dynamic`.
+        Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
         """
         return pulumi.get(self, "private_ip_address_allocation")
 
@@ -9895,9 +9857,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
                  vpn_auth_types: Optional[Sequence[str]] = None,
                  vpn_client_protocols: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] address_spaces: The address space out of which IP addresses for
-               vpn clients will be taken. You can provide more than one address space, e.g.
-               in CIDR notation.
+        :param Sequence[str] address_spaces: The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
         :param str aad_audience: The client id of the Azure VPN application.
                See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
         :param str aad_issuer: The STS url for your tenant
@@ -9937,9 +9897,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
     @pulumi.getter(name="addressSpaces")
     def address_spaces(self) -> Sequence[str]:
         """
-        The address space out of which IP addresses for
-        vpn clients will be taken. You can provide more than one address space, e.g.
-        in CIDR notation.
+        The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
         """
         return pulumi.get(self, "address_spaces")
 
@@ -10069,11 +10027,8 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
                  name: str,
                  public_cert_data: str):
         """
-        :param str name: A user-defined name of the root certificate. Changing this forces a new resource to be created.
-        :param str public_cert_data: The public certificate of the root certificate
-               authority. The certificate must be provided in Base-64 encoded X.509 format
-               (PEM). In particular, this argument *must not* include the
-               `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+        :param str name: A user-defined name of the root certificate.
+        :param str public_cert_data: The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "public_cert_data", public_cert_data)
@@ -10082,7 +10037,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        A user-defined name of the root certificate. Changing this forces a new resource to be created.
+        A user-defined name of the root certificate.
         """
         return pulumi.get(self, "name")
 
@@ -10090,10 +10045,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
     @pulumi.getter(name="publicCertData")
     def public_cert_data(self) -> str:
         """
-        The public certificate of the root certificate
-        authority. The certificate must be provided in Base-64 encoded X.509 format
-        (PEM). In particular, this argument *must not* include the
-        `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+        The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
         """
         return pulumi.get(self, "public_cert_data")
 
@@ -10126,7 +10078,7 @@ class VirtualNetworkSubnet(dict):
                  security_group: Optional[str] = None):
         """
         :param str address_prefix: The address prefix to use for the subnet.
-        :param str name: The name of the subnet. Changing this forces a new resource to be created.
+        :param str name: The name of the subnet.
         :param str id: The ID of DDoS Protection Plan.
         :param str security_group: The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         """
@@ -10149,7 +10101,7 @@ class VirtualNetworkSubnet(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the subnet. Changing this forces a new resource to be created.
+        The name of the subnet.
         """
         return pulumi.get(self, "name")
 

@@ -581,9 +581,9 @@ func (o ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput) Index(i 
 }
 
 type ResourceDeploymentScriptAzureCliIdentity struct {
-	// Specifies the list of user-assigned managed identity IDs associated with the resource.
+	// Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
-	// Type of the managed identity. The only possible value is `UserAssigned`.
+	// Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -599,9 +599,9 @@ type ResourceDeploymentScriptAzureCliIdentityInput interface {
 }
 
 type ResourceDeploymentScriptAzureCliIdentityArgs struct {
-	// Specifies the list of user-assigned managed identity IDs associated with the resource.
+	// Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// Type of the managed identity. The only possible value is `UserAssigned`.
+	// Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -682,12 +682,12 @@ func (o ResourceDeploymentScriptAzureCliIdentityOutput) ToResourceDeploymentScri
 	}).(ResourceDeploymentScriptAzureCliIdentityPtrOutput)
 }
 
-// Specifies the list of user-assigned managed identity IDs associated with the resource.
+// Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
 func (o ResourceDeploymentScriptAzureCliIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// Type of the managed identity. The only possible value is `UserAssigned`.
+// Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
 func (o ResourceDeploymentScriptAzureCliIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -716,7 +716,7 @@ func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) Elem() ResourceDeploy
 	}).(ResourceDeploymentScriptAzureCliIdentityOutput)
 }
 
-// Specifies the list of user-assigned managed identity IDs associated with the resource.
+// Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
 func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceDeploymentScriptAzureCliIdentity) []string {
 		if v == nil {
@@ -726,7 +726,7 @@ func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) IdentityIds() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// Type of the managed identity. The only possible value is `UserAssigned`.
+// Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
 func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDeploymentScriptAzureCliIdentity) *string {
 		if v == nil {
@@ -1145,9 +1145,9 @@ func (o ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput) Index(
 }
 
 type ResourceDeploymentScriptPowerShellIdentity struct {
-	// Specifies the list of user-assigned managed identity IDs associated with the resource.
+	// Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
-	// Type of the managed identity. The only possible value is `UserAssigned`.
+	// Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -1163,9 +1163,9 @@ type ResourceDeploymentScriptPowerShellIdentityInput interface {
 }
 
 type ResourceDeploymentScriptPowerShellIdentityArgs struct {
-	// Specifies the list of user-assigned managed identity IDs associated with the resource.
+	// Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// Type of the managed identity. The only possible value is `UserAssigned`.
+	// Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1246,12 +1246,12 @@ func (o ResourceDeploymentScriptPowerShellIdentityOutput) ToResourceDeploymentSc
 	}).(ResourceDeploymentScriptPowerShellIdentityPtrOutput)
 }
 
-// Specifies the list of user-assigned managed identity IDs associated with the resource.
+// Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
 func (o ResourceDeploymentScriptPowerShellIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// Type of the managed identity. The only possible value is `UserAssigned`.
+// Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
 func (o ResourceDeploymentScriptPowerShellIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1280,7 +1280,7 @@ func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) Elem() ResourceDepl
 	}).(ResourceDeploymentScriptPowerShellIdentityOutput)
 }
 
-// Specifies the list of user-assigned managed identity IDs associated with the resource.
+// Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
 func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceDeploymentScriptPowerShellIdentity) []string {
 		if v == nil {
@@ -1290,7 +1290,7 @@ func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) IdentityIds() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Type of the managed identity. The only possible value is `UserAssigned`.
+// Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
 func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDeploymentScriptPowerShellIdentity) *string {
 		if v == nil {

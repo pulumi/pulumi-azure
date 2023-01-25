@@ -123,7 +123,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
      */
     public readonly maxChunkSizeInBytes!: pulumi.Output<number | undefined>;
     /**
-     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -232,7 +232,7 @@ export interface EndpointStorageContainerState {
      */
     maxChunkSizeInBytes?: pulumi.Input<number>;
     /**
-     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -286,7 +286,7 @@ export interface EndpointStorageContainerArgs {
      */
     maxChunkSizeInBytes?: pulumi.Input<number>;
     /**
-     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

@@ -18,14 +18,14 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
     public static final SourceControlGithubActionConfigurationArgs Empty = new SourceControlGithubActionConfigurationArgs();
 
     /**
-     * A `code_configuration` block as defined above.
+     * A `code_configuration` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="codeConfiguration")
     private @Nullable Output<SourceControlGithubActionConfigurationCodeConfigurationArgs> codeConfiguration;
 
     /**
-     * @return A `code_configuration` block as defined above.
+     * @return A `code_configuration` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<SourceControlGithubActionConfigurationCodeConfigurationArgs>> codeConfiguration() {
@@ -89,7 +89,7 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param codeConfiguration A `code_configuration` block as defined above.
+         * @param codeConfiguration A `code_configuration` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param codeConfiguration A `code_configuration` block as defined above.
+         * @param codeConfiguration A `code_configuration` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

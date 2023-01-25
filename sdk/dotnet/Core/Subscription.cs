@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Core
         public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
-        /// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+        /// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         /// </summary>
         [Output("workload")]
         public Output<string?> Workload { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Core
         }
 
         /// <summary>
-        /// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+        /// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         /// </summary>
         [Input("workload")]
         public Input<string>? Workload { get; set; }
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+        /// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         /// </summary>
         [Input("workload")]
         public Input<string>? Workload { get; set; }

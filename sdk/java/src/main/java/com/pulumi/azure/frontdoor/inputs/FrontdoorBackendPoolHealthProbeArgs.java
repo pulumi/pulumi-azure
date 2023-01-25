@@ -63,14 +63,14 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the name of the Health Probe. Changing this forces a new resource to be created.
+     * Specifies the name of the Health Probe.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Health Probe. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Health Probe.
      * 
      */
     public Output<String> name() {
@@ -216,7 +216,7 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name Specifies the name of the Health Probe. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Health Probe.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name Specifies the name of the Health Probe. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Health Probe.
          * 
          * @return builder
          * 

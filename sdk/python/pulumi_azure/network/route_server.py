@@ -26,7 +26,7 @@ class RouteServerArgs:
         The set of arguments for constructing a RouteServer resource.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`.
+        :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
@@ -74,7 +74,7 @@ class RouteServerArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
         """
-        The SKU of the Route Server. The only possible value is `Standard`.
+        The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -164,7 +164,7 @@ class _RouteServerState:
         :param pulumi.Input[str] name: The name of the Route Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`.
+        :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -264,7 +264,7 @@ class _RouteServerState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU of the Route Server. The only possible value is `Standard`.
+        The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -379,7 +379,7 @@ class RouteServer(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Route Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`.
+        :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -516,7 +516,7 @@ class RouteServer(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Route Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`.
+        :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -586,7 +586,7 @@ class RouteServer(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
         """
-        The SKU of the Route Server. The only possible value is `Standard`.
+        The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 

@@ -116,14 +116,14 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
         return this.branch;
     }
     /**
-     * A `github_action_configuration` block as defined below.
+     * A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="githubActionConfiguration", type=SourceControlGithubActionConfiguration.class, parameters={})
     private Output</* @Nullable */ SourceControlGithubActionConfiguration> githubActionConfiguration;
 
     /**
-     * @return A `github_action_configuration` block as defined below.
+     * @return A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<SourceControlGithubActionConfiguration>> githubActionConfiguration() {

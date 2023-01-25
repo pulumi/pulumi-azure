@@ -124,7 +124,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
     /**
-     * The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     * The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      */
     public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
     /**
@@ -366,7 +366,7 @@ export interface ServiceState {
      */
     portalUrl?: pulumi.Input<string>;
     /**
-     * The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     * The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      */
     privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**

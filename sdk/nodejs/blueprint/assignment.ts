@@ -145,7 +145,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly lockExcludePrincipals!: pulumi.Output<string[] | undefined>;
     /**
-     * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+     * The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
      */
     public readonly lockMode!: pulumi.Output<string | undefined>;
     /**
@@ -264,7 +264,7 @@ export interface AssignmentState {
      */
     lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+     * The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
      */
     lockMode?: pulumi.Input<string>;
     /**
@@ -314,7 +314,7 @@ export interface AssignmentArgs {
      */
     lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+     * The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
      */
     lockMode?: pulumi.Input<string>;
     /**

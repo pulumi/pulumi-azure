@@ -43,7 +43,7 @@ class EventGridDataConnectionArgs:
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] skip_first_record: is the first record of every file ignored? Defaults to `false`.
@@ -212,7 +212,7 @@ class EventGridDataConnectionArgs:
     @pulumi.getter(name="managedIdentityResourceId")
     def managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         """
         return pulumi.get(self, "managed_identity_resource_id")
 
@@ -299,7 +299,7 @@ class _EventGridDataConnectionState:
         :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
@@ -452,7 +452,7 @@ class _EventGridDataConnectionState:
     @pulumi.getter(name="managedIdentityResourceId")
     def managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         """
         return pulumi.get(self, "managed_identity_resource_id")
 
@@ -641,7 +641,7 @@ class EventGridDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
@@ -840,7 +840,7 @@ class EventGridDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
@@ -946,7 +946,7 @@ class EventGridDataConnection(pulumi.CustomResource):
     @pulumi.getter(name="managedIdentityResourceId")
     def managed_identity_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         """
         return pulumi.get(self, "managed_identity_resource_id")
 

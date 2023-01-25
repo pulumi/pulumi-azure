@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Lab.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// The password for the user. Changing this forces a new resource to be created.
+        /// The password for the user.
         /// </summary>
         public Input<string>? Password
         {
@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Lab.Inputs
         }
 
         /// <summary>
-        /// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+        /// The username to use when signing in to Lab Service Lab VMs.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;

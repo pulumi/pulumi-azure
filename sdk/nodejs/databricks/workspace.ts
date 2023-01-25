@@ -92,7 +92,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+     * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -226,7 +226,7 @@ export interface WorkspaceState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+     * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -296,7 +296,7 @@ export interface WorkspaceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+     * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
      */
     sku: pulumi.Input<string>;
     /**

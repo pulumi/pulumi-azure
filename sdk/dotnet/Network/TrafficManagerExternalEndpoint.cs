@@ -84,8 +84,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Azure location of the Endpoint,
-        /// this must be specified for Profiles using the `Performance` routing method.
+        /// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         /// </summary>
         [Output("endpointLocation")]
         public Output<string> EndpointLocation { get; private set; } = null!;
@@ -103,10 +102,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the priority of this Endpoint, this must be
-        /// specified for Profiles using the `Priority` traffic routing method. Supports
-        /// values between 1 and 1000, with no Endpoints sharing the same value. If
-        /// omitted the value will be computed in order of creation.
+        /// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
@@ -118,7 +114,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below
+        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<Outputs.TrafficManagerExternalEndpointSubnet>> Subnets { get; private set; } = null!;
@@ -200,8 +196,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the Azure location of the Endpoint,
-        /// this must be specified for Profiles using the `Performance` routing method.
+        /// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         /// </summary>
         [Input("endpointLocation")]
         public Input<string>? EndpointLocation { get; set; }
@@ -225,10 +220,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the priority of this Endpoint, this must be
-        /// specified for Profiles using the `Priority` traffic routing method. Supports
-        /// values between 1 and 1000, with no Endpoints sharing the same value. If
-        /// omitted the value will be computed in order of creation.
+        /// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -243,7 +235,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerExternalEndpointSubnetArgs>? _subnets;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below
+        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.TrafficManagerExternalEndpointSubnetArgs> Subnets
         {
@@ -290,8 +282,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the Azure location of the Endpoint,
-        /// this must be specified for Profiles using the `Performance` routing method.
+        /// Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         /// </summary>
         [Input("endpointLocation")]
         public Input<string>? EndpointLocation { get; set; }
@@ -315,10 +306,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the priority of this Endpoint, this must be
-        /// specified for Profiles using the `Priority` traffic routing method. Supports
-        /// values between 1 and 1000, with no Endpoints sharing the same value. If
-        /// omitted the value will be computed in order of creation.
+        /// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -333,7 +321,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerExternalEndpointSubnetGetArgs>? _subnets;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below
+        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.TrafficManagerExternalEndpointSubnetGetArgs> Subnets
         {

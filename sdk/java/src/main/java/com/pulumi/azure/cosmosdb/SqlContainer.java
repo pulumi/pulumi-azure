@@ -118,14 +118,14 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
         return this.accountName;
     }
     /**
-     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analytical_storage_ttl` on an existing Cosmos DB SQL Container.
+     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      * 
      */
     @Export(name="analyticalStorageTtl", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> analyticalStorageTtl;
 
     /**
-     * @return The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analytical_storage_ttl` on an existing Cosmos DB SQL Container.
+     * @return The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      * 
      */
     public Output<Optional<Integer>> analyticalStorageTtl() {
@@ -146,14 +146,14 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoscaleSettings);
     }
     /**
-     * A `conflict_resolution_policy` blocks as defined below.
+     * A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="conflictResolutionPolicy", type=SqlContainerConflictResolutionPolicy.class, parameters={})
     private Output<SqlContainerConflictResolutionPolicy> conflictResolutionPolicy;
 
     /**
-     * @return A `conflict_resolution_policy` blocks as defined below.
+     * @return A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<SqlContainerConflictResolutionPolicy> conflictResolutionPolicy() {

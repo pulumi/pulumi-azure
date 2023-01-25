@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CidrRanges;
         /// <summary>
-        /// Ingress read time out in seconds. Changing this forces a new resource to be created.
+        /// Ingress read time out in seconds.
         /// </summary>
         public readonly int? ReadTimeoutSeconds;
         /// <summary>

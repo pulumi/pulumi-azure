@@ -68,14 +68,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+     * Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     @Import(name="enableHostEncryption")
     private @Nullable Output<Boolean> enableHostEncryption;
 
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+     * @return Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> enableHostEncryption() {
@@ -83,14 +83,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+     * Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
      * 
      */
     @Import(name="enableNodePublicIp")
     private @Nullable Output<Boolean> enableNodePublicIp;
 
     /**
-     * @return Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+     * @return Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> enableNodePublicIp() {
@@ -128,14 +128,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * A `kubelet_config` block as defined below.
+     * A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="kubeletConfig")
     private @Nullable Output<KubernetesClusterDefaultNodePoolKubeletConfigArgs> kubeletConfig;
 
     /**
-     * @return A `kubelet_config` block as defined below.
+     * @return A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<KubernetesClusterDefaultNodePoolKubeletConfigArgs>> kubeletConfig() {
@@ -158,14 +158,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * A `linux_os_config` block as defined below.
+     * A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="linuxOsConfig")
     private @Nullable Output<KubernetesClusterDefaultNodePoolLinuxOsConfigArgs> linuxOsConfig;
 
     /**
-     * @return A `linux_os_config` block as defined below.
+     * @return A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<KubernetesClusterDefaultNodePoolLinuxOsConfigArgs>> linuxOsConfig() {
@@ -293,14 +293,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * A list of the taints added to new nodes during node pool create and scale.
+     * A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="nodeTaints")
     private @Nullable Output<List<String>> nodeTaints;
 
     /**
-     * @return A list of the taints added to new nodes during node pool create and scale.
+     * @return A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> nodeTaints() {
@@ -669,7 +669,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enableHostEncryption Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+         * @param enableHostEncryption Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -680,7 +680,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enableHostEncryption Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+         * @param enableHostEncryption Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -690,7 +690,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enableNodePublicIp Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+         * @param enableNodePublicIp Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -701,7 +701,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enableNodePublicIp Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+         * @param enableNodePublicIp Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param kubeletConfig A `kubelet_config` block as defined below.
+         * @param kubeletConfig A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -764,7 +764,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param kubeletConfig A `kubelet_config` block as defined below.
+         * @param kubeletConfig A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -795,7 +795,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param linuxOsConfig A `linux_os_config` block as defined below.
+         * @param linuxOsConfig A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -806,7 +806,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param linuxOsConfig A `linux_os_config` block as defined below.
+         * @param linuxOsConfig A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -984,7 +984,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale.
+         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -995,7 +995,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale.
+         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1005,7 +1005,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale.
+         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

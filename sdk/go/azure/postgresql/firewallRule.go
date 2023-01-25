@@ -113,8 +113,7 @@ type FirewallRule struct {
 
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
-	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -167,8 +166,7 @@ func GetFirewallRule(ctx *pulumi.Context,
 type firewallRuleState struct {
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	EndIpAddress *string `pulumi:"endIpAddress"`
-	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -181,8 +179,7 @@ type firewallRuleState struct {
 type FirewallRuleState struct {
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	EndIpAddress pulumi.StringPtrInput
-	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -199,8 +196,7 @@ func (FirewallRuleState) ElementType() reflect.Type {
 type firewallRuleArgs struct {
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	EndIpAddress string `pulumi:"endIpAddress"`
-	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -214,8 +210,7 @@ type firewallRuleArgs struct {
 type FirewallRuleArgs struct {
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	EndIpAddress pulumi.StringInput
-	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -317,8 +312,7 @@ func (o FirewallRuleOutput) EndIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.EndIpAddress }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-// new resource to be created.
+// Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
 func (o FirewallRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

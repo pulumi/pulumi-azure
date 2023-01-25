@@ -14,14 +14,14 @@ public final class LabVirtualMachineNonAdminUserArgs extends com.pulumi.resource
     public static final LabVirtualMachineNonAdminUserArgs Empty = new LabVirtualMachineNonAdminUserArgs();
 
     /**
-     * The password for the user. Changing this forces a new resource to be created.
+     * The password for the user.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return The password for the user. Changing this forces a new resource to be created.
+     * @return The password for the user.
      * 
      */
     public Output<String> password() {
@@ -29,14 +29,14 @@ public final class LabVirtualMachineNonAdminUserArgs extends com.pulumi.resource
     }
 
     /**
-     * The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+     * The username to use when signing in to Lab Service Lab VMs.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+     * @return The username to use when signing in to Lab Service Lab VMs.
      * 
      */
     public Output<String> username() {
@@ -69,7 +69,7 @@ public final class LabVirtualMachineNonAdminUserArgs extends com.pulumi.resource
         }
 
         /**
-         * @param password The password for the user. Changing this forces a new resource to be created.
+         * @param password The password for the user.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class LabVirtualMachineNonAdminUserArgs extends com.pulumi.resource
         }
 
         /**
-         * @param password The password for the user. Changing this forces a new resource to be created.
+         * @param password The password for the user.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class LabVirtualMachineNonAdminUserArgs extends com.pulumi.resource
         }
 
         /**
-         * @param username The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+         * @param username The username to use when signing in to Lab Service Lab VMs.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class LabVirtualMachineNonAdminUserArgs extends com.pulumi.resource
         }
 
         /**
-         * @param username The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+         * @param username The username to use when signing in to Lab Service Lab VMs.
          * 
          * @return builder
          * 

@@ -137,7 +137,7 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
+        /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
         /// </summary>
         [Output("zoneRedundant")]
         public Output<bool?> ZoneRedundant { get; private set; } = null!;
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
+        /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
+        /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

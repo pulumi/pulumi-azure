@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountQueuePropertiesMinuteMetrics
     {
         /// <summary>
-        /// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+        /// Indicates whether minute metrics are enabled for the Queue service.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly bool? IncludeApis;
         /// <summary>
-        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// Specifies the number of days that logs will be retained.
         /// </summary>
         public readonly int? RetentionPolicyDays;
         /// <summary>
-        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// The version of storage analytics to configure.
         /// </summary>
         public readonly string Version;
 

@@ -97,7 +97,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<Outputs.GremlinGraphAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below.
+        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("conflictResolutionPolicy")]
         public Output<Outputs.GremlinGraphConflictResolutionPolicy> ConflictResolutionPolicy { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.GremlinGraphAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below.
+        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("conflictResolutionPolicy")]
         public Input<Inputs.GremlinGraphConflictResolutionPolicyArgs>? ConflictResolutionPolicy { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.GremlinGraphAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below.
+        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("conflictResolutionPolicy")]
         public Input<Inputs.GremlinGraphConflictResolutionPolicyGetArgs>? ConflictResolutionPolicy { get; set; }

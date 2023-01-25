@@ -51,17 +51,17 @@ export interface GetResolverResult {
      */
     readonly id: string;
     /**
-     * Azure Region where the Private DNS Resolver exists.
+     * The Azure Region where the Private DNS Resolver exists.
      */
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
     /**
-     * Mapping of tags which should be assigned to the Private DNS Resolver.
+     * The tags assigned to the Private DNS Resolver.
      */
     readonly tags: {[key: string]: string};
     /**
-     * ID of the Virtual Network that is linked to the Private DNS Resolver.
+     * The ID of the Virtual Network that is linked to the Private DNS Resolver.
      */
     readonly virtualNetworkId: string;
 }

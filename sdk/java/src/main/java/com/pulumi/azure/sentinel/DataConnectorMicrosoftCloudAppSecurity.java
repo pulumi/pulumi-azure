@@ -147,14 +147,14 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
         return this.name;
     }
     /**
-     * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+     * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      * 
      */
     @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**
-     * @return The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+     * @return The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      * 
      */
     public Output<String> tenantId() {

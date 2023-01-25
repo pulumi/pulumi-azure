@@ -27,8 +27,7 @@ class LogProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: List of categories of the logs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of regions for which Activity Log events are stored or streamed.
         :param pulumi.Input['LogProfileRetentionPolicyArgs'] retention_policy: A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
-        :param pulumi.Input[str] name: The name of the Log Profile. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: The name of the Log Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] servicebus_rule_id: The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
         """
@@ -82,8 +81,7 @@ class LogProfileArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Log Profile. Changing this forces a
-        new resource to be created.
+        The name of the Log Profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -129,8 +127,7 @@ class _LogProfileState:
         Input properties used for looking up and filtering LogProfile resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: List of categories of the logs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of regions for which Activity Log events are stored or streamed.
-        :param pulumi.Input[str] name: The name of the Log Profile. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: The name of the Log Profile. Changing this forces a new resource to be created.
         :param pulumi.Input['LogProfileRetentionPolicyArgs'] retention_policy: A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
         :param pulumi.Input[str] servicebus_rule_id: The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
@@ -176,8 +173,7 @@ class _LogProfileState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Log Profile. Changing this forces a
-        new resource to be created.
+        The name of the Log Profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -286,8 +282,7 @@ class LogProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: List of categories of the logs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of regions for which Activity Log events are stored or streamed.
-        :param pulumi.Input[str] name: The name of the Log Profile. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: The name of the Log Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LogProfileRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
         :param pulumi.Input[str] servicebus_rule_id: The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
@@ -413,8 +408,7 @@ class LogProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: List of categories of the logs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of regions for which Activity Log events are stored or streamed.
-        :param pulumi.Input[str] name: The name of the Log Profile. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: The name of the Log Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LogProfileRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
         :param pulumi.Input[str] servicebus_rule_id: The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
@@ -451,8 +445,7 @@ class LogProfile(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Log Profile. Changing this forces a
-        new resource to be created.
+        The name of the Log Profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

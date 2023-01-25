@@ -182,14 +182,14 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.description);
     }
     /**
-     * Whether this scheduled query rule is enabled.  Default is `true`.
+     * Whether this scheduled query rule is enabled. Default is `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Whether this scheduled query rule is enabled.  Default is `true`.
+     * @return Whether this scheduled query rule is enabled. Default is `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

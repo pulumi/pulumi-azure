@@ -118,7 +118,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly adminPassword!: pulumi.Output<string | undefined>;
     /**
-     * One or more `adminSshKey` blocks as defined below.
+     * One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly adminSshKeys!: pulumi.Output<outputs.compute.LinuxVirtualMachineAdminSshKey[] | undefined>;
     /**
@@ -455,7 +455,7 @@ export interface LinuxVirtualMachineState {
      */
     adminPassword?: pulumi.Input<string>;
     /**
-     * One or more `adminSshKey` blocks as defined below.
+     * One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
      */
     adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineAdminSshKey>[]>;
     /**
@@ -657,7 +657,7 @@ export interface LinuxVirtualMachineArgs {
      */
     adminPassword?: pulumi.Input<string>;
     /**
-     * One or more `adminSshKey` blocks as defined below.
+     * One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
      */
     adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineAdminSshKey>[]>;
     /**

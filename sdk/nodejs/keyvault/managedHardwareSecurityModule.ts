@@ -90,7 +90,7 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
      */
     public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -200,7 +200,7 @@ export interface ManagedHardwareSecurityModuleState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
      */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**
@@ -250,7 +250,7 @@ export interface ManagedHardwareSecurityModuleArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
      */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**

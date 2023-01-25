@@ -62,14 +62,14 @@ public final class HealthbotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+     * @return Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -199,7 +199,7 @@ public final class HealthbotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+         * @param resourceGroupName Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class HealthbotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+         * @param resourceGroupName Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
          * 
          * @return builder
          * 

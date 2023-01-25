@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int? IdleTimeoutInMinutes;
         /// <summary>
-        /// One or more `ip_tag` blocks as defined above.
+        /// One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> IpTags;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? PublicIpPrefixId;
         /// <summary>
-        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Version;
 

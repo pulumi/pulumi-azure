@@ -267,14 +267,14 @@ public class Subscription extends com.pulumi.resources.CustomResource {
         return this.tenantId;
     }
     /**
-     * The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+     * The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      * 
      */
     @Export(name="workload", type=String.class, parameters={})
     private Output</* @Nullable */ String> workload;
 
     /**
-     * @return The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+     * @return The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      * 
      */
     public Output<Optional<String>> workload() {

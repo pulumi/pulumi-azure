@@ -77,11 +77,11 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * The name of the collation. Applies only if `createMode` is `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     public readonly collation!: pulumi.Output<string>;
     /**
-     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
+     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
@@ -110,7 +110,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
+     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      */
     public readonly maxSizeBytes!: pulumi.Output<string>;
     public readonly maxSizeGb!: pulumi.Output<string>;
@@ -132,7 +132,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly requestedServiceObjectiveName!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the database. This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -242,11 +242,11 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseState {
     /**
-     * The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * The name of the collation. Applies only if `createMode` is `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     collation?: pulumi.Input<string>;
     /**
-     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
+     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -275,7 +275,7 @@ export interface DatabaseState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
+     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      */
     maxSizeBytes?: pulumi.Input<string>;
     maxSizeGb?: pulumi.Input<string>;
@@ -297,7 +297,7 @@ export interface DatabaseState {
      */
     requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the database. This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -335,11 +335,11 @@ export interface DatabaseState {
  */
 export interface DatabaseArgs {
     /**
-     * The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * The name of the collation. Applies only if `createMode` is `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     collation?: pulumi.Input<string>;
     /**
-     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
+     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -359,7 +359,7 @@ export interface DatabaseArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
+     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      */
     maxSizeBytes?: pulumi.Input<string>;
     maxSizeGb?: pulumi.Input<string>;
@@ -381,7 +381,7 @@ export interface DatabaseArgs {
      */
     requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the database. This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

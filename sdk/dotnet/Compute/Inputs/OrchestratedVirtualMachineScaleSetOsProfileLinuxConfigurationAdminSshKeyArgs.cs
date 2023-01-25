@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+        /// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
         /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
 
         /// <summary>
-        /// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+        /// The Username for which this Public SSH Key should be configured.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;

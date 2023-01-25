@@ -31,13 +31,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
-        /// Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        /// Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableHostEncryption")]
         public Input<bool>? EnableHostEncryption { get; set; }
 
         /// <summary>
-        /// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
+        /// Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableNodePublicIp")]
         public Input<bool>? EnableNodePublicIp { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? HostGroupId { get; set; }
 
         /// <summary>
-        /// A `kubelet_config` block as defined below.
+        /// A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kubeletConfig")]
         public Input<Inputs.KubernetesClusterDefaultNodePoolKubeletConfigGetArgs>? KubeletConfig { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? KubeletDiskType { get; set; }
 
         /// <summary>
-        /// A `linux_os_config` block as defined below.
+        /// A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("linuxOsConfig")]
         public Input<Inputs.KubernetesClusterDefaultNodePoolLinuxOsConfigGetArgs>? LinuxOsConfig { get; set; }
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<string>? _nodeTaints;
 
         /// <summary>
-        /// A list of the taints added to new nodes during node pool create and scale.
+        /// A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> NodeTaints
         {

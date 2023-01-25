@@ -14,29 +14,23 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class VirtualNetworkGatewayConnectionIpsecPolicy
     {
         /// <summary>
-        /// The DH group used in IKE phase 1 for initial SA. Valid
-        /// options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
-        /// `ECP256`, `ECP384`, or `None`.
+        /// The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
         /// </summary>
         public readonly string DhGroup;
         /// <summary>
-        /// The IKE encryption algorithm. Valid
-        /// options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
+        /// The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
         /// </summary>
         public readonly string IkeEncryption;
         /// <summary>
-        /// The IKE integrity algorithm. Valid
-        /// options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+        /// The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
         /// </summary>
         public readonly string IkeIntegrity;
         /// <summary>
-        /// The IPSec encryption algorithm. Valid
-        /// options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+        /// The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
         /// </summary>
         public readonly string IpsecEncryption;
         /// <summary>
-        /// The IPSec integrity algorithm. Valid
-        /// options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+        /// The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
         /// </summary>
         public readonly string IpsecIntegrity;
         /// <summary>
@@ -46,13 +40,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string PfsGroup;
         /// <summary>
-        /// The IPSec SA payload size in KB. Must be at least
-        /// `1024` KB. Defaults to `102400000` KB.
+        /// The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
         /// </summary>
         public readonly int? SaDatasize;
         /// <summary>
-        /// The IPSec SA lifetime in seconds. Must be at least
-        /// `300` seconds. Defaults to `27000` seconds.
+        /// The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
         /// </summary>
         public readonly int? SaLifetime;
 

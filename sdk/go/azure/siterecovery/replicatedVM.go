@@ -282,7 +282,7 @@ import (
 type ReplicatedVM struct {
 	pulumi.CustomResourceState
 
-	// One or more `managedDisk` block as defined below.
+	// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 	ManagedDisks ReplicatedVMManagedDiskArrayOutput `pulumi:"managedDisks"`
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -370,7 +370,7 @@ func GetReplicatedVM(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicatedVM resources.
 type replicatedVMState struct {
-	// One or more `managedDisk` block as defined below.
+	// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -403,7 +403,7 @@ type replicatedVMState struct {
 }
 
 type ReplicatedVMState struct {
-	// One or more `managedDisk` block as defined below.
+	// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -440,7 +440,7 @@ func (ReplicatedVMState) ElementType() reflect.Type {
 }
 
 type replicatedVMArgs struct {
-	// One or more `managedDisk` block as defined below.
+	// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -474,7 +474,7 @@ type replicatedVMArgs struct {
 
 // The set of arguments for constructing a ReplicatedVM resource.
 type ReplicatedVMArgs struct {
-	// One or more `managedDisk` block as defined below.
+	// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -593,7 +593,7 @@ func (o ReplicatedVMOutput) ToReplicatedVMOutputWithContext(ctx context.Context)
 	return o
 }
 
-// One or more `managedDisk` block as defined below.
+// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 func (o ReplicatedVMOutput) ManagedDisks() ReplicatedVMManagedDiskArrayOutput {
 	return o.ApplyT(func(v *ReplicatedVM) ReplicatedVMManagedDiskArrayOutput { return v.ManagedDisks }).(ReplicatedVMManagedDiskArrayOutput)
 }

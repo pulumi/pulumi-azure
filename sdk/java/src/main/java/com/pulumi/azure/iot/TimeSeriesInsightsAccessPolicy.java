@@ -105,14 +105,14 @@ public class TimeSeriesInsightsAccessPolicy extends com.pulumi.resources.CustomR
         return this.name;
     }
     /**
-     * The id of the principal in Azure Active Directory.
+     * The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="principalObjectId", type=String.class, parameters={})
     private Output<String> principalObjectId;
 
     /**
-     * @return The id of the principal in Azure Active Directory.
+     * @return The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> principalObjectId() {

@@ -51,16 +51,14 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies the Azure location of the Endpoint,
-     * this must be specified for Profiles using the `Performance` routing method.
+     * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      * 
      */
     @Import(name="endpointLocation")
     private @Nullable Output<String> endpointLocation;
 
     /**
-     * @return Specifies the Azure location of the Endpoint,
-     * this must be specified for Profiles using the `Performance` routing method.
+     * @return Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      * 
      */
     public Optional<Output<String>> endpointLocation() {
@@ -83,20 +81,14 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
     }
 
     /**
-     * This argument specifies the minimum number
-     * of endpoints that must be ‘online’ in the child profile in order for the
-     * parent profile to direct traffic to any of the endpoints in that child
-     * profile. This value must be larger than `0`.
+     * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
      */
     @Import(name="minimumChildEndpoints", required=true)
     private Output<Integer> minimumChildEndpoints;
 
     /**
-     * @return This argument specifies the minimum number
-     * of endpoints that must be ‘online’ in the child profile in order for the
-     * parent profile to direct traffic to any of the endpoints in that child
-     * profile. This value must be larger than `0`.
+     * @return This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
      */
     public Output<Integer> minimumChildEndpoints() {
@@ -149,20 +141,14 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * @return Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -185,14 +171,14 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
     }
 
     /**
-     * One or more `subnet` blocks as defined below
+     * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subnets")
     private @Nullable Output<List<TrafficManagerNestedEndpointSubnetArgs>> subnets;
 
     /**
-     * @return One or more `subnet` blocks as defined below
+     * @return One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<TrafficManagerNestedEndpointSubnetArgs>>> subnets() {
@@ -200,16 +186,14 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
     }
 
     /**
-     * The resource id of an Azure resource to
-     * target.
+     * The resource id of an Azure resource to target.
      * 
      */
     @Import(name="targetResourceId", required=true)
     private Output<String> targetResourceId;
 
     /**
-     * @return The resource id of an Azure resource to
-     * target.
+     * @return The resource id of an Azure resource to target.
      * 
      */
     public Output<String> targetResourceId() {
@@ -320,8 +304,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param endpointLocation Specifies the Azure location of the Endpoint,
-         * this must be specified for Profiles using the `Performance` routing method.
+         * @param endpointLocation Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
          * 
          * @return builder
          * 
@@ -332,8 +315,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param endpointLocation Specifies the Azure location of the Endpoint,
-         * this must be specified for Profiles using the `Performance` routing method.
+         * @param endpointLocation Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
          * 
          * @return builder
          * 
@@ -374,10 +356,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param minimumChildEndpoints This argument specifies the minimum number
-         * of endpoints that must be ‘online’ in the child profile in order for the
-         * parent profile to direct traffic to any of the endpoints in that child
-         * profile. This value must be larger than `0`.
+         * @param minimumChildEndpoints This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
          * 
          * @return builder
          * 
@@ -388,10 +367,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param minimumChildEndpoints This argument specifies the minimum number
-         * of endpoints that must be ‘online’ in the child profile in order for the
-         * parent profile to direct traffic to any of the endpoints in that child
-         * profile. This value must be larger than `0`.
+         * @param minimumChildEndpoints This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
          * 
          * @return builder
          * 
@@ -464,10 +440,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param priority Specifies the priority of this Endpoint, this must be
-         * specified for Profiles using the `Priority` traffic routing method. Supports
-         * values between 1 and 1000, with no Endpoints sharing the same value. If
-         * omitted the value will be computed in order of creation.
+         * @param priority Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
          * 
          * @return builder
          * 
@@ -478,10 +451,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param priority Specifies the priority of this Endpoint, this must be
-         * specified for Profiles using the `Priority` traffic routing method. Supports
-         * values between 1 and 1000, with no Endpoints sharing the same value. If
-         * omitted the value will be computed in order of creation.
+         * @param priority Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
          * 
          * @return builder
          * 
@@ -512,7 +482,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param subnets One or more `subnet` blocks as defined below
+         * @param subnets One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -523,7 +493,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param subnets One or more `subnet` blocks as defined below
+         * @param subnets One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -533,7 +503,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param subnets One or more `subnet` blocks as defined below
+         * @param subnets One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -543,8 +513,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param targetResourceId The resource id of an Azure resource to
-         * target.
+         * @param targetResourceId The resource id of an Azure resource to target.
          * 
          * @return builder
          * 
@@ -555,8 +524,7 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         /**
-         * @param targetResourceId The resource id of an Azure resource to
-         * target.
+         * @param targetResourceId The resource id of an Azure resource to target.
          * 
          * @return builder
          * 

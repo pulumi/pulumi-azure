@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ApiManagement
     /// API Management Loggers can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
+    ///  $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/logger:Logger")]
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementName { get; private set; } = null!;
 
         /// <summary>
-        /// An `application_insights` block as documented below.
+        /// An `application_insights` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("applicationInsights")]
         public Output<Outputs.LoggerApplicationInsights?> ApplicationInsights { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An `eventhub` block as documented below.
+        /// An `eventhub` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventhub")]
         public Output<Outputs.LoggerEventhub?> Eventhub { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementName { get; set; } = null!;
 
         /// <summary>
-        /// An `application_insights` block as documented below.
+        /// An `application_insights` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationInsights")]
         public Input<Inputs.LoggerApplicationInsightsArgs>? ApplicationInsights { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `eventhub` block as documented below.
+        /// An `eventhub` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventhub")]
         public Input<Inputs.LoggerEventhubArgs>? Eventhub { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementName { get; set; }
 
         /// <summary>
-        /// An `application_insights` block as documented below.
+        /// An `application_insights` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationInsights")]
         public Input<Inputs.LoggerApplicationInsightsGetArgs>? ApplicationInsights { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `eventhub` block as documented below.
+        /// An `eventhub` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventhub")]
         public Input<Inputs.LoggerEventhubGetArgs>? Eventhub { get; set; }

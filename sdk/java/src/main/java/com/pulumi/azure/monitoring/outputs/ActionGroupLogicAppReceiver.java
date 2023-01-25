@@ -18,7 +18,7 @@ public final class ActionGroupLogicAppReceiver {
      */
     private String callbackUrl;
     /**
-     * @return The name of the logic app receiver. Changing this forces a new resource to be created.
+     * @return The name of the logic app receiver.
      * 
      */
     private String name;
@@ -42,7 +42,7 @@ public final class ActionGroupLogicAppReceiver {
         return this.callbackUrl;
     }
     /**
-     * @return The name of the logic app receiver. Changing this forces a new resource to be created.
+     * @return The name of the logic app receiver.
      * 
      */
     public String name() {

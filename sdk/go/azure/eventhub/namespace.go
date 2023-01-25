@@ -69,13 +69,11 @@ type Namespace struct {
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
 	// An `customerManagedKey` block as defined below.
 	CustomerManagedKey NamespaceCustomerManagedKeyTypePtrOutput `pulumi:"customerManagedKey"`
-	// The primary connection string for the authorization
-	// rule `RootManageSharedAccessKey`.
+	// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString pulumi.StringOutput `pulumi:"defaultPrimaryConnectionString"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey pulumi.StringOutput `pulumi:"defaultPrimaryKey"`
-	// The secondary connection string for the
-	// authorization rule `RootManageSharedAccessKey`.
+	// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryConnectionString pulumi.StringOutput `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
@@ -87,8 +85,7 @@ type Namespace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
 	MinimumTlsVersion pulumi.StringOutput `pulumi:"minimumTlsVersion"`
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -149,13 +146,11 @@ type namespaceState struct {
 	Capacity *int `pulumi:"capacity"`
 	// An `customerManagedKey` block as defined below.
 	CustomerManagedKey *NamespaceCustomerManagedKeyType `pulumi:"customerManagedKey"`
-	// The primary connection string for the authorization
-	// rule `RootManageSharedAccessKey`.
+	// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString *string `pulumi:"defaultPrimaryConnectionString"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey *string `pulumi:"defaultPrimaryKey"`
-	// The secondary connection string for the
-	// authorization rule `RootManageSharedAccessKey`.
+	// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryConnectionString *string `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey *string `pulumi:"defaultSecondaryKey"`
@@ -167,8 +162,7 @@ type namespaceState struct {
 	Location *string `pulumi:"location"`
 	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -188,13 +182,11 @@ type NamespaceState struct {
 	Capacity pulumi.IntPtrInput
 	// An `customerManagedKey` block as defined below.
 	CustomerManagedKey NamespaceCustomerManagedKeyTypePtrInput
-	// The primary connection string for the authorization
-	// rule `RootManageSharedAccessKey`.
+	// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString pulumi.StringPtrInput
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey pulumi.StringPtrInput
-	// The secondary connection string for the
-	// authorization rule `RootManageSharedAccessKey`.
+	// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryConnectionString pulumi.StringPtrInput
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringPtrInput
@@ -206,8 +198,7 @@ type NamespaceState struct {
 	Location pulumi.StringPtrInput
 	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
 	MinimumTlsVersion pulumi.StringPtrInput
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -239,8 +230,7 @@ type namespaceArgs struct {
 	Location *string `pulumi:"location"`
 	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -269,8 +259,7 @@ type NamespaceArgs struct {
 	Location pulumi.StringPtrInput
 	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
 	MinimumTlsVersion pulumi.StringPtrInput
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -382,8 +371,7 @@ func (o NamespaceOutput) CustomerManagedKey() NamespaceCustomerManagedKeyTypePtr
 	return o.ApplyT(func(v *Namespace) NamespaceCustomerManagedKeyTypePtrOutput { return v.CustomerManagedKey }).(NamespaceCustomerManagedKeyTypePtrOutput)
 }
 
-// The primary connection string for the authorization
-// rule `RootManageSharedAccessKey`.
+// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
 func (o NamespaceOutput) DefaultPrimaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.DefaultPrimaryConnectionString }).(pulumi.StringOutput)
 }
@@ -393,8 +381,7 @@ func (o NamespaceOutput) DefaultPrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.DefaultPrimaryKey }).(pulumi.StringOutput)
 }
 
-// The secondary connection string for the
-// authorization rule `RootManageSharedAccessKey`.
+// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
 func (o NamespaceOutput) DefaultSecondaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.DefaultSecondaryConnectionString }).(pulumi.StringOutput)
 }
@@ -424,8 +411,7 @@ func (o NamespaceOutput) MinimumTlsVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.MinimumTlsVersion }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-// new resource to be created.
+// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 func (o NamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

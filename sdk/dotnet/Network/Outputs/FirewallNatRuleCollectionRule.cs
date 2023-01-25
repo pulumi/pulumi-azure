@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
         /// </summary>
         public readonly ImmutableArray<string> Protocols;
         /// <summary>

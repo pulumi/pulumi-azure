@@ -174,14 +174,14 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `schema` block as defined below. Changing this forces a new resource to be created.
+     * A `schema` block as defined below.
      * 
      */
     @Export(name="schema", type=CassandraTableSchema.class, parameters={})
     private Output<CassandraTableSchema> schema;
 
     /**
-     * @return A `schema` block as defined below. Changing this forces a new resource to be created.
+     * @return A `schema` block as defined below.
      * 
      */
     public Output<CassandraTableSchema> schema() {

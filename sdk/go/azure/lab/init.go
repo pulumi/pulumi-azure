@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:lab/lab:Lab":
 		r = &Lab{}
+	case "azure:lab/schedule:Schedule":
+		r = &Schedule{}
 	case "azure:lab/servicePlan:ServicePlan":
 		r = &ServicePlan{}
 	case "azure:lab/user:User":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"lab/lab",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"lab/schedule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -125,9 +125,7 @@ namespace Pulumi.Azure.EventHub
         public Output<int?> MaxDeliveryCount { get; private set; } = null!;
 
         /// <summary>
-        /// Integer value which controls the maximum size of
-        /// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         /// </summary>
         [Output("maxMessageSizeInKilobytes")]
         public Output<int> MaxMessageSizeInKilobytes { get; private set; } = null!;
@@ -287,9 +285,7 @@ namespace Pulumi.Azure.EventHub
         public Input<int>? MaxDeliveryCount { get; set; }
 
         /// <summary>
-        /// Integer value which controls the maximum size of
-        /// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         /// </summary>
         [Input("maxMessageSizeInKilobytes")]
         public Input<int>? MaxMessageSizeInKilobytes { get; set; }
@@ -405,9 +401,7 @@ namespace Pulumi.Azure.EventHub
         public Input<int>? MaxDeliveryCount { get; set; }
 
         /// <summary>
-        /// Integer value which controls the maximum size of
-        /// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         /// </summary>
         [Input("maxMessageSizeInKilobytes")]
         public Input<int>? MaxMessageSizeInKilobytes { get; set; }

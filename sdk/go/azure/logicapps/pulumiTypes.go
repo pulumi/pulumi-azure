@@ -1450,9 +1450,9 @@ func (o IntegrationAccountPartnerBusinessIdentityArrayOutput) Index(i pulumi.Int
 }
 
 type StandardConnectionString struct {
-	// The name of the Connection String. Changing this forces a new resource to be created.
+	// The name of the Connection String.
 	Name string `pulumi:"name"`
-	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
 	Type string `pulumi:"type"`
 	// The value for the Connection String.
 	Value string `pulumi:"value"`
@@ -1470,9 +1470,9 @@ type StandardConnectionStringInput interface {
 }
 
 type StandardConnectionStringArgs struct {
-	// The name of the Connection String. Changing this forces a new resource to be created.
+	// The name of the Connection String.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The value for the Connection String.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -1529,12 +1529,12 @@ func (o StandardConnectionStringOutput) ToStandardConnectionStringOutputWithCont
 	return o
 }
 
-// The name of the Connection String. Changing this forces a new resource to be created.
+// The name of the Connection String.
 func (o StandardConnectionStringOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StandardConnectionString) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
 func (o StandardConnectionStringOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StandardConnectionString) string { return v.Type }).(pulumi.StringOutput)
 }

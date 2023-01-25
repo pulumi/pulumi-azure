@@ -40,7 +40,7 @@ class ApplicationPlan(dict):
                  version: str,
                  promotion_code: Optional[str] = None):
         """
-        :param str name: Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the plan from the marketplace.
         :param str product: Specifies the product of the plan from the marketplace.
         :param str publisher: Specifies the publisher of the plan.
         :param str version: Specifies the version of the plan from the marketplace.
@@ -57,7 +57,7 @@ class ApplicationPlan(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+        Specifies the name of the plan from the marketplace.
         """
         return pulumi.get(self, "name")
 

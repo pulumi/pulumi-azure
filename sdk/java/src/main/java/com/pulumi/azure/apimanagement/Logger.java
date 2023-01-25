@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  * API Management Loggers can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
+ *  $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
  * ```
  * 
  */
@@ -106,14 +106,14 @@ public class Logger extends com.pulumi.resources.CustomResource {
         return this.apiManagementName;
     }
     /**
-     * An `application_insights` block as documented below.
+     * An `application_insights` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="applicationInsights", type=LoggerApplicationInsights.class, parameters={})
     private Output</* @Nullable */ LoggerApplicationInsights> applicationInsights;
 
     /**
-     * @return An `application_insights` block as documented below.
+     * @return An `application_insights` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<LoggerApplicationInsights>> applicationInsights() {
@@ -148,14 +148,14 @@ public class Logger extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * An `eventhub` block as documented below.
+     * An `eventhub` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="eventhub", type=LoggerEventhub.class, parameters={})
     private Output</* @Nullable */ LoggerEventhub> eventhub;
 
     /**
-     * @return An `eventhub` block as documented below.
+     * @return An `eventhub` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<LoggerEventhub>> eventhub() {

@@ -12,38 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupDnsConfig {
     /**
-     * @return A list of nameservers the containers will search out to resolve requests.
+     * @return A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
      * 
      */
     private List<String> nameservers;
     /**
-     * @return A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+     * @return A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<String> options;
     /**
-     * @return A list of search domains that DNS requests will search along.
+     * @return A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<String> searchDomains;
 
     private GroupDnsConfig() {}
     /**
-     * @return A list of nameservers the containers will search out to resolve requests.
+     * @return A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
      * 
      */
     public List<String> nameservers() {
         return this.nameservers;
     }
     /**
-     * @return A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+     * @return A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
      * 
      */
     public List<String> options() {
         return this.options == null ? List.of() : this.options;
     }
     /**
-     * @return A list of search domains that DNS requests will search along.
+     * @return A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
      * 
      */
     public List<String> searchDomains() {

@@ -18,14 +18,12 @@ public final class LocalNetworkGatewayBgpSettings {
      */
     private Integer asn;
     /**
-     * @return The BGP peering address and BGP identifier
-     * of this BGP speaker.
+     * @return The BGP peering address and BGP identifier of this BGP speaker.
      * 
      */
     private String bgpPeeringAddress;
     /**
-     * @return The weight added to routes learned from this
-     * BGP speaker.
+     * @return The weight added to routes learned from this BGP speaker.
      * 
      */
     private @Nullable Integer peerWeight;
@@ -39,16 +37,14 @@ public final class LocalNetworkGatewayBgpSettings {
         return this.asn;
     }
     /**
-     * @return The BGP peering address and BGP identifier
-     * of this BGP speaker.
+     * @return The BGP peering address and BGP identifier of this BGP speaker.
      * 
      */
     public String bgpPeeringAddress() {
         return this.bgpPeeringAddress;
     }
     /**
-     * @return The weight added to routes learned from this
-     * BGP speaker.
+     * @return The weight added to routes learned from this BGP speaker.
      * 
      */
     public Optional<Integer> peerWeight() {

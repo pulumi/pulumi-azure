@@ -109,9 +109,7 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
     /**
-     * Integer value which controls the maximum size of
-     * a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     public readonly maxMessageSizeInKilobytes!: pulumi.Output<number>;
     /**
@@ -256,9 +254,7 @@ export interface QueueState {
      */
     maxDeliveryCount?: pulumi.Input<number>;
     /**
-     * Integer value which controls the maximum size of
-     * a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
@@ -338,9 +334,7 @@ export interface QueueArgs {
      */
     maxDeliveryCount?: pulumi.Input<number>;
     /**
-     * Integer value which controls the maximum size of
-     * a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**

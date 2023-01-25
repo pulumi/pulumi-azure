@@ -2922,7 +2922,7 @@ type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule struc
 	Priority int `pulumi:"priority"`
 	// The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
 	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
-	// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+	// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`. Changing this forces a new resource to be created.
 	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 }
 
@@ -2944,7 +2944,7 @@ type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs s
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
 	SourceAddressPrefix pulumi.StringInput `pulumi:"sourceAddressPrefix"`
-	// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+	// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`. Changing this forces a new resource to be created.
 	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
 }
 
@@ -3016,7 +3016,7 @@ func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOut
 	}).(pulumi.StringOutput)
 }
 
-// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) SourcePortRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) []string {
 		return v.SourcePortRanges

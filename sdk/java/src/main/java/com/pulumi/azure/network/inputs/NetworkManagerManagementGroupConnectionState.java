@@ -17,7 +17,6 @@ public final class NetworkManagerManagementGroupConnectionState extends com.pulu
 
     /**
      * The Connection state of the Network Manager Management Group Connection.
-     * *
      * 
      */
     @Import(name="connectionState")
@@ -25,7 +24,6 @@ public final class NetworkManagerManagementGroupConnectionState extends com.pulu
 
     /**
      * @return The Connection state of the Network Manager Management Group Connection.
-     * *
      * 
      */
     public Optional<Output<String>> connectionState() {
@@ -48,14 +46,14 @@ public final class NetworkManagerManagementGroupConnectionState extends com.pulu
     }
 
     /**
-     * Specifies the ID of the target Management Group.
+     * Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managementGroupId")
     private @Nullable Output<String> managementGroupId;
 
     /**
-     * @return Specifies the ID of the target Management Group.
+     * @return Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> managementGroupId() {
@@ -78,14 +76,14 @@ public final class NetworkManagerManagementGroupConnectionState extends com.pulu
     }
 
     /**
-     * Specifies the ID of the Network Manager which the Management Group is connected to.
+     * Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="networkManagerId")
     private @Nullable Output<String> networkManagerId;
 
     /**
-     * @return Specifies the ID of the Network Manager which the Management Group is connected to.
+     * @return Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> networkManagerId() {
@@ -122,7 +120,6 @@ public final class NetworkManagerManagementGroupConnectionState extends com.pulu
 
         /**
          * @param connectionState The Connection state of the Network Manager Management Group Connection.
-         * *
          * 
          * @return builder
          * 
@@ -134,7 +131,6 @@ public final class NetworkManagerManagementGroupConnectionState extends com.pulu
 
         /**
          * @param connectionState The Connection state of the Network Manager Management Group Connection.
-         * *
          * 
          * @return builder
          * 
@@ -165,7 +161,7 @@ public final class NetworkManagerManagementGroupConnectionState extends com.pulu
         }
 
         /**
-         * @param managementGroupId Specifies the ID of the target Management Group.
+         * @param managementGroupId Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -176,7 +172,7 @@ public final class NetworkManagerManagementGroupConnectionState extends com.pulu
         }
 
         /**
-         * @param managementGroupId Specifies the ID of the target Management Group.
+         * @param managementGroupId Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -207,7 +203,7 @@ public final class NetworkManagerManagementGroupConnectionState extends com.pulu
         }
 
         /**
-         * @param networkManagerId Specifies the ID of the Network Manager which the Management Group is connected to.
+         * @param networkManagerId Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -218,7 +214,7 @@ public final class NetworkManagerManagementGroupConnectionState extends com.pulu
         }
 
         /**
-         * @param networkManagerId Specifies the ID of the Network Manager which the Management Group is connected to.
+         * @param networkManagerId Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

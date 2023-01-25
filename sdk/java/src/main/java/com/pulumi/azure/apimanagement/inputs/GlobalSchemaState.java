@@ -16,16 +16,14 @@ public final class GlobalSchemaState extends com.pulumi.resources.ResourceArgs {
     public static final GlobalSchemaState Empty = new GlobalSchemaState();
 
     /**
-     * The Name of the API Management Service where the API exists. Changing this forces a
-     * new resource to be created.
+     * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="apiManagementName")
     private @Nullable Output<String> apiManagementName;
 
     /**
-     * @return The Name of the API Management Service where the API exists. Changing this forces a
-     * new resource to be created.
+     * @return The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> apiManagementName() {
@@ -48,16 +46,14 @@ public final class GlobalSchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Name of the Resource Group in which the API Management Service exists. Changing
-     * this forces a new resource to be created.
+     * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The Name of the Resource Group in which the API Management Service exists. Changing
-     * this forces a new resource to be created.
+     * @return The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -139,8 +135,7 @@ public final class GlobalSchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiManagementName The Name of the API Management Service where the API exists. Changing this forces a
-         * new resource to be created.
+         * @param apiManagementName The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -151,8 +146,7 @@ public final class GlobalSchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiManagementName The Name of the API Management Service where the API exists. Changing this forces a
-         * new resource to be created.
+         * @param apiManagementName The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -183,8 +177,7 @@ public final class GlobalSchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The Name of the Resource Group in which the API Management Service exists. Changing
-         * this forces a new resource to be created.
+         * @param resourceGroupName The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -195,8 +188,7 @@ public final class GlobalSchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The Name of the Resource Group in which the API Management Service exists. Changing
-         * this forces a new resource to be created.
+         * @param resourceGroupName The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

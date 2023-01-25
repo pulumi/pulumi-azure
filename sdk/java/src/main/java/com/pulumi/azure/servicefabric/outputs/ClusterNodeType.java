@@ -77,7 +77,7 @@ public final class ClusterNodeType {
      */
     private @Nullable Map<String,String> placementProperties;
     /**
-     * @return The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+     * @return The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
      * 
      */
     private @Nullable Integer reverseProxyEndpointPort;
@@ -168,7 +168,7 @@ public final class ClusterNodeType {
         return this.placementProperties == null ? Map.of() : this.placementProperties;
     }
     /**
-     * @return The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+     * @return The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
      * 
      */
     public Optional<Integer> reverseProxyEndpointPort() {

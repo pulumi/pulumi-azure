@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Datadog.Inputs
         }
 
         /// <summary>
-        /// The ID of the enterprise_app.
+        /// The ID of the enterprise_app. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enterpriseAppId")]
         public Input<string>? EnterpriseAppId { get; set; }

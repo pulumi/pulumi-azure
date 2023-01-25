@@ -167,14 +167,14 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="plan", type=LogzMonitorPlan.class, parameters={})
     private Output<LogzMonitorPlan> plan;
 
     /**
-     * @return A `plan` block as defined below.
+     * @return A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<LogzMonitorPlan> plan() {
@@ -223,14 +223,14 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `user` block as defined below.
+     * A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="user", type=LogzMonitorUser.class, parameters={})
     private Output<LogzMonitorUser> user;
 
     /**
-     * @return A `user` block as defined below.
+     * @return A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<LogzMonitorUser> user() {

@@ -20,7 +20,7 @@ public final class GroupContainerVolume {
      */
     private @Nullable Boolean emptyDir;
     /**
-     * @return A `git_repo` block as defined below.
+     * @return A `git_repo` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable GroupContainerVolumeGitRepo gitRepo;
@@ -69,7 +69,7 @@ public final class GroupContainerVolume {
         return Optional.ofNullable(this.emptyDir);
     }
     /**
-     * @return A `git_repo` block as defined below.
+     * @return A `git_repo` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<GroupContainerVolumeGitRepo> gitRepo() {

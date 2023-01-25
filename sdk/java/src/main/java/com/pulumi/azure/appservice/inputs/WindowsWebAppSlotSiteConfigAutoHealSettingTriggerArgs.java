@@ -20,14 +20,14 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends
     public static final WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs Empty = new WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs();
 
     /**
-     * The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+     * The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
      * 
      */
     @Import(name="privateMemoryKb")
     private @Nullable Output<Integer> privateMemoryKb;
 
     /**
-     * @return The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+     * @return The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
      * 
      */
     public Optional<Output<Integer>> privateMemoryKb() {
@@ -107,7 +107,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends
         }
 
         /**
-         * @param privateMemoryKb The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+         * @param privateMemoryKb The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends
         }
 
         /**
-         * @param privateMemoryKb The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+         * @param privateMemoryKb The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
          * 
          * @return builder
          * 

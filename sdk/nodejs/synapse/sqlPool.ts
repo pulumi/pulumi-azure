@@ -90,6 +90,10 @@ export class SqlPool extends pulumi.CustomResource {
      */
     public readonly dataEncrypted!: pulumi.Output<boolean | undefined>;
     /**
+     * Is geo-backup policy enabled? Defaults to `true`.
+     */
+    public readonly geoBackupPolicyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -98,7 +102,7 @@ export class SqlPool extends pulumi.CustomResource {
      */
     public readonly recoveryDatabaseId!: pulumi.Output<string | undefined>;
     /**
-     * A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`.
+     * A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
      */
     public readonly restore!: pulumi.Output<outputs.synapse.SqlPoolRestore | undefined>;
     /**
@@ -130,6 +134,7 @@ export class SqlPool extends pulumi.CustomResource {
             resourceInputs["collation"] = state ? state.collation : undefined;
             resourceInputs["createMode"] = state ? state.createMode : undefined;
             resourceInputs["dataEncrypted"] = state ? state.dataEncrypted : undefined;
+            resourceInputs["geoBackupPolicyEnabled"] = state ? state.geoBackupPolicyEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recoveryDatabaseId"] = state ? state.recoveryDatabaseId : undefined;
             resourceInputs["restore"] = state ? state.restore : undefined;
@@ -147,6 +152,7 @@ export class SqlPool extends pulumi.CustomResource {
             resourceInputs["collation"] = args ? args.collation : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
             resourceInputs["dataEncrypted"] = args ? args.dataEncrypted : undefined;
+            resourceInputs["geoBackupPolicyEnabled"] = args ? args.geoBackupPolicyEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recoveryDatabaseId"] = args ? args.recoveryDatabaseId : undefined;
             resourceInputs["restore"] = args ? args.restore : undefined;
@@ -176,6 +182,10 @@ export interface SqlPoolState {
      */
     dataEncrypted?: pulumi.Input<boolean>;
     /**
+     * Is geo-backup policy enabled? Defaults to `true`.
+     */
+    geoBackupPolicyEnabled?: pulumi.Input<boolean>;
+    /**
      * The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
      */
     name?: pulumi.Input<string>;
@@ -184,7 +194,7 @@ export interface SqlPoolState {
      */
     recoveryDatabaseId?: pulumi.Input<string>;
     /**
-     * A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`.
+     * A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
      */
     restore?: pulumi.Input<inputs.synapse.SqlPoolRestore>;
     /**
@@ -218,6 +228,10 @@ export interface SqlPoolArgs {
      */
     dataEncrypted?: pulumi.Input<boolean>;
     /**
+     * Is geo-backup policy enabled? Defaults to `true`.
+     */
+    geoBackupPolicyEnabled?: pulumi.Input<boolean>;
+    /**
      * The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
      */
     name?: pulumi.Input<string>;
@@ -226,7 +240,7 @@ export interface SqlPoolArgs {
      */
     recoveryDatabaseId?: pulumi.Input<string>;
     /**
-     * A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`.
+     * A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
      */
     restore?: pulumi.Input<inputs.synapse.SqlPoolRestore>;
     /**

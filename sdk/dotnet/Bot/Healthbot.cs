@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Bot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
+        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

@@ -26,7 +26,7 @@ class HybridConnectionArgs:
         :param pulumi.Input[str] hostname: The hostname of the endpoint.
         :param pulumi.Input[int] port: The port of the endpoint.
         :param pulumi.Input[str] relay_id: The ID of the Service Bus Relay. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         """
         pulumi.set(__self__, "app_service_name", app_service_name)
@@ -89,7 +89,7 @@ class HybridConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -131,7 +131,7 @@ class _HybridConnectionState:
         :param pulumi.Input[str] namespace_name: The name of the Relay Namespace.
         :param pulumi.Input[int] port: The port of the endpoint.
         :param pulumi.Input[str] relay_id: The ID of the Service Bus Relay. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         :param pulumi.Input[str] send_key_value: The value of the Service Bus Primary Access key.
         :param pulumi.Input[str] service_bus_namespace: The name of the Service Bus namespace.
@@ -233,7 +233,7 @@ class _HybridConnectionState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -354,7 +354,7 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.Input[str] hostname: The hostname of the endpoint.
         :param pulumi.Input[int] port: The port of the endpoint.
         :param pulumi.Input[str] relay_id: The ID of the Service Bus Relay. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         """
         ...
@@ -495,7 +495,7 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The name of the Relay Namespace.
         :param pulumi.Input[int] port: The port of the endpoint.
         :param pulumi.Input[str] relay_id: The ID of the Service Bus Relay. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         :param pulumi.Input[str] send_key_value: The value of the Service Bus Primary Access key.
         :param pulumi.Input[str] service_bus_namespace: The name of the Service Bus namespace.
@@ -567,7 +567,7 @@ class HybridConnection(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

@@ -16,14 +16,14 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
     public static final KubernetesClusterKubeletIdentityArgs Empty = new KubernetesClusterKubeletIdentityArgs();
 
     /**
-     * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+     * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
-     * @return The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+     * @return The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> clientId() {
@@ -31,14 +31,14 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
     }
 
     /**
-     * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+     * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="objectId")
     private @Nullable Output<String> objectId;
 
     /**
-     * @return The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+     * @return The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> objectId() {
@@ -46,14 +46,14 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
     }
 
     /**
-     * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+     * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="userAssignedIdentityId")
     private @Nullable Output<String> userAssignedIdentityId;
 
     /**
-     * @return The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+     * @return The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> userAssignedIdentityId() {
@@ -87,7 +87,7 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
         }
 
         /**
-         * @param clientId The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * @param clientId The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
         }
 
         /**
-         * @param clientId The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * @param clientId The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
         }
 
         /**
-         * @param objectId The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         * @param objectId The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
         }
 
         /**
-         * @param objectId The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         * @param objectId The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
         }
 
         /**
-         * @param userAssignedIdentityId The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * @param userAssignedIdentityId The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
         }
 
         /**
-         * @param userAssignedIdentityId The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         * @param userAssignedIdentityId The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

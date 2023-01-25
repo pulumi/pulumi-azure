@@ -18,7 +18,7 @@ public final class ActionGroupEmailReceiver {
      */
     private String emailAddress;
     /**
-     * @return The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+     * @return The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
      * 
      */
     private String name;
@@ -37,7 +37,7 @@ public final class ActionGroupEmailReceiver {
         return this.emailAddress;
     }
     /**
-     * @return The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+     * @return The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
      * 
      */
     public String name() {

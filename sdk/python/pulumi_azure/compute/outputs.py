@@ -172,6 +172,7 @@ __all__ = [
     'WindowsVirtualMachineSourceImageReference',
     'WindowsVirtualMachineTerminationNotification',
     'WindowsVirtualMachineWinrmListener',
+    'GetBastionHostIpConfigurationResult',
     'GetConfidentialLedgerAzureadBasedServicePrincipalResult',
     'GetConfidentialLedgerCertificateBasedSecurityPrincipalResult',
     'GetImageDataDiskResult',
@@ -316,7 +317,7 @@ class DiskEncryptionSetIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param str type: The type of Managed Service Identity that is configured on this Disk Encryption Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
         :param str principal_id: The (Client) ID of the Service Principal.
         :param str tenant_id: The ID of the Tenant the Service Principal is assigned in.
@@ -333,7 +334,7 @@ class DiskEncryptionSetIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        The type of Managed Service Identity that is configured on this Disk Encryption Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -593,7 +594,7 @@ class ImageDataDisk(dict):
         :param str blob_uri: Specifies the URI in Azure storage of the blob that you want to use to create the image.
         :param str caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
         :param int lun: Specifies the logical unit number of the data disk.
-        :param str managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image.
+        :param str managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
         :param int size_gb: Specifies the size of the image to be created. The target size can't be smaller than the source size.
         """
         if blob_uri is not None:
@@ -635,7 +636,7 @@ class ImageDataDisk(dict):
     @pulumi.getter(name="managedDiskId")
     def managed_disk_id(self) -> Optional[str]:
         """
-        Specifies the ID of the managed disk resource that you want to use to create the image.
+        Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_disk_id")
 
@@ -683,7 +684,7 @@ class ImageOsDisk(dict):
                  os_type: Optional[str] = None,
                  size_gb: Optional[int] = None):
         """
-        :param str blob_uri: Specifies the URI in Azure storage of the blob that you want to use to create the image.
+        :param str blob_uri: Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
         :param str caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
         :param str managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image.
         :param str os_state: Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
@@ -707,7 +708,7 @@ class ImageOsDisk(dict):
     @pulumi.getter(name="blobUri")
     def blob_uri(self) -> Optional[str]:
         """
-        Specifies the URI in Azure storage of the blob that you want to use to create the image.
+        Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "blob_uri")
 
@@ -2234,9 +2235,9 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
         :param str name: The Name of the Public IP Address Configuration.
         :param str domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
         :param int idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
-        :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above.
+        :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param str public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
-        :param str version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        :param str version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         if domain_name_label is not None:
@@ -2278,7 +2279,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
     @pulumi.getter(name="ipTags")
     def ip_tags(self) -> Optional[Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']]:
         """
-        One or more `ip_tag` blocks as defined above.
+        One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_tags")
 
@@ -2294,7 +2295,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
@@ -2305,8 +2306,8 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
                  tag: str,
                  type: str):
         """
-        :param str tag: The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
-        :param str type: The Type of IP Tag, such as `FirstPartyUsage`.
+        :param str tag: The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
+        :param str type: The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "tag", tag)
         pulumi.set(__self__, "type", type)
@@ -2315,7 +2316,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
     @pulumi.getter
     def tag(self) -> str:
         """
-        The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+        The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tag")
 
@@ -2323,7 +2324,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
     @pulumi.getter
     def type(self) -> str:
         """
-        The Type of IP Tag, such as `FirstPartyUsage`.
+        The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -2750,8 +2751,8 @@ class LinuxVirtualMachineScaleSetSourceImageReference(dict):
                  sku: str,
                  version: str):
         """
-        :param str offer: Specifies the offer of the image used to create the virtual machines.
-        :param str publisher: Specifies the publisher of the image used to create the virtual machines.
+        :param str offer: Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        :param str publisher: Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
         :param str sku: Specifies the SKU of the image used to create the virtual machines.
         :param str version: Specifies the version of the image used to create the virtual machines.
         """
@@ -2764,7 +2765,7 @@ class LinuxVirtualMachineScaleSetSourceImageReference(dict):
     @pulumi.getter
     def offer(self) -> str:
         """
-        Specifies the offer of the image used to create the virtual machines.
+        Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "offer")
 
@@ -2772,7 +2773,7 @@ class LinuxVirtualMachineScaleSetSourceImageReference(dict):
     @pulumi.getter
     def publisher(self) -> str:
         """
-        Specifies the publisher of the image used to create the virtual machines.
+        Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
@@ -2956,10 +2957,10 @@ class LinuxVirtualMachineSourceImageReference(dict):
                  sku: str,
                  version: str):
         """
-        :param str offer: Specifies the offer of the image used to create the virtual machines.
-        :param str publisher: Specifies the publisher of the image used to create the virtual machines.
-        :param str sku: Specifies the SKU of the image used to create the virtual machines.
-        :param str version: Specifies the version of the image used to create the virtual machines.
+        :param str offer: Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        :param str publisher: Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        :param str sku: Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        :param str version: Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "offer", offer)
         pulumi.set(__self__, "publisher", publisher)
@@ -2970,7 +2971,7 @@ class LinuxVirtualMachineSourceImageReference(dict):
     @pulumi.getter
     def offer(self) -> str:
         """
-        Specifies the offer of the image used to create the virtual machines.
+        Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "offer")
 
@@ -2978,7 +2979,7 @@ class LinuxVirtualMachineSourceImageReference(dict):
     @pulumi.getter
     def publisher(self) -> str:
         """
-        Specifies the publisher of the image used to create the virtual machines.
+        Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
@@ -2986,7 +2987,7 @@ class LinuxVirtualMachineSourceImageReference(dict):
     @pulumi.getter
     def sku(self) -> str:
         """
-        Specifies the SKU of the image used to create the virtual machines.
+        Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -2994,7 +2995,7 @@ class LinuxVirtualMachineSourceImageReference(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        Specifies the version of the image used to create the virtual machines.
+        Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
@@ -3242,7 +3243,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair(dict):
                  enabled: bool,
                  grace_period: Optional[str] = None):
         """
-        :param bool enabled: Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`. Defaults to `false`.
+        :param bool enabled: Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
         :param str grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -3253,7 +3254,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`. Defaults to `false`.
+        Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -3980,7 +3981,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
         :param str name: The Name of the Public IP Address Configuration.
         :param str domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
         :param int idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
-        :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above.
+        :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param str public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
         :param str sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         :param str version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
@@ -4027,7 +4028,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @pulumi.getter(name="ipTags")
     def ip_tags(self) -> Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']]:
         """
-        One or more `ip_tag` blocks as defined above.
+        One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_tags")
 
@@ -4062,8 +4063,8 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
                  tag: str,
                  type: str):
         """
-        :param str tag: The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
-        :param str type: The Type of IP Tag, such as `FirstPartyUsage`.
+        :param str tag: The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
+        :param str type: The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "tag", tag)
         pulumi.set(__self__, "type", type)
@@ -4072,7 +4073,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @pulumi.getter
     def tag(self) -> str:
         """
-        The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+        The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tag")
 
@@ -4080,7 +4081,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @pulumi.getter
     def type(self) -> str:
         """
-        The Type of IP Tag, such as `FirstPartyUsage`.
+        The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -4122,7 +4123,7 @@ class OrchestratedVirtualMachineScaleSetOsDisk(dict):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param 'OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above.
+        :param 'OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
         :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
         :param bool write_accelerator_enabled: Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
@@ -4158,7 +4159,7 @@ class OrchestratedVirtualMachineScaleSetOsDisk(dict):
     @pulumi.getter(name="diffDiskSettings")
     def diff_disk_settings(self) -> Optional['outputs.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings']:
         """
-        A `diff_disk_settings` block as defined above.
+        A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "diff_disk_settings")
 
@@ -4328,7 +4329,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
         :param str admin_username: The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param str admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs'] admin_ssh_keys: A `admin_ssh_key` block as documented below.
-        :param str computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        :param str computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param bool disable_password_authentication: When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
         :param str patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         :param str patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -4381,7 +4382,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
     @pulumi.getter(name="computerNamePrefix")
     def computer_name_prefix(self) -> Optional[str]:
         """
-        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name_prefix")
 
@@ -4449,8 +4450,8 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(d
                  public_key: str,
                  username: str):
         """
-        :param str public_key: The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
-        :param str username: The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+        :param str public_key: The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+        :param str username: The Username for which this Public SSH Key should be configured.
         """
         pulumi.set(__self__, "public_key", public_key)
         pulumi.set(__self__, "username", username)
@@ -4459,7 +4460,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(d
     @pulumi.getter(name="publicKey")
     def public_key(self) -> str:
         """
-        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
         """
         return pulumi.get(self, "public_key")
 
@@ -4467,7 +4468,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(d
     @pulumi.getter
     def username(self) -> str:
         """
-        The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+        The Username for which this Public SSH Key should be configured.
         """
         return pulumi.get(self, "username")
 
@@ -4586,7 +4587,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
         """
         :param str admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param str admin_username: The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
-        :param str computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        :param str computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param bool enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param bool hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         :param str patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -4594,7 +4595,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
         :param bool provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs'] secrets: One or more `secret` blocks as defined below.
         :param str timezone: Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs'] winrm_listeners: One or more `winrm_listener` blocks as defined below.
+        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs'] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "admin_username", admin_username)
@@ -4637,7 +4638,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
     @pulumi.getter(name="computerNamePrefix")
     def computer_name_prefix(self) -> Optional[str]:
         """
-        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name_prefix")
 
@@ -4701,7 +4702,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
     @pulumi.getter(name="winrmListeners")
     def winrm_listeners(self) -> Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener']]:
         """
-        One or more `winrm_listener` blocks as defined below.
+        One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "winrm_listeners")
 
@@ -4804,8 +4805,8 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
                  protocol: str,
                  certificate_url: Optional[str] = None):
         """
-        :param str protocol: Specifies the protocol of listener. Possible values are `Http` or `Https`
-        :param str certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+        :param str protocol: Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+        :param str certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "protocol", protocol)
         if certificate_url is not None:
@@ -4815,7 +4816,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
     @pulumi.getter
     def protocol(self) -> str:
         """
-        Specifies the protocol of listener. Possible values are `Http` or `Https`
+        Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "protocol")
 
@@ -4823,7 +4824,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
     @pulumi.getter(name="certificateUrl")
     def certificate_url(self) -> Optional[str]:
         """
-        The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+        The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "certificate_url")
 
@@ -5184,7 +5185,7 @@ class ScaleSetExtension(dict):
                  provision_after_extensions: Optional[Sequence[str]] = None,
                  settings: Optional[str] = None):
         """
-        :param str name: Specifies the name of the extension. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the extension.
         :param str publisher: The publisher of the extension, available publishers can be found by using the Azure CLI.
         :param str type: The type of extension, available types for a publisher can be found using the Azure CLI.
         :param str type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
@@ -5210,7 +5211,7 @@ class ScaleSetExtension(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the extension. Changing this forces a new resource to be created.
+        Specifies the name of the extension.
         """
         return pulumi.get(self, "name")
 
@@ -5365,7 +5366,7 @@ class ScaleSetNetworkProfile(dict):
                  network_security_group_id: Optional[str] = None):
         """
         :param Sequence['ScaleSetNetworkProfileIpConfigurationArgs'] ip_configurations: An ip_configuration block as documented below.
-        :param str name: Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the network interface configuration.
         :param bool primary: Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
         :param bool accelerated_networking: Specifies whether to enable accelerated networking or not.
         :param 'ScaleSetNetworkProfileDnsSettingsArgs' dns_settings: A dns_settings block as documented below.
@@ -5396,7 +5397,7 @@ class ScaleSetNetworkProfile(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
+        Specifies the name of the network interface configuration.
         """
         return pulumi.get(self, "name")
 
@@ -5515,7 +5516,7 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
                  load_balancer_inbound_nat_rules_ids: Optional[Sequence[str]] = None,
                  public_ip_address_configuration: Optional['outputs.ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration'] = None):
         """
-        :param str name: Specifies name of the IP configuration. Changing this forces a new resource to be created.
+        :param str name: Specifies name of the IP configuration.
         :param bool primary: Specifies if this ip_configuration is the primary one.
         :param str subnet_id: Specifies the identifier of the subnet.
         :param Sequence[str] application_gateway_backend_address_pool_ids: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
@@ -5542,7 +5543,7 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies name of the IP configuration. Changing this forces a new resource to be created.
+        Specifies name of the IP configuration.
         """
         return pulumi.get(self, "name")
 
@@ -5631,7 +5632,7 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(dict):
         """
         :param str domain_name_label: The domain name label for the DNS settings.
         :param int idle_timeout: The idle timeout in minutes. This value must be between 4 and 30.
-        :param str name: The name of the public IP address configuration Changing this forces a new resource to be created.
+        :param str name: The name of the public IP address configuration
         """
         pulumi.set(__self__, "domain_name_label", domain_name_label)
         pulumi.set(__self__, "idle_timeout", idle_timeout)
@@ -5657,7 +5658,7 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the public IP address configuration Changing this forces a new resource to be created.
+        The name of the public IP address configuration
         """
         return pulumi.get(self, "name")
 
@@ -5764,7 +5765,7 @@ class ScaleSetOsProfileLinuxConfig(dict):
                  ssh_keys: Optional[Sequence['outputs.ScaleSetOsProfileLinuxConfigSshKey']] = None):
         """
         :param bool disable_password_authentication: Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
-        :param Sequence['ScaleSetOsProfileLinuxConfigSshKeyArgs'] ssh_keys: Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+        :param Sequence['ScaleSetOsProfileLinuxConfigSshKeyArgs'] ssh_keys: One or more `ssh_keys` blocks as defined below.
         """
         if disable_password_authentication is not None:
             pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
@@ -5783,7 +5784,7 @@ class ScaleSetOsProfileLinuxConfig(dict):
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[Sequence['outputs.ScaleSetOsProfileLinuxConfigSshKey']]:
         """
-        Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+        One or more `ssh_keys` blocks as defined below.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -5810,6 +5811,10 @@ class ScaleSetOsProfileLinuxConfigSshKey(dict):
     def __init__(__self__, *,
                  path: str,
                  key_data: Optional[str] = None):
+        """
+        :param str path: The path of the destination file on the virtual machine
+        :param str key_data: The Public SSH Key which should be written to the `path` defined above.
+        """
         pulumi.set(__self__, "path", path)
         if key_data is not None:
             pulumi.set(__self__, "key_data", key_data)
@@ -5817,11 +5822,17 @@ class ScaleSetOsProfileLinuxConfigSshKey(dict):
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        The path of the destination file on the virtual machine
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="keyData")
     def key_data(self) -> Optional[str]:
+        """
+        The Public SSH Key which should be written to the `path` defined above.
+        """
         return pulumi.get(self, "key_data")
 
 
@@ -5851,7 +5862,7 @@ class ScaleSetOsProfileSecret(dict):
                  vault_certificates: Optional[Sequence['outputs.ScaleSetOsProfileSecretVaultCertificate']] = None):
         """
         :param str source_vault_id: Specifies the key vault to use.
-        :param Sequence['ScaleSetOsProfileSecretVaultCertificateArgs'] vault_certificates: (Required, on windows machines) A collection of Vault Certificates as documented below
+        :param Sequence['ScaleSetOsProfileSecretVaultCertificateArgs'] vault_certificates: (Required, on Windows machines) One or more `vault_certificates` blocks as defined below.
         """
         pulumi.set(__self__, "source_vault_id", source_vault_id)
         if vault_certificates is not None:
@@ -5869,7 +5880,7 @@ class ScaleSetOsProfileSecret(dict):
     @pulumi.getter(name="vaultCertificates")
     def vault_certificates(self) -> Optional[Sequence['outputs.ScaleSetOsProfileSecretVaultCertificate']]:
         """
-        (Required, on windows machines) A collection of Vault Certificates as documented below
+        (Required, on Windows machines) One or more `vault_certificates` blocks as defined below.
         """
         return pulumi.get(self, "vault_certificates")
 
@@ -6326,7 +6337,7 @@ class ScaleSetPlan(dict):
                  product: str,
                  publisher: str):
         """
-        :param str name: Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the image from the marketplace.
         :param str product: Specifies the product of the image from the marketplace.
         :param str publisher: Specifies the publisher of the image.
         """
@@ -6338,7 +6349,7 @@ class ScaleSetPlan(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+        Specifies the name of the image from the marketplace.
         """
         return pulumi.get(self, "name")
 
@@ -6445,7 +6456,7 @@ class ScaleSetSku(dict):
                  tier: Optional[str] = None):
         """
         :param int capacity: Specifies the number of virtual machines in the scale set.
-        :param str name: Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
+        :param str name: Specifies the size of virtual machines in a scale set.
         :param str tier: Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -6465,7 +6476,7 @@ class ScaleSetSku(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
+        Specifies the size of virtual machines in a scale set.
         """
         return pulumi.get(self, "name")
 
@@ -6573,8 +6584,7 @@ class ScaleSetStorageProfileImageReference(dict):
                  sku: Optional[str] = None,
                  version: Optional[str] = None):
         """
-        :param str id: Specifies the ID of the (custom) image to use to create the virtual
-               machine scale set, as in the example below.
+        :param str id: Specifies the ID of the (custom) image to use to create the virtual machine scale set, as in the example below.
         :param str offer: Specifies the offer of the image used to create the virtual machines.
         :param str publisher: Specifies the publisher of the image used to create the virtual machines.
         :param str sku: Specifies the SKU of the image used to create the virtual machines.
@@ -6595,8 +6605,7 @@ class ScaleSetStorageProfileImageReference(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Specifies the ID of the (custom) image to use to create the virtual
-        machine scale set, as in the example below.
+        Specifies the ID of the (custom) image to use to create the virtual machine scale set, as in the example below.
         """
         return pulumi.get(self, "id")
 
@@ -6673,7 +6682,7 @@ class ScaleSetStorageProfileOsDisk(dict):
                Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
                When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
         :param str managed_disk_type: Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
-        :param str name: Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
+        :param str name: Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
         :param str os_type: Specifies the operating system Type, valid values are windows, Linux.
         :param Sequence[str] vhd_containers: Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
         """
@@ -6729,7 +6738,7 @@ class ScaleSetStorageProfileOsDisk(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
+        Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
         """
         return pulumi.get(self, "name")
 
@@ -6861,7 +6870,7 @@ class SharedImageVersionTargetRegion(dict):
                  disk_encryption_set_id: Optional[str] = None,
                  storage_account_type: Optional[str] = None):
         """
-        :param str name: The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
+        :param str name: The Azure Region in which this Image Version should exist.
         :param int regional_replica_count: The number of replicas of the Image Version to be created per region.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
         :param str storage_account_type: The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
@@ -6877,7 +6886,7 @@ class SharedImageVersionTargetRegion(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
+        The Azure Region in which this Image Version should exist.
         """
         return pulumi.get(self, "name")
 
@@ -9574,9 +9583,9 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
         :param str name: The Name of the Public IP Address Configuration.
         :param str domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
         :param int idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
-        :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above.
+        :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param str public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
-        :param str version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        :param str version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         if domain_name_label is not None:
@@ -9618,7 +9627,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
     @pulumi.getter(name="ipTags")
     def ip_tags(self) -> Optional[Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']]:
         """
-        One or more `ip_tag` blocks as defined above.
+        One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_tags")
 
@@ -9634,7 +9643,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
@@ -9645,8 +9654,8 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
                  tag: str,
                  type: str):
         """
-        :param str tag: The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
-        :param str type: The Type of IP Tag, such as `FirstPartyUsage`.
+        :param str tag: The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
+        :param str type: The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "tag", tag)
         pulumi.set(__self__, "type", type)
@@ -9655,7 +9664,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
     @pulumi.getter
     def tag(self) -> str:
         """
-        The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+        The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tag")
 
@@ -9663,7 +9672,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
     @pulumi.getter
     def type(self) -> str:
         """
-        The Type of IP Tag, such as `FirstPartyUsage`.
+        The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -10101,8 +10110,8 @@ class WindowsVirtualMachineScaleSetSourceImageReference(dict):
                  sku: str,
                  version: str):
         """
-        :param str offer: Specifies the offer of the image used to create the virtual machines.
-        :param str publisher: Specifies the publisher of the image used to create the virtual machines.
+        :param str offer: Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        :param str publisher: Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
         :param str sku: Specifies the SKU of the image used to create the virtual machines.
         :param str version: Specifies the version of the image used to create the virtual machines.
         """
@@ -10115,7 +10124,7 @@ class WindowsVirtualMachineScaleSetSourceImageReference(dict):
     @pulumi.getter
     def offer(self) -> str:
         """
-        Specifies the offer of the image used to create the virtual machines.
+        Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "offer")
 
@@ -10123,7 +10132,7 @@ class WindowsVirtualMachineScaleSetSourceImageReference(dict):
     @pulumi.getter
     def publisher(self) -> str:
         """
-        Specifies the publisher of the image used to create the virtual machines.
+        Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
@@ -10365,10 +10374,10 @@ class WindowsVirtualMachineSourceImageReference(dict):
                  sku: str,
                  version: str):
         """
-        :param str offer: Specifies the offer of the image used to create the virtual machines.
-        :param str publisher: Specifies the publisher of the image used to create the virtual machines.
-        :param str sku: Specifies the SKU of the image used to create the virtual machines.
-        :param str version: Specifies the version of the image used to create the virtual machines.
+        :param str offer: Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        :param str publisher: Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        :param str sku: Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        :param str version: Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "offer", offer)
         pulumi.set(__self__, "publisher", publisher)
@@ -10379,7 +10388,7 @@ class WindowsVirtualMachineSourceImageReference(dict):
     @pulumi.getter
     def offer(self) -> str:
         """
-        Specifies the offer of the image used to create the virtual machines.
+        Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "offer")
 
@@ -10387,7 +10396,7 @@ class WindowsVirtualMachineSourceImageReference(dict):
     @pulumi.getter
     def publisher(self) -> str:
         """
-        Specifies the publisher of the image used to create the virtual machines.
+        Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
@@ -10395,7 +10404,7 @@ class WindowsVirtualMachineSourceImageReference(dict):
     @pulumi.getter
     def sku(self) -> str:
         """
-        Specifies the SKU of the image used to create the virtual machines.
+        Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -10403,7 +10412,7 @@ class WindowsVirtualMachineSourceImageReference(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        Specifies the version of the image used to create the virtual machines.
+        Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
@@ -10461,7 +10470,7 @@ class WindowsVirtualMachineWinrmListener(dict):
                  protocol: str,
                  certificate_url: Optional[str] = None):
         """
-        :param str protocol: Specifies the protocol of listener. Possible values are `Http` or `Https`
+        :param str protocol: Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
         :param str certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "protocol", protocol)
@@ -10472,7 +10481,7 @@ class WindowsVirtualMachineWinrmListener(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        Specifies the protocol of listener. Possible values are `Http` or `Https`
+        Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "protocol")
 
@@ -10483,6 +10492,46 @@ class WindowsVirtualMachineWinrmListener(dict):
         The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "certificate_url")
+
+
+@pulumi.output_type
+class GetBastionHostIpConfigurationResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 public_ip_address_id: str,
+                 subnet_id: str):
+        """
+        :param str name: The name of the Bastion Host.
+        :param str public_ip_address_id: Reference to a Public IP Address associated to this Bastion Host.
+        :param str subnet_id: Reference to the subnet in which this Bastion Host has been created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Bastion Host.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> str:
+        """
+        Reference to a Public IP Address associated to this Bastion Host.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        Reference to the subnet in which this Bastion Host has been created.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type

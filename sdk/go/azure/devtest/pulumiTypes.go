@@ -13,7 +13,7 @@ import (
 type GlobalVMShutdownScheduleNotificationSettings struct {
 	// E-mail address to which the notification will be sent.
 	Email *string `pulumi:"email"`
-	// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+	// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
 	Enabled bool `pulumi:"enabled"`
 	// Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
 	TimeInMinutes *int `pulumi:"timeInMinutes"`
@@ -35,7 +35,7 @@ type GlobalVMShutdownScheduleNotificationSettingsInput interface {
 type GlobalVMShutdownScheduleNotificationSettingsArgs struct {
 	// E-mail address to which the notification will be sent.
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+	// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
 	TimeInMinutes pulumi.IntPtrInput `pulumi:"timeInMinutes"`
@@ -125,7 +125,7 @@ func (o GlobalVMShutdownScheduleNotificationSettingsOutput) Email() pulumi.Strin
 	return o.ApplyT(func(v GlobalVMShutdownScheduleNotificationSettings) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
 func (o GlobalVMShutdownScheduleNotificationSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GlobalVMShutdownScheduleNotificationSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -174,7 +174,7 @@ func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) Email() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
 func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) *bool {
 		if v == nil {

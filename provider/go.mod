@@ -8,13 +8,13 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.24.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/hashicorp/terraform-provider-azurerm/shim v0.0.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.37.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.38.1
 	github.com/pulumi/pulumi/sdk/v3 v3.51.0
 )
 
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9
-	github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230113195931-4c17414dc0c7
+	github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230124232131-6cf92535f410
 	github.com/hashicorp/terraform-provider-azurerm/shim => ./shim
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 )
@@ -110,7 +110,7 @@ require (
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-azure-sdk v0.20230105.1121404 // indirect
+	github.com/hashicorp/go-azure-sdk v0.20230117.1125206 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Caching;
         /// <summary>
-        /// A `diff_disk_settings` block as defined above.
+        /// A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings? DiffDiskSettings;
         /// <summary>

@@ -32,7 +32,7 @@ public final class ApplicationGatewaySslCertificate {
      */
     private String name;
     /**
-     * @return Password for the pfx file specified in data.  Required if `data` is set.
+     * @return Password for the pfx file specified in data. Required if `data` is set.
      * 
      */
     private @Nullable String password;
@@ -72,7 +72,7 @@ public final class ApplicationGatewaySslCertificate {
         return this.name;
     }
     /**
-     * @return Password for the pfx file specified in data.  Required if `data` is set.
+     * @return Password for the pfx file specified in data. Required if `data` is set.
      * 
      */
     public Optional<String> password() {

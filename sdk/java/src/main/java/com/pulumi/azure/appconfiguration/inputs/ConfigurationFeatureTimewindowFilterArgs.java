@@ -16,14 +16,14 @@ public final class ConfigurationFeatureTimewindowFilterArgs extends com.pulumi.r
     public static final ConfigurationFeatureTimewindowFilterArgs Empty = new ConfigurationFeatureTimewindowFilterArgs();
 
     /**
-     * The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+     * The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
      * 
      */
     @Import(name="end")
     private @Nullable Output<String> end;
 
     /**
-     * @return The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+     * @return The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
      * 
      */
     public Optional<Output<String>> end() {
@@ -71,7 +71,7 @@ public final class ConfigurationFeatureTimewindowFilterArgs extends com.pulumi.r
         }
 
         /**
-         * @param end The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+         * @param end The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ConfigurationFeatureTimewindowFilterArgs extends com.pulumi.r
         }
 
         /**
-         * @param end The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+         * @param end The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
          * 
          * @return builder
          * 

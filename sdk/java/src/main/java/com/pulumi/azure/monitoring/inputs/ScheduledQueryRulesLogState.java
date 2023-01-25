@@ -80,14 +80,14 @@ public final class ScheduledQueryRulesLogState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Whether this scheduled query rule is enabled.  Default is `true`.
+     * Whether this scheduled query rule is enabled. Default is `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether this scheduled query rule is enabled.  Default is `true`.
+     * @return Whether this scheduled query rule is enabled. Default is `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -281,7 +281,7 @@ public final class ScheduledQueryRulesLogState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Whether this scheduled query rule is enabled.  Default is `true`.
+         * @param enabled Whether this scheduled query rule is enabled. Default is `true`.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class ScheduledQueryRulesLogState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Whether this scheduled query rule is enabled.  Default is `true`.
+         * @param enabled Whether this scheduled query rule is enabled. Default is `true`.
          * 
          * @return builder
          * 

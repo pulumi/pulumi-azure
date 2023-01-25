@@ -87,7 +87,7 @@ type SourceControlSlot struct {
 
 	// The URL for the repository. Changing this forces a new resource to be created.
 	Branch pulumi.StringOutput `pulumi:"branch"`
-	// A `githubActionConfiguration` block as detailed below.
+	// A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
 	GithubActionConfiguration SourceControlSlotGithubActionConfigurationPtrOutput `pulumi:"githubActionConfiguration"`
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	RepoUrl pulumi.StringOutput `pulumi:"repoUrl"`
@@ -141,7 +141,7 @@ func GetSourceControlSlot(ctx *pulumi.Context,
 type sourceControlSlotState struct {
 	// The URL for the repository. Changing this forces a new resource to be created.
 	Branch *string `pulumi:"branch"`
-	// A `githubActionConfiguration` block as detailed below.
+	// A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
 	GithubActionConfiguration *SourceControlSlotGithubActionConfiguration `pulumi:"githubActionConfiguration"`
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	RepoUrl *string `pulumi:"repoUrl"`
@@ -164,7 +164,7 @@ type sourceControlSlotState struct {
 type SourceControlSlotState struct {
 	// The URL for the repository. Changing this forces a new resource to be created.
 	Branch pulumi.StringPtrInput
-	// A `githubActionConfiguration` block as detailed below.
+	// A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
 	GithubActionConfiguration SourceControlSlotGithubActionConfigurationPtrInput
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	RepoUrl pulumi.StringPtrInput
@@ -191,7 +191,7 @@ func (SourceControlSlotState) ElementType() reflect.Type {
 type sourceControlSlotArgs struct {
 	// The URL for the repository. Changing this forces a new resource to be created.
 	Branch *string `pulumi:"branch"`
-	// A `githubActionConfiguration` block as detailed below.
+	// A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
 	GithubActionConfiguration *SourceControlSlotGithubActionConfiguration `pulumi:"githubActionConfiguration"`
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	RepoUrl *string `pulumi:"repoUrl"`
@@ -211,7 +211,7 @@ type sourceControlSlotArgs struct {
 type SourceControlSlotArgs struct {
 	// The URL for the repository. Changing this forces a new resource to be created.
 	Branch pulumi.StringPtrInput
-	// A `githubActionConfiguration` block as detailed below.
+	// A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
 	GithubActionConfiguration SourceControlSlotGithubActionConfigurationPtrInput
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	RepoUrl pulumi.StringPtrInput
@@ -319,7 +319,7 @@ func (o SourceControlSlotOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceControlSlot) pulumi.StringOutput { return v.Branch }).(pulumi.StringOutput)
 }
 
-// A `githubActionConfiguration` block as detailed below.
+// A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
 func (o SourceControlSlotOutput) GithubActionConfiguration() SourceControlSlotGithubActionConfigurationPtrOutput {
 	return o.ApplyT(func(v *SourceControlSlot) SourceControlSlotGithubActionConfigurationPtrOutput {
 		return v.GithubActionConfiguration

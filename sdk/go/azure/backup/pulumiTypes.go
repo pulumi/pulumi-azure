@@ -833,7 +833,7 @@ type PolicyVMBackup struct {
 	Frequency string `pulumi:"frequency"`
 	// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
 	HourDuration *int `pulumi:"hourDuration"`
-	// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+	// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
 	HourInterval *int `pulumi:"hourInterval"`
 	// The time of day to perform the backup in 24hour format.
 	Time string `pulumi:"time"`
@@ -857,7 +857,7 @@ type PolicyVMBackupArgs struct {
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
 	HourDuration pulumi.IntPtrInput `pulumi:"hourDuration"`
-	// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+	// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
 	HourInterval pulumi.IntPtrInput `pulumi:"hourInterval"`
 	// The time of day to perform the backup in 24hour format.
 	Time pulumi.StringInput `pulumi:"time"`
@@ -952,7 +952,7 @@ func (o PolicyVMBackupOutput) HourDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyVMBackup) *int { return v.HourDuration }).(pulumi.IntPtrOutput)
 }
 
-// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
 func (o PolicyVMBackupOutput) HourInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyVMBackup) *int { return v.HourInterval }).(pulumi.IntPtrOutput)
 }
@@ -1011,7 +1011,7 @@ func (o PolicyVMBackupPtrOutput) HourDuration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
 func (o PolicyVMBackupPtrOutput) HourInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyVMBackup) *int {
 		if v == nil {

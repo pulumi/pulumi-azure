@@ -65,6 +65,21 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     * 
+     */
+    @Import(name="immutability")
+    private @Nullable Output<String> immutability;
+
+    /**
+     * @return Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     * 
+     */
+    public Optional<Output<String>> immutability() {
+        return Optional.ofNullable(this.immutability);
+    }
+
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -92,6 +107,21 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Is it enabled to access the vault from public networks. Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Is it enabled to access the vault from public networks. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
 
     /**
@@ -175,8 +205,10 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         this.crossRegionRestoreEnabled = $.crossRegionRestoreEnabled;
         this.encryption = $.encryption;
         this.identity = $.identity;
+        this.immutability = $.immutability;
         this.location = $.location;
         this.name = $.name;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
         this.softDeleteEnabled = $.softDeleteEnabled;
@@ -266,6 +298,27 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param immutability Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder immutability(@Nullable Output<String> immutability) {
+            $.immutability = immutability;
+            return this;
+        }
+
+        /**
+         * @param immutability Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder immutability(String immutability) {
+            return immutability(Output.of(immutability));
+        }
+
+        /**
          * @param location Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -305,6 +358,27 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Is it enabled to access the vault from public networks. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Is it enabled to access the vault from public networks. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

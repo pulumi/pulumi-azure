@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Backup.Outputs
         /// </summary>
         public readonly int? HourDuration;
         /// <summary>
-        /// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+        /// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
         /// </summary>
         public readonly int? HourInterval;
         /// <summary>

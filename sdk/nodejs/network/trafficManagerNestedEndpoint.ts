@@ -108,8 +108,7 @@ export class TrafficManagerNestedEndpoint extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the Azure location of the Endpoint,
-     * this must be specified for Profiles using the `Performance` routing method.
+     * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      */
     public readonly endpointLocation!: pulumi.Output<string>;
     /**
@@ -117,10 +116,7 @@ export class TrafficManagerNestedEndpoint extends pulumi.CustomResource {
      */
     public readonly geoMappings!: pulumi.Output<string[] | undefined>;
     /**
-     * This argument specifies the minimum number
-     * of endpoints that must be ‘online’ in the child profile in order for the
-     * parent profile to direct traffic to any of the endpoints in that child
-     * profile. This value must be larger than `0`.
+     * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      */
     public readonly minimumChildEndpoints!: pulumi.Output<number>;
     /**
@@ -136,10 +132,7 @@ export class TrafficManagerNestedEndpoint extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
     public readonly priority!: pulumi.Output<number>;
     /**
@@ -147,12 +140,11 @@ export class TrafficManagerNestedEndpoint extends pulumi.CustomResource {
      */
     public readonly profileId!: pulumi.Output<string>;
     /**
-     * One or more `subnet` blocks as defined below
+     * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly subnets!: pulumi.Output<outputs.network.TrafficManagerNestedEndpointSubnet[] | undefined>;
     /**
-     * The resource id of an Azure resource to
-     * target.
+     * The resource id of an Azure resource to target.
      */
     public readonly targetResourceId!: pulumi.Output<string>;
     /**
@@ -229,8 +221,7 @@ export interface TrafficManagerNestedEndpointState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the Azure location of the Endpoint,
-     * this must be specified for Profiles using the `Performance` routing method.
+     * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      */
     endpointLocation?: pulumi.Input<string>;
     /**
@@ -238,10 +229,7 @@ export interface TrafficManagerNestedEndpointState {
      */
     geoMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This argument specifies the minimum number
-     * of endpoints that must be ‘online’ in the child profile in order for the
-     * parent profile to direct traffic to any of the endpoints in that child
-     * profile. This value must be larger than `0`.
+     * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      */
     minimumChildEndpoints?: pulumi.Input<number>;
     /**
@@ -257,10 +245,7 @@ export interface TrafficManagerNestedEndpointState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
     priority?: pulumi.Input<number>;
     /**
@@ -268,12 +253,11 @@ export interface TrafficManagerNestedEndpointState {
      */
     profileId?: pulumi.Input<string>;
     /**
-     * One or more `subnet` blocks as defined below
+     * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
     subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerNestedEndpointSubnet>[]>;
     /**
-     * The resource id of an Azure resource to
-     * target.
+     * The resource id of an Azure resource to target.
      */
     targetResourceId?: pulumi.Input<string>;
     /**
@@ -295,8 +279,7 @@ export interface TrafficManagerNestedEndpointArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the Azure location of the Endpoint,
-     * this must be specified for Profiles using the `Performance` routing method.
+     * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      */
     endpointLocation?: pulumi.Input<string>;
     /**
@@ -304,10 +287,7 @@ export interface TrafficManagerNestedEndpointArgs {
      */
     geoMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This argument specifies the minimum number
-     * of endpoints that must be ‘online’ in the child profile in order for the
-     * parent profile to direct traffic to any of the endpoints in that child
-     * profile. This value must be larger than `0`.
+     * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      */
     minimumChildEndpoints: pulumi.Input<number>;
     /**
@@ -323,10 +303,7 @@ export interface TrafficManagerNestedEndpointArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
     priority?: pulumi.Input<number>;
     /**
@@ -334,12 +311,11 @@ export interface TrafficManagerNestedEndpointArgs {
      */
     profileId: pulumi.Input<string>;
     /**
-     * One or more `subnet` blocks as defined below
+     * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
     subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerNestedEndpointSubnet>[]>;
     /**
-     * The resource id of an Azure resource to
-     * target.
+     * The resource id of an Azure resource to target.
      */
     targetResourceId: pulumi.Input<string>;
     /**

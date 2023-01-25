@@ -33,14 +33,14 @@ public final class HBaseClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The script action which will run on the cluster.
+     * The script action which will run on the cluster. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scriptActions")
     private @Nullable Output<List<HBaseClusterRolesHeadNodeScriptActionArgs>> scriptActions;
 
     /**
-     * @return The script action which will run on the cluster.
+     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<HBaseClusterRolesHeadNodeScriptActionArgs>>> scriptActions() {
@@ -174,7 +174,7 @@ public final class HBaseClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster.
+         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class HBaseClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster.
+         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class HBaseClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster.
+         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

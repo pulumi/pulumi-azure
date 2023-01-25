@@ -120,6 +120,10 @@ namespace Pulumi.Azure.AppService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "apiKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -199,11 +203,21 @@ namespace Pulumi.Azure.AppService
 
     public sealed class StaticSiteState : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
+
         /// <summary>
         /// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
         /// </summary>
-        [Input("apiKey")]
-        public Input<string>? ApiKey { get; set; }
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The default host name of the Static Web App.

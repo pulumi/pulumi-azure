@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class ImageOsDisk
     {
         /// <summary>
-        /// Specifies the URI in Azure storage of the blob that you want to use to create the image.
+        /// Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? BlobUri;
         /// <summary>

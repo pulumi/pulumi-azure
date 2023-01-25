@@ -32,14 +32,14 @@ public final class ScaleSetSkuArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
+     * Specifies the size of virtual machines in a scale set.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
+     * @return Specifies the size of virtual machines in a scale set.
      * 
      */
     public Output<String> name() {
@@ -109,7 +109,7 @@ public final class ScaleSetSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
+         * @param name Specifies the size of virtual machines in a scale set.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ScaleSetSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
+         * @param name Specifies the size of virtual machines in a scale set.
          * 
          * @return builder
          * 

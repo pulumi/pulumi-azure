@@ -516,7 +516,7 @@ func (o OrderReturnTrackingArrayOutput) Index(i pulumi.IntInput) OrderReturnTrac
 }
 
 type OrderShipmentAddress struct {
-	// The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+	// The list of upto 3 lines for address information.
 	Addresses []string `pulumi:"addresses"`
 	// The city name. Changing this forces a new Databox Edge Order to be created.
 	City string `pulumi:"city"`
@@ -540,7 +540,7 @@ type OrderShipmentAddressInput interface {
 }
 
 type OrderShipmentAddressArgs struct {
-	// The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+	// The list of upto 3 lines for address information.
 	Addresses pulumi.StringArrayInput `pulumi:"addresses"`
 	// The city name. Changing this forces a new Databox Edge Order to be created.
 	City pulumi.StringInput `pulumi:"city"`
@@ -629,7 +629,7 @@ func (o OrderShipmentAddressOutput) ToOrderShipmentAddressPtrOutputWithContext(c
 	}).(OrderShipmentAddressPtrOutput)
 }
 
-// The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+// The list of upto 3 lines for address information.
 func (o OrderShipmentAddressOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrderShipmentAddress) []string { return v.Addresses }).(pulumi.StringArrayOutput)
 }
@@ -678,7 +678,7 @@ func (o OrderShipmentAddressPtrOutput) Elem() OrderShipmentAddressOutput {
 	}).(OrderShipmentAddressOutput)
 }
 
-// The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+// The list of upto 3 lines for address information.
 func (o OrderShipmentAddressPtrOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrderShipmentAddress) []string {
 		if v == nil {

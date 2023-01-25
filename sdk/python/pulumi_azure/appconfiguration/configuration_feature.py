@@ -32,7 +32,7 @@ class ConfigurationFeatureArgs:
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the App Configuration Feature.
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
-        :param pulumi.Input[str] label: The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
@@ -111,7 +111,7 @@ class ConfigurationFeatureArgs:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+        The label of the App Configuration Feature. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "label")
 
@@ -211,7 +211,7 @@ class _ConfigurationFeatureState:
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the App Configuration Feature.
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
-        :param pulumi.Input[str] label: The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
@@ -291,7 +291,7 @@ class _ConfigurationFeatureState:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+        The label of the App Configuration Feature. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "label")
 
@@ -414,13 +414,13 @@ class ConfigurationFeature(pulumi.CustomResource):
         App Configuration Features can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
+         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
         ```
 
          If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
+         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
         ```
 
         :param str resource_name: The name of the resource.
@@ -428,7 +428,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the App Configuration Feature.
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
-        :param pulumi.Input[str] label: The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
@@ -467,13 +467,13 @@ class ConfigurationFeature(pulumi.CustomResource):
         App Configuration Features can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
+         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
         ```
 
          If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
+         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
         ```
 
         :param str resource_name: The name of the resource.
@@ -555,7 +555,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the App Configuration Feature.
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
-        :param pulumi.Input[str] label: The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
@@ -613,7 +613,7 @@ class ConfigurationFeature(pulumi.CustomResource):
     @pulumi.getter
     def label(self) -> pulumi.Output[Optional[str]]:
         """
-        The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+        The label of the App Configuration Feature. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "label")
 

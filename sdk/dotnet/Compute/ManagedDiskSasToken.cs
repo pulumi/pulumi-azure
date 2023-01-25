@@ -63,13 +63,13 @@ namespace Pulumi.Azure.Compute
     public partial class ManagedDiskSasToken : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The level of access required on the disk. Supported are Read, Write.
+        /// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
         /// </summary>
         [Output("accessLevel")]
         public Output<string> AccessLevel { get; private set; } = null!;
 
         /// <summary>
-        /// The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds.
+        /// The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds. Changing this forces a new resource to be created.
         /// </summary>
         [Output("durationInSeconds")]
         public Output<int> DurationInSeconds { get; private set; } = null!;
@@ -137,13 +137,13 @@ namespace Pulumi.Azure.Compute
     public sealed class ManagedDiskSasTokenArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The level of access required on the disk. Supported are Read, Write.
+        /// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
         /// </summary>
         [Input("accessLevel", required: true)]
         public Input<string> AccessLevel { get; set; } = null!;
 
         /// <summary>
-        /// The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds.
+        /// The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds. Changing this forces a new resource to be created.
         /// </summary>
         [Input("durationInSeconds", required: true)]
         public Input<int> DurationInSeconds { get; set; } = null!;
@@ -163,13 +163,13 @@ namespace Pulumi.Azure.Compute
     public sealed class ManagedDiskSasTokenState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The level of access required on the disk. Supported are Read, Write.
+        /// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
         /// </summary>
         [Input("accessLevel")]
         public Input<string>? AccessLevel { get; set; }
 
         /// <summary>
-        /// The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds.
+        /// The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds. Changing this forces a new resource to be created.
         /// </summary>
         [Input("durationInSeconds")]
         public Input<int>? DurationInSeconds { get; set; }

@@ -233,14 +233,14 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `security_profile` block as defined below.
+     * A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="securityProfile")
     private @Nullable Output<InteractiveQueryClusterSecurityProfileArgs> securityProfile;
 
     /**
-     * @return A `security_profile` block as defined below.
+     * @return A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<InteractiveQueryClusterSecurityProfileArgs>> securityProfile() {
@@ -652,7 +652,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param securityProfile A `security_profile` block as defined below.
+         * @param securityProfile A `security_profile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param securityProfile A `security_profile` block as defined below.
+         * @param securityProfile A `security_profile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -29,7 +29,7 @@ public final class FrontdoorBackendPoolHealthProbe {
      */
     private @Nullable Integer intervalInSeconds;
     /**
-     * @return Specifies the name of the Health Probe. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Health Probe.
      * 
      */
     private String name;
@@ -72,7 +72,7 @@ public final class FrontdoorBackendPoolHealthProbe {
         return Optional.ofNullable(this.intervalInSeconds);
     }
     /**
-     * @return Specifies the name of the Health Probe. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Health Probe.
      * 
      */
     public String name() {

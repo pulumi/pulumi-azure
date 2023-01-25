@@ -106,7 +106,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly additionalCapabilities!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAdditionalCapabilities | undefined>;
     /**
-     * One or more `additionalUnattendContent` blocks as defined below.
+     * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly additionalUnattendContents!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAdditionalUnattendContent[] | undefined>;
     /**
@@ -226,7 +226,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly overprovision!: pulumi.Output<boolean | undefined>;
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly plan!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetPlan | undefined>;
     /**
@@ -250,7 +250,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      */
     public readonly rollingUpgradePolicy!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**
@@ -324,7 +324,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * One or more `winrmListener` blocks as defined below.
+     * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly winrmListeners!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetWinrmListener[] | undefined>;
     /**
@@ -505,7 +505,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     additionalCapabilities?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalCapabilities>;
     /**
-     * One or more `additionalUnattendContent` blocks as defined below.
+     * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      */
     additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalUnattendContent>[]>;
     /**
@@ -625,7 +625,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     overprovision?: pulumi.Input<boolean>;
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     plan?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetPlan>;
     /**
@@ -649,7 +649,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      */
     rollingUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy>;
     /**
@@ -723,7 +723,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     vtpmEnabled?: pulumi.Input<boolean>;
     /**
-     * One or more `winrmListener` blocks as defined below.
+     * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      */
     winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetWinrmListener>[]>;
     /**
@@ -745,7 +745,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     additionalCapabilities?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalCapabilities>;
     /**
-     * One or more `additionalUnattendContent` blocks as defined below.
+     * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      */
     additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalUnattendContent>[]>;
     /**
@@ -865,7 +865,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     overprovision?: pulumi.Input<boolean>;
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     plan?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetPlan>;
     /**
@@ -889,7 +889,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      */
     rollingUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy>;
     /**
@@ -959,7 +959,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     vtpmEnabled?: pulumi.Input<boolean>;
     /**
-     * One or more `winrmListener` blocks as defined below.
+     * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      */
     winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetWinrmListener>[]>;
     /**

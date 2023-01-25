@@ -80,7 +80,7 @@ export class SourceControl extends pulumi.CustomResource {
      */
     public readonly branch!: pulumi.Output<string>;
     /**
-     * A `githubActionConfiguration` block as defined below.
+     * A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly githubActionConfiguration!: pulumi.Output<outputs.appservice.SourceControlGithubActionConfiguration | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface SourceControlState {
      */
     branch?: pulumi.Input<string>;
     /**
-     * A `githubActionConfiguration` block as defined below.
+     * A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     githubActionConfiguration?: pulumi.Input<inputs.appservice.SourceControlGithubActionConfiguration>;
     /**
@@ -215,7 +215,7 @@ export interface SourceControlArgs {
      */
     branch?: pulumi.Input<string>;
     /**
-     * A `githubActionConfiguration` block as defined below.
+     * A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     githubActionConfiguration?: pulumi.Input<inputs.appservice.SourceControlGithubActionConfiguration>;
     /**

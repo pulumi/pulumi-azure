@@ -79,7 +79,7 @@ type LinuxWebAppSlot struct {
 
 	// A `appMetadata` block as defined below.
 	AppMetadata pulumi.StringMapOutput `pulumi:"appMetadata"`
-	// The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+	// The ID of the Linux Web App this Deployment Slot will be part of.
 	AppServiceId pulumi.StringOutput `pulumi:"appServiceId"`
 	// A map of key-value pairs of App Settings.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
@@ -178,7 +178,7 @@ func GetLinuxWebAppSlot(ctx *pulumi.Context,
 type linuxWebAppSlotState struct {
 	// A `appMetadata` block as defined below.
 	AppMetadata map[string]string `pulumi:"appMetadata"`
-	// The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+	// The ID of the Linux Web App this Deployment Slot will be part of.
 	AppServiceId *string `pulumi:"appServiceId"`
 	// A map of key-value pairs of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
@@ -239,7 +239,7 @@ type linuxWebAppSlotState struct {
 type LinuxWebAppSlotState struct {
 	// A `appMetadata` block as defined below.
 	AppMetadata pulumi.StringMapInput
-	// The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+	// The ID of the Linux Web App this Deployment Slot will be part of.
 	AppServiceId pulumi.StringPtrInput
 	// A map of key-value pairs of App Settings.
 	AppSettings pulumi.StringMapInput
@@ -302,7 +302,7 @@ func (LinuxWebAppSlotState) ElementType() reflect.Type {
 }
 
 type linuxWebAppSlotArgs struct {
-	// The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+	// The ID of the Linux Web App this Deployment Slot will be part of.
 	AppServiceId string `pulumi:"appServiceId"`
 	// A map of key-value pairs of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
@@ -346,7 +346,7 @@ type linuxWebAppSlotArgs struct {
 
 // The set of arguments for constructing a LinuxWebAppSlot resource.
 type LinuxWebAppSlotArgs struct {
-	// The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+	// The ID of the Linux Web App this Deployment Slot will be part of.
 	AppServiceId pulumi.StringInput
 	// A map of key-value pairs of App Settings.
 	AppSettings pulumi.StringMapInput
@@ -480,7 +480,7 @@ func (o LinuxWebAppSlotOutput) AppMetadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringMapOutput { return v.AppMetadata }).(pulumi.StringMapOutput)
 }
 
-// The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
+// The ID of the Linux Web App this Deployment Slot will be part of.
 func (o LinuxWebAppSlotOutput) AppServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.AppServiceId }).(pulumi.StringOutput)
 }

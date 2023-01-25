@@ -13,13 +13,13 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     public sealed class ReplicatedVMManagedDiskGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Id of disk that should be replicated.
+        /// Id of disk that should be replicated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diskId", required: true)]
         public Input<string> DiskId { get; set; } = null!;
 
         /// <summary>
-        /// Storage account that should be used for caching.
+        /// Storage account that should be used for caching. Changing this forces a new resource to be created.
         /// </summary>
         [Input("stagingStorageAccountId", required: true)]
         public Input<string> StagingStorageAccountId { get; set; } = null!;
@@ -31,25 +31,25 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         public Input<Inputs.ReplicatedVMManagedDiskTargetDiskEncryptionGetArgs>? TargetDiskEncryption { get; set; }
 
         /// <summary>
-        /// The Disk Encryption Set that the Managed Disk will be associated with.
+        /// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetDiskEncryptionSetId")]
         public Input<string>? TargetDiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+        /// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetDiskType", required: true)]
         public Input<string> TargetDiskType { get; set; } = null!;
 
         /// <summary>
-        /// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+        /// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetReplicaDiskType", required: true)]
         public Input<string> TargetReplicaDiskType { get; set; } = null!;
 
         /// <summary>
-        /// Resource group disk should belong to when a failover is done.
+        /// Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetResourceGroupId", required: true)]
         public Input<string> TargetResourceGroupId { get; set; } = null!;

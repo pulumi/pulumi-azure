@@ -24,8 +24,8 @@ class DeploymentArgs:
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input['DeploymentModelArgs'] model: A `model` block as defined below.
-        :param pulumi.Input['DeploymentScaleArgs'] scale: A `scale` block as defined below.
+        :param pulumi.Input['DeploymentModelArgs'] model: A `model` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['DeploymentScaleArgs'] scale: A `scale` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy. Changing this forces a new resource to be created.
         """
@@ -53,7 +53,7 @@ class DeploymentArgs:
     @pulumi.getter
     def model(self) -> pulumi.Input['DeploymentModelArgs']:
         """
-        A `model` block as defined below.
+        A `model` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "model")
 
@@ -65,7 +65,7 @@ class DeploymentArgs:
     @pulumi.getter
     def scale(self) -> pulumi.Input['DeploymentScaleArgs']:
         """
-        A `scale` block as defined below.
+        A `scale` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scale")
 
@@ -109,10 +109,10 @@ class _DeploymentState:
         """
         Input properties used for looking up and filtering Deployment resources.
         :param pulumi.Input[str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input['DeploymentModelArgs'] model: A `model` block as defined below.
+        :param pulumi.Input['DeploymentModelArgs'] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy. Changing this forces a new resource to be created.
-        :param pulumi.Input['DeploymentScaleArgs'] scale: A `scale` block as defined below.
+        :param pulumi.Input['DeploymentScaleArgs'] scale: A `scale` block as defined below. Changing this forces a new resource to be created.
         """
         if cognitive_account_id is not None:
             pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
@@ -141,7 +141,7 @@ class _DeploymentState:
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input['DeploymentModelArgs']]:
         """
-        A `model` block as defined below.
+        A `model` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "model")
 
@@ -177,7 +177,7 @@ class _DeploymentState:
     @pulumi.getter
     def scale(self) -> Optional[pulumi.Input['DeploymentScaleArgs']]:
         """
-        A `scale` block as defined below.
+        A `scale` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scale")
 
@@ -235,10 +235,10 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['DeploymentModelArgs']] model: A `model` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DeploymentModelArgs']] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['DeploymentScaleArgs']] scale: A `scale` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DeploymentScaleArgs']] scale: A `scale` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -344,10 +344,10 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['DeploymentModelArgs']] model: A `model` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DeploymentModelArgs']] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['DeploymentScaleArgs']] scale: A `scale` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DeploymentScaleArgs']] scale: A `scale` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -372,7 +372,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def model(self) -> pulumi.Output['outputs.DeploymentModel']:
         """
-        A `model` block as defined below.
+        A `model` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "model")
 
@@ -396,7 +396,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def scale(self) -> pulumi.Output['outputs.DeploymentScale']:
         """
-        A `scale` block as defined below.
+        A `scale` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scale")
 

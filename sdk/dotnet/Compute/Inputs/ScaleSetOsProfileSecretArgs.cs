@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.ScaleSetOsProfileSecretVaultCertificateArgs>? _vaultCertificates;
 
         /// <summary>
-        /// (Required, on windows machines) A collection of Vault Certificates as documented below
+        /// (Required, on Windows machines) One or more `vault_certificates` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ScaleSetOsProfileSecretVaultCertificateArgs> VaultCertificates
         {

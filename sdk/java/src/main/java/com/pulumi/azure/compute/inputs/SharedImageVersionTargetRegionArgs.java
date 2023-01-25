@@ -32,14 +32,14 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
     }
 
     /**
-     * The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
+     * The Azure Region in which this Image Version should exist.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
+     * @return The Azure Region in which this Image Version should exist.
      * 
      */
     public Output<String> name() {
@@ -125,7 +125,7 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
+         * @param name The Azure Region in which this Image Version should exist.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
+         * @param name The Azure Region in which this Image Version should exist.
          * 
          * @return builder
          * 

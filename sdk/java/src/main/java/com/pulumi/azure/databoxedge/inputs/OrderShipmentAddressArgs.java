@@ -15,14 +15,14 @@ public final class OrderShipmentAddressArgs extends com.pulumi.resources.Resourc
     public static final OrderShipmentAddressArgs Empty = new OrderShipmentAddressArgs();
 
     /**
-     * The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+     * The list of upto 3 lines for address information.
      * 
      */
     @Import(name="addresses", required=true)
     private Output<List<String>> addresses;
 
     /**
-     * @return The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+     * @return The list of upto 3 lines for address information.
      * 
      */
     public Output<List<String>> addresses() {
@@ -118,7 +118,7 @@ public final class OrderShipmentAddressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param addresses The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+         * @param addresses The list of upto 3 lines for address information.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class OrderShipmentAddressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param addresses The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+         * @param addresses The list of upto 3 lines for address information.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class OrderShipmentAddressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param addresses The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+         * @param addresses The list of upto 3 lines for address information.
          * 
          * @return builder
          * 

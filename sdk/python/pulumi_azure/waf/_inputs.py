@@ -599,7 +599,7 @@ class PolicyPolicySettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
         :param pulumi.Input[int] file_upload_limit_in_mb: The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
-        :param pulumi.Input[int] max_request_body_size_in_kb: The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
+        :param pulumi.Input[int] max_request_body_size_in_kb: The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
         :param pulumi.Input[str] mode: Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[bool] request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
         """
@@ -642,7 +642,7 @@ class PolicyPolicySettingsArgs:
     @pulumi.getter(name="maxRequestBodySizeInKb")
     def max_request_body_size_in_kb(self) -> Optional[pulumi.Input[int]]:
         """
-        The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
+        The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
         """
         return pulumi.get(self, "max_request_body_size_in_kb")
 

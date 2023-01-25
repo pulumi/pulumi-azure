@@ -17,14 +17,14 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
     public static final WindowsFunctionAppSlotSiteConfigApplicationStackArgs Empty = new WindowsFunctionAppSlotSiteConfigApplicationStackArgs();
 
     /**
-     * The version of .Net. Possible values are `3.1`, `6` and `7`
+     * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .Net. Possible values are `3.1`, `6` and `7`
+     * @return The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -32,14 +32,14 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
     }
 
     /**
-     * The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
+     * The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
      * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
+     * @return The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -136,7 +136,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param dotnetVersion The version of .Net. Possible values are `3.1`, `6` and `7`
+         * @param dotnetVersion The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param dotnetVersion The version of .Net. Possible values are `3.1`, `6` and `7`
+         * @param dotnetVersion The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param javaVersion The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
+         * @param javaVersion The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param javaVersion The version of Java to use. Possible values are `8`, `11` &amp; `17` (In-Preview).
+         * @param javaVersion The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
          * 
          * @return builder
          * 

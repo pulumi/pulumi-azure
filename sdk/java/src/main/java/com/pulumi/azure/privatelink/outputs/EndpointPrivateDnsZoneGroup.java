@@ -18,7 +18,7 @@ public final class EndpointPrivateDnsZoneGroup {
      */
     private @Nullable String id;
     /**
-     * @return Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
+     * @return Specifies the Name of the Private DNS Zone Group.
      * 
      */
     private String name;
@@ -37,7 +37,7 @@ public final class EndpointPrivateDnsZoneGroup {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
+     * @return Specifies the Name of the Private DNS Zone Group.
      * 
      */
     public String name() {

@@ -19,7 +19,7 @@ public final class HadoopClusterRolesZookeeperNode {
      */
     private @Nullable String password;
     /**
-     * @return The script action which will run on the cluster.
+     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<HadoopClusterRolesZookeeperNodeScriptAction> scriptActions;
@@ -58,7 +58,7 @@ public final class HadoopClusterRolesZookeeperNode {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return The script action which will run on the cluster.
+     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
      * 
      */
     public List<HadoopClusterRolesZookeeperNodeScriptAction> scriptActions() {

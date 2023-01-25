@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly ImmutableArray<int> RecurrenceMonthlies;
         /// <summary>
-        /// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+        /// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         /// </summary>
         public readonly ImmutableArray<string> RecurrenceWeeklies;
         /// <summary>

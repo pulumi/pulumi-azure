@@ -90,28 +90,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:sql/database:Database")
 public class Database extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * The name of the collation. Applies only if `create_mode` is `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="collation", type=String.class, parameters={})
     private Output<String> collation;
 
     /**
-     * @return The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * @return The name of the collation. Applies only if `create_mode` is `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> collation() {
         return this.collation;
     }
     /**
-     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
+     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
      * 
      */
     @Export(name="createMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> createMode;
 
     /**
-     * @return Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
+     * @return Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
      * 
      */
     public Output<Optional<String>> createMode() {
@@ -208,14 +208,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
+     * The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      * 
      */
     @Export(name="maxSizeBytes", type=String.class, parameters={})
     private Output<String> maxSizeBytes;
 
     /**
-     * @return The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
+     * @return The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      * 
      */
     public Output<String> maxSizeBytes() {
@@ -286,14 +286,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.requestedServiceObjectiveName;
     }
     /**
-     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the database. This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
+     * @return The name of the resource group in which to create the database. This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

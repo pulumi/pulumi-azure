@@ -89,14 +89,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      * 
      */
     @Import(name="capabilities")
     private @Nullable Output<List<AccountCapabilityArgs>> capabilities;
 
     /**
-     * @return The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+     * @return The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      * 
      */
     public Optional<Output<List<AccountCapabilityArgs>>> capabilities() {
@@ -632,7 +632,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capabilities The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+         * @param capabilities The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
          * 
          * @return builder
          * 
@@ -643,7 +643,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capabilities The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+         * @param capabilities The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
          * 
          * @return builder
          * 
@@ -653,7 +653,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capabilities The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+         * @param capabilities The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
          * 
          * @return builder
          * 

@@ -105,7 +105,7 @@ export class HybridConnection extends pulumi.CustomResource {
     public readonly relayId!: pulumi.Output<string>;
     public /*out*/ readonly relayName!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -211,7 +211,7 @@ export interface HybridConnectionState {
     relayId?: pulumi.Input<string>;
     relayName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -253,7 +253,7 @@ export interface HybridConnectionArgs {
      */
     relayId: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

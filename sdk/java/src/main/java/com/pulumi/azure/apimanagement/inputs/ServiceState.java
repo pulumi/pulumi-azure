@@ -270,14 +270,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     * The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      * 
      */
     @Import(name="privateIpAddresses")
     private @Nullable Output<List<String>> privateIpAddresses;
 
     /**
-     * @return The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     * @return The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      * 
      */
     public Optional<Output<List<String>>> privateIpAddresses() {
@@ -953,7 +953,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIpAddresses The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+         * @param privateIpAddresses The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
          * 
          * @return builder
          * 
@@ -964,7 +964,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIpAddresses The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+         * @param privateIpAddresses The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
          * 
          * @return builder
          * 
@@ -974,7 +974,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIpAddresses The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+         * @param privateIpAddresses The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
          * 
          * @return builder
          * 

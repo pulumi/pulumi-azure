@@ -94,7 +94,7 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
-     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analyticalStorageTtl` on an existing Cosmos DB SQL Container.
+     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
     public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
     /**
@@ -102,7 +102,7 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.SqlContainerAutoscaleSettings | undefined>;
     /**
-     * A `conflictResolutionPolicy` blocks as defined below.
+     * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly conflictResolutionPolicy!: pulumi.Output<outputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
     /**
@@ -210,7 +210,7 @@ export interface SqlContainerState {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analyticalStorageTtl` on an existing Cosmos DB SQL Container.
+     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
     analyticalStorageTtl?: pulumi.Input<number>;
     /**
@@ -218,7 +218,7 @@ export interface SqlContainerState {
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
     /**
-     * A `conflictResolutionPolicy` blocks as defined below.
+     * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
     conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
     /**
@@ -268,7 +268,7 @@ export interface SqlContainerArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. Changing this forces a new Cosmos DB SQL Container to be created when removing `analyticalStorageTtl` on an existing Cosmos DB SQL Container.
+     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
     analyticalStorageTtl?: pulumi.Input<number>;
     /**
@@ -276,7 +276,7 @@ export interface SqlContainerArgs {
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
     /**
-     * A `conflictResolutionPolicy` blocks as defined below.
+     * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
     conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
     /**

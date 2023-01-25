@@ -103,7 +103,7 @@ namespace Pulumi.Azure.AppService
         public Output<bool> IsPrivateKeyExternal { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate key size.  Defaults to `2048`.
+        /// Certificate key size. Defaults to `2048`.
         /// </summary>
         [Output("keySize")]
         public Output<int?> KeySize { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        /// Duration in years (must be between `1` and `3`). Defaults to `1`.
         /// </summary>
         [Output("validityInYears")]
         public Output<int?> ValidityInYears { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DistinguishedName { get; set; }
 
         /// <summary>
-        /// Certificate key size.  Defaults to `2048`.
+        /// Certificate key size. Defaults to `2048`.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        /// Duration in years (must be between `1` and `3`). Defaults to `1`.
         /// </summary>
         [Input("validityInYears")]
         public Input<int>? ValidityInYears { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? IsPrivateKeyExternal { get; set; }
 
         /// <summary>
-        /// Certificate key size.  Defaults to `2048`.
+        /// Certificate key size. Defaults to `2048`.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }
@@ -409,7 +409,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        /// Duration in years (must be between `1` and `3`). Defaults to `1`.
         /// </summary>
         [Input("validityInYears")]
         public Input<int>? ValidityInYears { get; set; }

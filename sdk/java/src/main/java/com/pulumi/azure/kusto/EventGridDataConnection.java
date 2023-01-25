@@ -276,14 +276,14 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
         return this.location;
     }
     /**
-     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      * 
      */
     @Export(name="managedIdentityResourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> managedIdentityResourceId;
 
     /**
-     * @return Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+     * @return Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      * 
      */
     public Output<Optional<String>> managedIdentityResourceId() {

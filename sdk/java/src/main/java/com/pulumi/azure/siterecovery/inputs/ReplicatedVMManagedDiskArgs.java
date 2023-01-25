@@ -17,14 +17,14 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     public static final ReplicatedVMManagedDiskArgs Empty = new ReplicatedVMManagedDiskArgs();
 
     /**
-     * Id of disk that should be replicated.
+     * Id of disk that should be replicated. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diskId", required=true)
     private Output<String> diskId;
 
     /**
-     * @return Id of disk that should be replicated.
+     * @return Id of disk that should be replicated. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> diskId() {
@@ -32,14 +32,14 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Storage account that should be used for caching.
+     * Storage account that should be used for caching. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="stagingStorageAccountId", required=true)
     private Output<String> stagingStorageAccountId;
 
     /**
-     * @return Storage account that should be used for caching.
+     * @return Storage account that should be used for caching. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> stagingStorageAccountId() {
@@ -62,14 +62,14 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Disk Encryption Set that the Managed Disk will be associated with.
+     * The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetDiskEncryptionSetId")
     private @Nullable Output<String> targetDiskEncryptionSetId;
 
     /**
-     * @return The Disk Encryption Set that the Managed Disk will be associated with.
+     * @return The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> targetDiskEncryptionSetId() {
@@ -77,14 +77,14 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+     * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetDiskType", required=true)
     private Output<String> targetDiskType;
 
     /**
-     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+     * @return What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetDiskType() {
@@ -92,14 +92,14 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+     * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetReplicaDiskType", required=true)
     private Output<String> targetReplicaDiskType;
 
     /**
-     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+     * @return What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetReplicaDiskType() {
@@ -107,14 +107,14 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Resource group disk should belong to when a failover is done.
+     * Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetResourceGroupId", required=true)
     private Output<String> targetResourceGroupId;
 
     /**
-     * @return Resource group disk should belong to when a failover is done.
+     * @return Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetResourceGroupId() {
@@ -152,7 +152,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param diskId Id of disk that should be replicated.
+         * @param diskId Id of disk that should be replicated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param diskId Id of disk that should be replicated.
+         * @param diskId Id of disk that should be replicated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param stagingStorageAccountId Storage account that should be used for caching.
+         * @param stagingStorageAccountId Storage account that should be used for caching. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param stagingStorageAccountId Storage account that should be used for caching.
+         * @param stagingStorageAccountId Storage account that should be used for caching. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetDiskEncryptionSetId The Disk Encryption Set that the Managed Disk will be associated with.
+         * @param targetDiskEncryptionSetId The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetDiskEncryptionSetId The Disk Encryption Set that the Managed Disk will be associated with.
+         * @param targetDiskEncryptionSetId The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetDiskType What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+         * @param targetDiskType What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetDiskType What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+         * @param targetDiskType What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetReplicaDiskType What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+         * @param targetReplicaDiskType What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetReplicaDiskType What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`.
+         * @param targetReplicaDiskType What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetResourceGroupId Resource group disk should belong to when a failover is done.
+         * @param targetResourceGroupId Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetResourceGroupId Resource group disk should belong to when a failover is done.
+         * @param targetResourceGroupId Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

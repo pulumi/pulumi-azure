@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

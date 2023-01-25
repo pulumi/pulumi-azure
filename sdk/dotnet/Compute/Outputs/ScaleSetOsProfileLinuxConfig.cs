@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool? DisablePasswordAuthentication;
         /// <summary>
-        /// Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+        /// One or more `ssh_keys` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScaleSetOsProfileLinuxConfigSshKey> SshKeys;
 

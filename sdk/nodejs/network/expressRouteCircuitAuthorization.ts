@@ -84,8 +84,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
      */
     public readonly expressRouteCircuitName!: pulumi.Output<string>;
     /**
-     * The name of the ExpressRoute circuit. Changing this forces a
-     * new resource to be created.
+     * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -150,8 +149,7 @@ export interface ExpressRouteCircuitAuthorizationState {
      */
     expressRouteCircuitName?: pulumi.Input<string>;
     /**
-     * The name of the ExpressRoute circuit. Changing this forces a
-     * new resource to be created.
+     * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -170,8 +168,7 @@ export interface ExpressRouteCircuitAuthorizationArgs {
      */
     expressRouteCircuitName: pulumi.Input<string>;
     /**
-     * The name of the ExpressRoute circuit. Changing this forces a
-     * new resource to be created.
+     * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

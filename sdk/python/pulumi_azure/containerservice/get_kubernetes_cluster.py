@@ -22,7 +22,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, microsoft_defenders=None, name=None, network_profiles=None, node_resource_group=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_principals=None, storage_profiles=None, tags=None, windows_profiles=None):
+    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_management_services=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, microsoft_defenders=None, name=None, network_profiles=None, node_resource_group=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_principals=None, storage_profiles=None, tags=None, windows_profiles=None):
         if aci_connector_linuxes and not isinstance(aci_connector_linuxes, list):
             raise TypeError("Expected argument 'aci_connector_linuxes' to be a list")
         pulumi.set(__self__, "aci_connector_linuxes", aci_connector_linuxes)
@@ -62,6 +62,9 @@ class GetKubernetesClusterResult:
         if ingress_application_gateways and not isinstance(ingress_application_gateways, list):
             raise TypeError("Expected argument 'ingress_application_gateways' to be a list")
         pulumi.set(__self__, "ingress_application_gateways", ingress_application_gateways)
+        if key_management_services and not isinstance(key_management_services, list):
+            raise TypeError("Expected argument 'key_management_services' to be a list")
+        pulumi.set(__self__, "key_management_services", key_management_services)
         if key_vault_secrets_providers and not isinstance(key_vault_secrets_providers, list):
             raise TypeError("Expected argument 'key_vault_secrets_providers' to be a list")
         pulumi.set(__self__, "key_vault_secrets_providers", key_vault_secrets_providers)
@@ -241,6 +244,14 @@ class GetKubernetesClusterResult:
         An `ingress_application_gateway` block as documented below.
         """
         return pulumi.get(self, "ingress_application_gateways")
+
+    @property
+    @pulumi.getter(name="keyManagementServices")
+    def key_management_services(self) -> Sequence['outputs.GetKubernetesClusterKeyManagementServiceResult']:
+        """
+        A `key_management_service` block as documented below.
+        """
+        return pulumi.get(self, "key_management_services")
 
     @property
     @pulumi.getter(name="keyVaultSecretsProviders")
@@ -459,6 +470,7 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             id=self.id,
             identities=self.identities,
             ingress_application_gateways=self.ingress_application_gateways,
+            key_management_services=self.key_management_services,
             key_vault_secrets_providers=self.key_vault_secrets_providers,
             kube_admin_config_raw=self.kube_admin_config_raw,
             kube_admin_configs=self.kube_admin_configs,
@@ -526,6 +538,7 @@ def get_kubernetes_cluster(name: Optional[str] = None,
         id=__ret__.id,
         identities=__ret__.identities,
         ingress_application_gateways=__ret__.ingress_application_gateways,
+        key_management_services=__ret__.key_management_services,
         key_vault_secrets_providers=__ret__.key_vault_secrets_providers,
         kube_admin_config_raw=__ret__.kube_admin_config_raw,
         kube_admin_configs=__ret__.kube_admin_configs,

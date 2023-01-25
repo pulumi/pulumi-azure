@@ -201,14 +201,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+     * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+     * @return The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -568,7 +568,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+         * @param sku The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this can force a new resource to be created in some circumstances.
+         * @param sku The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
          * 
          * @return builder
          * 

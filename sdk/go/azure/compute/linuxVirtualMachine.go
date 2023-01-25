@@ -143,7 +143,7 @@ type LinuxVirtualMachine struct {
 	AdditionalCapabilities LinuxVirtualMachineAdditionalCapabilitiesPtrOutput `pulumi:"additionalCapabilities"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringPtrOutput `pulumi:"adminPassword"`
-	// One or more `adminSshKey` blocks as defined below.
+	// One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayOutput `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
@@ -298,7 +298,7 @@ type linuxVirtualMachineState struct {
 	AdditionalCapabilities *LinuxVirtualMachineAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword *string `pulumi:"adminPassword"`
-	// One or more `adminSshKey` blocks as defined below.
+	// One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
 	AdminSshKeys []LinuxVirtualMachineAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername *string `pulumi:"adminUsername"`
@@ -399,7 +399,7 @@ type LinuxVirtualMachineState struct {
 	AdditionalCapabilities LinuxVirtualMachineAdditionalCapabilitiesPtrInput
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringPtrInput
-	// One or more `adminSshKey` blocks as defined below.
+	// One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringPtrInput
@@ -504,7 +504,7 @@ type linuxVirtualMachineArgs struct {
 	AdditionalCapabilities *LinuxVirtualMachineAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword *string `pulumi:"adminPassword"`
-	// One or more `adminSshKey` blocks as defined below.
+	// One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
 	AdminSshKeys []LinuxVirtualMachineAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
@@ -596,7 +596,7 @@ type LinuxVirtualMachineArgs struct {
 	AdditionalCapabilities LinuxVirtualMachineAdditionalCapabilitiesPtrInput
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringPtrInput
-	// One or more `adminSshKey` blocks as defined below.
+	// One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput
@@ -781,7 +781,7 @@ func (o LinuxVirtualMachineOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
-// One or more `adminSshKey` blocks as defined below.
+// One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOutput) AdminSshKeys() LinuxVirtualMachineAdminSshKeyArrayOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachineAdminSshKeyArrayOutput { return v.AdminSshKeys }).(LinuxVirtualMachineAdminSshKeyArrayOutput)
 }

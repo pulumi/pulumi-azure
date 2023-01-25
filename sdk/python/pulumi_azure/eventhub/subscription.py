@@ -44,7 +44,7 @@ class SubscriptionArgs:
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
-        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
@@ -214,7 +214,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         """
         return pulumi.get(self, "lock_duration")
 
@@ -288,7 +288,7 @@ class _SubscriptionState:
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
-        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
@@ -438,7 +438,7 @@ class _SubscriptionState:
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         """
         return pulumi.get(self, "lock_duration")
 
@@ -577,7 +577,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
-        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
@@ -723,7 +723,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
-        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
@@ -827,7 +827,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> pulumi.Output[str]:
         """
-        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         """
         return pulumi.get(self, "lock_duration")
 

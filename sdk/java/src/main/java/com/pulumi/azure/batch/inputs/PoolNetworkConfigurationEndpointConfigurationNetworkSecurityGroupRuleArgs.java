@@ -63,14 +63,14 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
     }
 
     /**
-     * The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+     * The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourcePortRanges")
     private @Nullable Output<List<String>> sourcePortRanges;
 
     /**
-     * @return The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+     * @return The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> sourcePortRanges() {
@@ -168,7 +168,7 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
         }
 
         /**
-         * @param sourcePortRanges The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+         * @param sourcePortRanges The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
         }
 
         /**
-         * @param sourcePortRanges The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+         * @param sourcePortRanges The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
         }
 
         /**
-         * @param sourcePortRanges The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+         * @param sourcePortRanges The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

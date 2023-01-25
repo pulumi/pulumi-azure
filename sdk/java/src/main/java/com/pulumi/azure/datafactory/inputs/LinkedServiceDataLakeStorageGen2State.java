@@ -94,16 +94,14 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
     }
 
     /**
-     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     * @return Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
     public Optional<Output<String>> name() {
@@ -126,14 +124,14 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
     }
 
     /**
-     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.
+     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
      * 
      */
     @Import(name="servicePrincipalId")
     private @Nullable Output<String> servicePrincipalId;
 
     /**
-     * @return The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.
+     * @return The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
      * 
      */
     public Optional<Output<String>> servicePrincipalId() {
@@ -156,14 +154,14 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
     }
 
     /**
-     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
+     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
      * 
      */
     @Import(name="storageAccountKey")
     private @Nullable Output<String> storageAccountKey;
 
     /**
-     * @return The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
+     * @return The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
      * 
      */
     public Optional<Output<String>> storageAccountKey() {
@@ -367,8 +365,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
         }
 
         /**
-         * @param name Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-         * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+         * @param name Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
          * 
          * @return builder
          * 
@@ -379,8 +376,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
         }
 
         /**
-         * @param name Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-         * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+         * @param name Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
          * 
          * @return builder
          * 
@@ -411,7 +407,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
         }
 
         /**
-         * @param servicePrincipalId The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.
+         * @param servicePrincipalId The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
          * 
          * @return builder
          * 
@@ -422,7 +418,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
         }
 
         /**
-         * @param servicePrincipalId The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.
+         * @param servicePrincipalId The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
          * 
          * @return builder
          * 
@@ -453,7 +449,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
         }
 
         /**
-         * @param storageAccountKey The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
+         * @param storageAccountKey The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
          * 
          * @return builder
          * 
@@ -464,7 +460,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
         }
 
         /**
-         * @param storageAccountKey The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
+         * @param storageAccountKey The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
          * 
          * @return builder
          * 

@@ -118,17 +118,17 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Azure Region where the Private DNS Resolver exists.
+        /// The Azure Region where the Private DNS Resolver exists.
         /// </summary>
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// Mapping of tags which should be assigned to the Private DNS Resolver.
+        /// The tags assigned to the Private DNS Resolver.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// ID of the Virtual Network that is linked to the Private DNS Resolver.
+        /// The ID of the Virtual Network that is linked to the Private DNS Resolver.
         /// </summary>
         public readonly string VirtualNetworkId;
 

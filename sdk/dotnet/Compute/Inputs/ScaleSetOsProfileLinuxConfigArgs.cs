@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs>? _sshKeys;
 
         /// <summary>
-        /// Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+        /// One or more `ssh_keys` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs> SshKeys
         {

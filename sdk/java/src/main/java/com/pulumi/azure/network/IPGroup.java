@@ -87,6 +87,34 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cidrs);
     }
     /**
+     * A `firewall_ids` block as defined below.
+     * 
+     */
+    @Export(name="firewallIds", type=List.class, parameters={String.class})
+    private Output<List<String>> firewallIds;
+
+    /**
+     * @return A `firewall_ids` block as defined below.
+     * 
+     */
+    public Output<List<String>> firewallIds() {
+        return this.firewallIds;
+    }
+    /**
+     * A `firewall_policy_ids` block as defined below.
+     * 
+     */
+    @Export(name="firewallPolicyIds", type=List.class, parameters={String.class})
+    private Output<List<String>> firewallPolicyIds;
+
+    /**
+     * @return A `firewall_policy_ids` block as defined below.
+     * 
+     */
+    public Output<List<String>> firewallPolicyIds() {
+        return this.firewallPolicyIds;
+    }
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */

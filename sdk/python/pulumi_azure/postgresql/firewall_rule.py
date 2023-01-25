@@ -25,8 +25,7 @@ class FirewallRuleArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "end_ip_address", end_ip_address)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -87,8 +86,7 @@ class FirewallRuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-        new resource to be created.
+        Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -108,8 +106,7 @@ class _FirewallRuleState:
         """
         Input properties used for looking up and filtering FirewallRule resources.
         :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -141,8 +138,7 @@ class _FirewallRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-        new resource to be created.
+        Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -248,8 +244,7 @@ class FirewallRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -372,8 +367,7 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
@@ -401,8 +395,7 @@ class FirewallRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-        new resource to be created.
+        Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

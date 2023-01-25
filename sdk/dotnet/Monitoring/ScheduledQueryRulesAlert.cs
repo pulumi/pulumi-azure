@@ -55,13 +55,13 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled.  Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+        /// Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
         /// </summary>
         [Output("frequency")]
         public Output<int> Frequency { get; private set; } = null!;
@@ -109,13 +109,13 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+        /// Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
         /// </summary>
         [Output("throttling")]
         public Output<int?> Throttling { get; private set; } = null!;
 
         /// <summary>
-        /// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+        /// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
         /// </summary>
         [Output("timeWindow")]
         public Output<int> TimeWindow { get; private set; } = null!;
@@ -210,13 +210,13 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled.  Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+        /// Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
         /// </summary>
         [Input("frequency", required: true)]
         public Input<int> Frequency { get; set; } = null!;
@@ -270,13 +270,13 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+        /// Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
         /// </summary>
         [Input("throttling")]
         public Input<int>? Throttling { get; set; }
 
         /// <summary>
-        /// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+        /// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
         /// </summary>
         [Input("timeWindow", required: true)]
         public Input<int> TimeWindow { get; set; } = null!;
@@ -333,13 +333,13 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled.  Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+        /// Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
         /// </summary>
         [Input("frequency")]
         public Input<int>? Frequency { get; set; }
@@ -393,13 +393,13 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+        /// Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
         /// </summary>
         [Input("throttling")]
         public Input<int>? Throttling { get; set; }
 
         /// <summary>
-        /// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+        /// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
         /// </summary>
         [Input("timeWindow")]
         public Input<int>? TimeWindow { get; set; }

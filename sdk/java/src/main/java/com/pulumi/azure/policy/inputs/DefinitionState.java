@@ -62,18 +62,14 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The metadata for the policy definition. This
-     * is a JSON string representing additional metadata that should be stored
-     * with the policy definition.
+     * The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
      * 
      */
     @Import(name="metadata")
     private @Nullable Output<String> metadata;
 
     /**
-     * @return The metadata for the policy definition. This
-     * is a JSON string representing additional metadata that should be stored
-     * with the policy definition.
+     * @return The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
      * 
      */
     public Optional<Output<String>> metadata() {
@@ -96,16 +92,14 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the policy definition. Changing this forces a
-     * new resource to be created.
+     * The name of the policy definition. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the policy definition. Changing this forces a
-     * new resource to be created.
+     * @return The name of the policy definition. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -113,16 +107,14 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameters for the policy definition. This field
-     * is a JSON string that allows you to parameterize your policy definition.
+     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<String> parameters;
 
     /**
-     * @return Parameters for the policy definition. This field
-     * is a JSON string that allows you to parameterize your policy definition.
+     * @return Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
      * 
      */
     public Optional<Output<String>> parameters() {
@@ -130,18 +122,14 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The policy rule for the policy definition. This
-     * is a JSON string representing the rule that contains an if and
-     * a then block.
+     * The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
      * 
      */
     @Import(name="policyRule")
     private @Nullable Output<String> policyRule;
 
     /**
-     * @return The policy rule for the policy definition. This
-     * is a JSON string representing the rule that contains an if and
-     * a then block.
+     * @return The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
      * 
      */
     public Optional<Output<String>> policyRule() {
@@ -275,9 +263,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadata The metadata for the policy definition. This
-         * is a JSON string representing additional metadata that should be stored
-         * with the policy definition.
+         * @param metadata The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
          * 
          * @return builder
          * 
@@ -288,9 +274,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadata The metadata for the policy definition. This
-         * is a JSON string representing additional metadata that should be stored
-         * with the policy definition.
+         * @param metadata The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
          * 
          * @return builder
          * 
@@ -321,8 +305,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the policy definition. Changing this forces a
-         * new resource to be created.
+         * @param name The name of the policy definition. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -333,8 +316,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the policy definition. Changing this forces a
-         * new resource to be created.
+         * @param name The name of the policy definition. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -344,8 +326,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters Parameters for the policy definition. This field
-         * is a JSON string that allows you to parameterize your policy definition.
+         * @param parameters Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
          * 
          * @return builder
          * 
@@ -356,8 +337,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters Parameters for the policy definition. This field
-         * is a JSON string that allows you to parameterize your policy definition.
+         * @param parameters Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
          * 
          * @return builder
          * 
@@ -367,9 +347,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyRule The policy rule for the policy definition. This
-         * is a JSON string representing the rule that contains an if and
-         * a then block.
+         * @param policyRule The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
          * 
          * @return builder
          * 
@@ -380,9 +358,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyRule The policy rule for the policy definition. This
-         * is a JSON string representing the rule that contains an if and
-         * a then block.
+         * @param policyRule The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
          * 
          * @return builder
          * 

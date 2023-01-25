@@ -77,7 +77,7 @@ import (
 type Spacecraft struct {
 	pulumi.CustomResourceState
 
-	// A `links` block as defined below.
+	// A `links` block as defined below. Changing this forces a new resource to be created.
 	Links SpacecraftLinkArrayOutput `pulumi:"links"`
 	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -91,7 +91,7 @@ type Spacecraft struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Title of the two line elements (TLE).
 	TitleLine pulumi.StringOutput `pulumi:"titleLine"`
-	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
 	TwoLineElements pulumi.StringArrayOutput `pulumi:"twoLineElements"`
 }
 
@@ -139,7 +139,7 @@ func GetSpacecraft(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Spacecraft resources.
 type spacecraftState struct {
-	// A `links` block as defined below.
+	// A `links` block as defined below. Changing this forces a new resource to be created.
 	Links []SpacecraftLink `pulumi:"links"`
 	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -153,12 +153,12 @@ type spacecraftState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Title of the two line elements (TLE).
 	TitleLine *string `pulumi:"titleLine"`
-	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
 	TwoLineElements []string `pulumi:"twoLineElements"`
 }
 
 type SpacecraftState struct {
-	// A `links` block as defined below.
+	// A `links` block as defined below. Changing this forces a new resource to be created.
 	Links SpacecraftLinkArrayInput
 	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -172,7 +172,7 @@ type SpacecraftState struct {
 	Tags pulumi.StringMapInput
 	// Title of the two line elements (TLE).
 	TitleLine pulumi.StringPtrInput
-	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
 	TwoLineElements pulumi.StringArrayInput
 }
 
@@ -181,7 +181,7 @@ func (SpacecraftState) ElementType() reflect.Type {
 }
 
 type spacecraftArgs struct {
-	// A `links` block as defined below.
+	// A `links` block as defined below. Changing this forces a new resource to be created.
 	Links []SpacecraftLink `pulumi:"links"`
 	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -195,13 +195,13 @@ type spacecraftArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Title of the two line elements (TLE).
 	TitleLine string `pulumi:"titleLine"`
-	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
 	TwoLineElements []string `pulumi:"twoLineElements"`
 }
 
 // The set of arguments for constructing a Spacecraft resource.
 type SpacecraftArgs struct {
-	// A `links` block as defined below.
+	// A `links` block as defined below. Changing this forces a new resource to be created.
 	Links SpacecraftLinkArrayInput
 	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -215,7 +215,7 @@ type SpacecraftArgs struct {
 	Tags pulumi.StringMapInput
 	// Title of the two line elements (TLE).
 	TitleLine pulumi.StringInput
-	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
 	TwoLineElements pulumi.StringArrayInput
 }
 
@@ -306,7 +306,7 @@ func (o SpacecraftOutput) ToSpacecraftOutputWithContext(ctx context.Context) Spa
 	return o
 }
 
-// A `links` block as defined below.
+// A `links` block as defined below. Changing this forces a new resource to be created.
 func (o SpacecraftOutput) Links() SpacecraftLinkArrayOutput {
 	return o.ApplyT(func(v *Spacecraft) SpacecraftLinkArrayOutput { return v.Links }).(SpacecraftLinkArrayOutput)
 }
@@ -341,7 +341,7 @@ func (o SpacecraftOutput) TitleLine() pulumi.StringOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.TitleLine }).(pulumi.StringOutput)
 }
 
-// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
 func (o SpacecraftOutput) TwoLineElements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringArrayOutput { return v.TwoLineElements }).(pulumi.StringArrayOutput)
 }

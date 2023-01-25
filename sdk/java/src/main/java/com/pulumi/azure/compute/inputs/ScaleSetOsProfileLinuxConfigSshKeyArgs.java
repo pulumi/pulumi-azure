@@ -15,16 +15,32 @@ public final class ScaleSetOsProfileLinuxConfigSshKeyArgs extends com.pulumi.res
 
     public static final ScaleSetOsProfileLinuxConfigSshKeyArgs Empty = new ScaleSetOsProfileLinuxConfigSshKeyArgs();
 
+    /**
+     * The Public SSH Key which should be written to the `path` defined above.
+     * 
+     */
     @Import(name="keyData")
     private @Nullable Output<String> keyData;
 
+    /**
+     * @return The Public SSH Key which should be written to the `path` defined above.
+     * 
+     */
     public Optional<Output<String>> keyData() {
         return Optional.ofNullable(this.keyData);
     }
 
+    /**
+     * The path of the destination file on the virtual machine
+     * 
+     */
     @Import(name="path", required=true)
     private Output<String> path;
 
+    /**
+     * @return The path of the destination file on the virtual machine
+     * 
+     */
     public Output<String> path() {
         return this.path;
     }
@@ -54,20 +70,44 @@ public final class ScaleSetOsProfileLinuxConfigSshKeyArgs extends com.pulumi.res
             $ = new ScaleSetOsProfileLinuxConfigSshKeyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param keyData The Public SSH Key which should be written to the `path` defined above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyData(@Nullable Output<String> keyData) {
             $.keyData = keyData;
             return this;
         }
 
+        /**
+         * @param keyData The Public SSH Key which should be written to the `path` defined above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyData(String keyData) {
             return keyData(Output.of(keyData));
         }
 
+        /**
+         * @param path The path of the destination file on the virtual machine
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path The path of the destination file on the virtual machine
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

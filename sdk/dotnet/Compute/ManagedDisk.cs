@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> GalleryImageReferenceId { get; private set; } = null!;
 
         /// <summary>
-        /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+        /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("hyperVGeneration")]
         public Output<string?> HyperVGeneration { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> OnDemandBurstingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+        /// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> SecureVmDiskEncryptionSetId { get; private set; } = null!;
 
         /// <summary>
-        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("securityType")]
         public Output<string?> SecurityType { get; private set; } = null!;
@@ -248,13 +248,13 @@ namespace Pulumi.Azure.Compute
         public Output<string?> SourceResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
+        /// URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceUri")]
         public Output<string> SourceUri { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -408,7 +408,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? GalleryImageReferenceId { get; set; }
 
         /// <summary>
-        /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+        /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hyperVGeneration")]
         public Input<string>? HyperVGeneration { get; set; }
@@ -456,7 +456,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? OnDemandBurstingEnabled { get; set; }
 
         /// <summary>
-        /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+        /// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityType")]
         public Input<string>? SecurityType { get; set; }
@@ -492,13 +492,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SourceResourceId { get; set; }
 
         /// <summary>
-        /// URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
+        /// URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -620,7 +620,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? GalleryImageReferenceId { get; set; }
 
         /// <summary>
-        /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+        /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hyperVGeneration")]
         public Input<string>? HyperVGeneration { get; set; }
@@ -668,7 +668,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? OnDemandBurstingEnabled { get; set; }
 
         /// <summary>
-        /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+        /// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -692,7 +692,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityType")]
         public Input<string>? SecurityType { get; set; }
@@ -704,13 +704,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SourceResourceId { get; set; }
 
         /// <summary>
-        /// URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
+        /// URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

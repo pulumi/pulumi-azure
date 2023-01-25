@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IpVersions;
         /// <summary>
-        /// A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
+        /// A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.KubernetesClusterNetworkProfileLoadBalancerProfile? LoadBalancerProfile;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? LoadBalancerSku;
         /// <summary>
-        /// A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        /// A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.KubernetesClusterNetworkProfileNatGatewayProfile? NatGatewayProfile;
         /// <summary>

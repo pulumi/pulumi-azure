@@ -305,14 +305,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.portalUrl;
     }
     /**
-     * The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     * The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      * 
      */
     @Export(name="privateIpAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> privateIpAddresses;
 
     /**
-     * @return The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     * @return The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      * 
      */
     public Output<List<String>> privateIpAddresses() {

@@ -11,6 +11,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePool
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterHttpProxyConfigArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterIngressApplicationGatewayArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterKeyManagementServiceArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterKeyVaultSecretsProviderArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterKubeAdminConfigArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterKubeConfigArgs;
@@ -366,6 +367,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * 
+     */
+    @Import(name="keyManagementService")
+    private @Nullable Output<KubernetesClusterKeyManagementServiceArgs> keyManagementService;
+
+    /**
+     * @return A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * 
+     */
+    public Optional<Output<KubernetesClusterKeyManagementServiceArgs>> keyManagementService() {
+        return Optional.ofNullable(this.keyManagementService);
+    }
+
+    /**
      * A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
      * 
      */
@@ -441,14 +457,14 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+     * A `kubelet_identity` block as defined below.
      * 
      */
     @Import(name="kubeletIdentity")
     private @Nullable Output<KubernetesClusterKubeletIdentityArgs> kubeletIdentity;
 
     /**
-     * @return A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+     * @return A `kubelet_identity` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterKubeletIdentityArgs>> kubeletIdentity() {
@@ -576,14 +592,14 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `network_profile` block as defined below.
+     * A `network_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="networkProfile")
     private @Nullable Output<KubernetesClusterNetworkProfileArgs> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below.
+     * @return A `network_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<KubernetesClusterNetworkProfileArgs>> networkProfile() {
@@ -944,6 +960,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.imageCleanerEnabled = $.imageCleanerEnabled;
         this.imageCleanerIntervalHours = $.imageCleanerIntervalHours;
         this.ingressApplicationGateway = $.ingressApplicationGateway;
+        this.keyManagementService = $.keyManagementService;
         this.keyVaultSecretsProvider = $.keyVaultSecretsProvider;
         this.kubeAdminConfigRaw = $.kubeAdminConfigRaw;
         this.kubeAdminConfigs = $.kubeAdminConfigs;
@@ -1463,6 +1480,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param keyManagementService A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyManagementService(@Nullable Output<KubernetesClusterKeyManagementServiceArgs> keyManagementService) {
+            $.keyManagementService = keyManagementService;
+            return this;
+        }
+
+        /**
+         * @param keyManagementService A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyManagementService(KubernetesClusterKeyManagementServiceArgs keyManagementService) {
+            return keyManagementService(Output.of(keyManagementService));
+        }
+
+        /**
          * @param keyVaultSecretsProvider A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
          * 
          * @return builder
@@ -1588,7 +1626,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kubeletIdentity A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+         * @param kubeletIdentity A `kubelet_identity` block as defined below.
          * 
          * @return builder
          * 
@@ -1599,7 +1637,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kubeletIdentity A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+         * @param kubeletIdentity A `kubelet_identity` block as defined below.
          * 
          * @return builder
          * 
@@ -1777,7 +1815,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below.
+         * @param networkProfile A `network_profile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1788,7 +1826,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below.
+         * @param networkProfile A `network_profile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

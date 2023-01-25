@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? EmptyDir { get; set; }
 
         /// <summary>
-        /// A `git_repo` block as defined below.
+        /// A `git_repo` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("gitRepo")]
         public Input<Inputs.GroupContainerVolumeGitRepoArgs>? GitRepo { get; set; }

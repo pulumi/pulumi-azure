@@ -32,14 +32,14 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
     }
 
     /**
-     * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+     * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
      * 
      */
     @Import(name="disabledProtocols")
     private @Nullable Output<List<String>> disabledProtocols;
 
     /**
-     * @return A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+     * @return A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
      * 
      */
     public Optional<Output<List<String>>> disabledProtocols() {
@@ -47,14 +47,14 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
     }
 
     /**
-     * The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+     * The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
      * 
      */
     @Import(name="minProtocolVersion")
     private @Nullable Output<String> minProtocolVersion;
 
     /**
-     * @return The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+     * @return The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
      * 
      */
     public Optional<Output<String>> minProtocolVersion() {
@@ -62,16 +62,14 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
     }
 
     /**
-     * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-     * are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+     * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
      * 
      */
     @Import(name="policyName")
     private @Nullable Output<String> policyName;
 
     /**
-     * @return The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-     * are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+     * @return The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
      * 
      */
     public Optional<Output<String>> policyName() {
@@ -79,14 +77,14 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
     }
 
     /**
-     * The Type of the Policy. Possible values are `Predefined` and `Custom`.
+     * The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
      * 
      */
     @Import(name="policyType")
     private @Nullable Output<String> policyType;
 
     /**
-     * @return The Type of the Policy. Possible values are `Predefined` and `Custom`.
+     * @return The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
      * 
      */
     public Optional<Output<String>> policyType() {
@@ -153,7 +151,7 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         }
 
         /**
-         * @param disabledProtocols A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         * @param disabledProtocols A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
          * 
          * @return builder
          * 
@@ -164,7 +162,7 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         }
 
         /**
-         * @param disabledProtocols A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         * @param disabledProtocols A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
          * 
          * @return builder
          * 
@@ -174,7 +172,7 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         }
 
         /**
-         * @param disabledProtocols A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         * @param disabledProtocols A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
          * 
          * @return builder
          * 
@@ -184,7 +182,7 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         }
 
         /**
-         * @param minProtocolVersion The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         * @param minProtocolVersion The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
          * 
          * @return builder
          * 
@@ -195,7 +193,7 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         }
 
         /**
-         * @param minProtocolVersion The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         * @param minProtocolVersion The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
          * 
          * @return builder
          * 
@@ -205,8 +203,7 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         }
 
         /**
-         * @param policyName The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-         * are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+         * @param policyName The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
          * 
          * @return builder
          * 
@@ -217,8 +214,7 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         }
 
         /**
-         * @param policyName The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-         * are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+         * @param policyName The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
          * 
          * @return builder
          * 
@@ -228,7 +224,7 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         }
 
         /**
-         * @param policyType The Type of the Policy. Possible values are `Predefined` and `Custom`.
+         * @param policyType The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
          * 
          * @return builder
          * 
@@ -239,7 +235,7 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         }
 
         /**
-         * @param policyType The Type of the Policy. Possible values are `Predefined` and `Custom`.
+         * @param policyType The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
          * 
          * @return builder
          * 

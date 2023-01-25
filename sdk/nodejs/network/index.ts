@@ -305,6 +305,16 @@ export type NetworkManagerNetworkGroup = import("./networkManagerNetworkGroup").
 export const NetworkManagerNetworkGroup: typeof import("./networkManagerNetworkGroup").NetworkManagerNetworkGroup = null as any;
 utilities.lazyLoad(exports, ["NetworkManagerNetworkGroup"], () => require("./networkManagerNetworkGroup"));
 
+export { NetworkManagerScopeConnectionArgs, NetworkManagerScopeConnectionState } from "./networkManagerScopeConnection";
+export type NetworkManagerScopeConnection = import("./networkManagerScopeConnection").NetworkManagerScopeConnection;
+export const NetworkManagerScopeConnection: typeof import("./networkManagerScopeConnection").NetworkManagerScopeConnection = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerScopeConnection"], () => require("./networkManagerScopeConnection"));
+
+export { NetworkManagerStaticMemberArgs, NetworkManagerStaticMemberState } from "./networkManagerStaticMember";
+export type NetworkManagerStaticMember = import("./networkManagerStaticMember").NetworkManagerStaticMember;
+export const NetworkManagerStaticMember: typeof import("./networkManagerStaticMember").NetworkManagerStaticMember = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerStaticMember"], () => require("./networkManagerStaticMember"));
+
 export { NetworkManagerSubscriptionConnectionArgs, NetworkManagerSubscriptionConnectionState } from "./networkManagerSubscriptionConnection";
 export type NetworkManagerSubscriptionConnection = import("./networkManagerSubscriptionConnection").NetworkManagerSubscriptionConnection;
 export const NetworkManagerSubscriptionConnection: typeof import("./networkManagerSubscriptionConnection").NetworkManagerSubscriptionConnection = null as any;
@@ -594,6 +604,10 @@ const _module = {
                 return new NetworkManagerManagementGroupConnection(name, <any>undefined, { urn })
             case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
                 return new NetworkManagerNetworkGroup(name, <any>undefined, { urn })
+            case "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection":
+                return new NetworkManagerScopeConnection(name, <any>undefined, { urn })
+            case "azure:network/networkManagerStaticMember:NetworkManagerStaticMember":
+                return new NetworkManagerStaticMember(name, <any>undefined, { urn })
             case "azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection":
                 return new NetworkManagerSubscriptionConnection(name, <any>undefined, { urn })
             case "azure:network/networkPacketCapture:NetworkPacketCapture":
@@ -719,6 +733,8 @@ pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceSecurity
 pulumi.runtime.registerResourceModule("azure", "network/networkManager", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerManagementGroupConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerNetworkGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerScopeConnection", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerStaticMember", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerSubscriptionConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkPacketCapture", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityGroup", _module)

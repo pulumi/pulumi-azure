@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<string>? _logLevels;
 
         /// <summary>
-        /// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+        /// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
         /// </summary>
         public InputList<string> LogLevels
         {

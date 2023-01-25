@@ -193,7 +193,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
+//	$ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
 //
 // ```
 type Registry struct {
@@ -205,9 +205,9 @@ type Registry struct {
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
 	AnonymousPullEnabled pulumi.BoolPtrOutput `pulumi:"anonymousPullEnabled"`
-	// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionOutput `pulumi:"encryption"`
@@ -235,7 +235,7 @@ type Registry struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
 	RetentionPolicy RegistryRetentionPolicyOutput `pulumi:"retentionPolicy"`
-	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -290,9 +290,9 @@ type registryState struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername *string `pulumi:"adminUsername"`
-	// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
 	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
-	// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption *RegistryEncryption `pulumi:"encryption"`
@@ -320,7 +320,7 @@ type registryState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
 	RetentionPolicy *RegistryRetentionPolicy `pulumi:"retentionPolicy"`
-	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -337,9 +337,9 @@ type RegistryState struct {
 	AdminPassword pulumi.StringPtrInput
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername pulumi.StringPtrInput
-	// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
 	AnonymousPullEnabled pulumi.BoolPtrInput
-	// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrInput
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionPtrInput
@@ -367,7 +367,7 @@ type RegistryState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `retentionPolicy` block as documented below.
 	RetentionPolicy RegistryRetentionPolicyPtrInput
-	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -384,9 +384,9 @@ func (RegistryState) ElementType() reflect.Type {
 type registryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled *bool `pulumi:"adminEnabled"`
-	// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
 	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
-	// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption *RegistryEncryption `pulumi:"encryption"`
@@ -412,7 +412,7 @@ type registryArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
 	RetentionPolicy *RegistryRetentionPolicy `pulumi:"retentionPolicy"`
-	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -426,9 +426,9 @@ type registryArgs struct {
 type RegistryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled pulumi.BoolPtrInput
-	// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
 	AnonymousPullEnabled pulumi.BoolPtrInput
-	// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrInput
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionPtrInput
@@ -454,7 +454,7 @@ type RegistryArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `retentionPolicy` block as documented below.
 	RetentionPolicy RegistryRetentionPolicyPtrInput
-	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -566,12 +566,12 @@ func (o RegistryOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
 func (o RegistryOutput) AnonymousPullEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.AnonymousPullEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 func (o RegistryOutput) DataEndpointEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.DataEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -641,7 +641,7 @@ func (o RegistryOutput) RetentionPolicy() RegistryRetentionPolicyOutput {
 	return o.ApplyT(func(v *Registry) RegistryRetentionPolicyOutput { return v.RetentionPolicy }).(RegistryRetentionPolicyOutput)
 }
 
-// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 func (o RegistryOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }

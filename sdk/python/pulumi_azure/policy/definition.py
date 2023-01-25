@@ -30,16 +30,10 @@ class DefinitionArgs:
         :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] metadata: The metadata for the policy definition. This
-               is a JSON string representing additional metadata that should be stored
-               with the policy definition.
-        :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[str] parameters: Parameters for the policy definition. This field
-               is a JSON string that allows you to parameterize your policy definition.
-        :param pulumi.Input[str] policy_rule: The policy rule for the policy definition. This
-               is a JSON string representing the rule that contains an if and
-               a then block.
+        :param pulumi.Input[str] metadata: The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
+        :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] parameters: Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+        :param pulumi.Input[str] policy_rule: The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "mode", mode)
@@ -121,9 +115,7 @@ class DefinitionArgs:
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[str]]:
         """
-        The metadata for the policy definition. This
-        is a JSON string representing additional metadata that should be stored
-        with the policy definition.
+        The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
         """
         return pulumi.get(self, "metadata")
 
@@ -135,8 +127,7 @@ class DefinitionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the policy definition. Changing this forces a
-        new resource to be created.
+        The name of the policy definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -148,8 +139,7 @@ class DefinitionArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[str]]:
         """
-        Parameters for the policy definition. This field
-        is a JSON string that allows you to parameterize your policy definition.
+        Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
         """
         return pulumi.get(self, "parameters")
 
@@ -161,9 +151,7 @@ class DefinitionArgs:
     @pulumi.getter(name="policyRule")
     def policy_rule(self) -> Optional[pulumi.Input[str]]:
         """
-        The policy rule for the policy definition. This
-        is a JSON string representing the rule that contains an if and
-        a then block.
+        The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         """
         return pulumi.get(self, "policy_rule")
 
@@ -190,17 +178,11 @@ class _DefinitionState:
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
         :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] metadata: The metadata for the policy definition. This
-               is a JSON string representing additional metadata that should be stored
-               with the policy definition.
+        :param pulumi.Input[str] metadata: The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] mode: The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
-        :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[str] parameters: Parameters for the policy definition. This field
-               is a JSON string that allows you to parameterize your policy definition.
-        :param pulumi.Input[str] policy_rule: The policy rule for the policy definition. This
-               is a JSON string representing the rule that contains an if and
-               a then block.
+        :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] parameters: Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+        :param pulumi.Input[str] policy_rule: The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] role_definition_ids: A list of role definition id extracted from `policy_rule` required for remediation.
         """
@@ -265,9 +247,7 @@ class _DefinitionState:
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[str]]:
         """
-        The metadata for the policy definition. This
-        is a JSON string representing additional metadata that should be stored
-        with the policy definition.
+        The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
         """
         return pulumi.get(self, "metadata")
 
@@ -291,8 +271,7 @@ class _DefinitionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the policy definition. Changing this forces a
-        new resource to be created.
+        The name of the policy definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -304,8 +283,7 @@ class _DefinitionState:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[str]]:
         """
-        Parameters for the policy definition. This field
-        is a JSON string that allows you to parameterize your policy definition.
+        Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
         """
         return pulumi.get(self, "parameters")
 
@@ -317,9 +295,7 @@ class _DefinitionState:
     @pulumi.getter(name="policyRule")
     def policy_rule(self) -> Optional[pulumi.Input[str]]:
         """
-        The policy rule for the policy definition. This
-        is a JSON string representing the rule that contains an if and
-        a then block.
+        The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         """
         return pulumi.get(self, "policy_rule")
 
@@ -434,17 +410,11 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
         :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] metadata: The metadata for the policy definition. This
-               is a JSON string representing additional metadata that should be stored
-               with the policy definition.
+        :param pulumi.Input[str] metadata: The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] mode: The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
-        :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[str] parameters: Parameters for the policy definition. This field
-               is a JSON string that allows you to parameterize your policy definition.
-        :param pulumi.Input[str] policy_rule: The policy rule for the policy definition. This
-               is a JSON string representing the rule that contains an if and
-               a then block.
+        :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] parameters: Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+        :param pulumi.Input[str] policy_rule: The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         """
         ...
@@ -594,17 +564,11 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
         :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] metadata: The metadata for the policy definition. This
-               is a JSON string representing additional metadata that should be stored
-               with the policy definition.
+        :param pulumi.Input[str] metadata: The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] mode: The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
-        :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[str] parameters: Parameters for the policy definition. This field
-               is a JSON string that allows you to parameterize your policy definition.
-        :param pulumi.Input[str] policy_rule: The policy rule for the policy definition. This
-               is a JSON string representing the rule that contains an if and
-               a then block.
+        :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] parameters: Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+        :param pulumi.Input[str] policy_rule: The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] role_definition_ids: A list of role definition id extracted from `policy_rule` required for remediation.
         """
@@ -652,9 +616,7 @@ class Definition(pulumi.CustomResource):
     @pulumi.getter
     def metadata(self) -> pulumi.Output[str]:
         """
-        The metadata for the policy definition. This
-        is a JSON string representing additional metadata that should be stored
-        with the policy definition.
+        The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
         """
         return pulumi.get(self, "metadata")
 
@@ -670,8 +632,7 @@ class Definition(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the policy definition. Changing this forces a
-        new resource to be created.
+        The name of the policy definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -679,8 +640,7 @@ class Definition(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[str]]:
         """
-        Parameters for the policy definition. This field
-        is a JSON string that allows you to parameterize your policy definition.
+        Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
         """
         return pulumi.get(self, "parameters")
 
@@ -688,9 +648,7 @@ class Definition(pulumi.CustomResource):
     @pulumi.getter(name="policyRule")
     def policy_rule(self) -> pulumi.Output[Optional[str]]:
         """
-        The policy rule for the policy definition. This
-        is a JSON string representing the rule that contains an if and
-        a then block.
+        The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         """
         return pulumi.get(self, "policy_rule")
 

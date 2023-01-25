@@ -140,7 +140,7 @@ class ConfigurationFeatureTimewindowFilter(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param str end: The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+        :param str end: The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
         :param str start: The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
         """
         if end is not None:
@@ -152,7 +152,7 @@ class ConfigurationFeatureTimewindowFilter(dict):
     @pulumi.getter
     def end(self) -> Optional[str]:
         """
-        The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+        The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
         """
         return pulumi.get(self, "end")
 

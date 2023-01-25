@@ -107,14 +107,14 @@ public final class ScriptState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * @return The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      * 
      */
     public Optional<Output<String>> url() {
@@ -278,7 +278,7 @@ public final class ScriptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+         * @param url The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ScriptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+         * @param url The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
          * 
          * @return builder
          * 

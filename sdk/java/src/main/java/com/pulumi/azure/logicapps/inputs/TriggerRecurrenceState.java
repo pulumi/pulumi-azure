@@ -108,14 +108,14 @@ public final class TriggerRecurrenceState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+     * Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
      * 
      */
     @Import(name="timeZone")
     private @Nullable Output<String> timeZone;
 
     /**
-     * @return Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+     * @return Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
      * 
      */
     public Optional<Output<String>> timeZone() {
@@ -279,7 +279,7 @@ public final class TriggerRecurrenceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param timeZone Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+         * @param timeZone Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class TriggerRecurrenceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param timeZone Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+         * @param timeZone Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
          * 
          * @return builder
          * 

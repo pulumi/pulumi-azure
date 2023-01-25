@@ -100,8 +100,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly applicationInsightsId!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Application Insights API key. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -162,8 +161,7 @@ export interface ApiKeyState {
      */
     applicationInsightsId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Application Insights API key. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -185,8 +183,7 @@ export interface ApiKeyArgs {
      */
     applicationInsightsId: pulumi.Input<string>;
     /**
-     * Specifies the name of the Application Insights API key. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

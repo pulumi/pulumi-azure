@@ -242,7 +242,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly certificateDataBase64!: pulumi.Output<string>;
     /**
-     * A `certificatePolicy` block as defined below.
+     * A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly certificatePolicy!: pulumi.Output<outputs.keyvault.CertificateCertificatePolicy>;
     /**
@@ -351,7 +351,7 @@ export interface CertificateState {
      */
     certificateDataBase64?: pulumi.Input<string>;
     /**
-     * A `certificatePolicy` block as defined below.
+     * A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
      */
     certificatePolicy?: pulumi.Input<inputs.keyvault.CertificateCertificatePolicy>;
     /**
@@ -397,7 +397,7 @@ export interface CertificateArgs {
      */
     certificate?: pulumi.Input<inputs.keyvault.CertificateCertificate>;
     /**
-     * A `certificatePolicy` block as defined below.
+     * A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
      */
     certificatePolicy?: pulumi.Input<inputs.keyvault.CertificateCertificatePolicy>;
     /**

@@ -166,6 +166,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterIngressApplicationGatewayResult> IngressApplicationGateways;
         /// <summary>
+        /// A `key_management_service` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterKeyManagementServiceResult> KeyManagementServices;
+        /// <summary>
         /// A `key_vault_secrets_provider` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterKeyVaultSecretsProviderResult> KeyVaultSecretsProviders;
@@ -291,6 +295,8 @@ namespace Pulumi.Azure.ContainerService
 
             ImmutableArray<Outputs.GetKubernetesClusterIngressApplicationGatewayResult> ingressApplicationGateways,
 
+            ImmutableArray<Outputs.GetKubernetesClusterKeyManagementServiceResult> keyManagementServices,
+
             ImmutableArray<Outputs.GetKubernetesClusterKeyVaultSecretsProviderResult> keyVaultSecretsProviders,
 
             string kubeAdminConfigRaw,
@@ -354,6 +360,7 @@ namespace Pulumi.Azure.ContainerService
             Id = id;
             Identities = identities;
             IngressApplicationGateways = ingressApplicationGateways;
+            KeyManagementServices = keyManagementServices;
             KeyVaultSecretsProviders = keyVaultSecretsProviders;
             KubeAdminConfigRaw = kubeAdminConfigRaw;
             KubeAdminConfigs = kubeAdminConfigs;

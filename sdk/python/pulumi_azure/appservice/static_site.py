@@ -403,6 +403,8 @@ class StaticSite(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["api_key"] = None
             __props__.__dict__["default_host_name"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(StaticSite, __self__).__init__(
             'azure:appservice/staticSite:StaticSite',
             resource_name,

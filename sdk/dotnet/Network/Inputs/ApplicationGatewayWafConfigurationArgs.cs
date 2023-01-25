@@ -55,13 +55,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> FirewallMode { get; set; } = null!;
 
         /// <summary>
-        /// The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+        /// The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
         /// </summary>
         [Input("maxRequestBodySizeKb")]
         public Input<int>? MaxRequestBodySizeKb { get; set; }
 
         /// <summary>
-        /// Is Request Body Inspection enabled?  Defaults to `true`.
+        /// Is Request Body Inspection enabled? Defaults to `true`.
         /// </summary>
         [Input("requestBodyCheck")]
         public Input<bool>? RequestBodyCheck { get; set; }

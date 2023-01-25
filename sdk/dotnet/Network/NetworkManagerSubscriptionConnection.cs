@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Network
         public Output<string> NetworkManagerId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the target Subscription.
+        /// Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subscriptionId")]
         public Output<string> SubscriptionId { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.Network
         public Input<string> NetworkManagerId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the target Subscription.
+        /// Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subscriptionId", required: true)]
         public Input<string> SubscriptionId { get; set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? NetworkManagerId { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the target Subscription.
+        /// Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }

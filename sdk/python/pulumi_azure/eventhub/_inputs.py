@@ -605,8 +605,8 @@ class EventHubCaptureDescriptionArgs:
         :param pulumi.Input[bool] enabled: Specifies if the Capture Description is Enabled.
         :param pulumi.Input[str] encoding: Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
         :param pulumi.Input[int] interval_in_seconds: Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
-        :param pulumi.Input[int] size_limit_in_bytes: Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
-        :param pulumi.Input[bool] skip_empty_archives: Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+        :param pulumi.Input[int] size_limit_in_bytes: Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
+        :param pulumi.Input[bool] skip_empty_archives: Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "enabled", enabled)
@@ -670,7 +670,7 @@ class EventHubCaptureDescriptionArgs:
     @pulumi.getter(name="sizeLimitInBytes")
     def size_limit_in_bytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+        Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
         """
         return pulumi.get(self, "size_limit_in_bytes")
 
@@ -682,7 +682,7 @@ class EventHubCaptureDescriptionArgs:
     @pulumi.getter(name="skipEmptyArchives")
     def skip_empty_archives(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+        Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
         """
         return pulumi.get(self, "skip_empty_archives")
 

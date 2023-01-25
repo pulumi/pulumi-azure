@@ -79,14 +79,14 @@ public final class LogzSubAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `user` block as defined below.
+     * A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="user", required=true)
     private Output<LogzSubAccountUserArgs> user;
 
     /**
-     * @return A `user` block as defined below.
+     * @return A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<LogzSubAccountUserArgs> user() {
@@ -206,7 +206,7 @@ public final class LogzSubAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param user A `user` block as defined below.
+         * @param user A `user` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class LogzSubAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param user A `user` block as defined below.
+         * @param user A `user` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -73,7 +73,7 @@ export class Subscription extends pulumi.CustomResource {
     }
 
     /**
-     * Determines whether tracing can be enabled.  Defaults to `true`.
+     * Determines whether tracing can be enabled. Defaults to `true`.
      */
     public readonly allowTracing!: pulumi.Output<boolean | undefined>;
     /**
@@ -176,7 +176,7 @@ export class Subscription extends pulumi.CustomResource {
  */
 export interface SubscriptionState {
     /**
-     * Determines whether tracing can be enabled.  Defaults to `true`.
+     * Determines whether tracing can be enabled. Defaults to `true`.
      */
     allowTracing?: pulumi.Input<boolean>;
     /**
@@ -226,7 +226,7 @@ export interface SubscriptionState {
  */
 export interface SubscriptionArgs {
     /**
-     * Determines whether tracing can be enabled.  Defaults to `true`.
+     * Determines whether tracing can be enabled. Defaults to `true`.
      */
     allowTracing?: pulumi.Input<boolean>;
     /**

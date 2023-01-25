@@ -65,10 +65,10 @@ class DatabaseArgs:
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
         :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
-        :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
-        :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
@@ -363,7 +363,7 @@ class DatabaseArgs:
     @pulumi.getter(name="restorePointInTime")
     def restore_point_in_time(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         """
         return pulumi.get(self, "restore_point_in_time")
 
@@ -399,7 +399,7 @@ class DatabaseArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+        Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         """
         return pulumi.get(self, "sku_name")
 
@@ -519,11 +519,11 @@ class _DatabaseState:
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
         :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
-        :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
-        :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
@@ -807,7 +807,7 @@ class _DatabaseState:
     @pulumi.getter(name="restorePointInTime")
     def restore_point_in_time(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         """
         return pulumi.get(self, "restore_point_in_time")
 
@@ -855,7 +855,7 @@ class _DatabaseState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+        Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         """
         return pulumi.get(self, "sku_name")
 
@@ -1020,11 +1020,11 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
         :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
-        :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
-        :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
@@ -1224,11 +1224,11 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
         :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
-        :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
-        :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
@@ -1417,7 +1417,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="restorePointInTime")
     def restore_point_in_time(self) -> pulumi.Output[str]:
         """
-        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         """
         return pulumi.get(self, "restore_point_in_time")
 
@@ -1449,7 +1449,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
+        Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
         """
         return pulumi.get(self, "sku_name")
 

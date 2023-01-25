@@ -125,16 +125,14 @@ public class ExpressRouteCircuitAuthorization extends com.pulumi.resources.Custo
         return this.expressRouteCircuitName;
     }
     /**
-     * The name of the ExpressRoute circuit. Changing this forces a
-     * new resource to be created.
+     * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the ExpressRoute circuit. Changing this forces a
-     * new resource to be created.
+     * @return The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

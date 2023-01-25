@@ -15,7 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.privatedns.ResolverInboundEndpoint("example", {privateDnsResolverId: "example-private-dns-resolver-id"});
+ * const example = azure.privatedns.getResolverInboundEndpoint({
+ *     name: "example-drie",
+ *     privateDnsResolverId: "example-private-dns-resolver-id",
+ * });
  * ```
  */
 export function getResolverInboundEndpoint(args: GetResolverInboundEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverInboundEndpointResult> {
@@ -73,7 +76,10 @@ export interface GetResolverInboundEndpointResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.privatedns.ResolverInboundEndpoint("example", {privateDnsResolverId: "example-private-dns-resolver-id"});
+ * const example = azure.privatedns.getResolverInboundEndpoint({
+ *     name: "example-drie",
+ *     privateDnsResolverId: "example-private-dns-resolver-id",
+ * });
  * ```
  */
 export function getResolverInboundEndpointOutput(args: GetResolverInboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverInboundEndpointResult> {

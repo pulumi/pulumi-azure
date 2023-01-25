@@ -189,7 +189,7 @@ import (
 type Slot struct {
 	pulumi.CustomResourceState
 
-	// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+	// The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
 	AppServiceName pulumi.StringOutput `pulumi:"appServiceName"`
 	// The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringOutput `pulumi:"appServicePlanId"`
@@ -267,7 +267,7 @@ func GetSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Slot resources.
 type slotState struct {
-	// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+	// The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
 	AppServiceName *string `pulumi:"appServiceName"`
 	// The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
@@ -308,7 +308,7 @@ type slotState struct {
 }
 
 type SlotState struct {
-	// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+	// The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
 	AppServiceName pulumi.StringPtrInput
 	// The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringPtrInput
@@ -353,7 +353,7 @@ func (SlotState) ElementType() reflect.Type {
 }
 
 type slotArgs struct {
-	// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+	// The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
 	AppServiceName string `pulumi:"appServiceName"`
 	// The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
 	AppServicePlanId string `pulumi:"appServicePlanId"`
@@ -391,7 +391,7 @@ type slotArgs struct {
 
 // The set of arguments for constructing a Slot resource.
 type SlotArgs struct {
-	// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+	// The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
 	AppServiceName pulumi.StringInput
 	// The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringInput
@@ -514,7 +514,7 @@ func (o SlotOutput) ToSlotOutputWithContext(ctx context.Context) SlotOutput {
 	return o
 }
 
-// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+// The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
 func (o SlotOutput) AppServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Slot) pulumi.StringOutput { return v.AppServiceName }).(pulumi.StringOutput)
 }

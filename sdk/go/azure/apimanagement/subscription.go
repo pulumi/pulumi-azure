@@ -78,7 +78,7 @@ import (
 type Subscription struct {
 	pulumi.CustomResourceState
 
-	// Determines whether tracing can be enabled.  Defaults to `true`.
+	// Determines whether tracing can be enabled. Defaults to `true`.
 	AllowTracing pulumi.BoolPtrOutput `pulumi:"allowTracing"`
 	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	ApiId pulumi.StringPtrOutput `pulumi:"apiId"`
@@ -151,7 +151,7 @@ func GetSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subscription resources.
 type subscriptionState struct {
-	// Determines whether tracing can be enabled.  Defaults to `true`.
+	// Determines whether tracing can be enabled. Defaults to `true`.
 	AllowTracing *bool `pulumi:"allowTracing"`
 	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	ApiId *string `pulumi:"apiId"`
@@ -176,7 +176,7 @@ type subscriptionState struct {
 }
 
 type SubscriptionState struct {
-	// Determines whether tracing can be enabled.  Defaults to `true`.
+	// Determines whether tracing can be enabled. Defaults to `true`.
 	AllowTracing pulumi.BoolPtrInput
 	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	ApiId pulumi.StringPtrInput
@@ -205,7 +205,7 @@ func (SubscriptionState) ElementType() reflect.Type {
 }
 
 type subscriptionArgs struct {
-	// Determines whether tracing can be enabled.  Defaults to `true`.
+	// Determines whether tracing can be enabled. Defaults to `true`.
 	AllowTracing *bool `pulumi:"allowTracing"`
 	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	ApiId *string `pulumi:"apiId"`
@@ -231,7 +231,7 @@ type subscriptionArgs struct {
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
-	// Determines whether tracing can be enabled.  Defaults to `true`.
+	// Determines whether tracing can be enabled. Defaults to `true`.
 	AllowTracing pulumi.BoolPtrInput
 	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	ApiId pulumi.StringPtrInput
@@ -342,7 +342,7 @@ func (o SubscriptionOutput) ToSubscriptionOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Determines whether tracing can be enabled.  Defaults to `true`.
+// Determines whether tracing can be enabled. Defaults to `true`.
 func (o SubscriptionOutput) AllowTracing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.AllowTracing }).(pulumi.BoolPtrOutput)
 }

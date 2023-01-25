@@ -22,7 +22,7 @@ public final class MonitorDatadogOrganization {
      */
     private String applicationKey;
     /**
-     * @return The ID of the enterprise_app.
+     * @return The ID of the enterprise_app. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String enterpriseAppId;
@@ -68,7 +68,7 @@ public final class MonitorDatadogOrganization {
         return this.applicationKey;
     }
     /**
-     * @return The ID of the enterprise_app.
+     * @return The ID of the enterprise_app. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> enterpriseAppId() {

@@ -24,7 +24,7 @@ public final class ScheduledQueryRulesAlertTrigger {
      */
     private String operator;
     /**
-     * @return Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+     * @return Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
      * 
      */
     private Double threshold;
@@ -45,7 +45,7 @@ public final class ScheduledQueryRulesAlertTrigger {
         return this.operator;
     }
     /**
-     * @return Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+     * @return Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
      * 
      */
     public Double threshold() {

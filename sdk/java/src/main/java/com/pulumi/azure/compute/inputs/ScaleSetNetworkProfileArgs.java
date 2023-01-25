@@ -80,14 +80,14 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
+     * Specifies the name of the network interface configuration.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
+     * @return Specifies the name of the network interface configuration.
      * 
      */
     public Output<String> name() {
@@ -249,7 +249,7 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the network interface configuration.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the network interface configuration.
          * 
          * @return builder
          * 

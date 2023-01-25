@@ -23,7 +23,7 @@ class ApplicationPlanArgs:
                  version: pulumi.Input[str],
                  promotion_code: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the plan from the marketplace.
         :param pulumi.Input[str] product: Specifies the product of the plan from the marketplace.
         :param pulumi.Input[str] publisher: Specifies the publisher of the plan.
         :param pulumi.Input[str] version: Specifies the version of the plan from the marketplace.
@@ -40,7 +40,7 @@ class ApplicationPlanArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+        Specifies the name of the plan from the marketplace.
         """
         return pulumi.get(self, "name")
 

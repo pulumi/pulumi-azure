@@ -63,7 +63,7 @@ class VirtualMachineArgs:
         :param pulumi.Input[str] primary_network_interface_id: The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineStorageDataDiskArgs']]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
-        :param pulumi.Input['VirtualMachineStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` block as defined below.
+        :param pulumi.Input['VirtualMachineStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
         """
@@ -368,7 +368,7 @@ class VirtualMachineArgs:
     @pulumi.getter(name="storageImageReference")
     def storage_image_reference(self) -> Optional[pulumi.Input['VirtualMachineStorageImageReferenceArgs']]:
         """
-        A `storage_image_reference` block as defined below.
+        A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_image_reference")
 
@@ -449,7 +449,7 @@ class _VirtualMachineState:
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineStorageDataDiskArgs']]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
-        :param pulumi.Input['VirtualMachineStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` block as defined below.
+        :param pulumi.Input['VirtualMachineStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineStorageOsDiskArgs'] storage_os_disk: A `storage_os_disk` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[str] vm_size: Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
@@ -736,7 +736,7 @@ class _VirtualMachineState:
     @pulumi.getter(name="storageImageReference")
     def storage_image_reference(self) -> Optional[pulumi.Input['VirtualMachineStorageImageReferenceArgs']]:
         """
-        A `storage_image_reference` block as defined below.
+        A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_image_reference")
 
@@ -921,7 +921,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineStorageDataDiskArgs']]]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualMachineStorageOsDiskArgs']] storage_os_disk: A `storage_os_disk` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[str] vm_size: Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
@@ -1150,7 +1150,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineStorageDataDiskArgs']]]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualMachineStorageOsDiskArgs']] storage_os_disk: A `storage_os_disk` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[str] vm_size: Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
@@ -1342,7 +1342,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="storageImageReference")
     def storage_image_reference(self) -> pulumi.Output['outputs.VirtualMachineStorageImageReference']:
         """
-        A `storage_image_reference` block as defined below.
+        A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_image_reference")
 

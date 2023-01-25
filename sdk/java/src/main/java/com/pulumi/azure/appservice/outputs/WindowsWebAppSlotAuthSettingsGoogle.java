@@ -18,7 +18,7 @@ public final class WindowsWebAppSlotAuthSettingsGoogle {
      */
     private String clientId;
     /**
-     * @return The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+     * @return The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
      * 
      */
     private @Nullable String clientSecret;
@@ -42,7 +42,7 @@ public final class WindowsWebAppSlotAuthSettingsGoogle {
         return this.clientId;
     }
     /**
-     * @return The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+     * @return The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
      * 
      */
     public Optional<String> clientSecret() {

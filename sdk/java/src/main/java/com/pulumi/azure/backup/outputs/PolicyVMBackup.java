@@ -24,7 +24,7 @@ public final class PolicyVMBackup {
      */
     private @Nullable Integer hourDuration;
     /**
-     * @return Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+     * @return Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
      * 
      */
     private @Nullable Integer hourInterval;
@@ -55,7 +55,7 @@ public final class PolicyVMBackup {
         return Optional.ofNullable(this.hourDuration);
     }
     /**
-     * @return Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+     * @return Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
      * 
      */
     public Optional<Integer> hourInterval() {

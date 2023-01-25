@@ -113,14 +113,14 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+     * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
      */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @return The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+     * @return The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
      */
     public Optional<Output<String>> minimumTlsVersion() {
@@ -128,16 +128,14 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Redis instance. Changing this forces a
-     * new resource to be created.
+     * The name of the Redis instance. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Redis instance. Changing this forces a
-     * new resource to be created.
+     * @return The name of the Redis instance. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -622,7 +620,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumTlsVersion The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+         * @param minimumTlsVersion The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
          * 
          * @return builder
          * 
@@ -633,7 +631,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumTlsVersion The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+         * @param minimumTlsVersion The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
          * 
          * @return builder
          * 
@@ -643,8 +641,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Redis instance. Changing this forces a
-         * new resource to be created.
+         * @param name The name of the Redis instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -655,8 +652,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Redis instance. Changing this forces a
-         * new resource to be created.
+         * @param name The name of the Redis instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

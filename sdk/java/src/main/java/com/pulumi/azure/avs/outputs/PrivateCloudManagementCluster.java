@@ -19,7 +19,7 @@ public final class PrivateCloudManagementCluster {
      */
     private @Nullable List<String> hosts;
     /**
-     * @return The ID of the  management cluster.
+     * @return The ID of the management cluster.
      * 
      */
     private @Nullable Integer id;
@@ -38,7 +38,7 @@ public final class PrivateCloudManagementCluster {
         return this.hosts == null ? List.of() : this.hosts;
     }
     /**
-     * @return The ID of the  management cluster.
+     * @return The ID of the management cluster.
      * 
      */
     public Optional<Integer> id() {

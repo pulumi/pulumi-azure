@@ -29,14 +29,14 @@ public final class ElasticsearchLogsFilteringTagArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
+     * Specifies the name (key) of the Tag which should be filtered.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
+     * @return Specifies the name (key) of the Tag which should be filtered.
      * 
      */
     public Output<String> name() {
@@ -106,7 +106,7 @@ public final class ElasticsearchLogsFilteringTagArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
+         * @param name Specifies the name (key) of the Tag which should be filtered.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ElasticsearchLogsFilteringTagArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
+         * @param name Specifies the name (key) of the Tag which should be filtered.
          * 
          * @return builder
          * 

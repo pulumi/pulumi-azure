@@ -106,6 +106,7 @@ namespace Pulumi.Azure.ApiManagement
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "apiKey",
                     "apiSecretKey",
                 },
             };
@@ -131,11 +132,21 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class IdentityProviderTwitterArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey", required: true)]
+        private Input<string>? _apiKey;
+
         /// <summary>
         /// App Consumer API key for Twitter.
         /// </summary>
-        [Input("apiKey", required: true)]
-        public Input<string> ApiKey { get; set; } = null!;
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.
@@ -173,11 +184,21 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class IdentityProviderTwitterState : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
+
         /// <summary>
         /// App Consumer API key for Twitter.
         /// </summary>
-        [Input("apiKey")]
-        public Input<string>? ApiKey { get; set; }
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.

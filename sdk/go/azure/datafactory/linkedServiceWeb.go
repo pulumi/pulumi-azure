@@ -79,8 +79,7 @@ type LinkedServiceWeb struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -149,8 +148,7 @@ type linkedServiceWebState struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -175,8 +173,7 @@ type LinkedServiceWebState struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
@@ -205,8 +202,7 @@ type linkedServiceWebArgs struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -232,8 +228,7 @@ type LinkedServiceWebArgs struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
@@ -362,8 +357,7 @@ func (o LinkedServiceWebOutput) IntegrationRuntimeName() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringPtrOutput { return v.IntegrationRuntimeName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o LinkedServiceWebOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

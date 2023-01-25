@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScaleSetOsProfileLinuxConfigSshKey {
+    /**
+     * @return The Public SSH Key which should be written to the `path` defined above.
+     * 
+     */
     private @Nullable String keyData;
+    /**
+     * @return The path of the destination file on the virtual machine
+     * 
+     */
     private String path;
 
     private ScaleSetOsProfileLinuxConfigSshKey() {}
+    /**
+     * @return The Public SSH Key which should be written to the `path` defined above.
+     * 
+     */
     public Optional<String> keyData() {
         return Optional.ofNullable(this.keyData);
     }
+    /**
+     * @return The path of the destination file on the virtual machine
+     * 
+     */
     public String path() {
         return this.path;
     }

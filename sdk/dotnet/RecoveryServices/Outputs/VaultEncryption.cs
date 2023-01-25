@@ -22,9 +22,10 @@ namespace Pulumi.Azure.RecoveryServices.Outputs
         /// </summary>
         public readonly string KeyId;
         /// <summary>
-        /// Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+        /// Indicate that system assigned identity should be used or not. Defaults to `true`.
         /// </summary>
         public readonly bool? UseSystemAssignedIdentity;
+        public readonly string? UserAssignedIdentityId;
 
         [OutputConstructor]
         private VaultEncryption(
@@ -32,11 +33,14 @@ namespace Pulumi.Azure.RecoveryServices.Outputs
 
             string keyId,
 
-            bool? useSystemAssignedIdentity)
+            bool? useSystemAssignedIdentity,
+
+            string? userAssignedIdentityId)
         {
             InfrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
             KeyId = keyId;
             UseSystemAssignedIdentity = useSystemAssignedIdentity;
+            UserAssignedIdentityId = userAssignedIdentityId;
         }
     }
 }

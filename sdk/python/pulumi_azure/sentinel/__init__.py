@@ -31,6 +31,7 @@ from .data_connector_threat_intelligence import *
 from .data_connector_threat_intelligence_taxii import *
 from .get_alert_rule import *
 from .get_alert_rule_template import *
+from .log_analytics_workspace_onboarding import *
 from .watchlist import *
 from .watchlist_item import *
 from ._inputs import *

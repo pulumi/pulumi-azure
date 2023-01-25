@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RegistryGeoreplication {
     /**
-     * @return A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
+     * @return A location where the container registry should be geo-replicated.
      * 
      */
     private String location;
@@ -29,14 +29,14 @@ public final class RegistryGeoreplication {
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Whether zone redundancy is enabled for this replication location? Defaults to `false`.
      * 
      */
     private @Nullable Boolean zoneRedundancyEnabled;
 
     private RegistryGeoreplication() {}
     /**
-     * @return A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
+     * @return A location where the container registry should be geo-replicated.
      * 
      */
     public String location() {
@@ -57,7 +57,7 @@ public final class RegistryGeoreplication {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Whether zone redundancy is enabled for this replication location? Defaults to `false`.
      * 
      */
     public Optional<Boolean> zoneRedundancyEnabled() {

@@ -36,7 +36,7 @@ public final class ServiceAdditionalLocation {
      */
     private String location;
     /**
-     * @return The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     * @return The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      * 
      */
     private @Nullable List<String> privateIpAddresses;
@@ -51,7 +51,7 @@ public final class ServiceAdditionalLocation {
      */
     private @Nullable List<String> publicIpAddresses;
     /**
-     * @return A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
     private @Nullable ServiceAdditionalLocationVirtualNetworkConfiguration virtualNetworkConfiguration;
@@ -91,7 +91,7 @@ public final class ServiceAdditionalLocation {
         return this.location;
     }
     /**
-     * @return The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     * @return The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      * 
      */
     public List<String> privateIpAddresses() {
@@ -112,7 +112,7 @@ public final class ServiceAdditionalLocation {
         return this.publicIpAddresses == null ? List.of() : this.publicIpAddresses;
     }
     /**
-     * @return A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
     public Optional<ServiceAdditionalLocationVirtualNetworkConfiguration> virtualNetworkConfiguration() {

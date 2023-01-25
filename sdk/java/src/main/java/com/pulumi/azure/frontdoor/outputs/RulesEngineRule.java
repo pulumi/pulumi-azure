@@ -26,7 +26,7 @@ public final class RulesEngineRule {
      */
     private @Nullable List<RulesEngineRuleMatchCondition> matchConditions;
     /**
-     * @return The name of the rule. Changing this forces a new resource to be created.
+     * @return The name of the rule.
      * 
      */
     private String name;
@@ -52,7 +52,7 @@ public final class RulesEngineRule {
         return this.matchConditions == null ? List.of() : this.matchConditions;
     }
     /**
-     * @return The name of the rule. Changing this forces a new resource to be created.
+     * @return The name of the rule.
      * 
      */
     public String name() {

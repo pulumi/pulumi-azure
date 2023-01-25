@@ -63,14 +63,14 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below.
+        :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
-        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
+        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
@@ -95,7 +95,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below.
+        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
@@ -242,7 +242,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -254,7 +254,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+        Should each node have a Public IP Address? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -302,7 +302,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="kubeletConfig")
     def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]:
         """
-        A `kubelet_config` block as defined below.
+        A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kubelet_config")
 
@@ -326,7 +326,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="linuxOsConfig")
     def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]:
         """
-        A `linux_os_config` block as defined below.
+        A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "linux_os_config")
 
@@ -626,7 +626,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]:
         """
-        A `windows_profile` block as documented below.
+        A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "windows_profile")
 
@@ -707,15 +707,15 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below.
+        :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
+        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
@@ -741,7 +741,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below.
+        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
@@ -866,7 +866,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -878,7 +878,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+        Should each node have a Public IP Address? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -926,7 +926,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="kubeletConfig")
     def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]:
         """
-        A `kubelet_config` block as defined below.
+        A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kubelet_config")
 
@@ -962,7 +962,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="linuxOsConfig")
     def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]:
         """
-        A `linux_os_config` block as defined below.
+        A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "linux_os_config")
 
@@ -1274,7 +1274,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]:
         """
-        A `windows_profile` block as documented below.
+        A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "windows_profile")
 
@@ -1402,15 +1402,15 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
@@ -1436,7 +1436,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']] windows_profile: A `windows_profile` block as documented below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
@@ -1658,15 +1658,15 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
@@ -1692,7 +1692,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']] windows_profile: A `windows_profile` block as documented below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
@@ -1770,7 +1770,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -1778,7 +1778,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+        Should each node have a Public IP Address? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -1810,7 +1810,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="kubeletConfig")
     def kubelet_config(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolKubeletConfig']]:
         """
-        A `kubelet_config` block as defined below.
+        A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kubelet_config")
 
@@ -1834,7 +1834,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="linuxOsConfig")
     def linux_os_config(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolLinuxOsConfig']]:
         """
-        A `linux_os_config` block as defined below.
+        A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "linux_os_config")
 
@@ -2042,7 +2042,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolWindowsProfile']]:
         """
-        A `windows_profile` block as documented below.
+        A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "windows_profile")
 

@@ -119,7 +119,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<Outputs.AccountBackup> Backup { get; private set; } = null!;
 
         /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         /// </summary>
         [Output("capabilities")]
         public Output<ImmutableArray<Outputs.AccountCapability>> Capabilities { get; private set; } = null!;
@@ -426,7 +426,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.AccountCapabilityArgs>? _capabilities;
 
         /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountCapabilityArgs> Capabilities
         {
@@ -650,7 +650,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.AccountCapabilityGetArgs>? _capabilities;
 
         /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountCapabilityGetArgs> Capabilities
         {

@@ -86,14 +86,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:apimanagement/subscription:Subscription")
 public class Subscription extends com.pulumi.resources.CustomResource {
     /**
-     * Determines whether tracing can be enabled.  Defaults to `true`.
+     * Determines whether tracing can be enabled. Defaults to `true`.
      * 
      */
     @Export(name="allowTracing", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowTracing;
 
     /**
-     * @return Determines whether tracing can be enabled.  Defaults to `true`.
+     * @return Determines whether tracing can be enabled. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> allowTracing() {

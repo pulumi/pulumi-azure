@@ -408,10 +408,10 @@ class HBaseClusterMetastoresAmbariArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -422,7 +422,7 @@ class HBaseClusterMetastoresAmbariArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -434,7 +434,7 @@ class HBaseClusterMetastoresAmbariArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -446,7 +446,7 @@ class HBaseClusterMetastoresAmbariArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -458,7 +458,7 @@ class HBaseClusterMetastoresAmbariArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -475,10 +475,10 @@ class HBaseClusterMetastoresHiveArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -489,7 +489,7 @@ class HBaseClusterMetastoresHiveArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -501,7 +501,7 @@ class HBaseClusterMetastoresHiveArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -513,7 +513,7 @@ class HBaseClusterMetastoresHiveArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -525,7 +525,7 @@ class HBaseClusterMetastoresHiveArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -542,10 +542,10 @@ class HBaseClusterMetastoresOozieArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -556,7 +556,7 @@ class HBaseClusterMetastoresOozieArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -568,7 +568,7 @@ class HBaseClusterMetastoresOozieArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -580,7 +580,7 @@ class HBaseClusterMetastoresOozieArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -592,7 +592,7 @@ class HBaseClusterMetastoresOozieArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -743,7 +743,7 @@ class HBaseClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -801,7 +801,7 @@ class HBaseClusterRolesHeadNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -917,7 +917,7 @@ class HBaseClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -1002,7 +1002,7 @@ class HBaseClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -1226,7 +1226,7 @@ class HBaseClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -1284,7 +1284,7 @@ class HBaseClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -1899,10 +1899,10 @@ class HadoopClusterMetastoresAmbariArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -1913,7 +1913,7 @@ class HadoopClusterMetastoresAmbariArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -1925,7 +1925,7 @@ class HadoopClusterMetastoresAmbariArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -1937,7 +1937,7 @@ class HadoopClusterMetastoresAmbariArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -1949,7 +1949,7 @@ class HadoopClusterMetastoresAmbariArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -1966,10 +1966,10 @@ class HadoopClusterMetastoresHiveArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -1980,7 +1980,7 @@ class HadoopClusterMetastoresHiveArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -1992,7 +1992,7 @@ class HadoopClusterMetastoresHiveArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -2004,7 +2004,7 @@ class HadoopClusterMetastoresHiveArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -2016,7 +2016,7 @@ class HadoopClusterMetastoresHiveArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -2033,10 +2033,10 @@ class HadoopClusterMetastoresOozieArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -2047,7 +2047,7 @@ class HadoopClusterMetastoresOozieArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -2059,7 +2059,7 @@ class HadoopClusterMetastoresOozieArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -2071,7 +2071,7 @@ class HadoopClusterMetastoresOozieArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -2083,7 +2083,7 @@ class HadoopClusterMetastoresOozieArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -2247,7 +2247,7 @@ class HadoopClusterRolesEdgeNodeArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]] install_script_actions: A `install_script_action` block as defined below.
         :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
-        :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
         """
         pulumi.set(__self__, "install_script_actions", install_script_actions)
         pulumi.set(__self__, "target_instance_count", target_instance_count)
@@ -2285,7 +2285,7 @@ class HadoopClusterRolesEdgeNodeArgs:
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> pulumi.Input[str]:
         """
-        The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
         """
         return pulumi.get(self, "vm_size")
 
@@ -2406,8 +2406,8 @@ class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name of the install script action. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] uri: The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the install script action.
+        :param pulumi.Input[str] uri: The URI pointing to the script to run during the installation of the edge node.
         :param pulumi.Input[str] parameters: The parameters for the script.
         """
         pulumi.set(__self__, "name", name)
@@ -2419,7 +2419,7 @@ class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the install script action. Changing this forces a new resource to be created.
+        The name of the install script action.
         """
         return pulumi.get(self, "name")
 
@@ -2431,7 +2431,7 @@ class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
         """
-        The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        The URI pointing to the script to run during the installation of the edge node.
         """
         return pulumi.get(self, "uri")
 
@@ -2519,7 +2519,7 @@ class HadoopClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -2577,7 +2577,7 @@ class HadoopClusterRolesHeadNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -2693,7 +2693,7 @@ class HadoopClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -2778,7 +2778,7 @@ class HadoopClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -3055,7 +3055,7 @@ class HadoopClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -3113,7 +3113,7 @@ class HadoopClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -3728,10 +3728,10 @@ class InteractiveQueryClusterMetastoresAmbariArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -3742,7 +3742,7 @@ class InteractiveQueryClusterMetastoresAmbariArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -3754,7 +3754,7 @@ class InteractiveQueryClusterMetastoresAmbariArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -3766,7 +3766,7 @@ class InteractiveQueryClusterMetastoresAmbariArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -3778,7 +3778,7 @@ class InteractiveQueryClusterMetastoresAmbariArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -3795,10 +3795,10 @@ class InteractiveQueryClusterMetastoresHiveArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -3809,7 +3809,7 @@ class InteractiveQueryClusterMetastoresHiveArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -3821,7 +3821,7 @@ class InteractiveQueryClusterMetastoresHiveArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -3833,7 +3833,7 @@ class InteractiveQueryClusterMetastoresHiveArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -3845,7 +3845,7 @@ class InteractiveQueryClusterMetastoresHiveArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -3862,10 +3862,10 @@ class InteractiveQueryClusterMetastoresOozieArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -3876,7 +3876,7 @@ class InteractiveQueryClusterMetastoresOozieArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -3888,7 +3888,7 @@ class InteractiveQueryClusterMetastoresOozieArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -3900,7 +3900,7 @@ class InteractiveQueryClusterMetastoresOozieArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -3912,7 +3912,7 @@ class InteractiveQueryClusterMetastoresOozieArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -4063,7 +4063,7 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -4121,7 +4121,7 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -4237,7 +4237,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -4322,7 +4322,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -4599,7 +4599,7 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -4657,7 +4657,7 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -5272,10 +5272,10 @@ class KafkaClusterMetastoresAmbariArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -5286,7 +5286,7 @@ class KafkaClusterMetastoresAmbariArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -5298,7 +5298,7 @@ class KafkaClusterMetastoresAmbariArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -5310,7 +5310,7 @@ class KafkaClusterMetastoresAmbariArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -5322,7 +5322,7 @@ class KafkaClusterMetastoresAmbariArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -5339,10 +5339,10 @@ class KafkaClusterMetastoresHiveArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -5353,7 +5353,7 @@ class KafkaClusterMetastoresHiveArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -5365,7 +5365,7 @@ class KafkaClusterMetastoresHiveArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -5377,7 +5377,7 @@ class KafkaClusterMetastoresHiveArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -5389,7 +5389,7 @@ class KafkaClusterMetastoresHiveArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -5406,10 +5406,10 @@ class KafkaClusterMetastoresOozieArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -5420,7 +5420,7 @@ class KafkaClusterMetastoresOozieArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -5432,7 +5432,7 @@ class KafkaClusterMetastoresOozieArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -5444,7 +5444,7 @@ class KafkaClusterMetastoresOozieArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -5456,7 +5456,7 @@ class KafkaClusterMetastoresOozieArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -6825,10 +6825,10 @@ class SparkClusterMetastoresAmbariArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -6839,7 +6839,7 @@ class SparkClusterMetastoresAmbariArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -6851,7 +6851,7 @@ class SparkClusterMetastoresAmbariArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -6863,7 +6863,7 @@ class SparkClusterMetastoresAmbariArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -6875,7 +6875,7 @@ class SparkClusterMetastoresAmbariArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -6892,10 +6892,10 @@ class SparkClusterMetastoresHiveArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -6906,7 +6906,7 @@ class SparkClusterMetastoresHiveArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -6918,7 +6918,7 @@ class SparkClusterMetastoresHiveArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -6930,7 +6930,7 @@ class SparkClusterMetastoresHiveArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -6942,7 +6942,7 @@ class SparkClusterMetastoresHiveArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -6959,10 +6959,10 @@ class SparkClusterMetastoresOozieArgs:
                  server: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] database_name: The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] username: The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] username: The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "password", password)
@@ -6973,7 +6973,7 @@ class SparkClusterMetastoresOozieArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
@@ -6985,7 +6985,7 @@ class SparkClusterMetastoresOozieArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "password")
 
@@ -6997,7 +6997,7 @@ class SparkClusterMetastoresOozieArgs:
     @pulumi.getter
     def server(self) -> pulumi.Input[str]:
         """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server")
 
@@ -7009,7 +7009,7 @@ class SparkClusterMetastoresOozieArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
@@ -7160,7 +7160,7 @@ class SparkClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -7218,7 +7218,7 @@ class SparkClusterRolesHeadNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -7334,7 +7334,7 @@ class SparkClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -7419,7 +7419,7 @@ class SparkClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -7696,7 +7696,7 @@ class SparkClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -7754,7 +7754,7 @@ class SparkClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]]:
         """
-        The script action which will run on the cluster.
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 

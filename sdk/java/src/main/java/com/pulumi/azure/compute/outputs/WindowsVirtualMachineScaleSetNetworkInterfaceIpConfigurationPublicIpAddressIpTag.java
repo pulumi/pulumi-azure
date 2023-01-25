@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
     /**
-     * @return The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+     * @return The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
      * 
      */
     private String tag;
     /**
-     * @return The Type of IP Tag, such as `FirstPartyUsage`.
+     * @return The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
      * 
      */
     private String type;
 
     private WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag() {}
     /**
-     * @return The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+     * @return The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
      * 
      */
     public String tag() {
         return this.tag;
     }
     /**
-     * @return The Type of IP Tag, such as `FirstPartyUsage`.
+     * @return The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
      * 
      */
     public String type() {

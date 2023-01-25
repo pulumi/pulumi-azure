@@ -85,6 +85,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkManagerManagementGroupConnection{}
 	case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
 		r = &NetworkManagerNetworkGroup{}
+	case "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection":
+		r = &NetworkManagerScopeConnection{}
+	case "azure:network/networkManagerStaticMember:NetworkManagerStaticMember":
+		r = &NetworkManagerStaticMember{}
 	case "azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection":
 		r = &NetworkManagerSubscriptionConnection{}
 	case "azure:network/networkPacketCapture:NetworkPacketCapture":
@@ -344,6 +348,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/networkManagerNetworkGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkManagerScopeConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkManagerStaticMember",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

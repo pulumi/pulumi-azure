@@ -1334,10 +1334,10 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Lab
-
-			"azurerm_lab_service_plan": {Tok: azureResource(azureLab, "ServicePlan")},
-			"azurerm_lab_service_lab":  {Tok: azureResource(azureLab, "Lab")},
-			"azurerm_lab_service_user": {Tok: azureResource(azureLab, "User")},
+			"azurerm_lab_service_plan":     {Tok: azureResource(azureLab, "ServicePlan")},
+			"azurerm_lab_service_lab":      {Tok: azureResource(azureLab, "Lab")},
+			"azurerm_lab_service_user":     {Tok: azureResource(azureLab, "User")},
+			"azurerm_lab_service_schedule": {Tok: azureResource(azureLab, "Schedule")},
 
 			// LoadBalancer
 			"azurerm_lb": {
@@ -1837,6 +1837,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_network_manager_network_group":               {Tok: azureResource(azureNetwork, "NetworkManagerNetworkGroup")},
 			"azurerm_network_manager_management_group_connection": {Tok: azureResource(azureNetwork, "NetworkManagerManagementGroupConnection")},
 			"azurerm_network_manager_subscription_connection":     {Tok: azureResource(azureNetwork, "NetworkManagerSubscriptionConnection")},
+			"azurerm_network_manager_scope_connection":            {Tok: azureResource(azureNetwork, "NetworkManagerScopeConnection")},
+			"azurerm_network_manager_static_member":               {Tok: azureResource(azureNetwork, "NetworkManagerStaticMember")},
 
 			"azurerm_public_ip": {
 				Tok: azureResource(azureNetwork, "PublicIp"),
@@ -2309,6 +2311,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_machine_learning_compute_cluster":   {Tok: azureResource(azureMachineLearning, "ComputeCluster")},
 			"azurerm_machine_learning_synapse_spark":     {Tok: azureResource(azureMachineLearning, "SynapseSpark")},
 			"azurerm_machine_learning_compute_instance":  {Tok: azureResource(azureMachineLearning, "ComputeInstance")},
+			"azurerm_machine_learning_datastore_blobstorage": {
+				Tok: azureResource(azureMachineLearning, "DatastoreBlobstorage"),
+				Docs: &tfbridge.DocInfo{
+					Source: "machine_learning_datastore_blogstorage.html.markdown",
+				},
+			},
 
 			// Managed Applications
 			"azurerm_managed_application":            {Tok: azureResource(azureManagedApplication, "Application")},
@@ -2396,6 +2404,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_sentinel_data_connector_threat_intelligence_taxii": {
 				Tok: azureResource(azureSentinel, "DataConnectorThreatIntelligenceTaxii"),
+			},
+			"azurerm_sentinel_log_analytics_workspace_onboarding": {
+				Tok: azureResource(azureSentinel, "LogAnalyticsWorkspaceOnboarding"),
 			},
 
 			// Eventgrid
@@ -3002,6 +3013,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_marketplace_agreement": {Tok: azureDataSource(azureMarketPlace, "getAgreement")},
 
 			"azurerm_virtual_hub_route_table": {Tok: azureDataSource(azureNetwork, "getVirtualHubRouteTable")},
+
+			"azurerm_bastion_host": {Tok: azureDataSource(azureCompute, "getBastionHost")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			TypeScriptVersion: "4.7.4",

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Avs.Inputs
         }
 
         /// <summary>
-        /// The ID of the  management cluster.
+        /// The ID of the management cluster.
         /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }

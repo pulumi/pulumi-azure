@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SourceControlSlotGithubActionConfiguration {
     /**
-     * @return A `code_configuration` block as detailed below.
+     * @return A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable SourceControlSlotGithubActionConfigurationCodeConfiguration codeConfiguration;
@@ -36,7 +36,7 @@ public final class SourceControlSlotGithubActionConfiguration {
 
     private SourceControlSlotGithubActionConfiguration() {}
     /**
-     * @return A `code_configuration` block as detailed below.
+     * @return A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<SourceControlSlotGithubActionConfigurationCodeConfiguration> codeConfiguration() {

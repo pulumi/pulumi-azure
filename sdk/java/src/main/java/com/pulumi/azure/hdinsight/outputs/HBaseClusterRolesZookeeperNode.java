@@ -19,7 +19,7 @@ public final class HBaseClusterRolesZookeeperNode {
      */
     private @Nullable String password;
     /**
-     * @return The script action which will run on the cluster.
+     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<HBaseClusterRolesZookeeperNodeScriptAction> scriptActions;
@@ -58,7 +58,7 @@ public final class HBaseClusterRolesZookeeperNode {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return The script action which will run on the cluster.
+     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
      * 
      */
     public List<HBaseClusterRolesZookeeperNodeScriptAction> scriptActions() {

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class ScheduledQueryRulesLogCriteriaDimensionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the dimension. Changing this forces a new resource to be created.
+        /// Name of the dimension.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -74,13 +74,13 @@ import javax.annotation.Nullable;
  * App Configuration Features can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
+ *  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
  * ```
  * 
  *  If you wish to import a key with an empty label then sustitute the label&#39;s name with `%00`, like this
  * 
  * ```sh
- *  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
+ *  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
  * ```
  * 
  */
@@ -135,14 +135,14 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
         return this.etag;
     }
     /**
-     * The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+     * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="label", type=String.class, parameters={})
     private Output</* @Nullable */ String> label;
 
     /**
-     * @return The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+     * @return The label of the App Configuration Feature. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> label() {

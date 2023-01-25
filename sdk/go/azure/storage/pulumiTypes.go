@@ -2677,13 +2677,13 @@ func (o AccountQueuePropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) Acco
 }
 
 type AccountQueuePropertiesHourMetrics struct {
-	// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+	// Indicates whether hour metrics are enabled for the Queue service.
 	Enabled bool `pulumi:"enabled"`
 	// Indicates whether metrics should generate summary statistics for called API operations.
 	IncludeApis *bool `pulumi:"includeApis"`
-	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+	// Specifies the number of days that logs will be retained.
 	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
-	// The version of storage analytics to configure. Changing this forces a new resource.
+	// The version of storage analytics to configure.
 	Version string `pulumi:"version"`
 }
 
@@ -2699,13 +2699,13 @@ type AccountQueuePropertiesHourMetricsInput interface {
 }
 
 type AccountQueuePropertiesHourMetricsArgs struct {
-	// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+	// Indicates whether hour metrics are enabled for the Queue service.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Indicates whether metrics should generate summary statistics for called API operations.
 	IncludeApis pulumi.BoolPtrInput `pulumi:"includeApis"`
-	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+	// Specifies the number of days that logs will be retained.
 	RetentionPolicyDays pulumi.IntPtrInput `pulumi:"retentionPolicyDays"`
-	// The version of storage analytics to configure. Changing this forces a new resource.
+	// The version of storage analytics to configure.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -2786,7 +2786,7 @@ func (o AccountQueuePropertiesHourMetricsOutput) ToAccountQueuePropertiesHourMet
 	}).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
 
-// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+// Indicates whether hour metrics are enabled for the Queue service.
 func (o AccountQueuePropertiesHourMetricsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2796,12 +2796,12 @@ func (o AccountQueuePropertiesHourMetricsOutput) IncludeApis() pulumi.BoolPtrOut
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+// Specifies the number of days that logs will be retained.
 func (o AccountQueuePropertiesHourMetricsOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
-// The version of storage analytics to configure. Changing this forces a new resource.
+// The version of storage analytics to configure.
 func (o AccountQueuePropertiesHourMetricsOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -2830,7 +2830,7 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) Elem() AccountQueuePropertie
 	}).(AccountQueuePropertiesHourMetricsOutput)
 }
 
-// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+// Indicates whether hour metrics are enabled for the Queue service.
 func (o AccountQueuePropertiesHourMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) *bool {
 		if v == nil {
@@ -2850,7 +2850,7 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) IncludeApis() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+// Specifies the number of days that logs will be retained.
 func (o AccountQueuePropertiesHourMetricsPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) *int {
 		if v == nil {
@@ -2860,7 +2860,7 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) RetentionPolicyDays() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The version of storage analytics to configure. Changing this forces a new resource.
+// The version of storage analytics to configure.
 func (o AccountQueuePropertiesHourMetricsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) *string {
 		if v == nil {
@@ -2871,15 +2871,15 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) Version() pulumi.StringPtrOu
 }
 
 type AccountQueuePropertiesLogging struct {
-	// Indicates whether all delete requests should be logged. Changing this forces a new resource.
+	// Indicates whether all delete requests should be logged.
 	Delete bool `pulumi:"delete"`
-	// Indicates whether all read requests should be logged. Changing this forces a new resource.
+	// Indicates whether all read requests should be logged.
 	Read bool `pulumi:"read"`
-	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+	// Specifies the number of days that logs will be retained.
 	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
-	// The version of storage analytics to configure. Changing this forces a new resource.
+	// The version of storage analytics to configure.
 	Version string `pulumi:"version"`
-	// Indicates whether all write requests should be logged. Changing this forces a new resource.
+	// Indicates whether all write requests should be logged.
 	Write bool `pulumi:"write"`
 }
 
@@ -2895,15 +2895,15 @@ type AccountQueuePropertiesLoggingInput interface {
 }
 
 type AccountQueuePropertiesLoggingArgs struct {
-	// Indicates whether all delete requests should be logged. Changing this forces a new resource.
+	// Indicates whether all delete requests should be logged.
 	Delete pulumi.BoolInput `pulumi:"delete"`
-	// Indicates whether all read requests should be logged. Changing this forces a new resource.
+	// Indicates whether all read requests should be logged.
 	Read pulumi.BoolInput `pulumi:"read"`
-	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+	// Specifies the number of days that logs will be retained.
 	RetentionPolicyDays pulumi.IntPtrInput `pulumi:"retentionPolicyDays"`
-	// The version of storage analytics to configure. Changing this forces a new resource.
+	// The version of storage analytics to configure.
 	Version pulumi.StringInput `pulumi:"version"`
-	// Indicates whether all write requests should be logged. Changing this forces a new resource.
+	// Indicates whether all write requests should be logged.
 	Write pulumi.BoolInput `pulumi:"write"`
 }
 
@@ -2984,27 +2984,27 @@ func (o AccountQueuePropertiesLoggingOutput) ToAccountQueuePropertiesLoggingPtrO
 	}).(AccountQueuePropertiesLoggingPtrOutput)
 }
 
-// Indicates whether all delete requests should be logged. Changing this forces a new resource.
+// Indicates whether all delete requests should be logged.
 func (o AccountQueuePropertiesLoggingOutput) Delete() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
-// Indicates whether all read requests should be logged. Changing this forces a new resource.
+// Indicates whether all read requests should be logged.
 func (o AccountQueuePropertiesLoggingOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
 }
 
-// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+// Specifies the number of days that logs will be retained.
 func (o AccountQueuePropertiesLoggingOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
-// The version of storage analytics to configure. Changing this forces a new resource.
+// The version of storage analytics to configure.
 func (o AccountQueuePropertiesLoggingOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) string { return v.Version }).(pulumi.StringOutput)
 }
 
-// Indicates whether all write requests should be logged. Changing this forces a new resource.
+// Indicates whether all write requests should be logged.
 func (o AccountQueuePropertiesLoggingOutput) Write() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Write }).(pulumi.BoolOutput)
 }
@@ -3033,7 +3033,7 @@ func (o AccountQueuePropertiesLoggingPtrOutput) Elem() AccountQueuePropertiesLog
 	}).(AccountQueuePropertiesLoggingOutput)
 }
 
-// Indicates whether all delete requests should be logged. Changing this forces a new resource.
+// Indicates whether all delete requests should be logged.
 func (o AccountQueuePropertiesLoggingPtrOutput) Delete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountQueuePropertiesLogging) *bool {
 		if v == nil {
@@ -3043,7 +3043,7 @@ func (o AccountQueuePropertiesLoggingPtrOutput) Delete() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether all read requests should be logged. Changing this forces a new resource.
+// Indicates whether all read requests should be logged.
 func (o AccountQueuePropertiesLoggingPtrOutput) Read() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountQueuePropertiesLogging) *bool {
 		if v == nil {
@@ -3053,7 +3053,7 @@ func (o AccountQueuePropertiesLoggingPtrOutput) Read() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+// Specifies the number of days that logs will be retained.
 func (o AccountQueuePropertiesLoggingPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountQueuePropertiesLogging) *int {
 		if v == nil {
@@ -3063,7 +3063,7 @@ func (o AccountQueuePropertiesLoggingPtrOutput) RetentionPolicyDays() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The version of storage analytics to configure. Changing this forces a new resource.
+// The version of storage analytics to configure.
 func (o AccountQueuePropertiesLoggingPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountQueuePropertiesLogging) *string {
 		if v == nil {
@@ -3073,7 +3073,7 @@ func (o AccountQueuePropertiesLoggingPtrOutput) Version() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether all write requests should be logged. Changing this forces a new resource.
+// Indicates whether all write requests should be logged.
 func (o AccountQueuePropertiesLoggingPtrOutput) Write() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountQueuePropertiesLogging) *bool {
 		if v == nil {
@@ -3084,13 +3084,13 @@ func (o AccountQueuePropertiesLoggingPtrOutput) Write() pulumi.BoolPtrOutput {
 }
 
 type AccountQueuePropertiesMinuteMetrics struct {
-	// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+	// Indicates whether minute metrics are enabled for the Queue service.
 	Enabled bool `pulumi:"enabled"`
 	// Indicates whether metrics should generate summary statistics for called API operations.
 	IncludeApis *bool `pulumi:"includeApis"`
-	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+	// Specifies the number of days that logs will be retained.
 	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
-	// The version of storage analytics to configure. Changing this forces a new resource.
+	// The version of storage analytics to configure.
 	Version string `pulumi:"version"`
 }
 
@@ -3106,13 +3106,13 @@ type AccountQueuePropertiesMinuteMetricsInput interface {
 }
 
 type AccountQueuePropertiesMinuteMetricsArgs struct {
-	// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+	// Indicates whether minute metrics are enabled for the Queue service.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Indicates whether metrics should generate summary statistics for called API operations.
 	IncludeApis pulumi.BoolPtrInput `pulumi:"includeApis"`
-	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+	// Specifies the number of days that logs will be retained.
 	RetentionPolicyDays pulumi.IntPtrInput `pulumi:"retentionPolicyDays"`
-	// The version of storage analytics to configure. Changing this forces a new resource.
+	// The version of storage analytics to configure.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -3193,7 +3193,7 @@ func (o AccountQueuePropertiesMinuteMetricsOutput) ToAccountQueuePropertiesMinut
 	}).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
 
-// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+// Indicates whether minute metrics are enabled for the Queue service.
 func (o AccountQueuePropertiesMinuteMetricsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -3203,12 +3203,12 @@ func (o AccountQueuePropertiesMinuteMetricsOutput) IncludeApis() pulumi.BoolPtrO
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+// Specifies the number of days that logs will be retained.
 func (o AccountQueuePropertiesMinuteMetricsOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
-// The version of storage analytics to configure. Changing this forces a new resource.
+// The version of storage analytics to configure.
 func (o AccountQueuePropertiesMinuteMetricsOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -3237,7 +3237,7 @@ func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Elem() AccountQueuePropert
 	}).(AccountQueuePropertiesMinuteMetricsOutput)
 }
 
-// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+// Indicates whether minute metrics are enabled for the Queue service.
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) *bool {
 		if v == nil {
@@ -3257,7 +3257,7 @@ func (o AccountQueuePropertiesMinuteMetricsPtrOutput) IncludeApis() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+// Specifies the number of days that logs will be retained.
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) *int {
 		if v == nil {
@@ -3267,7 +3267,7 @@ func (o AccountQueuePropertiesMinuteMetricsPtrOutput) RetentionPolicyDays() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The version of storage analytics to configure. Changing this forces a new resource.
+// The version of storage analytics to configure.
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) *string {
 		if v == nil {
@@ -6061,7 +6061,7 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) TierToArchiveAfterDaysSinc
 type ManagementPolicyRuleActionsVersion struct {
 	// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToArchiveAfterDaysSinceCreation *int `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
-	// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+	// The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToCoolAfterDaysSinceCreation *int `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
 	// The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
 	DeleteAfterDaysSinceCreation *int `pulumi:"deleteAfterDaysSinceCreation"`
@@ -6083,7 +6083,7 @@ type ManagementPolicyRuleActionsVersionInput interface {
 type ManagementPolicyRuleActionsVersionArgs struct {
 	// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToArchiveAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
-	// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+	// The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToCoolAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
 	// The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
 	DeleteAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceCreation"`
@@ -6173,7 +6173,7 @@ func (o ManagementPolicyRuleActionsVersionOutput) ChangeTierToArchiveAfterDaysSi
 	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *int { return v.ChangeTierToArchiveAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
 }
 
-// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+// The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsVersionOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *int { return v.ChangeTierToCoolAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
 }
@@ -6224,7 +6224,7 @@ func (o ManagementPolicyRuleActionsVersionPtrOutput) ChangeTierToArchiveAfterDay
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+// The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsVersionPtrOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) *int {
 		if v == nil {

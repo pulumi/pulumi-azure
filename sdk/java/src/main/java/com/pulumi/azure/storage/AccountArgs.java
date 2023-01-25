@@ -45,14 +45,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
      * 
      */
     @Import(name="accountKind")
     private @Nullable Output<String> accountKind;
 
     /**
-     * @return Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+     * @return Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
      * 
      */
     public Optional<Output<String>> accountKind() {
@@ -60,14 +60,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
      * 
      */
     @Import(name="accountReplicationType", required=true)
     private Output<String> accountReplicationType;
 
     /**
-     * @return Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * @return Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
      * 
      */
     public Output<String> accountReplicationType() {
@@ -225,16 +225,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-     * for more information. Defaults to `true`.
+     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      * 
      */
     @Import(name="enableHttpsTrafficOnly")
     private @Nullable Output<Boolean> enableHttpsTrafficOnly;
 
     /**
-     * @return Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-     * for more information. Defaults to `true`.
+     * @return Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enableHttpsTrafficOnly() {
@@ -257,14 +255,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `immutability_policy` block as defined below.
+     * An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="immutabilityPolicy")
     private @Nullable Output<AccountImmutabilityPolicyArgs> immutabilityPolicy;
 
     /**
-     * @return An `immutability_policy` block as defined below.
+     * @return An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<AccountImmutabilityPolicyArgs>> immutabilityPolicy() {
@@ -652,7 +650,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountKind Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+         * @param accountKind Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
          * 
          * @return builder
          * 
@@ -663,7 +661,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountKind Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+         * @param accountKind Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
          * 
          * @return builder
          * 
@@ -673,7 +671,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountReplicationType Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+         * @param accountReplicationType Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
          * 
          * @return builder
          * 
@@ -684,7 +682,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountReplicationType Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+         * @param accountReplicationType Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
          * 
          * @return builder
          * 
@@ -904,8 +902,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableHttpsTrafficOnly Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-         * for more information. Defaults to `true`.
+         * @param enableHttpsTrafficOnly Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -916,8 +913,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableHttpsTrafficOnly Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-         * for more information. Defaults to `true`.
+         * @param enableHttpsTrafficOnly Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -948,7 +944,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param immutabilityPolicy An `immutability_policy` block as defined below.
+         * @param immutabilityPolicy An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -959,7 +955,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param immutabilityPolicy An `immutability_policy` block as defined below.
+         * @param immutabilityPolicy An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

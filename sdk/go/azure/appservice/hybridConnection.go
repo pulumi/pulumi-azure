@@ -110,7 +110,7 @@ type HybridConnection struct {
 	// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
 	RelayId   pulumi.StringOutput `pulumi:"relayId"`
 	RelayName pulumi.StringOutput `pulumi:"relayName"`
-	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
 	SendKeyName pulumi.StringPtrOutput `pulumi:"sendKeyName"`
@@ -181,7 +181,7 @@ type hybridConnectionState struct {
 	// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
 	RelayId   *string `pulumi:"relayId"`
 	RelayName *string `pulumi:"relayName"`
-	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
 	SendKeyName *string `pulumi:"sendKeyName"`
@@ -205,7 +205,7 @@ type HybridConnectionState struct {
 	// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
 	RelayId   pulumi.StringPtrInput
 	RelayName pulumi.StringPtrInput
-	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
 	SendKeyName pulumi.StringPtrInput
@@ -230,7 +230,7 @@ type hybridConnectionArgs struct {
 	Port int `pulumi:"port"`
 	// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
 	RelayId string `pulumi:"relayId"`
-	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
 	SendKeyName *string `pulumi:"sendKeyName"`
@@ -246,7 +246,7 @@ type HybridConnectionArgs struct {
 	Port pulumi.IntInput
 	// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
 	RelayId pulumi.StringInput
-	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
 	SendKeyName pulumi.StringPtrInput
@@ -368,7 +368,7 @@ func (o HybridConnectionOutput) RelayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HybridConnection) pulumi.StringOutput { return v.RelayName }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
 func (o HybridConnectionOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HybridConnection) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

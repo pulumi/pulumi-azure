@@ -209,14 +209,14 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `storage_account` block as defined below.
+     * A `storage_account` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccount", type=DatasetBlobStorageStorageAccount.class, parameters={})
     private Output<DatasetBlobStorageStorageAccount> storageAccount;
 
     /**
-     * @return A `storage_account` block as defined below.
+     * @return A `storage_account` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<DatasetBlobStorageStorageAccount> storageAccount() {

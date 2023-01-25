@@ -291,16 +291,14 @@ public class Insights extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Specifies the name of the Application Insights component. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Application Insights component. Changing this forces a
-     * new resource to be created.
+     * @return Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

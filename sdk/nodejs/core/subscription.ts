@@ -136,7 +136,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
-     * The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+     * The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      */
     public readonly workload!: pulumi.Output<string | undefined>;
 
@@ -207,7 +207,7 @@ export interface SubscriptionState {
      */
     tenantId?: pulumi.Input<string>;
     /**
-     * The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+     * The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      */
     workload?: pulumi.Input<string>;
 }
@@ -237,7 +237,7 @@ export interface SubscriptionArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+     * The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      */
     workload?: pulumi.Input<string>;
 }

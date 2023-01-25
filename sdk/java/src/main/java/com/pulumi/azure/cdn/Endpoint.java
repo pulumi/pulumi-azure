@@ -267,14 +267,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.originPath;
     }
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="origins", type=List.class, parameters={EndpointOrigin.class})
     private Output<List<EndpointOrigin>> origins;
 
     /**
-     * @return The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+     * @return The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<EndpointOrigin>> origins() {

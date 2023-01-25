@@ -14,14 +14,14 @@ public final class TrafficManagerProfileMonitorConfigCustomHeaderArgs extends co
     public static final TrafficManagerProfileMonitorConfigCustomHeaderArgs Empty = new TrafficManagerProfileMonitorConfigCustomHeaderArgs();
 
     /**
-     * The name of the custom header. Changing this forces a new resource to be created.
+     * The name of the custom header.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the custom header. Changing this forces a new resource to be created.
+     * @return The name of the custom header.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class TrafficManagerProfileMonitorConfigCustomHeaderArgs extends co
         }
 
         /**
-         * @param name The name of the custom header. Changing this forces a new resource to be created.
+         * @param name The name of the custom header.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class TrafficManagerProfileMonitorConfigCustomHeaderArgs extends co
         }
 
         /**
-         * @param name The name of the custom header. Changing this forces a new resource to be created.
+         * @param name The name of the custom header.
          * 
          * @return builder
          * 

@@ -25,7 +25,7 @@ class CertifiateArgs:
         The set of arguments for constructing a Certifiate resource.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['CertifiateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate.
-        :param pulumi.Input['CertifiateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below.
+        :param pulumi.Input['CertifiateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -67,7 +67,7 @@ class CertifiateArgs:
     @pulumi.getter(name="certificatePolicy")
     def certificate_policy(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyArgs']]:
         """
-        A `certificate_policy` block as defined below.
+        A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "certificate_policy")
 
@@ -122,7 +122,7 @@ class _CertifiateState:
         :param pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]] certificate_attributes: A `certificate_attribute` block as defined below.
         :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
-        :param pulumi.Input['CertifiateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below.
+        :param pulumi.Input['CertifiateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
@@ -211,7 +211,7 @@ class _CertifiateState:
     @pulumi.getter(name="certificatePolicy")
     def certificate_policy(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyArgs']]:
         """
-        A `certificate_policy` block as defined below.
+        A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "certificate_policy")
 
@@ -522,7 +522,7 @@ class Certifiate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CertifiateCertificateArgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate.
-        :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -799,7 +799,7 @@ class Certifiate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertifiateCertificateAttributeArgs']]]] certificate_attributes: A `certificate_attribute` block as defined below.
         :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
-        :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
@@ -864,7 +864,7 @@ class Certifiate(pulumi.CustomResource):
     @pulumi.getter(name="certificatePolicy")
     def certificate_policy(self) -> pulumi.Output['outputs.CertifiateCertificatePolicy']:
         """
-        A `certificate_policy` block as defined below.
+        A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "certificate_policy")
 

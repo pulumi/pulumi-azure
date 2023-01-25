@@ -25,7 +25,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+        /// The name of the Azure region to host replicated data.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;

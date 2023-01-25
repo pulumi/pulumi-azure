@@ -48,14 +48,14 @@ public final class ScheduledQueryRulesAlertTriggerArgs extends com.pulumi.resour
     }
 
     /**
-     * Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+     * Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
      * 
      */
     @Import(name="threshold", required=true)
     private Output<Double> threshold;
 
     /**
-     * @return Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+     * @return Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
      * 
      */
     public Output<Double> threshold() {
@@ -131,7 +131,7 @@ public final class ScheduledQueryRulesAlertTriggerArgs extends com.pulumi.resour
         }
 
         /**
-         * @param threshold Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+         * @param threshold Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ScheduledQueryRulesAlertTriggerArgs extends com.pulumi.resour
         }
 
         /**
-         * @param threshold Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+         * @param threshold Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
          * 
          * @return builder
          * 

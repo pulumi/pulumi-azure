@@ -13,13 +13,13 @@ import (
 type StandardWebTestRequest struct {
 	// The WebTest request body.
 	Body *string `pulumi:"body"`
-	// Should the following of redirects be enabled?
+	// Should the following of redirects be enabled? Defaults to `true`.
 	FollowRedirectsEnabled *bool `pulumi:"followRedirectsEnabled"`
 	// One or more `header` blocks as defined above.
 	Headers []StandardWebTestRequestHeader `pulumi:"headers"`
 	// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
 	HttpVerb *string `pulumi:"httpVerb"`
-	// Should the parsing of dependend requests be enabled?
+	// Should the parsing of dependend requests be enabled? Defaults to `true`.
 	ParseDependentRequestsEnabled *bool `pulumi:"parseDependentRequestsEnabled"`
 	// The WebTest request URL.
 	Url string `pulumi:"url"`
@@ -39,13 +39,13 @@ type StandardWebTestRequestInput interface {
 type StandardWebTestRequestArgs struct {
 	// The WebTest request body.
 	Body pulumi.StringPtrInput `pulumi:"body"`
-	// Should the following of redirects be enabled?
+	// Should the following of redirects be enabled? Defaults to `true`.
 	FollowRedirectsEnabled pulumi.BoolPtrInput `pulumi:"followRedirectsEnabled"`
 	// One or more `header` blocks as defined above.
 	Headers StandardWebTestRequestHeaderArrayInput `pulumi:"headers"`
 	// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
 	HttpVerb pulumi.StringPtrInput `pulumi:"httpVerb"`
-	// Should the parsing of dependend requests be enabled?
+	// Should the parsing of dependend requests be enabled? Defaults to `true`.
 	ParseDependentRequestsEnabled pulumi.BoolPtrInput `pulumi:"parseDependentRequestsEnabled"`
 	// The WebTest request URL.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -133,7 +133,7 @@ func (o StandardWebTestRequestOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardWebTestRequest) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-// Should the following of redirects be enabled?
+// Should the following of redirects be enabled? Defaults to `true`.
 func (o StandardWebTestRequestOutput) FollowRedirectsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StandardWebTestRequest) *bool { return v.FollowRedirectsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -148,7 +148,7 @@ func (o StandardWebTestRequestOutput) HttpVerb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardWebTestRequest) *string { return v.HttpVerb }).(pulumi.StringPtrOutput)
 }
 
-// Should the parsing of dependend requests be enabled?
+// Should the parsing of dependend requests be enabled? Defaults to `true`.
 func (o StandardWebTestRequestOutput) ParseDependentRequestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StandardWebTestRequest) *bool { return v.ParseDependentRequestsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -192,7 +192,7 @@ func (o StandardWebTestRequestPtrOutput) Body() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the following of redirects be enabled?
+// Should the following of redirects be enabled? Defaults to `true`.
 func (o StandardWebTestRequestPtrOutput) FollowRedirectsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StandardWebTestRequest) *bool {
 		if v == nil {
@@ -222,7 +222,7 @@ func (o StandardWebTestRequestPtrOutput) HttpVerb() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the parsing of dependend requests be enabled?
+// Should the parsing of dependend requests be enabled? Defaults to `true`.
 func (o StandardWebTestRequestPtrOutput) ParseDependentRequestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StandardWebTestRequest) *bool {
 		if v == nil {

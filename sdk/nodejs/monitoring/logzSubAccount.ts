@@ -95,7 +95,7 @@ export class LogzSubAccount extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A `user` block as defined below.
+     * A `user` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly user!: pulumi.Output<outputs.monitoring.LogzSubAccountUser>;
 
@@ -157,7 +157,7 @@ export interface LogzSubAccountState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `user` block as defined below.
+     * A `user` block as defined below. Changing this forces a new resource to be created.
      */
     user?: pulumi.Input<inputs.monitoring.LogzSubAccountUser>;
 }
@@ -183,7 +183,7 @@ export interface LogzSubAccountArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `user` block as defined below.
+     * A `user` block as defined below. Changing this forces a new resource to be created.
      */
     user: pulumi.Input<inputs.monitoring.LogzSubAccountUser>;
 }

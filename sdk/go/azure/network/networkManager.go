@@ -80,7 +80,7 @@ type NetworkManager struct {
 	CrossTenantScopes NetworkManagerCrossTenantScopeArrayOutput `pulumi:"crossTenantScopes"`
 	// A description of the network manager.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies the Azure Region where the Network Managers should exist.
+	// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -136,7 +136,7 @@ type networkManagerState struct {
 	CrossTenantScopes []NetworkManagerCrossTenantScope `pulumi:"crossTenantScopes"`
 	// A description of the network manager.
 	Description *string `pulumi:"description"`
-	// Specifies the Azure Region where the Network Managers should exist.
+	// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
 	Name *string `pulumi:"name"`
@@ -155,7 +155,7 @@ type NetworkManagerState struct {
 	CrossTenantScopes NetworkManagerCrossTenantScopeArrayInput
 	// A description of the network manager.
 	Description pulumi.StringPtrInput
-	// Specifies the Azure Region where the Network Managers should exist.
+	// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
 	Name pulumi.StringPtrInput
@@ -176,7 +176,7 @@ func (NetworkManagerState) ElementType() reflect.Type {
 type networkManagerArgs struct {
 	// A description of the network manager.
 	Description *string `pulumi:"description"`
-	// Specifies the Azure Region where the Network Managers should exist.
+	// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
 	Name *string `pulumi:"name"`
@@ -194,7 +194,7 @@ type networkManagerArgs struct {
 type NetworkManagerArgs struct {
 	// A description of the network manager.
 	Description pulumi.StringPtrInput
-	// Specifies the Azure Region where the Network Managers should exist.
+	// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
 	Name pulumi.StringPtrInput
@@ -305,7 +305,7 @@ func (o NetworkManagerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkManager) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Azure Region where the Network Managers should exist.
+// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
 func (o NetworkManagerOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManager) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

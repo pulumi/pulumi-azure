@@ -155,7 +155,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the frontend IP configuration.
         :param pulumi.Input[str] gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         :param pulumi.Input[str] id: The id of the Frontend IP Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inbound_nat_rules: The list of IDs of inbound rules that use this frontend IP.
@@ -167,7 +167,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
         :param pulumi.Input[str] public_ip_address_id: The ID of a Public IP Address which should be associated with the Load Balancer.
         :param pulumi.Input[str] public_ip_prefix_id: The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which should be associated with the IP Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
         """
         pulumi.set(__self__, "name", name)
         if gateway_load_balancer_frontend_ip_configuration_id is not None:
@@ -199,7 +199,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+        Specifies the name of the frontend IP configuration.
         """
         return pulumi.get(self, "name")
 
@@ -343,7 +343,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+        Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
         """
         return pulumi.get(self, "zones")
 

@@ -36,11 +36,21 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Specifies the password of git repository basic auth.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("patterns", required: true)]
         private InputList<string>? _patterns;
@@ -54,11 +64,21 @@ namespace Pulumi.Azure.AppPlatform.Inputs
             set => _patterns = value;
         }
 
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// Specifies the SSH private key of git repository.
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("searchPaths")]
         private InputList<string>? _searchPaths;

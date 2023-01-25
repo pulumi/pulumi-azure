@@ -231,7 +231,7 @@ class ActionGroupArmRoleReceiverArgs:
                  role_id: pulumi.Input[str],
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] name: The name of the ARM role receiver. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the ARM role receiver.
         :param pulumi.Input[str] role_id: The arm role id.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
@@ -244,7 +244,7 @@ class ActionGroupArmRoleReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the ARM role receiver. Changing this forces a new resource to be created.
+        The name of the ARM role receiver.
         """
         return pulumi.get(self, "name")
 
@@ -290,7 +290,7 @@ class ActionGroupAutomationRunbookReceiverArgs:
         """
         :param pulumi.Input[str] automation_account_id: The automation account ID which holds this runbook and authenticates to Azure resources.
         :param pulumi.Input[bool] is_global_runbook: Indicates whether this instance is global runbook.
-        :param pulumi.Input[str] name: The name of the automation runbook receiver. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the automation runbook receiver.
         :param pulumi.Input[str] runbook_name: The name for this runbook.
         :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
         :param pulumi.Input[str] webhook_resource_id: The resource id for webhook linked to this runbook.
@@ -333,7 +333,7 @@ class ActionGroupAutomationRunbookReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the automation runbook receiver. Changing this forces a new resource to be created.
+        The name of the automation runbook receiver.
         """
         return pulumi.get(self, "name")
 
@@ -397,7 +397,7 @@ class ActionGroupAzureAppPushReceiverArgs:
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] email_address: The email address of the user signed into the mobile app who will receive push notifications from this receiver.
-        :param pulumi.Input[str] name: The name of the Azure app push receiver. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Azure app push receiver.
         """
         pulumi.set(__self__, "email_address", email_address)
         pulumi.set(__self__, "name", name)
@@ -418,7 +418,7 @@ class ActionGroupAzureAppPushReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Azure app push receiver. Changing this forces a new resource to be created.
+        The name of the Azure app push receiver.
         """
         return pulumi.get(self, "name")
 
@@ -439,7 +439,7 @@ class ActionGroupAzureFunctionReceiverArgs:
         :param pulumi.Input[str] function_app_resource_id: The Azure resource ID of the function app.
         :param pulumi.Input[str] function_name: The function name in the function app.
         :param pulumi.Input[str] http_trigger_url: The HTTP trigger url where HTTP request sent to.
-        :param pulumi.Input[str] name: The name of the Azure Function receiver. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Azure Function receiver.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
         pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
@@ -489,7 +489,7 @@ class ActionGroupAzureFunctionReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Azure Function receiver. Changing this forces a new resource to be created.
+        The name of the Azure Function receiver.
         """
         return pulumi.get(self, "name")
 
@@ -518,7 +518,7 @@ class ActionGroupEmailReceiverArgs:
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] email_address: The email address of this receiver.
-        :param pulumi.Input[str] name: The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
         pulumi.set(__self__, "email_address", email_address)
@@ -542,7 +542,7 @@ class ActionGroupEmailReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+        The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         """
         return pulumi.get(self, "name")
 
@@ -574,7 +574,7 @@ class ActionGroupEventHubReceiverArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] name: The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the EventHub Receiver, must be unique within action group.
         :param pulumi.Input[str] event_hub_id: The resource ID of the respective Event Hub.
         :param pulumi.Input[str] event_hub_name: The name of the specific Event Hub queue.
         :param pulumi.Input[str] event_hub_namespace: The namespace name of the Event Hub.
@@ -603,7 +603,7 @@ class ActionGroupEventHubReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+        The name of the EventHub Receiver, must be unique within action group.
         """
         return pulumi.get(self, "name")
 
@@ -694,7 +694,7 @@ class ActionGroupItsmReceiverArgs:
                  workspace_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] connection_id: The unique connection identifier of the ITSM connection.
-        :param pulumi.Input[str] name: The name of the ITSM receiver. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the ITSM receiver.
         :param pulumi.Input[str] region: The region of the workspace.
         :param pulumi.Input[str] ticket_configuration: A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
         :param pulumi.Input[str] workspace_id: The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
@@ -721,7 +721,7 @@ class ActionGroupItsmReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the ITSM receiver. Changing this forces a new resource to be created.
+        The name of the ITSM receiver.
         """
         return pulumi.get(self, "name")
 
@@ -775,7 +775,7 @@ class ActionGroupLogicAppReceiverArgs:
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] callback_url: The callback url where HTTP request sent to.
-        :param pulumi.Input[str] name: The name of the logic app receiver. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the logic app receiver.
         :param pulumi.Input[str] resource_id: The Azure resource ID of the logic app.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
@@ -801,7 +801,7 @@ class ActionGroupLogicAppReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the logic app receiver. Changing this forces a new resource to be created.
+        The name of the logic app receiver.
         """
         return pulumi.get(self, "name")
 
@@ -842,7 +842,7 @@ class ActionGroupSmsReceiverArgs:
                  phone_number: pulumi.Input[str]):
         """
         :param pulumi.Input[str] country_code: The country code of the SMS receiver.
-        :param pulumi.Input[str] name: The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         :param pulumi.Input[str] phone_number: The phone number of the SMS receiver.
         """
         pulumi.set(__self__, "country_code", country_code)
@@ -865,7 +865,7 @@ class ActionGroupSmsReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+        The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         """
         return pulumi.get(self, "name")
 
@@ -894,7 +894,7 @@ class ActionGroupVoiceReceiverArgs:
                  phone_number: pulumi.Input[str]):
         """
         :param pulumi.Input[str] country_code: The country code of the voice receiver.
-        :param pulumi.Input[str] name: The name of the voice receiver. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the voice receiver.
         :param pulumi.Input[str] phone_number: The phone number of the voice receiver.
         """
         pulumi.set(__self__, "country_code", country_code)
@@ -917,7 +917,7 @@ class ActionGroupVoiceReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the voice receiver. Changing this forces a new resource to be created.
+        The name of the voice receiver.
         """
         return pulumi.get(self, "name")
 
@@ -946,7 +946,7 @@ class ActionGroupWebhookReceiverArgs:
                  aad_auth: Optional[pulumi.Input['ActionGroupWebhookReceiverAadAuthArgs']] = None,
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] name: The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
         :param pulumi.Input['ActionGroupWebhookReceiverAadAuthArgs'] aad_auth: The `aad_auth` block as defined below
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
@@ -962,7 +962,7 @@ class ActionGroupWebhookReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+        The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         """
         return pulumi.get(self, "name")
 
@@ -1940,7 +1940,7 @@ class ActionRuleSuppressionSuppressionScheduleArgs:
         :param pulumi.Input[str] end_date_utc: specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[str] start_date_utc: specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[Sequence[pulumi.Input[int]]] recurrence_monthlies: specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrence_type` is `Monthly`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] recurrence_weeklies: specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] recurrence_weeklies: specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
         pulumi.set(__self__, "end_date_utc", end_date_utc)
         pulumi.set(__self__, "start_date_utc", start_date_utc)
@@ -1989,7 +1989,7 @@ class ActionRuleSuppressionSuppressionScheduleArgs:
     @pulumi.getter(name="recurrenceWeeklies")
     def recurrence_weeklies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+        specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
         return pulumi.get(self, "recurrence_weeklies")
 
@@ -3206,7 +3206,7 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs:
                  end_time: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
         :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
         :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
         """
@@ -3220,7 +3220,7 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs:
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -4067,7 +4067,7 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs:
                  end_time: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
         :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
         :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
         """
@@ -4081,7 +4081,7 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs:
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -5103,7 +5103,7 @@ class DataCollectionRuleDataSourcesSyslogArgs:
                  streams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] facility_names: Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_levels: Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_levels: Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
         """
@@ -5129,7 +5129,7 @@ class DataCollectionRuleDataSourcesSyslogArgs:
     @pulumi.getter(name="logLevels")
     def log_levels(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+        Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
         """
         return pulumi.get(self, "log_levels")
 
@@ -6484,7 +6484,7 @@ class ScheduledQueryRulesAlertTriggerArgs:
                  metric_trigger: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerMetricTriggerArgs']] = None):
         """
         :param pulumi.Input[str] operator: Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
-        :param pulumi.Input[float] threshold: Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+        :param pulumi.Input[float] threshold: Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
         :param pulumi.Input['ScheduledQueryRulesAlertTriggerMetricTriggerArgs'] metric_trigger: A `metric_trigger` block as defined above. Trigger condition for metric query rule.
         """
         pulumi.set(__self__, "operator", operator)
@@ -6508,7 +6508,7 @@ class ScheduledQueryRulesAlertTriggerArgs:
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
         """
-        Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+        Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
         """
         return pulumi.get(self, "threshold")
 
@@ -6540,7 +6540,7 @@ class ScheduledQueryRulesAlertTriggerMetricTriggerArgs:
         :param pulumi.Input[str] metric_column: Evaluation of metric on a particular column.
         :param pulumi.Input[str] metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'.
         :param pulumi.Input[str] operator: Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
-        :param pulumi.Input[float] threshold: The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+        :param pulumi.Input[float] threshold: The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
         """
         pulumi.set(__self__, "metric_column", metric_column)
         pulumi.set(__self__, "metric_trigger_type", metric_trigger_type)
@@ -6587,7 +6587,7 @@ class ScheduledQueryRulesAlertTriggerMetricTriggerArgs:
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
         """
-        The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+        The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
         """
         return pulumi.get(self, "threshold")
 
@@ -6862,7 +6862,7 @@ class ScheduledQueryRulesLogCriteriaArgs:
                  metric_name: pulumi.Input[str]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesLogCriteriaDimensionArgs']]] dimensions: A `dimension` block as defined below.
-        :param pulumi.Input[str] metric_name: Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+        :param pulumi.Input[str] metric_name: Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
         """
         pulumi.set(__self__, "dimensions", dimensions)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -6883,7 +6883,7 @@ class ScheduledQueryRulesLogCriteriaArgs:
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[str]:
         """
-        Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+        Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
         """
         return pulumi.get(self, "metric_name")
 
@@ -6899,7 +6899,7 @@ class ScheduledQueryRulesLogCriteriaDimensionArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Name of the dimension. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Name of the dimension.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values.
         :param pulumi.Input[str] operator: Operator for dimension values, - 'Include'.
         """
@@ -6912,7 +6912,7 @@ class ScheduledQueryRulesLogCriteriaDimensionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the dimension. Changing this forces a new resource to be created.
+        Name of the dimension.
         """
         return pulumi.get(self, "name")
 

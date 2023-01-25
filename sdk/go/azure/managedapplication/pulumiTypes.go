@@ -11,7 +11,7 @@ import (
 )
 
 type ApplicationPlan struct {
-	// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+	// Specifies the name of the plan from the marketplace.
 	Name string `pulumi:"name"`
 	// Specifies the product of the plan from the marketplace.
 	Product string `pulumi:"product"`
@@ -35,7 +35,7 @@ type ApplicationPlanInput interface {
 }
 
 type ApplicationPlanArgs struct {
-	// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+	// Specifies the name of the plan from the marketplace.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the product of the plan from the marketplace.
 	Product pulumi.StringInput `pulumi:"product"`
@@ -124,7 +124,7 @@ func (o ApplicationPlanOutput) ToApplicationPlanPtrOutputWithContext(ctx context
 	}).(ApplicationPlanPtrOutput)
 }
 
-// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+// Specifies the name of the plan from the marketplace.
 func (o ApplicationPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPlan) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -173,7 +173,7 @@ func (o ApplicationPlanPtrOutput) Elem() ApplicationPlanOutput {
 	}).(ApplicationPlanOutput)
 }
 
-// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+// Specifies the name of the plan from the marketplace.
 func (o ApplicationPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationPlan) *string {
 		if v == nil {

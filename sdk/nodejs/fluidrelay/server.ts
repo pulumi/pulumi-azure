@@ -75,7 +75,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * An array of the Fluid Relay Orderer endpoints.
+     * An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
      */
     public /*out*/ readonly ordererEndpoints!: pulumi.Output<string[]>;
     /**
@@ -95,7 +95,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceEndpoints!: pulumi.Output<string[]>;
     /**
-     * An array of storage endpoints for this Fluid Relay Server.
+     * An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
      */
     public /*out*/ readonly storageEndpoints!: pulumi.Output<string[]>;
     /**
@@ -178,7 +178,7 @@ export interface ServerState {
      */
     name?: pulumi.Input<string>;
     /**
-     * An array of the Fluid Relay Orderer endpoints.
+     * An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
      */
     ordererEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -198,7 +198,7 @@ export interface ServerState {
      */
     serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An array of storage endpoints for this Fluid Relay Server.
+     * An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
      */
     storageEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**

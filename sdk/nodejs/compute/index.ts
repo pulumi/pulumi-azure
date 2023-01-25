@@ -90,6 +90,11 @@ export const getAvailabilitySet: typeof import("./getAvailabilitySet").getAvaila
 export const getAvailabilitySetOutput: typeof import("./getAvailabilitySet").getAvailabilitySetOutput = null as any;
 utilities.lazyLoad(exports, ["getAvailabilitySet","getAvailabilitySetOutput"], () => require("./getAvailabilitySet"));
 
+export { GetBastionHostArgs, GetBastionHostResult, GetBastionHostOutputArgs } from "./getBastionHost";
+export const getBastionHost: typeof import("./getBastionHost").getBastionHost = null as any;
+export const getBastionHostOutput: typeof import("./getBastionHost").getBastionHostOutput = null as any;
+utilities.lazyLoad(exports, ["getBastionHost","getBastionHostOutput"], () => require("./getBastionHost"));
+
 export { GetConfidentialLedgerArgs, GetConfidentialLedgerResult, GetConfidentialLedgerOutputArgs } from "./getConfidentialLedger";
 export const getConfidentialLedger: typeof import("./getConfidentialLedger").getConfidentialLedger = null as any;
 export const getConfidentialLedgerOutput: typeof import("./getConfidentialLedger").getConfidentialLedgerOutput = null as any;

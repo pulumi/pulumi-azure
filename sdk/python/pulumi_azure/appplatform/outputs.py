@@ -765,7 +765,7 @@ class SpringCloudConnectionAuthentication(dict):
                  secret: Optional[str] = None,
                  subscription_id: Optional[str] = None):
         """
-        :param str type: The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+        :param str type: The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
         :param str certificate: Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
         :param str client_id: Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
         :param str name: Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
@@ -791,7 +791,7 @@ class SpringCloudConnectionAuthentication(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+        The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -1800,7 +1800,7 @@ class SpringCloudServiceConfigServerGitSettingRepository(dict):
                  search_paths: Optional[Sequence[str]] = None,
                  ssh_auth: Optional['outputs.SpringCloudServiceConfigServerGitSettingRepositorySshAuth'] = None):
         """
-        :param str name: A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+        :param str name: A name to identify on the Git repository, required only if repos exists.
         :param str uri: The URI of the Git repository that's used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
         :param 'SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs' http_basic_auth: A `http_basic_auth` block as defined below.
         :param str label: The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
@@ -1825,7 +1825,7 @@ class SpringCloudServiceConfigServerGitSettingRepository(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+        A name to identify on the Git repository, required only if repos exists.
         """
         return pulumi.get(self, "name")
 
@@ -2102,7 +2102,7 @@ class SpringCloudServiceNetwork(dict):
         :param Sequence[str] cidr_ranges: A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
         :param str service_runtime_subnet_id: Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
         :param str app_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
-        :param int read_timeout_seconds: Ingress read time out in seconds. Changing this forces a new resource to be created.
+        :param int read_timeout_seconds: Ingress read time out in seconds.
         :param str service_runtime_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "app_subnet_id", app_subnet_id)
@@ -2151,7 +2151,7 @@ class SpringCloudServiceNetwork(dict):
     @pulumi.getter(name="readTimeoutSeconds")
     def read_timeout_seconds(self) -> Optional[int]:
         """
-        Ingress read time out in seconds. Changing this forces a new resource to be created.
+        Ingress read time out in seconds.
         """
         return pulumi.get(self, "read_timeout_seconds")
 

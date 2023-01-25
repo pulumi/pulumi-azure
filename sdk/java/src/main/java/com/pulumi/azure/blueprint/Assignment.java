@@ -239,14 +239,14 @@ public class Assignment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.lockExcludePrincipals);
     }
     /**
-     * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+     * The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
      * 
      */
     @Export(name="lockMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> lockMode;
 
     /**
-     * @return The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+     * @return The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
      * 
      */
     public Output<Optional<String>> lockMode() {

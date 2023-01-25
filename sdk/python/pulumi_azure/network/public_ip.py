@@ -37,7 +37,7 @@ class PublicIpArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
         :param pulumi.Input[str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
-        :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
@@ -136,7 +136,7 @@ class PublicIpArgs:
     @pulumi.getter(name="domainNameLabel")
     def domain_name_label(self) -> Optional[pulumi.Input[str]]:
         """
-        Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         """
         return pulumi.get(self, "domain_name_label")
 
@@ -316,7 +316,7 @@ class _PublicIpState:
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         :param pulumi.Input[str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
         :param pulumi.Input[str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
-        :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] fqdn: Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -412,7 +412,7 @@ class _PublicIpState:
     @pulumi.getter(name="domainNameLabel")
     def domain_name_label(self) -> Optional[pulumi.Input[str]]:
         """
-        Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         """
         return pulumi.get(self, "domain_name_label")
 
@@ -627,6 +627,8 @@ class PublicIp(pulumi.CustomResource):
         """
         Manages a Public IP Address.
 
+        > **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `network.NetworkInterface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
+
         ## Example Usage
 
         ```python
@@ -656,7 +658,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         :param pulumi.Input[str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
         :param pulumi.Input[str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
-        :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
@@ -679,6 +681,8 @@ class PublicIp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Public IP Address.
+
+        > **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `network.NetworkInterface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
 
         ## Example Usage
 
@@ -807,7 +811,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         :param pulumi.Input[str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
         :param pulumi.Input[str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
-        :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] fqdn: Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -877,7 +881,7 @@ class PublicIp(pulumi.CustomResource):
     @pulumi.getter(name="domainNameLabel")
     def domain_name_label(self) -> pulumi.Output[Optional[str]]:
         """
-        Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         """
         return pulumi.get(self, "domain_name_label")
 

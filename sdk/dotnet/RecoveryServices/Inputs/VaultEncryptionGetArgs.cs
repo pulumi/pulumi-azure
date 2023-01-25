@@ -25,10 +25,13 @@ namespace Pulumi.Azure.RecoveryServices.Inputs
         public Input<string> KeyId { get; set; } = null!;
 
         /// <summary>
-        /// Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+        /// Indicate that system assigned identity should be used or not. Defaults to `true`.
         /// </summary>
         [Input("useSystemAssignedIdentity")]
         public Input<bool>? UseSystemAssignedIdentity { get; set; }
+
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
 
         public VaultEncryptionGetArgs()
         {

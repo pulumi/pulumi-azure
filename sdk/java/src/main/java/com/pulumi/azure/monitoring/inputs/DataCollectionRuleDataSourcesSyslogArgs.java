@@ -32,14 +32,14 @@ public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.re
     }
 
     /**
-     * Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+     * Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
      * 
      */
     @Import(name="logLevels", required=true)
     private Output<List<String>> logLevels;
 
     /**
-     * @return Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+     * @return Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
      * 
      */
     public Output<List<String>> logLevels() {
@@ -135,7 +135,7 @@ public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.re
         }
 
         /**
-         * @param logLevels Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+         * @param logLevels Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.re
         }
 
         /**
-         * @param logLevels Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+         * @param logLevels Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.re
         }
 
         /**
-         * @param logLevels Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+         * @param logLevels Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
          * 
          * @return builder
          * 

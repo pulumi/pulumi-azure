@@ -79,11 +79,11 @@ export class EventGridTopic extends pulumi.CustomResource {
      */
     public readonly inboundIpRules!: pulumi.Output<outputs.eventhub.EventGridTopicInboundIpRule[] | undefined>;
     /**
-     * A `inputMappingDefaultValues` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly inputMappingDefaultValues!: pulumi.Output<outputs.eventhub.EventGridTopicInputMappingDefaultValues | undefined>;
     /**
-     * A `inputMappingFields` block as defined below.
+     * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly inputMappingFields!: pulumi.Output<outputs.eventhub.EventGridTopicInputMappingFields | undefined>;
     /**
@@ -197,11 +197,11 @@ export interface EventGridTopicState {
      */
     inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.EventGridTopicInboundIpRule>[]>;
     /**
-     * A `inputMappingDefaultValues` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingDefaultValues>;
     /**
-     * A `inputMappingFields` block as defined below.
+     * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingFields?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingFields>;
     /**
@@ -255,11 +255,11 @@ export interface EventGridTopicArgs {
      */
     inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.EventGridTopicInboundIpRule>[]>;
     /**
-     * A `inputMappingDefaultValues` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingDefaultValues>;
     /**
-     * A `inputMappingFields` block as defined below.
+     * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
     inputMappingFields?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingFields>;
     /**

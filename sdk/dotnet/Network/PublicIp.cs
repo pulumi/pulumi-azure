@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Public IP Address.
     /// 
+    /// &gt; **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azure.network.NetworkInterface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -70,7 +72,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> DdosProtectionPlanId { get; private set; } = null!;
 
         /// <summary>
-        /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        /// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         /// </summary>
         [Output("domainNameLabel")]
         public Output<string?> DomainNameLabel { get; private set; } = null!;
@@ -230,7 +232,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? DdosProtectionPlanId { get; set; }
 
         /// <summary>
-        /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        /// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         /// </summary>
         [Input("domainNameLabel")]
         public Input<string>? DomainNameLabel { get; set; }
@@ -358,7 +360,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? DdosProtectionPlanId { get; set; }
 
         /// <summary>
-        /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        /// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         /// </summary>
         [Input("domainNameLabel")]
         public Input<string>? DomainNameLabel { get; set; }

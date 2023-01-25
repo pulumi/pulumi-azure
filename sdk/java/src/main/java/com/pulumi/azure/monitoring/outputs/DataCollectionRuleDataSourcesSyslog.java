@@ -17,7 +17,7 @@ public final class DataCollectionRuleDataSourcesSyslog {
      */
     private List<String> facilityNames;
     /**
-     * @return Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+     * @return Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
      * 
      */
     private List<String> logLevels;
@@ -41,7 +41,7 @@ public final class DataCollectionRuleDataSourcesSyslog {
         return this.facilityNames;
     }
     /**
-     * @return Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+     * @return Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
      * 
      */
     public List<String> logLevels() {

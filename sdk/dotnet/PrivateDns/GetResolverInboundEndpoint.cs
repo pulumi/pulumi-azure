@@ -25,8 +25,9 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.PrivateDns.ResolverInboundEndpoint("example", new()
+        ///     var example = Azure.PrivateDns.GetResolverInboundEndpoint.Invoke(new()
         ///     {
+        ///         Name = "example-drie",
         ///         PrivateDnsResolverId = "example-private-dns-resolver-id",
         ///     });
         /// 
@@ -52,8 +53,9 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.PrivateDns.ResolverInboundEndpoint("example", new()
+        ///     var example = Azure.PrivateDns.GetResolverInboundEndpoint.Invoke(new()
         ///     {
+        ///         Name = "example-drie",
         ///         PrivateDnsResolverId = "example-private-dns-resolver-id",
         ///     });
         /// 

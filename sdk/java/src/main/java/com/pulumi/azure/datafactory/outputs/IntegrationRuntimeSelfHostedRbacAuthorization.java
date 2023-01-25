@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class IntegrationRuntimeSelfHostedRbacAuthorization {
     /**
-     * @return The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+     * @return The resource identifier of the integration runtime to be shared.
      * 
      */
     private String resourceId;
 
     private IntegrationRuntimeSelfHostedRbacAuthorization() {}
     /**
-     * @return The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+     * @return The resource identifier of the integration runtime to be shared.
      * 
      */
     public String resourceId() {

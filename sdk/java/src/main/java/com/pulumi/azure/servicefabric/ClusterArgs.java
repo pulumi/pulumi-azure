@@ -134,14 +134,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+     * A `diagnostics_config` block as defined below.
      * 
      */
     @Import(name="diagnosticsConfig")
     private @Nullable Output<ClusterDiagnosticsConfigArgs> diagnosticsConfig;
 
     /**
-     * @return A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `diagnostics_config` block as defined below.
      * 
      */
     public Optional<Output<ClusterDiagnosticsConfigArgs>> diagnosticsConfig() {
@@ -597,7 +597,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diagnosticsConfig A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+         * @param diagnosticsConfig A `diagnostics_config` block as defined below.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diagnosticsConfig A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+         * @param diagnosticsConfig A `diagnostics_config` block as defined below.
          * 
          * @return builder
          * 

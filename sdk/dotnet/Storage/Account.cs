@@ -124,13 +124,13 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccessTier { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
         /// </summary>
         [Output("accountKind")]
         public Output<string?> AccountKind { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         /// </summary>
         [Output("accountReplicationType")]
         public Output<string> AccountReplicationType { get; private set; } = null!;
@@ -196,8 +196,7 @@ namespace Pulumi.Azure.Storage
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-        /// for more information. Defaults to `true`.
+        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         /// </summary>
         [Output("enableHttpsTrafficOnly")]
         public Output<bool?> EnableHttpsTrafficOnly { get; private set; } = null!;
@@ -209,7 +208,7 @@ namespace Pulumi.Azure.Storage
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// An `immutability_policy` block as defined below.
+        /// An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("immutabilityPolicy")]
         public Output<Outputs.AccountImmutabilityPolicy?> ImmutabilityPolicy { get; private set; } = null!;
@@ -588,13 +587,13 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
-        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
         /// </summary>
         [Input("accountKind")]
         public Input<string>? AccountKind { get; set; }
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         /// </summary>
         [Input("accountReplicationType", required: true)]
         public Input<string> AccountReplicationType { get; set; } = null!;
@@ -660,8 +659,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-        /// for more information. Defaults to `true`.
+        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         /// </summary>
         [Input("enableHttpsTrafficOnly")]
         public Input<bool>? EnableHttpsTrafficOnly { get; set; }
@@ -673,7 +671,7 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `immutability_policy` block as defined below.
+        /// An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("immutabilityPolicy")]
         public Input<Inputs.AccountImmutabilityPolicyArgs>? ImmutabilityPolicy { get; set; }
@@ -819,13 +817,13 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
-        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
         /// </summary>
         [Input("accountKind")]
         public Input<string>? AccountKind { get; set; }
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         /// </summary>
         [Input("accountReplicationType")]
         public Input<string>? AccountReplicationType { get; set; }
@@ -891,8 +889,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-        /// for more information. Defaults to `true`.
+        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         /// </summary>
         [Input("enableHttpsTrafficOnly")]
         public Input<bool>? EnableHttpsTrafficOnly { get; set; }
@@ -904,7 +901,7 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `immutability_policy` block as defined below.
+        /// An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("immutabilityPolicy")]
         public Input<Inputs.AccountImmutabilityPolicyGetArgs>? ImmutabilityPolicy { get; set; }

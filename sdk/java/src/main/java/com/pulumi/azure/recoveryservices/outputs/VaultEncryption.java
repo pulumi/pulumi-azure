@@ -23,10 +23,11 @@ public final class VaultEncryption {
      */
     private String keyId;
     /**
-     * @return Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+     * @return Indicate that system assigned identity should be used or not. Defaults to `true`.
      * 
      */
     private @Nullable Boolean useSystemAssignedIdentity;
+    private @Nullable String userAssignedIdentityId;
 
     private VaultEncryption() {}
     /**
@@ -44,11 +45,14 @@ public final class VaultEncryption {
         return this.keyId;
     }
     /**
-     * @return Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+     * @return Indicate that system assigned identity should be used or not. Defaults to `true`.
      * 
      */
     public Optional<Boolean> useSystemAssignedIdentity() {
         return Optional.ofNullable(this.useSystemAssignedIdentity);
+    }
+    public Optional<String> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
     }
 
     public static Builder builder() {
@@ -63,12 +67,14 @@ public final class VaultEncryption {
         private Boolean infrastructureEncryptionEnabled;
         private String keyId;
         private @Nullable Boolean useSystemAssignedIdentity;
+        private @Nullable String userAssignedIdentityId;
         public Builder() {}
         public Builder(VaultEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.infrastructureEncryptionEnabled = defaults.infrastructureEncryptionEnabled;
     	      this.keyId = defaults.keyId;
     	      this.useSystemAssignedIdentity = defaults.useSystemAssignedIdentity;
+    	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
         @CustomType.Setter
@@ -86,11 +92,17 @@ public final class VaultEncryption {
             this.useSystemAssignedIdentity = useSystemAssignedIdentity;
             return this;
         }
+        @CustomType.Setter
+        public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+            this.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
         public VaultEncryption build() {
             final var o = new VaultEncryption();
             o.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
             o.keyId = keyId;
             o.useSystemAssignedIdentity = useSystemAssignedIdentity;
+            o.userAssignedIdentityId = userAssignedIdentityId;
             return o;
         }
     }

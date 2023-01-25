@@ -170,30 +170,28 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+     * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
      */
     @Export(name="minimumTlsVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
-     * @return The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+     * @return The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
      */
     public Output<Optional<String>> minimumTlsVersion() {
         return Codegen.optional(this.minimumTlsVersion);
     }
     /**
-     * The name of the Redis instance. Changing this forces a
-     * new resource to be created.
+     * The name of the Redis instance. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the Redis instance. Changing this forces a
-     * new resource to be created.
+     * @return The name of the Redis instance. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

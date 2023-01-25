@@ -49,7 +49,7 @@ class PoolArgs:
         :param pulumi.Input[str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolAutoScaleArgs'] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
@@ -66,7 +66,7 @@ class PoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+        :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
@@ -166,7 +166,7 @@ class PoolArgs:
     @pulumi.getter(name="storageImageReference")
     def storage_image_reference(self) -> pulumi.Input['PoolStorageImageReferenceArgs']:
         """
-        A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_image_reference")
 
@@ -370,7 +370,7 @@ class PoolArgs:
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['PoolNetworkConfigurationArgs']]:
         """
-        A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+        A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_configuration")
 
@@ -509,13 +509,13 @@ class _PoolState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+        :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
-        :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
@@ -774,7 +774,7 @@ class _PoolState:
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['PoolNetworkConfigurationArgs']]:
         """
-        A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+        A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_configuration")
 
@@ -855,7 +855,7 @@ class _PoolState:
     @pulumi.getter(name="storageImageReference")
     def storage_image_reference(self) -> Optional[pulumi.Input['PoolStorageImageReferenceArgs']]:
         """
-        A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_image_reference")
 
@@ -1053,13 +1053,13 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolMountArgs']]]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+        :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolNodePlacementArgs']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PoolStartTaskArgs']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
-        :param pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        :param pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
@@ -1311,13 +1311,13 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolMountArgs']]]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+        :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolNodePlacementArgs']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PoolStartTaskArgs']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
-        :param pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        :param pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
@@ -1489,7 +1489,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.PoolNetworkConfiguration']]:
         """
-        A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+        A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_configuration")
 
@@ -1542,7 +1542,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="storageImageReference")
     def storage_image_reference(self) -> pulumi.Output['outputs.PoolStorageImageReference']:
         """
-        A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_image_reference")
 

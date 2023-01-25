@@ -31,7 +31,7 @@ class TriggerRecurrenceArgs:
         :param pulumi.Input[str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input['TriggerRecurrenceScheduleArgs'] schedule: A `schedule` block as specified below.
         :param pulumi.Input[str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
-        :param pulumi.Input[str] time_zone: Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        :param pulumi.Input[str] time_zone: Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "interval", interval)
@@ -121,7 +121,7 @@ class TriggerRecurrenceArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         return pulumi.get(self, "time_zone")
 
@@ -148,7 +148,7 @@ class _TriggerRecurrenceState:
         :param pulumi.Input[str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input['TriggerRecurrenceScheduleArgs'] schedule: A `schedule` block as specified below.
         :param pulumi.Input[str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
-        :param pulumi.Input[str] time_zone: Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        :param pulumi.Input[str] time_zone: Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         if frequency is not None:
             pulumi.set(__self__, "frequency", frequency)
@@ -241,7 +241,7 @@ class _TriggerRecurrenceState:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         return pulumi.get(self, "time_zone")
 
@@ -298,7 +298,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['TriggerRecurrenceScheduleArgs']] schedule: A `schedule` block as specified below.
         :param pulumi.Input[str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
-        :param pulumi.Input[str] time_zone: Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        :param pulumi.Input[str] time_zone: Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         ...
     @overload
@@ -407,7 +407,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['TriggerRecurrenceScheduleArgs']] schedule: A `schedule` block as specified below.
         :param pulumi.Input[str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
-        :param pulumi.Input[str] time_zone: Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        :param pulumi.Input[str] time_zone: Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -474,7 +474,7 @@ class TriggerRecurrence(pulumi.CustomResource):
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Output[str]:
         """
-        Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         return pulumi.get(self, "time_zone")
 

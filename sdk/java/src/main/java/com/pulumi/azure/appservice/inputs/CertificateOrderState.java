@@ -156,14 +156,14 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Certificate key size.  Defaults to `2048`.
+     * Certificate key size. Defaults to `2048`.
      * 
      */
     @Import(name="keySize")
     private @Nullable Output<Integer> keySize;
 
     /**
-     * @return Certificate key size.  Defaults to `2048`.
+     * @return Certificate key size. Defaults to `2048`.
      * 
      */
     public Optional<Output<Integer>> keySize() {
@@ -291,14 +291,14 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Duration in years (must be between `1` and `3`).  Defaults to `1`.
+     * Duration in years (must be between `1` and `3`). Defaults to `1`.
      * 
      */
     @Import(name="validityInYears")
     private @Nullable Output<Integer> validityInYears;
 
     /**
-     * @return Duration in years (must be between `1` and `3`).  Defaults to `1`.
+     * @return Duration in years (must be between `1` and `3`). Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> validityInYears() {
@@ -557,7 +557,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keySize Certificate key size.  Defaults to `2048`.
+         * @param keySize Certificate key size. Defaults to `2048`.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keySize Certificate key size.  Defaults to `2048`.
+         * @param keySize Certificate key size. Defaults to `2048`.
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param validityInYears Duration in years (must be between `1` and `3`).  Defaults to `1`.
+         * @param validityInYears Duration in years (must be between `1` and `3`). Defaults to `1`.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param validityInYears Duration in years (must be between `1` and `3`).  Defaults to `1`.
+         * @param validityInYears Duration in years (must be between `1` and `3`). Defaults to `1`.
          * 
          * @return builder
          * 

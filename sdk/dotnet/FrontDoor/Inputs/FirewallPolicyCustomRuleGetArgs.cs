@@ -37,7 +37,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         }
 
         /// <summary>
-        /// Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
+        /// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

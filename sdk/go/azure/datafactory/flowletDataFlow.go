@@ -233,8 +233,7 @@ type FlowletDataFlow struct {
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Flowlet Data Flow.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-	// root level.
+	// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
 	Folder pulumi.StringPtrOutput `pulumi:"folder"`
 	// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -294,8 +293,7 @@ type flowletDataFlowState struct {
 	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Flowlet Data Flow.
 	Description *string `pulumi:"description"`
-	// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-	// root level.
+	// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
 	Folder *string `pulumi:"folder"`
 	// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -318,8 +316,7 @@ type FlowletDataFlowState struct {
 	DataFactoryId pulumi.StringPtrInput
 	// The description for the Data Factory Flowlet Data Flow.
 	Description pulumi.StringPtrInput
-	// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-	// root level.
+	// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
 	Folder pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -346,8 +343,7 @@ type flowletDataFlowArgs struct {
 	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Flowlet Data Flow.
 	Description *string `pulumi:"description"`
-	// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-	// root level.
+	// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
 	Folder *string `pulumi:"folder"`
 	// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -371,8 +367,7 @@ type FlowletDataFlowArgs struct {
 	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Flowlet Data Flow.
 	Description pulumi.StringPtrInput
-	// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-	// root level.
+	// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
 	Folder pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -490,8 +485,7 @@ func (o FlowletDataFlowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowletDataFlow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-// root level.
+// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
 func (o FlowletDataFlowOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowletDataFlow) pulumi.StringPtrOutput { return v.Folder }).(pulumi.StringPtrOutput)
 }

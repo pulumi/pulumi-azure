@@ -76,9 +76,9 @@ import (
 type ManagedDiskSasToken struct {
 	pulumi.CustomResourceState
 
-	// The level of access required on the disk. Supported are Read, Write.
+	// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
 	AccessLevel pulumi.StringOutput `pulumi:"accessLevel"`
-	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds.
+	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
 	DurationInSeconds pulumi.IntOutput `pulumi:"durationInSeconds"`
 	// The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
 	ManagedDiskId pulumi.StringOutput `pulumi:"managedDiskId"`
@@ -128,9 +128,9 @@ func GetManagedDiskSasToken(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedDiskSasToken resources.
 type managedDiskSasTokenState struct {
-	// The level of access required on the disk. Supported are Read, Write.
+	// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
 	AccessLevel *string `pulumi:"accessLevel"`
-	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds.
+	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
 	DurationInSeconds *int `pulumi:"durationInSeconds"`
 	// The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
 	ManagedDiskId *string `pulumi:"managedDiskId"`
@@ -139,9 +139,9 @@ type managedDiskSasTokenState struct {
 }
 
 type ManagedDiskSasTokenState struct {
-	// The level of access required on the disk. Supported are Read, Write.
+	// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
 	AccessLevel pulumi.StringPtrInput
-	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds.
+	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
 	DurationInSeconds pulumi.IntPtrInput
 	// The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
 	ManagedDiskId pulumi.StringPtrInput
@@ -154,9 +154,9 @@ func (ManagedDiskSasTokenState) ElementType() reflect.Type {
 }
 
 type managedDiskSasTokenArgs struct {
-	// The level of access required on the disk. Supported are Read, Write.
+	// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
 	AccessLevel string `pulumi:"accessLevel"`
-	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds.
+	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
 	DurationInSeconds int `pulumi:"durationInSeconds"`
 	// The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
 	ManagedDiskId string `pulumi:"managedDiskId"`
@@ -164,9 +164,9 @@ type managedDiskSasTokenArgs struct {
 
 // The set of arguments for constructing a ManagedDiskSasToken resource.
 type ManagedDiskSasTokenArgs struct {
-	// The level of access required on the disk. Supported are Read, Write.
+	// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
 	AccessLevel pulumi.StringInput
-	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds.
+	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
 	DurationInSeconds pulumi.IntInput
 	// The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
 	ManagedDiskId pulumi.StringInput
@@ -259,12 +259,12 @@ func (o ManagedDiskSasTokenOutput) ToManagedDiskSasTokenOutputWithContext(ctx co
 	return o
 }
 
-// The level of access required on the disk. Supported are Read, Write.
+// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
 func (o ManagedDiskSasTokenOutput) AccessLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDiskSasToken) pulumi.StringOutput { return v.AccessLevel }).(pulumi.StringOutput)
 }
 
-// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds.
+// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
 func (o ManagedDiskSasTokenOutput) DurationInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDiskSasToken) pulumi.IntOutput { return v.DurationInSeconds }).(pulumi.IntOutput)
 }

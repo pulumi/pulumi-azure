@@ -179,7 +179,7 @@ type LinuxVirtualMachineScaleSet struct {
 	OsDisk LinuxVirtualMachineScaleSetOsDiskOutput `pulumi:"osDisk"`
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrOutput `pulumi:"overprovision"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachineScaleSetPlanPtrOutput `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
@@ -191,7 +191,7 @@ type LinuxVirtualMachineScaleSet struct {
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn LinuxVirtualMachineScaleSetScaleInOutput `pulumi:"scaleIn"`
@@ -348,7 +348,7 @@ type linuxVirtualMachineScaleSetState struct {
 	OsDisk *LinuxVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *LinuxVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
@@ -360,7 +360,7 @@ type linuxVirtualMachineScaleSetState struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 	RollingUpgradePolicy *LinuxVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn *LinuxVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
@@ -463,7 +463,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	OsDisk LinuxVirtualMachineScaleSetOsDiskPtrInput
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrInput
@@ -475,7 +475,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// A `scaleIn` block as defined below.
 	ScaleIn LinuxVirtualMachineScaleSetScaleInPtrInput
@@ -582,7 +582,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	OsDisk LinuxVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *LinuxVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
@@ -594,7 +594,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 	RollingUpgradePolicy *LinuxVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn *LinuxVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
@@ -696,7 +696,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	OsDisk LinuxVirtualMachineScaleSetOsDiskInput
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrInput
@@ -708,7 +708,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// A `scaleIn` block as defined below.
 	ScaleIn LinuxVirtualMachineScaleSetScaleInPtrInput
@@ -1005,7 +1005,7 @@ func (o LinuxVirtualMachineScaleSetOutput) Overprovision() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.Overprovision }).(pulumi.BoolPtrOutput)
 }
 
-// A `plan` block as defined below.
+// A `plan` block as defined below. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOutput) Plan() LinuxVirtualMachineScaleSetPlanPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) LinuxVirtualMachineScaleSetPlanPtrOutput { return v.Plan }).(LinuxVirtualMachineScaleSetPlanPtrOutput)
 }
@@ -1035,7 +1035,7 @@ func (o LinuxVirtualMachineScaleSetOutput) ResourceGroupName() pulumi.StringOutp
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOutput) RollingUpgradePolicy() LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
 		return v.RollingUpgradePolicy

@@ -53,7 +53,7 @@ class GetResolverResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Azure Region where the Private DNS Resolver exists.
+        The Azure Region where the Private DNS Resolver exists.
         """
         return pulumi.get(self, "location")
 
@@ -71,7 +71,7 @@ class GetResolverResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Mapping of tags which should be assigned to the Private DNS Resolver.
+        The tags assigned to the Private DNS Resolver.
         """
         return pulumi.get(self, "tags")
 
@@ -79,7 +79,7 @@ class GetResolverResult:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> str:
         """
-        ID of the Virtual Network that is linked to the Private DNS Resolver.
+        The ID of the Virtual Network that is linked to the Private DNS Resolver.
         """
         return pulumi.get(self, "virtual_network_id")
 

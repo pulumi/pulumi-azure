@@ -17,14 +17,14 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
     public static final ImageOsDiskArgs Empty = new ImageOsDiskArgs();
 
     /**
-     * Specifies the URI in Azure storage of the blob that you want to use to create the image.
+     * Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="blobUri")
     private @Nullable Output<String> blobUri;
 
     /**
-     * @return Specifies the URI in Azure storage of the blob that you want to use to create the image.
+     * @return Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> blobUri() {
@@ -136,7 +136,7 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param blobUri Specifies the URI in Azure storage of the blob that you want to use to create the image.
+         * @param blobUri Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param blobUri Specifies the URI in Azure storage of the blob that you want to use to create the image.
+         * @param blobUri Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

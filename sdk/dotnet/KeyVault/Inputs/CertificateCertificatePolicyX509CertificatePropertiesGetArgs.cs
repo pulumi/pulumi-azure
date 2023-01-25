@@ -43,7 +43,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public Input<string> Subject { get; set; } = null!;
 
         /// <summary>
-        /// A `subject_alternative_names` block as defined below.
+        /// A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subjectAlternativeNames")]
         public Input<Inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesGetArgs>? SubjectAlternativeNames { get; set; }

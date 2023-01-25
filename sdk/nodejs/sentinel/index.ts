@@ -135,6 +135,11 @@ export const getAlertRuleTemplate: typeof import("./getAlertRuleTemplate").getAl
 export const getAlertRuleTemplateOutput: typeof import("./getAlertRuleTemplate").getAlertRuleTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getAlertRuleTemplate","getAlertRuleTemplateOutput"], () => require("./getAlertRuleTemplate"));
 
+export { LogAnalyticsWorkspaceOnboardingArgs, LogAnalyticsWorkspaceOnboardingState } from "./logAnalyticsWorkspaceOnboarding";
+export type LogAnalyticsWorkspaceOnboarding = import("./logAnalyticsWorkspaceOnboarding").LogAnalyticsWorkspaceOnboarding;
+export const LogAnalyticsWorkspaceOnboarding: typeof import("./logAnalyticsWorkspaceOnboarding").LogAnalyticsWorkspaceOnboarding = null as any;
+utilities.lazyLoad(exports, ["LogAnalyticsWorkspaceOnboarding"], () => require("./logAnalyticsWorkspaceOnboarding"));
+
 export { WatchlistArgs, WatchlistState } from "./watchlist";
 export type Watchlist = import("./watchlist").Watchlist;
 export const Watchlist: typeof import("./watchlist").Watchlist = null as any;
@@ -198,6 +203,8 @@ const _module = {
                 return new DataConnectorThreatIntelligence(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii":
                 return new DataConnectorThreatIntelligenceTaxii(name, <any>undefined, { urn })
+            case "azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding":
+                return new LogAnalyticsWorkspaceOnboarding(name, <any>undefined, { urn })
             case "azure:sentinel/watchlist:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
             case "azure:sentinel/watchlistItem:WatchlistItem":
@@ -231,5 +238,6 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOfficeIrm"
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOfficePowerBi", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligence", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligenceTaxii", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/logAnalyticsWorkspaceOnboarding", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlist", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlistItem", _module)

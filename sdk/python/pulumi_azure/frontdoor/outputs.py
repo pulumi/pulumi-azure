@@ -183,7 +183,7 @@ class FirewallPolicyCustomRule(dict):
                  rate_limit_threshold: Optional[int] = None):
         """
         :param str action: The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
-        :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
+        :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         :param str type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
         :param bool enabled: Is the rule is enabled or disabled? Defaults to `true`.
         :param Sequence['FirewallPolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
@@ -217,7 +217,7 @@ class FirewallPolicyCustomRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
+        Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
 
@@ -751,7 +751,7 @@ class FrontdoorBackendPool(dict):
         :param Sequence['FrontdoorBackendPoolBackendArgs'] backends: A `backend` block as defined below.
         :param str health_probe_name: Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
         :param str load_balancing_name: Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
-        :param str name: Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the Backend Pool.
         :param str id: The ID of the FrontDoor.
         """
         pulumi.set(__self__, "backends", backends)
@@ -789,7 +789,7 @@ class FrontdoorBackendPool(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
+        Specifies the name of the Backend Pool.
         """
         return pulumi.get(self, "name")
 
@@ -940,7 +940,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
                  probe_method: Optional[str] = None,
                  protocol: Optional[str] = None):
         """
-        :param str name: Specifies the name of the Health Probe. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the Health Probe.
         :param bool enabled: Is this health probe enabled? Defaults to `true`.
         :param str id: The ID of the FrontDoor.
         :param int interval_in_seconds: The number of seconds between each Health Probe. Defaults to `120`.
@@ -966,7 +966,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Health Probe. Changing this forces a new resource to be created.
+        Specifies the name of the Health Probe.
         """
         return pulumi.get(self, "name")
 
@@ -1049,7 +1049,7 @@ class FrontdoorBackendPoolLoadBalancing(dict):
                  sample_size: Optional[int] = None,
                  successful_samples_required: Optional[int] = None):
         """
-        :param str name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the Load Balancer.
         :param int additional_latency_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
         :param str id: The ID of the FrontDoor.
         :param int sample_size: The number of samples to consider for load balancing decisions. Defaults to `4`.
@@ -1069,7 +1069,7 @@ class FrontdoorBackendPoolLoadBalancing(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
+        Specifies the name of the Load Balancer.
         """
         return pulumi.get(self, "name")
 
@@ -1259,7 +1259,7 @@ class FrontdoorFrontendEndpoint(dict):
                  web_application_firewall_policy_link_id: Optional[str] = None):
         """
         :param str host_name: Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
-        :param str name: Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the `frontend_endpoint`.
         :param str id: The ID of the FrontDoor.
         :param bool session_affinity_enabled: Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
         :param int session_affinity_ttl_seconds: The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
@@ -1288,7 +1288,7 @@ class FrontdoorFrontendEndpoint(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
+        Specifies the name of the `frontend_endpoint`.
         """
         return pulumi.get(self, "name")
 
@@ -1364,7 +1364,7 @@ class FrontdoorRoutingRule(dict):
         """
         :param Sequence[str] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
         :param Sequence[str] frontend_endpoints: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
-        :param str name: Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the Routing Rule.
         :param Sequence[str] patterns_to_matches: The route patterns for the Backend Routing Rule.
         :param bool enabled: `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
         :param 'FrontdoorRoutingRuleForwardingConfigurationArgs' forwarding_configuration: A `forwarding_configuration` block as defined below.
@@ -1404,7 +1404,7 @@ class FrontdoorRoutingRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
+        Specifies the name of the Routing Rule.
         """
         return pulumi.get(self, "name")
 
@@ -1711,7 +1711,7 @@ class RulesEngineRule(dict):
                  action: Optional['outputs.RulesEngineRuleAction'] = None,
                  match_conditions: Optional[Sequence['outputs.RulesEngineRuleMatchCondition']] = None):
         """
-        :param str name: The name of the rule. Changing this forces a new resource to be created.
+        :param str name: The name of the rule.
         :param int priority: Priority of the rule, must be unique per rules engine definition.
         :param 'RulesEngineRuleActionArgs' action: An `action` block as defined below.
         :param Sequence['RulesEngineRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block as defined below.
@@ -1727,7 +1727,7 @@ class RulesEngineRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the rule. Changing this forces a new resource to be created.
+        The name of the rule.
         """
         return pulumi.get(self, "name")
 

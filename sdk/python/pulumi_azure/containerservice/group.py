@@ -41,8 +41,8 @@ class GroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
-        :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below.
-        :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below.
+        :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
@@ -139,7 +139,7 @@ class GroupArgs:
     @pulumi.getter
     def diagnostics(self) -> Optional[pulumi.Input['GroupDiagnosticsArgs']]:
         """
-        A `diagnostics` block as documented below.
+        A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "diagnostics")
 
@@ -151,7 +151,7 @@ class GroupArgs:
     @pulumi.getter(name="dnsConfig")
     def dns_config(self) -> Optional[pulumi.Input['GroupDnsConfigArgs']]:
         """
-        A `dns_config` block as documented below.
+        A `dns_config` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_config")
 
@@ -365,8 +365,8 @@ class _GroupState:
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below.
-        :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below.
+        :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
@@ -450,7 +450,7 @@ class _GroupState:
     @pulumi.getter
     def diagnostics(self) -> Optional[pulumi.Input['GroupDiagnosticsArgs']]:
         """
-        A `diagnostics` block as documented below.
+        A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "diagnostics")
 
@@ -462,7 +462,7 @@ class _GroupState:
     @pulumi.getter(name="dnsConfig")
     def dns_config(self) -> Optional[pulumi.Input['GroupDnsConfigArgs']]:
         """
-        A `dns_config` block as documented below.
+        A `dns_config` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_config")
 
@@ -776,8 +776,8 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupContainerArgs']]]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
-        :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below.
+        :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
@@ -967,8 +967,8 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupContainerArgs']]]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
-        :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below.
+        :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
@@ -1028,7 +1028,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def diagnostics(self) -> pulumi.Output[Optional['outputs.GroupDiagnostics']]:
         """
-        A `diagnostics` block as documented below.
+        A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "diagnostics")
 
@@ -1036,7 +1036,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="dnsConfig")
     def dns_config(self) -> pulumi.Output[Optional['outputs.GroupDnsConfig']]:
         """
-        A `dns_config` block as documented below.
+        A `dns_config` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_config")
 

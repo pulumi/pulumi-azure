@@ -64,7 +64,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
+//	$ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
 //
 // ```
 //
@@ -72,7 +72,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
+//	$ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
 //
 // ```
 type ConfigurationFeature struct {
@@ -85,7 +85,7 @@ type ConfigurationFeature struct {
 	// The status of the App Configuration Feature. By default, this is set to false.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	Etag    pulumi.StringOutput  `pulumi:"etag"`
-	// The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+	// The label of the App Configuration Feature. Changing this forces a new resource to be created.
 	Label pulumi.StringPtrOutput `pulumi:"label"`
 	// Should this App Configuration Feature be Locked to prevent changes?
 	Locked pulumi.BoolPtrOutput `pulumi:"locked"`
@@ -140,7 +140,7 @@ type configurationFeatureState struct {
 	// The status of the App Configuration Feature. By default, this is set to false.
 	Enabled *bool   `pulumi:"enabled"`
 	Etag    *string `pulumi:"etag"`
-	// The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+	// The label of the App Configuration Feature. Changing this forces a new resource to be created.
 	Label *string `pulumi:"label"`
 	// Should this App Configuration Feature be Locked to prevent changes?
 	Locked *bool `pulumi:"locked"`
@@ -164,7 +164,7 @@ type ConfigurationFeatureState struct {
 	// The status of the App Configuration Feature. By default, this is set to false.
 	Enabled pulumi.BoolPtrInput
 	Etag    pulumi.StringPtrInput
-	// The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+	// The label of the App Configuration Feature. Changing this forces a new resource to be created.
 	Label pulumi.StringPtrInput
 	// Should this App Configuration Feature be Locked to prevent changes?
 	Locked pulumi.BoolPtrInput
@@ -192,7 +192,7 @@ type configurationFeatureArgs struct {
 	// The status of the App Configuration Feature. By default, this is set to false.
 	Enabled *bool   `pulumi:"enabled"`
 	Etag    *string `pulumi:"etag"`
-	// The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+	// The label of the App Configuration Feature. Changing this forces a new resource to be created.
 	Label *string `pulumi:"label"`
 	// Should this App Configuration Feature be Locked to prevent changes?
 	Locked *bool `pulumi:"locked"`
@@ -217,7 +217,7 @@ type ConfigurationFeatureArgs struct {
 	// The status of the App Configuration Feature. By default, this is set to false.
 	Enabled pulumi.BoolPtrInput
 	Etag    pulumi.StringPtrInput
-	// The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+	// The label of the App Configuration Feature. Changing this forces a new resource to be created.
 	Label pulumi.StringPtrInput
 	// Should this App Configuration Feature be Locked to prevent changes?
 	Locked pulumi.BoolPtrInput
@@ -339,7 +339,7 @@ func (o ConfigurationFeatureOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationFeature) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The label of the App Configuration Feature.  Changing this forces a new resource to be created.
+// The label of the App Configuration Feature. Changing this forces a new resource to be created.
 func (o ConfigurationFeatureOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationFeature) pulumi.StringPtrOutput { return v.Label }).(pulumi.StringPtrOutput)
 }

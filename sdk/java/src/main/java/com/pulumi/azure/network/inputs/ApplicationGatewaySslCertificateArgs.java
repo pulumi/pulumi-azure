@@ -76,14 +76,14 @@ public final class ApplicationGatewaySslCertificateArgs extends com.pulumi.resou
     }
 
     /**
-     * Password for the pfx file specified in data.  Required if `data` is set.
+     * Password for the pfx file specified in data. Required if `data` is set.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return Password for the pfx file specified in data.  Required if `data` is set.
+     * @return Password for the pfx file specified in data. Required if `data` is set.
      * 
      */
     public Optional<Output<String>> password() {
@@ -219,7 +219,7 @@ public final class ApplicationGatewaySslCertificateArgs extends com.pulumi.resou
         }
 
         /**
-         * @param password Password for the pfx file specified in data.  Required if `data` is set.
+         * @param password Password for the pfx file specified in data. Required if `data` is set.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class ApplicationGatewaySslCertificateArgs extends com.pulumi.resou
         }
 
         /**
-         * @param password Password for the pfx file specified in data.  Required if `data` is set.
+         * @param password Password for the pfx file specified in data. Required if `data` is set.
          * 
          * @return builder
          * 

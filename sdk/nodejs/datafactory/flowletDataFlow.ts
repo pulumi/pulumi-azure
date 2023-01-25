@@ -192,8 +192,7 @@ export class FlowletDataFlow extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-     * root level.
+     * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      */
     public readonly folder!: pulumi.Output<string | undefined>;
     /**
@@ -288,8 +287,7 @@ export interface FlowletDataFlowState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-     * root level.
+     * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      */
     folder?: pulumi.Input<string>;
     /**
@@ -335,8 +333,7 @@ export interface FlowletDataFlowArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-     * root level.
+     * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      */
     folder?: pulumi.Input<string>;
     /**

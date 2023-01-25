@@ -285,7 +285,7 @@ type Certificate struct {
 	CertificateData pulumi.StringOutput `pulumi:"certificateData"`
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 pulumi.StringOutput `pulumi:"certificateDataBase64"`
-	// A `certificatePolicy` block as defined below.
+	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
 	CertificatePolicy CertificateCertificatePolicyOutput `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
@@ -351,7 +351,7 @@ type certificateState struct {
 	CertificateData *string `pulumi:"certificateData"`
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 *string `pulumi:"certificateDataBase64"`
-	// A `certificatePolicy` block as defined below.
+	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
 	CertificatePolicy *CertificateCertificatePolicy `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -380,7 +380,7 @@ type CertificateState struct {
 	CertificateData pulumi.StringPtrInput
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 pulumi.StringPtrInput
-	// A `certificatePolicy` block as defined below.
+	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
 	CertificatePolicy CertificateCertificatePolicyPtrInput
 	// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
@@ -407,7 +407,7 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate *CertificateCertificate `pulumi:"certificate"`
-	// A `certificatePolicy` block as defined below.
+	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
 	CertificatePolicy *CertificateCertificatePolicy `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -421,7 +421,7 @@ type certificateArgs struct {
 type CertificateArgs struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate CertificateCertificatePtrInput
-	// A `certificatePolicy` block as defined below.
+	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
 	CertificatePolicy CertificateCertificatePolicyPtrInput
 	// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
@@ -538,7 +538,7 @@ func (o CertificateOutput) CertificateDataBase64() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateDataBase64 }).(pulumi.StringOutput)
 }
 
-// A `certificatePolicy` block as defined below.
+// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
 func (o CertificateOutput) CertificatePolicy() CertificateCertificatePolicyOutput {
 	return o.ApplyT(func(v *Certificate) CertificateCertificatePolicyOutput { return v.CertificatePolicy }).(CertificateCertificatePolicyOutput)
 }

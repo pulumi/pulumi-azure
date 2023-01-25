@@ -80,7 +80,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> DataLocale { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
         /// </summary>
         [Output("eventsLateArrivalMaxDelayInSeconds")]
         public Output<int?> EventsLateArrivalMaxDelayInSeconds { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<int?> EventsOutOfOrderMaxDelayInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        /// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         /// </summary>
         [Output("eventsOutOfOrderPolicy")]
         public Output<string?> EventsOutOfOrderPolicy { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        /// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         /// </summary>
         [Output("outputErrorPolicy")]
         public Output<string?> OutputErrorPolicy { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? DataLocale { get; set; }
 
         /// <summary>
-        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
         /// </summary>
         [Input("eventsLateArrivalMaxDelayInSeconds")]
         public Input<int>? EventsLateArrivalMaxDelayInSeconds { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<int>? EventsOutOfOrderMaxDelayInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        /// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         /// </summary>
         [Input("eventsOutOfOrderPolicy")]
         public Input<string>? EventsOutOfOrderPolicy { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        /// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         /// </summary>
         [Input("outputErrorPolicy")]
         public Input<string>? OutputErrorPolicy { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? DataLocale { get; set; }
 
         /// <summary>
-        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
         /// </summary>
         [Input("eventsLateArrivalMaxDelayInSeconds")]
         public Input<int>? EventsLateArrivalMaxDelayInSeconds { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<int>? EventsOutOfOrderMaxDelayInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        /// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         /// </summary>
         [Input("eventsOutOfOrderPolicy")]
         public Input<string>? EventsOutOfOrderPolicy { get; set; }
@@ -410,7 +410,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        /// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         /// </summary>
         [Input("outputErrorPolicy")]
         public Input<string>? OutputErrorPolicy { get; set; }

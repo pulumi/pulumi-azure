@@ -23,18 +23,14 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
     public static final VirtualNetworkGatewayConnectionState Empty = new VirtualNetworkGatewayConnectionState();
 
     /**
-     * The authorization key associated with the
-     * Express Route Circuit. This field is required only if the type is an
-     * ExpressRoute connection.
+     * The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
      * 
      */
     @Import(name="authorizationKey")
     private @Nullable Output<String> authorizationKey;
 
     /**
-     * @return The authorization key associated with the
-     * Express Route Circuit. This field is required only if the type is an
-     * ExpressRoute connection.
+     * @return The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
      * 
      */
     public Optional<Output<String>> authorizationKey() {
@@ -123,16 +119,14 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
     }
 
     /**
-     * If `true`, BGP (Border Gateway Protocol) is enabled
-     * for this connection. Defaults to `false`.
+     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
      * 
      */
     @Import(name="enableBgp")
     private @Nullable Output<Boolean> enableBgp;
 
     /**
-     * @return If `true`, BGP (Border Gateway Protocol) is enabled
-     * for this connection. Defaults to `false`.
+     * @return If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enableBgp() {
@@ -219,16 +213,14 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
     }
 
     /**
-     * The ID of the local network gateway
-     * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+     * The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      * 
      */
     @Import(name="localNetworkGatewayId")
     private @Nullable Output<String> localNetworkGatewayId;
 
     /**
-     * @return The ID of the local network gateway
-     * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+     * @return The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      * 
      */
     public Optional<Output<String>> localNetworkGatewayId() {
@@ -251,16 +243,14 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
     }
 
     /**
-     * The name of the connection. Changing the name forces a
-     * new resource to be created.
+     * The name of the connection. Changing the name forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the connection. Changing the name forces a
-     * new resource to be created.
+     * @return The name of the connection. Changing the name forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -313,16 +303,14 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
     }
 
     /**
-     * The shared IPSec key. A key could be provided if a
-     * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+     * The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      * 
      */
     @Import(name="sharedKey")
     private @Nullable Output<String> sharedKey;
 
     /**
-     * @return The shared IPSec key. A key could be provided if a
-     * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+     * @return The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      * 
      */
     public Optional<Output<String>> sharedKey() {
@@ -379,18 +367,14 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
     }
 
     /**
-     * If `true`, policy-based traffic
-     * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsec_policy` block. Defaults to `false`.
+     * If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
      * 
      */
     @Import(name="usePolicyBasedTrafficSelectors")
     private @Nullable Output<Boolean> usePolicyBasedTrafficSelectors;
 
     /**
-     * @return If `true`, policy-based traffic
-     * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsec_policy` block. Defaults to `false`.
+     * @return If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> usePolicyBasedTrafficSelectors() {
@@ -460,9 +444,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param authorizationKey The authorization key associated with the
-         * Express Route Circuit. This field is required only if the type is an
-         * ExpressRoute connection.
+         * @param authorizationKey The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
          * 
          * @return builder
          * 
@@ -473,9 +455,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param authorizationKey The authorization key associated with the
-         * Express Route Circuit. This field is required only if the type is an
-         * ExpressRoute connection.
+         * @param authorizationKey The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
          * 
          * @return builder
          * 
@@ -606,8 +586,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param enableBgp If `true`, BGP (Border Gateway Protocol) is enabled
-         * for this connection. Defaults to `false`.
+         * @param enableBgp If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -618,8 +597,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param enableBgp If `true`, BGP (Border Gateway Protocol) is enabled
-         * for this connection. Defaults to `false`.
+         * @param enableBgp If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -748,8 +726,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param localNetworkGatewayId The ID of the local network gateway
-         * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+         * @param localNetworkGatewayId The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
          * 
          * @return builder
          * 
@@ -760,8 +737,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param localNetworkGatewayId The ID of the local network gateway
-         * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+         * @param localNetworkGatewayId The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
          * 
          * @return builder
          * 
@@ -792,8 +768,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the connection. Changing the name forces a
-         * new resource to be created.
+         * @param name The name of the connection. Changing the name forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -804,8 +779,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the connection. Changing the name forces a
-         * new resource to be created.
+         * @param name The name of the connection. Changing the name forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -878,8 +852,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param sharedKey The shared IPSec key. A key could be provided if a
-         * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+         * @param sharedKey The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
          * 
          * @return builder
          * 
@@ -890,8 +863,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param sharedKey The shared IPSec key. A key could be provided if a
-         * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+         * @param sharedKey The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
          * 
          * @return builder
          * 
@@ -968,9 +940,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param usePolicyBasedTrafficSelectors If `true`, policy-based traffic
-         * selectors are enabled for this connection. Enabling policy-based traffic
-         * selectors requires an `ipsec_policy` block. Defaults to `false`.
+         * @param usePolicyBasedTrafficSelectors If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -981,9 +951,7 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param usePolicyBasedTrafficSelectors If `true`, policy-based traffic
-         * selectors are enabled for this connection. Enabling policy-based traffic
-         * selectors requires an `ipsec_policy` block. Defaults to `false`.
+         * @param usePolicyBasedTrafficSelectors If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
          * 
          * @return builder
          * 

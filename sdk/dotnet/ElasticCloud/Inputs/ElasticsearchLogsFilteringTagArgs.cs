@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ElasticCloud.Inputs
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
+        /// Specifies the name (key) of the Tag which should be filtered.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

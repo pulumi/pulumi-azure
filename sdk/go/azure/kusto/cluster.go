@@ -76,7 +76,7 @@ type Cluster struct {
 	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
 	// Specifies if the cluster's disks are encrypted.
 	DiskEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"diskEncryptionEnabled"`
-	// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
@@ -161,7 +161,7 @@ type clusterState struct {
 	DataIngestionUri *string `pulumi:"dataIngestionUri"`
 	// Specifies if the cluster's disks are encrypted.
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
-	// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine *string `pulumi:"engine"`
@@ -212,7 +212,7 @@ type ClusterState struct {
 	DataIngestionUri pulumi.StringPtrInput
 	// Specifies if the cluster's disks are encrypted.
 	DiskEncryptionEnabled pulumi.BoolPtrInput
-	// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine pulumi.StringPtrInput
@@ -265,7 +265,7 @@ type clusterArgs struct {
 	AutoStopEnabled *bool `pulumi:"autoStopEnabled"`
 	// Specifies if the cluster's disks are encrypted.
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
-	// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine *string `pulumi:"engine"`
@@ -313,7 +313,7 @@ type ClusterArgs struct {
 	AutoStopEnabled pulumi.BoolPtrInput
 	// Specifies if the cluster's disks are encrypted.
 	DiskEncryptionEnabled pulumi.BoolPtrInput
-	// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine pulumi.StringPtrInput
@@ -463,7 +463,7 @@ func (o ClusterOutput) DiskEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DiskEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 func (o ClusterOutput) DoubleEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DoubleEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }

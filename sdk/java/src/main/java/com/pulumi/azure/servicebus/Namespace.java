@@ -103,16 +103,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customerManagedKey);
     }
     /**
-     * The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     @Export(name="defaultPrimaryConnectionString", type=String.class, parameters={})
     private Output<String> defaultPrimaryConnectionString;
 
     /**
-     * @return The primary connection string for the authorization
-     * rule `RootManageSharedAccessKey`.
+     * @return The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     public Output<String> defaultPrimaryConnectionString() {
@@ -133,16 +131,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.defaultPrimaryKey;
     }
     /**
-     * The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     @Export(name="defaultSecondaryConnectionString", type=String.class, parameters={})
     private Output<String> defaultSecondaryConnectionString;
 
     /**
-     * @return The secondary connection string for the
-     * authorization rule `RootManageSharedAccessKey`.
+     * @return The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
     public Output<String> defaultSecondaryConnectionString() {
@@ -219,16 +215,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.minimumTlsVersion;
     }
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-     * new resource to be created.
+     * @return Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

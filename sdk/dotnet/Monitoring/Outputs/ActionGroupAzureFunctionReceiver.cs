@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string HttpTriggerUrl;
         /// <summary>
-        /// The name of the Azure Function receiver. Changing this forces a new resource to be created.
+        /// The name of the Azure Function receiver.
         /// </summary>
         public readonly string Name;
         /// <summary>

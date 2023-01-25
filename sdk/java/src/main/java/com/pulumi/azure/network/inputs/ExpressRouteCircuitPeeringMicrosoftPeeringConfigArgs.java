@@ -48,14 +48,14 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
     }
 
     /**
-     * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+     * The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
      * 
      */
     @Import(name="routingRegistryName")
     private @Nullable Output<String> routingRegistryName;
 
     /**
-     * @return The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+     * @return The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
      * 
      */
     public Optional<Output<String>> routingRegistryName() {
@@ -141,7 +141,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         }
 
         /**
-         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         }
 
         /**
-         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          * 
          * @return builder
          * 

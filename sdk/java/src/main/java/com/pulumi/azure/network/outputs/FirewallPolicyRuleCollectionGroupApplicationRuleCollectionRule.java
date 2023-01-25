@@ -60,7 +60,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
      */
     private @Nullable List<String> sourceIpGroups;
     /**
-     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
      * 
      */
     private @Nullable Boolean terminateTls;
@@ -135,7 +135,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return this.sourceIpGroups == null ? List.of() : this.sourceIpGroups;
     }
     /**
-     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
      * 
      */
     public Optional<Boolean> terminateTls() {

@@ -92,7 +92,7 @@ import (
 type VirtualNetworkPeering struct {
 	pulumi.CustomResourceState
 
-	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+	// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic pulumi.BoolOutput `pulumi:"allowForwardedTraffic"`
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
 	AllowGatewayTransit pulumi.BoolOutput `pulumi:"allowGatewayTransit"`
@@ -100,17 +100,11 @@ type VirtualNetworkPeering struct {
 	AllowVirtualNetworkAccess pulumi.BoolPtrOutput `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+	// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringOutput `pulumi:"remoteVirtualNetworkId"`
-	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-	// created.
+	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Controls if remote gateways can be used on
-	// the local virtual network. If the flag is set to `true`, and
-	// `allowGatewayTransit` on the remote peering is also `true`, virtual network will
-	// use gateways of remote virtual network for transit. Only one peering can
-	// have this flag set to `true`. This flag cannot be set if virtual network
-	// already has a gateway. Defaults to `false`.
+	// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
 	UseRemoteGateways pulumi.BoolOutput `pulumi:"useRemoteGateways"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	VirtualNetworkName pulumi.StringOutput `pulumi:"virtualNetworkName"`
@@ -154,7 +148,7 @@ func GetVirtualNetworkPeering(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkPeering resources.
 type virtualNetworkPeeringState struct {
-	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+	// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
@@ -162,24 +156,18 @@ type virtualNetworkPeeringState struct {
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+	// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId *string `pulumi:"remoteVirtualNetworkId"`
-	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-	// created.
+	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Controls if remote gateways can be used on
-	// the local virtual network. If the flag is set to `true`, and
-	// `allowGatewayTransit` on the remote peering is also `true`, virtual network will
-	// use gateways of remote virtual network for transit. Only one peering can
-	// have this flag set to `true`. This flag cannot be set if virtual network
-	// already has a gateway. Defaults to `false`.
+	// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
 	UseRemoteGateways *bool `pulumi:"useRemoteGateways"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
 }
 
 type VirtualNetworkPeeringState struct {
-	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+	// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic pulumi.BoolPtrInput
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
 	AllowGatewayTransit pulumi.BoolPtrInput
@@ -187,17 +175,11 @@ type VirtualNetworkPeeringState struct {
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+	// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringPtrInput
-	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-	// created.
+	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Controls if remote gateways can be used on
-	// the local virtual network. If the flag is set to `true`, and
-	// `allowGatewayTransit` on the remote peering is also `true`, virtual network will
-	// use gateways of remote virtual network for transit. Only one peering can
-	// have this flag set to `true`. This flag cannot be set if virtual network
-	// already has a gateway. Defaults to `false`.
+	// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
 	UseRemoteGateways pulumi.BoolPtrInput
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	VirtualNetworkName pulumi.StringPtrInput
@@ -208,7 +190,7 @@ func (VirtualNetworkPeeringState) ElementType() reflect.Type {
 }
 
 type virtualNetworkPeeringArgs struct {
-	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+	// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
@@ -216,17 +198,11 @@ type virtualNetworkPeeringArgs struct {
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+	// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId string `pulumi:"remoteVirtualNetworkId"`
-	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-	// created.
+	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Controls if remote gateways can be used on
-	// the local virtual network. If the flag is set to `true`, and
-	// `allowGatewayTransit` on the remote peering is also `true`, virtual network will
-	// use gateways of remote virtual network for transit. Only one peering can
-	// have this flag set to `true`. This flag cannot be set if virtual network
-	// already has a gateway. Defaults to `false`.
+	// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
 	UseRemoteGateways *bool `pulumi:"useRemoteGateways"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
@@ -234,7 +210,7 @@ type virtualNetworkPeeringArgs struct {
 
 // The set of arguments for constructing a VirtualNetworkPeering resource.
 type VirtualNetworkPeeringArgs struct {
-	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+	// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic pulumi.BoolPtrInput
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
 	AllowGatewayTransit pulumi.BoolPtrInput
@@ -242,17 +218,11 @@ type VirtualNetworkPeeringArgs struct {
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+	// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringInput
-	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-	// created.
+	// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Controls if remote gateways can be used on
-	// the local virtual network. If the flag is set to `true`, and
-	// `allowGatewayTransit` on the remote peering is also `true`, virtual network will
-	// use gateways of remote virtual network for transit. Only one peering can
-	// have this flag set to `true`. This flag cannot be set if virtual network
-	// already has a gateway. Defaults to `false`.
+	// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
 	UseRemoteGateways pulumi.BoolPtrInput
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	VirtualNetworkName pulumi.StringInput
@@ -345,7 +315,7 @@ func (o VirtualNetworkPeeringOutput) ToVirtualNetworkPeeringOutputWithContext(ct
 	return o
 }
 
-// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
+// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
 func (o VirtualNetworkPeeringOutput) AllowForwardedTraffic() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolOutput { return v.AllowForwardedTraffic }).(pulumi.BoolOutput)
 }
@@ -365,23 +335,17 @@ func (o VirtualNetworkPeeringOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The full Azure resource ID of the remote virtual network.  Changing this forces a new resource to be created.
+// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
 func (o VirtualNetworkPeeringOutput) RemoteVirtualNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringOutput { return v.RemoteVirtualNetworkId }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be
-// created.
+// The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
 func (o VirtualNetworkPeeringOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Controls if remote gateways can be used on
-// the local virtual network. If the flag is set to `true`, and
-// `allowGatewayTransit` on the remote peering is also `true`, virtual network will
-// use gateways of remote virtual network for transit. Only one peering can
-// have this flag set to `true`. This flag cannot be set if virtual network
-// already has a gateway. Defaults to `false`.
+// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
 func (o VirtualNetworkPeeringOutput) UseRemoteGateways() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolOutput { return v.UseRemoteGateways }).(pulumi.BoolOutput)
 }

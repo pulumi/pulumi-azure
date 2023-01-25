@@ -147,16 +147,14 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.enabled);
     }
     /**
-     * Specifies the Azure location of the Endpoint,
-     * this must be specified for Profiles using the `Performance` routing method.
+     * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      * 
      */
     @Export(name="endpointLocation", type=String.class, parameters={})
     private Output<String> endpointLocation;
 
     /**
-     * @return Specifies the Azure location of the Endpoint,
-     * this must be specified for Profiles using the `Performance` routing method.
+     * @return Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      * 
      */
     public Output<String> endpointLocation() {
@@ -177,20 +175,14 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.geoMappings);
     }
     /**
-     * This argument specifies the minimum number
-     * of endpoints that must be ‘online’ in the child profile in order for the
-     * parent profile to direct traffic to any of the endpoints in that child
-     * profile. This value must be larger than `0`.
+     * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
      */
     @Export(name="minimumChildEndpoints", type=Integer.class, parameters={})
     private Output<Integer> minimumChildEndpoints;
 
     /**
-     * @return This argument specifies the minimum number
-     * of endpoints that must be ‘online’ in the child profile in order for the
-     * parent profile to direct traffic to any of the endpoints in that child
-     * profile. This value must be larger than `0`.
+     * @return This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
      */
     public Output<Integer> minimumChildEndpoints() {
@@ -239,20 +231,14 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
         return this.name;
     }
     /**
-     * Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
     @Export(name="priority", type=Integer.class, parameters={})
     private Output<Integer> priority;
 
     /**
-     * @return Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * @return Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
     public Output<Integer> priority() {
@@ -273,30 +259,28 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
         return this.profileId;
     }
     /**
-     * One or more `subnet` blocks as defined below
+     * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="subnets", type=List.class, parameters={TrafficManagerNestedEndpointSubnet.class})
     private Output</* @Nullable */ List<TrafficManagerNestedEndpointSubnet>> subnets;
 
     /**
-     * @return One or more `subnet` blocks as defined below
+     * @return One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<TrafficManagerNestedEndpointSubnet>>> subnets() {
         return Codegen.optional(this.subnets);
     }
     /**
-     * The resource id of an Azure resource to
-     * target.
+     * The resource id of an Azure resource to target.
      * 
      */
     @Export(name="targetResourceId", type=String.class, parameters={})
     private Output<String> targetResourceId;
 
     /**
-     * @return The resource id of an Azure resource to
-     * target.
+     * @return The resource id of an Azure resource to target.
      * 
      */
     public Output<String> targetResourceId() {

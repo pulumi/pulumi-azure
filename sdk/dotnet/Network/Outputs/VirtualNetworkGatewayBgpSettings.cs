@@ -18,8 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int? Asn;
         /// <summary>
-        /// The weight added to routes which have been learned
-        /// through BGP peering. Valid values can be between `0` and `100`.
+        /// The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
         /// </summary>
         public readonly int? PeerWeight;
         /// <summary>

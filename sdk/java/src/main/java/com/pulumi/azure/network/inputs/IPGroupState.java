@@ -33,6 +33,36 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `firewall_ids` block as defined below.
+     * 
+     */
+    @Import(name="firewallIds")
+    private @Nullable Output<List<String>> firewallIds;
+
+    /**
+     * @return A `firewall_ids` block as defined below.
+     * 
+     */
+    public Optional<Output<List<String>>> firewallIds() {
+        return Optional.ofNullable(this.firewallIds);
+    }
+
+    /**
+     * A `firewall_policy_ids` block as defined below.
+     * 
+     */
+    @Import(name="firewallPolicyIds")
+    private @Nullable Output<List<String>> firewallPolicyIds;
+
+    /**
+     * @return A `firewall_policy_ids` block as defined below.
+     * 
+     */
+    public Optional<Output<List<String>>> firewallPolicyIds() {
+        return Optional.ofNullable(this.firewallPolicyIds);
+    }
+
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -96,6 +126,8 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
 
     private IPGroupState(IPGroupState $) {
         this.cidrs = $.cidrs;
+        this.firewallIds = $.firewallIds;
+        this.firewallPolicyIds = $.firewallPolicyIds;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -149,6 +181,68 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder cidrs(String... cidrs) {
             return cidrs(List.of(cidrs));
+        }
+
+        /**
+         * @param firewallIds A `firewall_ids` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder firewallIds(@Nullable Output<List<String>> firewallIds) {
+            $.firewallIds = firewallIds;
+            return this;
+        }
+
+        /**
+         * @param firewallIds A `firewall_ids` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder firewallIds(List<String> firewallIds) {
+            return firewallIds(Output.of(firewallIds));
+        }
+
+        /**
+         * @param firewallIds A `firewall_ids` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder firewallIds(String... firewallIds) {
+            return firewallIds(List.of(firewallIds));
+        }
+
+        /**
+         * @param firewallPolicyIds A `firewall_policy_ids` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder firewallPolicyIds(@Nullable Output<List<String>> firewallPolicyIds) {
+            $.firewallPolicyIds = firewallPolicyIds;
+            return this;
+        }
+
+        /**
+         * @param firewallPolicyIds A `firewall_policy_ids` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder firewallPolicyIds(List<String> firewallPolicyIds) {
+            return firewallPolicyIds(Output.of(firewallPolicyIds));
+        }
+
+        /**
+         * @param firewallPolicyIds A `firewall_policy_ids` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder firewallPolicyIds(String... firewallPolicyIds) {
+            return firewallPolicyIds(List.of(firewallPolicyIds));
         }
 
         /**

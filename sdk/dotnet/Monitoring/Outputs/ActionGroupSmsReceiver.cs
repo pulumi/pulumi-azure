@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string CountryCode;
         /// <summary>
-        /// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+        /// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         /// </summary>
         public readonly string Name;
         /// <summary>

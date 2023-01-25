@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Orbital
     public partial class Spacecraft : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `links` block as defined below.
+        /// A `links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("links")]
         public Output<ImmutableArray<Outputs.SpacecraftLink>> Links { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Orbital
         public Output<string> TitleLine { get; private set; } = null!;
 
         /// <summary>
-        /// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+        /// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
         /// </summary>
         [Output("twoLineElements")]
         public Output<ImmutableArray<string>> TwoLineElements { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<Inputs.SpacecraftLinkArgs>? _links;
 
         /// <summary>
-        /// A `links` block as defined below.
+        /// A `links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.SpacecraftLinkArgs> Links
         {
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<string>? _twoLineElements;
 
         /// <summary>
-        /// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+        /// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> TwoLineElements
         {
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<Inputs.SpacecraftLinkGetArgs>? _links;
 
         /// <summary>
-        /// A `links` block as defined below.
+        /// A `links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.SpacecraftLinkGetArgs> Links
         {
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<string>? _twoLineElements;
 
         /// <summary>
-        /// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+        /// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> TwoLineElements
         {

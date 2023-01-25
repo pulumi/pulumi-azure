@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         /// </summary>
         [Output("managedIdentityResourceId")]
         public Output<string?> ManagedIdentityResourceId { get; private set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         /// </summary>
         [Input("managedIdentityResourceId")]
         public Input<string>? ManagedIdentityResourceId { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         /// </summary>
         [Input("managedIdentityResourceId")]
         public Input<string>? ManagedIdentityResourceId { get; set; }

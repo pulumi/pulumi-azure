@@ -65,16 +65,14 @@ public final class FlowletDataFlowState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-     * root level.
+     * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      * 
      */
     @Import(name="folder")
     private @Nullable Output<String> folder;
 
     /**
-     * @return The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-     * root level.
+     * @return The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      * 
      */
     public Optional<Output<String>> folder() {
@@ -278,8 +276,7 @@ public final class FlowletDataFlowState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param folder The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-         * root level.
+         * @param folder The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
          * 
          * @return builder
          * 
@@ -290,8 +287,7 @@ public final class FlowletDataFlowState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param folder The folder that this Data Flow is in. If not specified, the Data Flow will appear at the
-         * root level.
+         * @param folder The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
          * 
          * @return builder
          * 

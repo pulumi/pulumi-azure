@@ -46,14 +46,14 @@ public final class LabNetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+     * The resource ID of the Subnet for the network profile of the Lab Service Lab.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+     * @return The resource ID of the Subnet for the network profile of the Lab Service Lab.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -129,7 +129,7 @@ public final class LabNetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+         * @param subnetId The resource ID of the Subnet for the network profile of the Lab Service Lab.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class LabNetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+         * @param subnetId The resource ID of the Subnet for the network profile of the Lab Service Lab.
          * 
          * @return builder
          * 

@@ -25,7 +25,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
      */
     private @Nullable String label;
     /**
-     * @return A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+     * @return A name to identify on the Git repository, required only if repos exists.
      * 
      */
     private String name;
@@ -66,7 +66,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+     * @return A name to identify on the Git repository, required only if repos exists.
      * 
      */
     public String name() {

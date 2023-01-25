@@ -33,7 +33,7 @@ public final class FirewallNatRuleCollectionRule {
      */
     private String name;
     /**
-     * @return A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+     * @return A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
      * 
      */
     private List<String> protocols;
@@ -88,7 +88,7 @@ public final class FirewallNatRuleCollectionRule {
         return this.name;
     }
     /**
-     * @return A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+     * @return A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
      * 
      */
     public List<String> protocols() {

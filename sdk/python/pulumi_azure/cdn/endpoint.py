@@ -36,7 +36,7 @@ class EndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_name: The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
@@ -93,7 +93,7 @@ class EndpointArgs:
     @pulumi.getter
     def origins(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]]:
         """
-        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "origins")
 
@@ -343,7 +343,7 @@ class _EndpointState:
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[str] origin_path: The path used at for origin requests.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         :param pulumi.Input[str] profile_name: The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] querystring_caching_behaviour: Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
@@ -549,7 +549,7 @@ class _EndpointState:
     @pulumi.getter
     def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]]]:
         """
-        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "origins")
 
@@ -686,7 +686,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[str] origin_path: The path used at for origin requests.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointOriginArgs']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointOriginArgs']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         :param pulumi.Input[str] profile_name: The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] querystring_caching_behaviour: Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
@@ -845,7 +845,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[str] origin_path: The path used at for origin requests.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointOriginArgs']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointOriginArgs']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         :param pulumi.Input[str] profile_name: The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] querystring_caching_behaviour: Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
@@ -985,7 +985,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter
     def origins(self) -> pulumi.Output[Sequence['outputs.EndpointOrigin']]:
         """
-        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "origins")
 

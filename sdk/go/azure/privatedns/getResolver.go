@@ -59,13 +59,13 @@ type LookupResolverArgs struct {
 type LookupResolverResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Azure Region where the Private DNS Resolver exists.
+	// The Azure Region where the Private DNS Resolver exists.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Mapping of tags which should be assigned to the Private DNS Resolver.
+	// The tags assigned to the Private DNS Resolver.
 	Tags map[string]string `pulumi:"tags"`
-	// ID of the Virtual Network that is linked to the Private DNS Resolver.
+	// The ID of the Virtual Network that is linked to the Private DNS Resolver.
 	VirtualNetworkId string `pulumi:"virtualNetworkId"`
 }
 
@@ -114,7 +114,7 @@ func (o LookupResolverResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Azure Region where the Private DNS Resolver exists.
+// The Azure Region where the Private DNS Resolver exists.
 func (o LookupResolverResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -127,12 +127,12 @@ func (o LookupResolverResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Mapping of tags which should be assigned to the Private DNS Resolver.
+// The tags assigned to the Private DNS Resolver.
 func (o LookupResolverResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupResolverResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// ID of the Virtual Network that is linked to the Private DNS Resolver.
+// The ID of the Virtual Network that is linked to the Private DNS Resolver.
 func (o LookupResolverResultOutput) VirtualNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverResult) string { return v.VirtualNetworkId }).(pulumi.StringOutput)
 }

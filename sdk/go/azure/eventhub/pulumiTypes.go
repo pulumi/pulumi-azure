@@ -1433,9 +1433,9 @@ type EventHubCaptureDescription struct {
 	Encoding string `pulumi:"encoding"`
 	// Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+	// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
 	SizeLimitInBytes *int `pulumi:"sizeLimitInBytes"`
-	// Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+	// Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
 	SkipEmptyArchives *bool `pulumi:"skipEmptyArchives"`
 }
 
@@ -1459,9 +1459,9 @@ type EventHubCaptureDescriptionArgs struct {
 	Encoding pulumi.StringInput `pulumi:"encoding"`
 	// Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+	// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
 	SizeLimitInBytes pulumi.IntPtrInput `pulumi:"sizeLimitInBytes"`
-	// Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+	// Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
 	SkipEmptyArchives pulumi.BoolPtrInput `pulumi:"skipEmptyArchives"`
 }
 
@@ -1562,12 +1562,12 @@ func (o EventHubCaptureDescriptionOutput) IntervalInSeconds() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v EventHubCaptureDescription) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
 func (o EventHubCaptureDescriptionOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventHubCaptureDescription) *int { return v.SizeLimitInBytes }).(pulumi.IntPtrOutput)
 }
 
-// Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+// Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
 func (o EventHubCaptureDescriptionOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventHubCaptureDescription) *bool { return v.SkipEmptyArchives }).(pulumi.BoolPtrOutput)
 }
@@ -1636,7 +1636,7 @@ func (o EventHubCaptureDescriptionPtrOutput) IntervalInSeconds() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
 func (o EventHubCaptureDescriptionPtrOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventHubCaptureDescription) *int {
 		if v == nil {
@@ -1646,7 +1646,7 @@ func (o EventHubCaptureDescriptionPtrOutput) SizeLimitInBytes() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+// Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
 func (o EventHubCaptureDescriptionPtrOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventHubCaptureDescription) *bool {
 		if v == nil {

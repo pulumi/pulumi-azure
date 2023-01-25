@@ -88,7 +88,7 @@ export class TriggerRecurrence extends pulumi.CustomResource {
      */
     public readonly startTime!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+     * Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
      */
     public readonly timeZone!: pulumi.Output<string>;
 
@@ -165,7 +165,7 @@ export interface TriggerRecurrenceState {
      */
     startTime?: pulumi.Input<string>;
     /**
-     * Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+     * Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
      */
     timeZone?: pulumi.Input<string>;
 }
@@ -199,7 +199,7 @@ export interface TriggerRecurrenceArgs {
      */
     startTime?: pulumi.Input<string>;
     /**
-     * Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+     * Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
      */
     timeZone?: pulumi.Input<string>;
 }

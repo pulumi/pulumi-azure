@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
         /// </summary>
         public InputList<string> Protocols
         {

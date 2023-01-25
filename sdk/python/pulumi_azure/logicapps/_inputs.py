@@ -533,8 +533,8 @@ class StandardConnectionStringArgs:
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the Connection String. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        :param pulumi.Input[str] name: The name of the Connection String.
+        :param pulumi.Input[str] type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         :param pulumi.Input[str] value: The value for the Connection String.
         """
         pulumi.set(__self__, "name", name)
@@ -545,7 +545,7 @@ class StandardConnectionStringArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Connection String. Changing this forces a new resource to be created.
+        The name of the Connection String.
         """
         return pulumi.get(self, "name")
 
@@ -557,7 +557,7 @@ class StandardConnectionStringArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         """
         return pulumi.get(self, "type")
 

@@ -1108,7 +1108,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_connection_string,
+            storage_account_access_key=example_account.primary_access_key,
             service_plan_id=example_service_plan.id,
             site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
         ```
@@ -1182,7 +1182,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_connection_string,
+            storage_account_access_key=example_account.primary_access_key,
             service_plan_id=example_service_plan.id,
             site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
         ```

@@ -162,14 +162,14 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
      * 
      */
     @Export(name="purgeProtectionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> purgeProtectionEnabled;
 
     /**
-     * @return Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
+     * @return Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> purgeProtectionEnabled() {

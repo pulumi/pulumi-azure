@@ -98,7 +98,7 @@ type Endpoint struct {
 	OriginHostHeader pulumi.StringPtrOutput `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
 	OriginPath pulumi.StringOutput `pulumi:"originPath"`
-	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
 	Origins EndpointOriginArrayOutput `pulumi:"origins"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath pulumi.StringOutput `pulumi:"probePath"`
@@ -176,7 +176,7 @@ type endpointState struct {
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
 	OriginPath *string `pulumi:"originPath"`
-	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
 	Origins []EndpointOrigin `pulumi:"origins"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath *string `pulumi:"probePath"`
@@ -217,7 +217,7 @@ type EndpointState struct {
 	OriginHostHeader pulumi.StringPtrInput
 	// The path used at for origin requests.
 	OriginPath pulumi.StringPtrInput
-	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
 	Origins EndpointOriginArrayInput
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath pulumi.StringPtrInput
@@ -260,7 +260,7 @@ type endpointArgs struct {
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
 	OriginPath *string `pulumi:"originPath"`
-	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
 	Origins []EndpointOrigin `pulumi:"origins"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath *string `pulumi:"probePath"`
@@ -300,7 +300,7 @@ type EndpointArgs struct {
 	OriginHostHeader pulumi.StringPtrInput
 	// The path used at for origin requests.
 	OriginPath pulumi.StringPtrInput
-	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
 	Origins EndpointOriginArrayInput
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath pulumi.StringPtrInput
@@ -466,7 +466,7 @@ func (o EndpointOutput) OriginPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.OriginPath }).(pulumi.StringOutput)
 }
 
-// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
 func (o EndpointOutput) Origins() EndpointOriginArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointOriginArrayOutput { return v.Origins }).(EndpointOriginArrayOutput)
 }

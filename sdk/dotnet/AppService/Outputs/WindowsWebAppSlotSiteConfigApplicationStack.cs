@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? DotnetCoreVersion;
         /// <summary>
-        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         /// </summary>
         public readonly string? DotnetVersion;
         public readonly string? JavaContainer;
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>
-        /// The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4` and `Off`.
+        /// The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
         /// </summary>
         public readonly string? PhpVersion;
         /// <summary>

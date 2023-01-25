@@ -94,9 +94,7 @@ type Queue struct {
 	LockDuration pulumi.StringOutput `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
 	MaxDeliveryCount pulumi.IntPtrOutput `pulumi:"maxDeliveryCount"`
-	// Integer value which controls the maximum size of
-	// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntOutput `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
 	MaxSizeInMegabytes pulumi.IntOutput `pulumi:"maxSizeInMegabytes"`
@@ -168,9 +166,7 @@ type queueState struct {
 	LockDuration *string `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// Integer value which controls the maximum size of
-	// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
@@ -211,9 +207,7 @@ type QueueState struct {
 	LockDuration pulumi.StringPtrInput
 	// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
 	MaxDeliveryCount pulumi.IntPtrInput
-	// Integer value which controls the maximum size of
-	// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntPtrInput
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
 	MaxSizeInMegabytes pulumi.IntPtrInput
@@ -258,9 +252,7 @@ type queueArgs struct {
 	LockDuration *string `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// Integer value which controls the maximum size of
-	// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
@@ -300,9 +292,7 @@ type QueueArgs struct {
 	LockDuration pulumi.StringPtrInput
 	// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
 	MaxDeliveryCount pulumi.IntPtrInput
-	// Integer value which controls the maximum size of
-	// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntPtrInput
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
 	MaxSizeInMegabytes pulumi.IntPtrInput
@@ -460,9 +450,7 @@ func (o QueueOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
 
-// Integer value which controls the maximum size of
-// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+// Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 func (o QueueOutput) MaxMessageSizeInKilobytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *Queue) pulumi.IntOutput { return v.MaxMessageSizeInKilobytes }).(pulumi.IntOutput)
 }

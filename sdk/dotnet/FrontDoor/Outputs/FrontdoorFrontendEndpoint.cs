@@ -22,7 +22,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
+        /// Specifies the name of the `frontend_endpoint`.
         /// </summary>
         public readonly string Name;
         /// <summary>

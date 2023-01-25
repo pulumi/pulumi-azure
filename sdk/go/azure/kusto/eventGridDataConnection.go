@@ -161,7 +161,7 @@ type EventGridDataConnection struct {
 	EventhubId pulumi.StringOutput `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityResourceId pulumi.StringPtrOutput `pulumi:"managedIdentityResourceId"`
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
 	MappingRuleName pulumi.StringPtrOutput `pulumi:"mappingRuleName"`
@@ -242,7 +242,7 @@ type eventGridDataConnectionState struct {
 	EventhubId *string `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityResourceId *string `pulumi:"managedIdentityResourceId"`
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
 	MappingRuleName *string `pulumi:"mappingRuleName"`
@@ -277,7 +277,7 @@ type EventGridDataConnectionState struct {
 	EventhubId pulumi.StringPtrInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityResourceId pulumi.StringPtrInput
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
 	MappingRuleName pulumi.StringPtrInput
@@ -316,7 +316,7 @@ type eventGridDataConnectionArgs struct {
 	EventhubId string `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityResourceId *string `pulumi:"managedIdentityResourceId"`
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
 	MappingRuleName *string `pulumi:"mappingRuleName"`
@@ -352,7 +352,7 @@ type EventGridDataConnectionArgs struct {
 	EventhubId pulumi.StringInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityResourceId pulumi.StringPtrInput
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
 	MappingRuleName pulumi.StringPtrInput
@@ -500,7 +500,7 @@ func (o EventGridDataConnectionOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
+// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
 func (o EventGridDataConnectionOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.ManagedIdentityResourceId }).(pulumi.StringPtrOutput)
 }

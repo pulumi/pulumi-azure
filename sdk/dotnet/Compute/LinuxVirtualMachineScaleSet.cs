@@ -292,7 +292,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> Overprovision { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.LinuxVirtualMachineScaleSetPlan?> Plan { get; private set; } = null!;
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("rollingUpgradePolicy")]
         public Output<Outputs.LinuxVirtualMachineScaleSetRollingUpgradePolicy?> RollingUpgradePolicy { get; private set; } = null!;
@@ -717,7 +717,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? Overprovision { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.LinuxVirtualMachineScaleSetPlanArgs>? Plan { get; set; }
@@ -753,7 +753,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs>? RollingUpgradePolicy { get; set; }
@@ -1111,7 +1111,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? Overprovision { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.LinuxVirtualMachineScaleSetPlanGetArgs>? Plan { get; set; }
@@ -1147,7 +1147,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyGetArgs>? RollingUpgradePolicy { get; set; }

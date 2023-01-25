@@ -265,7 +265,7 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ReplicatedVM : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `managed_disk` block as defined below.
+        /// One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managedDisks")]
         public Output<ImmutableArray<Outputs.ReplicatedVMManagedDisk>> ManagedDisks { get; private set; } = null!;
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMManagedDiskArgs>? _managedDisks;
 
         /// <summary>
-        /// One or more `managed_disk` block as defined below.
+        /// One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ReplicatedVMManagedDiskArgs> ManagedDisks
         {
@@ -514,7 +514,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMManagedDiskGetArgs>? _managedDisks;
 
         /// <summary>
-        /// One or more `managed_disk` block as defined below.
+        /// One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ReplicatedVMManagedDiskGetArgs> ManagedDisks
         {

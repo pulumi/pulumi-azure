@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _disabledProtocols;
 
         /// <summary>
-        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         /// </summary>
         public InputList<string> DisabledProtocols
         {
@@ -37,20 +37,19 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         /// </summary>
         [Input("minProtocolVersion")]
         public Input<string>? MinProtocolVersion { get; set; }
 
         /// <summary>
-        /// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        /// are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+        /// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
         /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
 
         /// <summary>
-        /// The Type of the Policy. Possible values are `Predefined` and `Custom`.
+        /// The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }

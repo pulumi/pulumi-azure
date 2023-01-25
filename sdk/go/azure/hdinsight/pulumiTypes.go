@@ -915,13 +915,13 @@ func (o HBaseClusterMetastoresPtrOutput) Oozie() HBaseClusterMetastoresOoziePtrO
 }
 
 type HBaseClusterMetastoresAmbari struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -937,13 +937,13 @@ type HBaseClusterMetastoresAmbariInput interface {
 }
 
 type HBaseClusterMetastoresAmbariArgs struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1024,22 +1024,22 @@ func (o HBaseClusterMetastoresAmbariOutput) ToHBaseClusterMetastoresAmbariPtrOut
 	}).(HBaseClusterMetastoresAmbariPtrOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresAmbariOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresAmbari) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresAmbariOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresAmbari) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresAmbariOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresAmbari) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresAmbariOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresAmbari) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1068,7 +1068,7 @@ func (o HBaseClusterMetastoresAmbariPtrOutput) Elem() HBaseClusterMetastoresAmba
 	}).(HBaseClusterMetastoresAmbariOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresAmbariPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -1078,7 +1078,7 @@ func (o HBaseClusterMetastoresAmbariPtrOutput) DatabaseName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresAmbariPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -1088,7 +1088,7 @@ func (o HBaseClusterMetastoresAmbariPtrOutput) Password() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresAmbariPtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -1098,7 +1098,7 @@ func (o HBaseClusterMetastoresAmbariPtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresAmbariPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -1109,13 +1109,13 @@ func (o HBaseClusterMetastoresAmbariPtrOutput) Username() pulumi.StringPtrOutput
 }
 
 type HBaseClusterMetastoresHive struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -1131,13 +1131,13 @@ type HBaseClusterMetastoresHiveInput interface {
 }
 
 type HBaseClusterMetastoresHiveArgs struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1218,22 +1218,22 @@ func (o HBaseClusterMetastoresHiveOutput) ToHBaseClusterMetastoresHivePtrOutputW
 	}).(HBaseClusterMetastoresHivePtrOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresHiveOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresHive) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresHiveOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresHive) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresHiveOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresHive) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresHiveOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresHive) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1262,7 +1262,7 @@ func (o HBaseClusterMetastoresHivePtrOutput) Elem() HBaseClusterMetastoresHiveOu
 	}).(HBaseClusterMetastoresHiveOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresHivePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresHive) *string {
 		if v == nil {
@@ -1272,7 +1272,7 @@ func (o HBaseClusterMetastoresHivePtrOutput) DatabaseName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresHivePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresHive) *string {
 		if v == nil {
@@ -1282,7 +1282,7 @@ func (o HBaseClusterMetastoresHivePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresHivePtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresHive) *string {
 		if v == nil {
@@ -1292,7 +1292,7 @@ func (o HBaseClusterMetastoresHivePtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresHivePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresHive) *string {
 		if v == nil {
@@ -1303,13 +1303,13 @@ func (o HBaseClusterMetastoresHivePtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type HBaseClusterMetastoresOozie struct {
-	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -1325,13 +1325,13 @@ type HBaseClusterMetastoresOozieInput interface {
 }
 
 type HBaseClusterMetastoresOozieArgs struct {
-	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1412,22 +1412,22 @@ func (o HBaseClusterMetastoresOozieOutput) ToHBaseClusterMetastoresOoziePtrOutpu
 	}).(HBaseClusterMetastoresOoziePtrOutput)
 }
 
-// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresOozieOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresOozie) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresOozieOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresOozie) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresOozieOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresOozie) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresOozieOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMetastoresOozie) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1456,7 +1456,7 @@ func (o HBaseClusterMetastoresOoziePtrOutput) Elem() HBaseClusterMetastoresOozie
 	}).(HBaseClusterMetastoresOozieOutput)
 }
 
-// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresOoziePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresOozie) *string {
 		if v == nil {
@@ -1466,7 +1466,7 @@ func (o HBaseClusterMetastoresOoziePtrOutput) DatabaseName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresOoziePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresOozie) *string {
 		if v == nil {
@@ -1476,7 +1476,7 @@ func (o HBaseClusterMetastoresOoziePtrOutput) Password() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresOoziePtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresOozie) *string {
 		if v == nil {
@@ -1486,7 +1486,7 @@ func (o HBaseClusterMetastoresOoziePtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HBaseClusterMetastoresOoziePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterMetastoresOozie) *string {
 		if v == nil {
@@ -1986,7 +1986,7 @@ func (o HBaseClusterRolesPtrOutput) ZookeeperNode() HBaseClusterRolesZookeeperNo
 type HBaseClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []HBaseClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -2014,7 +2014,7 @@ type HBaseClusterRolesHeadNodeInput interface {
 type HBaseClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions HBaseClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -2110,7 +2110,7 @@ func (o HBaseClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesHeadNodeOutput) ScriptActions() HBaseClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesHeadNode) []HBaseClusterRolesHeadNodeScriptAction { return v.ScriptActions }).(HBaseClusterRolesHeadNodeScriptActionArrayOutput)
 }
@@ -2174,7 +2174,7 @@ func (o HBaseClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesHeadNodePtrOutput) ScriptActions() HBaseClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) []HBaseClusterRolesHeadNodeScriptAction {
 		if v == nil {
@@ -2354,7 +2354,7 @@ type HBaseClusterRolesWorkerNode struct {
 	Autoscale *HBaseClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []HBaseClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -2386,7 +2386,7 @@ type HBaseClusterRolesWorkerNodeArgs struct {
 	Autoscale HBaseClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions HBaseClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -2489,7 +2489,7 @@ func (o HBaseClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesWorkerNodeOutput) ScriptActions() HBaseClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) []HBaseClusterRolesWorkerNodeScriptAction { return v.ScriptActions }).(HBaseClusterRolesWorkerNodeScriptActionArrayOutput)
 }
@@ -2568,7 +2568,7 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesWorkerNodePtrOutput) ScriptActions() HBaseClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) []HBaseClusterRolesWorkerNodeScriptAction {
 		if v == nil {
@@ -3168,7 +3168,7 @@ func (o HBaseClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntIn
 type HBaseClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []HBaseClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -3196,7 +3196,7 @@ type HBaseClusterRolesZookeeperNodeInput interface {
 type HBaseClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions HBaseClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -3292,7 +3292,7 @@ func (o HBaseClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesZookeeperNodeOutput) ScriptActions() HBaseClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) []HBaseClusterRolesZookeeperNodeScriptAction {
 		return v.ScriptActions
@@ -3358,7 +3358,7 @@ func (o HBaseClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesZookeeperNodePtrOutput) ScriptActions() HBaseClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) []HBaseClusterRolesZookeeperNodeScriptAction {
 		if v == nil {
@@ -5007,13 +5007,13 @@ func (o HadoopClusterMetastoresPtrOutput) Oozie() HadoopClusterMetastoresOoziePt
 }
 
 type HadoopClusterMetastoresAmbari struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -5029,13 +5029,13 @@ type HadoopClusterMetastoresAmbariInput interface {
 }
 
 type HadoopClusterMetastoresAmbariArgs struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -5116,22 +5116,22 @@ func (o HadoopClusterMetastoresAmbariOutput) ToHadoopClusterMetastoresAmbariPtrO
 	}).(HadoopClusterMetastoresAmbariPtrOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresAmbariOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresAmbari) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresAmbariOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresAmbari) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresAmbariOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresAmbari) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresAmbariOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresAmbari) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -5160,7 +5160,7 @@ func (o HadoopClusterMetastoresAmbariPtrOutput) Elem() HadoopClusterMetastoresAm
 	}).(HadoopClusterMetastoresAmbariOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresAmbariPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -5170,7 +5170,7 @@ func (o HadoopClusterMetastoresAmbariPtrOutput) DatabaseName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresAmbariPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -5180,7 +5180,7 @@ func (o HadoopClusterMetastoresAmbariPtrOutput) Password() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresAmbariPtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -5190,7 +5190,7 @@ func (o HadoopClusterMetastoresAmbariPtrOutput) Server() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresAmbariPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -5201,13 +5201,13 @@ func (o HadoopClusterMetastoresAmbariPtrOutput) Username() pulumi.StringPtrOutpu
 }
 
 type HadoopClusterMetastoresHive struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -5223,13 +5223,13 @@ type HadoopClusterMetastoresHiveInput interface {
 }
 
 type HadoopClusterMetastoresHiveArgs struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -5310,22 +5310,22 @@ func (o HadoopClusterMetastoresHiveOutput) ToHadoopClusterMetastoresHivePtrOutpu
 	}).(HadoopClusterMetastoresHivePtrOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresHiveOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresHive) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresHiveOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresHive) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresHiveOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresHive) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresHiveOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresHive) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -5354,7 +5354,7 @@ func (o HadoopClusterMetastoresHivePtrOutput) Elem() HadoopClusterMetastoresHive
 	}).(HadoopClusterMetastoresHiveOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresHivePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresHive) *string {
 		if v == nil {
@@ -5364,7 +5364,7 @@ func (o HadoopClusterMetastoresHivePtrOutput) DatabaseName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresHivePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresHive) *string {
 		if v == nil {
@@ -5374,7 +5374,7 @@ func (o HadoopClusterMetastoresHivePtrOutput) Password() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresHivePtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresHive) *string {
 		if v == nil {
@@ -5384,7 +5384,7 @@ func (o HadoopClusterMetastoresHivePtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresHivePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresHive) *string {
 		if v == nil {
@@ -5395,13 +5395,13 @@ func (o HadoopClusterMetastoresHivePtrOutput) Username() pulumi.StringPtrOutput 
 }
 
 type HadoopClusterMetastoresOozie struct {
-	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -5417,13 +5417,13 @@ type HadoopClusterMetastoresOozieInput interface {
 }
 
 type HadoopClusterMetastoresOozieArgs struct {
-	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -5504,22 +5504,22 @@ func (o HadoopClusterMetastoresOozieOutput) ToHadoopClusterMetastoresOoziePtrOut
 	}).(HadoopClusterMetastoresOoziePtrOutput)
 }
 
-// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresOozieOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresOozie) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresOozieOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresOozie) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresOozieOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresOozie) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresOozieOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMetastoresOozie) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -5548,7 +5548,7 @@ func (o HadoopClusterMetastoresOoziePtrOutput) Elem() HadoopClusterMetastoresOoz
 	}).(HadoopClusterMetastoresOozieOutput)
 }
 
-// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresOoziePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresOozie) *string {
 		if v == nil {
@@ -5558,7 +5558,7 @@ func (o HadoopClusterMetastoresOoziePtrOutput) DatabaseName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresOoziePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresOozie) *string {
 		if v == nil {
@@ -5568,7 +5568,7 @@ func (o HadoopClusterMetastoresOoziePtrOutput) Password() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresOoziePtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresOozie) *string {
 		if v == nil {
@@ -5578,7 +5578,7 @@ func (o HadoopClusterMetastoresOoziePtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o HadoopClusterMetastoresOoziePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterMetastoresOozie) *string {
 		if v == nil {
@@ -6101,7 +6101,7 @@ type HadoopClusterRolesEdgeNode struct {
 	// The number of instances which should be run for the Worker Nodes.
 	TargetInstanceCount    int                                               `pulumi:"targetInstanceCount"`
 	UninstallScriptActions []HadoopClusterRolesEdgeNodeUninstallScriptAction `pulumi:"uninstallScriptActions"`
-	// The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+	// The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
 	VmSize string `pulumi:"vmSize"`
 }
 
@@ -6123,7 +6123,7 @@ type HadoopClusterRolesEdgeNodeArgs struct {
 	// The number of instances which should be run for the Worker Nodes.
 	TargetInstanceCount    pulumi.IntInput                                           `pulumi:"targetInstanceCount"`
 	UninstallScriptActions HadoopClusterRolesEdgeNodeUninstallScriptActionArrayInput `pulumi:"uninstallScriptActions"`
-	// The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+	// The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 }
 
@@ -6226,7 +6226,7 @@ func (o HadoopClusterRolesEdgeNodeOutput) UninstallScriptActions() HadoopCluster
 	}).(HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput)
 }
 
-// The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+// The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
 func (o HadoopClusterRolesEdgeNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -6293,7 +6293,7 @@ func (o HadoopClusterRolesEdgeNodePtrOutput) UninstallScriptActions() HadoopClus
 	}).(HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput)
 }
 
-// The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+// The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
 func (o HadoopClusterRolesEdgeNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesEdgeNode) *string {
 		if v == nil {
@@ -6437,11 +6437,11 @@ func (o HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput) Index(i pulumi.IntIn
 }
 
 type HadoopClusterRolesEdgeNodeInstallScriptAction struct {
-	// The name of the install script action. Changing this forces a new resource to be created.
+	// The name of the install script action.
 	Name string `pulumi:"name"`
 	// The parameters for the script.
 	Parameters *string `pulumi:"parameters"`
-	// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+	// The URI pointing to the script to run during the installation of the edge node.
 	Uri string `pulumi:"uri"`
 }
 
@@ -6457,11 +6457,11 @@ type HadoopClusterRolesEdgeNodeInstallScriptActionInput interface {
 }
 
 type HadoopClusterRolesEdgeNodeInstallScriptActionArgs struct {
-	// The name of the install script action. Changing this forces a new resource to be created.
+	// The name of the install script action.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The parameters for the script.
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
-	// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+	// The URI pointing to the script to run during the installation of the edge node.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
@@ -6516,7 +6516,7 @@ func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) ToHadoopClusterRole
 	return o
 }
 
-// The name of the install script action. Changing this forces a new resource to be created.
+// The name of the install script action.
 func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeInstallScriptAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6526,7 +6526,7 @@ func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) Parameters() pulumi
 	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeInstallScriptAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
 }
 
-// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+// The URI pointing to the script to run during the installation of the edge node.
 func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeInstallScriptAction) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -6669,7 +6669,7 @@ func (o HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput) Index(i pulu
 type HadoopClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []HadoopClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -6697,7 +6697,7 @@ type HadoopClusterRolesHeadNodeInput interface {
 type HadoopClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions HadoopClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -6793,7 +6793,7 @@ func (o HadoopClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesHeadNodeOutput) ScriptActions() HadoopClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesHeadNode) []HadoopClusterRolesHeadNodeScriptAction { return v.ScriptActions }).(HadoopClusterRolesHeadNodeScriptActionArrayOutput)
 }
@@ -6857,7 +6857,7 @@ func (o HadoopClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesHeadNodePtrOutput) ScriptActions() HadoopClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) []HadoopClusterRolesHeadNodeScriptAction {
 		if v == nil {
@@ -7037,7 +7037,7 @@ type HadoopClusterRolesWorkerNode struct {
 	Autoscale *HadoopClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []HadoopClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -7069,7 +7069,7 @@ type HadoopClusterRolesWorkerNodeArgs struct {
 	Autoscale HadoopClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions HadoopClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -7172,7 +7172,7 @@ func (o HadoopClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesWorkerNodeOutput) ScriptActions() HadoopClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) []HadoopClusterRolesWorkerNodeScriptAction {
 		return v.ScriptActions
@@ -7253,7 +7253,7 @@ func (o HadoopClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesWorkerNodePtrOutput) ScriptActions() HadoopClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) []HadoopClusterRolesWorkerNodeScriptAction {
 		if v == nil {
@@ -8030,7 +8030,7 @@ func (o HadoopClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntI
 type HadoopClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []HadoopClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -8058,7 +8058,7 @@ type HadoopClusterRolesZookeeperNodeInput interface {
 type HadoopClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions HadoopClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -8154,7 +8154,7 @@ func (o HadoopClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput
 	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesZookeeperNodeOutput) ScriptActions() HadoopClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) []HadoopClusterRolesZookeeperNodeScriptAction {
 		return v.ScriptActions
@@ -8220,7 +8220,7 @@ func (o HadoopClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesZookeeperNodePtrOutput) ScriptActions() HadoopClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) []HadoopClusterRolesZookeeperNodeScriptAction {
 		if v == nil {
@@ -9869,13 +9869,13 @@ func (o InteractiveQueryClusterMetastoresPtrOutput) Oozie() InteractiveQueryClus
 }
 
 type InteractiveQueryClusterMetastoresAmbari struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -9891,13 +9891,13 @@ type InteractiveQueryClusterMetastoresAmbariInput interface {
 }
 
 type InteractiveQueryClusterMetastoresAmbariArgs struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -9978,22 +9978,22 @@ func (o InteractiveQueryClusterMetastoresAmbariOutput) ToInteractiveQueryCluster
 	}).(InteractiveQueryClusterMetastoresAmbariPtrOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresAmbariOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresAmbari) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresAmbariOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresAmbari) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresAmbariOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresAmbari) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresAmbariOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresAmbari) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -10022,7 +10022,7 @@ func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) Elem() InteractiveQuer
 	}).(InteractiveQueryClusterMetastoresAmbariOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -10032,7 +10032,7 @@ func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) DatabaseName() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -10042,7 +10042,7 @@ func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) Password() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -10052,7 +10052,7 @@ func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) Server() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -10063,13 +10063,13 @@ func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) Username() pulumi.Stri
 }
 
 type InteractiveQueryClusterMetastoresHive struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -10085,13 +10085,13 @@ type InteractiveQueryClusterMetastoresHiveInput interface {
 }
 
 type InteractiveQueryClusterMetastoresHiveArgs struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -10172,22 +10172,22 @@ func (o InteractiveQueryClusterMetastoresHiveOutput) ToInteractiveQueryClusterMe
 	}).(InteractiveQueryClusterMetastoresHivePtrOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresHiveOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresHive) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresHiveOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresHive) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresHiveOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresHive) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresHiveOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresHive) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -10216,7 +10216,7 @@ func (o InteractiveQueryClusterMetastoresHivePtrOutput) Elem() InteractiveQueryC
 	}).(InteractiveQueryClusterMetastoresHiveOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresHivePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresHive) *string {
 		if v == nil {
@@ -10226,7 +10226,7 @@ func (o InteractiveQueryClusterMetastoresHivePtrOutput) DatabaseName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresHivePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresHive) *string {
 		if v == nil {
@@ -10236,7 +10236,7 @@ func (o InteractiveQueryClusterMetastoresHivePtrOutput) Password() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresHivePtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresHive) *string {
 		if v == nil {
@@ -10246,7 +10246,7 @@ func (o InteractiveQueryClusterMetastoresHivePtrOutput) Server() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresHivePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresHive) *string {
 		if v == nil {
@@ -10257,13 +10257,13 @@ func (o InteractiveQueryClusterMetastoresHivePtrOutput) Username() pulumi.String
 }
 
 type InteractiveQueryClusterMetastoresOozie struct {
-	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -10279,13 +10279,13 @@ type InteractiveQueryClusterMetastoresOozieInput interface {
 }
 
 type InteractiveQueryClusterMetastoresOozieArgs struct {
-	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -10366,22 +10366,22 @@ func (o InteractiveQueryClusterMetastoresOozieOutput) ToInteractiveQueryClusterM
 	}).(InteractiveQueryClusterMetastoresOoziePtrOutput)
 }
 
-// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresOozieOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresOozie) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresOozieOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresOozie) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresOozieOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresOozie) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresOozieOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMetastoresOozie) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -10410,7 +10410,7 @@ func (o InteractiveQueryClusterMetastoresOoziePtrOutput) Elem() InteractiveQuery
 	}).(InteractiveQueryClusterMetastoresOozieOutput)
 }
 
-// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresOoziePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresOozie) *string {
 		if v == nil {
@@ -10420,7 +10420,7 @@ func (o InteractiveQueryClusterMetastoresOoziePtrOutput) DatabaseName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresOoziePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresOozie) *string {
 		if v == nil {
@@ -10430,7 +10430,7 @@ func (o InteractiveQueryClusterMetastoresOoziePtrOutput) Password() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresOoziePtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresOozie) *string {
 		if v == nil {
@@ -10440,7 +10440,7 @@ func (o InteractiveQueryClusterMetastoresOoziePtrOutput) Server() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterMetastoresOoziePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterMetastoresOozie) *string {
 		if v == nil {
@@ -10940,7 +10940,7 @@ func (o InteractiveQueryClusterRolesPtrOutput) ZookeeperNode() InteractiveQueryC
 type InteractiveQueryClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []InteractiveQueryClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -10968,7 +10968,7 @@ type InteractiveQueryClusterRolesHeadNodeInput interface {
 type InteractiveQueryClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions InteractiveQueryClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -11064,7 +11064,7 @@ func (o InteractiveQueryClusterRolesHeadNodeOutput) Password() pulumi.StringPtrO
 	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesHeadNodeOutput) ScriptActions() InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) []InteractiveQueryClusterRolesHeadNodeScriptAction {
 		return v.ScriptActions
@@ -11130,7 +11130,7 @@ func (o InteractiveQueryClusterRolesHeadNodePtrOutput) Password() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesHeadNodePtrOutput) ScriptActions() InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) []InteractiveQueryClusterRolesHeadNodeScriptAction {
 		if v == nil {
@@ -11310,7 +11310,7 @@ type InteractiveQueryClusterRolesWorkerNode struct {
 	Autoscale *InteractiveQueryClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []InteractiveQueryClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -11342,7 +11342,7 @@ type InteractiveQueryClusterRolesWorkerNodeArgs struct {
 	Autoscale InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions InteractiveQueryClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -11447,7 +11447,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) Password() pulumi.StringPt
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) ScriptActions() InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) []InteractiveQueryClusterRolesWorkerNodeScriptAction {
 		return v.ScriptActions
@@ -11528,7 +11528,7 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Password() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) ScriptActions() InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) []InteractiveQueryClusterRolesWorkerNodeScriptAction {
 		if v == nil {
@@ -12307,7 +12307,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput) Index(i p
 type InteractiveQueryClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []InteractiveQueryClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -12335,7 +12335,7 @@ type InteractiveQueryClusterRolesZookeeperNodeInput interface {
 type InteractiveQueryClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -12431,7 +12431,7 @@ func (o InteractiveQueryClusterRolesZookeeperNodeOutput) Password() pulumi.Strin
 	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ScriptActions() InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) []InteractiveQueryClusterRolesZookeeperNodeScriptAction {
 		return v.ScriptActions
@@ -12497,7 +12497,7 @@ func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) Password() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) ScriptActions() InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) []InteractiveQueryClusterRolesZookeeperNodeScriptAction {
 		if v == nil {
@@ -14146,13 +14146,13 @@ func (o KafkaClusterMetastoresPtrOutput) Oozie() KafkaClusterMetastoresOoziePtrO
 }
 
 type KafkaClusterMetastoresAmbari struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -14168,13 +14168,13 @@ type KafkaClusterMetastoresAmbariInput interface {
 }
 
 type KafkaClusterMetastoresAmbariArgs struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -14255,22 +14255,22 @@ func (o KafkaClusterMetastoresAmbariOutput) ToKafkaClusterMetastoresAmbariPtrOut
 	}).(KafkaClusterMetastoresAmbariPtrOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresAmbariOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresAmbari) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresAmbariOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresAmbari) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresAmbariOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresAmbari) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresAmbariOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresAmbari) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -14299,7 +14299,7 @@ func (o KafkaClusterMetastoresAmbariPtrOutput) Elem() KafkaClusterMetastoresAmba
 	}).(KafkaClusterMetastoresAmbariOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresAmbariPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -14309,7 +14309,7 @@ func (o KafkaClusterMetastoresAmbariPtrOutput) DatabaseName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresAmbariPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -14319,7 +14319,7 @@ func (o KafkaClusterMetastoresAmbariPtrOutput) Password() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresAmbariPtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -14329,7 +14329,7 @@ func (o KafkaClusterMetastoresAmbariPtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresAmbariPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -14340,13 +14340,13 @@ func (o KafkaClusterMetastoresAmbariPtrOutput) Username() pulumi.StringPtrOutput
 }
 
 type KafkaClusterMetastoresHive struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -14362,13 +14362,13 @@ type KafkaClusterMetastoresHiveInput interface {
 }
 
 type KafkaClusterMetastoresHiveArgs struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -14449,22 +14449,22 @@ func (o KafkaClusterMetastoresHiveOutput) ToKafkaClusterMetastoresHivePtrOutputW
 	}).(KafkaClusterMetastoresHivePtrOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresHiveOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresHive) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresHiveOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresHive) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresHiveOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresHive) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresHiveOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresHive) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -14493,7 +14493,7 @@ func (o KafkaClusterMetastoresHivePtrOutput) Elem() KafkaClusterMetastoresHiveOu
 	}).(KafkaClusterMetastoresHiveOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresHivePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresHive) *string {
 		if v == nil {
@@ -14503,7 +14503,7 @@ func (o KafkaClusterMetastoresHivePtrOutput) DatabaseName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresHivePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresHive) *string {
 		if v == nil {
@@ -14513,7 +14513,7 @@ func (o KafkaClusterMetastoresHivePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresHivePtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresHive) *string {
 		if v == nil {
@@ -14523,7 +14523,7 @@ func (o KafkaClusterMetastoresHivePtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresHivePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresHive) *string {
 		if v == nil {
@@ -14534,13 +14534,13 @@ func (o KafkaClusterMetastoresHivePtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type KafkaClusterMetastoresOozie struct {
-	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -14556,13 +14556,13 @@ type KafkaClusterMetastoresOozieInput interface {
 }
 
 type KafkaClusterMetastoresOozieArgs struct {
-	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -14643,22 +14643,22 @@ func (o KafkaClusterMetastoresOozieOutput) ToKafkaClusterMetastoresOoziePtrOutpu
 	}).(KafkaClusterMetastoresOoziePtrOutput)
 }
 
-// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresOozieOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresOozie) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresOozieOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresOozie) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresOozieOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresOozie) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresOozieOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMetastoresOozie) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -14687,7 +14687,7 @@ func (o KafkaClusterMetastoresOoziePtrOutput) Elem() KafkaClusterMetastoresOozie
 	}).(KafkaClusterMetastoresOozieOutput)
 }
 
-// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresOoziePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresOozie) *string {
 		if v == nil {
@@ -14697,7 +14697,7 @@ func (o KafkaClusterMetastoresOoziePtrOutput) DatabaseName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresOoziePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresOozie) *string {
 		if v == nil {
@@ -14707,7 +14707,7 @@ func (o KafkaClusterMetastoresOoziePtrOutput) Password() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresOoziePtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresOozie) *string {
 		if v == nil {
@@ -14717,7 +14717,7 @@ func (o KafkaClusterMetastoresOoziePtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o KafkaClusterMetastoresOoziePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterMetastoresOozie) *string {
 		if v == nil {
@@ -18329,13 +18329,13 @@ func (o SparkClusterMetastoresPtrOutput) Oozie() SparkClusterMetastoresOoziePtrO
 }
 
 type SparkClusterMetastoresAmbari struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -18351,13 +18351,13 @@ type SparkClusterMetastoresAmbariInput interface {
 }
 
 type SparkClusterMetastoresAmbariArgs struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -18438,22 +18438,22 @@ func (o SparkClusterMetastoresAmbariOutput) ToSparkClusterMetastoresAmbariPtrOut
 	}).(SparkClusterMetastoresAmbariPtrOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresAmbariOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresAmbari) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresAmbariOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresAmbari) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresAmbariOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresAmbari) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresAmbariOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresAmbari) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -18482,7 +18482,7 @@ func (o SparkClusterMetastoresAmbariPtrOutput) Elem() SparkClusterMetastoresAmba
 	}).(SparkClusterMetastoresAmbariOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresAmbariPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -18492,7 +18492,7 @@ func (o SparkClusterMetastoresAmbariPtrOutput) DatabaseName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresAmbariPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -18502,7 +18502,7 @@ func (o SparkClusterMetastoresAmbariPtrOutput) Password() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresAmbariPtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -18512,7 +18512,7 @@ func (o SparkClusterMetastoresAmbariPtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresAmbariPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresAmbari) *string {
 		if v == nil {
@@ -18523,13 +18523,13 @@ func (o SparkClusterMetastoresAmbariPtrOutput) Username() pulumi.StringPtrOutput
 }
 
 type SparkClusterMetastoresHive struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -18545,13 +18545,13 @@ type SparkClusterMetastoresHiveInput interface {
 }
 
 type SparkClusterMetastoresHiveArgs struct {
-	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -18632,22 +18632,22 @@ func (o SparkClusterMetastoresHiveOutput) ToSparkClusterMetastoresHivePtrOutputW
 	}).(SparkClusterMetastoresHivePtrOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresHiveOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresHive) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresHiveOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresHive) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresHiveOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresHive) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresHiveOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresHive) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -18676,7 +18676,7 @@ func (o SparkClusterMetastoresHivePtrOutput) Elem() SparkClusterMetastoresHiveOu
 	}).(SparkClusterMetastoresHiveOutput)
 }
 
-// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresHivePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresHive) *string {
 		if v == nil {
@@ -18686,7 +18686,7 @@ func (o SparkClusterMetastoresHivePtrOutput) DatabaseName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresHivePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresHive) *string {
 		if v == nil {
@@ -18696,7 +18696,7 @@ func (o SparkClusterMetastoresHivePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresHivePtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresHive) *string {
 		if v == nil {
@@ -18706,7 +18706,7 @@ func (o SparkClusterMetastoresHivePtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresHivePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresHive) *string {
 		if v == nil {
@@ -18717,13 +18717,13 @@ func (o SparkClusterMetastoresHivePtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type SparkClusterMetastoresOozie struct {
-	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
-	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -18739,13 +18739,13 @@ type SparkClusterMetastoresOozieInput interface {
 }
 
 type SparkClusterMetastoresOozieArgs struct {
-	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -18826,22 +18826,22 @@ func (o SparkClusterMetastoresOozieOutput) ToSparkClusterMetastoresOoziePtrOutpu
 	}).(SparkClusterMetastoresOoziePtrOutput)
 }
 
-// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresOozieOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresOozie) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresOozieOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresOozie) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresOozieOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresOozie) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresOozieOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMetastoresOozie) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -18870,7 +18870,7 @@ func (o SparkClusterMetastoresOoziePtrOutput) Elem() SparkClusterMetastoresOozie
 	}).(SparkClusterMetastoresOozieOutput)
 }
 
-// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresOoziePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresOozie) *string {
 		if v == nil {
@@ -18880,7 +18880,7 @@ func (o SparkClusterMetastoresOoziePtrOutput) DatabaseName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresOoziePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresOozie) *string {
 		if v == nil {
@@ -18890,7 +18890,7 @@ func (o SparkClusterMetastoresOoziePtrOutput) Password() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresOoziePtrOutput) Server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresOozie) *string {
 		if v == nil {
@@ -18900,7 +18900,7 @@ func (o SparkClusterMetastoresOoziePtrOutput) Server() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+// The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 func (o SparkClusterMetastoresOoziePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterMetastoresOozie) *string {
 		if v == nil {
@@ -19400,7 +19400,7 @@ func (o SparkClusterRolesPtrOutput) ZookeeperNode() SparkClusterRolesZookeeperNo
 type SparkClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []SparkClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -19428,7 +19428,7 @@ type SparkClusterRolesHeadNodeInput interface {
 type SparkClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions SparkClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -19524,7 +19524,7 @@ func (o SparkClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o SparkClusterRolesHeadNodeOutput) ScriptActions() SparkClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesHeadNode) []SparkClusterRolesHeadNodeScriptAction { return v.ScriptActions }).(SparkClusterRolesHeadNodeScriptActionArrayOutput)
 }
@@ -19588,7 +19588,7 @@ func (o SparkClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o SparkClusterRolesHeadNodePtrOutput) ScriptActions() SparkClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *SparkClusterRolesHeadNode) []SparkClusterRolesHeadNodeScriptAction {
 		if v == nil {
@@ -19768,7 +19768,7 @@ type SparkClusterRolesWorkerNode struct {
 	Autoscale *SparkClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []SparkClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -19800,7 +19800,7 @@ type SparkClusterRolesWorkerNodeArgs struct {
 	Autoscale SparkClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions SparkClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -19903,7 +19903,7 @@ func (o SparkClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o SparkClusterRolesWorkerNodeOutput) ScriptActions() SparkClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNode) []SparkClusterRolesWorkerNodeScriptAction { return v.ScriptActions }).(SparkClusterRolesWorkerNodeScriptActionArrayOutput)
 }
@@ -19982,7 +19982,7 @@ func (o SparkClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o SparkClusterRolesWorkerNodePtrOutput) ScriptActions() SparkClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) []SparkClusterRolesWorkerNodeScriptAction {
 		if v == nil {
@@ -20759,7 +20759,7 @@ func (o SparkClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntIn
 type SparkClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions []SparkClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys []string `pulumi:"sshKeys"`
@@ -20787,7 +20787,7 @@ type SparkClusterRolesZookeeperNodeInput interface {
 type SparkClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster.
+	// The script action which will run on the cluster. Changing this forces a new resource to be created.
 	ScriptActions SparkClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
@@ -20883,7 +20883,7 @@ func (o SparkClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o SparkClusterRolesZookeeperNodeOutput) ScriptActions() SparkClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) []SparkClusterRolesZookeeperNodeScriptAction {
 		return v.ScriptActions
@@ -20949,7 +20949,7 @@ func (o SparkClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster.
+// The script action which will run on the cluster. Changing this forces a new resource to be created.
 func (o SparkClusterRolesZookeeperNodePtrOutput) ScriptActions() SparkClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) []SparkClusterRolesZookeeperNodeScriptAction {
 		if v == nil {

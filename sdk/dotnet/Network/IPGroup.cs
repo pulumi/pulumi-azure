@@ -63,6 +63,18 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> Cidrs { get; private set; } = null!;
 
         /// <summary>
+        /// A `firewall_ids` block as defined below.
+        /// </summary>
+        [Output("firewallIds")]
+        public Output<ImmutableArray<string>> FirewallIds { get; private set; } = null!;
+
+        /// <summary>
+        /// A `firewall_policy_ids` block as defined below.
+        /// </summary>
+        [Output("firewallPolicyIds")]
+        public Output<ImmutableArray<string>> FirewallPolicyIds { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -192,6 +204,30 @@ namespace Pulumi.Azure.Network
         {
             get => _cidrs ?? (_cidrs = new InputList<string>());
             set => _cidrs = value;
+        }
+
+        [Input("firewallIds")]
+        private InputList<string>? _firewallIds;
+
+        /// <summary>
+        /// A `firewall_ids` block as defined below.
+        /// </summary>
+        public InputList<string> FirewallIds
+        {
+            get => _firewallIds ?? (_firewallIds = new InputList<string>());
+            set => _firewallIds = value;
+        }
+
+        [Input("firewallPolicyIds")]
+        private InputList<string>? _firewallPolicyIds;
+
+        /// <summary>
+        /// A `firewall_policy_ids` block as defined below.
+        /// </summary>
+        public InputList<string> FirewallPolicyIds
+        {
+            get => _firewallPolicyIds ?? (_firewallPolicyIds = new InputList<string>());
+            set => _firewallPolicyIds = value;
         }
 
         /// <summary>

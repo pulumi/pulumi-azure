@@ -28,7 +28,7 @@ public final class ImageDataDisk {
      */
     private @Nullable Integer lun;
     /**
-     * @return Specifies the ID of the managed disk resource that you want to use to create the image.
+     * @return Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String managedDiskId;
@@ -61,7 +61,7 @@ public final class ImageDataDisk {
         return Optional.ofNullable(this.lun);
     }
     /**
-     * @return Specifies the ID of the managed disk resource that you want to use to create the image.
+     * @return Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> managedDiskId() {

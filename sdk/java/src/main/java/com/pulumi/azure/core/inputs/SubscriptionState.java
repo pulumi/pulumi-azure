@@ -107,14 +107,14 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+     * The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      * 
      */
     @Import(name="workload")
     private @Nullable Output<String> workload;
 
     /**
-     * @return The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+     * @return The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      * 
      */
     public Optional<Output<String>> workload() {
@@ -278,7 +278,7 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workload The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+         * @param workload The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workload The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+         * @param workload The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
          * 
          * @return builder
          * 

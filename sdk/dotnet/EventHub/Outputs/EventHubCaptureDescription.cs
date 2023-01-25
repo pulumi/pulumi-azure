@@ -30,11 +30,11 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// </summary>
         public readonly int? IntervalInSeconds;
         /// <summary>
-        /// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+        /// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
         /// </summary>
         public readonly int? SizeLimitInBytes;
         /// <summary>
-        /// Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+        /// Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
         /// </summary>
         public readonly bool? SkipEmptyArchives;
 

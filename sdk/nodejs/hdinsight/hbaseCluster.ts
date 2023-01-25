@@ -154,7 +154,7 @@ export class HBaseCluster extends pulumi.CustomResource {
      */
     public readonly roles!: pulumi.Output<outputs.hdinsight.HBaseClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly securityProfile!: pulumi.Output<outputs.hdinsight.HBaseClusterSecurityProfile | undefined>;
     /**
@@ -321,7 +321,7 @@ export interface HBaseClusterState {
      */
     roles?: pulumi.Input<inputs.hdinsight.HBaseClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     securityProfile?: pulumi.Input<inputs.hdinsight.HBaseClusterSecurityProfile>;
     /**
@@ -404,7 +404,7 @@ export interface HBaseClusterArgs {
      */
     roles: pulumi.Input<inputs.hdinsight.HBaseClusterRoles>;
     /**
-     * A `securityProfile` block as defined below.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
     securityProfile?: pulumi.Input<inputs.hdinsight.HBaseClusterSecurityProfile>;
     /**

@@ -19,8 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int>? Asn { get; set; }
 
         /// <summary>
-        /// The weight added to routes which have been learned
-        /// through BGP peering. Valid values can be between `0` and `100`.
+        /// The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
         /// </summary>
         [Input("peerWeight")]
         public Input<int>? PeerWeight { get; set; }

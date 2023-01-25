@@ -167,16 +167,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/extension:Extension")
 public class Extension extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies if the platform deploys
-     * the latest minor version update to the `type_handler_version` specified.
+     * Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
      * 
      */
     @Export(name="autoUpgradeMinorVersion", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoUpgradeMinorVersion;
 
     /**
-     * @return Specifies if the platform deploys
-     * the latest minor version update to the `type_handler_version` specified.
+     * @return Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
      * 
      */
     public Output<Optional<Boolean>> autoUpgradeMinorVersion() {
@@ -225,16 +223,14 @@ public class Extension extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The protected_settings passed to the
-     * extension, like settings, these are specified as a JSON object in a string.
+     * The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
      */
     @Export(name="protectedSettings", type=String.class, parameters={})
     private Output</* @Nullable */ String> protectedSettings;
 
     /**
-     * @return The protected_settings passed to the
-     * extension, like settings, these are specified as a JSON object in a string.
+     * @return The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
      */
     public Output<Optional<String>> protectedSettings() {
@@ -269,16 +265,14 @@ public class Extension extends com.pulumi.resources.CustomResource {
         return this.publisher;
     }
     /**
-     * The settings passed to the extension, these are
-     * specified as a JSON object in a string.
+     * The settings passed to the extension, these are specified as a JSON object in a string.
      * 
      */
     @Export(name="settings", type=String.class, parameters={})
     private Output</* @Nullable */ String> settings;
 
     /**
-     * @return The settings passed to the extension, these are
-     * specified as a JSON object in a string.
+     * @return The settings passed to the extension, these are specified as a JSON object in a string.
      * 
      */
     public Output<Optional<String>> settings() {
@@ -299,32 +293,28 @@ public class Extension extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The type of extension, available types for a publisher can
-     * be found using the Azure CLI.
+     * The type of extension, available types for a publisher can be found using the Azure CLI.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of extension, available types for a publisher can
-     * be found using the Azure CLI.
+     * @return The type of extension, available types for a publisher can be found using the Azure CLI.
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * Specifies the version of the extension to
-     * use, available versions can be found using the Azure CLI.
+     * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      */
     @Export(name="typeHandlerVersion", type=String.class, parameters={})
     private Output<String> typeHandlerVersion;
 
     /**
-     * @return Specifies the version of the extension to
-     * use, available versions can be found using the Azure CLI.
+     * @return Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      */
     public Output<String> typeHandlerVersion() {

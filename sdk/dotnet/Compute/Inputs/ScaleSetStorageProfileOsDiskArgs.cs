@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? ManagedDiskType { get; set; }
 
         /// <summary>
-        /// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
+        /// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

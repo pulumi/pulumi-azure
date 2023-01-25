@@ -134,10 +134,7 @@ namespace Pulumi.Azure.Network
     public partial class VirtualNetworkGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// If `true`, an active-active Virtual Network Gateway
-        /// will be created. An active-active gateway requires a `HighPerformance` or an
-        /// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
-        /// Defaults to `false`.
+        /// If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         /// </summary>
         [Output("activeActive")]
         public Output<bool> ActiveActive { get; private set; } = null!;
@@ -155,11 +152,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.VirtualNetworkGatewayCustomRoute?> CustomRoute { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the local network gateway
-        /// through which outbound Internet traffic from the virtual network in which the
-        /// gateway is created will be routed (*forced tunnelling*). Refer to the
-        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-        /// If not specified, forced tunnelling is disabled.
+        /// The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         /// </summary>
         [Output("defaultLocalNetworkGatewayId")]
         public Output<string?> DefaultLocalNetworkGatewayId { get; private set; } = null!;
@@ -171,8 +164,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) will be enabled
-        /// for this Virtual Network Gateway. Defaults to `false`.
+        /// If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         /// </summary>
         [Output("enableBgp")]
         public Output<bool> EnableBgp { get; private set; } = null!;
@@ -217,13 +209,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of the size and capacity of the virtual network
-        /// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-        /// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
-        /// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
-        /// `generation` arguments.
-        /// A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
-        /// SKU is only supported by an `ExpressRoute` gateway.
+        /// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -299,10 +285,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `true`, an active-active Virtual Network Gateway
-        /// will be created. An active-active gateway requires a `HighPerformance` or an
-        /// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
-        /// Defaults to `false`.
+        /// If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         /// </summary>
         [Input("activeActive")]
         public Input<bool>? ActiveActive { get; set; }
@@ -320,11 +303,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.VirtualNetworkGatewayCustomRouteArgs>? CustomRoute { get; set; }
 
         /// <summary>
-        /// The ID of the local network gateway
-        /// through which outbound Internet traffic from the virtual network in which the
-        /// gateway is created will be routed (*forced tunnelling*). Refer to the
-        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-        /// If not specified, forced tunnelling is disabled.
+        /// The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         /// </summary>
         [Input("defaultLocalNetworkGatewayId")]
         public Input<string>? DefaultLocalNetworkGatewayId { get; set; }
@@ -336,8 +315,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) will be enabled
-        /// for this Virtual Network Gateway. Defaults to `false`.
+        /// If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
@@ -388,13 +366,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Configuration of the size and capacity of the virtual network
-        /// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-        /// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
-        /// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
-        /// `generation` arguments.
-        /// A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
-        /// SKU is only supported by an `ExpressRoute` gateway.
+        /// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -438,10 +410,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `true`, an active-active Virtual Network Gateway
-        /// will be created. An active-active gateway requires a `HighPerformance` or an
-        /// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
-        /// Defaults to `false`.
+        /// If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         /// </summary>
         [Input("activeActive")]
         public Input<bool>? ActiveActive { get; set; }
@@ -459,11 +428,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.VirtualNetworkGatewayCustomRouteGetArgs>? CustomRoute { get; set; }
 
         /// <summary>
-        /// The ID of the local network gateway
-        /// through which outbound Internet traffic from the virtual network in which the
-        /// gateway is created will be routed (*forced tunnelling*). Refer to the
-        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-        /// If not specified, forced tunnelling is disabled.
+        /// The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         /// </summary>
         [Input("defaultLocalNetworkGatewayId")]
         public Input<string>? DefaultLocalNetworkGatewayId { get; set; }
@@ -475,8 +440,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) will be enabled
-        /// for this Virtual Network Gateway. Defaults to `false`.
+        /// If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
@@ -527,13 +491,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Configuration of the size and capacity of the virtual network
-        /// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-        /// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
-        /// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
-        /// `generation` arguments.
-        /// A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
-        /// SKU is only supported by an `ExpressRoute` gateway.
+        /// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

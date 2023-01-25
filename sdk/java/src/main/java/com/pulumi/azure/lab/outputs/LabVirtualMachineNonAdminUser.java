@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class LabVirtualMachineNonAdminUser {
     /**
-     * @return The password for the user. Changing this forces a new resource to be created.
+     * @return The password for the user.
      * 
      */
     private String password;
     /**
-     * @return The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+     * @return The username to use when signing in to Lab Service Lab VMs.
      * 
      */
     private String username;
 
     private LabVirtualMachineNonAdminUser() {}
     /**
-     * @return The password for the user. Changing this forces a new resource to be created.
+     * @return The password for the user.
      * 
      */
     public String password() {
         return this.password;
     }
     /**
-     * @return The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+     * @return The username to use when signing in to Lab Service Lab VMs.
      * 
      */
     public String username() {

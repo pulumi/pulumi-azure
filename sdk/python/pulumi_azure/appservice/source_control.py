@@ -28,7 +28,7 @@ class SourceControlArgs:
         The set of arguments for constructing a SourceControl resource.
         :param pulumi.Input[str] app_id: The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
-        :param pulumi.Input['SourceControlGithubActionConfigurationArgs'] github_action_configuration: A `github_action_configuration` block as defined below.
+        :param pulumi.Input['SourceControlGithubActionConfigurationArgs'] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_local_git: Should the App use local Git configuration. Changing this forces a new resource to be created.
@@ -79,7 +79,7 @@ class SourceControlArgs:
     @pulumi.getter(name="githubActionConfiguration")
     def github_action_configuration(self) -> Optional[pulumi.Input['SourceControlGithubActionConfigurationArgs']]:
         """
-        A `github_action_configuration` block as defined below.
+        A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "github_action_configuration")
 
@@ -165,7 +165,7 @@ class _SourceControlState:
         Input properties used for looking up and filtering SourceControl resources.
         :param pulumi.Input[str] app_id: The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
-        :param pulumi.Input['SourceControlGithubActionConfigurationArgs'] github_action_configuration: A `github_action_configuration` block as defined below.
+        :param pulumi.Input['SourceControlGithubActionConfigurationArgs'] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scm_type: The SCM Type in use. This value is decoded by the service from the repository information supplied.
@@ -223,7 +223,7 @@ class _SourceControlState:
     @pulumi.getter(name="githubActionConfiguration")
     def github_action_configuration(self) -> Optional[pulumi.Input['SourceControlGithubActionConfigurationArgs']]:
         """
-        A `github_action_configuration` block as defined below.
+        A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "github_action_configuration")
 
@@ -368,7 +368,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SourceControlGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SourceControlGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_local_git: Should the App use local Git configuration. Changing this forces a new resource to be created.
@@ -488,7 +488,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SourceControlGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SourceControlGithubActionConfigurationArgs']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scm_type: The SCM Type in use. This value is decoded by the service from the repository information supplied.
@@ -533,7 +533,7 @@ class SourceControl(pulumi.CustomResource):
     @pulumi.getter(name="githubActionConfiguration")
     def github_action_configuration(self) -> pulumi.Output[Optional['outputs.SourceControlGithubActionConfiguration']]:
         """
-        A `github_action_configuration` block as defined below.
+        A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "github_action_configuration")
 

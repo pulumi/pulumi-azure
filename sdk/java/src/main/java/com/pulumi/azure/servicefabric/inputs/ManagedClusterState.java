@@ -204,14 +204,14 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the Resource Group where the Resource Group should exist.
+     * The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Resource Group should exist.
+     * @return The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -219,14 +219,14 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+     * SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+     * @return SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -601,7 +601,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Resource Group should exist.
+         * @param resourceGroupName The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
          * 
          * @return builder
          * 
@@ -612,7 +612,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Resource Group should exist.
+         * @param resourceGroupName The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sku SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+         * @param sku SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
          * 
          * @return builder
          * 
@@ -633,7 +633,7 @@ public final class ManagedClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sku SKU for this cluster.  Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
+         * @param sku SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
          * 
          * @return builder
          * 

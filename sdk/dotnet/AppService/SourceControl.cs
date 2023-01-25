@@ -76,7 +76,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Branch { get; private set; } = null!;
 
         /// <summary>
-        /// A `github_action_configuration` block as defined below.
+        /// A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("githubActionConfiguration")]
         public Output<Outputs.SourceControlGithubActionConfiguration?> GithubActionConfiguration { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// A `github_action_configuration` block as defined below.
+        /// A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("githubActionConfiguration")]
         public Input<Inputs.SourceControlGithubActionConfigurationArgs>? GithubActionConfiguration { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// A `github_action_configuration` block as defined below.
+        /// A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("githubActionConfiguration")]
         public Input<Inputs.SourceControlGithubActionConfigurationGetArgs>? GithubActionConfiguration { get; set; }

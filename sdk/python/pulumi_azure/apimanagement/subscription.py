@@ -30,7 +30,7 @@ class SubscriptionArgs:
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled.  Defaults to `true`.
+        :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled. Defaults to `true`.
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_key: The primary subscription key to use for the subscription.
         :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -99,7 +99,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="allowTracing")
     def allow_tracing(self) -> Optional[pulumi.Input[bool]]:
         """
-        Determines whether tracing can be enabled.  Defaults to `true`.
+        Determines whether tracing can be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "allow_tracing")
 
@@ -208,7 +208,7 @@ class _SubscriptionState:
                  user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Subscription resources.
-        :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled.  Defaults to `true`.
+        :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled. Defaults to `true`.
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
@@ -247,7 +247,7 @@ class _SubscriptionState:
     @pulumi.getter(name="allowTracing")
     def allow_tracing(self) -> Optional[pulumi.Input[bool]]:
         """
-        Determines whether tracing can be enabled.  Defaults to `true`.
+        Determines whether tracing can be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "allow_tracing")
 
@@ -428,7 +428,7 @@ class Subscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled.  Defaults to `true`.
+        :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled. Defaults to `true`.
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
@@ -561,7 +561,7 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled.  Defaults to `true`.
+        :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled. Defaults to `true`.
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
@@ -594,7 +594,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter(name="allowTracing")
     def allow_tracing(self) -> pulumi.Output[Optional[bool]]:
         """
-        Determines whether tracing can be enabled.  Defaults to `true`.
+        Determines whether tracing can be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "allow_tracing")
 

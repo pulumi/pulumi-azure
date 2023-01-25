@@ -17,16 +17,20 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
     public static final ReplicatedVMNetworkInterfaceArgs Empty = new ReplicatedVMNetworkInterfaceArgs();
 
     /**
-     * If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+     * @deprecated
+     * this property is not used and will be removed in version 4.0 of the provider
      * 
      */
+    @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
     @Import(name="isPrimary")
     private @Nullable Output<Boolean> isPrimary;
 
     /**
-     * @return If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+     * @deprecated
+     * this property is not used and will be removed in version 4.0 of the provider
      * 
      */
+    @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
     public Optional<Output<Boolean>> isPrimary() {
         return Optional.ofNullable(this.isPrimary);
     }
@@ -120,22 +124,26 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param isPrimary If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * this property is not used and will be removed in version 4.0 of the provider
+         * 
          */
+        @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
         public Builder isPrimary(@Nullable Output<Boolean> isPrimary) {
             $.isPrimary = isPrimary;
             return this;
         }
 
         /**
-         * @param isPrimary If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * this property is not used and will be removed in version 4.0 of the provider
+         * 
          */
+        @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
         public Builder isPrimary(Boolean isPrimary) {
             return isPrimary(Output.of(isPrimary));
         }

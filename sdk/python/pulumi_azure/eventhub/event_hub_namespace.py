@@ -288,15 +288,11 @@ class _EventHubNamespaceState:
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
         :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         :param pulumi.Input[str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization
-               rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[str] default_primary_connection_string_alias: The alias of the primary connection string for the authorization
-               rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] default_primary_connection_string_alias: The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the
-               authorization rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[str] default_secondary_connection_string_alias: The alias of the secondary connection string for the
-               authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] default_secondary_connection_string_alias: The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input['EventHubNamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
@@ -394,8 +390,7 @@ class _EventHubNamespaceState:
     @pulumi.getter(name="defaultPrimaryConnectionString")
     def default_primary_connection_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The primary connection string for the authorization
-        rule `RootManageSharedAccessKey`.
+        The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_primary_connection_string")
 
@@ -407,8 +402,7 @@ class _EventHubNamespaceState:
     @pulumi.getter(name="defaultPrimaryConnectionStringAlias")
     def default_primary_connection_string_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The alias of the primary connection string for the authorization
-        rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         """
         return pulumi.get(self, "default_primary_connection_string_alias")
 
@@ -432,8 +426,7 @@ class _EventHubNamespaceState:
     @pulumi.getter(name="defaultSecondaryConnectionString")
     def default_secondary_connection_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The secondary connection string for the
-        authorization rule `RootManageSharedAccessKey`.
+        The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_secondary_connection_string")
 
@@ -445,8 +438,7 @@ class _EventHubNamespaceState:
     @pulumi.getter(name="defaultSecondaryConnectionStringAlias")
     def default_secondary_connection_string_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The alias of the secondary connection string for the
-        authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         """
         return pulumi.get(self, "default_secondary_connection_string_alias")
 
@@ -819,15 +811,11 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
         :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         :param pulumi.Input[str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization
-               rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[str] default_primary_connection_string_alias: The alias of the primary connection string for the authorization
-               rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] default_primary_connection_string_alias: The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the
-               authorization rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[str] default_secondary_connection_string_alias: The alias of the secondary connection string for the
-               authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] default_secondary_connection_string_alias: The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[pulumi.InputType['EventHubNamespaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
@@ -897,8 +885,7 @@ class EventHubNamespace(pulumi.CustomResource):
     @pulumi.getter(name="defaultPrimaryConnectionString")
     def default_primary_connection_string(self) -> pulumi.Output[str]:
         """
-        The primary connection string for the authorization
-        rule `RootManageSharedAccessKey`.
+        The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_primary_connection_string")
 
@@ -906,8 +893,7 @@ class EventHubNamespace(pulumi.CustomResource):
     @pulumi.getter(name="defaultPrimaryConnectionStringAlias")
     def default_primary_connection_string_alias(self) -> pulumi.Output[str]:
         """
-        The alias of the primary connection string for the authorization
-        rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         """
         return pulumi.get(self, "default_primary_connection_string_alias")
 
@@ -923,8 +909,7 @@ class EventHubNamespace(pulumi.CustomResource):
     @pulumi.getter(name="defaultSecondaryConnectionString")
     def default_secondary_connection_string(self) -> pulumi.Output[str]:
         """
-        The secondary connection string for the
-        authorization rule `RootManageSharedAccessKey`.
+        The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_secondary_connection_string")
 
@@ -932,8 +917,7 @@ class EventHubNamespace(pulumi.CustomResource):
     @pulumi.getter(name="defaultSecondaryConnectionStringAlias")
     def default_secondary_connection_string_alias(self) -> pulumi.Output[str]:
         """
-        The alias of the secondary connection string for the
-        authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         """
         return pulumi.get(self, "default_secondary_connection_string_alias")
 

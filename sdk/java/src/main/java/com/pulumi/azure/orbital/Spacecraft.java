@@ -83,14 +83,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:orbital/spacecraft:Spacecraft")
 public class Spacecraft extends com.pulumi.resources.CustomResource {
     /**
-     * A `links` block as defined below.
+     * A `links` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="links", type=List.class, parameters={SpacecraftLink.class})
     private Output<List<SpacecraftLink>> links;
 
     /**
-     * @return A `links` block as defined below.
+     * @return A `links` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<SpacecraftLink>> links() {
@@ -181,14 +181,14 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
         return this.titleLine;
     }
     /**
-     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="twoLineElements", type=List.class, parameters={String.class})
     private Output<List<String>> twoLineElements;
 
     /**
-     * @return A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
+     * @return A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<String>> twoLineElements() {

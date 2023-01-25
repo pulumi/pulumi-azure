@@ -81,7 +81,7 @@ type NetworkSecurityGroup struct {
 
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the security rule. Changing this forces a new resource to be created.
+	// The name of the security rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -125,7 +125,7 @@ func GetNetworkSecurityGroup(ctx *pulumi.Context,
 type networkSecurityGroupState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the security rule. Changing this forces a new resource to be created.
+	// The name of the security rule.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -138,7 +138,7 @@ type networkSecurityGroupState struct {
 type NetworkSecurityGroupState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the security rule. Changing this forces a new resource to be created.
+	// The name of the security rule.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -155,7 +155,7 @@ func (NetworkSecurityGroupState) ElementType() reflect.Type {
 type networkSecurityGroupArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the security rule. Changing this forces a new resource to be created.
+	// The name of the security rule.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -169,7 +169,7 @@ type networkSecurityGroupArgs struct {
 type NetworkSecurityGroupArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the security rule. Changing this forces a new resource to be created.
+	// The name of the security rule.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -271,7 +271,7 @@ func (o NetworkSecurityGroupOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the security rule. Changing this forces a new resource to be created.
+// The name of the security rule.
 func (o NetworkSecurityGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

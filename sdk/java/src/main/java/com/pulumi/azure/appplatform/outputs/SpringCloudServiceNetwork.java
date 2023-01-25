@@ -29,7 +29,7 @@ public final class SpringCloudServiceNetwork {
      */
     private List<String> cidrRanges;
     /**
-     * @return Ingress read time out in seconds. Changing this forces a new resource to be created.
+     * @return Ingress read time out in seconds.
      * 
      */
     private @Nullable Integer readTimeoutSeconds;
@@ -67,7 +67,7 @@ public final class SpringCloudServiceNetwork {
         return this.cidrRanges;
     }
     /**
-     * @return Ingress read time out in seconds. Changing this forces a new resource to be created.
+     * @return Ingress read time out in seconds.
      * 
      */
     public Optional<Integer> readTimeoutSeconds() {

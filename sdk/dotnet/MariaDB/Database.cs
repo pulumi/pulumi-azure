@@ -75,8 +75,7 @@ namespace Pulumi.Azure.MariaDB
         public Output<string> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -152,8 +151,7 @@ namespace Pulumi.Azure.MariaDB
         public Input<string> Collation { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -191,8 +189,7 @@ namespace Pulumi.Azure.MariaDB
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

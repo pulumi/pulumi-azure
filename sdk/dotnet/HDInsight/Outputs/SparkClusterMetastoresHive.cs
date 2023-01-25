@@ -14,19 +14,19 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class SparkClusterMetastoresHive
     {
         /// <summary>
-        /// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        /// The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
-        /// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        /// The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+        /// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Server;
         /// <summary>
-        /// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+        /// The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Username;
 

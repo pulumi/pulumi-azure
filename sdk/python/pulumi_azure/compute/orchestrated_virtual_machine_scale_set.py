@@ -72,7 +72,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileArgs'] os_profile: An `os_profile` block as defined below.
-        :param pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as documented below.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
@@ -406,7 +406,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs']]:
         """
-        A `plan` block as documented below.
+        A `plan` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
@@ -605,7 +605,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileArgs'] os_profile: An `os_profile` block as defined below.
-        :param pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as documented below.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
@@ -922,7 +922,7 @@ class _OrchestratedVirtualMachineScaleSetState:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs']]:
         """
-        A `plan` block as documented below.
+        A `plan` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
@@ -1190,7 +1190,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsDiskArgs']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsProfileArgs']] os_profile: An `os_profile` block as defined below.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below.
+        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
@@ -1409,7 +1409,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsDiskArgs']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsProfileArgs']] os_profile: An `os_profile` block as defined below.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below.
+        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
@@ -1621,7 +1621,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def plan(self) -> pulumi.Output[Optional['outputs.OrchestratedVirtualMachineScaleSetPlan']]:
         """
-        A `plan` block as documented below.
+        A `plan` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 

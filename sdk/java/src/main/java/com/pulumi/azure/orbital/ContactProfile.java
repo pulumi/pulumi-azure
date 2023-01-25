@@ -147,14 +147,14 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventHubUri);
     }
     /**
-     * A list of spacecraft links. A `links` block as defined below.
+     * A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="links", type=List.class, parameters={ContactProfileLink.class})
     private Output<List<ContactProfileLink>> links;
 
     /**
-     * @return A list of spacecraft links. A `links` block as defined below.
+     * @return A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<ContactProfileLink>> links() {

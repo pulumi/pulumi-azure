@@ -139,7 +139,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly galleryImageReferenceId!: pulumi.Output<string | undefined>;
     /**
-     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
      */
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
     /**
@@ -171,7 +171,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly onDemandBurstingEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+     * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
@@ -187,7 +187,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly secureVmDiskEncryptionSetId!: pulumi.Output<string | undefined>;
     /**
-     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      */
     public readonly securityType!: pulumi.Output<string | undefined>;
     /**
@@ -195,11 +195,11 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly sourceResourceId!: pulumi.Output<string | undefined>;
     /**
-     * URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
+     * URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      */
     public readonly sourceUri!: pulumi.Output<string>;
     /**
-     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
@@ -372,7 +372,7 @@ export interface ManagedDiskState {
      */
     galleryImageReferenceId?: pulumi.Input<string>;
     /**
-     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
      */
     hyperVGeneration?: pulumi.Input<string>;
     /**
@@ -404,7 +404,7 @@ export interface ManagedDiskState {
      */
     onDemandBurstingEnabled?: pulumi.Input<boolean>;
     /**
-     * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+     * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     osType?: pulumi.Input<string>;
     /**
@@ -420,7 +420,7 @@ export interface ManagedDiskState {
      */
     secureVmDiskEncryptionSetId?: pulumi.Input<string>;
     /**
-     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      */
     securityType?: pulumi.Input<string>;
     /**
@@ -428,11 +428,11 @@ export interface ManagedDiskState {
      */
     sourceResourceId?: pulumi.Input<string>;
     /**
-     * URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
+     * URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      */
     sourceUri?: pulumi.Input<string>;
     /**
-     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      */
     storageAccountId?: pulumi.Input<string>;
     /**
@@ -510,7 +510,7 @@ export interface ManagedDiskArgs {
      */
     galleryImageReferenceId?: pulumi.Input<string>;
     /**
-     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
      */
     hyperVGeneration?: pulumi.Input<string>;
     /**
@@ -542,7 +542,7 @@ export interface ManagedDiskArgs {
      */
     onDemandBurstingEnabled?: pulumi.Input<boolean>;
     /**
-     * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+     * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     osType?: pulumi.Input<string>;
     /**
@@ -558,7 +558,7 @@ export interface ManagedDiskArgs {
      */
     secureVmDiskEncryptionSetId?: pulumi.Input<string>;
     /**
-     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      */
     securityType?: pulumi.Input<string>;
     /**
@@ -566,11 +566,11 @@ export interface ManagedDiskArgs {
      */
     sourceResourceId?: pulumi.Input<string>;
     /**
-     * URI to a valid VHD file to be used when `createOption` is `Import`. Changing this forces a new resource to be created.
+     * URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      */
     sourceUri?: pulumi.Input<string>;
     /**
-     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      */
     storageAccountId?: pulumi.Input<string>;
     /**

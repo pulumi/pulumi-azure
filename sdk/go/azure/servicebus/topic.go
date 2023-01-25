@@ -72,36 +72,25 @@ import (
 type Topic struct {
 	pulumi.CustomResourceState
 
-	// The ISO 8601 timespan duration of the idle interval after which the
-	// Topic is automatically deleted, minimum of 5 minutes.
+	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
 	AutoDeleteOnIdle pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
-	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-	// TTL value is set on the message itself.
+	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 	DefaultMessageTtl pulumi.StringOutput `pulumi:"defaultMessageTtl"`
-	// The ISO 8601 timespan duration during which
-	// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow pulumi.StringOutput `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	// Boolean flag which controls if server-side
-	// batched operations are enabled. Defaults to false.
+	// Boolean flag which controls if server-side batched operations are enabled.
 	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
-	// Boolean flag which controls whether Express Entities
-	// are enabled. An express topic holds a message in memory temporarily before writing
-	// it to persistent storage. Defaults to false.
+	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
-	// Integer value which controls the maximum size of
-	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntOutput `pulumi:"maxMessageSizeInKilobytes"`
-	// Integer value which controls the size of
-	// memory allocated for the topic. For supported values see the "Queue/topic size"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes pulumi.IntOutput `pulumi:"maxSizeInMegabytes"`
-	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
 	// this topic in. Changing this forces a new resource to be created.
@@ -114,8 +103,7 @@ type Topic struct {
 	ResourceGroupName          pulumi.StringOutput  `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Boolean flag which controls whether the Topic
-	// supports ordering. Defaults to false.
+	// Boolean flag which controls whether the Topic supports ordering.
 	SupportOrdering pulumi.BoolPtrOutput `pulumi:"supportOrdering"`
 }
 
@@ -157,36 +145,25 @@ func GetTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Topic resources.
 type topicState struct {
-	// The ISO 8601 timespan duration of the idle interval after which the
-	// Topic is automatically deleted, minimum of 5 minutes.
+	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
-	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-	// TTL value is set on the message itself.
+	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 	DefaultMessageTtl *string `pulumi:"defaultMessageTtl"`
-	// The ISO 8601 timespan duration during which
-	// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	// Boolean flag which controls if server-side
-	// batched operations are enabled. Defaults to false.
+	// Boolean flag which controls if server-side batched operations are enabled.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
-	// Boolean flag which controls whether Express Entities
-	// are enabled. An express topic holds a message in memory temporarily before writing
-	// it to persistent storage. Defaults to false.
+	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
-	// Integer value which controls the maximum size of
-	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
-	// Integer value which controls the size of
-	// memory allocated for the topic. For supported values see the "Queue/topic size"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
-	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
 	// this topic in. Changing this forces a new resource to be created.
@@ -199,42 +176,30 @@ type topicState struct {
 	ResourceGroupName          *string `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
-	// Boolean flag which controls whether the Topic
-	// supports ordering. Defaults to false.
+	// Boolean flag which controls whether the Topic supports ordering.
 	SupportOrdering *bool `pulumi:"supportOrdering"`
 }
 
 type TopicState struct {
-	// The ISO 8601 timespan duration of the idle interval after which the
-	// Topic is automatically deleted, minimum of 5 minutes.
+	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
 	AutoDeleteOnIdle pulumi.StringPtrInput
-	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-	// TTL value is set on the message itself.
+	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 	DefaultMessageTtl pulumi.StringPtrInput
-	// The ISO 8601 timespan duration during which
-	// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
-	// Boolean flag which controls if server-side
-	// batched operations are enabled. Defaults to false.
+	// Boolean flag which controls if server-side batched operations are enabled.
 	EnableBatchedOperations pulumi.BoolPtrInput
-	// Boolean flag which controls whether Express Entities
-	// are enabled. An express topic holds a message in memory temporarily before writing
-	// it to persistent storage. Defaults to false.
+	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	EnableExpress pulumi.BoolPtrInput
 	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrInput
-	// Integer value which controls the maximum size of
-	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntPtrInput
-	// Integer value which controls the size of
-	// memory allocated for the topic. For supported values see the "Queue/topic size"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes pulumi.IntPtrInput
-	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
 	// this topic in. Changing this forces a new resource to be created.
@@ -247,8 +212,7 @@ type TopicState struct {
 	ResourceGroupName          pulumi.StringPtrInput
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
-	// Boolean flag which controls whether the Topic
-	// supports ordering. Defaults to false.
+	// Boolean flag which controls whether the Topic supports ordering.
 	SupportOrdering pulumi.BoolPtrInput
 }
 
@@ -257,36 +221,25 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
-	// The ISO 8601 timespan duration of the idle interval after which the
-	// Topic is automatically deleted, minimum of 5 minutes.
+	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
-	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-	// TTL value is set on the message itself.
+	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 	DefaultMessageTtl *string `pulumi:"defaultMessageTtl"`
-	// The ISO 8601 timespan duration during which
-	// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	// Boolean flag which controls if server-side
-	// batched operations are enabled. Defaults to false.
+	// Boolean flag which controls if server-side batched operations are enabled.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
-	// Boolean flag which controls whether Express Entities
-	// are enabled. An express topic holds a message in memory temporarily before writing
-	// it to persistent storage. Defaults to false.
+	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
-	// Integer value which controls the maximum size of
-	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
-	// Integer value which controls the size of
-	// memory allocated for the topic. For supported values see the "Queue/topic size"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
-	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
 	// this topic in. Changing this forces a new resource to be created.
@@ -297,43 +250,31 @@ type topicArgs struct {
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
-	// Boolean flag which controls whether the Topic
-	// supports ordering. Defaults to false.
+	// Boolean flag which controls whether the Topic supports ordering.
 	SupportOrdering *bool `pulumi:"supportOrdering"`
 }
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
-	// The ISO 8601 timespan duration of the idle interval after which the
-	// Topic is automatically deleted, minimum of 5 minutes.
+	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
 	AutoDeleteOnIdle pulumi.StringPtrInput
-	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-	// TTL value is set on the message itself.
+	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 	DefaultMessageTtl pulumi.StringPtrInput
-	// The ISO 8601 timespan duration during which
-	// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
-	// Boolean flag which controls if server-side
-	// batched operations are enabled. Defaults to false.
+	// Boolean flag which controls if server-side batched operations are enabled.
 	EnableBatchedOperations pulumi.BoolPtrInput
-	// Boolean flag which controls whether Express Entities
-	// are enabled. An express topic holds a message in memory temporarily before writing
-	// it to persistent storage. Defaults to false.
+	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	EnableExpress pulumi.BoolPtrInput
 	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrInput
-	// Integer value which controls the maximum size of
-	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntPtrInput
-	// Integer value which controls the size of
-	// memory allocated for the topic. For supported values see the "Queue/topic size"
-	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes pulumi.IntPtrInput
-	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
 	// this topic in. Changing this forces a new resource to be created.
@@ -344,8 +285,7 @@ type TopicArgs struct {
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
-	// Boolean flag which controls whether the Topic
-	// supports ordering. Defaults to false.
+	// Boolean flag which controls whether the Topic supports ordering.
 	SupportOrdering pulumi.BoolPtrInput
 }
 
@@ -436,33 +376,27 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
 }
 
-// The ISO 8601 timespan duration of the idle interval after which the
-// Topic is automatically deleted, minimum of 5 minutes.
+// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
 func (o TopicOutput) AutoDeleteOnIdle() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.AutoDeleteOnIdle }).(pulumi.StringOutput)
 }
 
-// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-// TTL value is set on the message itself.
+// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 func (o TopicOutput) DefaultMessageTtl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.DefaultMessageTtl }).(pulumi.StringOutput)
 }
 
-// The ISO 8601 timespan duration during which
-// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 func (o TopicOutput) DuplicateDetectionHistoryTimeWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.DuplicateDetectionHistoryTimeWindow }).(pulumi.StringOutput)
 }
 
-// Boolean flag which controls if server-side
-// batched operations are enabled. Defaults to false.
+// Boolean flag which controls if server-side batched operations are enabled.
 func (o TopicOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnableBatchedOperations }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean flag which controls whether Express Entities
-// are enabled. An express topic holds a message in memory temporarily before writing
-// it to persistent storage. Defaults to false.
+// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 func (o TopicOutput) EnableExpress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnableExpress }).(pulumi.BoolPtrOutput)
 }
@@ -474,22 +408,17 @@ func (o TopicOutput) EnablePartitioning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
 }
 
-// Integer value which controls the maximum size of
-// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 func (o TopicOutput) MaxMessageSizeInKilobytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *Topic) pulumi.IntOutput { return v.MaxMessageSizeInKilobytes }).(pulumi.IntOutput)
 }
 
-// Integer value which controls the size of
-// memory allocated for the topic. For supported values see the "Queue/topic size"
-// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 func (o TopicOutput) MaxSizeInMegabytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *Topic) pulumi.IntOutput { return v.MaxSizeInMegabytes }).(pulumi.IntOutput)
 }
 
-// Specifies the name of the ServiceBus Topic resource. Changing this forces a
-// new resource to be created.
+// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 func (o TopicOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -520,8 +449,7 @@ func (o TopicOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Boolean flag which controls whether the Topic
-// supports ordering. Defaults to false.
+// Boolean flag which controls whether the Topic supports ordering.
 func (o TopicOutput) SupportOrdering() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.SupportOrdering }).(pulumi.BoolPtrOutput)
 }

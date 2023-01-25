@@ -14,14 +14,14 @@ public final class IntegrationRuntimeSelfHostedRbacAuthorizationArgs extends com
     public static final IntegrationRuntimeSelfHostedRbacAuthorizationArgs Empty = new IntegrationRuntimeSelfHostedRbacAuthorizationArgs();
 
     /**
-     * The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+     * The resource identifier of the integration runtime to be shared.
      * 
      */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
     /**
-     * @return The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+     * @return The resource identifier of the integration runtime to be shared.
      * 
      */
     public Output<String> resourceId() {
@@ -53,7 +53,7 @@ public final class IntegrationRuntimeSelfHostedRbacAuthorizationArgs extends com
         }
 
         /**
-         * @param resourceId The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+         * @param resourceId The resource identifier of the integration runtime to be shared.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class IntegrationRuntimeSelfHostedRbacAuthorizationArgs extends com
         }
 
         /**
-         * @param resourceId The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+         * @param resourceId The resource identifier of the integration runtime to be shared.
          * 
          * @return builder
          * 

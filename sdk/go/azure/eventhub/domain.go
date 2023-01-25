@@ -74,9 +74,9 @@ type Domain struct {
 	Identity DomainIdentityPtrOutput `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules DomainInboundIpRuleArrayOutput `pulumi:"inboundIpRules"`
-	// A `inputMappingDefaultValues` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 	InputMappingDefaultValues DomainInputMappingDefaultValuesPtrOutput `pulumi:"inputMappingDefaultValues"`
-	// A `inputMappingFields` block as defined below.
+	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields DomainInputMappingFieldsPtrOutput `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrOutput `pulumi:"inputSchema"`
@@ -145,9 +145,9 @@ type domainState struct {
 	Identity *DomainIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []DomainInboundIpRule `pulumi:"inboundIpRules"`
-	// A `inputMappingDefaultValues` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 	InputMappingDefaultValues *DomainInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
-	// A `inputMappingFields` block as defined below.
+	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields *DomainInputMappingFields `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema *string `pulumi:"inputSchema"`
@@ -180,9 +180,9 @@ type DomainState struct {
 	Identity DomainIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules DomainInboundIpRuleArrayInput
-	// A `inputMappingDefaultValues` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 	InputMappingDefaultValues DomainInputMappingDefaultValuesPtrInput
-	// A `inputMappingFields` block as defined below.
+	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields DomainInputMappingFieldsPtrInput
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrInput
@@ -217,9 +217,9 @@ type domainArgs struct {
 	Identity *DomainIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []DomainInboundIpRule `pulumi:"inboundIpRules"`
-	// A `inputMappingDefaultValues` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 	InputMappingDefaultValues *DomainInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
-	// A `inputMappingFields` block as defined below.
+	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields *DomainInputMappingFields `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema *string `pulumi:"inputSchema"`
@@ -247,9 +247,9 @@ type DomainArgs struct {
 	Identity DomainIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules DomainInboundIpRuleArrayInput
-	// A `inputMappingDefaultValues` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 	InputMappingDefaultValues DomainInputMappingDefaultValuesPtrInput
-	// A `inputMappingFields` block as defined below.
+	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields DomainInputMappingFieldsPtrInput
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrInput
@@ -379,12 +379,12 @@ func (o DomainOutput) InboundIpRules() DomainInboundIpRuleArrayOutput {
 	return o.ApplyT(func(v *Domain) DomainInboundIpRuleArrayOutput { return v.InboundIpRules }).(DomainInboundIpRuleArrayOutput)
 }
 
-// A `inputMappingDefaultValues` block as defined below.
+// A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
 func (o DomainOutput) InputMappingDefaultValues() DomainInputMappingDefaultValuesPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainInputMappingDefaultValuesPtrOutput { return v.InputMappingDefaultValues }).(DomainInputMappingDefaultValuesPtrOutput)
 }
 
-// A `inputMappingFields` block as defined below.
+// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 func (o DomainOutput) InputMappingFields() DomainInputMappingFieldsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainInputMappingFieldsPtrOutput { return v.InputMappingFields }).(DomainInputMappingFieldsPtrOutput)
 }

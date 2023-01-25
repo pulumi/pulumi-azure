@@ -65,7 +65,7 @@ type AnalyticsWorkspace struct {
 	AllowResourceOnlyPermissions pulumi.BoolPtrOutput `pulumi:"allowResourceOnlyPermissions"`
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrOutput `pulumi:"cmkForQueryForced"`
-	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+	// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb pulumi.Float64PtrOutput `pulumi:"dailyQuotaGb"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrOutput `pulumi:"internetIngestionEnabled"`
@@ -77,7 +77,7 @@ type AnalyticsWorkspace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringOutput `pulumi:"primarySharedKey"`
-	// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+	// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
 	ReservationCapacityInGbPerDay pulumi.IntOutput `pulumi:"reservationCapacityInGbPerDay"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -134,7 +134,7 @@ type analyticsWorkspaceState struct {
 	AllowResourceOnlyPermissions *bool `pulumi:"allowResourceOnlyPermissions"`
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced *bool `pulumi:"cmkForQueryForced"`
-	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+	// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
@@ -146,7 +146,7 @@ type analyticsWorkspaceState struct {
 	Name *string `pulumi:"name"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey *string `pulumi:"primarySharedKey"`
-	// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+	// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
 	ReservationCapacityInGbPerDay *int `pulumi:"reservationCapacityInGbPerDay"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -167,7 +167,7 @@ type AnalyticsWorkspaceState struct {
 	AllowResourceOnlyPermissions pulumi.BoolPtrInput
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrInput
-	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+	// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb pulumi.Float64PtrInput
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
@@ -179,7 +179,7 @@ type AnalyticsWorkspaceState struct {
 	Name pulumi.StringPtrInput
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringPtrInput
-	// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+	// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
 	ReservationCapacityInGbPerDay pulumi.IntPtrInput
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -204,7 +204,7 @@ type analyticsWorkspaceArgs struct {
 	AllowResourceOnlyPermissions *bool `pulumi:"allowResourceOnlyPermissions"`
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced *bool `pulumi:"cmkForQueryForced"`
-	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+	// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
@@ -214,7 +214,7 @@ type analyticsWorkspaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+	// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
 	ReservationCapacityInGbPerDay *int `pulumi:"reservationCapacityInGbPerDay"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -232,7 +232,7 @@ type AnalyticsWorkspaceArgs struct {
 	AllowResourceOnlyPermissions pulumi.BoolPtrInput
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrInput
-	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+	// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb pulumi.Float64PtrInput
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
@@ -242,7 +242,7 @@ type AnalyticsWorkspaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+	// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
 	ReservationCapacityInGbPerDay pulumi.IntPtrInput
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -351,7 +351,7 @@ func (o AnalyticsWorkspaceOutput) CmkForQueryForced() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.BoolPtrOutput { return v.CmkForQueryForced }).(pulumi.BoolPtrOutput)
 }
 
-// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
 func (o AnalyticsWorkspaceOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.Float64PtrOutput { return v.DailyQuotaGb }).(pulumi.Float64PtrOutput)
 }
@@ -381,7 +381,7 @@ func (o AnalyticsWorkspaceOutput) PrimarySharedKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.StringOutput { return v.PrimarySharedKey }).(pulumi.StringOutput)
 }
 
-// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
 func (o AnalyticsWorkspaceOutput) ReservationCapacityInGbPerDay() pulumi.IntOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.IntOutput { return v.ReservationCapacityInGbPerDay }).(pulumi.IntOutput)
 }

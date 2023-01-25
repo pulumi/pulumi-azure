@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+        /// The IP Tag associated with the Public IP, such as `SQL` or `Storage`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("tag", required: true)]
         public Input<string> Tag { get; set; } = null!;
 
         /// <summary>
-        /// The Type of IP Tag, such as `FirstPartyUsage`.
+        /// The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

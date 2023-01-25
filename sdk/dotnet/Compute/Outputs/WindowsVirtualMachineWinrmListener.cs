@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? CertificateUrl;
         /// <summary>
-        /// Specifies the protocol of listener. Possible values are `Http` or `Https`
+        /// Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Protocol;
 

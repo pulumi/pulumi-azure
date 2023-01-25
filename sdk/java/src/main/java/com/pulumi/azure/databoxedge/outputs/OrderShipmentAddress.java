@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class OrderShipmentAddress {
     /**
-     * @return The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+     * @return The list of upto 3 lines for address information.
      * 
      */
     private List<String> addresses;
@@ -38,7 +38,7 @@ public final class OrderShipmentAddress {
 
     private OrderShipmentAddress() {}
     /**
-     * @return The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+     * @return The list of upto 3 lines for address information.
      * 
      */
     public List<String> addresses() {

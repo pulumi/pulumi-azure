@@ -160,14 +160,14 @@ public class TriggerRecurrence extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.startTime);
     }
     /**
-     * Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+     * Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
      * 
      */
     @Export(name="timeZone", type=String.class, parameters={})
     private Output<String> timeZone;
 
     /**
-     * @return Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+     * @return Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
      * 
      */
     public Output<String> timeZone() {

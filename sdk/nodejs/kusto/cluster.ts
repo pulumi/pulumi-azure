@@ -86,7 +86,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly diskEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+     * Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
      */
     public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface ClusterState {
      */
     diskEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+     * Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -360,7 +360,7 @@ export interface ClusterArgs {
      */
     diskEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
+     * Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**

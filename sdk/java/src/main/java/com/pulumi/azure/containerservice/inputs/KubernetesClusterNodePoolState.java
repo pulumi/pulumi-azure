@@ -70,14 +70,14 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
-     * Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     @Import(name="enableHostEncryption")
     private @Nullable Output<Boolean> enableHostEncryption;
 
     /**
-     * @return Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> enableHostEncryption() {
@@ -85,14 +85,14 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
-     * Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
      * 
      */
     @Import(name="enableNodePublicIp")
     private @Nullable Output<Boolean> enableNodePublicIp;
 
     /**
-     * @return Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+     * @return Should each node have a Public IP Address? Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> enableNodePublicIp() {
@@ -145,14 +145,14 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
-     * A `kubelet_config` block as defined below.
+     * A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="kubeletConfig")
     private @Nullable Output<KubernetesClusterNodePoolKubeletConfigArgs> kubeletConfig;
 
     /**
-     * @return A `kubelet_config` block as defined below.
+     * @return A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<KubernetesClusterNodePoolKubeletConfigArgs>> kubeletConfig() {
@@ -190,14 +190,14 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
-     * A `linux_os_config` block as defined below.
+     * A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="linuxOsConfig")
     private @Nullable Output<KubernetesClusterNodePoolLinuxOsConfigArgs> linuxOsConfig;
 
     /**
-     * @return A `linux_os_config` block as defined below.
+     * @return A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<KubernetesClusterNodePoolLinuxOsConfigArgs>> linuxOsConfig() {
@@ -580,14 +580,14 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
-     * A `windows_profile` block as documented below.
+     * A `windows_profile` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="windowsProfile")
     private @Nullable Output<KubernetesClusterNodePoolWindowsProfileArgs> windowsProfile;
 
     /**
-     * @return A `windows_profile` block as documented below.
+     * @return A `windows_profile` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<KubernetesClusterNodePoolWindowsProfileArgs>> windowsProfile() {
@@ -751,7 +751,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param enableHostEncryption Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+         * @param enableHostEncryption Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -762,7 +762,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param enableHostEncryption Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+         * @param enableHostEncryption Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param enableNodePublicIp Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+         * @param enableNodePublicIp Should each node have a Public IP Address? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -783,7 +783,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param enableNodePublicIp Should each node have a Public IP Address?   Changing this forces a new resource to be created.
+         * @param enableNodePublicIp Should each node have a Public IP Address? Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -856,7 +856,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param kubeletConfig A `kubelet_config` block as defined below.
+         * @param kubeletConfig A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -867,7 +867,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param kubeletConfig A `kubelet_config` block as defined below.
+         * @param kubeletConfig A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -919,7 +919,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param linuxOsConfig A `linux_os_config` block as defined below.
+         * @param linuxOsConfig A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -930,7 +930,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param linuxOsConfig A `linux_os_config` block as defined below.
+         * @param linuxOsConfig A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1475,7 +1475,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param windowsProfile A `windows_profile` block as documented below.
+         * @param windowsProfile A `windows_profile` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1486,7 +1486,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param windowsProfile A `windows_profile` block as documented below.
+         * @param windowsProfile A `windows_profile` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

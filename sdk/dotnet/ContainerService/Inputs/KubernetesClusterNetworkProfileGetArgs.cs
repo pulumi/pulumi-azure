@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
+        /// A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadBalancerProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileLoadBalancerProfileGetArgs>? LoadBalancerProfile { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? LoadBalancerSku { get; set; }
 
         /// <summary>
-        /// A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        /// A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("natGatewayProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileNatGatewayProfileGetArgs>? NatGatewayProfile { get; set; }

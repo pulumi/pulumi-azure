@@ -139,14 +139,14 @@ public class NetworkManagerSubscriptionConnection extends com.pulumi.resources.C
         return this.networkManagerId;
     }
     /**
-     * Specifies the ID of the target Subscription.
+     * Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**
-     * @return Specifies the ID of the target Subscription.
+     * @return Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> subscriptionId() {

@@ -97,7 +97,7 @@ type Subscription struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrOutput `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
 	LockDuration pulumi.StringOutput `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntOutput `pulumi:"maxDeliveryCount"`
@@ -164,7 +164,7 @@ type subscriptionState struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo *string `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
@@ -197,7 +197,7 @@ type SubscriptionState struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrInput
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
 	LockDuration pulumi.StringPtrInput
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntPtrInput
@@ -234,7 +234,7 @@ type subscriptionArgs struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo *string `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount int `pulumi:"maxDeliveryCount"`
@@ -268,7 +268,7 @@ type SubscriptionArgs struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrInput
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
 	LockDuration pulumi.StringPtrInput
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntInput
@@ -414,7 +414,7 @@ func (o SubscriptionOutput) ForwardTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.ForwardTo }).(pulumi.StringPtrOutput)
 }
 
-// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
 func (o SubscriptionOutput) LockDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.LockDuration }).(pulumi.StringOutput)
 }

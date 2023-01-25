@@ -90,7 +90,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string?> StartTime { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        /// Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         /// </summary>
         [Output("timeZone")]
         public Output<string> TimeZone { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? StartTime { get; set; }
 
         /// <summary>
-        /// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        /// Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? StartTime { get; set; }
 
         /// <summary>
-        /// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        /// Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }

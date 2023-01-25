@@ -158,7 +158,7 @@ namespace Pulumi.Azure.ContainerService
     /// Container Registries can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
+    ///  $ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/registry:Registry")]
@@ -183,13 +183,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> AdminUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
         /// </summary>
         [Output("anonymousPullEnabled")]
         public Output<bool?> AnonymousPullEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+        /// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         /// </summary>
         [Output("dataEndpointEnabled")]
         public Output<bool?> DataEndpointEnabled { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.RegistryRetentionPolicy> RetentionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+        /// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -353,13 +353,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? AdminEnabled { get; set; }
 
         /// <summary>
-        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
         /// </summary>
         [Input("anonymousPullEnabled")]
         public Input<bool>? AnonymousPullEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+        /// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("dataEndpointEnabled")]
         public Input<bool>? DataEndpointEnabled { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.RegistryRetentionPolicyArgs>? RetentionPolicy { get; set; }
 
         /// <summary>
-        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+        /// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -509,13 +509,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
-        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
         /// </summary>
         [Input("anonymousPullEnabled")]
         public Input<bool>? AnonymousPullEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
+        /// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("dataEndpointEnabled")]
         public Input<bool>? DataEndpointEnabled { get; set; }
@@ -605,7 +605,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.RegistryRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
 
         /// <summary>
-        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+        /// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

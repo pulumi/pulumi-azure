@@ -33,14 +33,14 @@ public final class SourceControlSlotArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `github_action_configuration` block as detailed below.
+     * A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="githubActionConfiguration")
     private @Nullable Output<SourceControlSlotGithubActionConfigurationArgs> githubActionConfiguration;
 
     /**
-     * @return A `github_action_configuration` block as detailed below.
+     * @return A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<SourceControlSlotGithubActionConfigurationArgs>> githubActionConfiguration() {
@@ -190,7 +190,7 @@ public final class SourceControlSlotArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param githubActionConfiguration A `github_action_configuration` block as detailed below.
+         * @param githubActionConfiguration A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class SourceControlSlotArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param githubActionConfiguration A `github_action_configuration` block as detailed below.
+         * @param githubActionConfiguration A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

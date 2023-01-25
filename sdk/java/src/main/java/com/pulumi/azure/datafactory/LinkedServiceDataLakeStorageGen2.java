@@ -152,16 +152,14 @@ public class LinkedServiceDataLakeStorageGen2 extends com.pulumi.resources.Custo
         return Codegen.optional(this.integrationRuntimeName);
     }
     /**
-     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     * @return Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
     public Output<String> name() {
@@ -182,14 +180,14 @@ public class LinkedServiceDataLakeStorageGen2 extends com.pulumi.resources.Custo
         return Codegen.optional(this.parameters);
     }
     /**
-     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.
+     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
      * 
      */
     @Export(name="servicePrincipalId", type=String.class, parameters={})
     private Output</* @Nullable */ String> servicePrincipalId;
 
     /**
-     * @return The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.
+     * @return The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
      * 
      */
     public Output<Optional<String>> servicePrincipalId() {
@@ -210,14 +208,14 @@ public class LinkedServiceDataLakeStorageGen2 extends com.pulumi.resources.Custo
         return Codegen.optional(this.servicePrincipalKey);
     }
     /**
-     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
+     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
      * 
      */
     @Export(name="storageAccountKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountKey;
 
     /**
-     * @return The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
+     * @return The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
      * 
      */
     public Output<Optional<String>> storageAccountKey() {

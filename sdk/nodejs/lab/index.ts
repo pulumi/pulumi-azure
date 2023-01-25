@@ -10,6 +10,11 @@ export type Lab = import("./lab").Lab;
 export const Lab: typeof import("./lab").Lab = null as any;
 utilities.lazyLoad(exports, ["Lab"], () => require("./lab"));
 
+export { ScheduleArgs, ScheduleState } from "./schedule";
+export type Schedule = import("./schedule").Schedule;
+export const Schedule: typeof import("./schedule").Schedule = null as any;
+utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
+
 export { ServicePlanArgs, ServicePlanState } from "./servicePlan";
 export type ServicePlan = import("./servicePlan").ServicePlan;
 export const ServicePlan: typeof import("./servicePlan").ServicePlan = null as any;
@@ -27,6 +32,8 @@ const _module = {
         switch (type) {
             case "azure:lab/lab:Lab":
                 return new Lab(name, <any>undefined, { urn })
+            case "azure:lab/schedule:Schedule":
+                return new Schedule(name, <any>undefined, { urn })
             case "azure:lab/servicePlan:ServicePlan":
                 return new ServicePlan(name, <any>undefined, { urn })
             case "azure:lab/user:User":
@@ -37,5 +44,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "lab/lab", _module)
+pulumi.runtime.registerResourceModule("azure", "lab/schedule", _module)
 pulumi.runtime.registerResourceModule("azure", "lab/servicePlan", _module)
 pulumi.runtime.registerResourceModule("azure", "lab/user", _module)

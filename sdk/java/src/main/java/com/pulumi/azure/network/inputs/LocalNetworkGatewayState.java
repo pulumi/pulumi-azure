@@ -19,16 +19,14 @@ public final class LocalNetworkGatewayState extends com.pulumi.resources.Resourc
     public static final LocalNetworkGatewayState Empty = new LocalNetworkGatewayState();
 
     /**
-     * The list of string CIDRs representing the
-     * address spaces the gateway exposes.
+     * The list of string CIDRs representing the address spaces the gateway exposes.
      * 
      */
     @Import(name="addressSpaces")
     private @Nullable Output<List<String>> addressSpaces;
 
     /**
-     * @return The list of string CIDRs representing the
-     * address spaces the gateway exposes.
+     * @return The list of string CIDRs representing the address spaces the gateway exposes.
      * 
      */
     public Optional<Output<List<String>>> addressSpaces() {
@@ -36,16 +34,14 @@ public final class LocalNetworkGatewayState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `bgp_settings` block as defined below containing the
-     * Local Network Gateway&#39;s BGP speaker settings.
+     * A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
     @Import(name="bgpSettings")
     private @Nullable Output<LocalNetworkGatewayBgpSettingsArgs> bgpSettings;
 
     /**
-     * @return A `bgp_settings` block as defined below containing the
-     * Local Network Gateway&#39;s BGP speaker settings.
+     * @return A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
     public Optional<Output<LocalNetworkGatewayBgpSettingsArgs>> bgpSettings() {
@@ -174,8 +170,7 @@ public final class LocalNetworkGatewayState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param addressSpaces The list of string CIDRs representing the
-         * address spaces the gateway exposes.
+         * @param addressSpaces The list of string CIDRs representing the address spaces the gateway exposes.
          * 
          * @return builder
          * 
@@ -186,8 +181,7 @@ public final class LocalNetworkGatewayState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param addressSpaces The list of string CIDRs representing the
-         * address spaces the gateway exposes.
+         * @param addressSpaces The list of string CIDRs representing the address spaces the gateway exposes.
          * 
          * @return builder
          * 
@@ -197,8 +191,7 @@ public final class LocalNetworkGatewayState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param addressSpaces The list of string CIDRs representing the
-         * address spaces the gateway exposes.
+         * @param addressSpaces The list of string CIDRs representing the address spaces the gateway exposes.
          * 
          * @return builder
          * 
@@ -208,8 +201,7 @@ public final class LocalNetworkGatewayState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param bgpSettings A `bgp_settings` block as defined below containing the
-         * Local Network Gateway&#39;s BGP speaker settings.
+         * @param bgpSettings A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
          * 
          * @return builder
          * 
@@ -220,8 +212,7 @@ public final class LocalNetworkGatewayState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param bgpSettings A `bgp_settings` block as defined below containing the
-         * Local Network Gateway&#39;s BGP speaker settings.
+         * @param bgpSettings A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
          * 
          * @return builder
          * 

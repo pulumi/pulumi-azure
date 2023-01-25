@@ -203,14 +203,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appservice/slot:Slot")
 public class Slot extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+     * The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="appServiceName", type=String.class, parameters={})
     private Output<String> appServiceName;
 
     /**
-     * @return The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+     * @return The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> appServiceName() {

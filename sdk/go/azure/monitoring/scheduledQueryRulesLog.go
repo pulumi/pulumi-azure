@@ -136,7 +136,7 @@ type ScheduledQueryRulesLog struct {
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether this scheduled query rule is enabled.  Default is `true`.
+	// Whether this scheduled query rule is enabled. Default is `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -194,7 +194,7 @@ type scheduledQueryRulesLogState struct {
 	DataSourceId *string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
-	// Whether this scheduled query rule is enabled.  Default is `true`.
+	// Whether this scheduled query rule is enabled. Default is `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -215,7 +215,7 @@ type ScheduledQueryRulesLogState struct {
 	DataSourceId pulumi.StringPtrInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
-	// Whether this scheduled query rule is enabled.  Default is `true`.
+	// Whether this scheduled query rule is enabled. Default is `true`.
 	Enabled pulumi.BoolPtrInput
 	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -240,7 +240,7 @@ type scheduledQueryRulesLogArgs struct {
 	DataSourceId string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
-	// Whether this scheduled query rule is enabled.  Default is `true`.
+	// Whether this scheduled query rule is enabled. Default is `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -262,7 +262,7 @@ type ScheduledQueryRulesLogArgs struct {
 	DataSourceId pulumi.StringInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
-	// Whether this scheduled query rule is enabled.  Default is `true`.
+	// Whether this scheduled query rule is enabled. Default is `true`.
 	Enabled pulumi.BoolPtrInput
 	// Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -381,7 +381,7 @@ func (o ScheduledQueryRulesLogOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesLog) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether this scheduled query rule is enabled.  Default is `true`.
+// Whether this scheduled query rule is enabled. Default is `true`.
 func (o ScheduledQueryRulesLogOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesLog) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

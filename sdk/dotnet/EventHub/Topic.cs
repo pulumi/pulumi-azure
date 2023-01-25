@@ -61,37 +61,31 @@ namespace Pulumi.Azure.EventHub
     public partial class Topic : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ISO 8601 timespan duration of the idle interval after which the
-        /// Topic is automatically deleted, minimum of 5 minutes.
+        /// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
         /// </summary>
         [Output("autoDeleteOnIdle")]
         public Output<string> AutoDeleteOnIdle { get; private set; } = null!;
 
         /// <summary>
-        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-        /// TTL value is set on the message itself.
+        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
         /// </summary>
         [Output("defaultMessageTtl")]
         public Output<string> DefaultMessageTtl { get; private set; } = null!;
 
         /// <summary>
-        /// The ISO 8601 timespan duration during which
-        /// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
         /// </summary>
         [Output("duplicateDetectionHistoryTimeWindow")]
         public Output<string> DuplicateDetectionHistoryTimeWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls if server-side
-        /// batched operations are enabled. Defaults to false.
+        /// Boolean flag which controls if server-side batched operations are enabled.
         /// </summary>
         [Output("enableBatchedOperations")]
         public Output<bool?> EnableBatchedOperations { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether Express Entities
-        /// are enabled. An express topic holds a message in memory temporarily before writing
-        /// it to persistent storage. Defaults to false.
+        /// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         /// </summary>
         [Output("enableExpress")]
         public Output<bool?> EnableExpress { get; private set; } = null!;
@@ -105,24 +99,19 @@ namespace Pulumi.Azure.EventHub
         public Output<bool?> EnablePartitioning { get; private set; } = null!;
 
         /// <summary>
-        /// Integer value which controls the maximum size of
-        /// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         /// </summary>
         [Output("maxMessageSizeInKilobytes")]
         public Output<int> MaxMessageSizeInKilobytes { get; private set; } = null!;
 
         /// <summary>
-        /// Integer value which controls the size of
-        /// memory allocated for the topic. For supported values see the "Queue/topic size"
-        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         /// </summary>
         [Output("maxSizeInMegabytes")]
         public Output<int> MaxSizeInMegabytes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Topic resource. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -155,8 +144,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether the Topic
-        /// supports ordering. Defaults to false.
+        /// Boolean flag which controls whether the Topic supports ordering.
         /// </summary>
         [Output("supportOrdering")]
         public Output<bool?> SupportOrdering { get; private set; } = null!;
@@ -208,37 +196,31 @@ namespace Pulumi.Azure.EventHub
     public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ISO 8601 timespan duration of the idle interval after which the
-        /// Topic is automatically deleted, minimum of 5 minutes.
+        /// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-        /// TTL value is set on the message itself.
+        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
         /// </summary>
         [Input("defaultMessageTtl")]
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration during which
-        /// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
         /// </summary>
         [Input("duplicateDetectionHistoryTimeWindow")]
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls if server-side
-        /// batched operations are enabled. Defaults to false.
+        /// Boolean flag which controls if server-side batched operations are enabled.
         /// </summary>
         [Input("enableBatchedOperations")]
         public Input<bool>? EnableBatchedOperations { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether Express Entities
-        /// are enabled. An express topic holds a message in memory temporarily before writing
-        /// it to persistent storage. Defaults to false.
+        /// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         /// </summary>
         [Input("enableExpress")]
         public Input<bool>? EnableExpress { get; set; }
@@ -252,24 +234,19 @@ namespace Pulumi.Azure.EventHub
         public Input<bool>? EnablePartitioning { get; set; }
 
         /// <summary>
-        /// Integer value which controls the maximum size of
-        /// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         /// </summary>
         [Input("maxMessageSizeInKilobytes")]
         public Input<int>? MaxMessageSizeInKilobytes { get; set; }
 
         /// <summary>
-        /// Integer value which controls the size of
-        /// memory allocated for the topic. For supported values see the "Queue/topic size"
-        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         /// </summary>
         [Input("maxSizeInMegabytes")]
         public Input<int>? MaxSizeInMegabytes { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Topic resource. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -296,8 +273,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Topic
-        /// supports ordering. Defaults to false.
+        /// Boolean flag which controls whether the Topic supports ordering.
         /// </summary>
         [Input("supportOrdering")]
         public Input<bool>? SupportOrdering { get; set; }
@@ -311,37 +287,31 @@ namespace Pulumi.Azure.EventHub
     public sealed class TopicState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ISO 8601 timespan duration of the idle interval after which the
-        /// Topic is automatically deleted, minimum of 5 minutes.
+        /// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-        /// TTL value is set on the message itself.
+        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
         /// </summary>
         [Input("defaultMessageTtl")]
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration during which
-        /// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
         /// </summary>
         [Input("duplicateDetectionHistoryTimeWindow")]
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls if server-side
-        /// batched operations are enabled. Defaults to false.
+        /// Boolean flag which controls if server-side batched operations are enabled.
         /// </summary>
         [Input("enableBatchedOperations")]
         public Input<bool>? EnableBatchedOperations { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether Express Entities
-        /// are enabled. An express topic holds a message in memory temporarily before writing
-        /// it to persistent storage. Defaults to false.
+        /// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         /// </summary>
         [Input("enableExpress")]
         public Input<bool>? EnableExpress { get; set; }
@@ -355,24 +325,19 @@ namespace Pulumi.Azure.EventHub
         public Input<bool>? EnablePartitioning { get; set; }
 
         /// <summary>
-        /// Integer value which controls the maximum size of
-        /// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         /// </summary>
         [Input("maxMessageSizeInKilobytes")]
         public Input<int>? MaxMessageSizeInKilobytes { get; set; }
 
         /// <summary>
-        /// Integer value which controls the size of
-        /// memory allocated for the topic. For supported values see the "Queue/topic size"
-        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         /// </summary>
         [Input("maxSizeInMegabytes")]
         public Input<int>? MaxSizeInMegabytes { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Topic resource. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -405,8 +370,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Topic
-        /// supports ordering. Defaults to false.
+        /// Boolean flag which controls whether the Topic supports ordering.
         /// </summary>
         [Input("supportOrdering")]
         public Input<bool>? SupportOrdering { get; set; }

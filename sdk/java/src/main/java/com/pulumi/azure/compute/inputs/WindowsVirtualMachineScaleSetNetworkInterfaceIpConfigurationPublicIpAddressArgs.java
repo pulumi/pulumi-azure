@@ -49,14 +49,14 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
     }
 
     /**
-     * One or more `ip_tag` blocks as defined above.
+     * One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ipTags")
     private @Nullable Output<List<WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs>> ipTags;
 
     /**
-     * @return One or more `ip_tag` blocks as defined above.
+     * @return One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs>>> ipTags() {
@@ -94,14 +94,14 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
     }
 
     /**
-     * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> version() {
@@ -180,7 +180,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         }
 
         /**
-         * @param ipTags One or more `ip_tag` blocks as defined above.
+         * @param ipTags One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         }
 
         /**
-         * @param ipTags One or more `ip_tag` blocks as defined above.
+         * @param ipTags One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         }
 
         /**
-         * @param ipTags One or more `ip_tag` blocks as defined above.
+         * @param ipTags One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         }
 
         /**
-         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         }
 
         /**
-         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

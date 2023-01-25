@@ -20,7 +20,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
      */
     private String caching;
     /**
-     * @return A `diff_disk_settings` block as defined above.
+     * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings;
@@ -54,7 +54,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
         return this.caching;
     }
     /**
-     * @return A `diff_disk_settings` block as defined above.
+     * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings> diffDiskSettings() {

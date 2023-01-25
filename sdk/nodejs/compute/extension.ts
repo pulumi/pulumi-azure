@@ -134,8 +134,7 @@ export class Extension extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies if the platform deploys
-     * the latest minor version update to the `typeHandlerVersion` specified.
+     * Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
     /**
@@ -151,8 +150,7 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The protectedSettings passed to the
-     * extension, like settings, these are specified as a JSON object in a string.
+     * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      */
     public readonly protectedSettings!: pulumi.Output<string | undefined>;
     /**
@@ -164,8 +162,7 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly publisher!: pulumi.Output<string>;
     /**
-     * The settings passed to the extension, these are
-     * specified as a JSON object in a string.
+     * The settings passed to the extension, these are specified as a JSON object in a string.
      */
     public readonly settings!: pulumi.Output<string | undefined>;
     /**
@@ -173,13 +170,11 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of extension, available types for a publisher can
-     * be found using the Azure CLI.
+     * The type of extension, available types for a publisher can be found using the Azure CLI.
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Specifies the version of the extension to
-     * use, available versions can be found using the Azure CLI.
+     * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      */
     public readonly typeHandlerVersion!: pulumi.Output<string>;
     /**
@@ -251,8 +246,7 @@ export class Extension extends pulumi.CustomResource {
  */
 export interface ExtensionState {
     /**
-     * Specifies if the platform deploys
-     * the latest minor version update to the `typeHandlerVersion` specified.
+     * Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
      */
     autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
@@ -268,8 +262,7 @@ export interface ExtensionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The protectedSettings passed to the
-     * extension, like settings, these are specified as a JSON object in a string.
+     * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      */
     protectedSettings?: pulumi.Input<string>;
     /**
@@ -281,8 +274,7 @@ export interface ExtensionState {
      */
     publisher?: pulumi.Input<string>;
     /**
-     * The settings passed to the extension, these are
-     * specified as a JSON object in a string.
+     * The settings passed to the extension, these are specified as a JSON object in a string.
      */
     settings?: pulumi.Input<string>;
     /**
@@ -290,13 +282,11 @@ export interface ExtensionState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of extension, available types for a publisher can
-     * be found using the Azure CLI.
+     * The type of extension, available types for a publisher can be found using the Azure CLI.
      */
     type?: pulumi.Input<string>;
     /**
-     * Specifies the version of the extension to
-     * use, available versions can be found using the Azure CLI.
+     * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      */
     typeHandlerVersion?: pulumi.Input<string>;
     /**
@@ -310,8 +300,7 @@ export interface ExtensionState {
  */
 export interface ExtensionArgs {
     /**
-     * Specifies if the platform deploys
-     * the latest minor version update to the `typeHandlerVersion` specified.
+     * Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
      */
     autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
@@ -327,8 +316,7 @@ export interface ExtensionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The protectedSettings passed to the
-     * extension, like settings, these are specified as a JSON object in a string.
+     * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      */
     protectedSettings?: pulumi.Input<string>;
     /**
@@ -340,8 +328,7 @@ export interface ExtensionArgs {
      */
     publisher: pulumi.Input<string>;
     /**
-     * The settings passed to the extension, these are
-     * specified as a JSON object in a string.
+     * The settings passed to the extension, these are specified as a JSON object in a string.
      */
     settings?: pulumi.Input<string>;
     /**
@@ -349,13 +336,11 @@ export interface ExtensionArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of extension, available types for a publisher can
-     * be found using the Azure CLI.
+     * The type of extension, available types for a publisher can be found using the Azure CLI.
      */
     type: pulumi.Input<string>;
     /**
-     * Specifies the version of the extension to
-     * use, available versions can be found using the Azure CLI.
+     * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      */
     typeHandlerVersion: pulumi.Input<string>;
     /**

@@ -48,14 +48,14 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
+     * The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
      * 
      */
     @Import(name="maxRequestBodySizeInKb")
     private @Nullable Output<Integer> maxRequestBodySizeInKb;
 
     /**
-     * @return The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
+     * @return The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
      * 
      */
     public Optional<Output<Integer>> maxRequestBodySizeInKb() {
@@ -163,7 +163,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param maxRequestBodySizeInKb The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
+         * @param maxRequestBodySizeInKb The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param maxRequestBodySizeInKb The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
+         * @param maxRequestBodySizeInKb The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
          * 
          * @return builder
          * 

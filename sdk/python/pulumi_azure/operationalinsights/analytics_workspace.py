@@ -31,12 +31,12 @@ class AnalyticsWorkspaceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
-        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -105,7 +105,7 @@ class AnalyticsWorkspaceArgs:
     @pulumi.getter(name="dailyQuotaGb")
     def daily_quota_gb(self) -> Optional[pulumi.Input[float]]:
         """
-        The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         """
         return pulumi.get(self, "daily_quota_gb")
 
@@ -165,7 +165,7 @@ class AnalyticsWorkspaceArgs:
     @pulumi.getter(name="reservationCapacityInGbPerDay")
     def reservation_capacity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
         """
-        The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
         """
         return pulumi.get(self, "reservation_capacity_in_gb_per_day")
 
@@ -232,13 +232,13 @@ class _AnalyticsWorkspaceState:
         Input properties used for looking up and filtering AnalyticsWorkspace resources.
         :param pulumi.Input[bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
-        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
@@ -305,7 +305,7 @@ class _AnalyticsWorkspaceState:
     @pulumi.getter(name="dailyQuotaGb")
     def daily_quota_gb(self) -> Optional[pulumi.Input[float]]:
         """
-        The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         """
         return pulumi.get(self, "daily_quota_gb")
 
@@ -377,7 +377,7 @@ class _AnalyticsWorkspaceState:
     @pulumi.getter(name="reservationCapacityInGbPerDay")
     def reservation_capacity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
         """
-        The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
         """
         return pulumi.get(self, "reservation_capacity_in_gb_per_day")
 
@@ -505,12 +505,12 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
-        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
@@ -636,13 +636,13 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
-        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
@@ -691,7 +691,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="dailyQuotaGb")
     def daily_quota_gb(self) -> pulumi.Output[Optional[float]]:
         """
-        The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         """
         return pulumi.get(self, "daily_quota_gb")
 
@@ -739,7 +739,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="reservationCapacityInGbPerDay")
     def reservation_capacity_in_gb_per_day(self) -> pulumi.Output[int]:
         """
-        The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
         """
         return pulumi.get(self, "reservation_capacity_in_gb_per_day")
 

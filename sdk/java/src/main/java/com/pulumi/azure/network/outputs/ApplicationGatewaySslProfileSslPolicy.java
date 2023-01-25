@@ -18,23 +18,22 @@ public final class ApplicationGatewaySslProfileSslPolicy {
      */
     private @Nullable List<String> cipherSuites;
     /**
-     * @return A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+     * @return A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
      * 
      */
     private @Nullable List<String> disabledProtocols;
     /**
-     * @return The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+     * @return The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
      * 
      */
     private @Nullable String minProtocolVersion;
     /**
-     * @return The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-     * are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+     * @return The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
      * 
      */
     private @Nullable String policyName;
     /**
-     * @return The Type of the Policy. Possible values are `Predefined` and `Custom`.
+     * @return The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
      * 
      */
     private @Nullable String policyType;
@@ -48,29 +47,28 @@ public final class ApplicationGatewaySslProfileSslPolicy {
         return this.cipherSuites == null ? List.of() : this.cipherSuites;
     }
     /**
-     * @return A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+     * @return A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
      * 
      */
     public List<String> disabledProtocols() {
         return this.disabledProtocols == null ? List.of() : this.disabledProtocols;
     }
     /**
-     * @return The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+     * @return The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
      * 
      */
     public Optional<String> minProtocolVersion() {
         return Optional.ofNullable(this.minProtocolVersion);
     }
     /**
-     * @return The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-     * are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+     * @return The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
      * 
      */
     public Optional<String> policyName() {
         return Optional.ofNullable(this.policyName);
     }
     /**
-     * @return The Type of the Policy. Possible values are `Predefined` and `Custom`.
+     * @return The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
      * 
      */
     public Optional<String> policyType() {

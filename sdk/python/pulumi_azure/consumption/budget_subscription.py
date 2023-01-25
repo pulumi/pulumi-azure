@@ -33,7 +33,7 @@ class BudgetSubscriptionArgs:
         :param pulumi.Input[str] etag: (Optional) The ETag of the Subscription Consumption Budget.
         :param pulumi.Input['BudgetSubscriptionFilterArgs'] filter: A `filter` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "notifications", notifications)
@@ -136,7 +136,7 @@ class BudgetSubscriptionArgs:
     @pulumi.getter(name="timeGrain")
     def time_grain(self) -> Optional[pulumi.Input[str]]:
         """
-        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "time_grain")
 
@@ -164,7 +164,7 @@ class _BudgetSubscriptionState:
         :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         :param pulumi.Input['BudgetSubscriptionTimePeriodArgs'] time_period: A `time_period` block as defined below.
         """
         if amount is not None:
@@ -260,7 +260,7 @@ class _BudgetSubscriptionState:
     @pulumi.getter(name="timeGrain")
     def time_grain(self) -> Optional[pulumi.Input[str]]:
         """
-        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "time_grain")
 
@@ -371,7 +371,7 @@ class BudgetSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['BudgetSubscriptionTimePeriodArgs']] time_period: A `time_period` block as defined below.
         """
         ...
@@ -527,7 +527,7 @@ class BudgetSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['BudgetSubscriptionTimePeriodArgs']] time_period: A `time_period` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -596,7 +596,7 @@ class BudgetSubscription(pulumi.CustomResource):
     @pulumi.getter(name="timeGrain")
     def time_grain(self) -> pulumi.Output[Optional[str]]:
         """
-        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
+        The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "time_grain")
 

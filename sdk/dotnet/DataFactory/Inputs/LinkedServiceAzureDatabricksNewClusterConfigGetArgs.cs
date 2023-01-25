@@ -61,7 +61,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<int>? MaxNumberOfWorkers { get; set; }
 
         /// <summary>
-        /// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+        /// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
         /// </summary>
         [Input("minNumberOfWorkers")]
         public Input<int>? MinNumberOfWorkers { get; set; }

@@ -122,16 +122,14 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
         return Codegen.optional(this.enabled);
     }
     /**
-     * Specifies the Azure location of the Endpoint,
-     * this must be specified for Profiles using the `Performance` routing method.
+     * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      * 
      */
     @Export(name="endpointLocation", type=String.class, parameters={})
     private Output<String> endpointLocation;
 
     /**
-     * @return Specifies the Azure location of the Endpoint,
-     * this must be specified for Profiles using the `Performance` routing method.
+     * @return Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      * 
      */
     public Output<String> endpointLocation() {
@@ -166,20 +164,14 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
         return this.name;
     }
     /**
-     * Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
     @Export(name="priority", type=Integer.class, parameters={})
     private Output<Integer> priority;
 
     /**
-     * @return Specifies the priority of this Endpoint, this must be
-     * specified for Profiles using the `Priority` traffic routing method. Supports
-     * values between 1 and 1000, with no Endpoints sharing the same value. If
-     * omitted the value will be computed in order of creation.
+     * @return Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
     public Output<Integer> priority() {
@@ -200,14 +192,14 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
         return this.profileId;
     }
     /**
-     * One or more `subnet` blocks as defined below
+     * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="subnets", type=List.class, parameters={TrafficManagerExternalEndpointSubnet.class})
     private Output</* @Nullable */ List<TrafficManagerExternalEndpointSubnet>> subnets;
 
     /**
-     * @return One or more `subnet` blocks as defined below
+     * @return One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<TrafficManagerExternalEndpointSubnet>>> subnets() {

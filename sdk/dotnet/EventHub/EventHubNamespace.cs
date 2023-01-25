@@ -71,15 +71,13 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> DedicatedClusterId { get; private set; } = null!;
 
         /// <summary>
-        /// The primary connection string for the authorization
-        /// rule `RootManageSharedAccessKey`.
+        /// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         [Output("defaultPrimaryConnectionString")]
         public Output<string> DefaultPrimaryConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// The alias of the primary connection string for the authorization
-        /// rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        /// The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         /// </summary>
         [Output("defaultPrimaryConnectionStringAlias")]
         public Output<string> DefaultPrimaryConnectionStringAlias { get; private set; } = null!;
@@ -91,15 +89,13 @@ namespace Pulumi.Azure.EventHub
         public Output<string> DefaultPrimaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// The secondary connection string for the
-        /// authorization rule `RootManageSharedAccessKey`.
+        /// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         [Output("defaultSecondaryConnectionString")]
         public Output<string> DefaultSecondaryConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// The alias of the secondary connection string for the
-        /// authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        /// The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         /// </summary>
         [Output("defaultSecondaryConnectionStringAlias")]
         public Output<string> DefaultSecondaryConnectionStringAlias { get; private set; } = null!;
@@ -363,8 +359,7 @@ namespace Pulumi.Azure.EventHub
         private Input<string>? _defaultPrimaryConnectionString;
 
         /// <summary>
-        /// The primary connection string for the authorization
-        /// rule `RootManageSharedAccessKey`.
+        /// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         public Input<string>? DefaultPrimaryConnectionString
         {
@@ -380,8 +375,7 @@ namespace Pulumi.Azure.EventHub
         private Input<string>? _defaultPrimaryConnectionStringAlias;
 
         /// <summary>
-        /// The alias of the primary connection string for the authorization
-        /// rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        /// The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         /// </summary>
         public Input<string>? DefaultPrimaryConnectionStringAlias
         {
@@ -413,8 +407,7 @@ namespace Pulumi.Azure.EventHub
         private Input<string>? _defaultSecondaryConnectionString;
 
         /// <summary>
-        /// The secondary connection string for the
-        /// authorization rule `RootManageSharedAccessKey`.
+        /// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         public Input<string>? DefaultSecondaryConnectionString
         {
@@ -430,8 +423,7 @@ namespace Pulumi.Azure.EventHub
         private Input<string>? _defaultSecondaryConnectionStringAlias;
 
         /// <summary>
-        /// The alias of the secondary connection string for the
-        /// authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        /// The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         /// </summary>
         public Input<string>? DefaultSecondaryConnectionStringAlias
         {

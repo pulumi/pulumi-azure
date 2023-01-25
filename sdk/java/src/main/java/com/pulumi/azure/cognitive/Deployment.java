@@ -100,14 +100,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.cognitiveAccountId;
     }
     /**
-     * A `model` block as defined below.
+     * A `model` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="model", type=DeploymentModel.class, parameters={})
     private Output<DeploymentModel> model;
 
     /**
-     * @return A `model` block as defined below.
+     * @return A `model` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<DeploymentModel> model() {
@@ -142,14 +142,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.raiPolicyName);
     }
     /**
-     * A `scale` block as defined below.
+     * A `scale` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="scale", type=DeploymentScale.class, parameters={})
     private Output<DeploymentScale> scale;
 
     /**
-     * @return A `scale` block as defined below.
+     * @return A `scale` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<DeploymentScale> scale() {

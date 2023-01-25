@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string SourceAddressPrefix;
         /// <summary>
-        /// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+        /// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> SourcePortRanges;
 

@@ -3534,7 +3534,7 @@ class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
     def __init__(__self__, *,
                  resource_id: str):
         """
-        :param str resource_id: The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+        :param str resource_id: The resource identifier of the integration runtime to be shared.
         """
         pulumi.set(__self__, "resource_id", resource_id)
 
@@ -3542,7 +3542,7 @@ class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> str:
         """
-        The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+        The resource identifier of the integration runtime to be shared.
         """
         return pulumi.get(self, "resource_id")
 
@@ -4580,7 +4580,7 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
         :param Sequence[str] init_scripts: User defined initialization scripts for the cluster.
         :param str log_destination: Location to deliver Spark driver, worker, and event logs.
         :param int max_number_of_workers: Specifies the maximum number of worker nodes. It should be between 1 and 25000.
-        :param int min_number_of_workers: Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+        :param int min_number_of_workers: Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
         :param Mapping[str, str] spark_config: User-specified Spark configuration variables key-value pairs.
         :param Mapping[str, str] spark_environment_variables: User-specified Spark environment variables key-value pairs.
         """
@@ -4663,7 +4663,7 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
     @pulumi.getter(name="minNumberOfWorkers")
     def min_number_of_workers(self) -> Optional[int]:
         """
-        Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
+        Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
         """
         return pulumi.get(self, "min_number_of_workers")
 

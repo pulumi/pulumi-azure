@@ -162,28 +162,28 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.accessTier;
     }
     /**
-     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
      * 
      */
     @Export(name="accountKind", type=String.class, parameters={})
     private Output</* @Nullable */ String> accountKind;
 
     /**
-     * @return Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
+     * @return Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
      * 
      */
     public Output<Optional<String>> accountKind() {
         return Codegen.optional(this.accountKind);
     }
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
      * 
      */
     @Export(name="accountReplicationType", type=String.class, parameters={})
     private Output<String> accountReplicationType;
 
     /**
-     * @return Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
+     * @return Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
      * 
      */
     public Output<String> accountReplicationType() {
@@ -330,16 +330,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.edgeZone);
     }
     /**
-     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-     * for more information. Defaults to `true`.
+     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      * 
      */
     @Export(name="enableHttpsTrafficOnly", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableHttpsTrafficOnly;
 
     /**
-     * @return Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-     * for more information. Defaults to `true`.
+     * @return Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enableHttpsTrafficOnly() {
@@ -360,14 +358,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * An `immutability_policy` block as defined below.
+     * An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="immutabilityPolicy", type=AccountImmutabilityPolicy.class, parameters={})
     private Output</* @Nullable */ AccountImmutabilityPolicy> immutabilityPolicy;
 
     /**
-     * @return An `immutability_policy` block as defined below.
+     * @return An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<AccountImmutabilityPolicy>> immutabilityPolicy() {

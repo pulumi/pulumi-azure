@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> TrustedClientCertificateNames;
         /// <summary>
-        /// Should client certificate issuer DN be verified?  Defaults to `false`.
+        /// Should client certificate issuer DN be verified? Defaults to `false`.
         /// </summary>
         public readonly bool? VerifyClientCertIssuerDn;
 

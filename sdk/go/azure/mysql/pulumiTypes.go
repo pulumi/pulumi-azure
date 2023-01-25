@@ -323,7 +323,7 @@ func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulum
 }
 
 type FlexibleServerIdentity struct {
-	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block as defined below.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
@@ -343,7 +343,7 @@ type FlexibleServerIdentityInput interface {
 }
 
 type FlexibleServerIdentityArgs struct {
-	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block as defined below.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
@@ -428,7 +428,7 @@ func (o FlexibleServerIdentityOutput) ToFlexibleServerIdentityPtrOutputWithConte
 	}).(FlexibleServerIdentityPtrOutput)
 }
 
-// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block as defined below.
 func (o FlexibleServerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -470,7 +470,7 @@ func (o FlexibleServerIdentityPtrOutput) Elem() FlexibleServerIdentityOutput {
 	}).(FlexibleServerIdentityOutput)
 }
 
-// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block as defined below.
 func (o FlexibleServerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlexibleServerIdentity) []string {
 		if v == nil {

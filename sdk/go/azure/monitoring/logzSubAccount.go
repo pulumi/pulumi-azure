@@ -98,7 +98,7 @@ type LogzSubAccount struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A mapping of tags which should be assigned to the logz Sub Account.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A `user` block as defined below.
+	// A `user` block as defined below. Changing this forces a new resource to be created.
 	User LogzSubAccountUserOutput `pulumi:"user"`
 }
 
@@ -145,7 +145,7 @@ type logzSubAccountState struct {
 	Name *string `pulumi:"name"`
 	// A mapping of tags which should be assigned to the logz Sub Account.
 	Tags map[string]string `pulumi:"tags"`
-	// A `user` block as defined below.
+	// A `user` block as defined below. Changing this forces a new resource to be created.
 	User *LogzSubAccountUser `pulumi:"user"`
 }
 
@@ -158,7 +158,7 @@ type LogzSubAccountState struct {
 	Name pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the logz Sub Account.
 	Tags pulumi.StringMapInput
-	// A `user` block as defined below.
+	// A `user` block as defined below. Changing this forces a new resource to be created.
 	User LogzSubAccountUserPtrInput
 }
 
@@ -175,7 +175,7 @@ type logzSubAccountArgs struct {
 	Name *string `pulumi:"name"`
 	// A mapping of tags which should be assigned to the logz Sub Account.
 	Tags map[string]string `pulumi:"tags"`
-	// A `user` block as defined below.
+	// A `user` block as defined below. Changing this forces a new resource to be created.
 	User LogzSubAccountUser `pulumi:"user"`
 }
 
@@ -189,7 +189,7 @@ type LogzSubAccountArgs struct {
 	Name pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the logz Sub Account.
 	Tags pulumi.StringMapInput
-	// A `user` block as defined below.
+	// A `user` block as defined below. Changing this forces a new resource to be created.
 	User LogzSubAccountUserInput
 }
 
@@ -300,7 +300,7 @@ func (o LogzSubAccountOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogzSubAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A `user` block as defined below.
+// A `user` block as defined below. Changing this forces a new resource to be created.
 func (o LogzSubAccountOutput) User() LogzSubAccountUserOutput {
 	return o.ApplyT(func(v *LogzSubAccount) LogzSubAccountUserOutput { return v.User }).(LogzSubAccountUserOutput)
 }

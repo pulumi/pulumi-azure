@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair
     {
         /// <summary>
-        /// Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`. Defaults to `false`.
+        /// Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

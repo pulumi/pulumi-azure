@@ -203,14 +203,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="origins", required=true)
     private Output<List<EndpointOriginArgs>> origins;
 
     /**
-     * @return The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+     * @return The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<EndpointOriginArgs>> origins() {
@@ -616,7 +616,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -627,7 +627,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -637,7 +637,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+         * @param origins The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -13,31 +13,31 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountQueuePropertiesLoggingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether all delete requests should be logged. Changing this forces a new resource.
+        /// Indicates whether all delete requests should be logged.
         /// </summary>
         [Input("delete", required: true)]
         public Input<bool> Delete { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether all read requests should be logged. Changing this forces a new resource.
+        /// Indicates whether all read requests should be logged.
         /// </summary>
         [Input("read", required: true)]
         public Input<bool> Read { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// Specifies the number of days that logs will be retained.
         /// </summary>
         [Input("retentionPolicyDays")]
         public Input<int>? RetentionPolicyDays { get; set; }
 
         /// <summary>
-        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// The version of storage analytics to configure.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether all write requests should be logged. Changing this forces a new resource.
+        /// Indicates whether all write requests should be logged.
         /// </summary>
         [Input("write", required: true)]
         public Input<bool> Write { get; set; } = null!;

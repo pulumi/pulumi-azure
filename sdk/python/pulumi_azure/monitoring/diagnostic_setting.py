@@ -33,7 +33,7 @@ class DiagnosticSettingArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        :param pulumi.Input[str] log_analytics_destination_type: Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingLogArgs']]] logs: One or more `log` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]] metrics: One or more `metric` blocks as defined below.
@@ -118,7 +118,7 @@ class DiagnosticSettingArgs:
     @pulumi.getter(name="logAnalyticsDestinationType")
     def log_analytics_destination_type(self) -> Optional[pulumi.Input[str]]:
         """
-        When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         """
         return pulumi.get(self, "log_analytics_destination_type")
 
@@ -218,7 +218,7 @@ class _DiagnosticSettingState:
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        :param pulumi.Input[str] log_analytics_destination_type: Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingLogArgs']]] logs: One or more `log` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]] metrics: One or more `metric` blocks as defined below.
@@ -293,7 +293,7 @@ class _DiagnosticSettingState:
     @pulumi.getter(name="logAnalyticsDestinationType")
     def log_analytics_destination_type(self) -> Optional[pulumi.Input[str]]:
         """
-        When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         """
         return pulumi.get(self, "log_analytics_destination_type")
 
@@ -420,10 +420,9 @@ class DiagnosticSetting(pulumi.CustomResource):
         example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
             target_resource_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            logs=[azure.monitoring.DiagnosticSettingLogArgs(
+            enabled_logs=[azure.monitoring.DiagnosticSettingEnabledLogArgs(
                 category="AuditEvent",
-                enabled=False,
-                retention_policy=azure.monitoring.DiagnosticSettingLogRetentionPolicyArgs(
+                retention_policy=azure.monitoring.DiagnosticSettingEnabledLogRetentionPolicyArgs(
                     enabled=False,
                 ),
             )],
@@ -448,7 +447,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingEnabledLogArgs']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        :param pulumi.Input[str] log_analytics_destination_type: Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]] metrics: One or more `metric` blocks as defined below.
@@ -480,10 +479,9 @@ class DiagnosticSetting(pulumi.CustomResource):
         example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
             target_resource_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            logs=[azure.monitoring.DiagnosticSettingLogArgs(
+            enabled_logs=[azure.monitoring.DiagnosticSettingEnabledLogArgs(
                 category="AuditEvent",
-                enabled=False,
-                retention_policy=azure.monitoring.DiagnosticSettingLogRetentionPolicyArgs(
+                retention_policy=azure.monitoring.DiagnosticSettingEnabledLogRetentionPolicyArgs(
                     enabled=False,
                 ),
             )],
@@ -585,7 +583,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingEnabledLogArgs']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        :param pulumi.Input[str] log_analytics_destination_type: Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]] metrics: One or more `metric` blocks as defined below.
@@ -639,7 +637,7 @@ class DiagnosticSetting(pulumi.CustomResource):
     @pulumi.getter(name="logAnalyticsDestinationType")
     def log_analytics_destination_type(self) -> pulumi.Output[Optional[str]]:
         """
-        When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         """
         return pulumi.get(self, "log_analytics_destination_type")
 

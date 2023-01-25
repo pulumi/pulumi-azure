@@ -20,7 +20,7 @@ public final class StandardWebTestRequest {
      */
     private @Nullable String body;
     /**
-     * @return Should the following of redirects be enabled?
+     * @return Should the following of redirects be enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean followRedirectsEnabled;
@@ -35,7 +35,7 @@ public final class StandardWebTestRequest {
      */
     private @Nullable String httpVerb;
     /**
-     * @return Should the parsing of dependend requests be enabled?
+     * @return Should the parsing of dependend requests be enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean parseDependentRequestsEnabled;
@@ -54,7 +54,7 @@ public final class StandardWebTestRequest {
         return Optional.ofNullable(this.body);
     }
     /**
-     * @return Should the following of redirects be enabled?
+     * @return Should the following of redirects be enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> followRedirectsEnabled() {
@@ -75,7 +75,7 @@ public final class StandardWebTestRequest {
         return Optional.ofNullable(this.httpVerb);
     }
     /**
-     * @return Should the parsing of dependend requests be enabled?
+     * @return Should the parsing of dependend requests be enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> parseDependentRequestsEnabled() {

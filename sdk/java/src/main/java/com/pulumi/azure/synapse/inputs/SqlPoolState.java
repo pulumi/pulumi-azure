@@ -64,6 +64,21 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Is geo-backup policy enabled? Defaults to `true`.
+     * 
+     */
+    @Import(name="geoBackupPolicyEnabled")
+    private @Nullable Output<Boolean> geoBackupPolicyEnabled;
+
+    /**
+     * @return Is geo-backup policy enabled? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> geoBackupPolicyEnabled() {
+        return Optional.ofNullable(this.geoBackupPolicyEnabled);
+    }
+
+    /**
      * The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
      * 
      */
@@ -94,14 +109,14 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+     * A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="restore")
     private @Nullable Output<SqlPoolRestoreArgs> restore;
 
     /**
-     * @return A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+     * @return A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<SqlPoolRestoreArgs>> restore() {
@@ -159,6 +174,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         this.collation = $.collation;
         this.createMode = $.createMode;
         this.dataEncrypted = $.dataEncrypted;
+        this.geoBackupPolicyEnabled = $.geoBackupPolicyEnabled;
         this.name = $.name;
         this.recoveryDatabaseId = $.recoveryDatabaseId;
         this.restore = $.restore;
@@ -249,6 +265,27 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param geoBackupPolicyEnabled Is geo-backup policy enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder geoBackupPolicyEnabled(@Nullable Output<Boolean> geoBackupPolicyEnabled) {
+            $.geoBackupPolicyEnabled = geoBackupPolicyEnabled;
+            return this;
+        }
+
+        /**
+         * @param geoBackupPolicyEnabled Is geo-backup policy enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder geoBackupPolicyEnabled(Boolean geoBackupPolicyEnabled) {
+            return geoBackupPolicyEnabled(Output.of(geoBackupPolicyEnabled));
+        }
+
+        /**
          * @param name The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
          * 
          * @return builder
@@ -291,7 +328,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restore A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+         * @param restore A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -302,7 +339,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restore A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+         * @param restore A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

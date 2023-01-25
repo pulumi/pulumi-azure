@@ -105,7 +105,7 @@ type Firewall struct {
 	IpConfigurations FirewallIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 	ManagementIpConfiguration FirewallManagementIpConfigurationPtrOutput `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -113,7 +113,7 @@ type Firewall struct {
 	PrivateIpRanges pulumi.StringArrayOutput `pulumi:"privateIpRanges"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
 	SkuTier pulumi.StringOutput `pulumi:"skuTier"`
@@ -173,7 +173,7 @@ type firewallState struct {
 	IpConfigurations []FirewallIpConfiguration `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 	ManagementIpConfiguration *FirewallManagementIpConfiguration `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -181,7 +181,7 @@ type firewallState struct {
 	PrivateIpRanges []string `pulumi:"privateIpRanges"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
 	SkuTier *string `pulumi:"skuTier"`
@@ -204,7 +204,7 @@ type FirewallState struct {
 	IpConfigurations FirewallIpConfigurationArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 	ManagementIpConfiguration FirewallManagementIpConfigurationPtrInput
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -212,7 +212,7 @@ type FirewallState struct {
 	PrivateIpRanges pulumi.StringArrayInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
 	SkuTier pulumi.StringPtrInput
@@ -239,7 +239,7 @@ type firewallArgs struct {
 	IpConfigurations []FirewallIpConfiguration `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 	ManagementIpConfiguration *FirewallManagementIpConfiguration `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -247,7 +247,7 @@ type firewallArgs struct {
 	PrivateIpRanges []string `pulumi:"privateIpRanges"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
 	SkuTier string `pulumi:"skuTier"`
@@ -271,7 +271,7 @@ type FirewallArgs struct {
 	IpConfigurations FirewallIpConfigurationArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 	ManagementIpConfiguration FirewallManagementIpConfigurationPtrInput
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -279,7 +279,7 @@ type FirewallArgs struct {
 	PrivateIpRanges pulumi.StringArrayInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
 	// SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
 	SkuTier pulumi.StringInput
@@ -400,7 +400,7 @@ func (o FirewallOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
 func (o FirewallOutput) ManagementIpConfiguration() FirewallManagementIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *Firewall) FirewallManagementIpConfigurationPtrOutput { return v.ManagementIpConfiguration }).(FirewallManagementIpConfigurationPtrOutput)
 }
@@ -420,7 +420,7 @@ func (o FirewallOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
 func (o FirewallOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

@@ -123,14 +123,14 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoscaleSettings);
     }
     /**
-     * A `conflict_resolution_policy` blocks as defined below.
+     * A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="conflictResolutionPolicy", type=GremlinGraphConflictResolutionPolicy.class, parameters={})
     private Output<GremlinGraphConflictResolutionPolicy> conflictResolutionPolicy;
 
     /**
-     * @return A `conflict_resolution_policy` blocks as defined below.
+     * @return A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<GremlinGraphConflictResolutionPolicy> conflictResolutionPolicy() {

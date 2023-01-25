@@ -101,14 +101,14 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cmkForQueryForced);
     }
     /**
-     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+     * The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
      * 
      */
     @Export(name="dailyQuotaGb", type=Double.class, parameters={})
     private Output</* @Nullable */ Double> dailyQuotaGb;
 
     /**
-     * @return The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+     * @return The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
      * 
      */
     public Output<Optional<Double>> dailyQuotaGb() {
@@ -185,14 +185,14 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
         return this.primarySharedKey;
     }
     /**
-     * The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+     * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
      * 
      */
     @Export(name="reservationCapacityInGbPerDay", type=Integer.class, parameters={})
     private Output<Integer> reservationCapacityInGbPerDay;
 
     /**
-     * @return The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+     * @return The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
      * 
      */
     public Output<Integer> reservationCapacityInGbPerDay() {

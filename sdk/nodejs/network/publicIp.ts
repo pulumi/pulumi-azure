@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Public IP Address.
  *
+ * > **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azure.network.NetworkInterface`) it is recommended to set the `lifecycle` argument `createBeforeDestroy = true`. Otherwise, it can fail to disassociate on destruction.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -73,7 +75,7 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly ddosProtectionPlanId!: pulumi.Output<string | undefined>;
     /**
-     * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+     * Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
     public readonly domainNameLabel!: pulumi.Output<string | undefined>;
     /**
@@ -219,7 +221,7 @@ export interface PublicIpState {
      */
     ddosProtectionPlanId?: pulumi.Input<string>;
     /**
-     * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+     * Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
     domainNameLabel?: pulumi.Input<string>;
     /**
@@ -301,7 +303,7 @@ export interface PublicIpArgs {
      */
     ddosProtectionPlanId?: pulumi.Input<string>;
     /**
-     * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+     * Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
     domainNameLabel?: pulumi.Input<string>;
     /**

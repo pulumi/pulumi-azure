@@ -49,14 +49,14 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryArgs extend
     }
 
     /**
-     * A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+     * A name to identify on the Git repository, required only if repos exists.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+     * @return A name to identify on the Git repository, required only if repos exists.
      * 
      */
     public Output<String> name() {
@@ -196,7 +196,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryArgs extend
         }
 
         /**
-         * @param name A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+         * @param name A name to identify on the Git repository, required only if repos exists.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryArgs extend
         }
 
         /**
-         * @param name A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
+         * @param name A name to identify on the Git repository, required only if repos exists.
          * 
          * @return builder
          * 

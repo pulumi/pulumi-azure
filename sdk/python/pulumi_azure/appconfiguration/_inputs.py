@@ -118,7 +118,7 @@ class ConfigurationFeatureTimewindowFilterArgs:
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] end: The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+        :param pulumi.Input[str] end: The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
         :param pulumi.Input[str] start: The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
         """
         if end is not None:
@@ -130,7 +130,7 @@ class ConfigurationFeatureTimewindowFilterArgs:
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[str]]:
         """
-        The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
+        The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
         """
         return pulumi.get(self, "end")
 

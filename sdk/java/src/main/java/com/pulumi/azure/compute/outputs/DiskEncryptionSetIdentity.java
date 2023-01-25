@@ -28,7 +28,7 @@ public final class DiskEncryptionSetIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return The type of Managed Service Identity that is configured on this Disk Encryption Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     private String type;
@@ -56,7 +56,7 @@ public final class DiskEncryptionSetIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return The type of Managed Service Identity that is configured on this Disk Encryption Set.  Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return The type of Managed Service Identity that is configured on this Disk Encryption Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public String type() {

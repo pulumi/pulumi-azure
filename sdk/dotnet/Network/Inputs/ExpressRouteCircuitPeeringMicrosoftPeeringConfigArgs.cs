@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int>? CustomerAsn { get; set; }
 
         /// <summary>
-        /// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+        /// The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         /// </summary>
         [Input("routingRegistryName")]
         public Input<string>? RoutingRegistryName { get; set; }

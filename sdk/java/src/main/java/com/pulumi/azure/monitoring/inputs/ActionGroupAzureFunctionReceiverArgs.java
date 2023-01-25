@@ -62,14 +62,14 @@ public final class ActionGroupAzureFunctionReceiverArgs extends com.pulumi.resou
     }
 
     /**
-     * The name of the Azure Function receiver. Changing this forces a new resource to be created.
+     * The name of the Azure Function receiver.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Azure Function receiver. Changing this forces a new resource to be created.
+     * @return The name of the Azure Function receiver.
      * 
      */
     public Output<String> name() {
@@ -183,7 +183,7 @@ public final class ActionGroupAzureFunctionReceiverArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the Azure Function receiver. Changing this forces a new resource to be created.
+         * @param name The name of the Azure Function receiver.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ActionGroupAzureFunctionReceiverArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the Azure Function receiver. Changing this forces a new resource to be created.
+         * @param name The name of the Azure Function receiver.
          * 
          * @return builder
          * 

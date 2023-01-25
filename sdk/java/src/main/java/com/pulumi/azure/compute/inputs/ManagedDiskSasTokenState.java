@@ -17,14 +17,14 @@ public final class ManagedDiskSasTokenState extends com.pulumi.resources.Resourc
     public static final ManagedDiskSasTokenState Empty = new ManagedDiskSasTokenState();
 
     /**
-     * The level of access required on the disk. Supported are Read, Write.
+     * The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="accessLevel")
     private @Nullable Output<String> accessLevel;
 
     /**
-     * @return The level of access required on the disk. Supported are Read, Write.
+     * @return The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> accessLevel() {
@@ -32,14 +32,14 @@ public final class ManagedDiskSasTokenState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds.
+     * The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="durationInSeconds")
     private @Nullable Output<Integer> durationInSeconds;
 
     /**
-     * @return The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds.
+     * @return The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> durationInSeconds() {
@@ -104,7 +104,7 @@ public final class ManagedDiskSasTokenState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessLevel The level of access required on the disk. Supported are Read, Write.
+         * @param accessLevel The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ManagedDiskSasTokenState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accessLevel The level of access required on the disk. Supported are Read, Write.
+         * @param accessLevel The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ManagedDiskSasTokenState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param durationInSeconds The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds.
+         * @param durationInSeconds The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ManagedDiskSasTokenState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param durationInSeconds The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds.
+         * @param durationInSeconds The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

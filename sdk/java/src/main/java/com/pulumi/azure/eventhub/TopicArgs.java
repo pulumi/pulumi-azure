@@ -18,16 +18,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     public static final TopicArgs Empty = new TopicArgs();
 
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the
-     * Topic is automatically deleted, minimum of 5 minutes.
+     * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      * 
      */
     @Import(name="autoDeleteOnIdle")
     private @Nullable Output<String> autoDeleteOnIdle;
 
     /**
-     * @return The ISO 8601 timespan duration of the idle interval after which the
-     * Topic is automatically deleted, minimum of 5 minutes.
+     * @return The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      * 
      */
     public Optional<Output<String>> autoDeleteOnIdle() {
@@ -35,16 +33,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-     * TTL value is set on the message itself.
+     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      * 
      */
     @Import(name="defaultMessageTtl")
     private @Nullable Output<String> defaultMessageTtl;
 
     /**
-     * @return The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-     * TTL value is set on the message itself.
+     * @return The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      * 
      */
     public Optional<Output<String>> defaultMessageTtl() {
@@ -52,16 +48,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ISO 8601 timespan duration during which
-     * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
      * 
      */
     @Import(name="duplicateDetectionHistoryTimeWindow")
     private @Nullable Output<String> duplicateDetectionHistoryTimeWindow;
 
     /**
-     * @return The ISO 8601 timespan duration during which
-     * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+     * @return The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
      * 
      */
     public Optional<Output<String>> duplicateDetectionHistoryTimeWindow() {
@@ -69,16 +63,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which controls if server-side
-     * batched operations are enabled. Defaults to false.
+     * Boolean flag which controls if server-side batched operations are enabled.
      * 
      */
     @Import(name="enableBatchedOperations")
     private @Nullable Output<Boolean> enableBatchedOperations;
 
     /**
-     * @return Boolean flag which controls if server-side
-     * batched operations are enabled. Defaults to false.
+     * @return Boolean flag which controls if server-side batched operations are enabled.
      * 
      */
     public Optional<Output<Boolean>> enableBatchedOperations() {
@@ -86,18 +78,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which controls whether Express Entities
-     * are enabled. An express topic holds a message in memory temporarily before writing
-     * it to persistent storage. Defaults to false.
+     * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
      */
     @Import(name="enableExpress")
     private @Nullable Output<Boolean> enableExpress;
 
     /**
-     * @return Boolean flag which controls whether Express Entities
-     * are enabled. An express topic holds a message in memory temporarily before writing
-     * it to persistent storage. Defaults to false.
+     * @return Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
      */
     public Optional<Output<Boolean>> enableExpress() {
@@ -124,18 +112,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Integer value which controls the maximum size of
-     * a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     @Import(name="maxMessageSizeInKilobytes")
     private @Nullable Output<Integer> maxMessageSizeInKilobytes;
 
     /**
-     * @return Integer value which controls the maximum size of
-     * a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * @return Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     public Optional<Output<Integer>> maxMessageSizeInKilobytes() {
@@ -143,18 +127,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Integer value which controls the size of
-     * memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+     * Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      * 
      */
     @Import(name="maxSizeInMegabytes")
     private @Nullable Output<Integer> maxSizeInMegabytes;
 
     /**
-     * @return Integer value which controls the size of
-     * memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34;
-     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+     * @return Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      * 
      */
     public Optional<Output<Integer>> maxSizeInMegabytes() {
@@ -162,16 +142,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the ServiceBus Topic resource. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the ServiceBus Topic resource. Changing this forces a
-     * new resource to be created.
+     * @return Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -230,16 +208,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which controls whether the Topic
-     * supports ordering. Defaults to false.
+     * Boolean flag which controls whether the Topic supports ordering.
      * 
      */
     @Import(name="supportOrdering")
     private @Nullable Output<Boolean> supportOrdering;
 
     /**
-     * @return Boolean flag which controls whether the Topic
-     * supports ordering. Defaults to false.
+     * @return Boolean flag which controls whether the Topic supports ordering.
      * 
      */
     public Optional<Output<Boolean>> supportOrdering() {
@@ -283,8 +259,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the
-         * Topic is automatically deleted, minimum of 5 minutes.
+         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
          * 
          * @return builder
          * 
@@ -295,8 +270,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the
-         * Topic is automatically deleted, minimum of 5 minutes.
+         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
          * 
          * @return builder
          * 
@@ -306,8 +280,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultMessageTtl The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-         * TTL value is set on the message itself.
+         * @param defaultMessageTtl The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
          * 
          * @return builder
          * 
@@ -318,8 +291,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultMessageTtl The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-         * TTL value is set on the message itself.
+         * @param defaultMessageTtl The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
          * 
          * @return builder
          * 
@@ -329,8 +301,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param duplicateDetectionHistoryTimeWindow The ISO 8601 timespan duration during which
-         * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+         * @param duplicateDetectionHistoryTimeWindow The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
          * 
          * @return builder
          * 
@@ -341,8 +312,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param duplicateDetectionHistoryTimeWindow The ISO 8601 timespan duration during which
-         * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+         * @param duplicateDetectionHistoryTimeWindow The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
          * 
          * @return builder
          * 
@@ -352,8 +322,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableBatchedOperations Boolean flag which controls if server-side
-         * batched operations are enabled. Defaults to false.
+         * @param enableBatchedOperations Boolean flag which controls if server-side batched operations are enabled.
          * 
          * @return builder
          * 
@@ -364,8 +333,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableBatchedOperations Boolean flag which controls if server-side
-         * batched operations are enabled. Defaults to false.
+         * @param enableBatchedOperations Boolean flag which controls if server-side batched operations are enabled.
          * 
          * @return builder
          * 
@@ -375,9 +343,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableExpress Boolean flag which controls whether Express Entities
-         * are enabled. An express topic holds a message in memory temporarily before writing
-         * it to persistent storage. Defaults to false.
+         * @param enableExpress Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
          * 
          * @return builder
          * 
@@ -388,9 +354,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableExpress Boolean flag which controls whether Express Entities
-         * are enabled. An express topic holds a message in memory temporarily before writing
-         * it to persistent storage. Defaults to false.
+         * @param enableExpress Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
          * 
          * @return builder
          * 
@@ -425,9 +389,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of
-         * a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34;
-         * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
          * 
          * @return builder
          * 
@@ -438,9 +400,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of
-         * a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34;
-         * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
          * 
          * @return builder
          * 
@@ -450,9 +410,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSizeInMegabytes Integer value which controls the size of
-         * memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34;
-         * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+         * @param maxSizeInMegabytes Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
          * 
          * @return builder
          * 
@@ -463,9 +421,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSizeInMegabytes Integer value which controls the size of
-         * memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34;
-         * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+         * @param maxSizeInMegabytes Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
          * 
          * @return builder
          * 
@@ -475,8 +431,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the ServiceBus Topic resource. Changing this forces a
-         * new resource to be created.
+         * @param name Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -487,8 +442,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the ServiceBus Topic resource. Changing this forces a
-         * new resource to be created.
+         * @param name Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -567,8 +521,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportOrdering Boolean flag which controls whether the Topic
-         * supports ordering. Defaults to false.
+         * @param supportOrdering Boolean flag which controls whether the Topic supports ordering.
          * 
          * @return builder
          * 
@@ -579,8 +532,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportOrdering Boolean flag which controls whether the Topic
-         * supports ordering. Defaults to false.
+         * @param supportOrdering Boolean flag which controls whether the Topic supports ordering.
          * 
          * @return builder
          * 

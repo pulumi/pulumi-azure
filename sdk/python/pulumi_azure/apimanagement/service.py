@@ -488,7 +488,7 @@ class _ServiceState:
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input['ServicePolicyArgs'] policy: A `policy` block as defined below.
         :param pulumi.Input[str] portal_url: The URL for the Publisher Portal associated with this API Management service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         :param pulumi.Input['ServiceProtocolsArgs'] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
@@ -772,7 +772,7 @@ class _ServiceState:
     @pulumi.getter(name="privateIpAddresses")
     def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         """
         return pulumi.get(self, "private_ip_addresses")
 
@@ -1259,7 +1259,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input[pulumi.InputType['ServicePolicyArgs']] policy: A `policy` block as defined below.
         :param pulumi.Input[str] portal_url: The URL for the Publisher Portal associated with this API Management service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
@@ -1450,7 +1450,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="privateIpAddresses")
     def private_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
-        The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         """
         return pulumi.get(self, "private_ip_addresses")
 

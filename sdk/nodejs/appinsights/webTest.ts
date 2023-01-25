@@ -111,8 +111,7 @@ export class WebTest extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Application Insights WebTest. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -234,8 +233,7 @@ export interface WebTestState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Application Insights WebTest. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -294,8 +292,7 @@ export interface WebTestArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Application Insights WebTest. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

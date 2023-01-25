@@ -357,14 +357,14 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.osProfile);
     }
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="plan", type=OrchestratedVirtualMachineScaleSetPlan.class, parameters={})
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetPlan> plan;
 
     /**
-     * @return A `plan` block as documented below.
+     * @return A `plan` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<OrchestratedVirtualMachineScaleSetPlan>> plan() {

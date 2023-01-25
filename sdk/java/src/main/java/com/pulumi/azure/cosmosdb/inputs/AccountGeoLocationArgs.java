@@ -48,14 +48,14 @@ public final class AccountGeoLocationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+     * The name of the Azure region to host replicated data.
      * 
      */
     @Import(name="location", required=true)
     private Output<String> location;
 
     /**
-     * @return The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+     * @return The name of the Azure region to host replicated data.
      * 
      */
     public Output<String> location() {
@@ -147,7 +147,7 @@ public final class AccountGeoLocationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param location The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+         * @param location The name of the Azure region to host replicated data.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class AccountGeoLocationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param location The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
+         * @param location The name of the Azure region to host replicated data.
          * 
          * @return builder
          * 

@@ -50,14 +50,14 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `ip_configuration` block as defined below.
+     * A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ipConfiguration")
     private @Nullable Output<BastionHostIpConfigurationArgs> ipConfiguration;
 
     /**
-     * @return A `ip_configuration` block as defined below.
+     * @return A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<BastionHostIpConfigurationArgs>> ipConfiguration() {
@@ -80,14 +80,14 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+     * @return Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      * 
      */
     public Optional<Output<String>> location() {
@@ -277,7 +277,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfiguration A `ip_configuration` block as defined below.
+         * @param ipConfiguration A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfiguration A `ip_configuration` block as defined below.
+         * @param ipConfiguration A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+         * @param location Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
+         * @param location Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
          * 
          * @return builder
          * 

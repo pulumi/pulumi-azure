@@ -96,7 +96,7 @@ type GremlinGraph struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 	AccountName       pulumi.StringOutput                    `pulumi:"accountName"`
 	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
-	// A `conflictResolutionPolicy` blocks as defined below.
+	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyOutput `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -162,7 +162,7 @@ type gremlinGraphState struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 	AccountName       *string                        `pulumi:"accountName"`
 	AutoscaleSettings *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
-	// A `conflictResolutionPolicy` blocks as defined below.
+	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -188,7 +188,7 @@ type GremlinGraphState struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 	AccountName       pulumi.StringPtrInput
 	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrInput
-	// A `conflictResolutionPolicy` blocks as defined below.
+	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
@@ -218,7 +218,7 @@ type gremlinGraphArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 	AccountName       string                         `pulumi:"accountName"`
 	AutoscaleSettings *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
-	// A `conflictResolutionPolicy` blocks as defined below.
+	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
@@ -245,7 +245,7 @@ type GremlinGraphArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 	AccountName       pulumi.StringInput
 	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrInput
-	// A `conflictResolutionPolicy` blocks as defined below.
+	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
@@ -363,7 +363,7 @@ func (o GremlinGraphOutput) AutoscaleSettings() GremlinGraphAutoscaleSettingsPtr
 	return o.ApplyT(func(v *GremlinGraph) GremlinGraphAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(GremlinGraphAutoscaleSettingsPtrOutput)
 }
 
-// A `conflictResolutionPolicy` blocks as defined below.
+// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 func (o GremlinGraphOutput) ConflictResolutionPolicy() GremlinGraphConflictResolutionPolicyOutput {
 	return o.ApplyT(func(v *GremlinGraph) GremlinGraphConflictResolutionPolicyOutput { return v.ConflictResolutionPolicy }).(GremlinGraphConflictResolutionPolicyOutput)
 }

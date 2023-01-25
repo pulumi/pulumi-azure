@@ -96,14 +96,13 @@ namespace Pulumi.Azure.Redis
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        /// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         /// </summary>
         [Output("minimumTlsVersion")]
         public Output<string?> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Redis instance. Changing this forces a
-        /// new resource to be created.
+        /// The name of the Redis instance. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -312,14 +311,13 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        /// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// The name of the Redis instance. Changing this forces a
-        /// new resource to be created.
+        /// The name of the Redis instance. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -477,14 +475,13 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        /// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// The name of the Redis instance. Changing this forces a
-        /// new resource to be created.
+        /// The name of the Redis instance. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

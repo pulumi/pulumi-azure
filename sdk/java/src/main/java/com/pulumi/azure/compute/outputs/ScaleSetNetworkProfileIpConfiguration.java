@@ -35,7 +35,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
      */
     private @Nullable List<String> loadBalancerInboundNatRulesIds;
     /**
-     * @return Specifies name of the IP configuration. Changing this forces a new resource to be created.
+     * @return Specifies name of the IP configuration.
      * 
      */
     private String name;
@@ -85,7 +85,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         return this.loadBalancerInboundNatRulesIds == null ? List.of() : this.loadBalancerInboundNatRulesIds;
     }
     /**
-     * @return Specifies name of the IP configuration. Changing this forces a new resource to be created.
+     * @return Specifies name of the IP configuration.
      * 
      */
     public String name() {

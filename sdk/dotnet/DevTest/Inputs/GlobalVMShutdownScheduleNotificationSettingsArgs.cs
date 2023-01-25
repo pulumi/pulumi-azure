@@ -19,7 +19,7 @@ namespace Pulumi.Azure.DevTest.Inputs
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+        /// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

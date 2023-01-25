@@ -142,6 +142,20 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataEncrypted);
     }
     /**
+     * Is geo-backup policy enabled? Defaults to `true`.
+     * 
+     */
+    @Export(name="geoBackupPolicyEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> geoBackupPolicyEnabled;
+
+    /**
+     * @return Is geo-backup policy enabled? Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> geoBackupPolicyEnabled() {
+        return Codegen.optional(this.geoBackupPolicyEnabled);
+    }
+    /**
      * The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
      * 
      */
@@ -170,14 +184,14 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.recoveryDatabaseId);
     }
     /**
-     * A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+     * A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="restore", type=SqlPoolRestore.class, parameters={})
     private Output</* @Nullable */ SqlPoolRestore> restore;
 
     /**
-     * @return A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+     * @return A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<SqlPoolRestore>> restore() {

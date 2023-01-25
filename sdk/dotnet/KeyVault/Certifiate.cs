@@ -292,7 +292,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> CertificateDataBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// A `certificate_policy` block as defined below.
+        /// A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("certificatePolicy")]
         public Output<Outputs.CertifiateCertificatePolicy> CertificatePolicy { get; private set; } = null!;
@@ -398,7 +398,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<Inputs.CertifiateCertificateArgs>? KeyVaultCertificate { get; set; }
 
         /// <summary>
-        /// A `certificate_policy` block as defined below.
+        /// A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("certificatePolicy")]
         public Input<Inputs.CertifiateCertificatePolicyArgs>? CertificatePolicy { get; set; }
@@ -466,7 +466,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? CertificateDataBase64 { get; set; }
 
         /// <summary>
-        /// A `certificate_policy` block as defined below.
+        /// A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("certificatePolicy")]
         public Input<Inputs.CertifiateCertificatePolicyGetArgs>? CertificatePolicy { get; set; }

@@ -35,7 +35,7 @@ class SlotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Slot resource.
-        :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
@@ -89,7 +89,7 @@ class SlotArgs:
     @pulumi.getter(name="appServiceName")
     def app_service_name(self) -> pulumi.Input[str]:
         """
-        The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+        The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_service_name")
 
@@ -314,7 +314,7 @@ class _SlotState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Slot resources.
-        :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input['SlotAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
@@ -377,7 +377,7 @@ class _SlotState:
     @pulumi.getter(name="appServiceName")
     def app_service_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+        The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_service_name")
 
@@ -730,7 +730,7 @@ class Slot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[pulumi.InputType['SlotAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
@@ -959,7 +959,7 @@ class Slot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[pulumi.InputType['SlotAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
@@ -1008,7 +1008,7 @@ class Slot(pulumi.CustomResource):
     @pulumi.getter(name="appServiceName")
     def app_service_name(self) -> pulumi.Output[str]:
         """
-        The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+        The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_service_name")
 

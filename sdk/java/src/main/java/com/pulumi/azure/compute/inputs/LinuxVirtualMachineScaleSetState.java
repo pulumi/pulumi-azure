@@ -494,14 +494,14 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
     }
 
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="plan")
     private @Nullable Output<LinuxVirtualMachineScaleSetPlanArgs> plan;
 
     /**
-     * @return A `plan` block as defined below.
+     * @return A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<LinuxVirtualMachineScaleSetPlanArgs>> plan() {
@@ -584,14 +584,14 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
     }
 
     /**
-     * A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+     * A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="rollingUpgradePolicy")
     private @Nullable Output<LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs> rollingUpgradePolicy;
 
     /**
-     * @return A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+     * @return A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs>> rollingUpgradePolicy() {
@@ -1645,7 +1645,7 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param plan A `plan` block as defined below.
+         * @param plan A `plan` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1656,7 +1656,7 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param plan A `plan` block as defined below.
+         * @param plan A `plan` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1771,7 +1771,7 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param rollingUpgradePolicy A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+         * @param rollingUpgradePolicy A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1782,7 +1782,7 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param rollingUpgradePolicy A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+         * @param rollingUpgradePolicy A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Lb.Inputs
         }
 
         /// <summary>
-        /// Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
+        /// Specifies the name of the frontend IP configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Lb.Inputs
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+        /// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
         /// </summary>
         public InputList<string> Zones
         {

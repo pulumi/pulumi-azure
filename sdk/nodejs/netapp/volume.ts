@@ -58,7 +58,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly createFromSnapshotResourceId!: pulumi.Output<string>;
     /**
-     * A `dataProtectionReplication` block as defined below.
+     * A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly dataProtectionReplication!: pulumi.Output<outputs.netapp.VolumeDataProtectionReplication | undefined>;
     /**
@@ -130,7 +130,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly volumePath!: pulumi.Output<string>;
     /**
-     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
      */
     public readonly zone!: pulumi.Output<string | undefined>;
 
@@ -237,7 +237,7 @@ export interface VolumeState {
      */
     createFromSnapshotResourceId?: pulumi.Input<string>;
     /**
-     * A `dataProtectionReplication` block as defined below.
+     * A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
      */
     dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
     /**
@@ -309,7 +309,7 @@ export interface VolumeState {
      */
     volumePath?: pulumi.Input<string>;
     /**
-     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
      */
     zone?: pulumi.Input<string>;
 }
@@ -331,7 +331,7 @@ export interface VolumeArgs {
      */
     createFromSnapshotResourceId?: pulumi.Input<string>;
     /**
-     * A `dataProtectionReplication` block as defined below.
+     * A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
      */
     dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
     /**
@@ -399,7 +399,7 @@ export interface VolumeArgs {
      */
     volumePath: pulumi.Input<string>;
     /**
-     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
      */
     zone?: pulumi.Input<string>;
 }

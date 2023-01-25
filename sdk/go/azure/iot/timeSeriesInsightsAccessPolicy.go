@@ -75,7 +75,7 @@ type TimeSeriesInsightsAccessPolicy struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The id of the principal in Azure Active Directory.
+	// The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
 	PrincipalObjectId pulumi.StringOutput `pulumi:"principalObjectId"`
 	// A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
@@ -125,7 +125,7 @@ type timeSeriesInsightsAccessPolicyState struct {
 	Description *string `pulumi:"description"`
 	// Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
 	Name *string `pulumi:"name"`
-	// The id of the principal in Azure Active Directory.
+	// The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
 	PrincipalObjectId *string `pulumi:"principalObjectId"`
 	// A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
 	Roles []string `pulumi:"roles"`
@@ -138,7 +138,7 @@ type TimeSeriesInsightsAccessPolicyState struct {
 	Description pulumi.StringPtrInput
 	// Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringPtrInput
-	// The id of the principal in Azure Active Directory.
+	// The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
 	PrincipalObjectId pulumi.StringPtrInput
 	// A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
 	Roles pulumi.StringArrayInput
@@ -155,7 +155,7 @@ type timeSeriesInsightsAccessPolicyArgs struct {
 	Description *string `pulumi:"description"`
 	// Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
 	Name *string `pulumi:"name"`
-	// The id of the principal in Azure Active Directory.
+	// The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
 	PrincipalObjectId string `pulumi:"principalObjectId"`
 	// A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
 	Roles []string `pulumi:"roles"`
@@ -169,7 +169,7 @@ type TimeSeriesInsightsAccessPolicyArgs struct {
 	Description pulumi.StringPtrInput
 	// Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringPtrInput
-	// The id of the principal in Azure Active Directory.
+	// The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
 	PrincipalObjectId pulumi.StringInput
 	// A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
 	Roles pulumi.StringArrayInput
@@ -274,7 +274,7 @@ func (o TimeSeriesInsightsAccessPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TimeSeriesInsightsAccessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The id of the principal in Azure Active Directory.
+// The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
 func (o TimeSeriesInsightsAccessPolicyOutput) PrincipalObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TimeSeriesInsightsAccessPolicy) pulumi.StringOutput { return v.PrincipalObjectId }).(pulumi.StringOutput)
 }

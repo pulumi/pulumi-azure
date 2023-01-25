@@ -27,7 +27,7 @@ class SubscriptionArgs:
         :param pulumi.Input[str] billing_scope_id: The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Subscription.
-        :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+        :param pulumi.Input[str] workload: The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
         pulumi.set(__self__, "subscription_name", subscription_name)
         if alias is not None:
@@ -105,7 +105,7 @@ class SubscriptionArgs:
     @pulumi.getter
     def workload(self) -> Optional[pulumi.Input[str]]:
         """
-        The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+        The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
         return pulumi.get(self, "workload")
 
@@ -132,7 +132,7 @@ class _SubscriptionState:
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Subscription.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant to which the subscription belongs.
-        :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+        :param pulumi.Input[str] workload: The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -225,7 +225,7 @@ class _SubscriptionState:
     @pulumi.getter
     def workload(self) -> Optional[pulumi.Input[str]]:
         """
-        The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+        The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
         return pulumi.get(self, "workload")
 
@@ -322,7 +322,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Subscription.
-        :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+        :param pulumi.Input[str] workload: The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
         ...
     @overload
@@ -468,7 +468,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Subscription.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant to which the subscription belongs.
-        :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+        :param pulumi.Input[str] workload: The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -535,7 +535,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter
     def workload(self) -> pulumi.Output[Optional[str]]:
         """
-        The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
+        The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
         return pulumi.get(self, "workload")
 

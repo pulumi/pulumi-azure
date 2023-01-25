@@ -67,6 +67,12 @@ namespace Pulumi.Azure.RecoveryServices
         public Output<Outputs.VaultIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+        /// </summary>
+        [Output("immutability")]
+        public Output<string> Immutability { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -77,6 +83,12 @@ namespace Pulumi.Azure.RecoveryServices
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Is it enabled to access the vault from public networks. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -173,6 +185,12 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<Inputs.VaultIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+        /// </summary>
+        [Input("immutability")]
+        public Input<string>? Immutability { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -183,6 +201,12 @@ namespace Pulumi.Azure.RecoveryServices
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Is it enabled to access the vault from public networks. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -247,6 +271,12 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<Inputs.VaultIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+        /// </summary>
+        [Input("immutability")]
+        public Input<string>? Immutability { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -257,6 +287,12 @@ namespace Pulumi.Azure.RecoveryServices
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Is it enabled to access the vault from public networks. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.

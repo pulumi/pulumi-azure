@@ -159,8 +159,7 @@ namespace Pulumi.Azure.Compute
     public partial class Extension : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies if the platform deploys
-        /// the latest minor version update to the `type_handler_version` specified.
+        /// Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         /// </summary>
         [Output("autoUpgradeMinorVersion")]
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
@@ -184,8 +183,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The protected_settings passed to the
-        /// extension, like settings, these are specified as a JSON object in a string.
+        /// The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         /// </summary>
         [Output("protectedSettings")]
         public Output<string?> ProtectedSettings { get; private set; } = null!;
@@ -203,8 +201,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Publisher { get; private set; } = null!;
 
         /// <summary>
-        /// The settings passed to the extension, these are
-        /// specified as a JSON object in a string.
+        /// The settings passed to the extension, these are specified as a JSON object in a string.
         /// </summary>
         [Output("settings")]
         public Output<string?> Settings { get; private set; } = null!;
@@ -216,15 +213,13 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of extension, available types for a publisher can
-        /// be found using the Azure CLI.
+        /// The type of extension, available types for a publisher can be found using the Azure CLI.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of the extension to
-        /// use, available versions can be found using the Azure CLI.
+        /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// </summary>
         [Output("typeHandlerVersion")]
         public Output<string> TypeHandlerVersion { get; private set; } = null!;
@@ -286,8 +281,7 @@ namespace Pulumi.Azure.Compute
     public sealed class ExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the platform deploys
-        /// the latest minor version update to the `type_handler_version` specified.
+        /// Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         /// </summary>
         [Input("autoUpgradeMinorVersion")]
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
@@ -314,8 +308,7 @@ namespace Pulumi.Azure.Compute
         private Input<string>? _protectedSettings;
 
         /// <summary>
-        /// The protected_settings passed to the
-        /// extension, like settings, these are specified as a JSON object in a string.
+        /// The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         /// </summary>
         public Input<string>? ProtectedSettings
         {
@@ -340,8 +333,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> Publisher { get; set; } = null!;
 
         /// <summary>
-        /// The settings passed to the extension, these are
-        /// specified as a JSON object in a string.
+        /// The settings passed to the extension, these are specified as a JSON object in a string.
         /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }
@@ -359,15 +351,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The type of extension, available types for a publisher can
-        /// be found using the Azure CLI.
+        /// The type of extension, available types for a publisher can be found using the Azure CLI.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the version of the extension to
-        /// use, available versions can be found using the Azure CLI.
+        /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// </summary>
         [Input("typeHandlerVersion", required: true)]
         public Input<string> TypeHandlerVersion { get; set; } = null!;
@@ -387,8 +377,7 @@ namespace Pulumi.Azure.Compute
     public sealed class ExtensionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the platform deploys
-        /// the latest minor version update to the `type_handler_version` specified.
+        /// Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         /// </summary>
         [Input("autoUpgradeMinorVersion")]
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
@@ -415,8 +404,7 @@ namespace Pulumi.Azure.Compute
         private Input<string>? _protectedSettings;
 
         /// <summary>
-        /// The protected_settings passed to the
-        /// extension, like settings, these are specified as a JSON object in a string.
+        /// The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         /// </summary>
         public Input<string>? ProtectedSettings
         {
@@ -441,8 +429,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Publisher { get; set; }
 
         /// <summary>
-        /// The settings passed to the extension, these are
-        /// specified as a JSON object in a string.
+        /// The settings passed to the extension, these are specified as a JSON object in a string.
         /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }
@@ -460,15 +447,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The type of extension, available types for a publisher can
-        /// be found using the Azure CLI.
+        /// The type of extension, available types for a publisher can be found using the Azure CLI.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Specifies the version of the extension to
-        /// use, available versions can be found using the Azure CLI.
+        /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }

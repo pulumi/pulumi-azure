@@ -187,7 +187,7 @@ func (o AadDiagnosticSettingLogRetentionPolicyOutput) Enabled() pulumi.BoolPtrOu
 }
 
 type ActionGroupArmRoleReceiver struct {
-	// The name of the ARM role receiver. Changing this forces a new resource to be created.
+	// The name of the ARM role receiver.
 	Name string `pulumi:"name"`
 	// The arm role id.
 	RoleId string `pulumi:"roleId"`
@@ -207,7 +207,7 @@ type ActionGroupArmRoleReceiverInput interface {
 }
 
 type ActionGroupArmRoleReceiverArgs struct {
-	// The name of the ARM role receiver. Changing this forces a new resource to be created.
+	// The name of the ARM role receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The arm role id.
 	RoleId pulumi.StringInput `pulumi:"roleId"`
@@ -266,7 +266,7 @@ func (o ActionGroupArmRoleReceiverOutput) ToActionGroupArmRoleReceiverOutputWith
 	return o
 }
 
-// The name of the ARM role receiver. Changing this forces a new resource to be created.
+// The name of the ARM role receiver.
 func (o ActionGroupArmRoleReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupArmRoleReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -306,7 +306,7 @@ type ActionGroupAutomationRunbookReceiver struct {
 	AutomationAccountId string `pulumi:"automationAccountId"`
 	// Indicates whether this instance is global runbook.
 	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
-	// The name of the automation runbook receiver. Changing this forces a new resource to be created.
+	// The name of the automation runbook receiver.
 	Name string `pulumi:"name"`
 	// The name for this runbook.
 	RunbookName string `pulumi:"runbookName"`
@@ -334,7 +334,7 @@ type ActionGroupAutomationRunbookReceiverArgs struct {
 	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
 	// Indicates whether this instance is global runbook.
 	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// The name of the automation runbook receiver. Changing this forces a new resource to be created.
+	// The name of the automation runbook receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name for this runbook.
 	RunbookName pulumi.StringInput `pulumi:"runbookName"`
@@ -407,7 +407,7 @@ func (o ActionGroupAutomationRunbookReceiverOutput) IsGlobalRunbook() pulumi.Boo
 	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
-// The name of the automation runbook receiver. Changing this forces a new resource to be created.
+// The name of the automation runbook receiver.
 func (o ActionGroupAutomationRunbookReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -455,7 +455,7 @@ func (o ActionGroupAutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput
 type ActionGroupAzureAppPushReceiver struct {
 	// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the Azure app push receiver. Changing this forces a new resource to be created.
+	// The name of the Azure app push receiver.
 	Name string `pulumi:"name"`
 }
 
@@ -473,7 +473,7 @@ type ActionGroupAzureAppPushReceiverInput interface {
 type ActionGroupAzureAppPushReceiverArgs struct {
 	// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the Azure app push receiver. Changing this forces a new resource to be created.
+	// The name of the Azure app push receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -533,7 +533,7 @@ func (o ActionGroupAzureAppPushReceiverOutput) EmailAddress() pulumi.StringOutpu
 	return o.ApplyT(func(v ActionGroupAzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the Azure app push receiver. Changing this forces a new resource to be created.
+// The name of the Azure app push receiver.
 func (o ActionGroupAzureAppPushReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -565,7 +565,7 @@ type ActionGroupAzureFunctionReceiver struct {
 	FunctionName string `pulumi:"functionName"`
 	// The HTTP trigger url where HTTP request sent to.
 	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
-	// The name of the Azure Function receiver. Changing this forces a new resource to be created.
+	// The name of the Azure Function receiver.
 	Name string `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
@@ -589,7 +589,7 @@ type ActionGroupAzureFunctionReceiverArgs struct {
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// The HTTP trigger url where HTTP request sent to.
 	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
-	// The name of the Azure Function receiver. Changing this forces a new resource to be created.
+	// The name of the Azure Function receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
@@ -661,7 +661,7 @@ func (o ActionGroupAzureFunctionReceiverOutput) HttpTriggerUrl() pulumi.StringOu
 	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
 
-// The name of the Azure Function receiver. Changing this forces a new resource to be created.
+// The name of the Azure Function receiver.
 func (o ActionGroupAzureFunctionReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -694,7 +694,7 @@ func (o ActionGroupAzureFunctionReceiverArrayOutput) Index(i pulumi.IntInput) Ac
 type ActionGroupEmailReceiver struct {
 	// The email address of this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+	// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name string `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
@@ -714,7 +714,7 @@ type ActionGroupEmailReceiverInput interface {
 type ActionGroupEmailReceiverArgs struct {
 	// The email address of this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+	// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
@@ -776,7 +776,7 @@ func (o ActionGroupEmailReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupEmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupEmailReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupEmailReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -815,7 +815,7 @@ type ActionGroupEventHubReceiver struct {
 	EventHubName *string `pulumi:"eventHubName"`
 	// The namespace name of the Event Hub.
 	EventHubNamespace *string `pulumi:"eventHubNamespace"`
-	// The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+	// The name of the EventHub Receiver, must be unique within action group.
 	Name string `pulumi:"name"`
 	// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
 	SubscriptionId *string `pulumi:"subscriptionId"`
@@ -845,7 +845,7 @@ type ActionGroupEventHubReceiverArgs struct {
 	EventHubName pulumi.StringPtrInput `pulumi:"eventHubName"`
 	// The namespace name of the Event Hub.
 	EventHubNamespace pulumi.StringPtrInput `pulumi:"eventHubNamespace"`
-	// The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+	// The name of the EventHub Receiver, must be unique within action group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
 	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
@@ -923,7 +923,7 @@ func (o ActionGroupEventHubReceiverOutput) EventHubNamespace() pulumi.StringPtrO
 	return o.ApplyT(func(v ActionGroupEventHubReceiver) *string { return v.EventHubNamespace }).(pulumi.StringPtrOutput)
 }
 
-// The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+// The name of the EventHub Receiver, must be unique within action group.
 func (o ActionGroupEventHubReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupEventHubReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -966,7 +966,7 @@ func (o ActionGroupEventHubReceiverArrayOutput) Index(i pulumi.IntInput) ActionG
 type ActionGroupItsmReceiver struct {
 	// The unique connection identifier of the ITSM connection.
 	ConnectionId string `pulumi:"connectionId"`
-	// The name of the ITSM receiver. Changing this forces a new resource to be created.
+	// The name of the ITSM receiver.
 	Name string `pulumi:"name"`
 	// The region of the workspace.
 	Region string `pulumi:"region"`
@@ -990,7 +990,7 @@ type ActionGroupItsmReceiverInput interface {
 type ActionGroupItsmReceiverArgs struct {
 	// The unique connection identifier of the ITSM connection.
 	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the ITSM receiver. Changing this forces a new resource to be created.
+	// The name of the ITSM receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The region of the workspace.
 	Region pulumi.StringInput `pulumi:"region"`
@@ -1056,7 +1056,7 @@ func (o ActionGroupItsmReceiverOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The name of the ITSM receiver. Changing this forces a new resource to be created.
+// The name of the ITSM receiver.
 func (o ActionGroupItsmReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1099,7 +1099,7 @@ func (o ActionGroupItsmReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroup
 type ActionGroupLogicAppReceiver struct {
 	// The callback url where HTTP request sent to.
 	CallbackUrl string `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Changing this forces a new resource to be created.
+	// The name of the logic app receiver.
 	Name string `pulumi:"name"`
 	// The Azure resource ID of the logic app.
 	ResourceId string `pulumi:"resourceId"`
@@ -1121,7 +1121,7 @@ type ActionGroupLogicAppReceiverInput interface {
 type ActionGroupLogicAppReceiverArgs struct {
 	// The callback url where HTTP request sent to.
 	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Changing this forces a new resource to be created.
+	// The name of the logic app receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Azure resource ID of the logic app.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
@@ -1185,7 +1185,7 @@ func (o ActionGroupLogicAppReceiverOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupLogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
-// The name of the logic app receiver. Changing this forces a new resource to be created.
+// The name of the logic app receiver.
 func (o ActionGroupLogicAppReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupLogicAppReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1223,7 +1223,7 @@ func (o ActionGroupLogicAppReceiverArrayOutput) Index(i pulumi.IntInput) ActionG
 type ActionGroupSmsReceiver struct {
 	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+	// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name string `pulumi:"name"`
 	// The phone number of the SMS receiver.
 	PhoneNumber string `pulumi:"phoneNumber"`
@@ -1243,7 +1243,7 @@ type ActionGroupSmsReceiverInput interface {
 type ActionGroupSmsReceiverArgs struct {
 	// The country code of the SMS receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+	// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The phone number of the SMS receiver.
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
@@ -1305,7 +1305,7 @@ func (o ActionGroupSmsReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupSmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupSmsReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupSmsReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1338,7 +1338,7 @@ func (o ActionGroupSmsReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupS
 type ActionGroupVoiceReceiver struct {
 	// The country code of the voice receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the voice receiver. Changing this forces a new resource to be created.
+	// The name of the voice receiver.
 	Name string `pulumi:"name"`
 	// The phone number of the voice receiver.
 	PhoneNumber string `pulumi:"phoneNumber"`
@@ -1358,7 +1358,7 @@ type ActionGroupVoiceReceiverInput interface {
 type ActionGroupVoiceReceiverArgs struct {
 	// The country code of the voice receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the voice receiver. Changing this forces a new resource to be created.
+	// The name of the voice receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The phone number of the voice receiver.
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
@@ -1420,7 +1420,7 @@ func (o ActionGroupVoiceReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupVoiceReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the voice receiver. Changing this forces a new resource to be created.
+// The name of the voice receiver.
 func (o ActionGroupVoiceReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupVoiceReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1453,7 +1453,7 @@ func (o ActionGroupVoiceReceiverArrayOutput) Index(i pulumi.IntInput) ActionGrou
 type ActionGroupWebhookReceiver struct {
 	// The `aadAuth` block as defined below
 	AadAuth *ActionGroupWebhookReceiverAadAuth `pulumi:"aadAuth"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name string `pulumi:"name"`
 	// The URI where webhooks should be sent.
 	ServiceUri string `pulumi:"serviceUri"`
@@ -1475,7 +1475,7 @@ type ActionGroupWebhookReceiverInput interface {
 type ActionGroupWebhookReceiverArgs struct {
 	// The `aadAuth` block as defined below
 	AadAuth ActionGroupWebhookReceiverAadAuthPtrInput `pulumi:"aadAuth"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The URI where webhooks should be sent.
 	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
@@ -1539,7 +1539,7 @@ func (o ActionGroupWebhookReceiverOutput) AadAuth() ActionGroupWebhookReceiverAa
 	return o.ApplyT(func(v ActionGroupWebhookReceiver) *ActionGroupWebhookReceiverAadAuth { return v.AadAuth }).(ActionGroupWebhookReceiverAadAuthPtrOutput)
 }
 
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupWebhookReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupWebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4928,7 +4928,7 @@ type ActionRuleSuppressionSuppressionSchedule struct {
 	EndDateUtc string `pulumi:"endDateUtc"`
 	// specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrenceType` is `Monthly`.
 	RecurrenceMonthlies []int `pulumi:"recurrenceMonthlies"`
-	// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+	// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	RecurrenceWeeklies []string `pulumi:"recurrenceWeeklies"`
 	// specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
 	StartDateUtc string `pulumi:"startDateUtc"`
@@ -4950,7 +4950,7 @@ type ActionRuleSuppressionSuppressionScheduleArgs struct {
 	EndDateUtc pulumi.StringInput `pulumi:"endDateUtc"`
 	// specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrenceType` is `Monthly`.
 	RecurrenceMonthlies pulumi.IntArrayInput `pulumi:"recurrenceMonthlies"`
-	// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+	// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	RecurrenceWeeklies pulumi.StringArrayInput `pulumi:"recurrenceWeeklies"`
 	// specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
 	StartDateUtc pulumi.StringInput `pulumi:"startDateUtc"`
@@ -5043,7 +5043,7 @@ func (o ActionRuleSuppressionSuppressionScheduleOutput) RecurrenceMonthlies() pu
 	return o.ApplyT(func(v ActionRuleSuppressionSuppressionSchedule) []int { return v.RecurrenceMonthlies }).(pulumi.IntArrayOutput)
 }
 
-// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 func (o ActionRuleSuppressionSuppressionScheduleOutput) RecurrenceWeeklies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionSuppressionSchedule) []string { return v.RecurrenceWeeklies }).(pulumi.StringArrayOutput)
 }
@@ -5097,7 +5097,7 @@ func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) RecurrenceMonthlies()
 	}).(pulumi.IntArrayOutput)
 }
 
-// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) RecurrenceWeeklies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActionRuleSuppressionSuppressionSchedule) []string {
 		if v == nil {
@@ -8520,7 +8520,7 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput) Inde
 }
 
 type AlertProcessingRuleActionGroupScheduleRecurrenceWeekly struct {
-	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
 	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
 	// Specifies the recurrence end time (H:M:S).
 	EndTime *string `pulumi:"endTime"`
@@ -8540,7 +8540,7 @@ type AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyInput interface {
 }
 
 type AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs struct {
-	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
 	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
 	// Specifies the recurrence end time (H:M:S).
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
@@ -8599,7 +8599,7 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) ToAlertPro
 	return o
 }
 
-// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
 func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) DaysOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrenceWeekly) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
 }
@@ -11298,7 +11298,7 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput) Inde
 }
 
 type AlertProcessingRuleSuppressionScheduleRecurrenceWeekly struct {
-	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
 	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
 	// Specifies the recurrence end time (H:M:S).
 	EndTime *string `pulumi:"endTime"`
@@ -11318,7 +11318,7 @@ type AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyInput interface {
 }
 
 type AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs struct {
-	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
 	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
 	// Specifies the recurrence end time (H:M:S).
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
@@ -11377,7 +11377,7 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) ToAlertPro
 	return o
 }
 
-// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+// Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
 func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) DaysOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrenceWeekly) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
 }
@@ -13429,7 +13429,7 @@ func (o DataCollectionRuleDataSourcesPerformanceCounterArrayOutput) Index(i pulu
 type DataCollectionRuleDataSourcesSyslog struct {
 	// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
 	FacilityNames []string `pulumi:"facilityNames"`
-	// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+	// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
 	LogLevels []string `pulumi:"logLevels"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
@@ -13451,7 +13451,7 @@ type DataCollectionRuleDataSourcesSyslogInput interface {
 type DataCollectionRuleDataSourcesSyslogArgs struct {
 	// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
 	FacilityNames pulumi.StringArrayInput `pulumi:"facilityNames"`
-	// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+	// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
 	LogLevels pulumi.StringArrayInput `pulumi:"logLevels"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -13515,7 +13515,7 @@ func (o DataCollectionRuleDataSourcesSyslogOutput) FacilityNames() pulumi.String
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesSyslog) []string { return v.FacilityNames }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
 func (o DataCollectionRuleDataSourcesSyslogOutput) LogLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesSyslog) []string { return v.LogLevels }).(pulumi.StringArrayOutput)
 }
@@ -17012,7 +17012,7 @@ type ScheduledQueryRulesAlertTrigger struct {
 	MetricTrigger *ScheduledQueryRulesAlertTriggerMetricTrigger `pulumi:"metricTrigger"`
 	// Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 	Operator string `pulumi:"operator"`
-	// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+	// Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
 	Threshold float64 `pulumi:"threshold"`
 }
 
@@ -17032,7 +17032,7 @@ type ScheduledQueryRulesAlertTriggerArgs struct {
 	MetricTrigger ScheduledQueryRulesAlertTriggerMetricTriggerPtrInput `pulumi:"metricTrigger"`
 	// Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+	// Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 }
 
@@ -17125,7 +17125,7 @@ func (o ScheduledQueryRulesAlertTriggerOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+// Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
 func (o ScheduledQueryRulesAlertTriggerOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
@@ -17174,7 +17174,7 @@ func (o ScheduledQueryRulesAlertTriggerPtrOutput) Operator() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+// Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
 func (o ScheduledQueryRulesAlertTriggerPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) *float64 {
 		if v == nil {
@@ -17191,7 +17191,7 @@ type ScheduledQueryRulesAlertTriggerMetricTrigger struct {
 	MetricTriggerType string `pulumi:"metricTriggerType"`
 	// Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 	Operator string `pulumi:"operator"`
-	// The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+	// The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
 	Threshold float64 `pulumi:"threshold"`
 }
 
@@ -17213,7 +17213,7 @@ type ScheduledQueryRulesAlertTriggerMetricTriggerArgs struct {
 	MetricTriggerType pulumi.StringInput `pulumi:"metricTriggerType"`
 	// Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+	// The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 }
 
@@ -17309,7 +17309,7 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) Operator() pulumi.St
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+// The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
 func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
@@ -17368,7 +17368,7 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Operator() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+// The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
 func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertTriggerMetricTrigger) *float64 {
 		if v == nil {
@@ -17974,7 +17974,7 @@ func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) NumberOfEvalu
 type ScheduledQueryRulesLogCriteria struct {
 	// A `dimension` block as defined below.
 	Dimensions []ScheduledQueryRulesLogCriteriaDimension `pulumi:"dimensions"`
-	// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+	// Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
 	MetricName string `pulumi:"metricName"`
 }
 
@@ -17992,7 +17992,7 @@ type ScheduledQueryRulesLogCriteriaInput interface {
 type ScheduledQueryRulesLogCriteriaArgs struct {
 	// A `dimension` block as defined below.
 	Dimensions ScheduledQueryRulesLogCriteriaDimensionArrayInput `pulumi:"dimensions"`
-	// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+	// Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 }
 
@@ -18078,7 +18078,7 @@ func (o ScheduledQueryRulesLogCriteriaOutput) Dimensions() ScheduledQueryRulesLo
 	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) []ScheduledQueryRulesLogCriteriaDimension { return v.Dimensions }).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
 }
 
-// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+// Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
 func (o ScheduledQueryRulesLogCriteriaOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) string { return v.MetricName }).(pulumi.StringOutput)
 }
@@ -18117,7 +18117,7 @@ func (o ScheduledQueryRulesLogCriteriaPtrOutput) Dimensions() ScheduledQueryRule
 	}).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
 }
 
-// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+// Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
 func (o ScheduledQueryRulesLogCriteriaPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesLogCriteria) *string {
 		if v == nil {
@@ -18128,7 +18128,7 @@ func (o ScheduledQueryRulesLogCriteriaPtrOutput) MetricName() pulumi.StringPtrOu
 }
 
 type ScheduledQueryRulesLogCriteriaDimension struct {
-	// Name of the dimension. Changing this forces a new resource to be created.
+	// Name of the dimension.
 	Name string `pulumi:"name"`
 	// Operator for dimension values, - 'Include'.
 	Operator *string `pulumi:"operator"`
@@ -18148,7 +18148,7 @@ type ScheduledQueryRulesLogCriteriaDimensionInput interface {
 }
 
 type ScheduledQueryRulesLogCriteriaDimensionArgs struct {
-	// Name of the dimension. Changing this forces a new resource to be created.
+	// Name of the dimension.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Operator for dimension values, - 'Include'.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
@@ -18207,7 +18207,7 @@ func (o ScheduledQueryRulesLogCriteriaDimensionOutput) ToScheduledQueryRulesLogC
 	return o
 }
 
-// Name of the dimension. Changing this forces a new resource to be created.
+// Name of the dimension.
 func (o ScheduledQueryRulesLogCriteriaDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesLogCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
 }

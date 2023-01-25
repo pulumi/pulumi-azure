@@ -70,14 +70,14 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
     }
 
     /**
-     * The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+     * The name of the EventHub Receiver, must be unique within action group.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+     * @return The name of the EventHub Receiver, must be unique within action group.
      * 
      */
     public Output<String> name() {
@@ -231,7 +231,7 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+         * @param name The name of the EventHub Receiver, must be unique within action group.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
+         * @param name The name of the EventHub Receiver, must be unique within action group.
          * 
          * @return builder
          * 

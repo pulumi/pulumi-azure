@@ -26,7 +26,7 @@ public final class ScheduledQueryRulesAlertTriggerMetricTrigger {
      */
     private String operator;
     /**
-     * @return The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+     * @return The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
      * 
      */
     private Double threshold;
@@ -54,7 +54,7 @@ public final class ScheduledQueryRulesAlertTriggerMetricTrigger {
         return this.operator;
     }
     /**
-     * @return The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
+     * @return The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
      * 
      */
     public Double threshold() {
