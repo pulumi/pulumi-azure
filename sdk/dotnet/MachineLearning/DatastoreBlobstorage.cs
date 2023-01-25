@@ -9,33 +9,73 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.MachineLearning
 {
+    /// <summary>
+    /// Manages a Machine Learning Blob Storage DataStore.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// Machine Learning DataStores can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/datastores/datastore1
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage")]
     public partial class DatastoreBlobstorage : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        /// </summary>
         [Output("accountKey")]
         public Output<string?> AccountKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        /// </summary>
         [Output("isDefault")]
         public Output<bool?> IsDefault { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+        /// </summary>
         [Output("serviceDataAuthIdentity")]
         public Output<string?> ServiceDataAuthIdentity { get; private set; } = null!;
 
+        /// <summary>
+        /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// </summary>
         [Output("sharedAccessSignature")]
         public Output<string?> SharedAccessSignature { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Output("storageContainerId")]
         public Output<string> StorageContainerId { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
 
@@ -92,6 +132,10 @@ namespace Pulumi.Azure.MachineLearning
     {
         [Input("accountKey")]
         private Input<string>? _accountKey;
+
+        /// <summary>
+        /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        /// </summary>
         public Input<string>? AccountKey
         {
             get => _accountKey;
@@ -102,20 +146,36 @@ namespace Pulumi.Azure.MachineLearning
             }
         }
 
+        /// <summary>
+        /// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
 
+        /// <summary>
+        /// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+        /// </summary>
         [Input("serviceDataAuthIdentity")]
         public Input<string>? ServiceDataAuthIdentity { get; set; }
 
         [Input("sharedAccessSignature")]
         private Input<string>? _sharedAccessSignature;
+
+        /// <summary>
+        /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// </summary>
         public Input<string>? SharedAccessSignature
         {
             get => _sharedAccessSignature;
@@ -126,17 +186,27 @@ namespace Pulumi.Azure.MachineLearning
             }
         }
 
+        /// <summary>
+        /// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Input("storageContainerId", required: true)]
         public Input<string> StorageContainerId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
@@ -150,6 +220,10 @@ namespace Pulumi.Azure.MachineLearning
     {
         [Input("accountKey")]
         private Input<string>? _accountKey;
+
+        /// <summary>
+        /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        /// </summary>
         public Input<string>? AccountKey
         {
             get => _accountKey;
@@ -160,20 +234,36 @@ namespace Pulumi.Azure.MachineLearning
             }
         }
 
+        /// <summary>
+        /// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
 
+        /// <summary>
+        /// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+        /// </summary>
         [Input("serviceDataAuthIdentity")]
         public Input<string>? ServiceDataAuthIdentity { get; set; }
 
         [Input("sharedAccessSignature")]
         private Input<string>? _sharedAccessSignature;
+
+        /// <summary>
+        /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// </summary>
         public Input<string>? SharedAccessSignature
         {
             get => _sharedAccessSignature;
@@ -184,17 +274,27 @@ namespace Pulumi.Azure.MachineLearning
             }
         }
 
+        /// <summary>
+        /// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Input("storageContainerId")]
         public Input<string>? StorageContainerId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
+        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 

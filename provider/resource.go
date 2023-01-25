@@ -2306,12 +2306,17 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_powerbi_embedded": {Tok: azureResource(azurePowerBi, "Embedded")},
 
 			// Machine Learning
-			"azurerm_machine_learning_workspace":             {Tok: azureResource(azureMachineLearning, "Workspace")},
-			"azurerm_machine_learning_inference_cluster":     {Tok: azureResource(azureMachineLearning, "InferenceCluster")},
-			"azurerm_machine_learning_compute_cluster":       {Tok: azureResource(azureMachineLearning, "ComputeCluster")},
-			"azurerm_machine_learning_synapse_spark":         {Tok: azureResource(azureMachineLearning, "SynapseSpark")},
-			"azurerm_machine_learning_compute_instance":      {Tok: azureResource(azureMachineLearning, "ComputeInstance")},
-			"azurerm_machine_learning_datastore_blobstorage": {Tok: azureResource(azureMachineLearning, "DatastoreBlobstorage")},
+			"azurerm_machine_learning_workspace":         {Tok: azureResource(azureMachineLearning, "Workspace")},
+			"azurerm_machine_learning_inference_cluster": {Tok: azureResource(azureMachineLearning, "InferenceCluster")},
+			"azurerm_machine_learning_compute_cluster":   {Tok: azureResource(azureMachineLearning, "ComputeCluster")},
+			"azurerm_machine_learning_synapse_spark":     {Tok: azureResource(azureMachineLearning, "SynapseSpark")},
+			"azurerm_machine_learning_compute_instance":  {Tok: azureResource(azureMachineLearning, "ComputeInstance")},
+			"azurerm_machine_learning_datastore_blobstorage": {
+				Tok: azureResource(azureMachineLearning, "DatastoreBlobstorage"),
+				Docs: &tfbridge.DocInfo{
+					Source: "machine_learning_datastore_blogstorage.html.markdown",
+				},
+			},
 
 			// Managed Applications
 			"azurerm_managed_application":            {Tok: azureResource(azureManagedApplication, "Application")},

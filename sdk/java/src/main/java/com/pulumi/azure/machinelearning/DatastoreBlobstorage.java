@@ -17,59 +17,145 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Machine Learning Blob Storage DataStore.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * Machine Learning DataStores can be imported using the `resource id`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/datastores/datastore1
+ * ```
+ * 
+ */
 @ResourceType(type="azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage")
 public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
+    /**
+     * The access key of the Storage Account. Conflicts with `shared_access_signature`.
+     * 
+     */
     @Export(name="accountKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> accountKey;
 
+    /**
+     * @return The access key of the Storage Account. Conflicts with `shared_access_signature`.
+     * 
+     */
     public Output<Optional<String>> accountKey() {
         return Codegen.optional(this.accountKey);
     }
+    /**
+     * Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+     * 
+     */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+     * 
+     */
     @Export(name="isDefault", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isDefault;
 
+    /**
+     * @return Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+     * 
+     */
     public Output<Optional<Boolean>> isDefault() {
         return Codegen.optional(this.isDefault);
     }
+    /**
+     * The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+     * 
+     */
     @Export(name="serviceDataAuthIdentity", type=String.class, parameters={})
     private Output</* @Nullable */ String> serviceDataAuthIdentity;
 
+    /**
+     * @return Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+     * 
+     */
     public Output<Optional<String>> serviceDataAuthIdentity() {
         return Codegen.optional(this.serviceDataAuthIdentity);
     }
+    /**
+     * The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+     * 
+     */
     @Export(name="sharedAccessSignature", type=String.class, parameters={})
     private Output</* @Nullable */ String> sharedAccessSignature;
 
+    /**
+     * @return The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+     * 
+     */
     public Output<Optional<String>> sharedAccessSignature() {
         return Codegen.optional(this.sharedAccessSignature);
     }
+    /**
+     * The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+     * 
+     */
     @Export(name="storageContainerId", type=String.class, parameters={})
     private Output<String> storageContainerId;
 
+    /**
+     * @return The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+     * 
+     */
     public Output<String> storageContainerId() {
         return this.storageContainerId;
     }
+    /**
+     * A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
+     * 
+     */
     @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
+    /**
+     * @return The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
+     * 
+     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }

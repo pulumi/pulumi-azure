@@ -25,6 +25,15 @@ class DatastoreBlobstorageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DatastoreBlobstorage resource.
+        :param pulumi.Input[str] storage_container_id: The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[str] account_key: The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        :param pulumi.Input[str] description: Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[bool] is_default: Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        :param pulumi.Input[str] name: The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[str] service_data_auth_identity: Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+        :param pulumi.Input[str] shared_access_signature: The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         """
         pulumi.set(__self__, "storage_container_id", storage_container_id)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -46,6 +55,9 @@ class DatastoreBlobstorageArgs:
     @property
     @pulumi.getter(name="storageContainerId")
     def storage_container_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "storage_container_id")
 
     @storage_container_id.setter
@@ -55,6 +67,9 @@ class DatastoreBlobstorageArgs:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -64,6 +79,9 @@ class DatastoreBlobstorageArgs:
     @property
     @pulumi.getter(name="accountKey")
     def account_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
@@ -73,6 +91,9 @@ class DatastoreBlobstorageArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -82,6 +103,9 @@ class DatastoreBlobstorageArgs:
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -91,6 +115,9 @@ class DatastoreBlobstorageArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -100,6 +127,9 @@ class DatastoreBlobstorageArgs:
     @property
     @pulumi.getter(name="serviceDataAuthIdentity")
     def service_data_auth_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+        """
         return pulumi.get(self, "service_data_auth_identity")
 
     @service_data_auth_identity.setter
@@ -109,6 +139,9 @@ class DatastoreBlobstorageArgs:
     @property
     @pulumi.getter(name="sharedAccessSignature")
     def shared_access_signature(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        """
         return pulumi.get(self, "shared_access_signature")
 
     @shared_access_signature.setter
@@ -118,6 +151,9 @@ class DatastoreBlobstorageArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -139,6 +175,15 @@ class _DatastoreBlobstorageState:
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DatastoreBlobstorage resources.
+        :param pulumi.Input[str] account_key: The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        :param pulumi.Input[str] description: Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[bool] is_default: Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        :param pulumi.Input[str] name: The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[str] service_data_auth_identity: Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+        :param pulumi.Input[str] shared_access_signature: The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        :param pulumi.Input[str] storage_container_id: The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         """
         if account_key is not None:
             pulumi.set(__self__, "account_key", account_key)
@@ -162,6 +207,9 @@ class _DatastoreBlobstorageState:
     @property
     @pulumi.getter(name="accountKey")
     def account_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
@@ -171,6 +219,9 @@ class _DatastoreBlobstorageState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -180,6 +231,9 @@ class _DatastoreBlobstorageState:
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -189,6 +243,9 @@ class _DatastoreBlobstorageState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -198,6 +255,9 @@ class _DatastoreBlobstorageState:
     @property
     @pulumi.getter(name="serviceDataAuthIdentity")
     def service_data_auth_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+        """
         return pulumi.get(self, "service_data_auth_identity")
 
     @service_data_auth_identity.setter
@@ -207,6 +267,9 @@ class _DatastoreBlobstorageState:
     @property
     @pulumi.getter(name="sharedAccessSignature")
     def shared_access_signature(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        """
         return pulumi.get(self, "shared_access_signature")
 
     @shared_access_signature.setter
@@ -216,6 +279,9 @@ class _DatastoreBlobstorageState:
     @property
     @pulumi.getter(name="storageContainerId")
     def storage_container_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "storage_container_id")
 
     @storage_container_id.setter
@@ -225,6 +291,9 @@ class _DatastoreBlobstorageState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -234,6 +303,9 @@ class _DatastoreBlobstorageState:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -257,9 +329,29 @@ class DatastoreBlobstorage(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DatastoreBlobstorage resource with the given unique name, props, and options.
+        Manages a Machine Learning Blob Storage DataStore.
+
+        ## Example Usage
+
+        ## Import
+
+        Machine Learning DataStores can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/datastores/datastore1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_key: The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        :param pulumi.Input[str] description: Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[bool] is_default: Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        :param pulumi.Input[str] name: The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[str] service_data_auth_identity: Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+        :param pulumi.Input[str] shared_access_signature: The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        :param pulumi.Input[str] storage_container_id: The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         """
         ...
     @overload
@@ -268,7 +360,18 @@ class DatastoreBlobstorage(pulumi.CustomResource):
                  args: DatastoreBlobstorageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DatastoreBlobstorage resource with the given unique name, props, and options.
+        Manages a Machine Learning Blob Storage DataStore.
+
+        ## Example Usage
+
+        ## Import
+
+        Machine Learning DataStores can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/datastores/datastore1
+        ```
+
         :param str resource_name: The name of the resource.
         :param DatastoreBlobstorageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -343,6 +446,15 @@ class DatastoreBlobstorage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_key: The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        :param pulumi.Input[str] description: Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[bool] is_default: Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        :param pulumi.Input[str] name: The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[str] service_data_auth_identity: Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+        :param pulumi.Input[str] shared_access_signature: The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        :param pulumi.Input[str] storage_container_id: The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        :param pulumi.Input[str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -362,45 +474,72 @@ class DatastoreBlobstorage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountKey")
     def account_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The access key of the Storage Account. Conflicts with `shared_access_signature`.
+        """
         return pulumi.get(self, "account_key")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        """
         return pulumi.get(self, "is_default")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="serviceDataAuthIdentity")
     def service_data_auth_identity(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
+        """
         return pulumi.get(self, "service_data_auth_identity")
 
     @property
     @pulumi.getter(name="sharedAccessSignature")
     def shared_access_signature(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        """
         return pulumi.get(self, "shared_access_signature")
 
     @property
     @pulumi.getter(name="storageContainerId")
     def storage_container_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "storage_container_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
+        """
         return pulumi.get(self, "workspace_id")
 
