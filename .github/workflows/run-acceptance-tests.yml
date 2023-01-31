@@ -3,8 +3,8 @@
 env:
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
   #ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-  ARM_OIDC_REQUEST_TOKEN: ${{ ACTIONS_ID_TOKEN_REQUEST_TOKEN }}
-  ARM_OIDC_REQUEST_URL: ${{ ACTIONS_ID_TOKEN_REQUEST_URL }}
+  ARM_OIDC_REQUEST_TOKEN: ${{ env.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}
+  ARM_OIDC_REQUEST_URL: ${{ env.ACTIONS_ID_TOKEN_REQUEST_URL }}
   ARM_USE_OIDC: true
   ARM_ENVIRONMENT: public
   ARM_LOCATION: westus2
@@ -37,6 +37,8 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
+permissions:
+  id-token: write # This is required for requesting the JWT
 jobs:
   build_sdk:
     if: github.event_name == 'repository_dispatch' ||
