@@ -41,7 +41,7 @@ permissions:
   id-token: write # This is required for requesting the JWT
 jobs:
   build_sdk:
-    if: github.event_name == 'repository_dispatch' ||
+    if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
     name: build_sdk
     needs: prerequisites
@@ -149,7 +149,7 @@ jobs:
         repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
   prerequisites:
-    if: github.event_name == 'repository_dispatch' ||
+    if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
     name: prerequisites
     runs-on: ubuntu-latest
@@ -226,7 +226,7 @@ jobs:
     - name: Is workflow a success
       run: echo yes
   test:
-    if: github.event_name == 'repository_dispatch' ||
+    if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
     name: test
     needs: build_sdk
