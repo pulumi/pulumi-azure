@@ -336,3 +336,4 @@ on:
   repository_dispatch:
     types:
     - run-acceptance-tests-command
+  workflow_dispatch:
