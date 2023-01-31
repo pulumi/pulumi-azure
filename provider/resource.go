@@ -307,8 +307,8 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 	//check for auxiliary tenants
 	auxTenants := arrayValue(vars, "auxiliaryTenantIDs", []string{"ARM_AUXILIARY_TENANT_IDS"})
 
-	// validate the azure config
-	// make a Builder
+	// validate the azure auth config
+	useOIDC := boolValue(vars, "useOidc", []string{"ARM_USE_OIDC"})
 	builder := &authentication.Builder{
 		SubscriptionID:       stringValue(vars, "subscriptionId", []string{"ARM_SUBSCRIPTION_ID"}),
 		ClientID:             stringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
@@ -329,7 +329,8 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 		// Feature Toggles
 		SupportsClientCertAuth:         true,
 		SupportsClientSecretAuth:       true,
-		SupportsOIDCAuth:               boolValue(vars, "useOidc", []string{"ARM_USE_OIDC"}),
+		SupportsOIDCAuth:               useOIDC,
+		UseMicrosoftGraph:              useOIDC, // OIDC requires Graph
 		SupportsManagedServiceIdentity: boolValue(vars, "msiEndpoint", []string{"ARM_USE_MSI"}),
 		SupportsAzureCliToken:          true,
 		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
