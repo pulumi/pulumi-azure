@@ -319,7 +319,7 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 		ClientCertPassword:   stringValue(vars, "clientCertificatePassword", []string{"ARM_CLIENT_CERTIFICATE_PASSWORD"}),
 		MsiEndpoint:          stringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
 		AuxiliaryTenantIDs:   auxTenants,
-		ClientSecretDocsLink: "https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/#service-principal-authentication",
+		ClientSecretDocsLink: "https://www.pulumi.com/registry/packages/azure/installation-configuration/#authenticate-using-a-service-principal",
 
 		// OIDC section. The ACTIONS_ variables are set by GitHub.
 		IDTokenRequestToken: stringValue(vars, "oidcRequestToken", []string{"ARM_OIDC_REQUEST_TOKEN", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"}),
