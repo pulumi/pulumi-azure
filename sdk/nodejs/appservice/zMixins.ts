@@ -388,6 +388,10 @@ interface DeploymentArchiveResult {
 }
 
 async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs): Promise<DeploymentArchiveResult> {
+
+    // Different runtime versions now require different extension bundle version ranges
+    // This mapping is described in the following MS doc
+    // https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-register#extension-bundles
     let extentionBundleVersion = new Map([
         ['~1', '[1.*, 2.0.0)'],
         ['~2', '[2.*, 3.0.0)'],
