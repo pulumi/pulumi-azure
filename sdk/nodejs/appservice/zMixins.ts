@@ -388,13 +388,20 @@ interface DeploymentArchiveResult {
 }
 
 async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs): Promise<DeploymentArchiveResult> {
+    let extentionBundleVersion = new Map([
+        ['~1', '[1.*, 2.0.0)'],
+        ['~2', '[2.*, 3.0.0)'],
+        ['~3', '[3.3.0, 4.0.0)'],
+        ['~4', '[4.0.0, 5.0.0)']
+    ]);
+
     const map: pulumi.asset.AssetMap = {};
     map["host.json"] = new pulumi.asset.StringAsset(JSON.stringify({
         version: "2.0",
         tracing: { consoleLevel: "verbose" },
         extensionBundle: {
             id: "Microsoft.Azure.Functions.ExtensionBundle",
-            version: "[3.3.0, 4.0.0)"
+            version: extentionBundleVersion.get(args.version?.toString() || "~4")
         },
         ...args.hostSettings,
     }));
