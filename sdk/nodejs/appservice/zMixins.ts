@@ -176,7 +176,7 @@ interface FunctionAppArgsBase {
 
     /**
      * Controls the value of WEBSITE_NODE_DEFAULT_VERSION in `appSettings`.  If not provided,
-     * defaults to `~12`.
+     * defaults to `~14`.
      */
     readonly nodeVersion?: pulumi.Input<string>;
 
@@ -217,7 +217,7 @@ interface FunctionAppArgsBase {
     readonly tags?: pulumi.Input<{ [key: string]: any }>;
 
     /**
-     * The runtime version associated with the Function App. Defaults to `~3`.
+     * The runtime version associated with the Function App. Defaults to `~4`.
      */
     readonly version?: pulumi.Input<string>;
 }
@@ -388,13 +388,24 @@ interface DeploymentArchiveResult {
 }
 
 async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs): Promise<DeploymentArchiveResult> {
+
+    // Different runtime versions now require different extension bundle version ranges
+    // This mapping is described in the following MS doc
+    // https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-register#extension-bundles
+    let extentionBundleVersion = new Map([
+        ['~1', '[1.*, 2.0.0)'],
+        ['~2', '[2.*, 3.0.0)'],
+        ['~3', '[3.3.0, 4.0.0)'],
+        ['~4', '[4.0.0, 5.0.0)']
+    ]);
+
     const map: pulumi.asset.AssetMap = {};
     map["host.json"] = new pulumi.asset.StringAsset(JSON.stringify({
         version: "2.0",
         tracing: { consoleLevel: "verbose" },
         extensionBundle: {
             id: "Microsoft.Azure.Functions.ExtensionBundle",
-            version: "[1.*, 2.0.0)"
+            version: extentionBundleVersion.get(args.version?.toString() || "~4")
         },
         ...args.hostSettings,
     }));
@@ -594,13 +605,13 @@ function createFunctionAppParts(name: string,
         appServicePlanId: plan.id,
         storageAccountName: account.name,
         storageAccountAccessKey: account.primaryAccessKey,
-        version: args.version || "~3",
+        version: args.version || "~4",
 
         appSettings: pulumi.output(args.appSettings).apply(settings => {
             return {
                 ...settings,
                 WEBSITE_RUN_FROM_PACKAGE: codeBlobUrl,
-                WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "~12"),
+                WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "~14"),
             };
         }),
     };
