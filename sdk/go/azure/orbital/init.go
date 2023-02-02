@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:orbital/contact:Contact":
+		r = &Contact{}
 	case "azure:orbital/contactProfile:ContactProfile":
 		r = &ContactProfile{}
 	case "azure:orbital/spacecraft:Spacecraft":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"orbital/contact",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"orbital/contactProfile",

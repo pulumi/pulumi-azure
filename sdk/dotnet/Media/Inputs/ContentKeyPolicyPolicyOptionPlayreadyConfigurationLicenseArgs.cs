@@ -88,6 +88,12 @@ namespace Pulumi.Azure.Media.Inputs
         [Input("relativeExpirationDate")]
         public Input<string>? RelativeExpirationDate { get; set; }
 
+        /// <summary>
+        /// The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
+        /// </summary>
+        [Input("securityLevel")]
+        public Input<string>? SecurityLevel { get; set; }
+
         public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs()
         {
         }

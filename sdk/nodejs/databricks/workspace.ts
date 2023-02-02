@@ -48,9 +48,13 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly customParameters!: pulumi.Output<outputs.databricks.WorkspaceCustomParameters>;
     /**
-     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      */
     public readonly customerManagedKeyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of Managed Disk Encryption Set created by the Databricks Workspace.
+     */
+    public /*out*/ readonly diskEncryptionSetId!: pulumi.Output<string>;
     /**
      * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
      */
@@ -64,6 +68,18 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Customer managed encryption properties for the Databricks Workspace managed disks.
+     */
+    public readonly managedDiskCmkKeyVaultKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+     */
+    public readonly managedDiskCmkRotationToLatestVersionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * A `managedDiskIdentity` block as documented below.
+     */
+    public /*out*/ readonly managedDiskIdentities!: pulumi.Output<outputs.databricks.WorkspaceManagedDiskIdentity[]>;
+    /**
      * The ID of the Managed Resource Group created by the Databricks Workspace.
      */
     public /*out*/ readonly managedResourceGroupId!: pulumi.Output<string>;
@@ -72,7 +88,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly managedResourceGroupName!: pulumi.Output<string>;
     /**
-     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
      */
     public readonly managedServicesCmkKeyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -80,11 +96,11 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`. Changing this forces a new resource to be created.
+     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`.
      */
     public readonly networkSecurityGroupRulesRequired!: pulumi.Output<string>;
     /**
-     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -127,9 +143,13 @@ export class Workspace extends pulumi.CustomResource {
             const state = argsOrState as WorkspaceState | undefined;
             resourceInputs["customParameters"] = state ? state.customParameters : undefined;
             resourceInputs["customerManagedKeyEnabled"] = state ? state.customerManagedKeyEnabled : undefined;
+            resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
             resourceInputs["loadBalancerBackendAddressPoolId"] = state ? state.loadBalancerBackendAddressPoolId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedDiskCmkKeyVaultKeyId"] = state ? state.managedDiskCmkKeyVaultKeyId : undefined;
+            resourceInputs["managedDiskCmkRotationToLatestVersionEnabled"] = state ? state.managedDiskCmkRotationToLatestVersionEnabled : undefined;
+            resourceInputs["managedDiskIdentities"] = state ? state.managedDiskIdentities : undefined;
             resourceInputs["managedResourceGroupId"] = state ? state.managedResourceGroupId : undefined;
             resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
             resourceInputs["managedServicesCmkKeyVaultKeyId"] = state ? state.managedServicesCmkKeyVaultKeyId : undefined;
@@ -155,6 +175,8 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
             resourceInputs["loadBalancerBackendAddressPoolId"] = args ? args.loadBalancerBackendAddressPoolId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedDiskCmkKeyVaultKeyId"] = args ? args.managedDiskCmkKeyVaultKeyId : undefined;
+            resourceInputs["managedDiskCmkRotationToLatestVersionEnabled"] = args ? args.managedDiskCmkRotationToLatestVersionEnabled : undefined;
             resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             resourceInputs["managedServicesCmkKeyVaultKeyId"] = args ? args.managedServicesCmkKeyVaultKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -163,6 +185,8 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["diskEncryptionSetId"] = undefined /*out*/;
+            resourceInputs["managedDiskIdentities"] = undefined /*out*/;
             resourceInputs["managedResourceGroupId"] = undefined /*out*/;
             resourceInputs["storageAccountIdentities"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
@@ -182,9 +206,13 @@ export interface WorkspaceState {
      */
     customParameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParameters>;
     /**
-     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      */
     customerManagedKeyEnabled?: pulumi.Input<boolean>;
+    /**
+     * The ID of Managed Disk Encryption Set created by the Databricks Workspace.
+     */
+    diskEncryptionSetId?: pulumi.Input<string>;
     /**
      * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
      */
@@ -198,6 +226,18 @@ export interface WorkspaceState {
      */
     location?: pulumi.Input<string>;
     /**
+     * Customer managed encryption properties for the Databricks Workspace managed disks.
+     */
+    managedDiskCmkKeyVaultKeyId?: pulumi.Input<string>;
+    /**
+     * Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+     */
+    managedDiskCmkRotationToLatestVersionEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `managedDiskIdentity` block as documented below.
+     */
+    managedDiskIdentities?: pulumi.Input<pulumi.Input<inputs.databricks.WorkspaceManagedDiskIdentity>[]>;
+    /**
      * The ID of the Managed Resource Group created by the Databricks Workspace.
      */
     managedResourceGroupId?: pulumi.Input<string>;
@@ -206,7 +246,7 @@ export interface WorkspaceState {
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**
-     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
      */
     managedServicesCmkKeyVaultKeyId?: pulumi.Input<string>;
     /**
@@ -214,11 +254,11 @@ export interface WorkspaceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`. Changing this forces a new resource to be created.
+     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`.
      */
     networkSecurityGroupRulesRequired?: pulumi.Input<string>;
     /**
-     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -256,7 +296,7 @@ export interface WorkspaceArgs {
      */
     customParameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParameters>;
     /**
-     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      */
     customerManagedKeyEnabled?: pulumi.Input<boolean>;
     /**
@@ -272,11 +312,19 @@ export interface WorkspaceArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * Customer managed encryption properties for the Databricks Workspace managed disks.
+     */
+    managedDiskCmkKeyVaultKeyId?: pulumi.Input<string>;
+    /**
+     * Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+     */
+    managedDiskCmkRotationToLatestVersionEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**
-     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
      */
     managedServicesCmkKeyVaultKeyId?: pulumi.Input<string>;
     /**
@@ -284,11 +332,11 @@ export interface WorkspaceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`. Changing this forces a new resource to be created.
+     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`.
      */
     networkSecurityGroupRulesRequired?: pulumi.Input<string>;
     /**
-     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

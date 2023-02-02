@@ -22,13 +22,16 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, id=None, location=None, name=None, resource_group_name=None, sku=None, storage_account_identities=None, tags=None, workspace_id=None, workspace_url=None):
+    def __init__(__self__, id=None, location=None, managed_disk_identities=None, name=None, resource_group_name=None, sku=None, storage_account_identities=None, tags=None, workspace_id=None, workspace_url=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_disk_identities and not isinstance(managed_disk_identities, list):
+            raise TypeError("Expected argument 'managed_disk_identities' to be a list")
+        pulumi.set(__self__, "managed_disk_identities", managed_disk_identities)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -66,6 +69,14 @@ class GetWorkspaceResult:
         The Azure location where the Databricks Workspace exists.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedDiskIdentities")
+    def managed_disk_identities(self) -> Sequence['outputs.GetWorkspaceManagedDiskIdentityResult']:
+        """
+        A `managed_disk_identity` block as documented below.
+        """
+        return pulumi.get(self, "managed_disk_identities")
 
     @property
     @pulumi.getter
@@ -126,6 +137,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         return GetWorkspaceResult(
             id=self.id,
             location=self.location,
+            managed_disk_identities=self.managed_disk_identities,
             name=self.name,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
@@ -168,6 +180,7 @@ def get_workspace(name: Optional[str] = None,
     return AwaitableGetWorkspaceResult(
         id=__ret__.id,
         location=__ret__.location,
+        managed_disk_identities=__ret__.managed_disk_identities,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         sku=__ret__.sku,

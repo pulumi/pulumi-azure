@@ -18,7 +18,7 @@ public final class AccountAzureFilesAuthentication {
      */
     private @Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory;
     /**
-     * @return Specifies the directory service used. Possible values are `AADDS` and `AD`.
+     * @return Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
      * 
      */
     private String directoryType;
@@ -32,7 +32,7 @@ public final class AccountAzureFilesAuthentication {
         return Optional.ofNullable(this.activeDirectory);
     }
     /**
-     * @return Specifies the directory service used. Possible values are `AADDS` and `AD`.
+     * @return Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
      * 
      */
     public String directoryType() {

@@ -2072,7 +2072,7 @@ export namespace appinsights {
          */
         expectedStatusCode?: pulumi.Input<number>;
         /**
-         * The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+         * The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
          */
         sslCertRemainingLifetime?: pulumi.Input<number>;
         /**
@@ -17198,6 +17198,10 @@ export namespace containerservice {
          */
         nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
+         * A `nodeNetworkProfile` block as documented below.
+         */
+        nodeNetworkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolNodeNetworkProfile>;
+        /**
          * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
          */
         nodePublicIpPrefixId?: pulumi.Input<string>;
@@ -17450,6 +17454,13 @@ export namespace containerservice {
          * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
          */
         vmVfsCachePressure?: pulumi.Input<number>;
+    }
+
+    export interface KubernetesClusterDefaultNodePoolNodeNetworkProfile {
+        /**
+         * Specifies a mapping of tags to the instance-level public IPs.
+         */
+        nodePublicIpTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface KubernetesClusterDefaultNodePoolUpgradeSettings {
@@ -18011,6 +18022,13 @@ export namespace containerservice {
          * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
          */
         vmVfsCachePressure?: pulumi.Input<number>;
+    }
+
+    export interface KubernetesClusterNodePoolNodeNetworkProfile {
+        /**
+         * Specifies a mapping of tags to the instance-level public IPs.
+         */
+        nodePublicIpTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface KubernetesClusterNodePoolUpgradeSettings {
@@ -19468,7 +19486,7 @@ export namespace databricks {
          */
         natGatewayName?: pulumi.Input<string>;
         /**
-         * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+         * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
          */
         noPublicIp?: pulumi.Input<boolean>;
         /**
@@ -19507,6 +19525,21 @@ export namespace databricks {
          * Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
          */
         vnetAddressPrefix?: pulumi.Input<string>;
+    }
+
+    export interface WorkspaceManagedDiskIdentity {
+        /**
+         * The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The UUID of the tenant where the internal databricks storage account was created.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of the internal databricks storage account.
+         */
+        type?: pulumi.Input<string>;
     }
 
     export interface WorkspaceStorageAccountIdentity {
@@ -29362,6 +29395,10 @@ export namespace media {
          */
         playreadyConfigurationLicenses?: pulumi.Input<pulumi.Input<inputs.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense>[]>;
         /**
+         * The custom response data of the PlayReady configuration. This only applies when `playreadyConfigurationLicense` is specified.
+         */
+        playreadyResponseCustomData?: pulumi.Input<string>;
+        /**
          * A `tokenRestriction` block as defined below.
          */
         tokenRestriction?: pulumi.Input<inputs.media.ContentKeyPolicyPolicyOptionTokenRestriction>;
@@ -29454,11 +29491,15 @@ export namespace media {
          * The relative expiration date of license.
          */
         relativeExpirationDate?: pulumi.Input<string>;
+        /**
+         * The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
+         */
+        securityLevel?: pulumi.Input<string>;
     }
 
     export interface ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
         /**
-         * Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+         * Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
          */
         agcAndColorStripeRestriction?: pulumi.Input<number>;
         /**
@@ -29466,17 +29507,25 @@ export namespace media {
          */
         allowPassingVideoContentToUnknownOutput?: pulumi.Input<string>;
         /**
-         * Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+         * Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
          */
         analogVideoOpl?: pulumi.Input<number>;
         /**
-         * Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+         * Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
          */
         compressedDigitalAudioOpl?: pulumi.Input<number>;
+        /**
+         * Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+         */
+        compressedDigitalVideoOpl?: pulumi.Input<number>;
         /**
          * Enables the Image Constraint For Analog Component Video Restriction in the license.
          */
         digitalVideoOnlyContentRestriction?: pulumi.Input<boolean>;
+        /**
+         * An `explicitAnalogTelevisionOutputRestriction` block as defined above.
+         */
+        explicitAnalogTelevisionOutputRestriction?: pulumi.Input<inputs.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction>;
         /**
          * The amount of time that the license is valid after the license is first used to play content.
          */
@@ -29490,20 +29539,32 @@ export namespace media {
          */
         imageConstraintForAnalogComputerMonitorRestriction?: pulumi.Input<boolean>;
         /**
-         * Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+         * Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
          */
         scmsRestriction?: pulumi.Input<number>;
         /**
-         * Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+         * Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
          */
         uncompressedDigitalAudioOpl?: pulumi.Input<number>;
         /**
-         * Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+         * Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
          */
         uncompressedDigitalVideoOpl?: pulumi.Input<number>;
     }
 
+    export interface ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction {
+        bestEffortEnforced?: pulumi.Input<boolean>;
+        /**
+         * The restriction control bits. Possible value is integer between `0` and `3` inclusive.
+         */
+        controlBits: pulumi.Input<number>;
+    }
+
     export interface ContentKeyPolicyPolicyOptionTokenRestriction {
+        /**
+         * One or more `alternateKey` block as defined above.
+         */
+        alternateKeys?: pulumi.Input<pulumi.Input<inputs.media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey>[]>;
         /**
          * The audience for the token.
          */
@@ -29517,11 +29578,11 @@ export namespace media {
          */
         openIdConnectDiscoveryDocument?: pulumi.Input<string>;
         /**
-         * The RSA Parameter exponent.
+         * The RSA parameter exponent.
          */
         primaryRsaTokenKeyExponent?: pulumi.Input<string>;
         /**
-         * The RSA Parameter modulus.
+         * The RSA parameter modulus.
          */
         primaryRsaTokenKeyModulus?: pulumi.Input<string>;
         /**
@@ -29540,6 +29601,25 @@ export namespace media {
          * The type of token. Supported values are `Jwt` or `Swt`.
          */
         tokenType?: pulumi.Input<string>;
+    }
+
+    export interface ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey {
+        /**
+         * The RSA parameter exponent.
+         */
+        rsaTokenKeyExponent?: pulumi.Input<string>;
+        /**
+         * The RSA parameter modulus.
+         */
+        rsaTokenKeyModulus?: pulumi.Input<string>;
+        /**
+         * The key value of the key. Specifies a symmetric key for token validation.
+         */
+        symmetricTokenKey?: pulumi.Input<string>;
+        /**
+         * The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+         */
+        x509TokenKeyRaw?: pulumi.Input<string>;
     }
 
     export interface ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim {
@@ -35064,11 +35144,11 @@ export namespace network {
 
     export interface SubnetDelegationServiceDelegation {
         /**
-         * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+         * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
          */
         actions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+         * The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
          */
         name: pulumi.Input<string>;
     }
@@ -36284,6 +36364,17 @@ export namespace postgresql {
         tenantId?: pulumi.Input<string>;
     }
 
+    export interface FlexibleServerCustomerManagedKey {
+        /**
+         * The ID of the Key Vault Key.
+         */
+        keyVaultKeyId?: pulumi.Input<string>;
+        /**
+         * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+         */
+        primaryUserAssignedIdentityId?: pulumi.Input<string>;
+    }
+
     export interface FlexibleServerHighAvailability {
         /**
          * The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
@@ -36293,6 +36384,22 @@ export namespace postgresql {
          * Specifies the Availability Zone in which the standby Flexible Server should be located.
          */
         standbyAvailabilityZone?: pulumi.Input<string>;
+    }
+
+    export interface FlexibleServerIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface FlexibleServerMaintenanceWindow {
@@ -36516,7 +36623,7 @@ export namespace privatelink {
         /**
          * Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
          */
-        subresourceName: pulumi.Input<string>;
+        subresourceName?: pulumi.Input<string>;
     }
 
     export interface EndpointNetworkInterface {
@@ -37987,6 +38094,95 @@ export namespace siterecovery {
          */
         targetSubnetName?: pulumi.Input<string>;
     }
+
+    export interface ReplicationRecoveryPlanRecoveryGroup {
+        /**
+         * one or more `action` block. which will be executed after the group recovery.
+         */
+        postActions?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanRecoveryGroupPostAction>[]>;
+        /**
+         * one or more `action` block. which will be executed before the group recovery.
+         */
+        preActions?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanRecoveryGroupPreAction>[]>;
+        /**
+         * one or more id of protected VM.
+         */
+        replicatedProtectedItems?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ReplicationRecoveryPlanRecoveryGroupPostAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+         */
+        fabricLocation?: pulumi.Input<string>;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
+        failOverDirections: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
+        failOverTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Instructions of manual action.
+         */
+        manualActionInstruction?: pulumi.Input<string>;
+        /**
+         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Id of runbook.
+         */
+        runbookId?: pulumi.Input<string>;
+        /**
+         * Path of action script.
+         */
+        scriptPath?: pulumi.Input<string>;
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ReplicationRecoveryPlanRecoveryGroupPreAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+         */
+        fabricLocation?: pulumi.Input<string>;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
+        failOverDirections: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
+        failOverTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Instructions of manual action.
+         */
+        manualActionInstruction?: pulumi.Input<string>;
+        /**
+         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Id of runbook.
+         */
+        runbookId?: pulumi.Input<string>;
+        /**
+         * Path of action script.
+         */
+        scriptPath?: pulumi.Input<string>;
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: pulumi.Input<string>;
+    }
 }
 
 export namespace sql {
@@ -38176,7 +38372,7 @@ export namespace storage {
          */
         activeDirectory?: pulumi.Input<inputs.storage.AccountAzureFilesAuthenticationActiveDirectory>;
         /**
-         * Specifies the directory service used. Possible values are `AADDS` and `AD`.
+         * Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
          */
         directoryType: pulumi.Input<string>;
     }

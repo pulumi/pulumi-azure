@@ -194,6 +194,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>> NodeLabels { get; private set; } = null!;
 
         /// <summary>
+        /// A `node_network_profile` block as documented below.
+        /// </summary>
+        [Output("nodeNetworkProfile")]
+        public Output<Outputs.KubernetesClusterNodePoolNodeNetworkProfile?> NodeNetworkProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("nodePublicIpPrefixId")]
@@ -486,6 +492,12 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
+        /// A `node_network_profile` block as documented below.
+        /// </summary>
+        [Input("nodeNetworkProfile")]
+        public Input<Inputs.KubernetesClusterNodePoolNodeNetworkProfileArgs>? NodeNetworkProfile { get; set; }
+
+        /// <summary>
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("nodePublicIpPrefixId")]
@@ -756,6 +768,12 @@ namespace Pulumi.Azure.ContainerService
             get => _nodeLabels ?? (_nodeLabels = new InputMap<string>());
             set => _nodeLabels = value;
         }
+
+        /// <summary>
+        /// A `node_network_profile` block as documented below.
+        /// </summary>
+        [Input("nodeNetworkProfile")]
+        public Input<Inputs.KubernetesClusterNodePoolNodeNetworkProfileGetArgs>? NodeNetworkProfile { get; set; }
 
         /// <summary>
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.

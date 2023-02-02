@@ -113,6 +113,10 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
+     * A `customerManagedKey` block as defined below.
+     */
+    public readonly customerManagedKey!: pulumi.Output<outputs.postgresql.FlexibleServerCustomerManagedKey | undefined>;
+    /**
      * The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly delegatedSubnetId!: pulumi.Output<string | undefined>;
@@ -128,6 +132,10 @@ export class FlexibleServer extends pulumi.CustomResource {
      * A `highAvailability` block as defined below.
      */
     public readonly highAvailability!: pulumi.Output<outputs.postgresql.FlexibleServerHighAvailability | undefined>;
+    /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.postgresql.FlexibleServerIdentity | undefined>;
     /**
      * The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
@@ -199,10 +207,12 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["authentication"] = state ? state.authentication : undefined;
             resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
             resourceInputs["createMode"] = state ? state.createMode : undefined;
+            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
             resourceInputs["delegatedSubnetId"] = state ? state.delegatedSubnetId : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["geoRedundantBackupEnabled"] = state ? state.geoRedundantBackupEnabled : undefined;
             resourceInputs["highAvailability"] = state ? state.highAvailability : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -226,9 +236,11 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["authentication"] = args ? args.authentication : undefined;
             resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["delegatedSubnetId"] = args ? args.delegatedSubnetId : undefined;
             resourceInputs["geoRedundantBackupEnabled"] = args ? args.geoRedundantBackupEnabled : undefined;
             resourceInputs["highAvailability"] = args ? args.highAvailability : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -276,6 +288,10 @@ export interface FlexibleServerState {
      */
     createMode?: pulumi.Input<string>;
     /**
+     * A `customerManagedKey` block as defined below.
+     */
+    customerManagedKey?: pulumi.Input<inputs.postgresql.FlexibleServerCustomerManagedKey>;
+    /**
      * The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     delegatedSubnetId?: pulumi.Input<string>;
@@ -291,6 +307,10 @@ export interface FlexibleServerState {
      * A `highAvailability` block as defined below.
      */
     highAvailability?: pulumi.Input<inputs.postgresql.FlexibleServerHighAvailability>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.postgresql.FlexibleServerIdentity>;
     /**
      * The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
@@ -370,6 +390,10 @@ export interface FlexibleServerArgs {
      */
     createMode?: pulumi.Input<string>;
     /**
+     * A `customerManagedKey` block as defined below.
+     */
+    customerManagedKey?: pulumi.Input<inputs.postgresql.FlexibleServerCustomerManagedKey>;
+    /**
      * The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     delegatedSubnetId?: pulumi.Input<string>;
@@ -381,6 +405,10 @@ export interface FlexibleServerArgs {
      * A `highAvailability` block as defined below.
      */
     highAvailability?: pulumi.Input<inputs.postgresql.FlexibleServerHighAvailability>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.postgresql.FlexibleServerIdentity>;
     /**
      * The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */

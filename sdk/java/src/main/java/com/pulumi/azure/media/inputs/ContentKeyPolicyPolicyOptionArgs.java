@@ -96,6 +96,21 @@ public final class ContentKeyPolicyPolicyOptionArgs extends com.pulumi.resources
     }
 
     /**
+     * The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
+     * 
+     */
+    @Import(name="playreadyResponseCustomData")
+    private @Nullable Output<String> playreadyResponseCustomData;
+
+    /**
+     * @return The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
+     * 
+     */
+    public Optional<Output<String>> playreadyResponseCustomData() {
+        return Optional.ofNullable(this.playreadyResponseCustomData);
+    }
+
+    /**
      * A `token_restriction` block as defined below.
      * 
      */
@@ -133,6 +148,7 @@ public final class ContentKeyPolicyPolicyOptionArgs extends com.pulumi.resources
         this.name = $.name;
         this.openRestrictionEnabled = $.openRestrictionEnabled;
         this.playreadyConfigurationLicenses = $.playreadyConfigurationLicenses;
+        this.playreadyResponseCustomData = $.playreadyResponseCustomData;
         this.tokenRestriction = $.tokenRestriction;
         this.widevineConfigurationTemplate = $.widevineConfigurationTemplate;
     }
@@ -268,6 +284,27 @@ public final class ContentKeyPolicyPolicyOptionArgs extends com.pulumi.resources
          */
         public Builder playreadyConfigurationLicenses(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs... playreadyConfigurationLicenses) {
             return playreadyConfigurationLicenses(List.of(playreadyConfigurationLicenses));
+        }
+
+        /**
+         * @param playreadyResponseCustomData The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder playreadyResponseCustomData(@Nullable Output<String> playreadyResponseCustomData) {
+            $.playreadyResponseCustomData = playreadyResponseCustomData;
+            return this;
+        }
+
+        /**
+         * @param playreadyResponseCustomData The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder playreadyResponseCustomData(String playreadyResponseCustomData) {
+            return playreadyResponseCustomData(Output.of(playreadyResponseCustomData));
         }
 
         /**

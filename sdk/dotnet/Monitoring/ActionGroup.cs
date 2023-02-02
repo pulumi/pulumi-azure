@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Monitoring
     ///             new Azure.Monitoring.Inputs.ActionGroupItsmReceiverArgs
     ///             {
     ///                 Name = "createorupdateticket",
-    ///                 WorkspaceId = Output.Tuple(current.Apply(getClientConfigResult =&gt; getClientConfigResult), exampleAnalyticsWorkspace.WorkspaceId).Apply(values =&gt;
+    ///                 WorkspaceId = Output.Tuple(current, exampleAnalyticsWorkspace.WorkspaceId).Apply(values =&gt;
     ///                 {
     ///                     var current = values.Item1;
     ///                     var workspaceId = values.Item2;

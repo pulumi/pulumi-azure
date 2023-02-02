@@ -25,7 +25,7 @@ namespace Pulumi.Azure.DataBricks.Inputs
         public Input<string>? NatGatewayName { get; set; }
 
         /// <summary>
-        /// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
         /// </summary>
         [Input("noPublicIp")]
         public Input<bool>? NoPublicIp { get; set; }

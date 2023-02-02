@@ -34,6 +34,10 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense> PlayreadyConfigurationLicenses;
         /// <summary>
+        /// The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
+        /// </summary>
+        public readonly string? PlayreadyResponseCustomData;
+        /// <summary>
         /// A `token_restriction` block as defined below.
         /// </summary>
         public readonly Outputs.ContentKeyPolicyPolicyOptionTokenRestriction? TokenRestriction;
@@ -54,6 +58,8 @@ namespace Pulumi.Azure.Media.Outputs
 
             ImmutableArray<Outputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense> playreadyConfigurationLicenses,
 
+            string? playreadyResponseCustomData,
+
             Outputs.ContentKeyPolicyPolicyOptionTokenRestriction? tokenRestriction,
 
             string? widevineConfigurationTemplate)
@@ -63,6 +69,7 @@ namespace Pulumi.Azure.Media.Outputs
             Name = name;
             OpenRestrictionEnabled = openRestrictionEnabled;
             PlayreadyConfigurationLicenses = playreadyConfigurationLicenses;
+            PlayreadyResponseCustomData = playreadyResponseCustomData;
             TokenRestriction = tokenRestriction;
             WidevineConfigurationTemplate = widevineConfigurationTemplate;
         }

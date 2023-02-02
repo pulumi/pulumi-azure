@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicatedVM{}
 	case "azure:siterecovery/replicationPolicy:ReplicationPolicy":
 		r = &ReplicationPolicy{}
+	case "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan":
+		r = &ReplicationRecoveryPlan{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -74,6 +76,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"siterecovery/replicationPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"siterecovery/replicationRecoveryPlan",
 		&module{version},
 	)
 }

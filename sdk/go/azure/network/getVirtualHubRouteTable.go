@@ -29,6 +29,7 @@ import (
 //			example, err := network.LookupVirtualHubRouteTable(ctx, &network.LookupVirtualHubRouteTableArgs{
 //				Name:              "example-hub-route-table",
 //				ResourceGroupName: "example-resources",
+//				VirtualHubName:    "example-hub-name",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -54,7 +55,8 @@ type LookupVirtualHubRouteTableArgs struct {
 	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the Virtual Hub Route Table exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	VirtualHubName    string `pulumi:"virtualHubName"`
+	// The name which should be used for Virtual Hub Route Table.
+	VirtualHubName string `pulumi:"virtualHubName"`
 }
 
 // A collection of values returned by getVirtualHubRouteTable.
@@ -92,7 +94,8 @@ type LookupVirtualHubRouteTableOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Name of the Resource Group where the Virtual Hub Route Table exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	VirtualHubName    pulumi.StringInput `pulumi:"virtualHubName"`
+	// The name which should be used for Virtual Hub Route Table.
+	VirtualHubName pulumi.StringInput `pulumi:"virtualHubName"`
 }
 
 func (LookupVirtualHubRouteTableOutputArgs) ElementType() reflect.Type {

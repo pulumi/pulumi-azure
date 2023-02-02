@@ -34,6 +34,7 @@ class WindowsFunctionAppSlotArgs:
                  identity: Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArgs']] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 service_plan_id: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]] = None,
@@ -61,6 +62,7 @@ class WindowsFunctionAppSlotArgs:
         :param pulumi.Input['WindowsFunctionAppSlotIdentityArgs'] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
@@ -103,6 +105,8 @@ class WindowsFunctionAppSlotArgs:
             pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if service_plan_id is not None:
+            pulumi.set(__self__, "service_plan_id", service_plan_id)
         if storage_account_access_key is not None:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
@@ -335,6 +339,18 @@ class WindowsFunctionAppSlotArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="servicePlanId")
+    def service_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
+        """
+        return pulumi.get(self, "service_plan_id")
+
+    @service_plan_id.setter
+    def service_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_plan_id", value)
+
+    @property
     @pulumi.getter(name="storageAccountAccessKey")
     def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -446,6 +462,7 @@ class _WindowsFunctionAppSlotState:
                  outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
                  possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+                 service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs']] = None,
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArgs']]]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -481,6 +498,7 @@ class _WindowsFunctionAppSlotState:
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+        :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
         :param pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs'] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
@@ -539,6 +557,8 @@ class _WindowsFunctionAppSlotState:
             pulumi.set(__self__, "possible_outbound_ip_address_lists", possible_outbound_ip_address_lists)
         if possible_outbound_ip_addresses is not None:
             pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+        if service_plan_id is not None:
+            pulumi.set(__self__, "service_plan_id", service_plan_id)
         if site_config is not None:
             pulumi.set(__self__, "site_config", site_config)
         if site_credentials is not None:
@@ -847,6 +867,18 @@ class _WindowsFunctionAppSlotState:
         pulumi.set(self, "possible_outbound_ip_addresses", value)
 
     @property
+    @pulumi.getter(name="servicePlanId")
+    def service_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
+        """
+        return pulumi.get(self, "service_plan_id")
+
+    @service_plan_id.setter
+    def service_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_plan_id", value)
+
+    @property
     @pulumi.getter(name="siteConfig")
     def site_config(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs']]:
         """
@@ -977,6 +1009,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -1045,6 +1078,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
@@ -1132,6 +1166,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -1168,6 +1203,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["service_plan_id"] = service_plan_id
             if site_config is None and not opts.urn:
                 raise TypeError("Missing required property 'site_config'")
             __props__.__dict__["site_config"] = site_config
@@ -1222,6 +1258,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+            service_plan_id: Optional[pulumi.Input[str]] = None,
             site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']]] = None,
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteCredentialArgs']]]]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -1262,6 +1299,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+        :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
@@ -1300,6 +1338,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         __props__.__dict__["outbound_ip_addresses"] = outbound_ip_addresses
         __props__.__dict__["possible_outbound_ip_address_lists"] = possible_outbound_ip_address_lists
         __props__.__dict__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
+        __props__.__dict__["service_plan_id"] = service_plan_id
         __props__.__dict__["site_config"] = site_config
         __props__.__dict__["site_credentials"] = site_credentials
         __props__.__dict__["storage_account_access_key"] = storage_account_access_key
@@ -1502,6 +1541,14 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="servicePlanId")
+    def service_plan_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
+        """
+        return pulumi.get(self, "service_plan_id")
 
     @property
     @pulumi.getter(name="siteConfig")

@@ -281,6 +281,21 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
+     * 
+     */
+    @Import(name="servicePlanId")
+    private @Nullable Output<String> servicePlanId;
+
+    /**
+     * @return The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
+     * 
+     */
+    public Optional<Output<String>> servicePlanId() {
+        return Optional.ofNullable(this.servicePlanId);
+    }
+
+    /**
      * a `site_config` block as detailed below.
      * 
      */
@@ -420,6 +435,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
         this.identity = $.identity;
         this.keyVaultReferenceIdentityId = $.keyVaultReferenceIdentityId;
         this.name = $.name;
+        this.servicePlanId = $.servicePlanId;
         this.siteConfig = $.siteConfig;
         this.storageAccountAccessKey = $.storageAccountAccessKey;
         this.storageAccountName = $.storageAccountName;
@@ -813,6 +829,27 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePlanId(@Nullable Output<String> servicePlanId) {
+            $.servicePlanId = servicePlanId;
+            return this;
+        }
+
+        /**
+         * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePlanId(String servicePlanId) {
+            return servicePlanId(Output.of(servicePlanId));
         }
 
         /**

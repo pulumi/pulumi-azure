@@ -195,6 +195,12 @@ namespace Pulumi.Azure.AppService
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+        /// </summary>
+        [Output("servicePlanId")]
+        public Output<string?> ServicePlanId { get; private set; } = null!;
+
+        /// <summary>
         /// A `site_config` block as defined below.
         /// </summary>
         [Output("siteConfig")]
@@ -381,6 +387,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+        /// </summary>
+        [Input("servicePlanId")]
+        public Input<string>? ServicePlanId { get; set; }
 
         /// <summary>
         /// A `site_config` block as defined below.
@@ -597,6 +609,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
+
+        /// <summary>
+        /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+        /// </summary>
+        [Input("servicePlanId")]
+        public Input<string>? ServicePlanId { get; set; }
 
         /// <summary>
         /// A `site_config` block as defined below.

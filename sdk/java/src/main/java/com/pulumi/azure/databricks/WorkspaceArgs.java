@@ -34,14 +34,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      * 
      */
     @Import(name="customerManagedKeyEnabled")
     private @Nullable Output<Boolean> customerManagedKeyEnabled;
 
     /**
-     * @return Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     * @return Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      * 
      */
     public Optional<Output<Boolean>> customerManagedKeyEnabled() {
@@ -94,6 +94,36 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Customer managed encryption properties for the Databricks Workspace managed disks.
+     * 
+     */
+    @Import(name="managedDiskCmkKeyVaultKeyId")
+    private @Nullable Output<String> managedDiskCmkKeyVaultKeyId;
+
+    /**
+     * @return Customer managed encryption properties for the Databricks Workspace managed disks.
+     * 
+     */
+    public Optional<Output<String>> managedDiskCmkKeyVaultKeyId() {
+        return Optional.ofNullable(this.managedDiskCmkKeyVaultKeyId);
+    }
+
+    /**
+     * Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+     * 
+     */
+    @Import(name="managedDiskCmkRotationToLatestVersionEnabled")
+    private @Nullable Output<Boolean> managedDiskCmkRotationToLatestVersionEnabled;
+
+    /**
+     * @return Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+     * 
+     */
+    public Optional<Output<Boolean>> managedDiskCmkRotationToLatestVersionEnabled() {
+        return Optional.ofNullable(this.managedDiskCmkRotationToLatestVersionEnabled);
+    }
+
+    /**
      * The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
      * 
      */
@@ -109,14 +139,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
      * 
      */
     @Import(name="managedServicesCmkKeyVaultKeyId")
     private @Nullable Output<String> managedServicesCmkKeyVaultKeyId;
 
     /**
-     * @return Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+     * @return Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
      * 
      */
     public Optional<Output<String>> managedServicesCmkKeyVaultKeyId() {
@@ -139,14 +169,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
+     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
      * 
      */
     @Import(name="networkSecurityGroupRulesRequired")
     private @Nullable Output<String> networkSecurityGroupRulesRequired;
 
     /**
-     * @return Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
+     * @return Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
      * 
      */
     public Optional<Output<String>> networkSecurityGroupRulesRequired() {
@@ -154,14 +184,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+     * @return Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -221,6 +251,8 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.infrastructureEncryptionEnabled = $.infrastructureEncryptionEnabled;
         this.loadBalancerBackendAddressPoolId = $.loadBalancerBackendAddressPoolId;
         this.location = $.location;
+        this.managedDiskCmkKeyVaultKeyId = $.managedDiskCmkKeyVaultKeyId;
+        this.managedDiskCmkRotationToLatestVersionEnabled = $.managedDiskCmkRotationToLatestVersionEnabled;
         this.managedResourceGroupName = $.managedResourceGroupName;
         this.managedServicesCmkKeyVaultKeyId = $.managedServicesCmkKeyVaultKeyId;
         this.name = $.name;
@@ -271,7 +303,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKeyEnabled Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+         * @param customerManagedKeyEnabled Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
          * 
          * @return builder
          * 
@@ -282,7 +314,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKeyEnabled Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+         * @param customerManagedKeyEnabled Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
          * 
          * @return builder
          * 
@@ -355,6 +387,48 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param managedDiskCmkKeyVaultKeyId Customer managed encryption properties for the Databricks Workspace managed disks.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedDiskCmkKeyVaultKeyId(@Nullable Output<String> managedDiskCmkKeyVaultKeyId) {
+            $.managedDiskCmkKeyVaultKeyId = managedDiskCmkKeyVaultKeyId;
+            return this;
+        }
+
+        /**
+         * @param managedDiskCmkKeyVaultKeyId Customer managed encryption properties for the Databricks Workspace managed disks.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedDiskCmkKeyVaultKeyId(String managedDiskCmkKeyVaultKeyId) {
+            return managedDiskCmkKeyVaultKeyId(Output.of(managedDiskCmkKeyVaultKeyId));
+        }
+
+        /**
+         * @param managedDiskCmkRotationToLatestVersionEnabled Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedDiskCmkRotationToLatestVersionEnabled(@Nullable Output<Boolean> managedDiskCmkRotationToLatestVersionEnabled) {
+            $.managedDiskCmkRotationToLatestVersionEnabled = managedDiskCmkRotationToLatestVersionEnabled;
+            return this;
+        }
+
+        /**
+         * @param managedDiskCmkRotationToLatestVersionEnabled Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedDiskCmkRotationToLatestVersionEnabled(Boolean managedDiskCmkRotationToLatestVersionEnabled) {
+            return managedDiskCmkRotationToLatestVersionEnabled(Output.of(managedDiskCmkRotationToLatestVersionEnabled));
+        }
+
+        /**
          * @param managedResourceGroupName The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -376,7 +450,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedServicesCmkKeyVaultKeyId Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+         * @param managedServicesCmkKeyVaultKeyId Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
          * 
          * @return builder
          * 
@@ -387,7 +461,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedServicesCmkKeyVaultKeyId Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+         * @param managedServicesCmkKeyVaultKeyId Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
          * 
          * @return builder
          * 
@@ -418,7 +492,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkSecurityGroupRulesRequired Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
+         * @param networkSecurityGroupRulesRequired Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
          * 
          * @return builder
          * 
@@ -429,7 +503,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkSecurityGroupRulesRequired Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
+         * @param networkSecurityGroupRulesRequired Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
          * 
          * @return builder
          * 
@@ -439,7 +513,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+         * @param publicNetworkAccessEnabled Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -450,7 +524,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+         * @param publicNetworkAccessEnabled Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
          * 
          * @return builder
          * 

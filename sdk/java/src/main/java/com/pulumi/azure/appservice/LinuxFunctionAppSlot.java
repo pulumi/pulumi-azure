@@ -444,6 +444,20 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
         return this.possibleOutboundIpAddresses;
     }
     /**
+     * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
+     * 
+     */
+    @Export(name="servicePlanId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> servicePlanId;
+
+    /**
+     * @return The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
+     * 
+     */
+    public Output<Optional<String>> servicePlanId() {
+        return Codegen.optional(this.servicePlanId);
+    }
+    /**
      * a `site_config` block as detailed below.
      * 
      */

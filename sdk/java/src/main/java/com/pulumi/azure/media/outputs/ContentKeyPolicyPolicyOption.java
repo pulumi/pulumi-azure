@@ -42,6 +42,11 @@ public final class ContentKeyPolicyPolicyOption {
      */
     private @Nullable List<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense> playreadyConfigurationLicenses;
     /**
+     * @return The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
+     * 
+     */
+    private @Nullable String playreadyResponseCustomData;
+    /**
      * @return A `token_restriction` block as defined below.
      * 
      */
@@ -89,6 +94,13 @@ public final class ContentKeyPolicyPolicyOption {
         return this.playreadyConfigurationLicenses == null ? List.of() : this.playreadyConfigurationLicenses;
     }
     /**
+     * @return The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
+     * 
+     */
+    public Optional<String> playreadyResponseCustomData() {
+        return Optional.ofNullable(this.playreadyResponseCustomData);
+    }
+    /**
      * @return A `token_restriction` block as defined below.
      * 
      */
@@ -117,6 +129,7 @@ public final class ContentKeyPolicyPolicyOption {
         private String name;
         private @Nullable Boolean openRestrictionEnabled;
         private @Nullable List<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense> playreadyConfigurationLicenses;
+        private @Nullable String playreadyResponseCustomData;
         private @Nullable ContentKeyPolicyPolicyOptionTokenRestriction tokenRestriction;
         private @Nullable String widevineConfigurationTemplate;
         public Builder() {}
@@ -127,6 +140,7 @@ public final class ContentKeyPolicyPolicyOption {
     	      this.name = defaults.name;
     	      this.openRestrictionEnabled = defaults.openRestrictionEnabled;
     	      this.playreadyConfigurationLicenses = defaults.playreadyConfigurationLicenses;
+    	      this.playreadyResponseCustomData = defaults.playreadyResponseCustomData;
     	      this.tokenRestriction = defaults.tokenRestriction;
     	      this.widevineConfigurationTemplate = defaults.widevineConfigurationTemplate;
         }
@@ -160,6 +174,11 @@ public final class ContentKeyPolicyPolicyOption {
             return playreadyConfigurationLicenses(List.of(playreadyConfigurationLicenses));
         }
         @CustomType.Setter
+        public Builder playreadyResponseCustomData(@Nullable String playreadyResponseCustomData) {
+            this.playreadyResponseCustomData = playreadyResponseCustomData;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tokenRestriction(@Nullable ContentKeyPolicyPolicyOptionTokenRestriction tokenRestriction) {
             this.tokenRestriction = tokenRestriction;
             return this;
@@ -176,6 +195,7 @@ public final class ContentKeyPolicyPolicyOption {
             o.name = name;
             o.openRestrictionEnabled = openRestrictionEnabled;
             o.playreadyConfigurationLicenses = playreadyConfigurationLicenses;
+            o.playreadyResponseCustomData = playreadyResponseCustomData;
             o.tokenRestriction = tokenRestriction;
             o.widevineConfigurationTemplate = widevineConfigurationTemplate;
             return o;

@@ -251,6 +251,21 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+     * 
+     */
+    @Import(name="servicePlanId")
+    private @Nullable Output<String> servicePlanId;
+
+    /**
+     * @return The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+     * 
+     */
+    public Optional<Output<String>> servicePlanId() {
+        return Optional.ofNullable(this.servicePlanId);
+    }
+
+    /**
      * A `site_config` block as defined below.
      * 
      */
@@ -343,6 +358,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         this.keyVaultReferenceIdentityId = $.keyVaultReferenceIdentityId;
         this.logs = $.logs;
         this.name = $.name;
+        this.servicePlanId = $.servicePlanId;
         this.siteConfig = $.siteConfig;
         this.storageAccounts = $.storageAccounts;
         this.tags = $.tags;
@@ -691,6 +707,27 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePlanId(@Nullable Output<String> servicePlanId) {
+            $.servicePlanId = servicePlanId;
+            return this;
+        }
+
+        /**
+         * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePlanId(String servicePlanId) {
+            return servicePlanId(Output.of(servicePlanId));
         }
 
         /**

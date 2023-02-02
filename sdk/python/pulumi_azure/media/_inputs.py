@@ -21,7 +21,9 @@ __all__ = [
     'ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs',
     'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs',
     'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs',
+    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs',
     'ContentKeyPolicyPolicyOptionTokenRestrictionArgs',
+    'ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs',
     'ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs',
     'JobInputAssetArgs',
     'JobOutputAssetArgs',
@@ -432,6 +434,7 @@ class ContentKeyPolicyPolicyOptionArgs:
                  fairplay_configuration: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationArgs']] = None,
                  open_restriction_enabled: Optional[pulumi.Input[bool]] = None,
                  playready_configuration_licenses: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs']]]] = None,
+                 playready_response_custom_data: Optional[pulumi.Input[str]] = None,
                  token_restriction: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArgs']] = None,
                  widevine_configuration_template: Optional[pulumi.Input[str]] = None):
         """
@@ -440,6 +443,7 @@ class ContentKeyPolicyPolicyOptionArgs:
         :param pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationArgs'] fairplay_configuration: A `fairplay_configuration` block as defined above. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>.
         :param pulumi.Input[bool] open_restriction_enabled: Enable an open restriction. License or key will be delivered on every request.
         :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs']]] playready_configuration_licenses: One or more `playready_configuration_license` blocks as defined above.
+        :param pulumi.Input[str] playready_response_custom_data: The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
         :param pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArgs'] token_restriction: A `token_restriction` block as defined below.
         :param pulumi.Input[str] widevine_configuration_template: The Widevine template.
         """
@@ -452,6 +456,8 @@ class ContentKeyPolicyPolicyOptionArgs:
             pulumi.set(__self__, "open_restriction_enabled", open_restriction_enabled)
         if playready_configuration_licenses is not None:
             pulumi.set(__self__, "playready_configuration_licenses", playready_configuration_licenses)
+        if playready_response_custom_data is not None:
+            pulumi.set(__self__, "playready_response_custom_data", playready_response_custom_data)
         if token_restriction is not None:
             pulumi.set(__self__, "token_restriction", token_restriction)
         if widevine_configuration_template is not None:
@@ -516,6 +522,18 @@ class ContentKeyPolicyPolicyOptionArgs:
     @playready_configuration_licenses.setter
     def playready_configuration_licenses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs']]]]):
         pulumi.set(self, "playready_configuration_licenses", value)
+
+    @property
+    @pulumi.getter(name="playreadyResponseCustomData")
+    def playready_response_custom_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
+        """
+        return pulumi.get(self, "playready_response_custom_data")
+
+    @playready_response_custom_data.setter
+    def playready_response_custom_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "playready_response_custom_data", value)
 
     @property
     @pulumi.getter(name="tokenRestriction")
@@ -697,7 +715,8 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
                  license_type: Optional[pulumi.Input[str]] = None,
                  play_right: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs']] = None,
                  relative_begin_date: Optional[pulumi.Input[str]] = None,
-                 relative_expiration_date: Optional[pulumi.Input[str]] = None):
+                 relative_expiration_date: Optional[pulumi.Input[str]] = None,
+                 security_level: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] allow_test_devices: A flag indicating whether test devices can use the license.
         :param pulumi.Input[str] begin_date: The begin date of license.
@@ -710,6 +729,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
         :param pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs'] play_right: A `play_right` block as defined above.
         :param pulumi.Input[str] relative_begin_date: The relative begin date of license.
         :param pulumi.Input[str] relative_expiration_date: The relative expiration date of license.
+        :param pulumi.Input[str] security_level: The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
         """
         if allow_test_devices is not None:
             pulumi.set(__self__, "allow_test_devices", allow_test_devices)
@@ -733,6 +753,8 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
             pulumi.set(__self__, "relative_begin_date", relative_begin_date)
         if relative_expiration_date is not None:
             pulumi.set(__self__, "relative_expiration_date", relative_expiration_date)
+        if security_level is not None:
+            pulumi.set(__self__, "security_level", security_level)
 
     @property
     @pulumi.getter(name="allowTestDevices")
@@ -866,6 +888,18 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
     def relative_expiration_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "relative_expiration_date", value)
 
+    @property
+    @pulumi.getter(name="securityLevel")
+    def security_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
+        """
+        return pulumi.get(self, "security_level")
+
+    @security_level.setter
+    def security_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_level", value)
+
 
 @pulumi.input_type
 class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
@@ -874,7 +908,9 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
                  allow_passing_video_content_to_unknown_output: Optional[pulumi.Input[str]] = None,
                  analog_video_opl: Optional[pulumi.Input[int]] = None,
                  compressed_digital_audio_opl: Optional[pulumi.Input[int]] = None,
+                 compressed_digital_video_opl: Optional[pulumi.Input[int]] = None,
                  digital_video_only_content_restriction: Optional[pulumi.Input[bool]] = None,
+                 explicit_analog_television_output_restriction: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs']] = None,
                  first_play_expiration: Optional[pulumi.Input[str]] = None,
                  image_constraint_for_analog_component_video_restriction: Optional[pulumi.Input[bool]] = None,
                  image_constraint_for_analog_computer_monitor_restriction: Optional[pulumi.Input[bool]] = None,
@@ -882,17 +918,19 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
                  uncompressed_digital_audio_opl: Optional[pulumi.Input[int]] = None,
                  uncompressed_digital_video_opl: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] agc_and_color_stripe_restriction: Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+        :param pulumi.Input[int] agc_and_color_stripe_restriction: Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
         :param pulumi.Input[str] allow_passing_video_content_to_unknown_output: Configures Unknown output handling settings of the license. Supported values are `Allowed`, `AllowedWithVideoConstriction` or `NotAllowed`.
-        :param pulumi.Input[int] analog_video_opl: Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
-        :param pulumi.Input[int] compressed_digital_audio_opl: Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+        :param pulumi.Input[int] analog_video_opl: Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
+        :param pulumi.Input[int] compressed_digital_audio_opl: Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
+        :param pulumi.Input[int] compressed_digital_video_opl: Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
         :param pulumi.Input[bool] digital_video_only_content_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
+        :param pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs'] explicit_analog_television_output_restriction: An `explicit_analog_television_output_restriction` block as defined above.
         :param pulumi.Input[str] first_play_expiration: The amount of time that the license is valid after the license is first used to play content.
         :param pulumi.Input[bool] image_constraint_for_analog_component_video_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
         :param pulumi.Input[bool] image_constraint_for_analog_computer_monitor_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
-        :param pulumi.Input[int] scms_restriction: Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
-        :param pulumi.Input[int] uncompressed_digital_audio_opl: Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
-        :param pulumi.Input[int] uncompressed_digital_video_opl: Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+        :param pulumi.Input[int] scms_restriction: Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
+        :param pulumi.Input[int] uncompressed_digital_audio_opl: Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
+        :param pulumi.Input[int] uncompressed_digital_video_opl: Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
         """
         if agc_and_color_stripe_restriction is not None:
             pulumi.set(__self__, "agc_and_color_stripe_restriction", agc_and_color_stripe_restriction)
@@ -902,8 +940,12 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
             pulumi.set(__self__, "analog_video_opl", analog_video_opl)
         if compressed_digital_audio_opl is not None:
             pulumi.set(__self__, "compressed_digital_audio_opl", compressed_digital_audio_opl)
+        if compressed_digital_video_opl is not None:
+            pulumi.set(__self__, "compressed_digital_video_opl", compressed_digital_video_opl)
         if digital_video_only_content_restriction is not None:
             pulumi.set(__self__, "digital_video_only_content_restriction", digital_video_only_content_restriction)
+        if explicit_analog_television_output_restriction is not None:
+            pulumi.set(__self__, "explicit_analog_television_output_restriction", explicit_analog_television_output_restriction)
         if first_play_expiration is not None:
             pulumi.set(__self__, "first_play_expiration", first_play_expiration)
         if image_constraint_for_analog_component_video_restriction is not None:
@@ -921,7 +963,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
     @pulumi.getter(name="agcAndColorStripeRestriction")
     def agc_and_color_stripe_restriction(self) -> Optional[pulumi.Input[int]]:
         """
-        Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+        Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
         """
         return pulumi.get(self, "agc_and_color_stripe_restriction")
 
@@ -945,7 +987,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
     @pulumi.getter(name="analogVideoOpl")
     def analog_video_opl(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+        Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
         """
         return pulumi.get(self, "analog_video_opl")
 
@@ -957,13 +999,25 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
     @pulumi.getter(name="compressedDigitalAudioOpl")
     def compressed_digital_audio_opl(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+        Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
         """
         return pulumi.get(self, "compressed_digital_audio_opl")
 
     @compressed_digital_audio_opl.setter
     def compressed_digital_audio_opl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "compressed_digital_audio_opl", value)
+
+    @property
+    @pulumi.getter(name="compressedDigitalVideoOpl")
+    def compressed_digital_video_opl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+        """
+        return pulumi.get(self, "compressed_digital_video_opl")
+
+    @compressed_digital_video_opl.setter
+    def compressed_digital_video_opl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "compressed_digital_video_opl", value)
 
     @property
     @pulumi.getter(name="digitalVideoOnlyContentRestriction")
@@ -976,6 +1030,18 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
     @digital_video_only_content_restriction.setter
     def digital_video_only_content_restriction(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "digital_video_only_content_restriction", value)
+
+    @property
+    @pulumi.getter(name="explicitAnalogTelevisionOutputRestriction")
+    def explicit_analog_television_output_restriction(self) -> Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs']]:
+        """
+        An `explicit_analog_television_output_restriction` block as defined above.
+        """
+        return pulumi.get(self, "explicit_analog_television_output_restriction")
+
+    @explicit_analog_television_output_restriction.setter
+    def explicit_analog_television_output_restriction(self, value: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs']]):
+        pulumi.set(self, "explicit_analog_television_output_restriction", value)
 
     @property
     @pulumi.getter(name="firstPlayExpiration")
@@ -1017,7 +1083,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
     @pulumi.getter(name="scmsRestriction")
     def scms_restriction(self) -> Optional[pulumi.Input[int]]:
         """
-        Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+        Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
         """
         return pulumi.get(self, "scms_restriction")
 
@@ -1029,7 +1095,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
     @pulumi.getter(name="uncompressedDigitalAudioOpl")
     def uncompressed_digital_audio_opl(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+        Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
         """
         return pulumi.get(self, "uncompressed_digital_audio_opl")
 
@@ -1041,7 +1107,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
     @pulumi.getter(name="uncompressedDigitalVideoOpl")
     def uncompressed_digital_video_opl(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+        Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
         """
         return pulumi.get(self, "uncompressed_digital_video_opl")
 
@@ -1051,8 +1117,43 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
 
 
 @pulumi.input_type
+class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs:
+    def __init__(__self__, *,
+                 control_bits: pulumi.Input[int],
+                 best_effort_enforced: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[int] control_bits: The restriction control bits. Possible value is integer between `0` and `3` inclusive.
+        """
+        pulumi.set(__self__, "control_bits", control_bits)
+        if best_effort_enforced is not None:
+            pulumi.set(__self__, "best_effort_enforced", best_effort_enforced)
+
+    @property
+    @pulumi.getter(name="controlBits")
+    def control_bits(self) -> pulumi.Input[int]:
+        """
+        The restriction control bits. Possible value is integer between `0` and `3` inclusive.
+        """
+        return pulumi.get(self, "control_bits")
+
+    @control_bits.setter
+    def control_bits(self, value: pulumi.Input[int]):
+        pulumi.set(self, "control_bits", value)
+
+    @property
+    @pulumi.getter(name="bestEffortEnforced")
+    def best_effort_enforced(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "best_effort_enforced")
+
+    @best_effort_enforced.setter
+    def best_effort_enforced(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "best_effort_enforced", value)
+
+
+@pulumi.input_type
 class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
     def __init__(__self__, *,
+                 alternate_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs']]]] = None,
                  audience: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
                  open_id_connect_discovery_document: Optional[pulumi.Input[str]] = None,
@@ -1063,16 +1164,19 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
                  required_claims: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs']]]] = None,
                  token_type: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs']]] alternate_keys: One or more `alternate_key` block as defined above.
         :param pulumi.Input[str] audience: The audience for the token.
         :param pulumi.Input[str] issuer: The token issuer.
         :param pulumi.Input[str] open_id_connect_discovery_document: The OpenID connect discovery document.
-        :param pulumi.Input[str] primary_rsa_token_key_exponent: The RSA Parameter exponent.
-        :param pulumi.Input[str] primary_rsa_token_key_modulus: The RSA Parameter modulus.
+        :param pulumi.Input[str] primary_rsa_token_key_exponent: The RSA parameter exponent.
+        :param pulumi.Input[str] primary_rsa_token_key_modulus: The RSA parameter modulus.
         :param pulumi.Input[str] primary_symmetric_token_key: The key value of the key. Specifies a symmetric key for token validation.
         :param pulumi.Input[str] primary_x509_token_key_raw: The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
         :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs']]] required_claims: One or more `required_claim` blocks as defined above.
         :param pulumi.Input[str] token_type: The type of token. Supported values are `Jwt` or `Swt`.
         """
+        if alternate_keys is not None:
+            pulumi.set(__self__, "alternate_keys", alternate_keys)
         if audience is not None:
             pulumi.set(__self__, "audience", audience)
         if issuer is not None:
@@ -1091,6 +1195,18 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
             pulumi.set(__self__, "required_claims", required_claims)
         if token_type is not None:
             pulumi.set(__self__, "token_type", token_type)
+
+    @property
+    @pulumi.getter(name="alternateKeys")
+    def alternate_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs']]]]:
+        """
+        One or more `alternate_key` block as defined above.
+        """
+        return pulumi.get(self, "alternate_keys")
+
+    @alternate_keys.setter
+    def alternate_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs']]]]):
+        pulumi.set(self, "alternate_keys", value)
 
     @property
     @pulumi.getter
@@ -1132,7 +1248,7 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
     @pulumi.getter(name="primaryRsaTokenKeyExponent")
     def primary_rsa_token_key_exponent(self) -> Optional[pulumi.Input[str]]:
         """
-        The RSA Parameter exponent.
+        The RSA parameter exponent.
         """
         return pulumi.get(self, "primary_rsa_token_key_exponent")
 
@@ -1144,7 +1260,7 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
     @pulumi.getter(name="primaryRsaTokenKeyModulus")
     def primary_rsa_token_key_modulus(self) -> Optional[pulumi.Input[str]]:
         """
-        The RSA Parameter modulus.
+        The RSA parameter modulus.
         """
         return pulumi.get(self, "primary_rsa_token_key_modulus")
 
@@ -1199,6 +1315,77 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
     @token_type.setter
     def token_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "token_type", value)
+
+
+@pulumi.input_type
+class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs:
+    def __init__(__self__, *,
+                 rsa_token_key_exponent: Optional[pulumi.Input[str]] = None,
+                 rsa_token_key_modulus: Optional[pulumi.Input[str]] = None,
+                 symmetric_token_key: Optional[pulumi.Input[str]] = None,
+                 x509_token_key_raw: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] rsa_token_key_exponent: The RSA parameter exponent.
+        :param pulumi.Input[str] rsa_token_key_modulus: The RSA parameter modulus.
+        :param pulumi.Input[str] symmetric_token_key: The key value of the key. Specifies a symmetric key for token validation.
+        :param pulumi.Input[str] x509_token_key_raw: The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+        """
+        if rsa_token_key_exponent is not None:
+            pulumi.set(__self__, "rsa_token_key_exponent", rsa_token_key_exponent)
+        if rsa_token_key_modulus is not None:
+            pulumi.set(__self__, "rsa_token_key_modulus", rsa_token_key_modulus)
+        if symmetric_token_key is not None:
+            pulumi.set(__self__, "symmetric_token_key", symmetric_token_key)
+        if x509_token_key_raw is not None:
+            pulumi.set(__self__, "x509_token_key_raw", x509_token_key_raw)
+
+    @property
+    @pulumi.getter(name="rsaTokenKeyExponent")
+    def rsa_token_key_exponent(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RSA parameter exponent.
+        """
+        return pulumi.get(self, "rsa_token_key_exponent")
+
+    @rsa_token_key_exponent.setter
+    def rsa_token_key_exponent(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rsa_token_key_exponent", value)
+
+    @property
+    @pulumi.getter(name="rsaTokenKeyModulus")
+    def rsa_token_key_modulus(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RSA parameter modulus.
+        """
+        return pulumi.get(self, "rsa_token_key_modulus")
+
+    @rsa_token_key_modulus.setter
+    def rsa_token_key_modulus(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rsa_token_key_modulus", value)
+
+    @property
+    @pulumi.getter(name="symmetricTokenKey")
+    def symmetric_token_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key value of the key. Specifies a symmetric key for token validation.
+        """
+        return pulumi.get(self, "symmetric_token_key")
+
+    @symmetric_token_key.setter
+    def symmetric_token_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "symmetric_token_key", value)
+
+    @property
+    @pulumi.getter(name="x509TokenKeyRaw")
+    def x509_token_key_raw(self) -> Optional[pulumi.Input[str]]:
+        """
+        The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+        """
+        return pulumi.get(self, "x509_token_key_raw")
+
+    @x509_token_key_raw.setter
+    def x509_token_key_raw(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x509_token_key_raw", value)
 
 
 @pulumi.input_type

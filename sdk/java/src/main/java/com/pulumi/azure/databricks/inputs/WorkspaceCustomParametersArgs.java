@@ -47,14 +47,14 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+     * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
      * 
      */
     @Import(name="noPublicIp")
     private @Nullable Output<Boolean> noPublicIp;
 
     /**
-     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> noPublicIp() {
@@ -274,7 +274,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
          * 
          * @return builder
          * 

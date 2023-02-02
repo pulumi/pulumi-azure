@@ -372,6 +372,21 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+     * 
+     */
+    @Import(name="servicePlanId")
+    private @Nullable Output<String> servicePlanId;
+
+    /**
+     * @return The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+     * 
+     */
+    public Optional<Output<String>> servicePlanId() {
+        return Optional.ofNullable(this.servicePlanId);
+    }
+
+    /**
      * A `site_config` block as defined below.
      * 
      */
@@ -487,6 +502,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         this.outboundIpAddresses = $.outboundIpAddresses;
         this.possibleOutboundIpAddressLists = $.possibleOutboundIpAddressLists;
         this.possibleOutboundIpAddresses = $.possibleOutboundIpAddresses;
+        this.servicePlanId = $.servicePlanId;
         this.siteConfig = $.siteConfig;
         this.siteCredentials = $.siteCredentials;
         this.storageAccounts = $.storageAccounts;
@@ -1024,6 +1040,27 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
          */
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
             return possibleOutboundIpAddresses(Output.of(possibleOutboundIpAddresses));
+        }
+
+        /**
+         * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePlanId(@Nullable Output<String> servicePlanId) {
+            $.servicePlanId = servicePlanId;
+            return this;
+        }
+
+        /**
+         * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePlanId(String servicePlanId) {
+            return servicePlanId(Output.of(servicePlanId));
         }
 
         /**

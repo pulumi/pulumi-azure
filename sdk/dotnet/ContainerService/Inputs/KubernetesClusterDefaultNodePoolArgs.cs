@@ -121,6 +121,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
+        /// A `node_network_profile` block as documented below.
+        /// </summary>
+        [Input("nodeNetworkProfile")]
+        public Input<Inputs.KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs>? NodeNetworkProfile { get; set; }
+
+        /// <summary>
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("nodePublicIpPrefixId")]

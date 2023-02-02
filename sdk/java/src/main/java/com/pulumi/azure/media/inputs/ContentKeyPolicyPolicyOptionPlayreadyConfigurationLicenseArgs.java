@@ -182,6 +182,21 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs
         return Optional.ofNullable(this.relativeExpirationDate);
     }
 
+    /**
+     * The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
+     * 
+     */
+    @Import(name="securityLevel")
+    private @Nullable Output<String> securityLevel;
+
+    /**
+     * @return The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
+     * 
+     */
+    public Optional<Output<String>> securityLevel() {
+        return Optional.ofNullable(this.securityLevel);
+    }
+
     private ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs() {}
 
     private ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs $) {
@@ -196,6 +211,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs
         this.playRight = $.playRight;
         this.relativeBeginDate = $.relativeBeginDate;
         this.relativeExpirationDate = $.relativeExpirationDate;
+        this.securityLevel = $.securityLevel;
     }
 
     public static Builder builder() {
@@ -445,6 +461,27 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs
          */
         public Builder relativeExpirationDate(String relativeExpirationDate) {
             return relativeExpirationDate(Output.of(relativeExpirationDate));
+        }
+
+        /**
+         * @param securityLevel The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityLevel(@Nullable Output<String> securityLevel) {
+            $.securityLevel = securityLevel;
+            return this;
+        }
+
+        /**
+         * @param securityLevel The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityLevel(String securityLevel) {
+            return securityLevel(Output.of(securityLevel));
         }
 
         public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs build() {

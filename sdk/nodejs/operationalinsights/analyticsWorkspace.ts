@@ -79,6 +79,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public readonly internetQueryEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+     */
+    public readonly localAuthenticationDisabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -137,6 +141,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
             resourceInputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
+            resourceInputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["primarySharedKey"] = state ? state.primarySharedKey : undefined;
@@ -157,6 +162,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
             resourceInputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
+            resourceInputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["reservationCapacityInGbPerDay"] = args ? args.reservationCapacityInGbPerDay : undefined;
@@ -199,6 +205,10 @@ export interface AnalyticsWorkspaceState {
      * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
      */
     internetQueryEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+     */
+    localAuthenticationDisabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -265,6 +275,10 @@ export interface AnalyticsWorkspaceArgs {
      * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
      */
     internetQueryEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+     */
+    localAuthenticationDisabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

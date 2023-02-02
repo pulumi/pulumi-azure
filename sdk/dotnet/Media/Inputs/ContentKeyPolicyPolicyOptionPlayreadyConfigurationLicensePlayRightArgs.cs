@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Media.Inputs
     public sealed class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+        /// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
         /// </summary>
         [Input("agcAndColorStripeRestriction")]
         public Input<int>? AgcAndColorStripeRestriction { get; set; }
@@ -25,22 +25,34 @@ namespace Pulumi.Azure.Media.Inputs
         public Input<string>? AllowPassingVideoContentToUnknownOutput { get; set; }
 
         /// <summary>
-        /// Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+        /// Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
         /// </summary>
         [Input("analogVideoOpl")]
         public Input<int>? AnalogVideoOpl { get; set; }
 
         /// <summary>
-        /// Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+        /// Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
         /// </summary>
         [Input("compressedDigitalAudioOpl")]
         public Input<int>? CompressedDigitalAudioOpl { get; set; }
+
+        /// <summary>
+        /// Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+        /// </summary>
+        [Input("compressedDigitalVideoOpl")]
+        public Input<int>? CompressedDigitalVideoOpl { get; set; }
 
         /// <summary>
         /// Enables the Image Constraint For Analog Component Video Restriction in the license.
         /// </summary>
         [Input("digitalVideoOnlyContentRestriction")]
         public Input<bool>? DigitalVideoOnlyContentRestriction { get; set; }
+
+        /// <summary>
+        /// An `explicit_analog_television_output_restriction` block as defined above.
+        /// </summary>
+        [Input("explicitAnalogTelevisionOutputRestriction")]
+        public Input<Inputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs>? ExplicitAnalogTelevisionOutputRestriction { get; set; }
 
         /// <summary>
         /// The amount of time that the license is valid after the license is first used to play content.
@@ -61,19 +73,19 @@ namespace Pulumi.Azure.Media.Inputs
         public Input<bool>? ImageConstraintForAnalogComputerMonitorRestriction { get; set; }
 
         /// <summary>
-        /// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+        /// Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
         /// </summary>
         [Input("scmsRestriction")]
         public Input<int>? ScmsRestriction { get; set; }
 
         /// <summary>
-        /// Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+        /// Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
         /// </summary>
         [Input("uncompressedDigitalAudioOpl")]
         public Input<int>? UncompressedDigitalAudioOpl { get; set; }
 
         /// <summary>
-        /// Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+        /// Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
         /// </summary>
         [Input("uncompressedDigitalVideoOpl")]
         public Input<int>? UncompressedDigitalVideoOpl { get; set; }

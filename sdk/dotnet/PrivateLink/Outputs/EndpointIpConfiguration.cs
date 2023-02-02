@@ -28,7 +28,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// <summary>
         /// Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string SubresourceName;
+        public readonly string? SubresourceName;
 
         [OutputConstructor]
         private EndpointIpConfiguration(
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
 
             string privateIpAddress,
 
-            string subresourceName)
+            string? subresourceName)
         {
             MemberName = memberName;
             Name = name;

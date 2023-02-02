@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
         public Input<int>? ExpectedStatusCode { get; set; }
 
         /// <summary>
-        /// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+        /// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
         /// </summary>
         [Input("sslCertRemainingLifetime")]
         public Input<int>? SslCertRemainingLifetime { get; set; }

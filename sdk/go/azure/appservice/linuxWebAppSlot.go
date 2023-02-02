@@ -123,6 +123,8 @@ type LinuxWebAppSlot struct {
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
+	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+	ServicePlanId pulumi.StringPtrOutput `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below.
@@ -222,6 +224,8 @@ type linuxWebAppSlotState struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
+	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig *LinuxWebAppSlotSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below.
@@ -283,6 +287,8 @@ type LinuxWebAppSlotState struct {
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
+	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+	ServicePlanId pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfigPtrInput
 	// A `siteCredential` block as defined below.
@@ -332,6 +338,8 @@ type linuxWebAppSlotArgs struct {
 	Logs *LinuxWebAppSlotLogs `pulumi:"logs"`
 	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
 	Name *string `pulumi:"name"`
+	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfig `pulumi:"siteConfig"`
 	// One or more `storageAccount` blocks as defined below.
@@ -376,6 +384,8 @@ type LinuxWebAppSlotArgs struct {
 	Logs LinuxWebAppSlotLogsPtrInput
 	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
 	Name pulumi.StringPtrInput
+	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+	ServicePlanId pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfigInput
 	// One or more `storageAccount` blocks as defined below.
@@ -588,6 +598,11 @@ func (o LinuxWebAppSlotOutput) PossibleOutboundIpAddressLists() pulumi.StringArr
 // A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 func (o LinuxWebAppSlotOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+func (o LinuxWebAppSlotOutput) ServicePlanId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringPtrOutput { return v.ServicePlanId }).(pulumi.StringPtrOutput)
 }
 
 // A `siteConfig` block as defined below.

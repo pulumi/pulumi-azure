@@ -3947,6 +3947,7 @@ public final class NetworkFunctions {
      *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
      *             .name(&#34;example-hub-route-table&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .virtualHubName(&#34;example-hub-name&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));
@@ -3986,6 +3987,7 @@ public final class NetworkFunctions {
      *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
      *             .name(&#34;example-hub-route-table&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .virtualHubName(&#34;example-hub-name&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));
@@ -4025,6 +4027,7 @@ public final class NetworkFunctions {
      *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
      *             .name(&#34;example-hub-route-table&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .virtualHubName(&#34;example-hub-name&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));
@@ -4064,6 +4067,7 @@ public final class NetworkFunctions {
      *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
      *             .name(&#34;example-hub-route-table&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .virtualHubName(&#34;example-hub-name&#34;)
      *             .build());
      * 
      *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));

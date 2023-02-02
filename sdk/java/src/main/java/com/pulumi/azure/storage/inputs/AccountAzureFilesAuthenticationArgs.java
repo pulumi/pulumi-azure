@@ -32,14 +32,14 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the directory service used. Possible values are `AADDS` and `AD`.
+     * Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
      * 
      */
     @Import(name="directoryType", required=true)
     private Output<String> directoryType;
 
     /**
-     * @return Specifies the directory service used. Possible values are `AADDS` and `AD`.
+     * @return Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
      * 
      */
     public Output<String> directoryType() {
@@ -93,7 +93,7 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param directoryType Specifies the directory service used. Possible values are `AADDS` and `AD`.
+         * @param directoryType Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param directoryType Specifies the directory service used. Possible values are `AADDS` and `AD`.
+         * @param directoryType Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
          * 
          * @return builder
          * 

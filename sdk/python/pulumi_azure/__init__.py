@@ -6281,6 +6281,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "orbital/contact",
+  "fqn": "pulumi_azure.orbital",
+  "classes": {
+   "azure:orbital/contact:Contact": "Contact"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "orbital/contactProfile",
   "fqn": "pulumi_azure.orbital",
   "classes": {
@@ -7181,6 +7189,14 @@ _utilities.register(
   "fqn": "pulumi_azure.siterecovery",
   "classes": {
    "azure:siterecovery/replicationPolicy:ReplicationPolicy": "ReplicationPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "siterecovery/replicationRecoveryPlan",
+  "fqn": "pulumi_azure.siterecovery",
+  "classes": {
+   "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan": "ReplicationRecoveryPlan"
   }
  },
  {

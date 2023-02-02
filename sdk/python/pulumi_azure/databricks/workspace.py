@@ -23,6 +23,8 @@ class WorkspaceArgs:
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[bool]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -34,15 +36,17 @@ class WorkspaceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
         :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as documented below.
-        :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_disk_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed disks.
+        :param pulumi.Input[bool] managed_disk_cmk_rotation_to_latest_version_enabled: Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
         :param pulumi.Input[str] managed_resource_group_name: The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_services_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_services_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
         :param pulumi.Input[str] name: Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_security_group_rules_required: Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_security_group_rules_required: Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
+        :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -57,6 +61,10 @@ class WorkspaceArgs:
             pulumi.set(__self__, "load_balancer_backend_address_pool_id", load_balancer_backend_address_pool_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_disk_cmk_key_vault_key_id is not None:
+            pulumi.set(__self__, "managed_disk_cmk_key_vault_key_id", managed_disk_cmk_key_vault_key_id)
+        if managed_disk_cmk_rotation_to_latest_version_enabled is not None:
+            pulumi.set(__self__, "managed_disk_cmk_rotation_to_latest_version_enabled", managed_disk_cmk_rotation_to_latest_version_enabled)
         if managed_resource_group_name is not None:
             pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
         if managed_services_cmk_key_vault_key_id is not None:
@@ -110,7 +118,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 
@@ -155,6 +163,30 @@ class WorkspaceArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="managedDiskCmkKeyVaultKeyId")
+    def managed_disk_cmk_key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer managed encryption properties for the Databricks Workspace managed disks.
+        """
+        return pulumi.get(self, "managed_disk_cmk_key_vault_key_id")
+
+    @managed_disk_cmk_key_vault_key_id.setter
+    def managed_disk_cmk_key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_disk_cmk_key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="managedDiskCmkRotationToLatestVersionEnabled")
+    def managed_disk_cmk_rotation_to_latest_version_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+        """
+        return pulumi.get(self, "managed_disk_cmk_rotation_to_latest_version_enabled")
+
+    @managed_disk_cmk_rotation_to_latest_version_enabled.setter
+    def managed_disk_cmk_rotation_to_latest_version_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "managed_disk_cmk_rotation_to_latest_version_enabled", value)
+
+    @property
     @pulumi.getter(name="managedResourceGroupName")
     def managed_resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -170,7 +202,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="managedServicesCmkKeyVaultKeyId")
     def managed_services_cmk_key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+        Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
         """
         return pulumi.get(self, "managed_services_cmk_key_vault_key_id")
 
@@ -194,7 +226,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="networkSecurityGroupRulesRequired")
     def network_security_group_rules_required(self) -> Optional[pulumi.Input[str]]:
         """
-        Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
+        Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
         """
         return pulumi.get(self, "network_security_group_rules_required")
 
@@ -206,7 +238,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+        Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -232,9 +264,13 @@ class _WorkspaceState:
     def __init__(__self__, *,
                  custom_parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[bool]] = None,
+                 managed_disk_identities: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
@@ -250,16 +286,20 @@ class _WorkspaceState:
         """
         Input properties used for looking up and filtering Workspace resources.
         :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as documented below.
-        :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of Managed Disk Encryption Set created by the Databricks Workspace.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_disk_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed disks.
+        :param pulumi.Input[bool] managed_disk_cmk_rotation_to_latest_version_enabled: Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]] managed_disk_identities: A `managed_disk_identity` block as documented below.
         :param pulumi.Input[str] managed_resource_group_id: The ID of the Managed Resource Group created by the Databricks Workspace.
         :param pulumi.Input[str] managed_resource_group_name: The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_services_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_services_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
         :param pulumi.Input[str] name: Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_security_group_rules_required: Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_security_group_rules_required: Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
+        :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]] storage_account_identities: A `storage_account_identity` block as documented below.
@@ -271,12 +311,20 @@ class _WorkspaceState:
             pulumi.set(__self__, "custom_parameters", custom_parameters)
         if customer_managed_key_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if infrastructure_encryption_enabled is not None:
             pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if load_balancer_backend_address_pool_id is not None:
             pulumi.set(__self__, "load_balancer_backend_address_pool_id", load_balancer_backend_address_pool_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_disk_cmk_key_vault_key_id is not None:
+            pulumi.set(__self__, "managed_disk_cmk_key_vault_key_id", managed_disk_cmk_key_vault_key_id)
+        if managed_disk_cmk_rotation_to_latest_version_enabled is not None:
+            pulumi.set(__self__, "managed_disk_cmk_rotation_to_latest_version_enabled", managed_disk_cmk_rotation_to_latest_version_enabled)
+        if managed_disk_identities is not None:
+            pulumi.set(__self__, "managed_disk_identities", managed_disk_identities)
         if managed_resource_group_id is not None:
             pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
         if managed_resource_group_name is not None:
@@ -318,13 +366,25 @@ class _WorkspaceState:
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @customer_managed_key_enabled.setter
     def customer_managed_key_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "customer_managed_key_enabled", value)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of Managed Disk Encryption Set created by the Databricks Workspace.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
 
     @property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
@@ -363,6 +423,42 @@ class _WorkspaceState:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="managedDiskCmkKeyVaultKeyId")
+    def managed_disk_cmk_key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer managed encryption properties for the Databricks Workspace managed disks.
+        """
+        return pulumi.get(self, "managed_disk_cmk_key_vault_key_id")
+
+    @managed_disk_cmk_key_vault_key_id.setter
+    def managed_disk_cmk_key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_disk_cmk_key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="managedDiskCmkRotationToLatestVersionEnabled")
+    def managed_disk_cmk_rotation_to_latest_version_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+        """
+        return pulumi.get(self, "managed_disk_cmk_rotation_to_latest_version_enabled")
+
+    @managed_disk_cmk_rotation_to_latest_version_enabled.setter
+    def managed_disk_cmk_rotation_to_latest_version_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "managed_disk_cmk_rotation_to_latest_version_enabled", value)
+
+    @property
+    @pulumi.getter(name="managedDiskIdentities")
+    def managed_disk_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]]]:
+        """
+        A `managed_disk_identity` block as documented below.
+        """
+        return pulumi.get(self, "managed_disk_identities")
+
+    @managed_disk_identities.setter
+    def managed_disk_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]]]):
+        pulumi.set(self, "managed_disk_identities", value)
+
+    @property
     @pulumi.getter(name="managedResourceGroupId")
     def managed_resource_group_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -390,7 +486,7 @@ class _WorkspaceState:
     @pulumi.getter(name="managedServicesCmkKeyVaultKeyId")
     def managed_services_cmk_key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+        Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
         """
         return pulumi.get(self, "managed_services_cmk_key_vault_key_id")
 
@@ -414,7 +510,7 @@ class _WorkspaceState:
     @pulumi.getter(name="networkSecurityGroupRulesRequired")
     def network_security_group_rules_required(self) -> Optional[pulumi.Input[str]]:
         """
-        Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
+        Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
         """
         return pulumi.get(self, "network_security_group_rules_required")
 
@@ -426,7 +522,7 @@ class _WorkspaceState:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+        Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -517,6 +613,8 @@ class Workspace(pulumi.CustomResource):
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[bool]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -538,15 +636,17 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']] custom_parameters: A `custom_parameters` block as documented below.
-        :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_disk_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed disks.
+        :param pulumi.Input[bool] managed_disk_cmk_rotation_to_latest_version_enabled: Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
         :param pulumi.Input[str] managed_resource_group_name: The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_services_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_services_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
         :param pulumi.Input[str] name: Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_security_group_rules_required: Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_security_group_rules_required: Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
+        :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -586,6 +686,8 @@ class Workspace(pulumi.CustomResource):
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[bool]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -608,6 +710,8 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
             __props__.__dict__["load_balancer_backend_address_pool_id"] = load_balancer_backend_address_pool_id
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_disk_cmk_key_vault_key_id"] = managed_disk_cmk_key_vault_key_id
+            __props__.__dict__["managed_disk_cmk_rotation_to_latest_version_enabled"] = managed_disk_cmk_rotation_to_latest_version_enabled
             __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
             __props__.__dict__["managed_services_cmk_key_vault_key_id"] = managed_services_cmk_key_vault_key_id
             __props__.__dict__["name"] = name
@@ -620,6 +724,8 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["disk_encryption_set_id"] = None
+            __props__.__dict__["managed_disk_identities"] = None
             __props__.__dict__["managed_resource_group_id"] = None
             __props__.__dict__["storage_account_identities"] = None
             __props__.__dict__["workspace_id"] = None
@@ -636,9 +742,13 @@ class Workspace(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_parameters: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']]] = None,
             customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+            disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+            managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[bool]] = None,
+            managed_disk_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceManagedDiskIdentityArgs']]]]] = None,
             managed_resource_group_id: Optional[pulumi.Input[str]] = None,
             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
             managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
@@ -659,16 +769,20 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']] custom_parameters: A `custom_parameters` block as documented below.
-        :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of Managed Disk Encryption Set created by the Databricks Workspace.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_disk_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed disks.
+        :param pulumi.Input[bool] managed_disk_cmk_rotation_to_latest_version_enabled: Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceManagedDiskIdentityArgs']]]] managed_disk_identities: A `managed_disk_identity` block as documented below.
         :param pulumi.Input[str] managed_resource_group_id: The ID of the Managed Resource Group created by the Databricks Workspace.
         :param pulumi.Input[str] managed_resource_group_name: The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_services_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_services_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
         :param pulumi.Input[str] name: Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_security_group_rules_required: Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_security_group_rules_required: Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
+        :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceStorageAccountIdentityArgs']]]] storage_account_identities: A `storage_account_identity` block as documented below.
@@ -682,9 +796,13 @@ class Workspace(pulumi.CustomResource):
 
         __props__.__dict__["custom_parameters"] = custom_parameters
         __props__.__dict__["customer_managed_key_enabled"] = customer_managed_key_enabled
+        __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
         __props__.__dict__["load_balancer_backend_address_pool_id"] = load_balancer_backend_address_pool_id
         __props__.__dict__["location"] = location
+        __props__.__dict__["managed_disk_cmk_key_vault_key_id"] = managed_disk_cmk_key_vault_key_id
+        __props__.__dict__["managed_disk_cmk_rotation_to_latest_version_enabled"] = managed_disk_cmk_rotation_to_latest_version_enabled
+        __props__.__dict__["managed_disk_identities"] = managed_disk_identities
         __props__.__dict__["managed_resource_group_id"] = managed_resource_group_id
         __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
         __props__.__dict__["managed_services_cmk_key_vault_key_id"] = managed_services_cmk_key_vault_key_id
@@ -711,9 +829,17 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+        Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> pulumi.Output[str]:
+        """
+        The ID of Managed Disk Encryption Set created by the Databricks Workspace.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
 
     @property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
@@ -740,6 +866,30 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedDiskCmkKeyVaultKeyId")
+    def managed_disk_cmk_key_vault_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Customer managed encryption properties for the Databricks Workspace managed disks.
+        """
+        return pulumi.get(self, "managed_disk_cmk_key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="managedDiskCmkRotationToLatestVersionEnabled")
+    def managed_disk_cmk_rotation_to_latest_version_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+        """
+        return pulumi.get(self, "managed_disk_cmk_rotation_to_latest_version_enabled")
+
+    @property
+    @pulumi.getter(name="managedDiskIdentities")
+    def managed_disk_identities(self) -> pulumi.Output[Sequence['outputs.WorkspaceManagedDiskIdentity']]:
+        """
+        A `managed_disk_identity` block as documented below.
+        """
+        return pulumi.get(self, "managed_disk_identities")
+
+    @property
     @pulumi.getter(name="managedResourceGroupId")
     def managed_resource_group_id(self) -> pulumi.Output[str]:
         """
@@ -759,7 +909,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="managedServicesCmkKeyVaultKeyId")
     def managed_services_cmk_key_vault_key_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+        Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
         """
         return pulumi.get(self, "managed_services_cmk_key_vault_key_id")
 
@@ -775,7 +925,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="networkSecurityGroupRulesRequired")
     def network_security_group_rules_required(self) -> pulumi.Output[str]:
         """
-        Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
+        Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
         """
         return pulumi.get(self, "network_security_group_rules_required")
 
@@ -783,7 +933,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+        Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 

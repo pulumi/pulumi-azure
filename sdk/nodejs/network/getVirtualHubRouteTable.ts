@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * const example = azure.network.getVirtualHubRouteTable({
  *     name: "example-hub-route-table",
  *     resourceGroupName: "example-resources",
+ *     virtualHubName: "example-hub-name",
  * });
  * export const virtualHubRouteTableId = example.then(example => example.id);
  * ```
@@ -44,6 +45,9 @@ export interface GetVirtualHubRouteTableArgs {
      * The Name of the Resource Group where the Virtual Hub Route Table exists.
      */
     resourceGroupName: string;
+    /**
+     * The name which should be used for Virtual Hub Route Table.
+     */
     virtualHubName: string;
 }
 
@@ -86,6 +90,7 @@ export interface GetVirtualHubRouteTableResult {
  * const example = azure.network.getVirtualHubRouteTable({
  *     name: "example-hub-route-table",
  *     resourceGroupName: "example-resources",
+ *     virtualHubName: "example-hub-name",
  * });
  * export const virtualHubRouteTableId = example.then(example => example.id);
  * ```
@@ -106,5 +111,8 @@ export interface GetVirtualHubRouteTableOutputArgs {
      * The Name of the Resource Group where the Virtual Hub Route Table exists.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name which should be used for Virtual Hub Route Table.
+     */
     virtualHubName: pulumi.Input<string>;
 }

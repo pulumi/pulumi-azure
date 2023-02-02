@@ -20,6 +20,7 @@ class AnalyticsWorkspaceArgs:
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
@@ -34,6 +35,7 @@ class AnalyticsWorkspaceArgs:
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
@@ -52,6 +54,8 @@ class AnalyticsWorkspaceArgs:
             pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
             pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
+        if local_authentication_disabled is not None:
+            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -138,6 +142,18 @@ class AnalyticsWorkspaceArgs:
         pulumi.set(self, "internet_query_enabled", value)
 
     @property
+    @pulumi.getter(name="localAuthenticationDisabled")
+    def local_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+        """
+        return pulumi.get(self, "local_authentication_disabled")
+
+    @local_authentication_disabled.setter
+    def local_authentication_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_disabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -218,6 +234,7 @@ class _AnalyticsWorkspaceState:
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_shared_key: Optional[pulumi.Input[str]] = None,
@@ -235,6 +252,7 @@ class _AnalyticsWorkspaceState:
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
@@ -256,6 +274,8 @@ class _AnalyticsWorkspaceState:
             pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
             pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
+        if local_authentication_disabled is not None:
+            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -336,6 +356,18 @@ class _AnalyticsWorkspaceState:
     @internet_query_enabled.setter
     def internet_query_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "internet_query_enabled", value)
+
+    @property
+    @pulumi.getter(name="localAuthenticationDisabled")
+    def local_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+        """
+        return pulumi.get(self, "local_authentication_disabled")
+
+    @local_authentication_disabled.setter
+    def local_authentication_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_disabled", value)
 
     @property
     @pulumi.getter
@@ -468,6 +500,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
@@ -508,6 +541,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
@@ -567,6 +601,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+                 local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
@@ -588,6 +623,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             __props__.__dict__["daily_quota_gb"] = daily_quota_gb
             __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
             __props__.__dict__["internet_query_enabled"] = internet_query_enabled
+            __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["reservation_capacity_in_gb_per_day"] = reservation_capacity_in_gb_per_day
@@ -617,6 +653,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             daily_quota_gb: Optional[pulumi.Input[float]] = None,
             internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
             internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+            local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_shared_key: Optional[pulumi.Input[str]] = None,
@@ -639,6 +676,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
@@ -659,6 +697,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__.__dict__["daily_quota_gb"] = daily_quota_gb
         __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
         __props__.__dict__["internet_query_enabled"] = internet_query_enabled
+        __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_shared_key"] = primary_shared_key
@@ -710,6 +749,14 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_query_enabled")
+
+    @property
+    @pulumi.getter(name="localAuthenticationDisabled")
+    def local_authentication_disabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+        """
+        return pulumi.get(self, "local_authentication_disabled")
 
     @property
     @pulumi.getter

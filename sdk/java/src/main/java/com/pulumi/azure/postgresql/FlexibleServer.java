@@ -7,7 +7,9 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.postgresql.FlexibleServerArgs;
 import com.pulumi.azure.postgresql.inputs.FlexibleServerState;
 import com.pulumi.azure.postgresql.outputs.FlexibleServerAuthentication;
+import com.pulumi.azure.postgresql.outputs.FlexibleServerCustomerManagedKey;
 import com.pulumi.azure.postgresql.outputs.FlexibleServerHighAvailability;
+import com.pulumi.azure.postgresql.outputs.FlexibleServerIdentity;
 import com.pulumi.azure.postgresql.outputs.FlexibleServerMaintenanceWindow;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -194,6 +196,20 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.createMode);
     }
     /**
+     * A `customer_managed_key` block as defined below.
+     * 
+     */
+    @Export(name="customerManagedKey", type=FlexibleServerCustomerManagedKey.class, parameters={})
+    private Output</* @Nullable */ FlexibleServerCustomerManagedKey> customerManagedKey;
+
+    /**
+     * @return A `customer_managed_key` block as defined below.
+     * 
+     */
+    public Output<Optional<FlexibleServerCustomerManagedKey>> customerManagedKey() {
+        return Codegen.optional(this.customerManagedKey);
+    }
+    /**
      * The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
@@ -248,6 +264,20 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<FlexibleServerHighAvailability>> highAvailability() {
         return Codegen.optional(this.highAvailability);
+    }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", type=FlexibleServerIdentity.class, parameters={})
+    private Output</* @Nullable */ FlexibleServerIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<FlexibleServerIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.

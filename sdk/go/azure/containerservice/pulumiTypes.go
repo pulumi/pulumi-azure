@@ -4326,6 +4326,8 @@ type KubernetesClusterDefaultNodePool struct {
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// A `nodeNetworkProfile` block as documented below.
+	NodeNetworkProfile *KubernetesClusterDefaultNodePoolNodeNetworkProfile `pulumi:"nodeNetworkProfile"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
 	// A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
@@ -4410,6 +4412,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
+	// A `nodeNetworkProfile` block as documented below.
+	NodeNetworkProfile KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput `pulumi:"nodeNetworkProfile"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrInput `pulumi:"nodePublicIpPrefixId"`
 	// A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
@@ -4612,6 +4616,13 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput 
 // A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
+// A `nodeNetworkProfile` block as documented below.
+func (o KubernetesClusterDefaultNodePoolOutput) NodeNetworkProfile() KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolNodeNetworkProfile {
+		return v.NodeNetworkProfile
+	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput)
 }
 
 // Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
@@ -4898,6 +4909,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeLabels() pulumi.StringMap
 		}
 		return v.NodeLabels
 	}).(pulumi.StringMapOutput)
+}
+
+// A `nodeNetworkProfile` block as documented below.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeNetworkProfile() KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolNodeNetworkProfile {
+		if v == nil {
+			return nil
+		}
+		return v.NodeNetworkProfile
+	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput)
 }
 
 // Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
@@ -6279,6 +6300,145 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmVf
 		}
 		return v.VmVfsCachePressure
 	}).(pulumi.IntPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolNodeNetworkProfile struct {
+	// Specifies a mapping of tags to the instance-level public IPs.
+	NodePublicIpTags map[string]string `pulumi:"nodePublicIpTags"`
+}
+
+// KubernetesClusterDefaultNodePoolNodeNetworkProfileInput is an input type that accepts KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs and KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolNodeNetworkProfileInput` via:
+//
+//	KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs{...}
+type KubernetesClusterDefaultNodePoolNodeNetworkProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolNodeNetworkProfileOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput
+	ToKubernetesClusterDefaultNodePoolNodeNetworkProfileOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput
+}
+
+type KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs struct {
+	// Specifies a mapping of tags to the instance-level public IPs.
+	NodePublicIpTags pulumi.StringMapInput `pulumi:"nodePublicIpTags"`
+}
+
+func (KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfile)(nil)).Elem()
+}
+
+func (i KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput {
+	return i.ToKubernetesClusterDefaultNodePoolNodeNetworkProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput)
+}
+
+func (i KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs) ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs) ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput).ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput is an input type that accepts KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs, KubernetesClusterDefaultNodePoolNodeNetworkProfilePtr and KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput` via:
+//
+//	        KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput
+	ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput
+}
+
+type kubernetesClusterDefaultNodePoolNodeNetworkProfilePtrType KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs
+
+func KubernetesClusterDefaultNodePoolNodeNetworkProfilePtr(v *KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs) KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput {
+	return (*kubernetesClusterDefaultNodePoolNodeNetworkProfilePtrType)(v)
+}
+
+func (*kubernetesClusterDefaultNodePoolNodeNetworkProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolNodeNetworkProfile)(nil)).Elem()
+}
+
+func (i *kubernetesClusterDefaultNodePoolNodeNetworkProfilePtrType) ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterDefaultNodePoolNodeNetworkProfilePtrType) ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
+	return o.ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePoolNodeNetworkProfile) *KubernetesClusterDefaultNodePoolNodeNetworkProfile {
+		return &v
+	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput)
+}
+
+// Specifies a mapping of tags to the instance-level public IPs.
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) NodePublicIpTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolNodeNetworkProfile) map[string]string {
+		return v.NodePublicIpTags
+	}).(pulumi.StringMapOutput)
+}
+
+type KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolNodeNetworkProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) Elem() KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolNodeNetworkProfile) KubernetesClusterDefaultNodePoolNodeNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterDefaultNodePoolNodeNetworkProfile
+		return ret
+	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput)
+}
+
+// Specifies a mapping of tags to the instance-level public IPs.
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) NodePublicIpTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolNodeNetworkProfile) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.NodePublicIpTags
+	}).(pulumi.StringMapOutput)
 }
 
 type KubernetesClusterDefaultNodePoolUpgradeSettings struct {
@@ -11057,6 +11217,143 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmVfsCacheP
 		}
 		return v.VmVfsCachePressure
 	}).(pulumi.IntPtrOutput)
+}
+
+type KubernetesClusterNodePoolNodeNetworkProfile struct {
+	// Specifies a mapping of tags to the instance-level public IPs.
+	NodePublicIpTags map[string]string `pulumi:"nodePublicIpTags"`
+}
+
+// KubernetesClusterNodePoolNodeNetworkProfileInput is an input type that accepts KubernetesClusterNodePoolNodeNetworkProfileArgs and KubernetesClusterNodePoolNodeNetworkProfileOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolNodeNetworkProfileInput` via:
+//
+//	KubernetesClusterNodePoolNodeNetworkProfileArgs{...}
+type KubernetesClusterNodePoolNodeNetworkProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolNodeNetworkProfileOutput() KubernetesClusterNodePoolNodeNetworkProfileOutput
+	ToKubernetesClusterNodePoolNodeNetworkProfileOutputWithContext(context.Context) KubernetesClusterNodePoolNodeNetworkProfileOutput
+}
+
+type KubernetesClusterNodePoolNodeNetworkProfileArgs struct {
+	// Specifies a mapping of tags to the instance-level public IPs.
+	NodePublicIpTags pulumi.StringMapInput `pulumi:"nodePublicIpTags"`
+}
+
+func (KubernetesClusterNodePoolNodeNetworkProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfile)(nil)).Elem()
+}
+
+func (i KubernetesClusterNodePoolNodeNetworkProfileArgs) ToKubernetesClusterNodePoolNodeNetworkProfileOutput() KubernetesClusterNodePoolNodeNetworkProfileOutput {
+	return i.ToKubernetesClusterNodePoolNodeNetworkProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolNodeNetworkProfileArgs) ToKubernetesClusterNodePoolNodeNetworkProfileOutputWithContext(ctx context.Context) KubernetesClusterNodePoolNodeNetworkProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolNodeNetworkProfileOutput)
+}
+
+func (i KubernetesClusterNodePoolNodeNetworkProfileArgs) ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
+	return i.ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolNodeNetworkProfileArgs) ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolNodeNetworkProfileOutput).ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterNodePoolNodeNetworkProfilePtrInput is an input type that accepts KubernetesClusterNodePoolNodeNetworkProfileArgs, KubernetesClusterNodePoolNodeNetworkProfilePtr and KubernetesClusterNodePoolNodeNetworkProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolNodeNetworkProfilePtrInput` via:
+//
+//	        KubernetesClusterNodePoolNodeNetworkProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterNodePoolNodeNetworkProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterNodePoolNodeNetworkProfilePtrOutput
+	ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(context.Context) KubernetesClusterNodePoolNodeNetworkProfilePtrOutput
+}
+
+type kubernetesClusterNodePoolNodeNetworkProfilePtrType KubernetesClusterNodePoolNodeNetworkProfileArgs
+
+func KubernetesClusterNodePoolNodeNetworkProfilePtr(v *KubernetesClusterNodePoolNodeNetworkProfileArgs) KubernetesClusterNodePoolNodeNetworkProfilePtrInput {
+	return (*kubernetesClusterNodePoolNodeNetworkProfilePtrType)(v)
+}
+
+func (*kubernetesClusterNodePoolNodeNetworkProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolNodeNetworkProfile)(nil)).Elem()
+}
+
+func (i *kubernetesClusterNodePoolNodeNetworkProfilePtrType) ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
+	return i.ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterNodePoolNodeNetworkProfilePtrType) ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolNodeNetworkProfilePtrOutput)
+}
+
+type KubernetesClusterNodePoolNodeNetworkProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolNodeNetworkProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ToKubernetesClusterNodePoolNodeNetworkProfileOutput() KubernetesClusterNodePoolNodeNetworkProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ToKubernetesClusterNodePoolNodeNetworkProfileOutputWithContext(ctx context.Context) KubernetesClusterNodePoolNodeNetworkProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
+	return o.ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodePoolNodeNetworkProfile) *KubernetesClusterNodePoolNodeNetworkProfile {
+		return &v
+	}).(KubernetesClusterNodePoolNodeNetworkProfilePtrOutput)
+}
+
+// Specifies a mapping of tags to the instance-level public IPs.
+func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) NodePublicIpTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolNodeNetworkProfile) map[string]string { return v.NodePublicIpTags }).(pulumi.StringMapOutput)
+}
+
+type KubernetesClusterNodePoolNodeNetworkProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolNodeNetworkProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) Elem() KubernetesClusterNodePoolNodeNetworkProfileOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolNodeNetworkProfile) KubernetesClusterNodePoolNodeNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNodePoolNodeNetworkProfile
+		return ret
+	}).(KubernetesClusterNodePoolNodeNetworkProfileOutput)
+}
+
+// Specifies a mapping of tags to the instance-level public IPs.
+func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) NodePublicIpTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolNodeNetworkProfile) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.NodePublicIpTags
+	}).(pulumi.StringMapOutput)
 }
 
 type KubernetesClusterNodePoolUpgradeSettings struct {
@@ -19609,6 +19906,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolLinuxOsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfileInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettingsInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterHttpProxyConfigInput)(nil)).Elem(), KubernetesClusterHttpProxyConfigArgs{})
@@ -19657,6 +19956,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolLinuxOsConfigPtrInput)(nil)).Elem(), KubernetesClusterNodePoolLinuxOsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolLinuxOsConfigSysctlConfigInput)(nil)).Elem(), KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrInput)(nil)).Elem(), KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfileInput)(nil)).Elem(), KubernetesClusterNodePoolNodeNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfilePtrInput)(nil)).Elem(), KubernetesClusterNodePoolNodeNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolUpgradeSettingsInput)(nil)).Elem(), KubernetesClusterNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolUpgradeSettingsPtrInput)(nil)).Elem(), KubernetesClusterNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolWindowsProfileInput)(nil)).Elem(), KubernetesClusterNodePoolWindowsProfileArgs{})
@@ -19829,6 +20130,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterHttpProxyConfigOutput{})
@@ -19877,6 +20180,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolLinuxOsConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolNodeNetworkProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolNodeNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolWindowsProfileOutput{})

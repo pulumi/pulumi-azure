@@ -12,7 +12,9 @@ from .. import _utilities
 __all__ = [
     'AccessConnectorIdentity',
     'WorkspaceCustomParameters',
+    'WorkspaceManagedDiskIdentity',
     'WorkspaceStorageAccountIdentity',
+    'GetWorkspaceManagedDiskIdentityResult',
     'GetWorkspacePrivateEndpointConnectionConnectionResult',
     'GetWorkspaceStorageAccountIdentityResult',
 ]
@@ -135,7 +137,7 @@ class WorkspaceCustomParameters(dict):
         """
         :param str machine_learning_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
         :param str nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
-        :param bool no_public_ip: Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        :param bool no_public_ip: Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
         :param str private_subnet_name: The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
         :param str private_subnet_network_security_group_association_id: The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
         :param str public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
@@ -191,7 +193,7 @@ class WorkspaceCustomParameters(dict):
     @pulumi.getter(name="noPublicIp")
     def no_public_ip(self) -> Optional[bool]:
         """
-        Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
         """
         return pulumi.get(self, "no_public_ip")
 
@@ -269,6 +271,68 @@ class WorkspaceCustomParameters(dict):
 
 
 @pulumi.output_type
+class WorkspaceManagedDiskIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceManagedDiskIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceManagedDiskIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceManagedDiskIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str principal_id: The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+        :param str tenant_id: The UUID of the tenant where the internal databricks storage account was created.
+        :param str type: The type of the internal databricks storage account.
+        """
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The UUID of the tenant where the internal databricks storage account was created.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the internal databricks storage account.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class WorkspaceStorageAccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -324,6 +388,46 @@ class WorkspaceStorageAccountIdentity(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The type of the internal databricks storage account.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetWorkspaceManagedDiskIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+        :param str tenant_id: The UUID of the tenant where the internal databricks storage account was created.
+        :param str type: The type of the internal databricks storage account.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The UUID of the tenant where the internal databricks storage account was created.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the internal databricks storage account.
         """

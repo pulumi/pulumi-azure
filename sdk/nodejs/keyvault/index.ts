@@ -50,6 +50,11 @@ export const getCertificateIssuer: typeof import("./getCertificateIssuer").getCe
 export const getCertificateIssuerOutput: typeof import("./getCertificateIssuer").getCertificateIssuerOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificateIssuer","getCertificateIssuerOutput"], () => require("./getCertificateIssuer"));
 
+export { GetCertificatesArgs, GetCertificatesResult, GetCertificatesOutputArgs } from "./getCertificates";
+export const getCertificates: typeof import("./getCertificates").getCertificates = null as any;
+export const getCertificatesOutput: typeof import("./getCertificates").getCertificatesOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificates","getCertificatesOutput"], () => require("./getCertificates"));
+
 export { GetEncryptedValueArgs, GetEncryptedValueResult, GetEncryptedValueOutputArgs } from "./getEncryptedValue";
 export const getEncryptedValue: typeof import("./getEncryptedValue").getEncryptedValue = null as any;
 export const getEncryptedValueOutput: typeof import("./getEncryptedValue").getEncryptedValueOutput = null as any;

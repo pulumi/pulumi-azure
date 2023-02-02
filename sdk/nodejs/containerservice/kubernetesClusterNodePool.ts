@@ -161,6 +161,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly nodeLabels!: pulumi.Output<{[key: string]: string}>;
     /**
+     * A `nodeNetworkProfile` block as documented below.
+     */
+    public readonly nodeNetworkProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfile | undefined>;
+    /**
      * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
      */
     public readonly nodePublicIpPrefixId!: pulumi.Output<string | undefined>;
@@ -274,6 +278,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeCount"] = state ? state.nodeCount : undefined;
             resourceInputs["nodeLabels"] = state ? state.nodeLabels : undefined;
+            resourceInputs["nodeNetworkProfile"] = state ? state.nodeNetworkProfile : undefined;
             resourceInputs["nodePublicIpPrefixId"] = state ? state.nodePublicIpPrefixId : undefined;
             resourceInputs["nodeTaints"] = state ? state.nodeTaints : undefined;
             resourceInputs["orchestratorVersion"] = state ? state.orchestratorVersion : undefined;
@@ -322,6 +327,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
             resourceInputs["nodeLabels"] = args ? args.nodeLabels : undefined;
+            resourceInputs["nodeNetworkProfile"] = args ? args.nodeNetworkProfile : undefined;
             resourceInputs["nodePublicIpPrefixId"] = args ? args.nodePublicIpPrefixId : undefined;
             resourceInputs["nodeTaints"] = args ? args.nodeTaints : undefined;
             resourceInputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
@@ -432,6 +438,10 @@ export interface KubernetesClusterNodePoolState {
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
      */
     nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `nodeNetworkProfile` block as documented below.
+     */
+    nodeNetworkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfile>;
     /**
      * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
      */
@@ -598,6 +608,10 @@ export interface KubernetesClusterNodePoolArgs {
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
      */
     nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `nodeNetworkProfile` block as documented below.
+     */
+    nodeNetworkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfile>;
     /**
      * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
      */

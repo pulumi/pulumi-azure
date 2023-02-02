@@ -12,6 +12,18 @@ namespace Pulumi.Azure.Media.Inputs
 
     public sealed class ContentKeyPolicyPolicyOptionTokenRestrictionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("alternateKeys")]
+        private InputList<Inputs.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs>? _alternateKeys;
+
+        /// <summary>
+        /// One or more `alternate_key` block as defined above.
+        /// </summary>
+        public InputList<Inputs.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs> AlternateKeys
+        {
+            get => _alternateKeys ?? (_alternateKeys = new InputList<Inputs.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs>());
+            set => _alternateKeys = value;
+        }
+
         /// <summary>
         /// The audience for the token.
         /// </summary>
@@ -34,7 +46,7 @@ namespace Pulumi.Azure.Media.Inputs
         private Input<string>? _primaryRsaTokenKeyExponent;
 
         /// <summary>
-        /// The RSA Parameter exponent.
+        /// The RSA parameter exponent.
         /// </summary>
         public Input<string>? PrimaryRsaTokenKeyExponent
         {
@@ -50,7 +62,7 @@ namespace Pulumi.Azure.Media.Inputs
         private Input<string>? _primaryRsaTokenKeyModulus;
 
         /// <summary>
-        /// The RSA Parameter modulus.
+        /// The RSA parameter modulus.
         /// </summary>
         public Input<string>? PrimaryRsaTokenKeyModulus
         {

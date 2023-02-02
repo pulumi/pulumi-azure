@@ -71,6 +71,8 @@ type AnalyticsWorkspace struct {
 	InternetIngestionEnabled pulumi.BoolPtrOutput `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrOutput `pulumi:"internetQueryEnabled"`
+	// Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+	LocalAuthenticationDisabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
@@ -140,6 +142,8 @@ type analyticsWorkspaceState struct {
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled *bool `pulumi:"internetQueryEnabled"`
+	// Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
@@ -173,6 +177,8 @@ type AnalyticsWorkspaceState struct {
 	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrInput
+	// Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
@@ -210,6 +216,8 @@ type analyticsWorkspaceArgs struct {
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled *bool `pulumi:"internetQueryEnabled"`
+	// Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
@@ -238,6 +246,8 @@ type AnalyticsWorkspaceArgs struct {
 	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrInput
+	// Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
@@ -364,6 +374,11 @@ func (o AnalyticsWorkspaceOutput) InternetIngestionEnabled() pulumi.BoolPtrOutpu
 // Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
 func (o AnalyticsWorkspaceOutput) InternetQueryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.BoolPtrOutput { return v.InternetQueryEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+func (o AnalyticsWorkspaceOutput) LocalAuthenticationDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.BoolPtrOutput { return v.LocalAuthenticationDisabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

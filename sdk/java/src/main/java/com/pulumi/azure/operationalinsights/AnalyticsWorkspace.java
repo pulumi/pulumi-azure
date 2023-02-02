@@ -143,6 +143,20 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.internetQueryEnabled);
     }
     /**
+     * Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+     * 
+     */
+    @Export(name="localAuthenticationDisabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> localAuthenticationDisabled;
+
+    /**
+     * @return Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> localAuthenticationDisabled() {
+        return Codegen.optional(this.localAuthenticationDisabled);
+    }
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */

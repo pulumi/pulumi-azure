@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight
     {
         /// <summary>
-        /// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+        /// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
         /// </summary>
         public readonly int? AgcAndColorStripeRestriction;
         /// <summary>
@@ -22,17 +22,25 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly string? AllowPassingVideoContentToUnknownOutput;
         /// <summary>
-        /// Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+        /// Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
         /// </summary>
         public readonly int? AnalogVideoOpl;
         /// <summary>
-        /// Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+        /// Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
         /// </summary>
         public readonly int? CompressedDigitalAudioOpl;
+        /// <summary>
+        /// Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+        /// </summary>
+        public readonly int? CompressedDigitalVideoOpl;
         /// <summary>
         /// Enables the Image Constraint For Analog Component Video Restriction in the license.
         /// </summary>
         public readonly bool? DigitalVideoOnlyContentRestriction;
+        /// <summary>
+        /// An `explicit_analog_television_output_restriction` block as defined above.
+        /// </summary>
+        public readonly Outputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction? ExplicitAnalogTelevisionOutputRestriction;
         /// <summary>
         /// The amount of time that the license is valid after the license is first used to play content.
         /// </summary>
@@ -46,15 +54,15 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly bool? ImageConstraintForAnalogComputerMonitorRestriction;
         /// <summary>
-        /// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+        /// Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
         /// </summary>
         public readonly int? ScmsRestriction;
         /// <summary>
-        /// Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+        /// Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
         /// </summary>
         public readonly int? UncompressedDigitalAudioOpl;
         /// <summary>
-        /// Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+        /// Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
         /// </summary>
         public readonly int? UncompressedDigitalVideoOpl;
 
@@ -68,7 +76,11 @@ namespace Pulumi.Azure.Media.Outputs
 
             int? compressedDigitalAudioOpl,
 
+            int? compressedDigitalVideoOpl,
+
             bool? digitalVideoOnlyContentRestriction,
+
+            Outputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction? explicitAnalogTelevisionOutputRestriction,
 
             string? firstPlayExpiration,
 
@@ -86,7 +98,9 @@ namespace Pulumi.Azure.Media.Outputs
             AllowPassingVideoContentToUnknownOutput = allowPassingVideoContentToUnknownOutput;
             AnalogVideoOpl = analogVideoOpl;
             CompressedDigitalAudioOpl = compressedDigitalAudioOpl;
+            CompressedDigitalVideoOpl = compressedDigitalVideoOpl;
             DigitalVideoOnlyContentRestriction = digitalVideoOnlyContentRestriction;
+            ExplicitAnalogTelevisionOutputRestriction = explicitAnalogTelevisionOutputRestriction;
             FirstPlayExpiration = firstPlayExpiration;
             ImageConstraintForAnalogComponentVideoRestriction = imageConstraintForAnalogComponentVideoRestriction;
             ImageConstraintForAnalogComputerMonitorRestriction = imageConstraintForAnalogComputerMonitorRestriction;

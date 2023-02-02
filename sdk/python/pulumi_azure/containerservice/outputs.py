@@ -39,6 +39,7 @@ __all__ = [
     'KubernetesClusterDefaultNodePoolKubeletConfig',
     'KubernetesClusterDefaultNodePoolLinuxOsConfig',
     'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig',
+    'KubernetesClusterDefaultNodePoolNodeNetworkProfile',
     'KubernetesClusterDefaultNodePoolUpgradeSettings',
     'KubernetesClusterHttpProxyConfig',
     'KubernetesClusterIdentity',
@@ -63,6 +64,7 @@ __all__ = [
     'KubernetesClusterNodePoolKubeletConfig',
     'KubernetesClusterNodePoolLinuxOsConfig',
     'KubernetesClusterNodePoolLinuxOsConfigSysctlConfig',
+    'KubernetesClusterNodePoolNodeNetworkProfile',
     'KubernetesClusterNodePoolUpgradeSettings',
     'KubernetesClusterNodePoolWindowsProfile',
     'KubernetesClusterOmsAgent',
@@ -2184,6 +2186,8 @@ class KubernetesClusterDefaultNodePool(dict):
             suggest = "node_count"
         elif key == "nodeLabels":
             suggest = "node_labels"
+        elif key == "nodeNetworkProfile":
+            suggest = "node_network_profile"
         elif key == "nodePublicIpPrefixId":
             suggest = "node_public_ip_prefix_id"
         elif key == "nodeTaints":
@@ -2243,6 +2247,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  min_count: Optional[int] = None,
                  node_count: Optional[int] = None,
                  node_labels: Optional[Mapping[str, str]] = None,
+                 node_network_profile: Optional['outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfile'] = None,
                  node_public_ip_prefix_id: Optional[str] = None,
                  node_taints: Optional[Sequence[str]] = None,
                  only_critical_addons_enabled: Optional[bool] = None,
@@ -2279,6 +2284,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param int min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param int node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         :param Mapping[str, str] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+        :param 'KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs' node_network_profile: A `node_network_profile` block as documented below.
         :param str node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param Sequence[str] node_taints: A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
         :param bool only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
@@ -2331,6 +2337,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "node_count", node_count)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
+        if node_network_profile is not None:
+            pulumi.set(__self__, "node_network_profile", node_network_profile)
         if node_public_ip_prefix_id is not None:
             pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
@@ -2509,6 +2517,14 @@ class KubernetesClusterDefaultNodePool(dict):
         A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         """
         return pulumi.get(self, "node_labels")
+
+    @property
+    @pulumi.getter(name="nodeNetworkProfile")
+    def node_network_profile(self) -> Optional['outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfile']:
+        """
+        A `node_network_profile` block as documented below.
+        """
+        return pulumi.get(self, "node_network_profile")
 
     @property
     @pulumi.getter(name="nodePublicIpPrefixId")
@@ -3313,6 +3329,42 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig(dict):
         The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vm_vfs_cache_pressure")
+
+
+@pulumi.output_type
+class KubernetesClusterDefaultNodePoolNodeNetworkProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodePublicIpTags":
+            suggest = "node_public_ip_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterDefaultNodePoolNodeNetworkProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterDefaultNodePoolNodeNetworkProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterDefaultNodePoolNodeNetworkProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 node_public_ip_tags: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs.
+        """
+        if node_public_ip_tags is not None:
+            pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
+
+    @property
+    @pulumi.getter(name="nodePublicIpTags")
+    def node_public_ip_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a mapping of tags to the instance-level public IPs.
+        """
+        return pulumi.get(self, "node_public_ip_tags")
 
 
 @pulumi.output_type
@@ -5485,6 +5537,42 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig(dict):
         The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vm_vfs_cache_pressure")
+
+
+@pulumi.output_type
+class KubernetesClusterNodePoolNodeNetworkProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodePublicIpTags":
+            suggest = "node_public_ip_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterNodePoolNodeNetworkProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterNodePoolNodeNetworkProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterNodePoolNodeNetworkProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 node_public_ip_tags: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs.
+        """
+        if node_public_ip_tags is not None:
+            pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
+
+    @property
+    @pulumi.getter(name="nodePublicIpTags")
+    def node_public_ip_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a mapping of tags to the instance-level public IPs.
+        """
+        return pulumi.get(self, "node_public_ip_tags")
 
 
 @pulumi.output_type

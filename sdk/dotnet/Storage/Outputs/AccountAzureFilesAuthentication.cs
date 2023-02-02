@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly Outputs.AccountAzureFilesAuthenticationActiveDirectory? ActiveDirectory;
         /// <summary>
-        /// Specifies the directory service used. Possible values are `AADDS` and `AD`.
+        /// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
         /// </summary>
         public readonly string DirectoryType;
 

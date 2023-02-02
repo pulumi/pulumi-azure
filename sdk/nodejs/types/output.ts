@@ -2346,7 +2346,7 @@ export namespace appinsights {
          */
         expectedStatusCode?: number;
         /**
-         * The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+         * The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
          */
         sslCertRemainingLifetime?: number;
         /**
@@ -22675,6 +22675,10 @@ export namespace containerservice {
          */
         nodeLabels: {[key: string]: string};
         /**
+         * A `nodeNetworkProfile` block as documented below.
+         */
+        nodeNetworkProfile?: outputs.containerservice.KubernetesClusterDefaultNodePoolNodeNetworkProfile;
+        /**
          * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
          */
         nodePublicIpPrefixId?: string;
@@ -22927,6 +22931,13 @@ export namespace containerservice {
          * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
          */
         vmVfsCachePressure?: number;
+    }
+
+    export interface KubernetesClusterDefaultNodePoolNodeNetworkProfile {
+        /**
+         * Specifies a mapping of tags to the instance-level public IPs.
+         */
+        nodePublicIpTags?: {[key: string]: string};
     }
 
     export interface KubernetesClusterDefaultNodePoolUpgradeSettings {
@@ -23488,6 +23499,13 @@ export namespace containerservice {
          * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
          */
         vmVfsCachePressure?: number;
+    }
+
+    export interface KubernetesClusterNodePoolNodeNetworkProfile {
+        /**
+         * Specifies a mapping of tags to the instance-level public IPs.
+         */
+        nodePublicIpTags?: {[key: string]: string};
     }
 
     export interface KubernetesClusterNodePoolUpgradeSettings {
@@ -25146,6 +25164,21 @@ export namespace databricks {
         type: string;
     }
 
+    export interface GetWorkspaceManagedDiskIdentity {
+        /**
+         * The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+         */
+        principalId: string;
+        /**
+         * The UUID of the tenant where the internal databricks storage account was created.
+         */
+        tenantId: string;
+        /**
+         * The type of the internal databricks storage account.
+         */
+        type: string;
+    }
+
     export interface GetWorkspacePrivateEndpointConnectionConnection {
         /**
          * Actions required for a private endpoint connection.
@@ -25194,7 +25227,7 @@ export namespace databricks {
          */
         natGatewayName: string;
         /**
-         * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+         * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
          */
         noPublicIp: boolean;
         /**
@@ -25233,6 +25266,21 @@ export namespace databricks {
          * Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
          */
         vnetAddressPrefix: string;
+    }
+
+    export interface WorkspaceManagedDiskIdentity {
+        /**
+         * The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+         */
+        principalId: string;
+        /**
+         * The UUID of the tenant where the internal databricks storage account was created.
+         */
+        tenantId: string;
+        /**
+         * The type of the internal databricks storage account.
+         */
+        type: string;
     }
 
     export interface WorkspaceStorageAccountIdentity {
@@ -35990,6 +36038,10 @@ export namespace media {
          */
         playreadyConfigurationLicenses?: outputs.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense[];
         /**
+         * The custom response data of the PlayReady configuration. This only applies when `playreadyConfigurationLicense` is specified.
+         */
+        playreadyResponseCustomData?: string;
+        /**
          * A `tokenRestriction` block as defined below.
          */
         tokenRestriction?: outputs.media.ContentKeyPolicyPolicyOptionTokenRestriction;
@@ -36082,11 +36134,15 @@ export namespace media {
          * The relative expiration date of license.
          */
         relativeExpirationDate?: string;
+        /**
+         * The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
+         */
+        securityLevel?: string;
     }
 
     export interface ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
         /**
-         * Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+         * Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
          */
         agcAndColorStripeRestriction?: number;
         /**
@@ -36094,17 +36150,25 @@ export namespace media {
          */
         allowPassingVideoContentToUnknownOutput?: string;
         /**
-         * Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+         * Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
          */
         analogVideoOpl?: number;
         /**
-         * Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+         * Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
          */
         compressedDigitalAudioOpl?: number;
+        /**
+         * Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+         */
+        compressedDigitalVideoOpl?: number;
         /**
          * Enables the Image Constraint For Analog Component Video Restriction in the license.
          */
         digitalVideoOnlyContentRestriction?: boolean;
+        /**
+         * An `explicitAnalogTelevisionOutputRestriction` block as defined above.
+         */
+        explicitAnalogTelevisionOutputRestriction?: outputs.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction;
         /**
          * The amount of time that the license is valid after the license is first used to play content.
          */
@@ -36118,20 +36182,32 @@ export namespace media {
          */
         imageConstraintForAnalogComputerMonitorRestriction?: boolean;
         /**
-         * Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+         * Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
          */
         scmsRestriction?: number;
         /**
-         * Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+         * Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
          */
         uncompressedDigitalAudioOpl?: number;
         /**
-         * Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+         * Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
          */
         uncompressedDigitalVideoOpl?: number;
     }
 
+    export interface ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction {
+        bestEffortEnforced?: boolean;
+        /**
+         * The restriction control bits. Possible value is integer between `0` and `3` inclusive.
+         */
+        controlBits: number;
+    }
+
     export interface ContentKeyPolicyPolicyOptionTokenRestriction {
+        /**
+         * One or more `alternateKey` block as defined above.
+         */
+        alternateKeys?: outputs.media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey[];
         /**
          * The audience for the token.
          */
@@ -36145,11 +36221,11 @@ export namespace media {
          */
         openIdConnectDiscoveryDocument?: string;
         /**
-         * The RSA Parameter exponent.
+         * The RSA parameter exponent.
          */
         primaryRsaTokenKeyExponent?: string;
         /**
-         * The RSA Parameter modulus.
+         * The RSA parameter modulus.
          */
         primaryRsaTokenKeyModulus?: string;
         /**
@@ -36168,6 +36244,25 @@ export namespace media {
          * The type of token. Supported values are `Jwt` or `Swt`.
          */
         tokenType?: string;
+    }
+
+    export interface ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey {
+        /**
+         * The RSA parameter exponent.
+         */
+        rsaTokenKeyExponent?: string;
+        /**
+         * The RSA parameter modulus.
+         */
+        rsaTokenKeyModulus?: string;
+        /**
+         * The key value of the key. Specifies a symmetric key for token validation.
+         */
+        symmetricTokenKey?: string;
+        /**
+         * The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+         */
+        x509TokenKeyRaw?: string;
     }
 
     export interface ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim {
@@ -43025,11 +43120,11 @@ export namespace network {
 
     export interface SubnetDelegationServiceDelegation {
         /**
-         * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+         * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
          */
         actions?: string[];
         /**
-         * The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+         * The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
          */
         name: string;
     }
@@ -44364,6 +44459,17 @@ export namespace postgresql {
         tenantId?: string;
     }
 
+    export interface FlexibleServerCustomerManagedKey {
+        /**
+         * The ID of the Key Vault Key.
+         */
+        keyVaultKeyId?: string;
+        /**
+         * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+         */
+        primaryUserAssignedIdentityId?: string;
+    }
+
     export interface FlexibleServerHighAvailability {
         /**
          * The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
@@ -44373,6 +44479,22 @@ export namespace postgresql {
          * Specifies the Availability Zone in which the standby Flexible Server should be located.
          */
         standbyAvailabilityZone?: string;
+    }
+
+    export interface FlexibleServerIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+         */
+        identityIds?: string[];
+        principalId: string;
+        /**
+         * The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
     }
 
     export interface FlexibleServerMaintenanceWindow {
@@ -44676,7 +44798,7 @@ export namespace privatelink {
         /**
          * Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
          */
-        subresourceName: string;
+        subresourceName?: string;
     }
 
     export interface EndpointNetworkInterface {
@@ -46320,6 +46442,95 @@ export namespace signalr {
 }
 
 export namespace siterecovery {
+    export interface GetReplicationRecoveryPlanRecoveryGroup {
+        /**
+         * one or more `action` block. which will be executed after the group recovery.
+         */
+        postActions: outputs.siterecovery.GetReplicationRecoveryPlanRecoveryGroupPostAction[][];
+        /**
+         * one or more `action` block. which will be executed before the group recovery.
+         */
+        preActions: outputs.siterecovery.GetReplicationRecoveryPlanRecoveryGroupPreAction[][];
+        /**
+         * one or more id of protected VM.
+         */
+        replicatedProtectedItems: string[];
+        /**
+         * Type of the action detail.
+         */
+        type: string;
+    }
+
+    export interface GetReplicationRecoveryPlanRecoveryGroupPostAction {
+        /**
+         * The fabric location of runbook or script.
+         */
+        fabricLocation: string;
+        /**
+         * Directions of fail over.
+         */
+        failOverDirections: string[];
+        /**
+         * Types of fail over.
+         */
+        failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         */
+        manualActionInstruction: string;
+        /**
+         * The name of the Replication Plan.
+         */
+        name: string;
+        /**
+         * Id of runbook.
+         */
+        runbookId: string;
+        /**
+         * Path of action script.
+         */
+        scriptPath: string;
+        /**
+         * Type of the action detail.
+         */
+        type: string;
+    }
+
+    export interface GetReplicationRecoveryPlanRecoveryGroupPreAction {
+        /**
+         * The fabric location of runbook or script.
+         */
+        fabricLocation: string;
+        /**
+         * Directions of fail over.
+         */
+        failOverDirections: string[];
+        /**
+         * Types of fail over.
+         */
+        failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         */
+        manualActionInstruction: string;
+        /**
+         * The name of the Replication Plan.
+         */
+        name: string;
+        /**
+         * Id of runbook.
+         */
+        runbookId: string;
+        /**
+         * Path of action script.
+         */
+        scriptPath: string;
+        /**
+         * Type of the action detail.
+         */
+        type: string;
+    }
+
     export interface ReplicatedVMManagedDisk {
         /**
          * Id of disk that should be replicated. Changing this forces a new resource to be created.
@@ -46405,6 +46616,95 @@ export namespace siterecovery {
          * Name of the subnet to to use when a failover is done.
          */
         targetSubnetName?: string;
+    }
+
+    export interface ReplicationRecoveryPlanRecoveryGroup {
+        /**
+         * one or more `action` block. which will be executed after the group recovery.
+         */
+        postActions?: outputs.siterecovery.ReplicationRecoveryPlanRecoveryGroupPostAction[];
+        /**
+         * one or more `action` block. which will be executed before the group recovery.
+         */
+        preActions?: outputs.siterecovery.ReplicationRecoveryPlanRecoveryGroupPreAction[];
+        /**
+         * one or more id of protected VM.
+         */
+        replicatedProtectedItems?: string[];
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: string;
+    }
+
+    export interface ReplicationRecoveryPlanRecoveryGroupPostAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+         */
+        fabricLocation?: string;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
+        failOverDirections: string[];
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
+        failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         */
+        manualActionInstruction?: string;
+        /**
+         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+         */
+        name: string;
+        /**
+         * Id of runbook.
+         */
+        runbookId?: string;
+        /**
+         * Path of action script.
+         */
+        scriptPath?: string;
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: string;
+    }
+
+    export interface ReplicationRecoveryPlanRecoveryGroupPreAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+         */
+        fabricLocation?: string;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
+        failOverDirections: string[];
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
+        failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         */
+        manualActionInstruction?: string;
+        /**
+         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+         */
+        name: string;
+        /**
+         * Id of runbook.
+         */
+        runbookId?: string;
+        /**
+         * Path of action script.
+         */
+        scriptPath?: string;
+        /**
+         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         */
+        type: string;
     }
 
 }
@@ -46624,7 +46924,7 @@ export namespace storage {
          */
         activeDirectory: outputs.storage.AccountAzureFilesAuthenticationActiveDirectory;
         /**
-         * Specifies the directory service used. Possible values are `AADDS` and `AD`.
+         * Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
          */
         directoryType: string;
     }
