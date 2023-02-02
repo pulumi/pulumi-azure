@@ -2279,6 +2279,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_site_recovery_protection_container_mapping": {
 				Tok: azureResource(azureSiteRecovery, "ProtectionContainerMapping"),
 			},
+			"azurerm_site_recovery_replication_recovery_plan": {Tok: azureResource(azureSiteRecovery, "ReplicationRecoveryPlan")},
+
 			"azurerm_recovery_services_vault": {Tok: azureResource(azureRecoveryServices, "Vault")},
 
 			// Dashboard
@@ -2550,6 +2552,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_orbital_contact_profile": {Tok: azureResource(azureOrbital, "ContactProfile")},
+			"azurerm_orbital_contact":         {Tok: azureResource(azureOrbital, "Contact")},
 
 			// ARM MSI
 			"azurerm_federated_identity_credential": {Tok: azureResource(armMsi, "FederatedIdentityCredential")},
@@ -2735,6 +2738,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_key_vault_key":                {Tok: azureDataSource(azureKeyVault, "getKey")},
 			"azurerm_key_vault_secret":             {Tok: azureDataSource(azureKeyVault, "getSecret")},
 			"azurerm_key_vault_certificate":        {Tok: azureDataSource(azureKeyVault, "getCertificate")},
+			"azurerm_key_vault_certificates":       {Tok: azureDataSource(azureKeyVault, "getCertificates")},
 			"azurerm_key_vault_certificate_issuer": {Tok: azureDataSource(azureKeyVault, "getCertificateIssuer")},
 			"azurerm_key_vault_certificate_data":   {Tok: azureDataSource(azureKeyVault, "getCertificateData")},
 			"azurerm_key_vault_managed_hardware_security_module": {
@@ -2742,6 +2746,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_key_vault_secrets":         {Tok: azureDataSource(azureKeyVault, "getSecrets")},
 			"azurerm_key_vault_encrypted_value": {Tok: azureDataSource(azureKeyVault, "getEncryptedValue")},
+
 			"azurerm_kubernetes_cluster": {
 				Tok: azureDataSource(azureContainerService, "getKubernetesCluster"),
 			},
@@ -3002,9 +3007,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_portal_dashboard": {Tok: azureDataSource(azureDashboard, "azurerm_portal_dashboard")},
 
 			// Site Recovery
-			"azurerm_site_recovery_fabric":               {Tok: azureDataSource(azureSiteRecovery, "getFabric")},
-			"azurerm_site_recovery_protection_container": {Tok: azureDataSource(azureSiteRecovery, "getProtectionContainer")},
-			"azurerm_site_recovery_replication_policy":   {Tok: azureDataSource(azureSiteRecovery, "getReplicationPolicy")},
+			"azurerm_site_recovery_fabric":                    {Tok: azureDataSource(azureSiteRecovery, "getFabric")},
+			"azurerm_site_recovery_protection_container":      {Tok: azureDataSource(azureSiteRecovery, "getProtectionContainer")},
+			"azurerm_site_recovery_replication_policy":        {Tok: azureDataSource(azureSiteRecovery, "getReplicationPolicy")},
+			"azurerm_site_recovery_replication_recovery_plan": {Tok: azureDataSource(azureSiteRecovery, "getReplicationRecoveryPlan")},
 
 			// Web PubSub
 			"azurerm_web_pubsub":                       {Tok: azureDataSource(azureWebPubSub, "getService")},
