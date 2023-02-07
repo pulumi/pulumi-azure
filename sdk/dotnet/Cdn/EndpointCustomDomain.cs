@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Cdn
     ///     var exampleEndpointCustomDomain = new Azure.Cdn.EndpointCustomDomain("exampleEndpointCustomDomain", new()
     ///     {
     ///         CdnEndpointId = exampleEndpoint.Id,
-    ///         HostName = Output.Tuple(exampleCNameRecord.Name, exampleZone.Apply(getZoneResult =&gt; getZoneResult)).Apply(values =&gt;
+    ///         HostName = Output.Tuple(exampleCNameRecord.Name, exampleZone).Apply(values =&gt;
     ///         {
     ///             var name = values.Item1;
     ///             var exampleZone = values.Item2;

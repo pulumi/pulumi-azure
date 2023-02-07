@@ -63,9 +63,11 @@ type LookupWorkspaceResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the Databricks Workspace exists.
-	Location          string `pulumi:"location"`
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Location string `pulumi:"location"`
+	// A `managedDiskIdentity` block as documented below.
+	ManagedDiskIdentities []GetWorkspaceManagedDiskIdentity `pulumi:"managedDiskIdentities"`
+	Name                  string                            `pulumi:"name"`
+	ResourceGroupName     string                            `pulumi:"resourceGroupName"`
 	// SKU of this Databricks Workspace.
 	Sku string `pulumi:"sku"`
 	// A `storageAccountIdentity` block as documented below.
@@ -128,6 +130,11 @@ func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 // The Azure location where the Databricks Workspace exists.
 func (o LookupWorkspaceResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// A `managedDiskIdentity` block as documented below.
+func (o LookupWorkspaceResultOutput) ManagedDiskIdentities() GetWorkspaceManagedDiskIdentityArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceManagedDiskIdentity { return v.ManagedDiskIdentities }).(GetWorkspaceManagedDiskIdentityArrayOutput)
 }
 
 func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {

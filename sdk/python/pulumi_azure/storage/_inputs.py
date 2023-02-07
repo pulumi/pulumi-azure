@@ -69,7 +69,7 @@ class AccountAzureFilesAuthenticationArgs:
                  directory_type: pulumi.Input[str],
                  active_directory: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']] = None):
         """
-        :param pulumi.Input[str] directory_type: Specifies the directory service used. Possible values are `AADDS` and `AD`.
+        :param pulumi.Input[str] directory_type: Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
         :param pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
         """
         pulumi.set(__self__, "directory_type", directory_type)
@@ -80,7 +80,7 @@ class AccountAzureFilesAuthenticationArgs:
     @pulumi.getter(name="directoryType")
     def directory_type(self) -> pulumi.Input[str]:
         """
-        Specifies the directory service used. Possible values are `AADDS` and `AD`.
+        Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
         """
         return pulumi.get(self, "directory_type")
 

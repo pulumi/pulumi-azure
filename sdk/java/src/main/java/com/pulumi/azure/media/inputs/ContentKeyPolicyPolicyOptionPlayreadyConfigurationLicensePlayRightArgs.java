@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.media.inputs;
 
+import com.pulumi.azure.media.inputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -18,14 +19,14 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
     public static final ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs Empty = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs();
 
     /**
-     * Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+     * Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
      * 
      */
     @Import(name="agcAndColorStripeRestriction")
     private @Nullable Output<Integer> agcAndColorStripeRestriction;
 
     /**
-     * @return Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+     * @return Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
      * 
      */
     public Optional<Output<Integer>> agcAndColorStripeRestriction() {
@@ -48,14 +49,14 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
     }
 
     /**
-     * Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+     * Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
      * 
      */
     @Import(name="analogVideoOpl")
     private @Nullable Output<Integer> analogVideoOpl;
 
     /**
-     * @return Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+     * @return Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
      * 
      */
     public Optional<Output<Integer>> analogVideoOpl() {
@@ -63,18 +64,33 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
     }
 
     /**
-     * Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+     * Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
      * 
      */
     @Import(name="compressedDigitalAudioOpl")
     private @Nullable Output<Integer> compressedDigitalAudioOpl;
 
     /**
-     * @return Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+     * @return Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
      * 
      */
     public Optional<Output<Integer>> compressedDigitalAudioOpl() {
         return Optional.ofNullable(this.compressedDigitalAudioOpl);
+    }
+
+    /**
+     * Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+     * 
+     */
+    @Import(name="compressedDigitalVideoOpl")
+    private @Nullable Output<Integer> compressedDigitalVideoOpl;
+
+    /**
+     * @return Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+     * 
+     */
+    public Optional<Output<Integer>> compressedDigitalVideoOpl() {
+        return Optional.ofNullable(this.compressedDigitalVideoOpl);
     }
 
     /**
@@ -90,6 +106,21 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
      */
     public Optional<Output<Boolean>> digitalVideoOnlyContentRestriction() {
         return Optional.ofNullable(this.digitalVideoOnlyContentRestriction);
+    }
+
+    /**
+     * An `explicit_analog_television_output_restriction` block as defined above.
+     * 
+     */
+    @Import(name="explicitAnalogTelevisionOutputRestriction")
+    private @Nullable Output<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs> explicitAnalogTelevisionOutputRestriction;
+
+    /**
+     * @return An `explicit_analog_television_output_restriction` block as defined above.
+     * 
+     */
+    public Optional<Output<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs>> explicitAnalogTelevisionOutputRestriction() {
+        return Optional.ofNullable(this.explicitAnalogTelevisionOutputRestriction);
     }
 
     /**
@@ -138,14 +169,14 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
     }
 
     /**
-     * Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+     * Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
      * 
      */
     @Import(name="scmsRestriction")
     private @Nullable Output<Integer> scmsRestriction;
 
     /**
-     * @return Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+     * @return Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
      * 
      */
     public Optional<Output<Integer>> scmsRestriction() {
@@ -153,14 +184,14 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
     }
 
     /**
-     * Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+     * Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
      * 
      */
     @Import(name="uncompressedDigitalAudioOpl")
     private @Nullable Output<Integer> uncompressedDigitalAudioOpl;
 
     /**
-     * @return Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+     * @return Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
      * 
      */
     public Optional<Output<Integer>> uncompressedDigitalAudioOpl() {
@@ -168,14 +199,14 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
     }
 
     /**
-     * Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+     * Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
      * 
      */
     @Import(name="uncompressedDigitalVideoOpl")
     private @Nullable Output<Integer> uncompressedDigitalVideoOpl;
 
     /**
-     * @return Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+     * @return Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
      * 
      */
     public Optional<Output<Integer>> uncompressedDigitalVideoOpl() {
@@ -189,7 +220,9 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         this.allowPassingVideoContentToUnknownOutput = $.allowPassingVideoContentToUnknownOutput;
         this.analogVideoOpl = $.analogVideoOpl;
         this.compressedDigitalAudioOpl = $.compressedDigitalAudioOpl;
+        this.compressedDigitalVideoOpl = $.compressedDigitalVideoOpl;
         this.digitalVideoOnlyContentRestriction = $.digitalVideoOnlyContentRestriction;
+        this.explicitAnalogTelevisionOutputRestriction = $.explicitAnalogTelevisionOutputRestriction;
         this.firstPlayExpiration = $.firstPlayExpiration;
         this.imageConstraintForAnalogComponentVideoRestriction = $.imageConstraintForAnalogComponentVideoRestriction;
         this.imageConstraintForAnalogComputerMonitorRestriction = $.imageConstraintForAnalogComputerMonitorRestriction;
@@ -217,7 +250,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param agcAndColorStripeRestriction Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+         * @param agcAndColorStripeRestriction Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
          * 
          * @return builder
          * 
@@ -228,7 +261,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param agcAndColorStripeRestriction Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+         * @param agcAndColorStripeRestriction Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
          * 
          * @return builder
          * 
@@ -259,7 +292,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param analogVideoOpl Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+         * @param analogVideoOpl Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
          * 
          * @return builder
          * 
@@ -270,7 +303,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param analogVideoOpl Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+         * @param analogVideoOpl Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
          * 
          * @return builder
          * 
@@ -280,7 +313,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param compressedDigitalAudioOpl Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+         * @param compressedDigitalAudioOpl Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
          * 
          * @return builder
          * 
@@ -291,13 +324,34 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param compressedDigitalAudioOpl Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+         * @param compressedDigitalAudioOpl Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
          * 
          * @return builder
          * 
          */
         public Builder compressedDigitalAudioOpl(Integer compressedDigitalAudioOpl) {
             return compressedDigitalAudioOpl(Output.of(compressedDigitalAudioOpl));
+        }
+
+        /**
+         * @param compressedDigitalVideoOpl Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compressedDigitalVideoOpl(@Nullable Output<Integer> compressedDigitalVideoOpl) {
+            $.compressedDigitalVideoOpl = compressedDigitalVideoOpl;
+            return this;
+        }
+
+        /**
+         * @param compressedDigitalVideoOpl Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compressedDigitalVideoOpl(Integer compressedDigitalVideoOpl) {
+            return compressedDigitalVideoOpl(Output.of(compressedDigitalVideoOpl));
         }
 
         /**
@@ -319,6 +373,27 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
          */
         public Builder digitalVideoOnlyContentRestriction(Boolean digitalVideoOnlyContentRestriction) {
             return digitalVideoOnlyContentRestriction(Output.of(digitalVideoOnlyContentRestriction));
+        }
+
+        /**
+         * @param explicitAnalogTelevisionOutputRestriction An `explicit_analog_television_output_restriction` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder explicitAnalogTelevisionOutputRestriction(@Nullable Output<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs> explicitAnalogTelevisionOutputRestriction) {
+            $.explicitAnalogTelevisionOutputRestriction = explicitAnalogTelevisionOutputRestriction;
+            return this;
+        }
+
+        /**
+         * @param explicitAnalogTelevisionOutputRestriction An `explicit_analog_television_output_restriction` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder explicitAnalogTelevisionOutputRestriction(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs explicitAnalogTelevisionOutputRestriction) {
+            return explicitAnalogTelevisionOutputRestriction(Output.of(explicitAnalogTelevisionOutputRestriction));
         }
 
         /**
@@ -385,7 +460,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param scmsRestriction Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+         * @param scmsRestriction Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
          * 
          * @return builder
          * 
@@ -396,7 +471,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param scmsRestriction Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+         * @param scmsRestriction Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
          * 
          * @return builder
          * 
@@ -406,7 +481,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param uncompressedDigitalAudioOpl Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+         * @param uncompressedDigitalAudioOpl Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
          * 
          * @return builder
          * 
@@ -417,7 +492,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param uncompressedDigitalAudioOpl Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+         * @param uncompressedDigitalAudioOpl Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
          * 
          * @return builder
          * 
@@ -427,7 +502,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param uncompressedDigitalVideoOpl Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+         * @param uncompressedDigitalVideoOpl Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
          * 
          * @return builder
          * 
@@ -438,7 +513,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         }
 
         /**
-         * @param uncompressedDigitalVideoOpl Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+         * @param uncompressedDigitalVideoOpl Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
          * 
          * @return builder
          * 

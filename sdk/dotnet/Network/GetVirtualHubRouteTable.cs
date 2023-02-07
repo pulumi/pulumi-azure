@@ -27,6 +27,7 @@ namespace Pulumi.Azure.Network
         ///     {
         ///         Name = "example-hub-route-table",
         ///         ResourceGroupName = "example-resources",
+        ///         VirtualHubName = "example-hub-name",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -55,6 +56,7 @@ namespace Pulumi.Azure.Network
         ///     {
         ///         Name = "example-hub-route-table",
         ///         ResourceGroupName = "example-resources",
+        ///         VirtualHubName = "example-hub-name",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -83,6 +85,9 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The name which should be used for Virtual Hub Route Table.
+        /// </summary>
         [Input("virtualHubName", required: true)]
         public string VirtualHubName { get; set; } = null!;
 
@@ -106,6 +111,9 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The name which should be used for Virtual Hub Route Table.
+        /// </summary>
         [Input("virtualHubName", required: true)]
         public Input<string> VirtualHubName { get; set; } = null!;
 

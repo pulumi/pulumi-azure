@@ -23,7 +23,7 @@ public final class WorkspaceCustomParameters {
      */
     private @Nullable String natGatewayName;
     /**
-     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
      * 
      */
     private @Nullable Boolean noPublicIp;
@@ -89,7 +89,7 @@ public final class WorkspaceCustomParameters {
         return Optional.ofNullable(this.natGatewayName);
     }
     /**
-     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
      * 
      */
     public Optional<Boolean> noPublicIp() {

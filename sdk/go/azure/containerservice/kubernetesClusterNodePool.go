@@ -124,6 +124,8 @@ type KubernetesClusterNodePool struct {
 	NodeCount pulumi.IntOutput `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
+	// A `nodeNetworkProfile` block as documented below.
+	NodeNetworkProfile KubernetesClusterNodePoolNodeNetworkProfilePtrOutput `pulumi:"nodeNetworkProfile"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrOutput `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
@@ -241,6 +243,8 @@ type kubernetesClusterNodePoolState struct {
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// A `nodeNetworkProfile` block as documented below.
+	NodeNetworkProfile *KubernetesClusterNodePoolNodeNetworkProfile `pulumi:"nodeNetworkProfile"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
@@ -324,6 +328,8 @@ type KubernetesClusterNodePoolState struct {
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapInput
+	// A `nodeNetworkProfile` block as documented below.
+	NodeNetworkProfile KubernetesClusterNodePoolNodeNetworkProfilePtrInput
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrInput
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
@@ -411,6 +417,8 @@ type kubernetesClusterNodePoolArgs struct {
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// A `nodeNetworkProfile` block as documented below.
+	NodeNetworkProfile *KubernetesClusterNodePoolNodeNetworkProfile `pulumi:"nodeNetworkProfile"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
@@ -495,6 +503,8 @@ type KubernetesClusterNodePoolArgs struct {
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapInput
+	// A `nodeNetworkProfile` block as documented below.
+	NodeNetworkProfile KubernetesClusterNodePoolNodeNetworkProfilePtrInput
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrInput
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
@@ -726,6 +736,13 @@ func (o KubernetesClusterNodePoolOutput) NodeCount() pulumi.IntOutput {
 // A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 func (o KubernetesClusterNodePoolOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringMapOutput { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
+// A `nodeNetworkProfile` block as documented below.
+func (o KubernetesClusterNodePoolOutput) NodeNetworkProfile() KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
+		return v.NodeNetworkProfile
+	}).(KubernetesClusterNodePoolNodeNetworkProfilePtrOutput)
 }
 
 // Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.

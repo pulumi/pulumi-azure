@@ -13,7 +13,7 @@ import (
 type AccountAzureFilesAuthentication struct {
 	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
 	ActiveDirectory *AccountAzureFilesAuthenticationActiveDirectory `pulumi:"activeDirectory"`
-	// Specifies the directory service used. Possible values are `AADDS` and `AD`.
+	// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 	DirectoryType string `pulumi:"directoryType"`
 }
 
@@ -31,7 +31,7 @@ type AccountAzureFilesAuthenticationInput interface {
 type AccountAzureFilesAuthenticationArgs struct {
 	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
 	ActiveDirectory AccountAzureFilesAuthenticationActiveDirectoryPtrInput `pulumi:"activeDirectory"`
-	// Specifies the directory service used. Possible values are `AADDS` and `AD`.
+	// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 	DirectoryType pulumi.StringInput `pulumi:"directoryType"`
 }
 
@@ -119,7 +119,7 @@ func (o AccountAzureFilesAuthenticationOutput) ActiveDirectory() AccountAzureFil
 	}).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
 }
 
-// Specifies the directory service used. Possible values are `AADDS` and `AD`.
+// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 func (o AccountAzureFilesAuthenticationOutput) DirectoryType() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountAzureFilesAuthentication) string { return v.DirectoryType }).(pulumi.StringOutput)
 }
@@ -158,7 +158,7 @@ func (o AccountAzureFilesAuthenticationPtrOutput) ActiveDirectory() AccountAzure
 	}).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
 }
 
-// Specifies the directory service used. Possible values are `AADDS` and `AD`.
+// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 func (o AccountAzureFilesAuthenticationPtrOutput) DirectoryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountAzureFilesAuthentication) *string {
 		if v == nil {

@@ -353,7 +353,7 @@ type StandardWebTestValidationRules struct {
 	Content *StandardWebTestValidationRulesContent `pulumi:"content"`
 	// The expected status code of the response. Default is '200', '0' means 'response code < 400'
 	ExpectedStatusCode *int `pulumi:"expectedStatusCode"`
-	// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+	// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
 	SslCertRemainingLifetime *int `pulumi:"sslCertRemainingLifetime"`
 	// Should the SSL check be enabled?
 	SslCheckEnabled *bool `pulumi:"sslCheckEnabled"`
@@ -375,7 +375,7 @@ type StandardWebTestValidationRulesArgs struct {
 	Content StandardWebTestValidationRulesContentPtrInput `pulumi:"content"`
 	// The expected status code of the response. Default is '200', '0' means 'response code < 400'
 	ExpectedStatusCode pulumi.IntPtrInput `pulumi:"expectedStatusCode"`
-	// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+	// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
 	SslCertRemainingLifetime pulumi.IntPtrInput `pulumi:"sslCertRemainingLifetime"`
 	// Should the SSL check be enabled?
 	SslCheckEnabled pulumi.BoolPtrInput `pulumi:"sslCheckEnabled"`
@@ -468,7 +468,7 @@ func (o StandardWebTestValidationRulesOutput) ExpectedStatusCode() pulumi.IntPtr
 	return o.ApplyT(func(v StandardWebTestValidationRules) *int { return v.ExpectedStatusCode }).(pulumi.IntPtrOutput)
 }
 
-// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
 func (o StandardWebTestValidationRulesOutput) SslCertRemainingLifetime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StandardWebTestValidationRules) *int { return v.SslCertRemainingLifetime }).(pulumi.IntPtrOutput)
 }
@@ -522,7 +522,7 @@ func (o StandardWebTestValidationRulesPtrOutput) ExpectedStatusCode() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+// The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
 func (o StandardWebTestValidationRulesPtrOutput) SslCertRemainingLifetime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StandardWebTestValidationRules) *int {
 		if v == nil {

@@ -19,33 +19,31 @@ class OutputServicebusTopicArgs:
                  resource_group_name: pulumi.Input[str],
                  serialization: pulumi.Input['OutputServicebusTopicSerializationArgs'],
                  servicebus_namespace: pulumi.Input[str],
-                 shared_access_policy_key: pulumi.Input[str],
-                 shared_access_policy_name: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
                  topic_name: pulumi.Input[str],
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+                 shared_access_policy_name: Optional[pulumi.Input[str]] = None,
                  system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OutputServicebusTopic resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input['OutputServicebusTopicSerializationArgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc.
-        :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
-        :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Topic output.
+        :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+        :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "serialization", serialization)
         pulumi.set(__self__, "servicebus_namespace", servicebus_namespace)
-        pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
-        pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         pulumi.set(__self__, "topic_name", topic_name)
         if authentication_mode is not None:
@@ -54,6 +52,10 @@ class OutputServicebusTopicArgs:
             pulumi.set(__self__, "name", name)
         if property_columns is not None:
             pulumi.set(__self__, "property_columns", property_columns)
+        if shared_access_policy_key is not None:
+            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+        if shared_access_policy_name is not None:
+            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         if system_property_columns is not None:
             pulumi.set(__self__, "system_property_columns", system_property_columns)
 
@@ -92,30 +94,6 @@ class OutputServicebusTopicArgs:
     @servicebus_namespace.setter
     def servicebus_namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "servicebus_namespace", value)
-
-    @property
-    @pulumi.getter(name="sharedAccessPolicyKey")
-    def shared_access_policy_key(self) -> pulumi.Input[str]:
-        """
-        The shared access policy key for the specified shared access policy.
-        """
-        return pulumi.get(self, "shared_access_policy_key")
-
-    @shared_access_policy_key.setter
-    def shared_access_policy_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "shared_access_policy_key", value)
-
-    @property
-    @pulumi.getter(name="sharedAccessPolicyName")
-    def shared_access_policy_name(self) -> pulumi.Input[str]:
-        """
-        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-        """
-        return pulumi.get(self, "shared_access_policy_name")
-
-    @shared_access_policy_name.setter
-    def shared_access_policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "shared_access_policy_name", value)
 
     @property
     @pulumi.getter(name="streamAnalyticsJobName")
@@ -178,6 +156,30 @@ class OutputServicebusTopicArgs:
         pulumi.set(self, "property_columns", value)
 
     @property
+    @pulumi.getter(name="sharedAccessPolicyKey")
+    def shared_access_policy_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+        """
+        return pulumi.get(self, "shared_access_policy_key")
+
+    @shared_access_policy_key.setter
+    def shared_access_policy_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_access_policy_key", value)
+
+    @property
+    @pulumi.getter(name="sharedAccessPolicyName")
+    def shared_access_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
+        """
+        return pulumi.get(self, "shared_access_policy_name")
+
+    @shared_access_policy_name.setter
+    def shared_access_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_access_policy_name", value)
+
+    @property
     @pulumi.getter(name="systemPropertyColumns")
     def system_property_columns(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -212,8 +214,8 @@ class _OutputServicebusTopicState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input['OutputServicebusTopicSerializationArgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc.
-        :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
-        :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+        :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
@@ -317,7 +319,7 @@ class _OutputServicebusTopicState:
     @pulumi.getter(name="sharedAccessPolicyKey")
     def shared_access_policy_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The shared access policy key for the specified shared access policy.
+        The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "shared_access_policy_key")
 
@@ -329,7 +331,7 @@ class _OutputServicebusTopicState:
     @pulumi.getter(name="sharedAccessPolicyName")
     def shared_access_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "shared_access_policy_name")
 
@@ -443,8 +445,8 @@ class OutputServicebusTopic(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['OutputServicebusTopicSerializationArgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc.
-        :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
-        :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+        :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
@@ -546,11 +548,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
             if servicebus_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'servicebus_namespace'")
             __props__.__dict__["servicebus_namespace"] = servicebus_namespace
-            if shared_access_policy_key is None and not opts.urn:
-                raise TypeError("Missing required property 'shared_access_policy_key'")
             __props__.__dict__["shared_access_policy_key"] = None if shared_access_policy_key is None else pulumi.Output.secret(shared_access_policy_key)
-            if shared_access_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'shared_access_policy_name'")
             __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
             if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
@@ -595,8 +593,8 @@ class OutputServicebusTopic(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['OutputServicebusTopicSerializationArgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc.
-        :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
-        :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+        :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
@@ -668,17 +666,17 @@ class OutputServicebusTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedAccessPolicyKey")
-    def shared_access_policy_key(self) -> pulumi.Output[str]:
+    def shared_access_policy_key(self) -> pulumi.Output[Optional[str]]:
         """
-        The shared access policy key for the specified shared access policy.
+        The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "shared_access_policy_key")
 
     @property
     @pulumi.getter(name="sharedAccessPolicyName")
-    def shared_access_policy_name(self) -> pulumi.Output[str]:
+    def shared_access_policy_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "shared_access_policy_name")
 

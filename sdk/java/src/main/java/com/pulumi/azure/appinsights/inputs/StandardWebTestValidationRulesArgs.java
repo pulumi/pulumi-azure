@@ -48,14 +48,14 @@ public final class StandardWebTestValidationRulesArgs extends com.pulumi.resourc
     }
 
     /**
-     * The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+     * The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
      * 
      */
     @Import(name="sslCertRemainingLifetime")
     private @Nullable Output<Integer> sslCertRemainingLifetime;
 
     /**
-     * @return The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+     * @return The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
      * 
      */
     public Optional<Output<Integer>> sslCertRemainingLifetime() {
@@ -147,7 +147,7 @@ public final class StandardWebTestValidationRulesArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sslCertRemainingLifetime The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+         * @param sslCertRemainingLifetime The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class StandardWebTestValidationRulesArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sslCertRemainingLifetime The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+         * @param sslCertRemainingLifetime The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
          * 
          * @return builder
          * 

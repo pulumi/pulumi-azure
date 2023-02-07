@@ -10,9 +10,12 @@ import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerArgs;
 import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerPlainArgs;
 import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyArgs;
 import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyPlainArgs;
+import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanArgs;
+import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanPlainArgs;
 import com.pulumi.azure.siterecovery.outputs.GetFabricResult;
 import com.pulumi.azure.siterecovery.outputs.GetProtectionContainerResult;
 import com.pulumi.azure.siterecovery.outputs.GetReplicationPolicyResult;
+import com.pulumi.azure.siterecovery.outputs.GetReplicationRecoveryPlanResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -491,5 +494,185 @@ public final class SiterecoveryFunctions {
      */
     public static CompletableFuture<GetReplicationPolicyResult> getReplicationPolicyPlain(GetReplicationPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", TypeShape.of(GetReplicationPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
+     * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
+     *             .name(&#34;tfex-recovery_vault&#34;)
+     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .build());
+     * 
+     *         final var example = SiterecoveryFunctions.getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs.builder()
+     *             .name(&#34;example-recovery-plan&#34;)
+     *             .recoveryVaultId(vault.applyValue(getVaultResult -&gt; getVaultResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args) {
+        return getReplicationRecoveryPlan(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
+     * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
+     *             .name(&#34;tfex-recovery_vault&#34;)
+     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .build());
+     * 
+     *         final var example = SiterecoveryFunctions.getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs.builder()
+     *             .name(&#34;example-recovery-plan&#34;)
+     *             .recoveryVaultId(vault.applyValue(getVaultResult -&gt; getVaultResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlanPlain(GetReplicationRecoveryPlanPlainArgs args) {
+        return getReplicationRecoveryPlanPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
+     * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
+     *             .name(&#34;tfex-recovery_vault&#34;)
+     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .build());
+     * 
+     *         final var example = SiterecoveryFunctions.getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs.builder()
+     *             .name(&#34;example-recovery-plan&#34;)
+     *             .recoveryVaultId(vault.applyValue(getVaultResult -&gt; getVaultResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", TypeShape.of(GetReplicationRecoveryPlanResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
+     * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
+     *             .name(&#34;tfex-recovery_vault&#34;)
+     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .build());
+     * 
+     *         final var example = SiterecoveryFunctions.getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs.builder()
+     *             .name(&#34;example-recovery-plan&#34;)
+     *             .recoveryVaultId(vault.applyValue(getVaultResult -&gt; getVaultResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlanPlain(GetReplicationRecoveryPlanPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", TypeShape.of(GetReplicationRecoveryPlanResult.class), args, Utilities.withVersion(options));
     }
 }

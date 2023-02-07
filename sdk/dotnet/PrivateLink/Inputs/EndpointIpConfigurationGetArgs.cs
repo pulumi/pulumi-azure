@@ -33,8 +33,8 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         /// <summary>
         /// Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("subresourceName", required: true)]
-        public Input<string> SubresourceName { get; set; } = null!;
+        [Input("subresourceName")]
+        public Input<string>? SubresourceName { get; set; }
 
         public EndpointIpConfigurationGetArgs()
         {

@@ -37,6 +37,7 @@ class KubernetesClusterNodePoolArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -79,6 +80,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+        :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -139,6 +141,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "node_count", node_count)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
+        if node_network_profile is not None:
+            pulumi.set(__self__, "node_network_profile", node_network_profile)
         if node_public_ip_prefix_id is not None:
             pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
@@ -431,6 +435,18 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "node_labels", value)
 
     @property
+    @pulumi.getter(name="nodeNetworkProfile")
+    def node_network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]:
+        """
+        A `node_network_profile` block as documented below.
+        """
+        return pulumi.get(self, "node_network_profile")
+
+    @node_network_profile.setter
+    def node_network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]):
+        pulumi.set(self, "node_network_profile", value)
+
+    @property
     @pulumi.getter(name="nodePublicIpPrefixId")
     def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -682,6 +698,7 @@ class _KubernetesClusterNodePoolState:
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -724,6 +741,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+        :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -785,6 +803,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "node_count", node_count)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
+        if node_network_profile is not None:
+            pulumi.set(__self__, "node_network_profile", node_network_profile)
         if node_public_ip_prefix_id is not None:
             pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
@@ -1067,6 +1087,18 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "node_labels", value)
 
     @property
+    @pulumi.getter(name="nodeNetworkProfile")
+    def node_network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]:
+        """
+        A `node_network_profile` block as documented below.
+        """
+        return pulumi.get(self, "node_network_profile")
+
+    @node_network_profile.setter
+    def node_network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]):
+        pulumi.set(self, "node_network_profile", value)
+
+    @property
     @pulumi.getter(name="nodePublicIpPrefixId")
     def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1332,6 +1364,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -1419,6 +1452,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -1525,6 +1559,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -1576,6 +1611,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["node_count"] = node_count
             __props__.__dict__["node_labels"] = node_labels
+            __props__.__dict__["node_network_profile"] = node_network_profile
             __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
             __props__.__dict__["node_taints"] = node_taints
             __props__.__dict__["orchestrator_version"] = orchestrator_version
@@ -1628,6 +1664,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             node_count: Optional[pulumi.Input[int]] = None,
             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            node_network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']]] = None,
             node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
             node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -1675,6 +1712,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -1720,6 +1758,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["node_count"] = node_count
         __props__.__dict__["node_labels"] = node_labels
+        __props__.__dict__["node_network_profile"] = node_network_profile
         __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
         __props__.__dict__["node_taints"] = node_taints
         __props__.__dict__["orchestrator_version"] = orchestrator_version
@@ -1901,6 +1940,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         """
         return pulumi.get(self, "node_labels")
+
+    @property
+    @pulumi.getter(name="nodeNetworkProfile")
+    def node_network_profile(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolNodeNetworkProfile']]:
+        """
+        A `node_network_profile` block as documented below.
+        """
+        return pulumi.get(self, "node_network_profile")
 
     @property
     @pulumi.getter(name="nodePublicIpPrefixId")

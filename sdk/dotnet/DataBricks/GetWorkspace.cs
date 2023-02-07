@@ -153,6 +153,10 @@ namespace Pulumi.Azure.DataBricks
         /// The Azure location where the Databricks Workspace exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// A `managed_disk_identity` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWorkspaceManagedDiskIdentityResult> ManagedDiskIdentities;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -182,6 +186,8 @@ namespace Pulumi.Azure.DataBricks
 
             string location,
 
+            ImmutableArray<Outputs.GetWorkspaceManagedDiskIdentityResult> managedDiskIdentities,
+
             string name,
 
             string resourceGroupName,
@@ -198,6 +204,7 @@ namespace Pulumi.Azure.DataBricks
         {
             Id = id;
             Location = location;
+            ManagedDiskIdentities = managedDiskIdentities;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Sku = sku;

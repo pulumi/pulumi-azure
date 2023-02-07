@@ -30,7 +30,7 @@ public final class EndpointIpConfiguration {
      * @return Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
      * 
      */
-    private String subresourceName;
+    private @Nullable String subresourceName;
 
     private EndpointIpConfiguration() {}
     /**
@@ -58,8 +58,8 @@ public final class EndpointIpConfiguration {
      * @return Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
      * 
      */
-    public String subresourceName() {
-        return this.subresourceName;
+    public Optional<String> subresourceName() {
+        return Optional.ofNullable(this.subresourceName);
     }
 
     public static Builder builder() {
@@ -74,7 +74,7 @@ public final class EndpointIpConfiguration {
         private @Nullable String memberName;
         private String name;
         private String privateIpAddress;
-        private String subresourceName;
+        private @Nullable String subresourceName;
         public Builder() {}
         public Builder(EndpointIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -100,8 +100,8 @@ public final class EndpointIpConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder subresourceName(String subresourceName) {
-            this.subresourceName = Objects.requireNonNull(subresourceName);
+        public Builder subresourceName(@Nullable String subresourceName) {
+            this.subresourceName = subresourceName;
             return this;
         }
         public EndpointIpConfiguration build() {

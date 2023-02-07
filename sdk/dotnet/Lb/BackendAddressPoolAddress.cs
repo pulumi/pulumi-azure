@@ -56,13 +56,13 @@ namespace Pulumi.Azure.Lb
     /// 
     ///     var example_1 = new Azure.Lb.BackendAddressPoolAddress("example-1", new()
     ///     {
-    ///         BackendAddressPoolId = backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult).Apply(backend_pool_cr =&gt; backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id)),
+    ///         BackendAddressPoolId = backend_pool_cr.Apply(backend_pool_cr =&gt; backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id)),
     ///         BackendAddressIpConfigurationId = azurerm_lb.Backend_lb_R1.Frontend_ip_configuration[0].Id,
     ///     });
     /// 
     ///     var example_2 = new Azure.Lb.BackendAddressPoolAddress("example-2", new()
     ///     {
-    ///         BackendAddressPoolId = backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult).Apply(backend_pool_cr =&gt; backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id)),
+    ///         BackendAddressPoolId = backend_pool_cr.Apply(backend_pool_cr =&gt; backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id)),
     ///         BackendAddressIpConfigurationId = azurerm_lb.Backend_lb_R2.Frontend_ip_configuration[0].Id,
     ///     });
     /// 

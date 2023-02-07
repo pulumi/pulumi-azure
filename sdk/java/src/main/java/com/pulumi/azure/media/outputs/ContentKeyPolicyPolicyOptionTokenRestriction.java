@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.media.outputs;
 
+import com.pulumi.azure.media.outputs.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey;
 import com.pulumi.azure.media.outputs.ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContentKeyPolicyPolicyOptionTokenRestriction {
+    /**
+     * @return One or more `alternate_key` block as defined above.
+     * 
+     */
+    private @Nullable List<ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey> alternateKeys;
     /**
      * @return The audience for the token.
      * 
@@ -29,12 +35,12 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
      */
     private @Nullable String openIdConnectDiscoveryDocument;
     /**
-     * @return The RSA Parameter exponent.
+     * @return The RSA parameter exponent.
      * 
      */
     private @Nullable String primaryRsaTokenKeyExponent;
     /**
-     * @return The RSA Parameter modulus.
+     * @return The RSA parameter modulus.
      * 
      */
     private @Nullable String primaryRsaTokenKeyModulus;
@@ -61,6 +67,13 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
 
     private ContentKeyPolicyPolicyOptionTokenRestriction() {}
     /**
+     * @return One or more `alternate_key` block as defined above.
+     * 
+     */
+    public List<ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey> alternateKeys() {
+        return this.alternateKeys == null ? List.of() : this.alternateKeys;
+    }
+    /**
      * @return The audience for the token.
      * 
      */
@@ -82,14 +95,14 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
         return Optional.ofNullable(this.openIdConnectDiscoveryDocument);
     }
     /**
-     * @return The RSA Parameter exponent.
+     * @return The RSA parameter exponent.
      * 
      */
     public Optional<String> primaryRsaTokenKeyExponent() {
         return Optional.ofNullable(this.primaryRsaTokenKeyExponent);
     }
     /**
-     * @return The RSA Parameter modulus.
+     * @return The RSA parameter modulus.
      * 
      */
     public Optional<String> primaryRsaTokenKeyModulus() {
@@ -133,6 +146,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey> alternateKeys;
         private @Nullable String audience;
         private @Nullable String issuer;
         private @Nullable String openIdConnectDiscoveryDocument;
@@ -145,6 +159,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
         public Builder() {}
         public Builder(ContentKeyPolicyPolicyOptionTokenRestriction defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.alternateKeys = defaults.alternateKeys;
     	      this.audience = defaults.audience;
     	      this.issuer = defaults.issuer;
     	      this.openIdConnectDiscoveryDocument = defaults.openIdConnectDiscoveryDocument;
@@ -156,6 +171,14 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
     	      this.tokenType = defaults.tokenType;
         }
 
+        @CustomType.Setter
+        public Builder alternateKeys(@Nullable List<ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey> alternateKeys) {
+            this.alternateKeys = alternateKeys;
+            return this;
+        }
+        public Builder alternateKeys(ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey... alternateKeys) {
+            return alternateKeys(List.of(alternateKeys));
+        }
         @CustomType.Setter
         public Builder audience(@Nullable String audience) {
             this.audience = audience;
@@ -206,6 +229,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
         }
         public ContentKeyPolicyPolicyOptionTokenRestriction build() {
             final var o = new ContentKeyPolicyPolicyOptionTokenRestriction();
+            o.alternateKeys = alternateKeys;
             o.audience = audience;
             o.issuer = issuer;
             o.openIdConnectDiscoveryDocument = openIdConnectDiscoveryDocument;

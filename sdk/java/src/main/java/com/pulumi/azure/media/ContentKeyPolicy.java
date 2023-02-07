@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
  * Manages a Content Key Policy.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -92,6 +93,7 @@ import javax.annotation.Nullable;
  *                     .playreadyConfigurationLicenses(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs.builder()
  *                         .allowTestDevices(true)
  *                         .beginDate(&#34;2017-10-16T18:22:53Z&#34;)
+ *                         .securityLevel(&#34;SL150&#34;)
  *                         .playRight(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs.builder()
  *                             .scmsRestriction(2)
  *                             .digitalVideoOnlyContentRestriction(false)
@@ -101,7 +103,12 @@ import javax.annotation.Nullable;
  *                             .uncompressedDigitalVideoOpl(100)
  *                             .uncompressedDigitalAudioOpl(100)
  *                             .analogVideoOpl(150)
- *                             .compressedDigitalAudioOpl(150)
+ *                             .compressedDigitalAudioOpl(250)
+ *                             .compressedDigitalVideoOpl(400)
+ *                             .explicitAnalogTelevisionOutputRestriction(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs.builder()
+ *                                 .bestEffort(true)
+ *                                 .controlBits(3)
+ *                                 .build())
  *                             .build())
  *                         .licenseType(&#34;Persistent&#34;)
  *                         .contentType(&#34;UltraVioletDownload&#34;)
@@ -117,6 +124,14 @@ import javax.annotation.Nullable;
  *                         .audience(&#34;urn:audience&#34;)
  *                         .tokenType(&#34;Swt&#34;)
  *                         .primarySymmetricTokenKey(&#34;AAAAAAAAAAAAAAAAAAAAAA==&#34;)
+ *                         .alternateKeys(                        
+ *                             ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs.builder()
+ *                                 .rsaTokenKeyExponent(&#34;AQAB&#34;)
+ *                                 .rsaTokenKeyModulus(&#34;AQAD&#34;)
+ *                                 .build(),
+ *                             ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs.builder()
+ *                                 .symmetricTokenKey(&#34;BBAAAAAAAAAAAAAAAAAAAA==&#34;)
+ *                                 .build())
  *                         .build())
  *                     .build(),
  *                 ContentKeyPolicyPolicyOptionArgs.builder()
@@ -147,7 +162,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Resource Groups can be imported using the `resource id`, e.g.
+ * Content Key Policy can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:media/contentKeyPolicy:ContentKeyPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/contentKeyPolicies/policy1

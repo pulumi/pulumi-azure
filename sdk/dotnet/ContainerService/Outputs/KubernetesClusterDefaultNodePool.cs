@@ -82,6 +82,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? NodeLabels;
         /// <summary>
+        /// A `node_network_profile` block as documented below.
+        /// </summary>
+        public readonly Outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfile? NodeNetworkProfile;
+        /// <summary>
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? NodePublicIpPrefixId;
@@ -190,6 +194,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableDictionary<string, string>? nodeLabels,
 
+            Outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfile? nodeNetworkProfile,
+
             string? nodePublicIpPrefixId,
 
             ImmutableArray<string> nodeTaints,
@@ -243,6 +249,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             Name = name;
             NodeCount = nodeCount;
             NodeLabels = nodeLabels;
+            NodeNetworkProfile = nodeNetworkProfile;
             NodePublicIpPrefixId = nodePublicIpPrefixId;
             NodeTaints = nodeTaints;
             OnlyCriticalAddonsEnabled = onlyCriticalAddonsEnabled;

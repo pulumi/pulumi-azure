@@ -272,8 +272,8 @@ namespace Pulumi.Azure.MachineLearning
     ///     {
     ///         DependsOn = 
     ///         {
-    ///             test.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult),
-    ///             current.Apply(getClientConfigResult =&gt; getClientConfigResult),
+    ///             test,
+    ///             current,
     ///         },
     ///     });
     /// 

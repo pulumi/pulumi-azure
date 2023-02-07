@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<Inputs.AccountAzureFilesAuthenticationActiveDirectoryGetArgs>? ActiveDirectory { get; set; }
 
         /// <summary>
-        /// Specifies the directory service used. Possible values are `AADDS` and `AD`.
+        /// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
         /// </summary>
         [Input("directoryType", required: true)]
         public Input<string> DirectoryType { get; set; } = null!;

@@ -38,6 +38,7 @@ __all__ = [
     'KubernetesClusterDefaultNodePoolKubeletConfigArgs',
     'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs',
     'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs',
+    'KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs',
     'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs',
     'KubernetesClusterHttpProxyConfigArgs',
     'KubernetesClusterIdentityArgs',
@@ -62,6 +63,7 @@ __all__ = [
     'KubernetesClusterNodePoolKubeletConfigArgs',
     'KubernetesClusterNodePoolLinuxOsConfigArgs',
     'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs',
+    'KubernetesClusterNodePoolNodeNetworkProfileArgs',
     'KubernetesClusterNodePoolUpgradeSettingsArgs',
     'KubernetesClusterNodePoolWindowsProfileArgs',
     'KubernetesClusterOmsAgentArgs',
@@ -2234,6 +2236,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  min_count: Optional[pulumi.Input[int]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_network_profile: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs']] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  only_critical_addons_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2270,6 +2273,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
@@ -2322,6 +2326,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "node_count", node_count)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
+        if node_network_profile is not None:
+            pulumi.set(__self__, "node_network_profile", node_network_profile)
         if node_public_ip_prefix_id is not None:
             pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
@@ -2572,6 +2578,18 @@ class KubernetesClusterDefaultNodePoolArgs:
     @node_labels.setter
     def node_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "node_labels", value)
+
+    @property
+    @pulumi.getter(name="nodeNetworkProfile")
+    def node_network_profile(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs']]:
+        """
+        A `node_network_profile` block as documented below.
+        """
+        return pulumi.get(self, "node_network_profile")
+
+    @node_network_profile.setter
+    def node_network_profile(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs']]):
+        pulumi.set(self, "node_network_profile", value)
 
     @property
     @pulumi.getter(name="nodePublicIpPrefixId")
@@ -3485,6 +3503,29 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs:
     @vm_vfs_cache_pressure.setter
     def vm_vfs_cache_pressure(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "vm_vfs_cache_pressure", value)
+
+
+@pulumi.input_type
+class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs:
+    def __init__(__self__, *,
+                 node_public_ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs.
+        """
+        if node_public_ip_tags is not None:
+            pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
+
+    @property
+    @pulumi.getter(name="nodePublicIpTags")
+    def node_public_ip_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a mapping of tags to the instance-level public IPs.
+        """
+        return pulumi.get(self, "node_public_ip_tags")
+
+    @node_public_ip_tags.setter
+    def node_public_ip_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "node_public_ip_tags", value)
 
 
 @pulumi.input_type
@@ -5595,6 +5636,29 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs:
     @vm_vfs_cache_pressure.setter
     def vm_vfs_cache_pressure(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "vm_vfs_cache_pressure", value)
+
+
+@pulumi.input_type
+class KubernetesClusterNodePoolNodeNetworkProfileArgs:
+    def __init__(__self__, *,
+                 node_public_ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs.
+        """
+        if node_public_ip_tags is not None:
+            pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
+
+    @property
+    @pulumi.getter(name="nodePublicIpTags")
+    def node_public_ip_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a mapping of tags to the instance-level public IPs.
+        """
+        return pulumi.get(self, "node_public_ip_tags")
+
+    @node_public_ip_tags.setter
+    def node_public_ip_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "node_public_ip_tags", value)
 
 
 @pulumi.input_type

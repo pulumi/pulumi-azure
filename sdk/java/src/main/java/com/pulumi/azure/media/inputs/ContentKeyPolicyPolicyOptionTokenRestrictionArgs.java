@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.media.inputs;
 
+import com.pulumi.azure.media.inputs.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs;
 import com.pulumi.azure.media.inputs.ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ContentKeyPolicyPolicyOptionTokenRestrictionArgs Empty = new ContentKeyPolicyPolicyOptionTokenRestrictionArgs();
+
+    /**
+     * One or more `alternate_key` block as defined above.
+     * 
+     */
+    @Import(name="alternateKeys")
+    private @Nullable Output<List<ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs>> alternateKeys;
+
+    /**
+     * @return One or more `alternate_key` block as defined above.
+     * 
+     */
+    public Optional<Output<List<ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs>>> alternateKeys() {
+        return Optional.ofNullable(this.alternateKeys);
+    }
 
     /**
      * The audience for the token.
@@ -63,14 +79,14 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.
     }
 
     /**
-     * The RSA Parameter exponent.
+     * The RSA parameter exponent.
      * 
      */
     @Import(name="primaryRsaTokenKeyExponent")
     private @Nullable Output<String> primaryRsaTokenKeyExponent;
 
     /**
-     * @return The RSA Parameter exponent.
+     * @return The RSA parameter exponent.
      * 
      */
     public Optional<Output<String>> primaryRsaTokenKeyExponent() {
@@ -78,14 +94,14 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.
     }
 
     /**
-     * The RSA Parameter modulus.
+     * The RSA parameter modulus.
      * 
      */
     @Import(name="primaryRsaTokenKeyModulus")
     private @Nullable Output<String> primaryRsaTokenKeyModulus;
 
     /**
-     * @return The RSA Parameter modulus.
+     * @return The RSA parameter modulus.
      * 
      */
     public Optional<Output<String>> primaryRsaTokenKeyModulus() {
@@ -155,6 +171,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.
     private ContentKeyPolicyPolicyOptionTokenRestrictionArgs() {}
 
     private ContentKeyPolicyPolicyOptionTokenRestrictionArgs(ContentKeyPolicyPolicyOptionTokenRestrictionArgs $) {
+        this.alternateKeys = $.alternateKeys;
         this.audience = $.audience;
         this.issuer = $.issuer;
         this.openIdConnectDiscoveryDocument = $.openIdConnectDiscoveryDocument;
@@ -182,6 +199,37 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.
 
         public Builder(ContentKeyPolicyPolicyOptionTokenRestrictionArgs defaults) {
             $ = new ContentKeyPolicyPolicyOptionTokenRestrictionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param alternateKeys One or more `alternate_key` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alternateKeys(@Nullable Output<List<ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs>> alternateKeys) {
+            $.alternateKeys = alternateKeys;
+            return this;
+        }
+
+        /**
+         * @param alternateKeys One or more `alternate_key` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alternateKeys(List<ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs> alternateKeys) {
+            return alternateKeys(Output.of(alternateKeys));
+        }
+
+        /**
+         * @param alternateKeys One or more `alternate_key` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alternateKeys(ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs... alternateKeys) {
+            return alternateKeys(List.of(alternateKeys));
         }
 
         /**
@@ -248,7 +296,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.
         }
 
         /**
-         * @param primaryRsaTokenKeyExponent The RSA Parameter exponent.
+         * @param primaryRsaTokenKeyExponent The RSA parameter exponent.
          * 
          * @return builder
          * 
@@ -259,7 +307,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.
         }
 
         /**
-         * @param primaryRsaTokenKeyExponent The RSA Parameter exponent.
+         * @param primaryRsaTokenKeyExponent The RSA parameter exponent.
          * 
          * @return builder
          * 
@@ -269,7 +317,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.
         }
 
         /**
-         * @param primaryRsaTokenKeyModulus The RSA Parameter modulus.
+         * @param primaryRsaTokenKeyModulus The RSA parameter modulus.
          * 
          * @return builder
          * 
@@ -280,7 +328,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionArgs extends com.
         }
 
         /**
-         * @param primaryRsaTokenKeyModulus The RSA Parameter modulus.
+         * @param primaryRsaTokenKeyModulus The RSA parameter modulus.
          * 
          * @return builder
          * 

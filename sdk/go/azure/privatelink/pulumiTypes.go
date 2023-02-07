@@ -124,7 +124,7 @@ type EndpointIpConfiguration struct {
 	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
-	SubresourceName string `pulumi:"subresourceName"`
+	SubresourceName *string `pulumi:"subresourceName"`
 }
 
 // EndpointIpConfigurationInput is an input type that accepts EndpointIpConfigurationArgs and EndpointIpConfigurationOutput values.
@@ -146,7 +146,7 @@ type EndpointIpConfigurationArgs struct {
 	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 	// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
-	SubresourceName pulumi.StringInput `pulumi:"subresourceName"`
+	SubresourceName pulumi.StringPtrInput `pulumi:"subresourceName"`
 }
 
 func (EndpointIpConfigurationArgs) ElementType() reflect.Type {
@@ -216,8 +216,8 @@ func (o EndpointIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
 }
 
 // Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
-func (o EndpointIpConfigurationOutput) SubresourceName() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointIpConfiguration) string { return v.SubresourceName }).(pulumi.StringOutput)
+func (o EndpointIpConfigurationOutput) SubresourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointIpConfiguration) *string { return v.SubresourceName }).(pulumi.StringPtrOutput)
 }
 
 type EndpointIpConfigurationArrayOutput struct{ *pulumi.OutputState }

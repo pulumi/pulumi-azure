@@ -117,16 +117,16 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> ServicebusNamespace { get; private set; } = null!;
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy.
+        /// The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
         /// </summary>
         [Output("sharedAccessPolicyKey")]
-        public Output<string> SharedAccessPolicyKey { get; private set; } = null!;
+        public Output<string?> SharedAccessPolicyKey { get; private set; } = null!;
 
         /// <summary>
-        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         /// </summary>
         [Output("sharedAccessPolicyName")]
-        public Output<string> SharedAccessPolicyName { get; private set; } = null!;
+        public Output<string?> SharedAccessPolicyName { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -238,11 +238,11 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("servicebusNamespace", required: true)]
         public Input<string> ServicebusNamespace { get; set; } = null!;
 
-        [Input("sharedAccessPolicyKey", required: true)]
+        [Input("sharedAccessPolicyKey")]
         private Input<string>? _sharedAccessPolicyKey;
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy.
+        /// The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
         /// </summary>
         public Input<string>? SharedAccessPolicyKey
         {
@@ -255,10 +255,10 @@ namespace Pulumi.Azure.StreamAnalytics
         }
 
         /// <summary>
-        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         /// </summary>
-        [Input("sharedAccessPolicyName", required: true)]
-        public Input<string> SharedAccessPolicyName { get; set; } = null!;
+        [Input("sharedAccessPolicyName")]
+        public Input<string>? SharedAccessPolicyName { get; set; }
 
         /// <summary>
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private Input<string>? _sharedAccessPolicyKey;
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy.
+        /// The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
         /// </summary>
         public Input<string>? SharedAccessPolicyKey
         {
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
 
         /// <summary>
-        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         /// </summary>
         [Input("sharedAccessPolicyName")]
         public Input<string>? SharedAccessPolicyName { get; set; }

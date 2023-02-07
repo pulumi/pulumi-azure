@@ -9,10 +9,12 @@ from .fabric import *
 from .get_fabric import *
 from .get_protection_container import *
 from .get_replication_policy import *
+from .get_replication_recovery_plan import *
 from .network_mapping import *
 from .protection_container import *
 from .protection_container_mapping import *
 from .replicated_vm import *
 from .replication_policy import *
+from .replication_recovery_plan import *
 from ._inputs import *
 from . import outputs

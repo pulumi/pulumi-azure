@@ -62,6 +62,10 @@ export interface GetWorkspaceResult {
      * The Azure location where the Databricks Workspace exists.
      */
     readonly location: string;
+    /**
+     * A `managedDiskIdentity` block as documented below.
+     */
+    readonly managedDiskIdentities: outputs.databricks.GetWorkspaceManagedDiskIdentity[];
     readonly name: string;
     readonly resourceGroupName: string;
     /**

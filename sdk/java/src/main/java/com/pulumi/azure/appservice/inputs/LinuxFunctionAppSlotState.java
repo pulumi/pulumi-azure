@@ -387,6 +387,21 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
+     * 
+     */
+    @Import(name="servicePlanId")
+    private @Nullable Output<String> servicePlanId;
+
+    /**
+     * @return The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
+     * 
+     */
+    public Optional<Output<String>> servicePlanId() {
+        return Optional.ofNullable(this.servicePlanId);
+    }
+
+    /**
      * a `site_config` block as detailed below.
      * 
      */
@@ -548,6 +563,7 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
         this.outboundIpAddresses = $.outboundIpAddresses;
         this.possibleOutboundIpAddressLists = $.possibleOutboundIpAddressLists;
         this.possibleOutboundIpAddresses = $.possibleOutboundIpAddresses;
+        this.servicePlanId = $.servicePlanId;
         this.siteConfig = $.siteConfig;
         this.siteCredentials = $.siteCredentials;
         this.storageAccountAccessKey = $.storageAccountAccessKey;
@@ -1109,6 +1125,27 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
          */
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
             return possibleOutboundIpAddresses(Output.of(possibleOutboundIpAddresses));
+        }
+
+        /**
+         * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePlanId(@Nullable Output<String> servicePlanId) {
+            $.servicePlanId = servicePlanId;
+            return this;
+        }
+
+        /**
+         * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePlanId(String servicePlanId) {
+            return servicePlanId(Output.of(servicePlanId));
         }
 
         /**

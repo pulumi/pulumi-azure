@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolKubeletConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolLinuxOsConfig;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolUpgradeSettings;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -103,6 +104,11 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable Map<String,String> nodeLabels;
+    /**
+     * @return A `node_network_profile` block as documented below.
+     * 
+     */
+    private @Nullable KubernetesClusterDefaultNodePoolNodeNetworkProfile nodeNetworkProfile;
     /**
      * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
      * 
@@ -315,6 +321,13 @@ public final class KubernetesClusterDefaultNodePool {
         return this.nodeLabels == null ? Map.of() : this.nodeLabels;
     }
     /**
+     * @return A `node_network_profile` block as documented below.
+     * 
+     */
+    public Optional<KubernetesClusterDefaultNodePoolNodeNetworkProfile> nodeNetworkProfile() {
+        return Optional.ofNullable(this.nodeNetworkProfile);
+    }
+    /**
      * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
      * 
      */
@@ -467,6 +480,7 @@ public final class KubernetesClusterDefaultNodePool {
         private String name;
         private @Nullable Integer nodeCount;
         private @Nullable Map<String,String> nodeLabels;
+        private @Nullable KubernetesClusterDefaultNodePoolNodeNetworkProfile nodeNetworkProfile;
         private @Nullable String nodePublicIpPrefixId;
         private @Nullable List<String> nodeTaints;
         private @Nullable Boolean onlyCriticalAddonsEnabled;
@@ -505,6 +519,7 @@ public final class KubernetesClusterDefaultNodePool {
     	      this.name = defaults.name;
     	      this.nodeCount = defaults.nodeCount;
     	      this.nodeLabels = defaults.nodeLabels;
+    	      this.nodeNetworkProfile = defaults.nodeNetworkProfile;
     	      this.nodePublicIpPrefixId = defaults.nodePublicIpPrefixId;
     	      this.nodeTaints = defaults.nodeTaints;
     	      this.onlyCriticalAddonsEnabled = defaults.onlyCriticalAddonsEnabled;
@@ -608,6 +623,11 @@ public final class KubernetesClusterDefaultNodePool {
         @CustomType.Setter
         public Builder nodeLabels(@Nullable Map<String,String> nodeLabels) {
             this.nodeLabels = nodeLabels;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder nodeNetworkProfile(@Nullable KubernetesClusterDefaultNodePoolNodeNetworkProfile nodeNetworkProfile) {
+            this.nodeNetworkProfile = nodeNetworkProfile;
             return this;
         }
         @CustomType.Setter
@@ -725,6 +745,7 @@ public final class KubernetesClusterDefaultNodePool {
             o.name = name;
             o.nodeCount = nodeCount;
             o.nodeLabels = nodeLabels;
+            o.nodeNetworkProfile = nodeNetworkProfile;
             o.nodePublicIpPrefixId = nodePublicIpPrefixId;
             o.nodeTaints = nodeTaints;
             o.onlyCriticalAddonsEnabled = onlyCriticalAddonsEnabled;

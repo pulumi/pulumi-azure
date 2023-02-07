@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.databricks.WorkspaceArgs;
 import com.pulumi.azure.databricks.inputs.WorkspaceState;
 import com.pulumi.azure.databricks.outputs.WorkspaceCustomParameters;
+import com.pulumi.azure.databricks.outputs.WorkspaceManagedDiskIdentity;
 import com.pulumi.azure.databricks.outputs.WorkspaceStorageAccountIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -46,18 +47,32 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.customParameters;
     }
     /**
-     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      * 
      */
     @Export(name="customerManagedKeyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> customerManagedKeyEnabled;
 
     /**
-     * @return Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
+     * @return Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      * 
      */
     public Output<Optional<Boolean>> customerManagedKeyEnabled() {
         return Codegen.optional(this.customerManagedKeyEnabled);
+    }
+    /**
+     * The ID of Managed Disk Encryption Set created by the Databricks Workspace.
+     * 
+     */
+    @Export(name="diskEncryptionSetId", type=String.class, parameters={})
+    private Output<String> diskEncryptionSetId;
+
+    /**
+     * @return The ID of Managed Disk Encryption Set created by the Databricks Workspace.
+     * 
+     */
+    public Output<String> diskEncryptionSetId() {
+        return this.diskEncryptionSetId;
     }
     /**
      * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
@@ -102,6 +117,48 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
+     * Customer managed encryption properties for the Databricks Workspace managed disks.
+     * 
+     */
+    @Export(name="managedDiskCmkKeyVaultKeyId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> managedDiskCmkKeyVaultKeyId;
+
+    /**
+     * @return Customer managed encryption properties for the Databricks Workspace managed disks.
+     * 
+     */
+    public Output<Optional<String>> managedDiskCmkKeyVaultKeyId() {
+        return Codegen.optional(this.managedDiskCmkKeyVaultKeyId);
+    }
+    /**
+     * Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+     * 
+     */
+    @Export(name="managedDiskCmkRotationToLatestVersionEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> managedDiskCmkRotationToLatestVersionEnabled;
+
+    /**
+     * @return Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
+     * 
+     */
+    public Output<Optional<Boolean>> managedDiskCmkRotationToLatestVersionEnabled() {
+        return Codegen.optional(this.managedDiskCmkRotationToLatestVersionEnabled);
+    }
+    /**
+     * A `managed_disk_identity` block as documented below.
+     * 
+     */
+    @Export(name="managedDiskIdentities", type=List.class, parameters={WorkspaceManagedDiskIdentity.class})
+    private Output<List<WorkspaceManagedDiskIdentity>> managedDiskIdentities;
+
+    /**
+     * @return A `managed_disk_identity` block as documented below.
+     * 
+     */
+    public Output<List<WorkspaceManagedDiskIdentity>> managedDiskIdentities() {
+        return this.managedDiskIdentities;
+    }
+    /**
      * The ID of the Managed Resource Group created by the Databricks Workspace.
      * 
      */
@@ -130,14 +187,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.managedResourceGroupName;
     }
     /**
-     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+     * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
      * 
      */
     @Export(name="managedServicesCmkKeyVaultKeyId", type=String.class, parameters={})
     private Output</* @Nullable */ String> managedServicesCmkKeyVaultKeyId;
 
     /**
-     * @return Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). Changing this forces a new resource to be created.
+     * @return Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
      * 
      */
     public Output<Optional<String>> managedServicesCmkKeyVaultKeyId() {
@@ -158,28 +215,28 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
+     * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
      * 
      */
     @Export(name="networkSecurityGroupRulesRequired", type=String.class, parameters={})
     private Output<String> networkSecurityGroupRulesRequired;
 
     /**
-     * @return Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. Changing this forces a new resource to be created.
+     * @return Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
      * 
      */
     public Output<String> networkSecurityGroupRulesRequired() {
         return this.networkSecurityGroupRulesRequired;
     }
     /**
-     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+     * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
+     * @return Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {

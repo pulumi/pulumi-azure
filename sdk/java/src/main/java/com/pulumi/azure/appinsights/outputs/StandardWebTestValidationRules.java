@@ -24,7 +24,7 @@ public final class StandardWebTestValidationRules {
      */
     private @Nullable Integer expectedStatusCode;
     /**
-     * @return The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+     * @return The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
      * 
      */
     private @Nullable Integer sslCertRemainingLifetime;
@@ -50,7 +50,7 @@ public final class StandardWebTestValidationRules {
         return Optional.ofNullable(this.expectedStatusCode);
     }
     /**
-     * @return The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+     * @return The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
      * 
      */
     public Optional<Integer> sslCertRemainingLifetime() {

@@ -95,6 +95,21 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+     * 
+     */
+    @Import(name="localAuthenticationDisabled")
+    private @Nullable Output<Boolean> localAuthenticationDisabled;
+
+    /**
+     * @return Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> localAuthenticationDisabled() {
+        return Optional.ofNullable(this.localAuthenticationDisabled);
+    }
+
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -207,6 +222,7 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
         this.dailyQuotaGb = $.dailyQuotaGb;
         this.internetIngestionEnabled = $.internetIngestionEnabled;
         this.internetQueryEnabled = $.internetQueryEnabled;
+        this.localAuthenticationDisabled = $.localAuthenticationDisabled;
         this.location = $.location;
         this.name = $.name;
         this.reservationCapacityInGbPerDay = $.reservationCapacityInGbPerDay;
@@ -337,6 +353,27 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
          */
         public Builder internetQueryEnabled(Boolean internetQueryEnabled) {
             return internetQueryEnabled(Output.of(internetQueryEnabled));
+        }
+
+        /**
+         * @param localAuthenticationDisabled Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationDisabled(@Nullable Output<Boolean> localAuthenticationDisabled) {
+            $.localAuthenticationDisabled = localAuthenticationDisabled;
+            return this;
+        }
+
+        /**
+         * @param localAuthenticationDisabled Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationDisabled(Boolean localAuthenticationDisabled) {
+            return localAuthenticationDisabled(Output.of(localAuthenticationDisabled));
         }
 
         /**

@@ -79,6 +79,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<bool?> InternetQueryEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+        /// </summary>
+        [Output("localAuthenticationDisabled")]
+        public Output<bool?> LocalAuthenticationDisabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -220,6 +226,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<bool>? InternetQueryEnabled { get; set; }
 
         /// <summary>
+        /// Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+        /// </summary>
+        [Input("localAuthenticationDisabled")]
+        public Input<bool>? LocalAuthenticationDisabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -304,6 +316,12 @@ namespace Pulumi.Azure.OperationalInsights
         /// </summary>
         [Input("internetQueryEnabled")]
         public Input<bool>? InternetQueryEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
+        /// </summary>
+        [Input("localAuthenticationDisabled")]
+        public Input<bool>? LocalAuthenticationDisabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.media.outputs;
 
+import com.pulumi.azure.media.outputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -14,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
     /**
-     * @return Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+     * @return Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
      * 
      */
     private @Nullable Integer agcAndColorStripeRestriction;
@@ -24,20 +25,30 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
      */
     private @Nullable String allowPassingVideoContentToUnknownOutput;
     /**
-     * @return Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+     * @return Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
      * 
      */
     private @Nullable Integer analogVideoOpl;
     /**
-     * @return Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+     * @return Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
      * 
      */
     private @Nullable Integer compressedDigitalAudioOpl;
+    /**
+     * @return Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+     * 
+     */
+    private @Nullable Integer compressedDigitalVideoOpl;
     /**
      * @return Enables the Image Constraint For Analog Component Video Restriction in the license.
      * 
      */
     private @Nullable Boolean digitalVideoOnlyContentRestriction;
+    /**
+     * @return An `explicit_analog_television_output_restriction` block as defined above.
+     * 
+     */
+    private @Nullable ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction explicitAnalogTelevisionOutputRestriction;
     /**
      * @return The amount of time that the license is valid after the license is first used to play content.
      * 
@@ -54,24 +65,24 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
      */
     private @Nullable Boolean imageConstraintForAnalogComputerMonitorRestriction;
     /**
-     * @return Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+     * @return Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
      * 
      */
     private @Nullable Integer scmsRestriction;
     /**
-     * @return Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+     * @return Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
      * 
      */
     private @Nullable Integer uncompressedDigitalAudioOpl;
     /**
-     * @return Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+     * @return Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
      * 
      */
     private @Nullable Integer uncompressedDigitalVideoOpl;
 
     private ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight() {}
     /**
-     * @return Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+     * @return Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
      * 
      */
     public Optional<Integer> agcAndColorStripeRestriction() {
@@ -85,18 +96,25 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         return Optional.ofNullable(this.allowPassingVideoContentToUnknownOutput);
     }
     /**
-     * @return Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+     * @return Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
      * 
      */
     public Optional<Integer> analogVideoOpl() {
         return Optional.ofNullable(this.analogVideoOpl);
     }
     /**
-     * @return Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+     * @return Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
      * 
      */
     public Optional<Integer> compressedDigitalAudioOpl() {
         return Optional.ofNullable(this.compressedDigitalAudioOpl);
+    }
+    /**
+     * @return Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+     * 
+     */
+    public Optional<Integer> compressedDigitalVideoOpl() {
+        return Optional.ofNullable(this.compressedDigitalVideoOpl);
     }
     /**
      * @return Enables the Image Constraint For Analog Component Video Restriction in the license.
@@ -104,6 +122,13 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
      */
     public Optional<Boolean> digitalVideoOnlyContentRestriction() {
         return Optional.ofNullable(this.digitalVideoOnlyContentRestriction);
+    }
+    /**
+     * @return An `explicit_analog_television_output_restriction` block as defined above.
+     * 
+     */
+    public Optional<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction> explicitAnalogTelevisionOutputRestriction() {
+        return Optional.ofNullable(this.explicitAnalogTelevisionOutputRestriction);
     }
     /**
      * @return The amount of time that the license is valid after the license is first used to play content.
@@ -127,21 +152,21 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         return Optional.ofNullable(this.imageConstraintForAnalogComputerMonitorRestriction);
     }
     /**
-     * @return Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+     * @return Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
      * 
      */
     public Optional<Integer> scmsRestriction() {
         return Optional.ofNullable(this.scmsRestriction);
     }
     /**
-     * @return Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+     * @return Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
      * 
      */
     public Optional<Integer> uncompressedDigitalAudioOpl() {
         return Optional.ofNullable(this.uncompressedDigitalAudioOpl);
     }
     /**
-     * @return Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+     * @return Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
      * 
      */
     public Optional<Integer> uncompressedDigitalVideoOpl() {
@@ -161,7 +186,9 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         private @Nullable String allowPassingVideoContentToUnknownOutput;
         private @Nullable Integer analogVideoOpl;
         private @Nullable Integer compressedDigitalAudioOpl;
+        private @Nullable Integer compressedDigitalVideoOpl;
         private @Nullable Boolean digitalVideoOnlyContentRestriction;
+        private @Nullable ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction explicitAnalogTelevisionOutputRestriction;
         private @Nullable String firstPlayExpiration;
         private @Nullable Boolean imageConstraintForAnalogComponentVideoRestriction;
         private @Nullable Boolean imageConstraintForAnalogComputerMonitorRestriction;
@@ -175,7 +202,9 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
     	      this.allowPassingVideoContentToUnknownOutput = defaults.allowPassingVideoContentToUnknownOutput;
     	      this.analogVideoOpl = defaults.analogVideoOpl;
     	      this.compressedDigitalAudioOpl = defaults.compressedDigitalAudioOpl;
+    	      this.compressedDigitalVideoOpl = defaults.compressedDigitalVideoOpl;
     	      this.digitalVideoOnlyContentRestriction = defaults.digitalVideoOnlyContentRestriction;
+    	      this.explicitAnalogTelevisionOutputRestriction = defaults.explicitAnalogTelevisionOutputRestriction;
     	      this.firstPlayExpiration = defaults.firstPlayExpiration;
     	      this.imageConstraintForAnalogComponentVideoRestriction = defaults.imageConstraintForAnalogComponentVideoRestriction;
     	      this.imageConstraintForAnalogComputerMonitorRestriction = defaults.imageConstraintForAnalogComputerMonitorRestriction;
@@ -205,8 +234,18 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
             return this;
         }
         @CustomType.Setter
+        public Builder compressedDigitalVideoOpl(@Nullable Integer compressedDigitalVideoOpl) {
+            this.compressedDigitalVideoOpl = compressedDigitalVideoOpl;
+            return this;
+        }
+        @CustomType.Setter
         public Builder digitalVideoOnlyContentRestriction(@Nullable Boolean digitalVideoOnlyContentRestriction) {
             this.digitalVideoOnlyContentRestriction = digitalVideoOnlyContentRestriction;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder explicitAnalogTelevisionOutputRestriction(@Nullable ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction explicitAnalogTelevisionOutputRestriction) {
+            this.explicitAnalogTelevisionOutputRestriction = explicitAnalogTelevisionOutputRestriction;
             return this;
         }
         @CustomType.Setter
@@ -245,7 +284,9 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
             o.allowPassingVideoContentToUnknownOutput = allowPassingVideoContentToUnknownOutput;
             o.analogVideoOpl = analogVideoOpl;
             o.compressedDigitalAudioOpl = compressedDigitalAudioOpl;
+            o.compressedDigitalVideoOpl = compressedDigitalVideoOpl;
             o.digitalVideoOnlyContentRestriction = digitalVideoOnlyContentRestriction;
+            o.explicitAnalogTelevisionOutputRestriction = explicitAnalogTelevisionOutputRestriction;
             o.firstPlayExpiration = firstPlayExpiration;
             o.imageConstraintForAnalogComponentVideoRestriction = imageConstraintForAnalogComponentVideoRestriction;
             o.imageConstraintForAnalogComputerMonitorRestriction = imageConstraintForAnalogComputerMonitorRestriction;

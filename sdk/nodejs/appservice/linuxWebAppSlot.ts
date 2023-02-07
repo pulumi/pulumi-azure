@@ -163,6 +163,10 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
+     * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+     */
+    public readonly servicePlanId!: pulumi.Output<string | undefined>;
+    /**
      * A `siteConfig` block as defined below.
      */
     public readonly siteConfig!: pulumi.Output<outputs.appservice.LinuxWebAppSlotSiteConfig>;
@@ -223,6 +227,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
             resourceInputs["possibleOutboundIpAddressLists"] = state ? state.possibleOutboundIpAddressLists : undefined;
             resourceInputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
+            resourceInputs["servicePlanId"] = state ? state.servicePlanId : undefined;
             resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
             resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
             resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
@@ -252,6 +257,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
             resourceInputs["logs"] = args ? args.logs : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["servicePlanId"] = args ? args.servicePlanId : undefined;
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -371,6 +377,10 @@ export interface LinuxWebAppSlotState {
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
+     * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+     */
+    servicePlanId?: pulumi.Input<string>;
+    /**
      * A `siteConfig` block as defined below.
      */
     siteConfig?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfig>;
@@ -460,6 +470,10 @@ export interface LinuxWebAppSlotArgs {
      * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+     */
+    servicePlanId?: pulumi.Input<string>;
     /**
      * A `siteConfig` block as defined below.
      */

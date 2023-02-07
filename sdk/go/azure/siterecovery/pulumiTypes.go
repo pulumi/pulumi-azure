@@ -768,6 +768,992 @@ func (o ReplicatedVMNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Replic
 	}).(ReplicatedVMNetworkInterfaceOutput)
 }
 
+type ReplicationRecoveryPlanRecoveryGroup struct {
+	// one or more `action` block. which will be executed after the group recovery.
+	PostActions []ReplicationRecoveryPlanRecoveryGroupPostAction `pulumi:"postActions"`
+	// one or more `action` block. which will be executed before the group recovery.
+	PreActions []ReplicationRecoveryPlanRecoveryGroupPreAction `pulumi:"preActions"`
+	// one or more id of protected VM.
+	ReplicatedProtectedItems []string `pulumi:"replicatedProtectedItems"`
+	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	Type string `pulumi:"type"`
+}
+
+// ReplicationRecoveryPlanRecoveryGroupInput is an input type that accepts ReplicationRecoveryPlanRecoveryGroupArgs and ReplicationRecoveryPlanRecoveryGroupOutput values.
+// You can construct a concrete instance of `ReplicationRecoveryPlanRecoveryGroupInput` via:
+//
+//	ReplicationRecoveryPlanRecoveryGroupArgs{...}
+type ReplicationRecoveryPlanRecoveryGroupInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryPlanRecoveryGroupOutput() ReplicationRecoveryPlanRecoveryGroupOutput
+	ToReplicationRecoveryPlanRecoveryGroupOutputWithContext(context.Context) ReplicationRecoveryPlanRecoveryGroupOutput
+}
+
+type ReplicationRecoveryPlanRecoveryGroupArgs struct {
+	// one or more `action` block. which will be executed after the group recovery.
+	PostActions ReplicationRecoveryPlanRecoveryGroupPostActionArrayInput `pulumi:"postActions"`
+	// one or more `action` block. which will be executed before the group recovery.
+	PreActions ReplicationRecoveryPlanRecoveryGroupPreActionArrayInput `pulumi:"preActions"`
+	// one or more id of protected VM.
+	ReplicatedProtectedItems pulumi.StringArrayInput `pulumi:"replicatedProtectedItems"`
+	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationRecoveryPlanRecoveryGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroup)(nil)).Elem()
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupArgs) ToReplicationRecoveryPlanRecoveryGroupOutput() ReplicationRecoveryPlanRecoveryGroupOutput {
+	return i.ToReplicationRecoveryPlanRecoveryGroupOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupArgs) ToReplicationRecoveryPlanRecoveryGroupOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupOutput)
+}
+
+// ReplicationRecoveryPlanRecoveryGroupArrayInput is an input type that accepts ReplicationRecoveryPlanRecoveryGroupArray and ReplicationRecoveryPlanRecoveryGroupArrayOutput values.
+// You can construct a concrete instance of `ReplicationRecoveryPlanRecoveryGroupArrayInput` via:
+//
+//	ReplicationRecoveryPlanRecoveryGroupArray{ ReplicationRecoveryPlanRecoveryGroupArgs{...} }
+type ReplicationRecoveryPlanRecoveryGroupArrayInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryPlanRecoveryGroupArrayOutput() ReplicationRecoveryPlanRecoveryGroupArrayOutput
+	ToReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(context.Context) ReplicationRecoveryPlanRecoveryGroupArrayOutput
+}
+
+type ReplicationRecoveryPlanRecoveryGroupArray []ReplicationRecoveryPlanRecoveryGroupInput
+
+func (ReplicationRecoveryPlanRecoveryGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationRecoveryPlanRecoveryGroup)(nil)).Elem()
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupArray) ToReplicationRecoveryPlanRecoveryGroupArrayOutput() ReplicationRecoveryPlanRecoveryGroupArrayOutput {
+	return i.ToReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupArray) ToReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupArrayOutput)
+}
+
+type ReplicationRecoveryPlanRecoveryGroupOutput struct{ *pulumi.OutputState }
+
+func (ReplicationRecoveryPlanRecoveryGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroup)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupOutput) ToReplicationRecoveryPlanRecoveryGroupOutput() ReplicationRecoveryPlanRecoveryGroupOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupOutput) ToReplicationRecoveryPlanRecoveryGroupOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupOutput {
+	return o
+}
+
+// one or more `action` block. which will be executed after the group recovery.
+func (o ReplicationRecoveryPlanRecoveryGroupOutput) PostActions() ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroup) []ReplicationRecoveryPlanRecoveryGroupPostAction {
+		return v.PostActions
+	}).(ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput)
+}
+
+// one or more `action` block. which will be executed before the group recovery.
+func (o ReplicationRecoveryPlanRecoveryGroupOutput) PreActions() ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroup) []ReplicationRecoveryPlanRecoveryGroupPreAction {
+		return v.PreActions
+	}).(ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput)
+}
+
+// one or more id of protected VM.
+func (o ReplicationRecoveryPlanRecoveryGroupOutput) ReplicatedProtectedItems() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroup) []string { return v.ReplicatedProtectedItems }).(pulumi.StringArrayOutput)
+}
+
+// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+func (o ReplicationRecoveryPlanRecoveryGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroup) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ReplicationRecoveryPlanRecoveryGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationRecoveryPlanRecoveryGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationRecoveryPlanRecoveryGroup)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupArrayOutput) ToReplicationRecoveryPlanRecoveryGroupArrayOutput() ReplicationRecoveryPlanRecoveryGroupArrayOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupArrayOutput) ToReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupArrayOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanRecoveryGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationRecoveryPlanRecoveryGroup {
+		return vs[0].([]ReplicationRecoveryPlanRecoveryGroup)[vs[1].(int)]
+	}).(ReplicationRecoveryPlanRecoveryGroupOutput)
+}
+
+type ReplicationRecoveryPlanRecoveryGroupPostAction struct {
+	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+	FabricLocation *string `pulumi:"fabricLocation"`
+	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+	FailOverDirections []string `pulumi:"failOverDirections"`
+	// Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+	FailOverTypes []string `pulumi:"failOverTypes"`
+	// Instructions of manual action.
+	ManualActionInstruction *string `pulumi:"manualActionInstruction"`
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	Name string `pulumi:"name"`
+	// Id of runbook.
+	RunbookId *string `pulumi:"runbookId"`
+	// Path of action script.
+	ScriptPath *string `pulumi:"scriptPath"`
+	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	Type string `pulumi:"type"`
+}
+
+// ReplicationRecoveryPlanRecoveryGroupPostActionInput is an input type that accepts ReplicationRecoveryPlanRecoveryGroupPostActionArgs and ReplicationRecoveryPlanRecoveryGroupPostActionOutput values.
+// You can construct a concrete instance of `ReplicationRecoveryPlanRecoveryGroupPostActionInput` via:
+//
+//	ReplicationRecoveryPlanRecoveryGroupPostActionArgs{...}
+type ReplicationRecoveryPlanRecoveryGroupPostActionInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryPlanRecoveryGroupPostActionOutput() ReplicationRecoveryPlanRecoveryGroupPostActionOutput
+	ToReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(context.Context) ReplicationRecoveryPlanRecoveryGroupPostActionOutput
+}
+
+type ReplicationRecoveryPlanRecoveryGroupPostActionArgs struct {
+	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+	FabricLocation pulumi.StringPtrInput `pulumi:"fabricLocation"`
+	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+	FailOverDirections pulumi.StringArrayInput `pulumi:"failOverDirections"`
+	// Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
+	// Instructions of manual action.
+	ManualActionInstruction pulumi.StringPtrInput `pulumi:"manualActionInstruction"`
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Id of runbook.
+	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
+	// Path of action script.
+	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
+	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationRecoveryPlanRecoveryGroupPostActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPostAction)(nil)).Elem()
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupPostActionArgs) ToReplicationRecoveryPlanRecoveryGroupPostActionOutput() ReplicationRecoveryPlanRecoveryGroupPostActionOutput {
+	return i.ToReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupPostActionArgs) ToReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupPostActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupPostActionOutput)
+}
+
+// ReplicationRecoveryPlanRecoveryGroupPostActionArrayInput is an input type that accepts ReplicationRecoveryPlanRecoveryGroupPostActionArray and ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput values.
+// You can construct a concrete instance of `ReplicationRecoveryPlanRecoveryGroupPostActionArrayInput` via:
+//
+//	ReplicationRecoveryPlanRecoveryGroupPostActionArray{ ReplicationRecoveryPlanRecoveryGroupPostActionArgs{...} }
+type ReplicationRecoveryPlanRecoveryGroupPostActionArrayInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput() ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput
+	ToReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(context.Context) ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput
+}
+
+type ReplicationRecoveryPlanRecoveryGroupPostActionArray []ReplicationRecoveryPlanRecoveryGroupPostActionInput
+
+func (ReplicationRecoveryPlanRecoveryGroupPostActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationRecoveryPlanRecoveryGroupPostAction)(nil)).Elem()
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupPostActionArray) ToReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput() ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
+	return i.ToReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupPostActionArray) ToReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput)
+}
+
+type ReplicationRecoveryPlanRecoveryGroupPostActionOutput struct{ *pulumi.OutputState }
+
+func (ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPostAction)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ToReplicationRecoveryPlanRecoveryGroupPostActionOutput() ReplicationRecoveryPlanRecoveryGroupPostActionOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ToReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupPostActionOutput {
+	return o
+}
+
+// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) FabricLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) *string { return v.FabricLocation }).(pulumi.StringPtrOutput)
+}
+
+// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) FailOverDirections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) []string { return v.FailOverDirections }).(pulumi.StringArrayOutput)
+}
+
+// Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) FailOverTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) []string { return v.FailOverTypes }).(pulumi.StringArrayOutput)
+}
+
+// Instructions of manual action.
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ManualActionInstruction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) *string { return v.ManualActionInstruction }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Id of runbook.
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) RunbookId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) *string { return v.RunbookId }).(pulumi.StringPtrOutput)
+}
+
+// Path of action script.
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ScriptPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
+}
+
+// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationRecoveryPlanRecoveryGroupPostAction)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ToReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput() ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ToReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanRecoveryGroupPostActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationRecoveryPlanRecoveryGroupPostAction {
+		return vs[0].([]ReplicationRecoveryPlanRecoveryGroupPostAction)[vs[1].(int)]
+	}).(ReplicationRecoveryPlanRecoveryGroupPostActionOutput)
+}
+
+type ReplicationRecoveryPlanRecoveryGroupPreAction struct {
+	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+	FabricLocation *string `pulumi:"fabricLocation"`
+	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+	FailOverDirections []string `pulumi:"failOverDirections"`
+	// Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+	FailOverTypes []string `pulumi:"failOverTypes"`
+	// Instructions of manual action.
+	ManualActionInstruction *string `pulumi:"manualActionInstruction"`
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	Name string `pulumi:"name"`
+	// Id of runbook.
+	RunbookId *string `pulumi:"runbookId"`
+	// Path of action script.
+	ScriptPath *string `pulumi:"scriptPath"`
+	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	Type string `pulumi:"type"`
+}
+
+// ReplicationRecoveryPlanRecoveryGroupPreActionInput is an input type that accepts ReplicationRecoveryPlanRecoveryGroupPreActionArgs and ReplicationRecoveryPlanRecoveryGroupPreActionOutput values.
+// You can construct a concrete instance of `ReplicationRecoveryPlanRecoveryGroupPreActionInput` via:
+//
+//	ReplicationRecoveryPlanRecoveryGroupPreActionArgs{...}
+type ReplicationRecoveryPlanRecoveryGroupPreActionInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryPlanRecoveryGroupPreActionOutput() ReplicationRecoveryPlanRecoveryGroupPreActionOutput
+	ToReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(context.Context) ReplicationRecoveryPlanRecoveryGroupPreActionOutput
+}
+
+type ReplicationRecoveryPlanRecoveryGroupPreActionArgs struct {
+	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+	FabricLocation pulumi.StringPtrInput `pulumi:"fabricLocation"`
+	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+	FailOverDirections pulumi.StringArrayInput `pulumi:"failOverDirections"`
+	// Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
+	// Instructions of manual action.
+	ManualActionInstruction pulumi.StringPtrInput `pulumi:"manualActionInstruction"`
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Id of runbook.
+	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
+	// Path of action script.
+	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
+	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationRecoveryPlanRecoveryGroupPreActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPreAction)(nil)).Elem()
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupPreActionArgs) ToReplicationRecoveryPlanRecoveryGroupPreActionOutput() ReplicationRecoveryPlanRecoveryGroupPreActionOutput {
+	return i.ToReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupPreActionArgs) ToReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupPreActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupPreActionOutput)
+}
+
+// ReplicationRecoveryPlanRecoveryGroupPreActionArrayInput is an input type that accepts ReplicationRecoveryPlanRecoveryGroupPreActionArray and ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput values.
+// You can construct a concrete instance of `ReplicationRecoveryPlanRecoveryGroupPreActionArrayInput` via:
+//
+//	ReplicationRecoveryPlanRecoveryGroupPreActionArray{ ReplicationRecoveryPlanRecoveryGroupPreActionArgs{...} }
+type ReplicationRecoveryPlanRecoveryGroupPreActionArrayInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput() ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput
+	ToReplicationRecoveryPlanRecoveryGroupPreActionArrayOutputWithContext(context.Context) ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput
+}
+
+type ReplicationRecoveryPlanRecoveryGroupPreActionArray []ReplicationRecoveryPlanRecoveryGroupPreActionInput
+
+func (ReplicationRecoveryPlanRecoveryGroupPreActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationRecoveryPlanRecoveryGroupPreAction)(nil)).Elem()
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupPreActionArray) ToReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput() ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {
+	return i.ToReplicationRecoveryPlanRecoveryGroupPreActionArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryPlanRecoveryGroupPreActionArray) ToReplicationRecoveryPlanRecoveryGroupPreActionArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput)
+}
+
+type ReplicationRecoveryPlanRecoveryGroupPreActionOutput struct{ *pulumi.OutputState }
+
+func (ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPreAction)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ToReplicationRecoveryPlanRecoveryGroupPreActionOutput() ReplicationRecoveryPlanRecoveryGroupPreActionOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ToReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupPreActionOutput {
+	return o
+}
+
+// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) FabricLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) *string { return v.FabricLocation }).(pulumi.StringPtrOutput)
+}
+
+// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) FailOverDirections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) []string { return v.FailOverDirections }).(pulumi.StringArrayOutput)
+}
+
+// Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) FailOverTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) []string { return v.FailOverTypes }).(pulumi.StringArrayOutput)
+}
+
+// Instructions of manual action.
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ManualActionInstruction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) *string { return v.ManualActionInstruction }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Id of runbook.
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) RunbookId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) *string { return v.RunbookId }).(pulumi.StringPtrOutput)
+}
+
+// Path of action script.
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ScriptPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
+}
+
+// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationRecoveryPlanRecoveryGroupPreAction)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) ToReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput() ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) ToReplicationRecoveryPlanRecoveryGroupPreActionArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanRecoveryGroupPreActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationRecoveryPlanRecoveryGroupPreAction {
+		return vs[0].([]ReplicationRecoveryPlanRecoveryGroupPreAction)[vs[1].(int)]
+	}).(ReplicationRecoveryPlanRecoveryGroupPreActionOutput)
+}
+
+type GetReplicationRecoveryPlanRecoveryGroup struct {
+	// one or more `action` block. which will be executed after the group recovery.
+	PostActions [][]GetReplicationRecoveryPlanRecoveryGroupPostAction `pulumi:"postActions"`
+	// one or more `action` block. which will be executed before the group recovery.
+	PreActions [][]GetReplicationRecoveryPlanRecoveryGroupPreAction `pulumi:"preActions"`
+	// one or more id of protected VM.
+	ReplicatedProtectedItems []string `pulumi:"replicatedProtectedItems"`
+	// Type of the action detail.
+	Type string `pulumi:"type"`
+}
+
+// GetReplicationRecoveryPlanRecoveryGroupInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupArgs and GetReplicationRecoveryPlanRecoveryGroupOutput values.
+// You can construct a concrete instance of `GetReplicationRecoveryPlanRecoveryGroupInput` via:
+//
+//	GetReplicationRecoveryPlanRecoveryGroupArgs{...}
+type GetReplicationRecoveryPlanRecoveryGroupInput interface {
+	pulumi.Input
+
+	ToGetReplicationRecoveryPlanRecoveryGroupOutput() GetReplicationRecoveryPlanRecoveryGroupOutput
+	ToGetReplicationRecoveryPlanRecoveryGroupOutputWithContext(context.Context) GetReplicationRecoveryPlanRecoveryGroupOutput
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupArgs struct {
+	// one or more `action` block. which will be executed after the group recovery.
+	PostActions GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayInput `pulumi:"postActions"`
+	// one or more `action` block. which will be executed before the group recovery.
+	PreActions GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayInput `pulumi:"preActions"`
+	// one or more id of protected VM.
+	ReplicatedProtectedItems pulumi.StringArrayInput `pulumi:"replicatedProtectedItems"`
+	// Type of the action detail.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetReplicationRecoveryPlanRecoveryGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroup)(nil)).Elem()
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupArgs) ToGetReplicationRecoveryPlanRecoveryGroupOutput() GetReplicationRecoveryPlanRecoveryGroupOutput {
+	return i.ToGetReplicationRecoveryPlanRecoveryGroupOutputWithContext(context.Background())
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupArgs) ToGetReplicationRecoveryPlanRecoveryGroupOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupOutput)
+}
+
+// GetReplicationRecoveryPlanRecoveryGroupArrayInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupArray and GetReplicationRecoveryPlanRecoveryGroupArrayOutput values.
+// You can construct a concrete instance of `GetReplicationRecoveryPlanRecoveryGroupArrayInput` via:
+//
+//	GetReplicationRecoveryPlanRecoveryGroupArray{ GetReplicationRecoveryPlanRecoveryGroupArgs{...} }
+type GetReplicationRecoveryPlanRecoveryGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetReplicationRecoveryPlanRecoveryGroupArrayOutput() GetReplicationRecoveryPlanRecoveryGroupArrayOutput
+	ToGetReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(context.Context) GetReplicationRecoveryPlanRecoveryGroupArrayOutput
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupArray []GetReplicationRecoveryPlanRecoveryGroupInput
+
+func (GetReplicationRecoveryPlanRecoveryGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationRecoveryPlanRecoveryGroup)(nil)).Elem()
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupArray) ToGetReplicationRecoveryPlanRecoveryGroupArrayOutput() GetReplicationRecoveryPlanRecoveryGroupArrayOutput {
+	return i.ToGetReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupArray) ToGetReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupArrayOutput)
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationRecoveryPlanRecoveryGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroup)(nil)).Elem()
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupOutput) ToGetReplicationRecoveryPlanRecoveryGroupOutput() GetReplicationRecoveryPlanRecoveryGroupOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupOutput) ToGetReplicationRecoveryPlanRecoveryGroupOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupOutput {
+	return o
+}
+
+// one or more `action` block. which will be executed after the group recovery.
+func (o GetReplicationRecoveryPlanRecoveryGroupOutput) PostActions() GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroup) [][]GetReplicationRecoveryPlanRecoveryGroupPostAction {
+		return v.PostActions
+	}).(GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput)
+}
+
+// one or more `action` block. which will be executed before the group recovery.
+func (o GetReplicationRecoveryPlanRecoveryGroupOutput) PreActions() GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroup) [][]GetReplicationRecoveryPlanRecoveryGroupPreAction {
+		return v.PreActions
+	}).(GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput)
+}
+
+// one or more id of protected VM.
+func (o GetReplicationRecoveryPlanRecoveryGroupOutput) ReplicatedProtectedItems() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroup) []string { return v.ReplicatedProtectedItems }).(pulumi.StringArrayOutput)
+}
+
+// Type of the action detail.
+func (o GetReplicationRecoveryPlanRecoveryGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroup) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationRecoveryPlanRecoveryGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationRecoveryPlanRecoveryGroup)(nil)).Elem()
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupArrayOutput() GetReplicationRecoveryPlanRecoveryGroupArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanRecoveryGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetReplicationRecoveryPlanRecoveryGroup {
+		return vs[0].([]GetReplicationRecoveryPlanRecoveryGroup)[vs[1].(int)]
+	}).(GetReplicationRecoveryPlanRecoveryGroupOutput)
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPostAction struct {
+	// The fabric location of runbook or script.
+	FabricLocation string `pulumi:"fabricLocation"`
+	// Directions of fail over.
+	FailOverDirections []string `pulumi:"failOverDirections"`
+	// Types of fail over.
+	FailOverTypes []string `pulumi:"failOverTypes"`
+	// Instructions of manual action.
+	ManualActionInstruction string `pulumi:"manualActionInstruction"`
+	// The name of the Replication Plan.
+	Name string `pulumi:"name"`
+	// Id of runbook.
+	RunbookId string `pulumi:"runbookId"`
+	// Path of action script.
+	ScriptPath string `pulumi:"scriptPath"`
+	// Type of the action detail.
+	Type string `pulumi:"type"`
+}
+
+// GetReplicationRecoveryPlanRecoveryGroupPostActionInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupPostActionArgs and GetReplicationRecoveryPlanRecoveryGroupPostActionOutput values.
+// You can construct a concrete instance of `GetReplicationRecoveryPlanRecoveryGroupPostActionInput` via:
+//
+//	GetReplicationRecoveryPlanRecoveryGroupPostActionArgs{...}
+type GetReplicationRecoveryPlanRecoveryGroupPostActionInput interface {
+	pulumi.Input
+
+	ToGetReplicationRecoveryPlanRecoveryGroupPostActionOutput() GetReplicationRecoveryPlanRecoveryGroupPostActionOutput
+	ToGetReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionOutput
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPostActionArgs struct {
+	// The fabric location of runbook or script.
+	FabricLocation pulumi.StringInput `pulumi:"fabricLocation"`
+	// Directions of fail over.
+	FailOverDirections pulumi.StringArrayInput `pulumi:"failOverDirections"`
+	// Types of fail over.
+	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
+	// Instructions of manual action.
+	ManualActionInstruction pulumi.StringInput `pulumi:"manualActionInstruction"`
+	// The name of the Replication Plan.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Id of runbook.
+	RunbookId pulumi.StringInput `pulumi:"runbookId"`
+	// Path of action script.
+	ScriptPath pulumi.StringInput `pulumi:"scriptPath"`
+	// Type of the action detail.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetReplicationRecoveryPlanRecoveryGroupPostActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPostAction)(nil)).Elem()
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArgs) ToGetReplicationRecoveryPlanRecoveryGroupPostActionOutput() GetReplicationRecoveryPlanRecoveryGroupPostActionOutput {
+	return i.ToGetReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(context.Background())
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArgs) ToGetReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPostActionOutput)
+}
+
+// GetReplicationRecoveryPlanRecoveryGroupPostActionArrayInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupPostActionArray and GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput values.
+// You can construct a concrete instance of `GetReplicationRecoveryPlanRecoveryGroupPostActionArrayInput` via:
+//
+//	GetReplicationRecoveryPlanRecoveryGroupPostActionArray{ GetReplicationRecoveryPlanRecoveryGroupPostActionArgs{...} }
+type GetReplicationRecoveryPlanRecoveryGroupPostActionArrayInput interface {
+	pulumi.Input
+
+	ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput
+	ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPostActionArray []GetReplicationRecoveryPlanRecoveryGroupPostActionInput
+
+func (GetReplicationRecoveryPlanRecoveryGroupPostActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationRecoveryPlanRecoveryGroupPostAction)(nil)).Elem()
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArray) ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
+	return i.ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArray) ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput)
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPostActionOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPostAction)(nil)).Elem()
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) ToGetReplicationRecoveryPlanRecoveryGroupPostActionOutput() GetReplicationRecoveryPlanRecoveryGroupPostActionOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) ToGetReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionOutput {
+	return o
+}
+
+// The fabric location of runbook or script.
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) FabricLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPostAction) string { return v.FabricLocation }).(pulumi.StringOutput)
+}
+
+// Directions of fail over.
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) FailOverDirections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPostAction) []string { return v.FailOverDirections }).(pulumi.StringArrayOutput)
+}
+
+// Types of fail over.
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) FailOverTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPostAction) []string { return v.FailOverTypes }).(pulumi.StringArrayOutput)
+}
+
+// Instructions of manual action.
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) ManualActionInstruction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPostAction) string { return v.ManualActionInstruction }).(pulumi.StringOutput)
+}
+
+// The name of the Replication Plan.
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPostAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Id of runbook.
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) RunbookId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPostAction) string { return v.RunbookId }).(pulumi.StringOutput)
+}
+
+// Path of action script.
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) ScriptPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPostAction) string { return v.ScriptPath }).(pulumi.StringOutput)
+}
+
+// Type of the action detail.
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPostAction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationRecoveryPlanRecoveryGroupPostAction)(nil)).Elem()
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanRecoveryGroupPostActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetReplicationRecoveryPlanRecoveryGroupPostAction {
+		return vs[0].([]GetReplicationRecoveryPlanRecoveryGroupPostAction)[vs[1].(int)]
+	}).(GetReplicationRecoveryPlanRecoveryGroupPostActionOutput)
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPreAction struct {
+	// The fabric location of runbook or script.
+	FabricLocation string `pulumi:"fabricLocation"`
+	// Directions of fail over.
+	FailOverDirections []string `pulumi:"failOverDirections"`
+	// Types of fail over.
+	FailOverTypes []string `pulumi:"failOverTypes"`
+	// Instructions of manual action.
+	ManualActionInstruction string `pulumi:"manualActionInstruction"`
+	// The name of the Replication Plan.
+	Name string `pulumi:"name"`
+	// Id of runbook.
+	RunbookId string `pulumi:"runbookId"`
+	// Path of action script.
+	ScriptPath string `pulumi:"scriptPath"`
+	// Type of the action detail.
+	Type string `pulumi:"type"`
+}
+
+// GetReplicationRecoveryPlanRecoveryGroupPreActionInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupPreActionArgs and GetReplicationRecoveryPlanRecoveryGroupPreActionOutput values.
+// You can construct a concrete instance of `GetReplicationRecoveryPlanRecoveryGroupPreActionInput` via:
+//
+//	GetReplicationRecoveryPlanRecoveryGroupPreActionArgs{...}
+type GetReplicationRecoveryPlanRecoveryGroupPreActionInput interface {
+	pulumi.Input
+
+	ToGetReplicationRecoveryPlanRecoveryGroupPreActionOutput() GetReplicationRecoveryPlanRecoveryGroupPreActionOutput
+	ToGetReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionOutput
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPreActionArgs struct {
+	// The fabric location of runbook or script.
+	FabricLocation pulumi.StringInput `pulumi:"fabricLocation"`
+	// Directions of fail over.
+	FailOverDirections pulumi.StringArrayInput `pulumi:"failOverDirections"`
+	// Types of fail over.
+	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
+	// Instructions of manual action.
+	ManualActionInstruction pulumi.StringInput `pulumi:"manualActionInstruction"`
+	// The name of the Replication Plan.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Id of runbook.
+	RunbookId pulumi.StringInput `pulumi:"runbookId"`
+	// Path of action script.
+	ScriptPath pulumi.StringInput `pulumi:"scriptPath"`
+	// Type of the action detail.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetReplicationRecoveryPlanRecoveryGroupPreActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPreAction)(nil)).Elem()
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArgs) ToGetReplicationRecoveryPlanRecoveryGroupPreActionOutput() GetReplicationRecoveryPlanRecoveryGroupPreActionOutput {
+	return i.ToGetReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(context.Background())
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArgs) ToGetReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPreActionOutput)
+}
+
+// GetReplicationRecoveryPlanRecoveryGroupPreActionArrayInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupPreActionArray and GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput values.
+// You can construct a concrete instance of `GetReplicationRecoveryPlanRecoveryGroupPreActionArrayInput` via:
+//
+//	GetReplicationRecoveryPlanRecoveryGroupPreActionArray{ GetReplicationRecoveryPlanRecoveryGroupPreActionArgs{...} }
+type GetReplicationRecoveryPlanRecoveryGroupPreActionArrayInput interface {
+	pulumi.Input
+
+	ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput
+	ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutputWithContext(context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPreActionArray []GetReplicationRecoveryPlanRecoveryGroupPreActionInput
+
+func (GetReplicationRecoveryPlanRecoveryGroupPreActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationRecoveryPlanRecoveryGroupPreAction)(nil)).Elem()
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArray) ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {
+	return i.ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArray) ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput)
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPreActionOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPreAction)(nil)).Elem()
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) ToGetReplicationRecoveryPlanRecoveryGroupPreActionOutput() GetReplicationRecoveryPlanRecoveryGroupPreActionOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) ToGetReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionOutput {
+	return o
+}
+
+// The fabric location of runbook or script.
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) FabricLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPreAction) string { return v.FabricLocation }).(pulumi.StringOutput)
+}
+
+// Directions of fail over.
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) FailOverDirections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPreAction) []string { return v.FailOverDirections }).(pulumi.StringArrayOutput)
+}
+
+// Types of fail over.
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) FailOverTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPreAction) []string { return v.FailOverTypes }).(pulumi.StringArrayOutput)
+}
+
+// Instructions of manual action.
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) ManualActionInstruction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPreAction) string { return v.ManualActionInstruction }).(pulumi.StringOutput)
+}
+
+// The name of the Replication Plan.
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPreAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Id of runbook.
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) RunbookId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPreAction) string { return v.RunbookId }).(pulumi.StringOutput)
+}
+
+// Path of action script.
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) ScriptPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPreAction) string { return v.ScriptPath }).(pulumi.StringOutput)
+}
+
+// Type of the action detail.
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationRecoveryPlanRecoveryGroupPreAction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationRecoveryPlanRecoveryGroupPreAction)(nil)).Elem()
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanRecoveryGroupPreActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetReplicationRecoveryPlanRecoveryGroupPreAction {
+		return vs[0].([]GetReplicationRecoveryPlanRecoveryGroupPreAction)[vs[1].(int)]
+	}).(GetReplicationRecoveryPlanRecoveryGroupPreActionOutput)
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray []GetReplicationRecoveryPlanRecoveryGroupPostActionArrayInput
+
+func (GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]GetReplicationRecoveryPlanRecoveryGroupPostAction)(nil)).Elem()
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray) ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput {
+	return i.ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutputWithContext(context.Background())
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray) ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput)
+}
+
+// GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray and GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput values.
+// You can construct a concrete instance of `GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayInput` via:
+//
+//	GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray{ GetReplicationRecoveryPlanRecoveryGroupPostActionArray{ GetReplicationRecoveryPlanRecoveryGroupPostActionArgs{...} } }
+type GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayInput interface {
+	pulumi.Input
+
+	ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput
+	ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutputWithContext(context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]GetReplicationRecoveryPlanRecoveryGroupPostAction)(nil)).Elem()
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) []GetReplicationRecoveryPlanRecoveryGroupPostAction {
+		return vs[0].([][]GetReplicationRecoveryPlanRecoveryGroupPostAction)[vs[1].(int)]
+	}).(GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput)
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray []GetReplicationRecoveryPlanRecoveryGroupPreActionArrayInput
+
+func (GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]GetReplicationRecoveryPlanRecoveryGroupPreAction)(nil)).Elem()
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray) ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput {
+	return i.ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutputWithContext(context.Background())
+}
+
+func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray) ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput)
+}
+
+// GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray and GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput values.
+// You can construct a concrete instance of `GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayInput` via:
+//
+//	GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray{ GetReplicationRecoveryPlanRecoveryGroupPreActionArray{ GetReplicationRecoveryPlanRecoveryGroupPreActionArgs{...} } }
+type GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayInput interface {
+	pulumi.Input
+
+	ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput
+	ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutputWithContext(context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput
+}
+
+type GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]GetReplicationRecoveryPlanRecoveryGroupPreAction)(nil)).Elem()
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput() GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput {
+	return o
+}
+
+func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) []GetReplicationRecoveryPlanRecoveryGroupPreAction {
+		return vs[0].([][]GetReplicationRecoveryPlanRecoveryGroupPreAction)[vs[1].(int)]
+	}).(GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskInput)(nil)).Elem(), ReplicatedVMManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskArrayInput)(nil)).Elem(), ReplicatedVMManagedDiskArray{})
@@ -779,6 +1765,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrInput)(nil)).Elem(), ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceArrayInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupArrayInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPostActionInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupPostActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPostActionArrayInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupPostActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPreActionInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupPreActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPreActionArrayInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupPreActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupArrayInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPostActionInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupPostActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPostActionArrayInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupPostActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPreActionInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupPreActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPreActionArrayInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupPreActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray{})
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskTargetDiskEncryptionOutput{})
@@ -789,4 +1789,18 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupOutput{})
+	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupPostActionOutput{})
+	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupPreActionOutput{})
+	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput{})
+	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupOutput{})
+	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupPostActionOutput{})
+	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput{})
+	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupPreActionOutput{})
+	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput{})
+	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput{})
+	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput{})
 }

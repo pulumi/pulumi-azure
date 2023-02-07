@@ -25,6 +25,11 @@ export const getReplicationPolicy: typeof import("./getReplicationPolicy").getRe
 export const getReplicationPolicyOutput: typeof import("./getReplicationPolicy").getReplicationPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationPolicy","getReplicationPolicyOutput"], () => require("./getReplicationPolicy"));
 
+export { GetReplicationRecoveryPlanArgs, GetReplicationRecoveryPlanResult, GetReplicationRecoveryPlanOutputArgs } from "./getReplicationRecoveryPlan";
+export const getReplicationRecoveryPlan: typeof import("./getReplicationRecoveryPlan").getReplicationRecoveryPlan = null as any;
+export const getReplicationRecoveryPlanOutput: typeof import("./getReplicationRecoveryPlan").getReplicationRecoveryPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationRecoveryPlan","getReplicationRecoveryPlanOutput"], () => require("./getReplicationRecoveryPlan"));
+
 export { NetworkMappingArgs, NetworkMappingState } from "./networkMapping";
 export type NetworkMapping = import("./networkMapping").NetworkMapping;
 export const NetworkMapping: typeof import("./networkMapping").NetworkMapping = null as any;
@@ -50,6 +55,11 @@ export type ReplicationPolicy = import("./replicationPolicy").ReplicationPolicy;
 export const ReplicationPolicy: typeof import("./replicationPolicy").ReplicationPolicy = null as any;
 utilities.lazyLoad(exports, ["ReplicationPolicy"], () => require("./replicationPolicy"));
 
+export { ReplicationRecoveryPlanArgs, ReplicationRecoveryPlanState } from "./replicationRecoveryPlan";
+export type ReplicationRecoveryPlan = import("./replicationRecoveryPlan").ReplicationRecoveryPlan;
+export const ReplicationRecoveryPlan: typeof import("./replicationRecoveryPlan").ReplicationRecoveryPlan = null as any;
+utilities.lazyLoad(exports, ["ReplicationRecoveryPlan"], () => require("./replicationRecoveryPlan"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -67,6 +77,8 @@ const _module = {
                 return new ReplicatedVM(name, <any>undefined, { urn })
             case "azure:siterecovery/replicationPolicy:ReplicationPolicy":
                 return new ReplicationPolicy(name, <any>undefined, { urn })
+            case "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan":
+                return new ReplicationRecoveryPlan(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -78,3 +90,4 @@ pulumi.runtime.registerResourceModule("azure", "siterecovery/protectionContainer
 pulumi.runtime.registerResourceModule("azure", "siterecovery/protectionContainerMapping", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/replicatedVM", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/replicationPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "siterecovery/replicationRecoveryPlan", _module)

@@ -12,6 +12,8 @@ import com.pulumi.azure.keyvault.inputs.GetCertificateDataPlainArgs;
 import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerArgs;
 import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerPlainArgs;
 import com.pulumi.azure.keyvault.inputs.GetCertificatePlainArgs;
+import com.pulumi.azure.keyvault.inputs.GetCertificatesArgs;
+import com.pulumi.azure.keyvault.inputs.GetCertificatesPlainArgs;
 import com.pulumi.azure.keyvault.inputs.GetEncryptedValueArgs;
 import com.pulumi.azure.keyvault.inputs.GetEncryptedValuePlainArgs;
 import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
@@ -28,6 +30,7 @@ import com.pulumi.azure.keyvault.outputs.GetAccessPolicyResult;
 import com.pulumi.azure.keyvault.outputs.GetCertificateDataResult;
 import com.pulumi.azure.keyvault.outputs.GetCertificateIssuerResult;
 import com.pulumi.azure.keyvault.outputs.GetCertificateResult;
+import com.pulumi.azure.keyvault.outputs.GetCertificatesResult;
 import com.pulumi.azure.keyvault.outputs.GetEncryptedValueResult;
 import com.pulumi.azure.keyvault.outputs.GetKeyResult;
 import com.pulumi.azure.keyvault.outputs.GetKeyVaultResult;
@@ -740,6 +743,34 @@ public final class KeyvaultFunctions {
      */
     public static CompletableFuture<GetCertificateIssuerResult> getCertificateIssuerPlain(GetCertificateIssuerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:keyvault/getCertificateIssuer:getCertificateIssuer", TypeShape.of(GetCertificateIssuerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a list of certificate names from an existing Key Vault.
+     * 
+     */
+    public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args) {
+        return getCertificates(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a list of certificate names from an existing Key Vault.
+     * 
+     */
+    public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args) {
+        return getCertificatesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a list of certificate names from an existing Key Vault.
+     * 
+     */
+    public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a list of certificate names from an existing Key Vault.
+     * 
+     */
+    public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:keyvault/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.

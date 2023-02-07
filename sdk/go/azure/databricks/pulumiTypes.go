@@ -190,7 +190,7 @@ type WorkspaceCustomParameters struct {
 	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
 	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
 	NatGatewayName *string `pulumi:"natGatewayName"`
-	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
 	NoPublicIp *bool `pulumi:"noPublicIp"`
 	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PrivateSubnetName *string `pulumi:"privateSubnetName"`
@@ -228,7 +228,7 @@ type WorkspaceCustomParametersArgs struct {
 	MachineLearningWorkspaceId pulumi.StringPtrInput `pulumi:"machineLearningWorkspaceId"`
 	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
 	NatGatewayName pulumi.StringPtrInput `pulumi:"natGatewayName"`
-	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
 	NoPublicIp pulumi.BoolPtrInput `pulumi:"noPublicIp"`
 	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PrivateSubnetName pulumi.StringPtrInput `pulumi:"privateSubnetName"`
@@ -337,7 +337,7 @@ func (o WorkspaceCustomParametersOutput) NatGatewayName() pulumi.StringPtrOutput
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.NatGatewayName }).(pulumi.StringPtrOutput)
 }
 
-// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
 func (o WorkspaceCustomParametersOutput) NoPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *bool { return v.NoPublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -431,7 +431,7 @@ func (o WorkspaceCustomParametersPtrOutput) NatGatewayName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
 func (o WorkspaceCustomParametersPtrOutput) NoPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *bool {
 		if v == nil {
@@ -529,6 +529,121 @@ func (o WorkspaceCustomParametersPtrOutput) VnetAddressPrefix() pulumi.StringPtr
 		}
 		return v.VnetAddressPrefix
 	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceManagedDiskIdentity struct {
+	// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+	PrincipalId *string `pulumi:"principalId"`
+	// The UUID of the tenant where the internal databricks storage account was created.
+	TenantId *string `pulumi:"tenantId"`
+	// The type of the internal databricks storage account.
+	Type *string `pulumi:"type"`
+}
+
+// WorkspaceManagedDiskIdentityInput is an input type that accepts WorkspaceManagedDiskIdentityArgs and WorkspaceManagedDiskIdentityOutput values.
+// You can construct a concrete instance of `WorkspaceManagedDiskIdentityInput` via:
+//
+//	WorkspaceManagedDiskIdentityArgs{...}
+type WorkspaceManagedDiskIdentityInput interface {
+	pulumi.Input
+
+	ToWorkspaceManagedDiskIdentityOutput() WorkspaceManagedDiskIdentityOutput
+	ToWorkspaceManagedDiskIdentityOutputWithContext(context.Context) WorkspaceManagedDiskIdentityOutput
+}
+
+type WorkspaceManagedDiskIdentityArgs struct {
+	// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The UUID of the tenant where the internal databricks storage account was created.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The type of the internal databricks storage account.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (WorkspaceManagedDiskIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceManagedDiskIdentity)(nil)).Elem()
+}
+
+func (i WorkspaceManagedDiskIdentityArgs) ToWorkspaceManagedDiskIdentityOutput() WorkspaceManagedDiskIdentityOutput {
+	return i.ToWorkspaceManagedDiskIdentityOutputWithContext(context.Background())
+}
+
+func (i WorkspaceManagedDiskIdentityArgs) ToWorkspaceManagedDiskIdentityOutputWithContext(ctx context.Context) WorkspaceManagedDiskIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceManagedDiskIdentityOutput)
+}
+
+// WorkspaceManagedDiskIdentityArrayInput is an input type that accepts WorkspaceManagedDiskIdentityArray and WorkspaceManagedDiskIdentityArrayOutput values.
+// You can construct a concrete instance of `WorkspaceManagedDiskIdentityArrayInput` via:
+//
+//	WorkspaceManagedDiskIdentityArray{ WorkspaceManagedDiskIdentityArgs{...} }
+type WorkspaceManagedDiskIdentityArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceManagedDiskIdentityArrayOutput() WorkspaceManagedDiskIdentityArrayOutput
+	ToWorkspaceManagedDiskIdentityArrayOutputWithContext(context.Context) WorkspaceManagedDiskIdentityArrayOutput
+}
+
+type WorkspaceManagedDiskIdentityArray []WorkspaceManagedDiskIdentityInput
+
+func (WorkspaceManagedDiskIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceManagedDiskIdentity)(nil)).Elem()
+}
+
+func (i WorkspaceManagedDiskIdentityArray) ToWorkspaceManagedDiskIdentityArrayOutput() WorkspaceManagedDiskIdentityArrayOutput {
+	return i.ToWorkspaceManagedDiskIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceManagedDiskIdentityArray) ToWorkspaceManagedDiskIdentityArrayOutputWithContext(ctx context.Context) WorkspaceManagedDiskIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceManagedDiskIdentityArrayOutput)
+}
+
+type WorkspaceManagedDiskIdentityOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceManagedDiskIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceManagedDiskIdentity)(nil)).Elem()
+}
+
+func (o WorkspaceManagedDiskIdentityOutput) ToWorkspaceManagedDiskIdentityOutput() WorkspaceManagedDiskIdentityOutput {
+	return o
+}
+
+func (o WorkspaceManagedDiskIdentityOutput) ToWorkspaceManagedDiskIdentityOutputWithContext(ctx context.Context) WorkspaceManagedDiskIdentityOutput {
+	return o
+}
+
+// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+func (o WorkspaceManagedDiskIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceManagedDiskIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The UUID of the tenant where the internal databricks storage account was created.
+func (o WorkspaceManagedDiskIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceManagedDiskIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the internal databricks storage account.
+func (o WorkspaceManagedDiskIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceManagedDiskIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceManagedDiskIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceManagedDiskIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceManagedDiskIdentity)(nil)).Elem()
+}
+
+func (o WorkspaceManagedDiskIdentityArrayOutput) ToWorkspaceManagedDiskIdentityArrayOutput() WorkspaceManagedDiskIdentityArrayOutput {
+	return o
+}
+
+func (o WorkspaceManagedDiskIdentityArrayOutput) ToWorkspaceManagedDiskIdentityArrayOutputWithContext(ctx context.Context) WorkspaceManagedDiskIdentityArrayOutput {
+	return o
+}
+
+func (o WorkspaceManagedDiskIdentityArrayOutput) Index(i pulumi.IntInput) WorkspaceManagedDiskIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceManagedDiskIdentity {
+		return vs[0].([]WorkspaceManagedDiskIdentity)[vs[1].(int)]
+	}).(WorkspaceManagedDiskIdentityOutput)
 }
 
 type WorkspaceStorageAccountIdentity struct {
@@ -644,6 +759,121 @@ func (o WorkspaceStorageAccountIdentityArrayOutput) Index(i pulumi.IntInput) Wor
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceStorageAccountIdentity {
 		return vs[0].([]WorkspaceStorageAccountIdentity)[vs[1].(int)]
 	}).(WorkspaceStorageAccountIdentityOutput)
+}
+
+type GetWorkspaceManagedDiskIdentity struct {
+	// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+	PrincipalId string `pulumi:"principalId"`
+	// The UUID of the tenant where the internal databricks storage account was created.
+	TenantId string `pulumi:"tenantId"`
+	// The type of the internal databricks storage account.
+	Type string `pulumi:"type"`
+}
+
+// GetWorkspaceManagedDiskIdentityInput is an input type that accepts GetWorkspaceManagedDiskIdentityArgs and GetWorkspaceManagedDiskIdentityOutput values.
+// You can construct a concrete instance of `GetWorkspaceManagedDiskIdentityInput` via:
+//
+//	GetWorkspaceManagedDiskIdentityArgs{...}
+type GetWorkspaceManagedDiskIdentityInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceManagedDiskIdentityOutput() GetWorkspaceManagedDiskIdentityOutput
+	ToGetWorkspaceManagedDiskIdentityOutputWithContext(context.Context) GetWorkspaceManagedDiskIdentityOutput
+}
+
+type GetWorkspaceManagedDiskIdentityArgs struct {
+	// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The UUID of the tenant where the internal databricks storage account was created.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of the internal databricks storage account.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetWorkspaceManagedDiskIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceManagedDiskIdentity)(nil)).Elem()
+}
+
+func (i GetWorkspaceManagedDiskIdentityArgs) ToGetWorkspaceManagedDiskIdentityOutput() GetWorkspaceManagedDiskIdentityOutput {
+	return i.ToGetWorkspaceManagedDiskIdentityOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceManagedDiskIdentityArgs) ToGetWorkspaceManagedDiskIdentityOutputWithContext(ctx context.Context) GetWorkspaceManagedDiskIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceManagedDiskIdentityOutput)
+}
+
+// GetWorkspaceManagedDiskIdentityArrayInput is an input type that accepts GetWorkspaceManagedDiskIdentityArray and GetWorkspaceManagedDiskIdentityArrayOutput values.
+// You can construct a concrete instance of `GetWorkspaceManagedDiskIdentityArrayInput` via:
+//
+//	GetWorkspaceManagedDiskIdentityArray{ GetWorkspaceManagedDiskIdentityArgs{...} }
+type GetWorkspaceManagedDiskIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceManagedDiskIdentityArrayOutput() GetWorkspaceManagedDiskIdentityArrayOutput
+	ToGetWorkspaceManagedDiskIdentityArrayOutputWithContext(context.Context) GetWorkspaceManagedDiskIdentityArrayOutput
+}
+
+type GetWorkspaceManagedDiskIdentityArray []GetWorkspaceManagedDiskIdentityInput
+
+func (GetWorkspaceManagedDiskIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceManagedDiskIdentity)(nil)).Elem()
+}
+
+func (i GetWorkspaceManagedDiskIdentityArray) ToGetWorkspaceManagedDiskIdentityArrayOutput() GetWorkspaceManagedDiskIdentityArrayOutput {
+	return i.ToGetWorkspaceManagedDiskIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceManagedDiskIdentityArray) ToGetWorkspaceManagedDiskIdentityArrayOutputWithContext(ctx context.Context) GetWorkspaceManagedDiskIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceManagedDiskIdentityArrayOutput)
+}
+
+type GetWorkspaceManagedDiskIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceManagedDiskIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceManagedDiskIdentity)(nil)).Elem()
+}
+
+func (o GetWorkspaceManagedDiskIdentityOutput) ToGetWorkspaceManagedDiskIdentityOutput() GetWorkspaceManagedDiskIdentityOutput {
+	return o
+}
+
+func (o GetWorkspaceManagedDiskIdentityOutput) ToGetWorkspaceManagedDiskIdentityOutputWithContext(ctx context.Context) GetWorkspaceManagedDiskIdentityOutput {
+	return o
+}
+
+// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+func (o GetWorkspaceManagedDiskIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceManagedDiskIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The UUID of the tenant where the internal databricks storage account was created.
+func (o GetWorkspaceManagedDiskIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceManagedDiskIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of the internal databricks storage account.
+func (o GetWorkspaceManagedDiskIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceManagedDiskIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetWorkspaceManagedDiskIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceManagedDiskIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceManagedDiskIdentity)(nil)).Elem()
+}
+
+func (o GetWorkspaceManagedDiskIdentityArrayOutput) ToGetWorkspaceManagedDiskIdentityArrayOutput() GetWorkspaceManagedDiskIdentityArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceManagedDiskIdentityArrayOutput) ToGetWorkspaceManagedDiskIdentityArrayOutputWithContext(ctx context.Context) GetWorkspaceManagedDiskIdentityArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceManagedDiskIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkspaceManagedDiskIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkspaceManagedDiskIdentity {
+		return vs[0].([]GetWorkspaceManagedDiskIdentity)[vs[1].(int)]
+	}).(GetWorkspaceManagedDiskIdentityOutput)
 }
 
 type GetWorkspacePrivateEndpointConnectionConnection struct {
@@ -899,8 +1129,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessConnectorIdentityPtrInput)(nil)).Elem(), AccessConnectorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomParametersInput)(nil)).Elem(), WorkspaceCustomParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomParametersPtrInput)(nil)).Elem(), WorkspaceCustomParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceManagedDiskIdentityInput)(nil)).Elem(), WorkspaceManagedDiskIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceManagedDiskIdentityArrayInput)(nil)).Elem(), WorkspaceManagedDiskIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityArrayInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceManagedDiskIdentityInput)(nil)).Elem(), GetWorkspaceManagedDiskIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceManagedDiskIdentityArrayInput)(nil)).Elem(), GetWorkspaceManagedDiskIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnectionInput)(nil)).Elem(), GetWorkspacePrivateEndpointConnectionConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnectionArrayInput)(nil)).Elem(), GetWorkspacePrivateEndpointConnectionConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceStorageAccountIdentityInput)(nil)).Elem(), GetWorkspaceStorageAccountIdentityArgs{})
@@ -909,8 +1143,12 @@ func init() {
 	pulumi.RegisterOutputType(AccessConnectorIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceManagedDiskIdentityOutput{})
+	pulumi.RegisterOutputType(WorkspaceManagedDiskIdentityArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceManagedDiskIdentityOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceManagedDiskIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkspacePrivateEndpointConnectionConnectionOutput{})
 	pulumi.RegisterOutputType(GetWorkspacePrivateEndpointConnectionConnectionArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceStorageAccountIdentityOutput{})

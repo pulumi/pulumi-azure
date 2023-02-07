@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.databricks.outputs;
 
+import com.pulumi.azure.databricks.outputs.GetWorkspaceManagedDiskIdentity;
 import com.pulumi.azure.databricks.outputs.GetWorkspaceStorageAccountIdentity;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -23,6 +24,11 @@ public final class GetWorkspaceResult {
      * 
      */
     private String location;
+    /**
+     * @return A `managed_disk_identity` block as documented below.
+     * 
+     */
+    private List<GetWorkspaceManagedDiskIdentity> managedDiskIdentities;
     private String name;
     private String resourceGroupName;
     /**
@@ -65,6 +71,13 @@ public final class GetWorkspaceResult {
      */
     public String location() {
         return this.location;
+    }
+    /**
+     * @return A `managed_disk_identity` block as documented below.
+     * 
+     */
+    public List<GetWorkspaceManagedDiskIdentity> managedDiskIdentities() {
+        return this.managedDiskIdentities;
     }
     public String name() {
         return this.name;
@@ -119,6 +132,7 @@ public final class GetWorkspaceResult {
     public static final class Builder {
         private String id;
         private String location;
+        private List<GetWorkspaceManagedDiskIdentity> managedDiskIdentities;
         private String name;
         private String resourceGroupName;
         private String sku;
@@ -131,6 +145,7 @@ public final class GetWorkspaceResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.location = defaults.location;
+    	      this.managedDiskIdentities = defaults.managedDiskIdentities;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.sku = defaults.sku;
@@ -149,6 +164,14 @@ public final class GetWorkspaceResult {
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
+        }
+        @CustomType.Setter
+        public Builder managedDiskIdentities(List<GetWorkspaceManagedDiskIdentity> managedDiskIdentities) {
+            this.managedDiskIdentities = Objects.requireNonNull(managedDiskIdentities);
+            return this;
+        }
+        public Builder managedDiskIdentities(GetWorkspaceManagedDiskIdentity... managedDiskIdentities) {
+            return managedDiskIdentities(List.of(managedDiskIdentities));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -192,6 +215,7 @@ public final class GetWorkspaceResult {
             final var o = new GetWorkspaceResult();
             o.id = id;
             o.location = location;
+            o.managedDiskIdentities = managedDiskIdentities;
             o.name = name;
             o.resourceGroupName = resourceGroupName;
             o.sku = sku;

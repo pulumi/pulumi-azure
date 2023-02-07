@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice;
 
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolKubeletConfigArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolLinuxOsConfigArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolNodeNetworkProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolUpgradeSettingsArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolWindowsProfileArgs;
 import com.pulumi.core.Output;
@@ -322,6 +323,21 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
      */
     public Optional<Output<Map<String,String>>> nodeLabels() {
         return Optional.ofNullable(this.nodeLabels);
+    }
+
+    /**
+     * A `node_network_profile` block as documented below.
+     * 
+     */
+    @Import(name="nodeNetworkProfile")
+    private @Nullable Output<KubernetesClusterNodePoolNodeNetworkProfileArgs> nodeNetworkProfile;
+
+    /**
+     * @return A `node_network_profile` block as documented below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterNodePoolNodeNetworkProfileArgs>> nodeNetworkProfile() {
+        return Optional.ofNullable(this.nodeNetworkProfile);
     }
 
     /**
@@ -647,6 +663,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         this.name = $.name;
         this.nodeCount = $.nodeCount;
         this.nodeLabels = $.nodeLabels;
+        this.nodeNetworkProfile = $.nodeNetworkProfile;
         this.nodePublicIpPrefixId = $.nodePublicIpPrefixId;
         this.nodeTaints = $.nodeTaints;
         this.orchestratorVersion = $.orchestratorVersion;
@@ -1105,6 +1122,27 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
          */
         public Builder nodeLabels(Map<String,String> nodeLabels) {
             return nodeLabels(Output.of(nodeLabels));
+        }
+
+        /**
+         * @param nodeNetworkProfile A `node_network_profile` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeNetworkProfile(@Nullable Output<KubernetesClusterNodePoolNodeNetworkProfileArgs> nodeNetworkProfile) {
+            $.nodeNetworkProfile = nodeNetworkProfile;
+            return this;
+        }
+
+        /**
+         * @param nodeNetworkProfile A `node_network_profile` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeNetworkProfile(KubernetesClusterNodePoolNodeNetworkProfileArgs nodeNetworkProfile) {
+            return nodeNetworkProfile(Output.of(nodeNetworkProfile));
         }
 
         /**

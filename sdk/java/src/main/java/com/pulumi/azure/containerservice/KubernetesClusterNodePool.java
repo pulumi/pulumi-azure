@@ -8,6 +8,7 @@ import com.pulumi.azure.containerservice.KubernetesClusterNodePoolArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolState;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolKubeletConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolLinuxOsConfig;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolNodeNetworkProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolUpgradeSettings;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolWindowsProfile;
 import com.pulumi.core.Output;
@@ -378,6 +379,20 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      */
     public Output<Map<String,String>> nodeLabels() {
         return this.nodeLabels;
+    }
+    /**
+     * A `node_network_profile` block as documented below.
+     * 
+     */
+    @Export(name="nodeNetworkProfile", type=KubernetesClusterNodePoolNodeNetworkProfile.class, parameters={})
+    private Output</* @Nullable */ KubernetesClusterNodePoolNodeNetworkProfile> nodeNetworkProfile;
+
+    /**
+     * @return A `node_network_profile` block as documented below.
+     * 
+     */
+    public Output<Optional<KubernetesClusterNodePoolNodeNetworkProfile>> nodeNetworkProfile() {
+        return Codegen.optional(this.nodeNetworkProfile);
     }
     /**
      * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.

@@ -64,15 +64,15 @@ public final class EndpointIpConfigurationArgs extends com.pulumi.resources.Reso
      * Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="subresourceName", required=true)
-    private Output<String> subresourceName;
+    @Import(name="subresourceName")
+    private @Nullable Output<String> subresourceName;
 
     /**
      * @return Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> subresourceName() {
-        return this.subresourceName;
+    public Optional<Output<String>> subresourceName() {
+        return Optional.ofNullable(this.subresourceName);
     }
 
     private EndpointIpConfigurationArgs() {}
@@ -171,7 +171,7 @@ public final class EndpointIpConfigurationArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder subresourceName(Output<String> subresourceName) {
+        public Builder subresourceName(@Nullable Output<String> subresourceName) {
             $.subresourceName = subresourceName;
             return this;
         }
@@ -189,7 +189,6 @@ public final class EndpointIpConfigurationArgs extends com.pulumi.resources.Reso
         public EndpointIpConfigurationArgs build() {
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             $.privateIpAddress = Objects.requireNonNull($.privateIpAddress, "expected parameter 'privateIpAddress' to be non-null");
-            $.subresourceName = Objects.requireNonNull($.subresourceName, "expected parameter 'subresourceName' to be non-null");
             return $;
         }
     }

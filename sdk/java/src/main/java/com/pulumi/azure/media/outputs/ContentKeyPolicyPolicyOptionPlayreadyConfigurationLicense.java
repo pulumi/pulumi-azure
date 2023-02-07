@@ -68,6 +68,11 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
      * 
      */
     private @Nullable String relativeExpirationDate;
+    /**
+     * @return The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
+     * 
+     */
+    private @Nullable String securityLevel;
 
     private ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense() {}
     /**
@@ -147,6 +152,13 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
     public Optional<String> relativeExpirationDate() {
         return Optional.ofNullable(this.relativeExpirationDate);
     }
+    /**
+     * @return The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
+     * 
+     */
+    public Optional<String> securityLevel() {
+        return Optional.ofNullable(this.securityLevel);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -168,6 +180,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
         private @Nullable ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight playRight;
         private @Nullable String relativeBeginDate;
         private @Nullable String relativeExpirationDate;
+        private @Nullable String securityLevel;
         public Builder() {}
         public Builder(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense defaults) {
     	      Objects.requireNonNull(defaults);
@@ -182,6 +195,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
     	      this.playRight = defaults.playRight;
     	      this.relativeBeginDate = defaults.relativeBeginDate;
     	      this.relativeExpirationDate = defaults.relativeExpirationDate;
+    	      this.securityLevel = defaults.securityLevel;
         }
 
         @CustomType.Setter
@@ -239,6 +253,11 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
             this.relativeExpirationDate = relativeExpirationDate;
             return this;
         }
+        @CustomType.Setter
+        public Builder securityLevel(@Nullable String securityLevel) {
+            this.securityLevel = securityLevel;
+            return this;
+        }
         public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense build() {
             final var o = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense();
             o.allowTestDevices = allowTestDevices;
@@ -252,6 +271,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
             o.playRight = playRight;
             o.relativeBeginDate = relativeBeginDate;
             o.relativeExpirationDate = relativeExpirationDate;
+            o.securityLevel = securityLevel;
             return o;
         }
     }

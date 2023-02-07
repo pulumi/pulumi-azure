@@ -42,9 +42,17 @@ public final class GetVirtualHubRouteTablePlainArgs extends com.pulumi.resources
         return this.resourceGroupName;
     }
 
+    /**
+     * The name which should be used for Virtual Hub Route Table.
+     * 
+     */
     @Import(name="virtualHubName", required=true)
     private String virtualHubName;
 
+    /**
+     * @return The name which should be used for Virtual Hub Route Table.
+     * 
+     */
     public String virtualHubName() {
         return this.virtualHubName;
     }
@@ -97,6 +105,12 @@ public final class GetVirtualHubRouteTablePlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param virtualHubName The name which should be used for Virtual Hub Route Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualHubName(String virtualHubName) {
             $.virtualHubName = virtualHubName;
             return this;

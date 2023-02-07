@@ -49,6 +49,12 @@ namespace Pulumi.Azure.Media.Inputs
         }
 
         /// <summary>
+        /// The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
+        /// </summary>
+        [Input("playreadyResponseCustomData")]
+        public Input<string>? PlayreadyResponseCustomData { get; set; }
+
+        /// <summary>
         /// A `token_restriction` block as defined below.
         /// </summary>
         [Input("tokenRestriction")]

@@ -167,7 +167,7 @@ class StandardWebTestValidationRulesArgs:
         """
         :param pulumi.Input['StandardWebTestValidationRulesContentArgs'] content: A `content` block as defined above.
         :param pulumi.Input[int] expected_status_code: The expected status code of the response. Default is '200', '0' means 'response code < 400'
-        :param pulumi.Input[int] ssl_cert_remaining_lifetime: The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+        :param pulumi.Input[int] ssl_cert_remaining_lifetime: The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
         :param pulumi.Input[bool] ssl_check_enabled: Should the SSL check be enabled?
         """
         if content is not None:
@@ -207,7 +207,7 @@ class StandardWebTestValidationRulesArgs:
     @pulumi.getter(name="sslCertRemainingLifetime")
     def ssl_cert_remaining_lifetime(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail.
+        The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
         """
         return pulumi.get(self, "ssl_cert_remaining_lifetime")
 

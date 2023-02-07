@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class ContentKeyPolicyPolicyOptionTokenRestriction
     {
         /// <summary>
+        /// One or more `alternate_key` block as defined above.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey> AlternateKeys;
+        /// <summary>
         /// The audience for the token.
         /// </summary>
         public readonly string? Audience;
@@ -26,11 +30,11 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly string? OpenIdConnectDiscoveryDocument;
         /// <summary>
-        /// The RSA Parameter exponent.
+        /// The RSA parameter exponent.
         /// </summary>
         public readonly string? PrimaryRsaTokenKeyExponent;
         /// <summary>
-        /// The RSA Parameter modulus.
+        /// The RSA parameter modulus.
         /// </summary>
         public readonly string? PrimaryRsaTokenKeyModulus;
         /// <summary>
@@ -52,6 +56,8 @@ namespace Pulumi.Azure.Media.Outputs
 
         [OutputConstructor]
         private ContentKeyPolicyPolicyOptionTokenRestriction(
+            ImmutableArray<Outputs.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey> alternateKeys,
+
             string? audience,
 
             string? issuer,
@@ -70,6 +76,7 @@ namespace Pulumi.Azure.Media.Outputs
 
             string? tokenType)
         {
+            AlternateKeys = alternateKeys;
             Audience = audience;
             Issuer = issuer;
             OpenIdConnectDiscoveryDocument = openIdConnectDiscoveryDocument;

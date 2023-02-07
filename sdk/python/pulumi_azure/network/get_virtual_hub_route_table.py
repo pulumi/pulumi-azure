@@ -125,13 +125,15 @@ def get_virtual_hub_route_table(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.network.get_virtual_hub_route_table(name="example-hub-route-table",
-        resource_group_name="example-resources")
+        resource_group_name="example-resources",
+        virtual_hub_name="example-hub-name")
     pulumi.export("virtualHubRouteTableId", example.id)
     ```
 
 
     :param str name: The name of the Virtual Hub Route Table.
     :param str resource_group_name: The Name of the Resource Group where the Virtual Hub Route Table exists.
+    :param str virtual_hub_name: The name which should be used for Virtual Hub Route Table.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -165,12 +167,14 @@ def get_virtual_hub_route_table_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.network.get_virtual_hub_route_table(name="example-hub-route-table",
-        resource_group_name="example-resources")
+        resource_group_name="example-resources",
+        virtual_hub_name="example-hub-name")
     pulumi.export("virtualHubRouteTableId", example.id)
     ```
 
 
     :param str name: The name of the Virtual Hub Route Table.
     :param str resource_group_name: The Name of the Resource Group where the Virtual Hub Route Table exists.
+    :param str virtual_hub_name: The name which should be used for Virtual Hub Route Table.
     """
     ...
