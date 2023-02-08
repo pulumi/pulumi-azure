@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterDefaultNodePoolNodeNetworkProfile
     {
         /// <summary>
-        /// Specifies a mapping of tags to the instance-level public IPs.
+        /// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? NodePublicIpTags;
 

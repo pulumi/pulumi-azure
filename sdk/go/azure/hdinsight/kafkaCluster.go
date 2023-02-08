@@ -117,7 +117,8 @@ type KafkaCluster struct {
 	ComponentVersion KafkaClusterComponentVersionOutput `pulumi:"componentVersion"`
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation KafkaClusterComputeIsolationPtrOutput `pulumi:"computeIsolation"`
-	DiskEncryptions  KafkaClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
+	// One or more `diskEncryption` block as defined below.
+	DiskEncryptions KafkaClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrOutput `pulumi:"encryptionInTransitEnabled"`
 	// An `extension` block as defined below.
@@ -215,7 +216,8 @@ type kafkaClusterState struct {
 	ComponentVersion *KafkaClusterComponentVersion `pulumi:"componentVersion"`
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation *KafkaClusterComputeIsolation `pulumi:"computeIsolation"`
-	DiskEncryptions  []KafkaClusterDiskEncryption  `pulumi:"diskEncryptions"`
+	// One or more `diskEncryption` block as defined below.
+	DiskEncryptions []KafkaClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// An `extension` block as defined below.
@@ -267,7 +269,8 @@ type KafkaClusterState struct {
 	ComponentVersion KafkaClusterComponentVersionPtrInput
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation KafkaClusterComputeIsolationPtrInput
-	DiskEncryptions  KafkaClusterDiskEncryptionArrayInput
+	// One or more `diskEncryption` block as defined below.
+	DiskEncryptions KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// An `extension` block as defined below.
@@ -323,7 +326,8 @@ type kafkaClusterArgs struct {
 	ComponentVersion KafkaClusterComponentVersion `pulumi:"componentVersion"`
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation *KafkaClusterComputeIsolation `pulumi:"computeIsolation"`
-	DiskEncryptions  []KafkaClusterDiskEncryption  `pulumi:"diskEncryptions"`
+	// One or more `diskEncryption` block as defined below.
+	DiskEncryptions []KafkaClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// An `extension` block as defined below.
@@ -370,7 +374,8 @@ type KafkaClusterArgs struct {
 	ComponentVersion KafkaClusterComponentVersionInput
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation KafkaClusterComputeIsolationPtrInput
-	DiskEncryptions  KafkaClusterDiskEncryptionArrayInput
+	// One or more `diskEncryption` block as defined below.
+	DiskEncryptions KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// An `extension` block as defined below.
@@ -511,6 +516,7 @@ func (o KafkaClusterOutput) ComputeIsolation() KafkaClusterComputeIsolationPtrOu
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterComputeIsolationPtrOutput { return v.ComputeIsolation }).(KafkaClusterComputeIsolationPtrOutput)
 }
 
+// One or more `diskEncryption` block as defined below.
 func (o KafkaClusterOutput) DiskEncryptions() KafkaClusterDiskEncryptionArrayOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterDiskEncryptionArrayOutput { return v.DiskEncryptions }).(KafkaClusterDiskEncryptionArrayOutput)
 }

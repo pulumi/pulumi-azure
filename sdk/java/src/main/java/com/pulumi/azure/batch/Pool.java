@@ -474,9 +474,17 @@ public class Pool extends com.pulumi.resources.CustomResource {
     public Output<Optional<PoolStartTask>> startTask() {
         return Codegen.optional(this.startTask);
     }
+    /**
+     * Whether to stop if there is a pending resize operation on this pool.
+     * 
+     */
     @Export(name="stopPendingResizeOperation", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> stopPendingResizeOperation;
 
+    /**
+     * @return Whether to stop if there is a pending resize operation on this pool.
+     * 
+     */
     public Output<Optional<Boolean>> stopPendingResizeOperation() {
         return Codegen.optional(this.stopPendingResizeOperation);
     }

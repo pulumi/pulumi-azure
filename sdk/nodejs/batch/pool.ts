@@ -215,6 +215,9 @@ export class Pool extends pulumi.CustomResource {
      * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */
     public readonly startTask!: pulumi.Output<outputs.batch.PoolStartTask | undefined>;
+    /**
+     * Whether to stop if there is a pending resize operation on this pool.
+     */
     public readonly stopPendingResizeOperation!: pulumi.Output<boolean | undefined>;
     /**
      * A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
@@ -421,6 +424,9 @@ export interface PoolState {
      * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */
     startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
+    /**
+     * Whether to stop if there is a pending resize operation on this pool.
+     */
     stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
      * A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
@@ -536,6 +542,9 @@ export interface PoolArgs {
      * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */
     startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
+    /**
+     * Whether to stop if there is a pending resize operation on this pool.
+     */
     stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
      * A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.

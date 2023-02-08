@@ -17,14 +17,14 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
     public static final LogAnalyticsWorkspaceOnboardingState Empty = new LogAnalyticsWorkspaceOnboardingState();
 
     /**
-     * Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+     * Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="customerManagedKeyEnabled")
     private @Nullable Output<Boolean> customerManagedKeyEnabled;
 
     /**
-     * @return Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+     * @return Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> customerManagedKeyEnabled() {
@@ -47,14 +47,14 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
     }
 
     /**
-     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="workspaceName")
     private @Nullable Output<String> workspaceName;
 
     /**
-     * @return Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+     * @return Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> workspaceName() {
@@ -88,7 +88,7 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
         }
 
         /**
-         * @param customerManagedKeyEnabled Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+         * @param customerManagedKeyEnabled Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
         }
 
         /**
-         * @param customerManagedKeyEnabled Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+         * @param customerManagedKeyEnabled Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
         }
 
         /**
-         * @param workspaceName Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+         * @param workspaceName Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
         }
 
         /**
-         * @param workspaceName Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+         * @param workspaceName Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

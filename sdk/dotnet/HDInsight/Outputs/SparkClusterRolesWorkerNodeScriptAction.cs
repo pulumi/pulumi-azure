@@ -14,7 +14,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class SparkClusterRolesWorkerNodeScriptAction
     {
         /// <summary>
-        /// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        /// The name of the script action.
         /// </summary>
         public readonly string Name;
         /// <summary>

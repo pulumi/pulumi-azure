@@ -95,6 +95,8 @@ __all__ = [
     'NetworkConnectionMonitorTestConfigurationTcpConfiguration',
     'NetworkConnectionMonitorTestGroup',
     'NetworkInterfaceIpConfiguration',
+    'NetworkManagerConnectivityConfigurationAppliesToGroup',
+    'NetworkManagerConnectivityConfigurationHub',
     'NetworkManagerCrossTenantScope',
     'NetworkManagerScope',
     'NetworkPacketCaptureFilter',
@@ -3510,7 +3512,7 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroup(dict):
                  rule_group_name: str,
                  rules: Optional[Sequence[int]] = None):
         """
-        :param str rule_group_name: The rule group where specific rules should be disabled. Possible values are `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
+        :param str rule_group_name: The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
         :param Sequence[int] rules: A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
@@ -3521,7 +3523,7 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroup(dict):
     @pulumi.getter(name="ruleGroupName")
     def rule_group_name(self) -> str:
         """
-        The rule group where specific rules should be disabled. Possible values are `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
+        The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
         """
         return pulumi.get(self, "rule_group_name")
 
@@ -7074,6 +7076,130 @@ class NetworkInterfaceIpConfiguration(dict):
 
 
 @pulumi.output_type
+class NetworkManagerConnectivityConfigurationAppliesToGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupConnectivity":
+            suggest = "group_connectivity"
+        elif key == "networkGroupId":
+            suggest = "network_group_id"
+        elif key == "globalMeshEnabled":
+            suggest = "global_mesh_enabled"
+        elif key == "useHubGateway":
+            suggest = "use_hub_gateway"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagerConnectivityConfigurationAppliesToGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagerConnectivityConfigurationAppliesToGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagerConnectivityConfigurationAppliesToGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_connectivity: str,
+                 network_group_id: str,
+                 global_mesh_enabled: Optional[bool] = None,
+                 use_hub_gateway: Optional[bool] = None):
+        """
+        :param str group_connectivity: Specifies the group connectivity type. Possible values are `None` and `DirectlyConnected`.
+        :param str network_group_id: Specifies the resource ID of Network Group which the configuration applies to.
+        :param bool global_mesh_enabled: Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+        :param bool use_hub_gateway: Indicates whether the hub gateway is used. Possible values are `true` and `false`.
+        """
+        pulumi.set(__self__, "group_connectivity", group_connectivity)
+        pulumi.set(__self__, "network_group_id", network_group_id)
+        if global_mesh_enabled is not None:
+            pulumi.set(__self__, "global_mesh_enabled", global_mesh_enabled)
+        if use_hub_gateway is not None:
+            pulumi.set(__self__, "use_hub_gateway", use_hub_gateway)
+
+    @property
+    @pulumi.getter(name="groupConnectivity")
+    def group_connectivity(self) -> str:
+        """
+        Specifies the group connectivity type. Possible values are `None` and `DirectlyConnected`.
+        """
+        return pulumi.get(self, "group_connectivity")
+
+    @property
+    @pulumi.getter(name="networkGroupId")
+    def network_group_id(self) -> str:
+        """
+        Specifies the resource ID of Network Group which the configuration applies to.
+        """
+        return pulumi.get(self, "network_group_id")
+
+    @property
+    @pulumi.getter(name="globalMeshEnabled")
+    def global_mesh_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+        """
+        return pulumi.get(self, "global_mesh_enabled")
+
+    @property
+    @pulumi.getter(name="useHubGateway")
+    def use_hub_gateway(self) -> Optional[bool]:
+        """
+        Indicates whether the hub gateway is used. Possible values are `true` and `false`.
+        """
+        return pulumi.get(self, "use_hub_gateway")
+
+
+@pulumi.output_type
+class NetworkManagerConnectivityConfigurationHub(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagerConnectivityConfigurationHub. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagerConnectivityConfigurationHub.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagerConnectivityConfigurationHub.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: str,
+                 resource_type: str):
+        """
+        :param str resource_id: Specifies the resource ID used as hub in Hub And Spoke topology.
+        :param str resource_type: Specifies the resource Type used as hub in Hub And Spoke topology.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        Specifies the resource ID used as hub in Hub And Spoke topology.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        Specifies the resource Type used as hub in Hub And Spoke topology.
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
 class NetworkManagerCrossTenantScope(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -9986,6 +10112,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
                  thumbprint: str):
         """
         :param str name: Specifies the name of the certificate resource.
+        :param str thumbprint: Specifies the public data of the certificate.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "thumbprint", thumbprint)
@@ -10001,6 +10128,9 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
     @property
     @pulumi.getter
     def thumbprint(self) -> str:
+        """
+        Specifies the public data of the certificate.
+        """
         return pulumi.get(self, "thumbprint")
 
 
@@ -13367,7 +13497,9 @@ class GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult(dict):
                  public_cert_data: str):
         """
         :param str name: Specifies the name of the Virtual Network Gateway.
-        :param str public_cert_data: The SHA1 thumbprint of the certificate to be revoked.
+        :param str public_cert_data: The public certificate of the root certificate
+               authority. The certificate must be provided in Base-64 encoded X.509 format
+               (PEM).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "public_cert_data", public_cert_data)
@@ -13384,7 +13516,9 @@ class GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult(dict):
     @pulumi.getter(name="publicCertData")
     def public_cert_data(self) -> str:
         """
-        The SHA1 thumbprint of the certificate to be revoked.
+        The public certificate of the root certificate
+        authority. The certificate must be provided in Base-64 encoded X.509 format
+        (PEM).
         """
         return pulumi.get(self, "public_cert_data")
 

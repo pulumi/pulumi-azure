@@ -107,11 +107,11 @@ import (
 type ReplicationRecoveryPlan struct {
 	pulumi.CustomResourceState
 
-	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Three or more `recoveryGroup` block.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayOutput `pulumi:"recoveryGroups"`
-	// The ID of the vault that should be updated.
+	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringOutput `pulumi:"recoveryVaultId"`
 	// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
 	SourceRecoveryFabricId pulumi.StringOutput `pulumi:"sourceRecoveryFabricId"`
@@ -157,11 +157,11 @@ func GetReplicationRecoveryPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationRecoveryPlan resources.
 type replicationRecoveryPlanState struct {
-	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Three or more `recoveryGroup` block.
 	RecoveryGroups []ReplicationRecoveryPlanRecoveryGroup `pulumi:"recoveryGroups"`
-	// The ID of the vault that should be updated.
+	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId *string `pulumi:"recoveryVaultId"`
 	// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
 	SourceRecoveryFabricId *string `pulumi:"sourceRecoveryFabricId"`
@@ -170,11 +170,11 @@ type replicationRecoveryPlanState struct {
 }
 
 type ReplicationRecoveryPlanState struct {
-	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Three or more `recoveryGroup` block.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayInput
-	// The ID of the vault that should be updated.
+	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringPtrInput
 	// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
 	SourceRecoveryFabricId pulumi.StringPtrInput
@@ -187,11 +187,11 @@ func (ReplicationRecoveryPlanState) ElementType() reflect.Type {
 }
 
 type replicationRecoveryPlanArgs struct {
-	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Three or more `recoveryGroup` block.
 	RecoveryGroups []ReplicationRecoveryPlanRecoveryGroup `pulumi:"recoveryGroups"`
-	// The ID of the vault that should be updated.
+	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId string `pulumi:"recoveryVaultId"`
 	// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
 	SourceRecoveryFabricId string `pulumi:"sourceRecoveryFabricId"`
@@ -201,11 +201,11 @@ type replicationRecoveryPlanArgs struct {
 
 // The set of arguments for constructing a ReplicationRecoveryPlan resource.
 type ReplicationRecoveryPlanArgs struct {
-	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Three or more `recoveryGroup` block.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayInput
-	// The ID of the vault that should be updated.
+	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringInput
 	// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
 	SourceRecoveryFabricId pulumi.StringInput
@@ -300,7 +300,7 @@ func (o ReplicationRecoveryPlanOutput) ToReplicationRecoveryPlanOutputWithContex
 	return o
 }
 
-// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 func (o ReplicationRecoveryPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationRecoveryPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -312,7 +312,7 @@ func (o ReplicationRecoveryPlanOutput) RecoveryGroups() ReplicationRecoveryPlanR
 	}).(ReplicationRecoveryPlanRecoveryGroupArrayOutput)
 }
 
-// The ID of the vault that should be updated.
+// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 func (o ReplicationRecoveryPlanOutput) RecoveryVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationRecoveryPlan) pulumi.StringOutput { return v.RecoveryVaultId }).(pulumi.StringOutput)
 }

@@ -39,9 +39,17 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.alwaysOn);
     }
 
+    /**
+     * The URL to the API Definition for this Windows Web App.
+     * 
+     */
     @Import(name="apiDefinitionUrl")
     private @Nullable Output<String> apiDefinitionUrl;
 
+    /**
+     * @return The URL to the API Definition for this Windows Web App.
+     * 
+     */
     public Optional<Output<String>> apiDefinitionUrl() {
         return Optional.ofNullable(this.apiDefinitionUrl);
     }
@@ -572,11 +580,23 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
             return alwaysOn(Output.of(alwaysOn));
         }
 
+        /**
+         * @param apiDefinitionUrl The URL to the API Definition for this Windows Web App.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiDefinitionUrl(@Nullable Output<String> apiDefinitionUrl) {
             $.apiDefinitionUrl = apiDefinitionUrl;
             return this;
         }
 
+        /**
+         * @param apiDefinitionUrl The URL to the API Definition for this Windows Web App.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiDefinitionUrl(String apiDefinitionUrl) {
             return apiDefinitionUrl(Output.of(apiDefinitionUrl));
         }

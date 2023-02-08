@@ -14,6 +14,10 @@ namespace Pulumi.Azure.HDInsight.Inputs
     {
         [Input("httpsEndpoints")]
         private InputList<Inputs.HadoopClusterRolesEdgeNodeHttpsEndpointGetArgs>? _httpsEndpoints;
+
+        /// <summary>
+        /// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+        /// </summary>
         public InputList<Inputs.HadoopClusterRolesEdgeNodeHttpsEndpointGetArgs> HttpsEndpoints
         {
             get => _httpsEndpoints ?? (_httpsEndpoints = new InputList<Inputs.HadoopClusterRolesEdgeNodeHttpsEndpointGetArgs>());
@@ -40,6 +44,10 @@ namespace Pulumi.Azure.HDInsight.Inputs
 
         [Input("uninstallScriptActions")]
         private InputList<Inputs.HadoopClusterRolesEdgeNodeUninstallScriptActionGetArgs>? _uninstallScriptActions;
+
+        /// <summary>
+        /// A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<Inputs.HadoopClusterRolesEdgeNodeUninstallScriptActionGetArgs> UninstallScriptActions
         {
             get => _uninstallScriptActions ?? (_uninstallScriptActions = new InputList<Inputs.HadoopClusterRolesEdgeNodeUninstallScriptActionGetArgs>());

@@ -13,13 +13,13 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class SlotSiteConfigScmIpRestrictionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        /// Allow or Deny access for this IP range. Defaults to `Allow`.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        /// The headers for this specific `scm_ip_restriction` as defined below.
         /// </summary>
         [Input("headers")]
         public Input<Inputs.SlotSiteConfigScmIpRestrictionHeadersArgs>? Headers { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        /// The name for this IP Restriction.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

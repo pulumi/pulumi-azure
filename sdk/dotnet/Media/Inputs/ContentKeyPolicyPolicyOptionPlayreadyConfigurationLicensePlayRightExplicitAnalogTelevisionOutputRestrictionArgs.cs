@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Media.Inputs
 
     public sealed class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
         [Input("bestEffortEnforced")]
         public Input<bool>? BestEffortEnforced { get; set; }
 

@@ -23,10 +23,10 @@ class ReplicationRecoveryPlanArgs:
                  recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicationRecoveryPlan resource.
-        :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated.
+        :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
-        :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]] recovery_groups: Three or more `recovery_group` block.
         """
         pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
@@ -41,7 +41,7 @@ class ReplicationRecoveryPlanArgs:
     @pulumi.getter(name="recoveryVaultId")
     def recovery_vault_id(self) -> pulumi.Input[str]:
         """
-        The ID of the vault that should be updated.
+        The ID of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_id")
 
@@ -77,7 +77,7 @@ class ReplicationRecoveryPlanArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -108,9 +108,9 @@ class _ReplicationRecoveryPlanState:
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReplicationRecoveryPlan resources.
-        :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]] recovery_groups: Three or more `recovery_group` block.
-        :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated.
+        :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         """
@@ -129,7 +129,7 @@ class _ReplicationRecoveryPlanState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -153,7 +153,7 @@ class _ReplicationRecoveryPlanState:
     @pulumi.getter(name="recoveryVaultId")
     def recovery_vault_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the vault that should be updated.
+        The ID of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_id")
 
@@ -249,9 +249,9 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block.
-        :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated.
+        :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         """
@@ -373,9 +373,9 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block.
-        :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated.
+        :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         """
@@ -394,7 +394,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -410,7 +410,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     @pulumi.getter(name="recoveryVaultId")
     def recovery_vault_id(self) -> pulumi.Output[str]:
         """
-        The ID of the vault that should be updated.
+        The ID of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_id")
 

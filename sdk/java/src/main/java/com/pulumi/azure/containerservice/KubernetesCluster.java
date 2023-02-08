@@ -10,6 +10,7 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterAciConnectorLi
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterApiServerAccessProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterAutoScalerProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterConfidentialComputing;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePool;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterHttpProxyConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterIdentity;
@@ -204,6 +205,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> azurePolicyEnabled() {
         return Codegen.optional(this.azurePolicyEnabled);
+    }
+    /**
+     * A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * 
+     */
+    @Export(name="confidentialComputing", type=KubernetesClusterConfidentialComputing.class, parameters={})
+    private Output</* @Nullable */ KubernetesClusterConfidentialComputing> confidentialComputing;
+
+    /**
+     * @return A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * 
+     */
+    public Output<Optional<KubernetesClusterConfidentialComputing>> confidentialComputing() {
+        return Codegen.optional(this.confidentialComputing);
     }
     /**
      * A `default_node_pool` block as defined below.

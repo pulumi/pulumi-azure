@@ -110,6 +110,12 @@ namespace Pulumi.Azure.Lb
         [Output("tunnelInterfaces")]
         public Output<ImmutableArray<Outputs.BackendAddressPoolTunnelInterface>> TunnelInterfaces { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network within which the Backend Address Pool should exist.
+        /// </summary>
+        [Output("virtualNetworkId")]
+        public Output<string?> VirtualNetworkId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BackendAddressPool resource with the given unique name, arguments, and options.
@@ -179,6 +185,12 @@ namespace Pulumi.Azure.Lb
             get => _tunnelInterfaces ?? (_tunnelInterfaces = new InputList<Inputs.BackendAddressPoolTunnelInterfaceArgs>());
             set => _tunnelInterfaces = value;
         }
+
+        /// <summary>
+        /// The ID of the Virtual Network within which the Backend Address Pool should exist.
+        /// </summary>
+        [Input("virtualNetworkId")]
+        public Input<string>? VirtualNetworkId { get; set; }
 
         public BackendAddressPoolArgs()
         {
@@ -259,6 +271,12 @@ namespace Pulumi.Azure.Lb
             get => _tunnelInterfaces ?? (_tunnelInterfaces = new InputList<Inputs.BackendAddressPoolTunnelInterfaceGetArgs>());
             set => _tunnelInterfaces = value;
         }
+
+        /// <summary>
+        /// The ID of the Virtual Network within which the Backend Address Pool should exist.
+        /// </summary>
+        [Input("virtualNetworkId")]
+        public Input<string>? VirtualNetworkId { get; set; }
 
         public BackendAddressPoolState()
         {

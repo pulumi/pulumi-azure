@@ -123,9 +123,11 @@ type FhirService struct {
 	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
 	OciArtifacts FhirServiceOciArtifactArrayOutput `pulumi:"ociArtifacts"`
 	// Whether public networks access is enabled.
-	PublicNetworkAccessEnabled pulumi.BoolOutput      `pulumi:"publicNetworkAccessEnabled"`
-	ResourceGroupName          pulumi.StringOutput    `pulumi:"resourceGroupName"`
-	Tags                       pulumi.StringMapOutput `pulumi:"tags"`
+	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
+	// Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the Healthcare FHIR Service.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
@@ -189,9 +191,11 @@ type fhirServiceState struct {
 	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
 	OciArtifacts []FhirServiceOciArtifact `pulumi:"ociArtifacts"`
 	// Whether public networks access is enabled.
-	PublicNetworkAccessEnabled *bool             `pulumi:"publicNetworkAccessEnabled"`
-	ResourceGroupName          *string           `pulumi:"resourceGroupName"`
-	Tags                       map[string]string `pulumi:"tags"`
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	// Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the Healthcare FHIR Service.
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
@@ -219,8 +223,10 @@ type FhirServiceState struct {
 	OciArtifacts FhirServiceOciArtifactArrayInput
 	// Whether public networks access is enabled.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	ResourceGroupName          pulumi.StringPtrInput
-	Tags                       pulumi.StringMapInput
+	// Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringPtrInput
+	// A mapping of tags to assign to the Healthcare FHIR Service.
+	Tags pulumi.StringMapInput
 	// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId pulumi.StringPtrInput
 }
@@ -249,9 +255,11 @@ type fhirServiceArgs struct {
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
 	Name *string `pulumi:"name"`
 	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
-	OciArtifacts      []FhirServiceOciArtifact `pulumi:"ociArtifacts"`
-	ResourceGroupName string                   `pulumi:"resourceGroupName"`
-	Tags              map[string]string        `pulumi:"tags"`
+	OciArtifacts []FhirServiceOciArtifact `pulumi:"ociArtifacts"`
+	// Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the Healthcare FHIR Service.
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
@@ -277,9 +285,11 @@ type FhirServiceArgs struct {
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
 	Name pulumi.StringPtrInput
 	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
-	OciArtifacts      FhirServiceOciArtifactArrayInput
+	OciArtifacts FhirServiceOciArtifactArrayInput
+	// Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	// A mapping of tags to assign to the Healthcare FHIR Service.
+	Tags pulumi.StringMapInput
 	// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId pulumi.StringInput
 }
@@ -426,10 +436,12 @@ func (o FhirServiceOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FhirService) pulumi.BoolOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
+// Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
 func (o FhirServiceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FhirService) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the Healthcare FHIR Service.
 func (o FhirServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FhirService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

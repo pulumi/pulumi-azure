@@ -30,9 +30,17 @@ public final class MedtechServiceFhirDestinationState extends com.pulumi.resourc
         return Optional.ofNullable(this.destinationFhirMappingJson);
     }
 
+    /**
+     * Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+     * 
+     */
     @Import(name="destinationFhirServiceId")
     private @Nullable Output<String> destinationFhirServiceId;
 
+    /**
+     * @return Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+     * 
+     */
     public Optional<Output<String>> destinationFhirServiceId() {
         return Optional.ofNullable(this.destinationFhirServiceId);
     }
@@ -147,11 +155,23 @@ public final class MedtechServiceFhirDestinationState extends com.pulumi.resourc
             return destinationFhirMappingJson(Output.of(destinationFhirMappingJson));
         }
 
+        /**
+         * @param destinationFhirServiceId Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationFhirServiceId(@Nullable Output<String> destinationFhirServiceId) {
             $.destinationFhirServiceId = destinationFhirServiceId;
             return this;
         }
 
+        /**
+         * @param destinationFhirServiceId Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationFhirServiceId(String destinationFhirServiceId) {
             return destinationFhirServiceId(Output.of(destinationFhirServiceId));
         }

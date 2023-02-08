@@ -112,6 +112,9 @@ export class HadoopCluster extends pulumi.CustomResource {
      * A `computeIsolation` block as defined below.
      */
     public readonly computeIsolation!: pulumi.Output<outputs.hdinsight.HadoopClusterComputeIsolation | undefined>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.HadoopClusterDiskEncryption[] | undefined>;
     /**
      * An `extension` block as defined below.
@@ -279,6 +282,9 @@ export interface HadoopClusterState {
      * A `computeIsolation` block as defined below.
      */
     computeIsolation?: pulumi.Input<inputs.hdinsight.HadoopClusterComputeIsolation>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterDiskEncryption>[]>;
     /**
      * An `extension` block as defined below.
@@ -366,6 +372,9 @@ export interface HadoopClusterArgs {
      * A `computeIsolation` block as defined below.
      */
     computeIsolation?: pulumi.Input<inputs.hdinsight.HadoopClusterComputeIsolation>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterDiskEncryption>[]>;
     /**
      * An `extension` block as defined below.

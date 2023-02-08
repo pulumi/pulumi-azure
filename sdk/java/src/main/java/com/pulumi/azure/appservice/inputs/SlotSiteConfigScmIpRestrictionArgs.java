@@ -18,14 +18,14 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
     public static final SlotSiteConfigScmIpRestrictionArgs Empty = new SlotSiteConfigScmIpRestrictionArgs();
 
     /**
-     * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+     * Allow or Deny access for this IP range. Defaults to `Allow`.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+     * @return Allow or Deny access for this IP range. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> action() {
@@ -33,14 +33,14 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
     }
 
     /**
-     * The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * The headers for this specific `scm_ip_restriction` as defined below.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<SlotSiteConfigScmIpRestrictionHeadersArgs> headers;
 
     /**
-     * @return The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * @return The headers for this specific `scm_ip_restriction` as defined below.
      * 
      */
     public Optional<Output<SlotSiteConfigScmIpRestrictionHeadersArgs>> headers() {
@@ -63,14 +63,14 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+     * The name for this IP Restriction.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+     * @return The name for this IP Restriction.
      * 
      */
     public Optional<Output<String>> name() {
@@ -153,7 +153,7 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param action Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         * @param action Allow or Deny access for this IP range. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param action Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         * @param action Allow or Deny access for this IP range. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param headers The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         * @param headers The headers for this specific `scm_ip_restriction` as defined below.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param headers The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         * @param headers The headers for this specific `scm_ip_restriction` as defined below.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+         * @param name The name for this IP Restriction.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+         * @param name The name for this IP Restriction.
          * 
          * @return builder
          * 

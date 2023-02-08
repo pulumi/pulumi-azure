@@ -73,7 +73,7 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
      */
     public readonly integrationAccountName!: pulumi.Output<string>;
     /**
-     * The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+     * The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
      */
     public readonly mapType!: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export interface IntegrationAccountMapState {
      */
     integrationAccountName?: pulumi.Input<string>;
     /**
-     * The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+     * The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
      */
     mapType?: pulumi.Input<string>;
     /**
@@ -177,7 +177,7 @@ export interface IntegrationAccountMapArgs {
      */
     integrationAccountName: pulumi.Input<string>;
     /**
-     * The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+     * The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
      */
     mapType: pulumi.Input<string>;
     /**

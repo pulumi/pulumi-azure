@@ -121,6 +121,9 @@ namespace Pulumi.Azure.HDInsight
         [Output("computeIsolation")]
         public Output<Outputs.KafkaClusterComputeIsolation?> ComputeIsolation { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more `disk_encryption` block as defined below.
+        /// </summary>
         [Output("diskEncryptions")]
         public Output<ImmutableArray<Outputs.KafkaClusterDiskEncryption>> DiskEncryptions { get; private set; } = null!;
 
@@ -310,6 +313,10 @@ namespace Pulumi.Azure.HDInsight
 
         [Input("diskEncryptions")]
         private InputList<Inputs.KafkaClusterDiskEncryptionArgs>? _diskEncryptions;
+
+        /// <summary>
+        /// One or more `disk_encryption` block as defined below.
+        /// </summary>
         public InputList<Inputs.KafkaClusterDiskEncryptionArgs> DiskEncryptions
         {
             get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.KafkaClusterDiskEncryptionArgs>());
@@ -458,6 +465,10 @@ namespace Pulumi.Azure.HDInsight
 
         [Input("diskEncryptions")]
         private InputList<Inputs.KafkaClusterDiskEncryptionGetArgs>? _diskEncryptions;
+
+        /// <summary>
+        /// One or more `disk_encryption` block as defined below.
+        /// </summary>
         public InputList<Inputs.KafkaClusterDiskEncryptionGetArgs> DiskEncryptions
         {
             get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.KafkaClusterDiskEncryptionGetArgs>());

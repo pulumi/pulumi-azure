@@ -18,14 +18,14 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
     public static final ReplicationRecoveryPlanState Empty = new ReplicationRecoveryPlanState();
 
     /**
-     * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+     * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+     * @return The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,14 +48,14 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the vault that should be updated.
+     * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryVaultId")
     private @Nullable Output<String> recoveryVaultId;
 
     /**
-     * @return The ID of the vault that should be updated.
+     * @return The ID of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> recoveryVaultId() {
@@ -121,7 +121,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+         * @param name The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+         * @param name The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoveryVaultId The ID of the vault that should be updated.
+         * @param recoveryVaultId The ID of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recoveryVaultId The ID of the vault that should be updated.
+         * @param recoveryVaultId The ID of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

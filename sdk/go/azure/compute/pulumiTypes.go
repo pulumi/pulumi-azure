@@ -12569,7 +12569,7 @@ type ScaleSetIdentity struct {
 	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
-	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -12588,7 +12588,7 @@ type ScaleSetIdentityArgs struct {
 	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
-	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -12678,7 +12678,7 @@ func (o ScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o ScaleSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -12726,7 +12726,7 @@ func (o ScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o ScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetIdentity) *string {
 		if v == nil {
@@ -13928,7 +13928,7 @@ func (o ScaleSetOsProfileSecretArrayOutput) Index(i pulumi.IntInput) ScaleSetOsP
 }
 
 type ScaleSetOsProfileSecretVaultCertificate struct {
-	// Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+	// (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
 	CertificateStore *string `pulumi:"certificateStore"`
 	// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
 	CertificateUrl string `pulumi:"certificateUrl"`
@@ -13946,7 +13946,7 @@ type ScaleSetOsProfileSecretVaultCertificateInput interface {
 }
 
 type ScaleSetOsProfileSecretVaultCertificateArgs struct {
-	// Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+	// (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
 	CertificateStore pulumi.StringPtrInput `pulumi:"certificateStore"`
 	// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
 	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
@@ -14003,7 +14003,7 @@ func (o ScaleSetOsProfileSecretVaultCertificateOutput) ToScaleSetOsProfileSecret
 	return o
 }
 
-// Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+// (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
 func (o ScaleSetOsProfileSecretVaultCertificateOutput) CertificateStore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetOsProfileSecretVaultCertificate) *string { return v.CertificateStore }).(pulumi.StringPtrOutput)
 }

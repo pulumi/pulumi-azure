@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSlotConnectionString
     {
         /// <summary>
-        /// The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        /// The name of the connection String.
         /// </summary>
         public readonly string Name;
         /// <summary>

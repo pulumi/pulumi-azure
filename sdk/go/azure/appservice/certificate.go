@@ -82,6 +82,8 @@ type Certificate struct {
 	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
 	// List of host names the certificate applies to.
 	HostNames pulumi.StringArrayOutput `pulumi:"hostNames"`
+	// The ID of the App Service Environment where the certificate is in use.
+	HostingEnvironmentProfileId pulumi.StringOutput `pulumi:"hostingEnvironmentProfileId"`
 	// The issue date for the certificate.
 	IssueDate pulumi.StringOutput `pulumi:"issueDate"`
 	// The name of the certificate issuer.
@@ -99,8 +101,9 @@ type Certificate struct {
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The subject name of the certificate.
-	SubjectName pulumi.StringOutput    `pulumi:"subjectName"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The thumbprint for the certificate.
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 }
@@ -156,6 +159,8 @@ type certificateState struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// List of host names the certificate applies to.
 	HostNames []string `pulumi:"hostNames"`
+	// The ID of the App Service Environment where the certificate is in use.
+	HostingEnvironmentProfileId *string `pulumi:"hostingEnvironmentProfileId"`
 	// The issue date for the certificate.
 	IssueDate *string `pulumi:"issueDate"`
 	// The name of the certificate issuer.
@@ -173,8 +178,9 @@ type certificateState struct {
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The subject name of the certificate.
-	SubjectName *string           `pulumi:"subjectName"`
-	Tags        map[string]string `pulumi:"tags"`
+	SubjectName *string `pulumi:"subjectName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The thumbprint for the certificate.
 	Thumbprint *string `pulumi:"thumbprint"`
 }
@@ -188,6 +194,8 @@ type CertificateState struct {
 	FriendlyName pulumi.StringPtrInput
 	// List of host names the certificate applies to.
 	HostNames pulumi.StringArrayInput
+	// The ID of the App Service Environment where the certificate is in use.
+	HostingEnvironmentProfileId pulumi.StringPtrInput
 	// The issue date for the certificate.
 	IssueDate pulumi.StringPtrInput
 	// The name of the certificate issuer.
@@ -206,7 +214,8 @@ type CertificateState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The subject name of the certificate.
 	SubjectName pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The thumbprint for the certificate.
 	Thumbprint pulumi.StringPtrInput
 }
@@ -229,8 +238,9 @@ type certificateArgs struct {
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
 	PfxBlob *string `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Certificate resource.
@@ -249,7 +259,8 @@ type CertificateArgs struct {
 	PfxBlob pulumi.StringPtrInput
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {
@@ -359,6 +370,11 @@ func (o CertificateOutput) HostNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.HostNames }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the App Service Environment where the certificate is in use.
+func (o CertificateOutput) HostingEnvironmentProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.HostingEnvironmentProfileId }).(pulumi.StringOutput)
+}
+
 // The issue date for the certificate.
 func (o CertificateOutput) IssueDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.IssueDate }).(pulumi.StringOutput)
@@ -404,6 +420,7 @@ func (o CertificateOutput) SubjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.SubjectName }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the resource.
 func (o CertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

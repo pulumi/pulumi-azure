@@ -84,7 +84,7 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly location: string;
     /**
-     * The user-defined name of the revoked certificate.
+     * The user-defined name of the root certificate.
      */
     readonly name: string;
     /**

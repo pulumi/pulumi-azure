@@ -23,6 +23,7 @@ class MedtechServiceFhirDestinationArgs:
         """
         The set of arguments for constructing a MedtechServiceFhirDestination resource.
         :param pulumi.Input[str] destination_fhir_mapping_json: Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
+        :param pulumi.Input[str] destination_fhir_service_id: Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
         :param pulumi.Input[str] destination_identity_resolution_type: Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
         :param pulumi.Input[str] medtech_service_id: Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
@@ -52,6 +53,9 @@ class MedtechServiceFhirDestinationArgs:
     @property
     @pulumi.getter(name="destinationFhirServiceId")
     def destination_fhir_service_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+        """
         return pulumi.get(self, "destination_fhir_service_id")
 
     @destination_fhir_service_id.setter
@@ -119,6 +123,7 @@ class _MedtechServiceFhirDestinationState:
         """
         Input properties used for looking up and filtering MedtechServiceFhirDestination resources.
         :param pulumi.Input[str] destination_fhir_mapping_json: Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
+        :param pulumi.Input[str] destination_fhir_service_id: Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
         :param pulumi.Input[str] destination_identity_resolution_type: Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         :param pulumi.Input[str] medtech_service_id: Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
@@ -152,6 +157,9 @@ class _MedtechServiceFhirDestinationState:
     @property
     @pulumi.getter(name="destinationFhirServiceId")
     def destination_fhir_service_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+        """
         return pulumi.get(self, "destination_fhir_service_id")
 
     @destination_fhir_service_id.setter
@@ -271,6 +279,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_fhir_mapping_json: Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
+        :param pulumi.Input[str] destination_fhir_service_id: Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
         :param pulumi.Input[str] destination_identity_resolution_type: Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         :param pulumi.Input[str] medtech_service_id: Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
@@ -399,6 +408,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_fhir_mapping_json: Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
+        :param pulumi.Input[str] destination_fhir_service_id: Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
         :param pulumi.Input[str] destination_identity_resolution_type: Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         :param pulumi.Input[str] medtech_service_id: Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
@@ -427,6 +437,9 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationFhirServiceId")
     def destination_fhir_service_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+        """
         return pulumi.get(self, "destination_fhir_service_id")
 
     @property

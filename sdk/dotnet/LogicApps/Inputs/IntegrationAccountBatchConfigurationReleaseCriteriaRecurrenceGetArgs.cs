@@ -19,7 +19,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
-        /// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+        /// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
         /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;

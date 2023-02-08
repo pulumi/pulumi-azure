@@ -18,7 +18,9 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The SHA1 thumbprint of the certificate to be revoked.
+        /// The public certificate of the root certificate
+        /// authority. The certificate must be provided in Base-64 encoded X.509 format
+        /// (PEM).
         /// </summary>
         public readonly string PublicCertData;
 

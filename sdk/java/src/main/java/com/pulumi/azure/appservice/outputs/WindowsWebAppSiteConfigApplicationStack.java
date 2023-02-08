@@ -72,7 +72,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
      */
     private @Nullable String nodeVersion;
     /**
-     * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `v7.1`, `v7.4` and `Off`.
+     * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
      * 
      */
     private @Nullable String phpVersion;
@@ -177,7 +177,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.nodeVersion);
     }
     /**
-     * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `v7.1`, `v7.4` and `Off`.
+     * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
      * 
      */
     public Optional<String> phpVersion() {

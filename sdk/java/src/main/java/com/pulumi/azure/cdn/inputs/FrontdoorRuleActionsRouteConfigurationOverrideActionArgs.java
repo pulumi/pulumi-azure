@@ -78,14 +78,14 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
     }
 
     /**
-     * The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+     * The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
      * 
      */
     @Import(name="forwardingProtocol")
     private @Nullable Output<String> forwardingProtocol;
 
     /**
-     * @return The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+     * @return The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
      * 
      */
     public Optional<Output<String>> forwardingProtocol() {
@@ -237,7 +237,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
         }
 
         /**
-         * @param forwardingProtocol The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+         * @param forwardingProtocol The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs exte
         }
 
         /**
-         * @param forwardingProtocol The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+         * @param forwardingProtocol The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
          * 
          * @return builder
          * 

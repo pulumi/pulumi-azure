@@ -128,6 +128,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.hostNames;
     }
     /**
+     * The ID of the App Service Environment where the certificate is in use.
+     * 
+     */
+    @Export(name="hostingEnvironmentProfileId", type=String.class, parameters={})
+    private Output<String> hostingEnvironmentProfileId;
+
+    /**
+     * @return The ID of the App Service Environment where the certificate is in use.
+     * 
+     */
+    public Output<String> hostingEnvironmentProfileId() {
+        return this.hostingEnvironmentProfileId;
+    }
+    /**
      * The issue date for the certificate.
      * 
      */
@@ -253,9 +267,17 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<String> subjectName() {
         return this.subjectName;
     }
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

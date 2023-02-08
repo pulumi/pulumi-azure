@@ -122,6 +122,21 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.tunnelInterfaces);
     }
 
+    /**
+     * The ID of the Virtual Network within which the Backend Address Pool should exist.
+     * 
+     */
+    @Import(name="virtualNetworkId")
+    private @Nullable Output<String> virtualNetworkId;
+
+    /**
+     * @return The ID of the Virtual Network within which the Backend Address Pool should exist.
+     * 
+     */
+    public Optional<Output<String>> virtualNetworkId() {
+        return Optional.ofNullable(this.virtualNetworkId);
+    }
+
     private BackendAddressPoolState() {}
 
     private BackendAddressPoolState(BackendAddressPoolState $) {
@@ -132,6 +147,7 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
         this.name = $.name;
         this.outboundRules = $.outboundRules;
         this.tunnelInterfaces = $.tunnelInterfaces;
+        this.virtualNetworkId = $.virtualNetworkId;
     }
 
     public static Builder builder() {
@@ -347,6 +363,27 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
          */
         public Builder tunnelInterfaces(BackendAddressPoolTunnelInterfaceArgs... tunnelInterfaces) {
             return tunnelInterfaces(List.of(tunnelInterfaces));
+        }
+
+        /**
+         * @param virtualNetworkId The ID of the Virtual Network within which the Backend Address Pool should exist.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkId(@Nullable Output<String> virtualNetworkId) {
+            $.virtualNetworkId = virtualNetworkId;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkId The ID of the Virtual Network within which the Backend Address Pool should exist.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkId(String virtualNetworkId) {
+            return virtualNetworkId(Output.of(virtualNetworkId));
         }
 
         public BackendAddressPoolState build() {

@@ -176,9 +176,17 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<HBaseClusterComputeIsolation>> computeIsolation() {
         return Codegen.optional(this.computeIsolation);
     }
+    /**
+     * One or more `disk_encryption` block as defined below.
+     * 
+     */
     @Export(name="diskEncryptions", type=List.class, parameters={HBaseClusterDiskEncryption.class})
     private Output</* @Nullable */ List<HBaseClusterDiskEncryption>> diskEncryptions;
 
+    /**
+     * @return One or more `disk_encryption` block as defined below.
+     * 
+     */
     public Output<Optional<List<HBaseClusterDiskEncryption>>> diskEncryptions() {
         return Codegen.optional(this.diskEncryptions);
     }

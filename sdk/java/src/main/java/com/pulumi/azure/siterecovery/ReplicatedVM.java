@@ -8,6 +8,7 @@ import com.pulumi.azure.siterecovery.ReplicatedVMArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicatedVMState;
 import com.pulumi.azure.siterecovery.outputs.ReplicatedVMManagedDisk;
 import com.pulumi.azure.siterecovery.outputs.ReplicatedVMNetworkInterface;
+import com.pulumi.azure.siterecovery.outputs.ReplicatedVMUnmanagedDisk;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -281,6 +282,20 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.managedDisks);
     }
     /**
+     * Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+     * 
+     */
+    @Export(name="multiVmGroupName", type=String.class, parameters={})
+    private Output</* @Nullable */ String> multiVmGroupName;
+
+    /**
+     * @return Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+     * 
+     */
+    public Output<Optional<String>> multiVmGroupName() {
+        return Codegen.optional(this.multiVmGroupName);
+    }
+    /**
      * The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      * 
      */
@@ -296,6 +311,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
     }
     /**
      * One or more `network_interface` block as defined below.
+     * *
      * 
      */
     @Export(name="networkInterfaces", type=List.class, parameters={ReplicatedVMNetworkInterface.class})
@@ -303,6 +319,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
 
     /**
      * @return One or more `network_interface` block as defined below.
+     * *
      * 
      */
     public Output<List<ReplicatedVMNetworkInterface>> networkInterfaces() {
@@ -407,6 +424,48 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.targetAvailabilitySetId);
     }
     /**
+     * Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+     * 
+     */
+    @Export(name="targetBootDiagnosticStorageAccountId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> targetBootDiagnosticStorageAccountId;
+
+    /**
+     * @return Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+     * 
+     */
+    public Output<Optional<String>> targetBootDiagnosticStorageAccountId() {
+        return Codegen.optional(this.targetBootDiagnosticStorageAccountId);
+    }
+    /**
+     * Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+     * 
+     */
+    @Export(name="targetCapacityReservationGroupId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> targetCapacityReservationGroupId;
+
+    /**
+     * @return Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+     * 
+     */
+    public Output<Optional<String>> targetCapacityReservationGroupId() {
+        return Codegen.optional(this.targetCapacityReservationGroupId);
+    }
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="targetEdgeZone", type=String.class, parameters={})
+    private Output</* @Nullable */ String> targetEdgeZone;
+
+    /**
+     * @return Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> targetEdgeZone() {
+        return Codegen.optional(this.targetEdgeZone);
+    }
+    /**
      * Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
      * 
      */
@@ -419,6 +478,20 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      */
     public Output<String> targetNetworkId() {
         return this.targetNetworkId;
+    }
+    /**
+     * Id of Proximity Placement Group the new VM should belong to when a failover is done.
+     * 
+     */
+    @Export(name="targetProximityPlacementGroupId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> targetProximityPlacementGroupId;
+
+    /**
+     * @return Id of Proximity Placement Group the new VM should belong to when a failover is done.
+     * 
+     */
+    public Output<Optional<String>> targetProximityPlacementGroupId() {
+        return Codegen.optional(this.targetProximityPlacementGroupId);
     }
     /**
      * Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
@@ -463,6 +536,20 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return this.targetResourceGroupId;
     }
     /**
+     * Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+     * 
+     */
+    @Export(name="targetVirtualMachineScaleSetId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> targetVirtualMachineScaleSetId;
+
+    /**
+     * @return Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+     * 
+     */
+    public Output<Optional<String>> targetVirtualMachineScaleSetId() {
+        return Codegen.optional(this.targetVirtualMachineScaleSetId);
+    }
+    /**
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -475,6 +562,26 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> targetZone() {
         return Codegen.optional(this.targetZone);
+    }
+    @Export(name="testNetworkId", type=String.class, parameters={})
+    private Output<String> testNetworkId;
+
+    public Output<String> testNetworkId() {
+        return this.testNetworkId;
+    }
+    /**
+     * One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="unmanagedDisks", type=List.class, parameters={ReplicatedVMUnmanagedDisk.class})
+    private Output</* @Nullable */ List<ReplicatedVMUnmanagedDisk>> unmanagedDisks;
+
+    /**
+     * @return One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<List<ReplicatedVMUnmanagedDisk>>> unmanagedDisks() {
+        return Codegen.optional(this.unmanagedDisks);
     }
 
     /**

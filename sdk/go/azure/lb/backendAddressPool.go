@@ -96,6 +96,8 @@ type BackendAddressPool struct {
 	OutboundRules pulumi.StringArrayOutput `pulumi:"outboundRules"`
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayOutput `pulumi:"tunnelInterfaces"`
+	// The ID of the Virtual Network within which the Backend Address Pool should exist.
+	VirtualNetworkId pulumi.StringPtrOutput `pulumi:"virtualNetworkId"`
 }
 
 // NewBackendAddressPool registers a new resource with the given unique name, arguments, and options.
@@ -144,6 +146,8 @@ type backendAddressPoolState struct {
 	OutboundRules []string `pulumi:"outboundRules"`
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces []BackendAddressPoolTunnelInterface `pulumi:"tunnelInterfaces"`
+	// The ID of the Virtual Network within which the Backend Address Pool should exist.
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 }
 
 type BackendAddressPoolState struct {
@@ -161,6 +165,8 @@ type BackendAddressPoolState struct {
 	OutboundRules pulumi.StringArrayInput
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayInput
+	// The ID of the Virtual Network within which the Backend Address Pool should exist.
+	VirtualNetworkId pulumi.StringPtrInput
 }
 
 func (BackendAddressPoolState) ElementType() reflect.Type {
@@ -174,6 +180,8 @@ type backendAddressPoolArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces []BackendAddressPoolTunnelInterface `pulumi:"tunnelInterfaces"`
+	// The ID of the Virtual Network within which the Backend Address Pool should exist.
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 }
 
 // The set of arguments for constructing a BackendAddressPool resource.
@@ -184,6 +192,8 @@ type BackendAddressPoolArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayInput
+	// The ID of the Virtual Network within which the Backend Address Pool should exist.
+	VirtualNetworkId pulumi.StringPtrInput
 }
 
 func (BackendAddressPoolArgs) ElementType() reflect.Type {
@@ -306,6 +316,11 @@ func (o BackendAddressPoolOutput) OutboundRules() pulumi.StringArrayOutput {
 // One or more `tunnelInterface` blocks as defined below.
 func (o BackendAddressPoolOutput) TunnelInterfaces() BackendAddressPoolTunnelInterfaceArrayOutput {
 	return o.ApplyT(func(v *BackendAddressPool) BackendAddressPoolTunnelInterfaceArrayOutput { return v.TunnelInterfaces }).(BackendAddressPoolTunnelInterfaceArrayOutput)
+}
+
+// The ID of the Virtual Network within which the Backend Address Pool should exist.
+func (o BackendAddressPoolOutput) VirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendAddressPool) pulumi.StringPtrOutput { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 type BackendAddressPoolArrayOutput struct{ *pulumi.OutputState }

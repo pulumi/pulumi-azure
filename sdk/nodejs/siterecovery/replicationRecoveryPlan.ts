@@ -90,7 +90,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+     * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -98,7 +98,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
      */
     public readonly recoveryGroups!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup[] | undefined>;
     /**
-     * The ID of the vault that should be updated.
+     * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      */
     public readonly recoveryVaultId!: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
  */
 export interface ReplicationRecoveryPlanState {
     /**
-     * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+     * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -163,7 +163,7 @@ export interface ReplicationRecoveryPlanState {
      */
     recoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup>[]>;
     /**
-     * The ID of the vault that should be updated.
+     * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultId?: pulumi.Input<string>;
     /**
@@ -181,7 +181,7 @@ export interface ReplicationRecoveryPlanState {
  */
 export interface ReplicationRecoveryPlanArgs {
     /**
-     * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+     * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -189,7 +189,7 @@ export interface ReplicationRecoveryPlanArgs {
      */
     recoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup>[]>;
     /**
-     * The ID of the vault that should be updated.
+     * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultId: pulumi.Input<string>;
     /**

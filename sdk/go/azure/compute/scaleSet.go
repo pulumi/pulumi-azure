@@ -203,7 +203,8 @@ type ScaleSet struct {
 	Extensions ScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
-	Identity      ScaleSetIdentityOutput `pulumi:"identity"`
+	// An `identity` block as defined below.
+	Identity ScaleSetIdentityOutput `pulumi:"identity"`
 	// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -306,8 +307,9 @@ type scaleSetState struct {
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions []ScaleSetExtension `pulumi:"extensions"`
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
-	HealthProbeId *string           `pulumi:"healthProbeId"`
-	Identity      *ScaleSetIdentity `pulumi:"identity"`
+	HealthProbeId *string `pulumi:"healthProbeId"`
+	// An `identity` block as defined below.
+	Identity *ScaleSetIdentity `pulumi:"identity"`
 	// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -365,7 +367,8 @@ type ScaleSetState struct {
 	Extensions ScaleSetExtensionArrayInput
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId pulumi.StringPtrInput
-	Identity      ScaleSetIdentityPtrInput
+	// An `identity` block as defined below.
+	Identity ScaleSetIdentityPtrInput
 	// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -426,8 +429,9 @@ type scaleSetArgs struct {
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions []ScaleSetExtension `pulumi:"extensions"`
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
-	HealthProbeId *string           `pulumi:"healthProbeId"`
-	Identity      *ScaleSetIdentity `pulumi:"identity"`
+	HealthProbeId *string `pulumi:"healthProbeId"`
+	// An `identity` block as defined below.
+	Identity *ScaleSetIdentity `pulumi:"identity"`
 	// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -486,7 +490,8 @@ type ScaleSetArgs struct {
 	Extensions ScaleSetExtensionArrayInput
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId pulumi.StringPtrInput
-	Identity      ScaleSetIdentityPtrInput
+	// An `identity` block as defined below.
+	Identity ScaleSetIdentityPtrInput
 	// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -645,6 +650,7 @@ func (o ScaleSetOutput) HealthProbeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringPtrOutput { return v.HealthProbeId }).(pulumi.StringPtrOutput)
 }
 
+// An `identity` block as defined below.
 func (o ScaleSetOutput) Identity() ScaleSetIdentityOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetIdentityOutput { return v.Identity }).(ScaleSetIdentityOutput)
 }

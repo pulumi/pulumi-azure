@@ -33,14 +33,14 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The same reference as `container_registries` block defined as follows.
+     * The same reference as `container_registries` block defined as below.
      * 
      */
     @Import(name="registries")
     private @Nullable Output<List<PoolStartTaskContainerRegistryArgs>> registries;
 
     /**
-     * @return The same reference as `container_registries` block defined as follows.
+     * @return The same reference as `container_registries` block defined as below.
      * 
      */
     public Optional<Output<List<PoolStartTaskContainerRegistryArgs>>> registries() {
@@ -126,7 +126,7 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param registries The same reference as `container_registries` block defined as follows.
+         * @param registries The same reference as `container_registries` block defined as below.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param registries The same reference as `container_registries` block defined as follows.
+         * @param registries The same reference as `container_registries` block defined as below.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param registries The same reference as `container_registries` block defined as follows.
+         * @param registries The same reference as `container_registries` block defined as below.
          * 
          * @return builder
          * 

@@ -57,6 +57,9 @@ export class SourceControlToken extends pulumi.CustomResource {
      * The Access Token.
      */
     public readonly token!: pulumi.Output<string>;
+    /**
+     * The Access Token Secret.
+     */
     public readonly tokenSecret!: pulumi.Output<string | undefined>;
     /**
      * The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
@@ -106,6 +109,9 @@ export interface SourceControlTokenState {
      * The Access Token.
      */
     token?: pulumi.Input<string>;
+    /**
+     * The Access Token Secret.
+     */
     tokenSecret?: pulumi.Input<string>;
     /**
      * The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
@@ -121,6 +127,9 @@ export interface SourceControlTokenArgs {
      * The Access Token.
      */
     token: pulumi.Input<string>;
+    /**
+     * The Access Token Secret.
+     */
     tokenSecret?: pulumi.Input<string>;
     /**
      * The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.

@@ -128,6 +128,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         /// </summary>
         public readonly bool? VnetRouteAllEnabled;
+        /// <summary>
+        /// Should Web Sockets be enabled? Defaults to `false`.
+        /// </summary>
         public readonly bool? WebsocketsEnabled;
         /// <summary>
         /// The number of Workers for this Linux App Service Slot.

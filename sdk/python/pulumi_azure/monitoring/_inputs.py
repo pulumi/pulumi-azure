@@ -6602,7 +6602,7 @@ class ScheduledQueryRulesAlertV2ActionArgs:
                  action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] action_groups: List of Action Group resource ids to invoke when the alert fires.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] action_groups: List of Action Group resource IDs to invoke when the alert fires.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Specifies the properties of an alert payload.
         """
         if action_groups is not None:
@@ -6614,7 +6614,7 @@ class ScheduledQueryRulesAlertV2ActionArgs:
     @pulumi.getter(name="actionGroups")
     def action_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Action Group resource ids to invoke when the alert fires.
+        List of Action Group resource IDs to invoke when the alert fires.
         """
         return pulumi.get(self, "action_groups")
 
@@ -6654,7 +6654,7 @@ class ScheduledQueryRulesAlertV2CriteriaArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaDimensionArgs']]] dimensions: A `dimension` block as defined below.
         :param pulumi.Input['ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs'] failing_periods: A `failing_periods` block as defined below.
         :param pulumi.Input[str] metric_measure_column: Specifies the column containing the metric measure number.
-        :param pulumi.Input[str] resource_id_column: Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+        :param pulumi.Input[str] resource_id_column: Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "query", query)
@@ -6757,7 +6757,7 @@ class ScheduledQueryRulesAlertV2CriteriaArgs:
     @pulumi.getter(name="resourceIdColumn")
     def resource_id_column(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+        Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
         """
         return pulumi.get(self, "resource_id_column")
 

@@ -18,14 +18,14 @@ public final class ScheduledQueryRulesAlertV2ActionArgs extends com.pulumi.resou
     public static final ScheduledQueryRulesAlertV2ActionArgs Empty = new ScheduledQueryRulesAlertV2ActionArgs();
 
     /**
-     * List of Action Group resource ids to invoke when the alert fires.
+     * List of Action Group resource IDs to invoke when the alert fires.
      * 
      */
     @Import(name="actionGroups")
     private @Nullable Output<List<String>> actionGroups;
 
     /**
-     * @return List of Action Group resource ids to invoke when the alert fires.
+     * @return List of Action Group resource IDs to invoke when the alert fires.
      * 
      */
     public Optional<Output<List<String>>> actionGroups() {
@@ -73,7 +73,7 @@ public final class ScheduledQueryRulesAlertV2ActionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param actionGroups List of Action Group resource ids to invoke when the alert fires.
+         * @param actionGroups List of Action Group resource IDs to invoke when the alert fires.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ScheduledQueryRulesAlertV2ActionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param actionGroups List of Action Group resource ids to invoke when the alert fires.
+         * @param actionGroups List of Action Group resource IDs to invoke when the alert fires.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ScheduledQueryRulesAlertV2ActionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param actionGroups List of Action Group resource ids to invoke when the alert fires.
+         * @param actionGroups List of Action Group resource IDs to invoke when the alert fires.
          * 
          * @return builder
          * 

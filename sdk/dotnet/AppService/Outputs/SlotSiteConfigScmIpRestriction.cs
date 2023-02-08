@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class SlotSiteConfigScmIpRestriction
     {
         /// <summary>
-        /// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        /// Allow or Deny access for this IP range. Defaults to `Allow`.
         /// </summary>
         public readonly string? Action;
         /// <summary>
-        /// The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        /// The headers for this specific `scm_ip_restriction` as defined below.
         /// </summary>
         public readonly Outputs.SlotSiteConfigScmIpRestrictionHeaders? Headers;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>
-        /// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        /// The name for this IP Restriction.
         /// </summary>
         public readonly string? Name;
         /// <summary>

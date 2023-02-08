@@ -853,7 +853,7 @@ class HBaseClusterRolesHeadNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -866,7 +866,7 @@ class HBaseClusterRolesHeadNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -1166,7 +1166,7 @@ class HBaseClusterRolesWorkerNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -1179,7 +1179,7 @@ class HBaseClusterRolesWorkerNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -1336,7 +1336,7 @@ class HBaseClusterRolesZookeeperNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -1349,7 +1349,7 @@ class HBaseClusterRolesZookeeperNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -2248,6 +2248,8 @@ class HadoopClusterRolesEdgeNodeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]] install_script_actions: A `install_script_action` block as defined below.
         :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]] https_endpoints: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]] uninstall_script_actions: A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "install_script_actions", install_script_actions)
         pulumi.set(__self__, "target_instance_count", target_instance_count)
@@ -2296,6 +2298,9 @@ class HadoopClusterRolesEdgeNodeArgs:
     @property
     @pulumi.getter(name="httpsEndpoints")
     def https_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]]:
+        """
+        The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+        """
         return pulumi.get(self, "https_endpoints")
 
     @https_endpoints.setter
@@ -2305,6 +2310,9 @@ class HadoopClusterRolesEdgeNodeArgs:
     @property
     @pulumi.getter(name="uninstallScriptActions")
     def uninstall_script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]:
+        """
+        A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "uninstall_script_actions")
 
     @uninstall_script_actions.setter
@@ -2459,8 +2467,8 @@ class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name of the uninstall script action. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] uri: The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the uninstall script action.
+        :param pulumi.Input[str] uri: The URI pointing to the script to run during the installation of the edge node.
         :param pulumi.Input[str] parameters: The parameters for the script.
         """
         pulumi.set(__self__, "name", name)
@@ -2472,7 +2480,7 @@ class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the uninstall script action. Changing this forces a new resource to be created.
+        The name of the uninstall script action.
         """
         return pulumi.get(self, "name")
 
@@ -2484,7 +2492,7 @@ class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs:
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
         """
-        The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        The URI pointing to the script to run during the installation of the edge node.
         """
         return pulumi.get(self, "uri")
 
@@ -4173,7 +4181,7 @@ class InteractiveQueryClusterRolesHeadNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -4186,7 +4194,7 @@ class InteractiveQueryClusterRolesHeadNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -4539,7 +4547,7 @@ class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -4552,7 +4560,7 @@ class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -4709,7 +4717,7 @@ class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -4722,7 +4730,7 @@ class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -5660,6 +5668,7 @@ class KafkaClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -5716,6 +5725,9 @@ class KafkaClusterRolesHeadNodeArgs:
     @property
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
@@ -5766,7 +5778,9 @@ class KafkaClusterRolesHeadNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "uri", uri)
@@ -5777,7 +5791,7 @@ class KafkaClusterRolesHeadNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -5788,6 +5802,9 @@ class KafkaClusterRolesHeadNodeScriptActionArgs:
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -5797,6 +5814,9 @@ class KafkaClusterRolesHeadNodeScriptActionArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -5818,6 +5838,7 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -5874,6 +5895,9 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
     @property
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
@@ -5924,7 +5948,9 @@ class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "uri", uri)
@@ -5935,7 +5961,7 @@ class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -5946,6 +5972,9 @@ class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -5955,6 +5984,9 @@ class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -5980,6 +6012,7 @@ class KafkaClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -6062,6 +6095,9 @@ class KafkaClusterRolesWorkerNodeArgs:
     @property
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
@@ -6112,7 +6148,9 @@ class KafkaClusterRolesWorkerNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "uri", uri)
@@ -6123,7 +6161,7 @@ class KafkaClusterRolesWorkerNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -6134,6 +6172,9 @@ class KafkaClusterRolesWorkerNodeScriptActionArgs:
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -6143,6 +6184,9 @@ class KafkaClusterRolesWorkerNodeScriptActionArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -6164,6 +6208,7 @@ class KafkaClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -6220,6 +6265,9 @@ class KafkaClusterRolesZookeeperNodeArgs:
     @property
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
@@ -6270,7 +6318,9 @@ class KafkaClusterRolesZookeeperNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "uri", uri)
@@ -6281,7 +6331,7 @@ class KafkaClusterRolesZookeeperNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -6292,6 +6342,9 @@ class KafkaClusterRolesZookeeperNodeScriptActionArgs:
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -6301,6 +6354,9 @@ class KafkaClusterRolesZookeeperNodeScriptActionArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -7270,7 +7326,7 @@ class SparkClusterRolesHeadNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -7283,7 +7339,7 @@ class SparkClusterRolesHeadNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -7636,7 +7692,7 @@ class SparkClusterRolesWorkerNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -7649,7 +7705,7 @@ class SparkClusterRolesWorkerNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -7806,7 +7862,7 @@ class SparkClusterRolesZookeeperNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -7819,7 +7875,7 @@ class SparkClusterRolesZookeeperNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 

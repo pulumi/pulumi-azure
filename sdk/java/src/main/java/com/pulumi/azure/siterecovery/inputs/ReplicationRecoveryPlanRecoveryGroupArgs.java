@@ -19,14 +19,14 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
     public static final ReplicationRecoveryPlanRecoveryGroupArgs Empty = new ReplicationRecoveryPlanRecoveryGroupArgs();
 
     /**
-     * one or more `action` block. which will be executed after the group recovery.
+     * one or more `action` block as defined below. which will be executed after the group recovery.
      * 
      */
     @Import(name="postActions")
     private @Nullable Output<List<ReplicationRecoveryPlanRecoveryGroupPostActionArgs>> postActions;
 
     /**
-     * @return one or more `action` block. which will be executed after the group recovery.
+     * @return one or more `action` block as defined below. which will be executed after the group recovery.
      * 
      */
     public Optional<Output<List<ReplicationRecoveryPlanRecoveryGroupPostActionArgs>>> postActions() {
@@ -34,14 +34,14 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
     }
 
     /**
-     * one or more `action` block. which will be executed before the group recovery.
+     * one or more `action` block as defined below. which will be executed before the group recovery.
      * 
      */
     @Import(name="preActions")
     private @Nullable Output<List<ReplicationRecoveryPlanRecoveryGroupPreActionArgs>> preActions;
 
     /**
-     * @return one or more `action` block. which will be executed before the group recovery.
+     * @return one or more `action` block as defined below. which will be executed before the group recovery.
      * 
      */
     public Optional<Output<List<ReplicationRecoveryPlanRecoveryGroupPreActionArgs>>> preActions() {
@@ -49,14 +49,14 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
     }
 
     /**
-     * one or more id of protected VM.
+     * (required) one or more id of protected VM.
      * 
      */
     @Import(name="replicatedProtectedItems")
     private @Nullable Output<List<String>> replicatedProtectedItems;
 
     /**
-     * @return one or more id of protected VM.
+     * @return (required) one or more id of protected VM.
      * 
      */
     public Optional<Output<List<String>>> replicatedProtectedItems() {
@@ -106,7 +106,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
         }
 
         /**
-         * @param postActions one or more `action` block. which will be executed after the group recovery.
+         * @param postActions one or more `action` block as defined below. which will be executed after the group recovery.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
         }
 
         /**
-         * @param postActions one or more `action` block. which will be executed after the group recovery.
+         * @param postActions one or more `action` block as defined below. which will be executed after the group recovery.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
         }
 
         /**
-         * @param postActions one or more `action` block. which will be executed after the group recovery.
+         * @param postActions one or more `action` block as defined below. which will be executed after the group recovery.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
         }
 
         /**
-         * @param preActions one or more `action` block. which will be executed before the group recovery.
+         * @param preActions one or more `action` block as defined below. which will be executed before the group recovery.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
         }
 
         /**
-         * @param preActions one or more `action` block. which will be executed before the group recovery.
+         * @param preActions one or more `action` block as defined below. which will be executed before the group recovery.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
         }
 
         /**
-         * @param preActions one or more `action` block. which will be executed before the group recovery.
+         * @param preActions one or more `action` block as defined below. which will be executed before the group recovery.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
         }
 
         /**
-         * @param replicatedProtectedItems one or more id of protected VM.
+         * @param replicatedProtectedItems (required) one or more id of protected VM.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
         }
 
         /**
-         * @param replicatedProtectedItems one or more id of protected VM.
+         * @param replicatedProtectedItems (required) one or more id of protected VM.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupArgs extends com.pulumi.r
         }
 
         /**
-         * @param replicatedProtectedItems one or more id of protected VM.
+         * @param replicatedProtectedItems (required) one or more id of protected VM.
          * 
          * @return builder
          * 

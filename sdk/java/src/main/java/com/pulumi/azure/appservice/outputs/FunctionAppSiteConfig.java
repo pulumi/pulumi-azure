@@ -27,6 +27,10 @@ public final class FunctionAppSiteConfig {
      * 
      */
     private @Nullable Integer appScaleLimit;
+    /**
+     * @return The name of the slot to automatically swap to during deployment
+     * 
+     */
     private @Nullable String autoSwapSlotName;
     /**
      * @return A `cors` block as defined below.
@@ -134,6 +138,10 @@ public final class FunctionAppSiteConfig {
     public Optional<Integer> appScaleLimit() {
         return Optional.ofNullable(this.appScaleLimit);
     }
+    /**
+     * @return The name of the slot to automatically swap to during deployment
+     * 
+     */
     public Optional<String> autoSwapSlotName() {
         return Optional.ofNullable(this.autoSwapSlotName);
     }

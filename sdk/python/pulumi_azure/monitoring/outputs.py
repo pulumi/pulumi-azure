@@ -6352,7 +6352,7 @@ class ScheduledQueryRulesAlertV2Action(dict):
                  action_groups: Optional[Sequence[str]] = None,
                  custom_properties: Optional[Mapping[str, str]] = None):
         """
-        :param Sequence[str] action_groups: List of Action Group resource ids to invoke when the alert fires.
+        :param Sequence[str] action_groups: List of Action Group resource IDs to invoke when the alert fires.
         :param Mapping[str, str] custom_properties: Specifies the properties of an alert payload.
         """
         if action_groups is not None:
@@ -6364,7 +6364,7 @@ class ScheduledQueryRulesAlertV2Action(dict):
     @pulumi.getter(name="actionGroups")
     def action_groups(self) -> Optional[Sequence[str]]:
         """
-        List of Action Group resource ids to invoke when the alert fires.
+        List of Action Group resource IDs to invoke when the alert fires.
         """
         return pulumi.get(self, "action_groups")
 
@@ -6419,7 +6419,7 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
         :param Sequence['ScheduledQueryRulesAlertV2CriteriaDimensionArgs'] dimensions: A `dimension` block as defined below.
         :param 'ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs' failing_periods: A `failing_periods` block as defined below.
         :param str metric_measure_column: Specifies the column containing the metric measure number.
-        :param str resource_id_column: Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+        :param str resource_id_column: Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "query", query)
@@ -6494,7 +6494,7 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
     @pulumi.getter(name="resourceIdColumn")
     def resource_id_column(self) -> Optional[str]:
         """
-        Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+        Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
         """
         return pulumi.get(self, "resource_id_column")
 

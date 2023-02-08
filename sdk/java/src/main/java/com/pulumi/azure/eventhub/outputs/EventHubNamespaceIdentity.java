@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventHubNamespaceIdentity {
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
+     * 
+     */
     private @Nullable List<String> identityIds;
     /**
      * @return The Principal ID associated with this Managed Service Identity.
@@ -30,6 +34,10 @@ public final class EventHubNamespaceIdentity {
     private String type;
 
     private EventHubNamespaceIdentity() {}
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
+     * 
+     */
     public List<String> identityIds() {
         return this.identityIds == null ? List.of() : this.identityIds;
     }

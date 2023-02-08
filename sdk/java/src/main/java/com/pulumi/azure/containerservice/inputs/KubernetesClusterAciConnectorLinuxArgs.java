@@ -3,15 +3,34 @@
 
 package com.pulumi.azure.containerservice.inputs;
 
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterAciConnectorLinuxConnectorIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KubernetesClusterAciConnectorLinuxArgs Empty = new KubernetesClusterAciConnectorLinuxArgs();
+
+    /**
+     * A `connector_identity` block is exported. The exported attributes are defined below.
+     * 
+     */
+    @Import(name="connectorIdentities")
+    private @Nullable Output<List<KubernetesClusterAciConnectorLinuxConnectorIdentityArgs>> connectorIdentities;
+
+    /**
+     * @return A `connector_identity` block is exported. The exported attributes are defined below.
+     * 
+     */
+    public Optional<Output<List<KubernetesClusterAciConnectorLinuxConnectorIdentityArgs>>> connectorIdentities() {
+        return Optional.ofNullable(this.connectorIdentities);
+    }
 
     /**
      * The subnet name for the virtual nodes to run.
@@ -31,6 +50,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
     private KubernetesClusterAciConnectorLinuxArgs() {}
 
     private KubernetesClusterAciConnectorLinuxArgs(KubernetesClusterAciConnectorLinuxArgs $) {
+        this.connectorIdentities = $.connectorIdentities;
         this.subnetName = $.subnetName;
     }
 
@@ -50,6 +70,37 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
 
         public Builder(KubernetesClusterAciConnectorLinuxArgs defaults) {
             $ = new KubernetesClusterAciConnectorLinuxArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param connectorIdentities A `connector_identity` block is exported. The exported attributes are defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectorIdentities(@Nullable Output<List<KubernetesClusterAciConnectorLinuxConnectorIdentityArgs>> connectorIdentities) {
+            $.connectorIdentities = connectorIdentities;
+            return this;
+        }
+
+        /**
+         * @param connectorIdentities A `connector_identity` block is exported. The exported attributes are defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectorIdentities(List<KubernetesClusterAciConnectorLinuxConnectorIdentityArgs> connectorIdentities) {
+            return connectorIdentities(Output.of(connectorIdentities));
+        }
+
+        /**
+         * @param connectorIdentities A `connector_identity` block is exported. The exported attributes are defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectorIdentities(KubernetesClusterAciConnectorLinuxConnectorIdentityArgs... connectorIdentities) {
+            return connectorIdentities(List.of(connectorIdentities));
         }
 
         /**

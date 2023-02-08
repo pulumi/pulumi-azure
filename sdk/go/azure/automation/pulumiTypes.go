@@ -2455,7 +2455,7 @@ type SoftwareUpdateConfigurationSchedule struct {
 	// Whether the schedule is enabled.
 	IsEnabled        *bool   `pulumi:"isEnabled"`
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
+	// List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
 	MonthlyOccurrences   []SoftwareUpdateConfigurationScheduleMonthlyOccurrence `pulumi:"monthlyOccurrences"`
 	NextRun              *string                                                `pulumi:"nextRun"`
 	NextRunOffsetMinutes *float64                                               `pulumi:"nextRunOffsetMinutes"`
@@ -2495,7 +2495,7 @@ type SoftwareUpdateConfigurationScheduleArgs struct {
 	// Whether the schedule is enabled.
 	IsEnabled        pulumi.BoolPtrInput   `pulumi:"isEnabled"`
 	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
-	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
+	// List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
 	MonthlyOccurrences   SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayInput `pulumi:"monthlyOccurrences"`
 	NextRun              pulumi.StringPtrInput                                          `pulumi:"nextRun"`
 	NextRunOffsetMinutes pulumi.Float64PtrInput                                         `pulumi:"nextRunOffsetMinutes"`
@@ -2604,7 +2604,7 @@ func (o SoftwareUpdateConfigurationScheduleOutput) LastModifiedTime() pulumi.Str
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
+// List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
 func (o SoftwareUpdateConfigurationScheduleOutput) MonthlyOccurrences() SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) []SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
 		return v.MonthlyOccurrences

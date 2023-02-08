@@ -149,7 +149,7 @@ class GetVirtualNetworkGatewayResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The user-defined name of the revoked certificate.
+        The user-defined name of the root certificate.
         """
         return pulumi.get(self, "name")
 

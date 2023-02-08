@@ -50,9 +50,17 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.capacity);
     }
 
+    /**
+     * The publicly accessible IP of the Web PubSub service.
+     * 
+     */
     @Import(name="externalIp")
     private @Nullable Output<String> externalIp;
 
+    /**
+     * @return The publicly accessible IP of the Web PubSub service.
+     * 
+     */
     public Optional<Output<String>> externalIp() {
         return Optional.ofNullable(this.externalIp);
     }
@@ -405,11 +413,23 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
             return capacity(Output.of(capacity));
         }
 
+        /**
+         * @param externalIp The publicly accessible IP of the Web PubSub service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalIp(@Nullable Output<String> externalIp) {
             $.externalIp = externalIp;
             return this;
         }
 
+        /**
+         * @param externalIp The publicly accessible IP of the Web PubSub service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalIp(String externalIp) {
             return externalIp(Output.of(externalIp));
         }

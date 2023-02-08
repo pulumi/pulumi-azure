@@ -177,9 +177,17 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<SparkClusterComputeIsolation>> computeIsolation() {
         return Codegen.optional(this.computeIsolation);
     }
+    /**
+     * One or more `disk_encryption` block as defined below.
+     * 
+     */
     @Export(name="diskEncryptions", type=List.class, parameters={SparkClusterDiskEncryption.class})
     private Output</* @Nullable */ List<SparkClusterDiskEncryption>> diskEncryptions;
 
+    /**
+     * @return One or more `disk_encryption` block as defined below.
+     * 
+     */
     public Output<Optional<List<SparkClusterDiskEncryption>>> diskEncryptions() {
         return Codegen.optional(this.diskEncryptions);
     }

@@ -12,6 +12,24 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
 
     public sealed class ReplicatedVMNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the public IP object to use when a test failover is done.
+        /// </summary>
+        [Input("failoverTestPublicIpAddressId")]
+        public Input<string>? FailoverTestPublicIpAddressId { get; set; }
+
+        /// <summary>
+        /// Static IP to assign when a test failover is done.
+        /// </summary>
+        [Input("failoverTestStaticIp")]
+        public Input<string>? FailoverTestStaticIp { get; set; }
+
+        /// <summary>
+        /// Name of the subnet to to use when a test failover is done.
+        /// </summary>
+        [Input("failoverTestSubnetName")]
+        public Input<string>? FailoverTestSubnetName { get; set; }
+
         [Input("isPrimary")]
         public Input<bool>? IsPrimary { get; set; }
 

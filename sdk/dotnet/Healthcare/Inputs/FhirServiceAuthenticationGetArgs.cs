@@ -21,6 +21,9 @@ namespace Pulumi.Azure.Healthcare.Inputs
         [Input("authority", required: true)]
         public Input<string> Authority { get; set; } = null!;
 
+        /// <summary>
+        /// Whether smart proxy is enabled.
+        /// </summary>
         [Input("smartProxyEnabled")]
         public Input<bool>? SmartProxyEnabled { get; set; }
 

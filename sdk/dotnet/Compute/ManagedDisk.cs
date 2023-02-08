@@ -236,7 +236,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> SecureVmDiskEncryptionSetId { get; private set; } = null!;
 
         /// <summary>
-        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("securityType")]
         public Output<string?> SecurityType { get; private set; } = null!;
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityType")]
         public Input<string>? SecurityType { get; set; }
@@ -692,7 +692,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityType")]
         public Input<string>? SecurityType { get; set; }

@@ -34,7 +34,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
      */
     private @Nullable Boolean compressionEnabled;
     /**
-     * @return The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+     * @return The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
      * 
      */
     private @Nullable String forwardingProtocol;
@@ -79,7 +79,7 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
         return Optional.ofNullable(this.compressionEnabled);
     }
     /**
-     * @return The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+     * @return The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
      * 
      */
     public Optional<String> forwardingProtocol() {

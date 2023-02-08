@@ -41,6 +41,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         /// </summary>
         public readonly string? FtpsState;
+        /// <summary>
+        /// Path which will be checked for this function app health.
+        /// </summary>
         public readonly string? HealthCheckPath;
         /// <summary>
         /// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
@@ -50,6 +53,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionAppSlotSiteConfigIpRestriction> IpRestrictions;
+        /// <summary>
+        /// Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
+        /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
         /// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
@@ -67,8 +73,17 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         /// </summary>
         public readonly bool? RuntimeScaleMonitoringEnabled;
+        /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FunctionAppSlotSiteConfigScmIpRestriction> ScmIpRestrictions;
+        /// <summary>
+        /// The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+        /// </summary>
         public readonly string? ScmType;
+        /// <summary>
+        /// IP security restrictions for scm to use main. Defaults to `false`.
+        /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
         /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.

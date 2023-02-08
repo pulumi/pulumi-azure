@@ -83,9 +83,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:apimanagement/gateway:Gateway")
 public class Gateway extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+     * 
+     */
     @Export(name="apiManagementId", type=String.class, parameters={})
     private Output<String> apiManagementId;
 
+    /**
+     * @return The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+     * 
+     */
     public Output<String> apiManagementId() {
         return this.apiManagementId;
     }

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Media.Inputs
         private InputList<Inputs.AccountFilterTrackSelectionConditionGetArgs>? _conditions;
 
         /// <summary>
-        /// One or more `condition` blocks as defined above.
+        /// One or more `selection` blocks as defined above.
         /// </summary>
         public InputList<Inputs.AccountFilterTrackSelectionConditionGetArgs> Conditions
         {

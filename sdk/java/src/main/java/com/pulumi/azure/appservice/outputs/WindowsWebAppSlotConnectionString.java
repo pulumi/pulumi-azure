@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class WindowsWebAppSlotConnectionString {
     /**
-     * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * @return The name of the connection String.
      * 
      */
     private String name;
@@ -27,7 +27,7 @@ public final class WindowsWebAppSlotConnectionString {
 
     private WindowsWebAppSlotConnectionString() {}
     /**
-     * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * @return The name of the connection String.
      * 
      */
     public String name() {

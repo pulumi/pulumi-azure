@@ -25,11 +25,11 @@ import (
 type LogAnalyticsWorkspaceOnboarding struct {
 	pulumi.CustomResourceState
 
-	// Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	CustomerManagedKeyEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnabled"`
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
 	WorkspaceName pulumi.StringOutput `pulumi:"workspaceName"`
 }
 
@@ -68,20 +68,20 @@ func GetLogAnalyticsWorkspaceOnboarding(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogAnalyticsWorkspaceOnboarding resources.
 type logAnalyticsWorkspaceOnboardingState struct {
-	// Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
 	WorkspaceName *string `pulumi:"workspaceName"`
 }
 
 type LogAnalyticsWorkspaceOnboardingState struct {
-	// Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
 	WorkspaceName pulumi.StringPtrInput
 }
 
@@ -90,21 +90,21 @@ func (LogAnalyticsWorkspaceOnboardingState) ElementType() reflect.Type {
 }
 
 type logAnalyticsWorkspaceOnboardingArgs struct {
-	// Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a LogAnalyticsWorkspaceOnboarding resource.
 type LogAnalyticsWorkspaceOnboardingArgs struct {
-	// Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
 	WorkspaceName pulumi.StringInput
 }
 
@@ -195,7 +195,7 @@ func (o LogAnalyticsWorkspaceOnboardingOutput) ToLogAnalyticsWorkspaceOnboarding
 	return o
 }
 
-// Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 func (o LogAnalyticsWorkspaceOnboardingOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogAnalyticsWorkspaceOnboarding) pulumi.BoolPtrOutput { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -205,7 +205,7 @@ func (o LogAnalyticsWorkspaceOnboardingOutput) ResourceGroupName() pulumi.String
 	return o.ApplyT(func(v *LogAnalyticsWorkspaceOnboarding) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
 func (o LogAnalyticsWorkspaceOnboardingOutput) WorkspaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAnalyticsWorkspaceOnboarding) pulumi.StringOutput { return v.WorkspaceName }).(pulumi.StringOutput)
 }

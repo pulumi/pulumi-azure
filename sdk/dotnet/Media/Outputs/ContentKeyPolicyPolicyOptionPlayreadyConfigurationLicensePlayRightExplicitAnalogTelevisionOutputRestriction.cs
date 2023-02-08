@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Media.Outputs
     [OutputType]
     public sealed class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction
     {
+        /// <summary>
+        /// Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
         public readonly bool? BestEffortEnforced;
         /// <summary>
         /// The restriction control bits. Possible value is integer between `0` and `3` inclusive.

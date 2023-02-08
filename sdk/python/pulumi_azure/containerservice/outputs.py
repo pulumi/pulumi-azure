@@ -32,9 +32,11 @@ __all__ = [
     'GroupInitContainerVolume',
     'GroupInitContainerVolumeGitRepo',
     'KubernetesClusterAciConnectorLinux',
+    'KubernetesClusterAciConnectorLinuxConnectorIdentity',
     'KubernetesClusterApiServerAccessProfile',
     'KubernetesClusterAutoScalerProfile',
     'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl',
+    'KubernetesClusterConfidentialComputing',
     'KubernetesClusterDefaultNodePool',
     'KubernetesClusterDefaultNodePoolKubeletConfig',
     'KubernetesClusterDefaultNodePoolLinuxOsConfig',
@@ -1679,6 +1681,8 @@ class KubernetesClusterAciConnectorLinux(dict):
         suggest = None
         if key == "subnetName":
             suggest = "subnet_name"
+        elif key == "connectorIdentities":
+            suggest = "connector_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAciConnectorLinux. Access the value via the '{suggest}' property getter instead.")
@@ -1692,11 +1696,15 @@ class KubernetesClusterAciConnectorLinux(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 subnet_name: str):
+                 subnet_name: str,
+                 connector_identities: Optional[Sequence['outputs.KubernetesClusterAciConnectorLinuxConnectorIdentity']] = None):
         """
         :param str subnet_name: The subnet name for the virtual nodes to run.
+        :param Sequence['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs'] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "subnet_name", subnet_name)
+        if connector_identities is not None:
+            pulumi.set(__self__, "connector_identities", connector_identities)
 
     @property
     @pulumi.getter(name="subnetName")
@@ -1705,6 +1713,78 @@ class KubernetesClusterAciConnectorLinux(dict):
         The subnet name for the virtual nodes to run.
         """
         return pulumi.get(self, "subnet_name")
+
+    @property
+    @pulumi.getter(name="connectorIdentities")
+    def connector_identities(self) -> Optional[Sequence['outputs.KubernetesClusterAciConnectorLinuxConnectorIdentity']]:
+        """
+        A `connector_identity` block is exported. The exported attributes are defined below.
+        """
+        return pulumi.get(self, "connector_identities")
+
+
+@pulumi.output_type
+class KubernetesClusterAciConnectorLinuxConnectorIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAciConnectorLinuxConnectorIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterAciConnectorLinuxConnectorIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterAciConnectorLinuxConnectorIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None):
+        """
+        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type
@@ -2145,6 +2225,41 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(dict):
         The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class KubernetesClusterConfidentialComputing(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sgxQuoteHelperEnabled":
+            suggest = "sgx_quote_helper_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterConfidentialComputing. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterConfidentialComputing.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterConfidentialComputing.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sgx_quote_helper_enabled: bool):
+        """
+        :param bool sgx_quote_helper_enabled: Should the SGX quote helper be enabled?
+        """
+        pulumi.set(__self__, "sgx_quote_helper_enabled", sgx_quote_helper_enabled)
+
+    @property
+    @pulumi.getter(name="sgxQuoteHelperEnabled")
+    def sgx_quote_helper_enabled(self) -> bool:
+        """
+        Should the SGX quote helper be enabled?
+        """
+        return pulumi.get(self, "sgx_quote_helper_enabled")
 
 
 @pulumi.output_type
@@ -3353,7 +3468,7 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfile(dict):
     def __init__(__self__, *,
                  node_public_ip_tags: Optional[Mapping[str, str]] = None):
         """
-        :param Mapping[str, str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs.
+        :param Mapping[str, str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
         """
         if node_public_ip_tags is not None:
             pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
@@ -3362,7 +3477,7 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfile(dict):
     @pulumi.getter(name="nodePublicIpTags")
     def node_public_ip_tags(self) -> Optional[Mapping[str, str]]:
         """
-        Specifies a mapping of tags to the instance-level public IPs.
+        Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_public_ip_tags")
 
@@ -3751,8 +3866,7 @@ class KubernetesClusterKeyManagementService(dict):
                  key_vault_network_access: Optional[str] = None):
         """
         :param str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
-        :param str key_vault_network_access: Network access of the key vault
-               Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+        :param str key_vault_network_access: Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if key_vault_network_access is not None:
@@ -3770,8 +3884,7 @@ class KubernetesClusterKeyManagementService(dict):
     @pulumi.getter(name="keyVaultNetworkAccess")
     def key_vault_network_access(self) -> Optional[str]:
         """
-        Network access of the key vault
-        Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+        Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
         """
         return pulumi.get(self, "key_vault_network_access")
 
@@ -5561,7 +5674,7 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
     def __init__(__self__, *,
                  node_public_ip_tags: Optional[Mapping[str, str]] = None):
         """
-        :param Mapping[str, str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs.
+        :param Mapping[str, str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
         """
         if node_public_ip_tags is not None:
             pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
@@ -5570,7 +5683,7 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
     @pulumi.getter(name="nodePublicIpTags")
     def node_public_ip_tags(self) -> Optional[Mapping[str, str]]:
         """
-        Specifies a mapping of tags to the instance-level public IPs.
+        Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_public_ip_tags")
 

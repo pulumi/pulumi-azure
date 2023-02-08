@@ -142,7 +142,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string?> CreateMode { get; private set; } = null!;
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below.
+        /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.FlexibleServerCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
@@ -346,7 +346,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below.
+        /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.FlexibleServerCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
@@ -502,7 +502,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below.
+        /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.FlexibleServerCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }

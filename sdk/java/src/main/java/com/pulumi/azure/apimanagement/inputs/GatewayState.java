@@ -16,9 +16,17 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
 
     public static final GatewayState Empty = new GatewayState();
 
+    /**
+     * The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+     * 
+     */
     @Import(name="apiManagementId")
     private @Nullable Output<String> apiManagementId;
 
+    /**
+     * @return The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+     * 
+     */
     public Optional<Output<String>> apiManagementId() {
         return Optional.ofNullable(this.apiManagementId);
     }
@@ -95,11 +103,23 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
             $ = new GatewayState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apiManagementId The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiManagementId(@Nullable Output<String> apiManagementId) {
             $.apiManagementId = apiManagementId;
             return this;
         }
 
+        /**
+         * @param apiManagementId The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiManagementId(String apiManagementId) {
             return apiManagementId(Output.of(apiManagementId));
         }

@@ -78,6 +78,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostNames!: pulumi.Output<string[]>;
     /**
+     * The ID of the App Service Environment where the certificate is in use.
+     */
+    public /*out*/ readonly hostingEnvironmentProfileId!: pulumi.Output<string>;
+    /**
      * The issue date for the certificate.
      */
     public /*out*/ readonly issueDate!: pulumi.Output<string>;
@@ -113,6 +117,9 @@ export class Certificate extends pulumi.CustomResource {
      * The subject name of the certificate.
      */
     public /*out*/ readonly subjectName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The thumbprint for the certificate.
@@ -136,6 +143,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
             resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
             resourceInputs["hostNames"] = state ? state.hostNames : undefined;
+            resourceInputs["hostingEnvironmentProfileId"] = state ? state.hostingEnvironmentProfileId : undefined;
             resourceInputs["issueDate"] = state ? state.issueDate : undefined;
             resourceInputs["issuer"] = state ? state.issuer : undefined;
             resourceInputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
@@ -163,6 +171,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["expirationDate"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["hostNames"] = undefined /*out*/;
+            resourceInputs["hostingEnvironmentProfileId"] = undefined /*out*/;
             resourceInputs["issueDate"] = undefined /*out*/;
             resourceInputs["issuer"] = undefined /*out*/;
             resourceInputs["subjectName"] = undefined /*out*/;
@@ -195,6 +204,10 @@ export interface CertificateState {
      * List of host names the certificate applies to.
      */
     hostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the App Service Environment where the certificate is in use.
+     */
+    hostingEnvironmentProfileId?: pulumi.Input<string>;
     /**
      * The issue date for the certificate.
      */
@@ -231,6 +244,9 @@ export interface CertificateState {
      * The subject name of the certificate.
      */
     subjectName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The thumbprint for the certificate.
@@ -270,5 +286,8 @@ export interface CertificateArgs {
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

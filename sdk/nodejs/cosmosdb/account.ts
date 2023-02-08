@@ -140,11 +140,11 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly defaultIdentityType!: pulumi.Output<string>;
     /**
-     * Enable automatic fail over for this Cosmos DB account.
+     * Enable automatic failover for this Cosmos DB account.
      */
     public readonly enableAutomaticFailover!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly enableFreeTier!: pulumi.Output<boolean | undefined>;
     /**
@@ -164,7 +164,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.cosmosdb.AccountIdentity | undefined>;
     /**
-     * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+     * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
     public readonly ipRangeFilter!: pulumi.Output<string | undefined>;
     /**
@@ -204,7 +204,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly networkAclBypassIds!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+     * Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
      */
     public readonly offerType!: pulumi.Output<string>;
     /**
@@ -426,11 +426,11 @@ export interface AccountState {
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**
-     * Enable automatic fail over for this Cosmos DB account.
+     * Enable automatic failover for this Cosmos DB account.
      */
     enableAutomaticFailover?: pulumi.Input<boolean>;
     /**
-     * Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      */
     enableFreeTier?: pulumi.Input<boolean>;
     /**
@@ -450,7 +450,7 @@ export interface AccountState {
      */
     identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity>;
     /**
-     * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+     * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
     ipRangeFilter?: pulumi.Input<string>;
     /**
@@ -490,7 +490,7 @@ export interface AccountState {
      */
     networkAclBypassIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+     * Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
      */
     offerType?: pulumi.Input<string>;
     /**
@@ -588,11 +588,11 @@ export interface AccountArgs {
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**
-     * Enable automatic fail over for this Cosmos DB account.
+     * Enable automatic failover for this Cosmos DB account.
      */
     enableAutomaticFailover?: pulumi.Input<boolean>;
     /**
-     * Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      */
     enableFreeTier?: pulumi.Input<boolean>;
     /**
@@ -608,7 +608,7 @@ export interface AccountArgs {
      */
     identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity>;
     /**
-     * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+     * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
     ipRangeFilter?: pulumi.Input<string>;
     /**
@@ -648,7 +648,7 @@ export interface AccountArgs {
      */
     networkAclBypassIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+     * Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
      */
     offerType: pulumi.Input<string>;
     /**

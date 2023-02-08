@@ -106,7 +106,7 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+     * Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
      */
     public readonly scopes!: pulumi.Output<string>;
     /**
@@ -279,7 +279,7 @@ export interface ScheduledQueryRulesAlertV2State {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+     * Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
      */
     scopes?: pulumi.Input<string>;
     /**
@@ -361,7 +361,7 @@ export interface ScheduledQueryRulesAlertV2Args {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+     * Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
      */
     scopes: pulumi.Input<string>;
     /**

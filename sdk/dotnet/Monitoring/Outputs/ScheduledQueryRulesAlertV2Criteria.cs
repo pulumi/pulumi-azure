@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Query;
         /// <summary>
-        /// Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+        /// Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
         /// </summary>
         public readonly string? ResourceIdColumn;
         /// <summary>

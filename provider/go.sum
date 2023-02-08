@@ -940,8 +940,8 @@ github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
 github.com/hashicorp/go-azure-helpers v0.47.0 h1:E90ZN2hqMtzI+tfGWCnNtyLZYG4csoKSs+hWZZ8ywSM=
 github.com/hashicorp/go-azure-helpers v0.47.0/go.mod h1:WiJNl0fD6PoM/MYuGTZ8yuzIaXQR3m2H2g6+EJ8nSwc=
-github.com/hashicorp/go-azure-sdk v0.20230124.1111819 h1:Cvkhy7B9hEEj4eZhwStO1cp09HpIFoWwjs7d0BXvfC0=
-github.com/hashicorp/go-azure-sdk v0.20230124.1111819/go.mod h1:BEjoURzcFwd+K3MqkbOt9jArIIrsqpBQ2Gz6DdemFIs=
+github.com/hashicorp/go-azure-sdk v0.20230130.1140358 h1:2Z/r04wEbS5E/pHB/QuRicbKKJJZAZFx/Qg+/9uh/I8=
+github.com/hashicorp/go-azure-sdk v0.20230130.1140358/go.mod h1:SFjw1090GggVoFnsRoFb8J5JUyJEz5C9zGojxtJm+kU=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -1551,8 +1551,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9 h1:JMw+t5I+6E8Lna7JF+ghAoOLOl23UIbshJyRNP+K1HU=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9/go.mod h1:mYPs/uchNcBq7AclQv9QUtSf9iNcfp1Ag21jqTlDf2M=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230202192008-b618113ea670 h1:n45FwO2v0Tsa1W6H0CrQtY72hztZLUtIIs8d1iA078M=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230202192008-b618113ea670/go.mod h1:lqsJSOQ1qBtbpilXkdO2n5eNRQ0Etm3XIKh7jmA/8v0=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230208180358-c1f379db9130 h1:r4LgPlE1kFO0kLOkXCprjnDIK7Ejijyp6OK2QIf+MO8=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230208180358-c1f379db9130/go.mod h1:NON75b1EngBIw6wzpPJtWY+IxYectVTspqE5vXb1Qw0=
 github.com/rakyll/embedmd v0.0.0-20171029212350-c8060a0752a2/go.mod h1:7jOTMgqac46PZcF54q6l2hkLEG8op93fZu61KmxWDV4=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=

@@ -15,7 +15,9 @@ public final class GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate
      */
     private String name;
     /**
-     * @return The SHA1 thumbprint of the certificate to be revoked.
+     * @return The public certificate of the root certificate
+     * authority. The certificate must be provided in Base-64 encoded X.509 format
+     * (PEM).
      * 
      */
     private String publicCertData;
@@ -29,7 +31,9 @@ public final class GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate
         return this.name;
     }
     /**
-     * @return The SHA1 thumbprint of the certificate to be revoked.
+     * @return The public certificate of the root certificate
+     * authority. The certificate must be provided in Base-64 encoded X.509 format
+     * (PEM).
      * 
      */
     public String publicCertData() {

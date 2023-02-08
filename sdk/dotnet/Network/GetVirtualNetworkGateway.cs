@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The user-defined name of the revoked certificate.
+        /// The user-defined name of the root certificate.
         /// </summary>
         public readonly string Name;
         /// <summary>

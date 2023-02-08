@@ -73,7 +73,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? NodeVersion { get; set; }
 
         /// <summary>
-        /// The version of PHP to use when `current_stack` is set to `php`. Possible values are `v7.1`, `v7.4` and `Off`.
+        /// The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
         /// </summary>
         [Input("phpVersion")]
         public Input<string>? PhpVersion { get; set; }

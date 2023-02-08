@@ -51,6 +51,7 @@ from .get_virtual_network_gateway import *
 from .get_virtual_wan import *
 from .get_vpn_gateway import *
 from .ip_group import *
+from .ip_group_cidr import *
 from .local_network_gateway import *
 from .nat_gateway import *
 from .nat_gateway_public_ip_association import *
@@ -63,6 +64,7 @@ from .network_interface_backend_address_pool_association import *
 from .network_interface_nat_rule_association import *
 from .network_interface_security_group_association import *
 from .network_manager import *
+from .network_manager_connectivity_configuration import *
 from .network_manager_management_group_connection import *
 from .network_manager_network_group import *
 from .network_manager_scope_connection import *

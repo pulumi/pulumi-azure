@@ -36,7 +36,8 @@ class DatasetParquetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
-        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
+        :param pulumi.Input[str] compression_level: Specifies the compression level. Possible values are `Optimal` and `Fastest`,
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input['DatasetParquetHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
@@ -133,7 +134,7 @@ class DatasetParquetArgs:
     @pulumi.getter(name="compressionCodec")
     def compression_codec(self) -> Optional[pulumi.Input[str]]:
         """
-        The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
         """
         return pulumi.get(self, "compression_codec")
 
@@ -144,6 +145,9 @@ class DatasetParquetArgs:
     @property
     @pulumi.getter(name="compressionLevel")
     def compression_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+        """
         return pulumi.get(self, "compression_level")
 
     @compression_level.setter
@@ -244,7 +248,8 @@ class _DatasetParquetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
-        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
+        :param pulumi.Input[str] compression_level: Specifies the compression level. Possible values are `Optimal` and `Fastest`,
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -321,7 +326,7 @@ class _DatasetParquetState:
     @pulumi.getter(name="compressionCodec")
     def compression_codec(self) -> Optional[pulumi.Input[str]]:
         """
-        The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
         """
         return pulumi.get(self, "compression_codec")
 
@@ -332,6 +337,9 @@ class _DatasetParquetState:
     @property
     @pulumi.getter(name="compressionLevel")
     def compression_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+        """
         return pulumi.get(self, "compression_level")
 
     @compression_level.setter
@@ -494,7 +502,8 @@ class DatasetParquet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
-        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
+        :param pulumi.Input[str] compression_level: Specifies the compression level. Possible values are `Optimal` and `Fastest`,
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -632,7 +641,8 @@ class DatasetParquet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
-        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
+        :param pulumi.Input[str] compression_level: Specifies the compression level. Possible values are `Optimal` and `Fastest`,
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -689,13 +699,16 @@ class DatasetParquet(pulumi.CustomResource):
     @pulumi.getter(name="compressionCodec")
     def compression_codec(self) -> pulumi.Output[Optional[str]]:
         """
-        The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
         """
         return pulumi.get(self, "compression_codec")
 
     @property
     @pulumi.getter(name="compressionLevel")
     def compression_level(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+        """
         return pulumi.get(self, "compression_level")
 
     @property

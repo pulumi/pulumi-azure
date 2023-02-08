@@ -62,6 +62,9 @@ namespace Pulumi.Azure.ApiManagement
     [AzureResourceType("azure:apimanagement/gateway:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+        /// </summary>
         [Output("apiManagementId")]
         public Output<string> ApiManagementId { get; private set; } = null!;
 
@@ -129,6 +132,9 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class GatewayArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+        /// </summary>
         [Input("apiManagementId", required: true)]
         public Input<string> ApiManagementId { get; set; } = null!;
 
@@ -158,6 +164,9 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class GatewayState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+        /// </summary>
         [Input("apiManagementId")]
         public Input<string>? ApiManagementId { get; set; }
 

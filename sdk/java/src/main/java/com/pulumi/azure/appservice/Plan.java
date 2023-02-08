@@ -215,9 +215,17 @@ public class Plan extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> appServiceEnvironmentId() {
         return Codegen.optional(this.appServiceEnvironmentId);
     }
+    /**
+     * Whether to create a xenon App Service Plan.
+     * 
+     */
     @Export(name="isXenon", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isXenon;
 
+    /**
+     * @return Whether to create a xenon App Service Plan.
+     * 
+     */
     public Output<Optional<Boolean>> isXenon() {
         return Codegen.optional(this.isXenon);
     }

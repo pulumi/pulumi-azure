@@ -30,6 +30,10 @@ namespace Pulumi.Azure.HDInsight.Inputs
 
         [Input("scriptActions")]
         private InputList<Inputs.KafkaClusterRolesKafkaManagementNodeScriptActionGetArgs>? _scriptActions;
+
+        /// <summary>
+        /// The script action which will run on the cluster. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<Inputs.KafkaClusterRolesKafkaManagementNodeScriptActionGetArgs> ScriptActions
         {
             get => _scriptActions ?? (_scriptActions = new InputList<Inputs.KafkaClusterRolesKafkaManagementNodeScriptActionGetArgs>());

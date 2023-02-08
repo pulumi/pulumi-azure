@@ -61,9 +61,17 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.useSystemAssignedIdentity);
     }
 
+    /**
+     * Specifies the user assigned identity ID to be used.
+     * 
+     */
     @Import(name="userAssignedIdentityId")
     private @Nullable Output<String> userAssignedIdentityId;
 
+    /**
+     * @return Specifies the user assigned identity ID to be used.
+     * 
+     */
     public Optional<Output<String>> userAssignedIdentityId() {
         return Optional.ofNullable(this.userAssignedIdentityId);
     }
@@ -158,11 +166,23 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
             return useSystemAssignedIdentity(Output.of(useSystemAssignedIdentity));
         }
 
+        /**
+         * @param userAssignedIdentityId Specifies the user assigned identity ID to be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userAssignedIdentityId(@Nullable Output<String> userAssignedIdentityId) {
             $.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }
 
+        /**
+         * @param userAssignedIdentityId Specifies the user assigned identity ID to be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userAssignedIdentityId(String userAssignedIdentityId) {
             return userAssignedIdentityId(Output.of(userAssignedIdentityId));
         }

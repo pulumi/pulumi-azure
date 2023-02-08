@@ -60,17 +60,20 @@ export class NamespaceSchemaGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === NamespaceSchemaGroup.__pulumiType;
     }
 
+    /**
+     * Specifies the name of this schema group. Changing this forces a new resource to be created.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
     public readonly namespaceId!: pulumi.Output<string>;
     /**
-     * The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+     * Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
      */
     public readonly schemaCompatibility!: pulumi.Output<string>;
     /**
-     * The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
      */
     public readonly schemaType!: pulumi.Output<string>;
 
@@ -116,17 +119,20 @@ export class NamespaceSchemaGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NamespaceSchemaGroup resources.
  */
 export interface NamespaceSchemaGroupState {
+    /**
+     * Specifies the name of this schema group. Changing this forces a new resource to be created.
+     */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
     namespaceId?: pulumi.Input<string>;
     /**
-     * The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+     * Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
      */
     schemaCompatibility?: pulumi.Input<string>;
     /**
-     * The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
      */
     schemaType?: pulumi.Input<string>;
 }
@@ -135,17 +141,20 @@ export interface NamespaceSchemaGroupState {
  * The set of arguments for constructing a NamespaceSchemaGroup resource.
  */
 export interface NamespaceSchemaGroupArgs {
+    /**
+     * Specifies the name of this schema group. Changing this forces a new resource to be created.
+     */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
     namespaceId: pulumi.Input<string>;
     /**
-     * The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+     * Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
      */
     schemaCompatibility: pulumi.Input<string>;
     /**
-     * The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
      */
     schemaType: pulumi.Input<string>;
 }

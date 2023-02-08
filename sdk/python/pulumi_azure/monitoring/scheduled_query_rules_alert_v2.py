@@ -39,7 +39,7 @@ class ScheduledQueryRulesAlertV2Args:
         The set of arguments for constructing a ScheduledQueryRulesAlertV2 resource.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]] criterias: A `criteria` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scopes: Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scopes: Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
         :param pulumi.Input[str] window_duration: Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
         :param pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs'] action: An `action` block as defined below.
@@ -119,7 +119,7 @@ class ScheduledQueryRulesAlertV2Args:
     @pulumi.getter
     def scopes(self) -> pulumi.Input[str]:
         """
-        Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+        Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         """
         return pulumi.get(self, "scopes")
 
@@ -362,7 +362,7 @@ class _ScheduledQueryRulesAlertV2State:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_time_range_override: Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scopes: Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scopes: Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
         :param pulumi.Input[bool] skip_query_validation: Specifies the flag which indicates whether the provided query should be validated or not. The default is false.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Monitor Scheduled Query Rule.
@@ -599,7 +599,7 @@ class _ScheduledQueryRulesAlertV2State:
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+        Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         """
         return pulumi.get(self, "scopes")
 
@@ -730,7 +730,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_time_range_override: Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scopes: Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scopes: Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
         :param pulumi.Input[bool] skip_query_validation: Specifies the flag which indicates whether the provided query should be validated or not. The default is false.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Monitor Scheduled Query Rule.
@@ -884,7 +884,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_time_range_override: Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scopes: Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scopes: Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
         :param pulumi.Input[bool] skip_query_validation: Specifies the flag which indicates whether the provided query should be validated or not. The default is false.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Monitor Scheduled Query Rule.
@@ -1044,7 +1044,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     @pulumi.getter
     def scopes(self) -> pulumi.Output[str]:
         """
-        Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+        Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         """
         return pulumi.get(self, "scopes")
 

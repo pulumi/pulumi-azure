@@ -235,6 +235,11 @@ export type IPGroup = import("./ipgroup").IPGroup;
 export const IPGroup: typeof import("./ipgroup").IPGroup = null as any;
 utilities.lazyLoad(exports, ["IPGroup"], () => require("./ipgroup"));
 
+export { IPGroupCIDRArgs, IPGroupCIDRState } from "./ipgroupCIDR";
+export type IPGroupCIDR = import("./ipgroupCIDR").IPGroupCIDR;
+export const IPGroupCIDR: typeof import("./ipgroupCIDR").IPGroupCIDR = null as any;
+utilities.lazyLoad(exports, ["IPGroupCIDR"], () => require("./ipgroupCIDR"));
+
 export { LocalNetworkGatewayArgs, LocalNetworkGatewayState } from "./localNetworkGateway";
 export type LocalNetworkGateway = import("./localNetworkGateway").LocalNetworkGateway;
 export const LocalNetworkGateway: typeof import("./localNetworkGateway").LocalNetworkGateway = null as any;
@@ -294,6 +299,11 @@ export { NetworkManagerArgs, NetworkManagerState } from "./networkManager";
 export type NetworkManager = import("./networkManager").NetworkManager;
 export const NetworkManager: typeof import("./networkManager").NetworkManager = null as any;
 utilities.lazyLoad(exports, ["NetworkManager"], () => require("./networkManager"));
+
+export { NetworkManagerConnectivityConfigurationArgs, NetworkManagerConnectivityConfigurationState } from "./networkManagerConnectivityConfiguration";
+export type NetworkManagerConnectivityConfiguration = import("./networkManagerConnectivityConfiguration").NetworkManagerConnectivityConfiguration;
+export const NetworkManagerConnectivityConfiguration: typeof import("./networkManagerConnectivityConfiguration").NetworkManagerConnectivityConfiguration = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerConnectivityConfiguration"], () => require("./networkManagerConnectivityConfiguration"));
 
 export { NetworkManagerManagementGroupConnectionArgs, NetworkManagerManagementGroupConnectionState } from "./networkManagerManagementGroupConnection";
 export type NetworkManagerManagementGroupConnection = import("./networkManagerManagementGroupConnection").NetworkManagerManagementGroupConnection;
@@ -576,6 +586,8 @@ const _module = {
                 return new FirewallPolicyRuleCollectionGroup(name, <any>undefined, { urn })
             case "azure:network/iPGroup:IPGroup":
                 return new IPGroup(name, <any>undefined, { urn })
+            case "azure:network/iPGroupCIDR:IPGroupCIDR":
+                return new IPGroupCIDR(name, <any>undefined, { urn })
             case "azure:network/localNetworkGateway:LocalNetworkGateway":
                 return new LocalNetworkGateway(name, <any>undefined, { urn })
             case "azure:network/natGateway:NatGateway":
@@ -600,6 +612,8 @@ const _module = {
                 return new NetworkInterfaceSecurityGroupAssociation(name, <any>undefined, { urn })
             case "azure:network/networkManager:NetworkManager":
                 return new NetworkManager(name, <any>undefined, { urn })
+            case "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration":
+                return new NetworkManagerConnectivityConfiguration(name, <any>undefined, { urn })
             case "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection":
                 return new NetworkManagerManagementGroupConnection(name, <any>undefined, { urn })
             case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
@@ -719,6 +733,7 @@ pulumi.runtime.registerResourceModule("azure", "network/firewallNetworkRuleColle
 pulumi.runtime.registerResourceModule("azure", "network/firewallPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "network/firewallPolicyRuleCollectionGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/iPGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "network/iPGroupCIDR", _module)
 pulumi.runtime.registerResourceModule("azure", "network/localNetworkGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "network/natGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "network/natGatewayPublicIpAssociation", _module)
@@ -731,6 +746,7 @@ pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceBackendA
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceNatRuleAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceSecurityGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManager", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerConnectivityConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerManagementGroupConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerNetworkGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerScopeConnection", _module)

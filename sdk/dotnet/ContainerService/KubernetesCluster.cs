@@ -108,6 +108,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> AzurePolicyEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        /// </summary>
+        [Output("confidentialComputing")]
+        public Output<Outputs.KubernetesClusterConfidentialComputing?> ConfidentialComputing { get; private set; } = null!;
+
+        /// <summary>
         /// A `default_node_pool` block as defined below.
         /// </summary>
         [Output("defaultNodePool")]
@@ -515,6 +521,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? AzurePolicyEnabled { get; set; }
 
         /// <summary>
+        /// A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        /// </summary>
+        [Input("confidentialComputing")]
+        public Input<Inputs.KubernetesClusterConfidentialComputingArgs>? ConfidentialComputing { get; set; }
+
+        /// <summary>
         /// A `default_node_pool` block as defined below.
         /// </summary>
         [Input("defaultNodePool", required: true)]
@@ -827,6 +839,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("azurePolicyEnabled")]
         public Input<bool>? AzurePolicyEnabled { get; set; }
+
+        /// <summary>
+        /// A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        /// </summary>
+        [Input("confidentialComputing")]
+        public Input<Inputs.KubernetesClusterConfidentialComputingGetArgs>? ConfidentialComputing { get; set; }
 
         /// <summary>
         /// A `default_node_pool` block as defined below.

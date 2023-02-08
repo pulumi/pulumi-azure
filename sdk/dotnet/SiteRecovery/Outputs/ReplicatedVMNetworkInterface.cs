@@ -13,6 +13,18 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     [OutputType]
     public sealed class ReplicatedVMNetworkInterface
     {
+        /// <summary>
+        /// Id of the public IP object to use when a test failover is done.
+        /// </summary>
+        public readonly string? FailoverTestPublicIpAddressId;
+        /// <summary>
+        /// Static IP to assign when a test failover is done.
+        /// </summary>
+        public readonly string? FailoverTestStaticIp;
+        /// <summary>
+        /// Name of the subnet to to use when a test failover is done.
+        /// </summary>
+        public readonly string? FailoverTestSubnetName;
         public readonly bool? IsPrimary;
         /// <summary>
         /// Id of the public IP object to use when a failover is done.
@@ -33,6 +45,12 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
 
         [OutputConstructor]
         private ReplicatedVMNetworkInterface(
+            string? failoverTestPublicIpAddressId,
+
+            string? failoverTestStaticIp,
+
+            string? failoverTestSubnetName,
+
             bool? isPrimary,
 
             string? recoveryPublicIpAddressId,
@@ -43,6 +61,9 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
 
             string? targetSubnetName)
         {
+            FailoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
+            FailoverTestStaticIp = failoverTestStaticIp;
+            FailoverTestSubnetName = failoverTestSubnetName;
             IsPrimary = isPrimary;
             RecoveryPublicIpAddressId = recoveryPublicIpAddressId;
             SourceNetworkInterfaceId = sourceNetworkInterfaceId;

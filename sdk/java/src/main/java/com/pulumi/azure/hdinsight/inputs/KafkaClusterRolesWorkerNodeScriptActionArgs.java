@@ -16,30 +16,46 @@ public final class KafkaClusterRolesWorkerNodeScriptActionArgs extends com.pulum
     public static final KafkaClusterRolesWorkerNodeScriptActionArgs Empty = new KafkaClusterRolesWorkerNodeScriptActionArgs();
 
     /**
-     * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+     * The name of the script action.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+     * @return The name of the script action.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The parameters for the script provided.
+     * 
+     */
     @Import(name="parameters")
     private @Nullable Output<String> parameters;
 
+    /**
+     * @return The parameters for the script provided.
+     * 
+     */
     public Optional<Output<String>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
+    /**
+     * The URI to the script.
+     * 
+     */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
+    /**
+     * @return The URI to the script.
+     * 
+     */
     public Output<String> uri() {
         return this.uri;
     }
@@ -71,7 +87,7 @@ public final class KafkaClusterRolesWorkerNodeScriptActionArgs extends com.pulum
         }
 
         /**
-         * @param name Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+         * @param name The name of the script action.
          * 
          * @return builder
          * 
@@ -82,7 +98,7 @@ public final class KafkaClusterRolesWorkerNodeScriptActionArgs extends com.pulum
         }
 
         /**
-         * @param name Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+         * @param name The name of the script action.
          * 
          * @return builder
          * 
@@ -91,20 +107,44 @@ public final class KafkaClusterRolesWorkerNodeScriptActionArgs extends com.pulum
             return name(Output.of(name));
         }
 
+        /**
+         * @param parameters The parameters for the script provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(@Nullable Output<String> parameters) {
             $.parameters = parameters;
             return this;
         }
 
+        /**
+         * @param parameters The parameters for the script provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(String parameters) {
             return parameters(Output.of(parameters));
         }
 
+        /**
+         * @param uri The URI to the script.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uri(Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
+        /**
+         * @param uri The URI to the script.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }

@@ -17,6 +17,9 @@ namespace Pulumi.Azure.Network.Outputs
         /// Specifies the name of the certificate resource.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies the public data of the certificate.
+        /// </summary>
         public readonly string Thumbprint;
 
         [OutputConstructor]

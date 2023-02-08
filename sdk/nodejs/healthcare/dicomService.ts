@@ -92,6 +92,9 @@ export class DicomService extends pulumi.CustomResource {
      * The url of the Healthcare DICOM Services.
      */
     public /*out*/ readonly serviceUrl!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the Healthcare DICOM Service.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
@@ -169,6 +172,9 @@ export interface DicomServiceState {
      * The url of the Healthcare DICOM Services.
      */
     serviceUrl?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the Healthcare DICOM Service.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
@@ -196,6 +202,9 @@ export interface DicomServiceArgs {
      * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * A mapping of tags to assign to the Healthcare DICOM Service.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.

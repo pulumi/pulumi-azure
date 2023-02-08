@@ -121,9 +121,9 @@ type Account struct {
 	CreateMode pulumi.StringOutput `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
 	DefaultIdentityType pulumi.StringOutput `pulumi:"defaultIdentityType"`
-	// Enable automatic fail over for this Cosmos DB account.
+	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrOutput `pulumi:"enableAutomaticFailover"`
-	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	EnableFreeTier pulumi.BoolPtrOutput `pulumi:"enableFreeTier"`
 	// Enable multiple write locations for this Cosmos DB account.
 	EnableMultipleWriteLocations pulumi.BoolPtrOutput `pulumi:"enableMultipleWriteLocations"`
@@ -133,7 +133,7 @@ type Account struct {
 	GeoLocations AccountGeoLocationArrayOutput `pulumi:"geoLocations"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
-	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter pulumi.StringPtrOutput `pulumi:"ipRangeFilter"`
 	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrOutput `pulumi:"isVirtualNetworkFilterEnabled"`
@@ -153,7 +153,7 @@ type Account struct {
 	NetworkAclBypassForAzureServices pulumi.BoolPtrOutput `pulumi:"networkAclBypassForAzureServices"`
 	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
 	NetworkAclBypassIds pulumi.StringArrayOutput `pulumi:"networkAclBypassIds"`
-	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+	// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 	OfferType pulumi.StringOutput `pulumi:"offerType"`
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
@@ -258,9 +258,9 @@ type accountState struct {
 	CreateMode *string `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
 	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
-	// Enable automatic fail over for this Cosmos DB account.
+	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
-	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	EnableFreeTier *bool `pulumi:"enableFreeTier"`
 	// Enable multiple write locations for this Cosmos DB account.
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
@@ -270,7 +270,7 @@ type accountState struct {
 	GeoLocations []AccountGeoLocation `pulumi:"geoLocations"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
-	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter *string `pulumi:"ipRangeFilter"`
 	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled *bool `pulumi:"isVirtualNetworkFilterEnabled"`
@@ -290,7 +290,7 @@ type accountState struct {
 	NetworkAclBypassForAzureServices *bool `pulumi:"networkAclBypassForAzureServices"`
 	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
 	NetworkAclBypassIds []string `pulumi:"networkAclBypassIds"`
-	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+	// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 	OfferType *string `pulumi:"offerType"`
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey *string `pulumi:"primaryKey"`
@@ -343,9 +343,9 @@ type AccountState struct {
 	CreateMode pulumi.StringPtrInput
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
 	DefaultIdentityType pulumi.StringPtrInput
-	// Enable automatic fail over for this Cosmos DB account.
+	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
-	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	EnableFreeTier pulumi.BoolPtrInput
 	// Enable multiple write locations for this Cosmos DB account.
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
@@ -355,7 +355,7 @@ type AccountState struct {
 	GeoLocations AccountGeoLocationArrayInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
-	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter pulumi.StringPtrInput
 	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
@@ -375,7 +375,7 @@ type AccountState struct {
 	NetworkAclBypassForAzureServices pulumi.BoolPtrInput
 	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
 	NetworkAclBypassIds pulumi.StringArrayInput
-	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+	// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 	OfferType pulumi.StringPtrInput
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey pulumi.StringPtrInput
@@ -430,9 +430,9 @@ type accountArgs struct {
 	CreateMode *string `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
 	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
-	// Enable automatic fail over for this Cosmos DB account.
+	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
-	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	EnableFreeTier *bool `pulumi:"enableFreeTier"`
 	// Enable multiple write locations for this Cosmos DB account.
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
@@ -440,7 +440,7 @@ type accountArgs struct {
 	GeoLocations []AccountGeoLocation `pulumi:"geoLocations"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
-	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter *string `pulumi:"ipRangeFilter"`
 	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled *bool `pulumi:"isVirtualNetworkFilterEnabled"`
@@ -460,7 +460,7 @@ type accountArgs struct {
 	NetworkAclBypassForAzureServices *bool `pulumi:"networkAclBypassForAzureServices"`
 	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
 	NetworkAclBypassIds []string `pulumi:"networkAclBypassIds"`
-	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+	// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 	OfferType string `pulumi:"offerType"`
 	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -496,9 +496,9 @@ type AccountArgs struct {
 	CreateMode pulumi.StringPtrInput
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
 	DefaultIdentityType pulumi.StringPtrInput
-	// Enable automatic fail over for this Cosmos DB account.
+	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
-	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	EnableFreeTier pulumi.BoolPtrInput
 	// Enable multiple write locations for this Cosmos DB account.
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
@@ -506,7 +506,7 @@ type AccountArgs struct {
 	GeoLocations AccountGeoLocationArrayInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
-	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter pulumi.StringPtrInput
 	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
@@ -526,7 +526,7 @@ type AccountArgs struct {
 	NetworkAclBypassForAzureServices pulumi.BoolPtrInput
 	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
 	NetworkAclBypassIds pulumi.StringArrayInput
-	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+	// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 	OfferType pulumi.StringInput
 	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -682,12 +682,12 @@ func (o AccountOutput) DefaultIdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.DefaultIdentityType }).(pulumi.StringOutput)
 }
 
-// Enable automatic fail over for this Cosmos DB account.
+// Enable automatic failover for this Cosmos DB account.
 func (o AccountOutput) EnableAutomaticFailover() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.EnableAutomaticFailover }).(pulumi.BoolPtrOutput)
 }
 
-// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 func (o AccountOutput) EnableFreeTier() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.EnableFreeTier }).(pulumi.BoolPtrOutput)
 }
@@ -712,7 +712,7 @@ func (o AccountOutput) Identity() AccountIdentityPtrOutput {
 	return o.ApplyT(func(v *Account) AccountIdentityPtrOutput { return v.Identity }).(AccountIdentityPtrOutput)
 }
 
-// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 func (o AccountOutput) IpRangeFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.IpRangeFilter }).(pulumi.StringPtrOutput)
 }
@@ -762,7 +762,7 @@ func (o AccountOutput) NetworkAclBypassIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.NetworkAclBypassIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 func (o AccountOutput) OfferType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.OfferType }).(pulumi.StringOutput)
 }

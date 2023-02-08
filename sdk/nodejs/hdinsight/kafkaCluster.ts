@@ -113,6 +113,9 @@ export class KafkaCluster extends pulumi.CustomResource {
      * A `computeIsolation` block as defined below.
      */
     public readonly computeIsolation!: pulumi.Output<outputs.hdinsight.KafkaClusterComputeIsolation | undefined>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.KafkaClusterDiskEncryption[] | undefined>;
     /**
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
@@ -300,6 +303,9 @@ export interface KafkaClusterState {
      * A `computeIsolation` block as defined below.
      */
     computeIsolation?: pulumi.Input<inputs.hdinsight.KafkaClusterComputeIsolation>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterDiskEncryption>[]>;
     /**
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
@@ -401,6 +407,9 @@ export interface KafkaClusterArgs {
      * A `computeIsolation` block as defined below.
      */
     computeIsolation?: pulumi.Input<inputs.hdinsight.KafkaClusterComputeIsolation>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterDiskEncryption>[]>;
     /**
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.

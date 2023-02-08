@@ -13,6 +13,9 @@ namespace Pulumi.Azure.EventHub.Outputs
     [OutputType]
     public sealed class EventHubNamespaceIdentity
     {
+        /// <summary>
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
+        /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.

@@ -103,6 +103,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly azurePolicyEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     */
+    public readonly confidentialComputing!: pulumi.Output<outputs.containerservice.KubernetesClusterConfidentialComputing | undefined>;
+    /**
      * A `defaultNodePool` block as defined below.
      */
     public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool>;
@@ -331,6 +335,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["automaticChannelUpgrade"] = state ? state.automaticChannelUpgrade : undefined;
             resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = state ? state.azureActiveDirectoryRoleBasedAccessControl : undefined;
             resourceInputs["azurePolicyEnabled"] = state ? state.azurePolicyEnabled : undefined;
+            resourceInputs["confidentialComputing"] = state ? state.confidentialComputing : undefined;
             resourceInputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
@@ -398,6 +403,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["automaticChannelUpgrade"] = args ? args.automaticChannelUpgrade : undefined;
             resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = args ? args.azureActiveDirectoryRoleBasedAccessControl : undefined;
             resourceInputs["azurePolicyEnabled"] = args ? args.azurePolicyEnabled : undefined;
+            resourceInputs["confidentialComputing"] = args ? args.confidentialComputing : undefined;
             resourceInputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
@@ -490,6 +496,10 @@ export interface KubernetesClusterState {
      * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
      */
     azurePolicyEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     */
+    confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing>;
     /**
      * A `defaultNodePool` block as defined below.
      */
@@ -732,6 +742,10 @@ export interface KubernetesClusterArgs {
      * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
      */
     azurePolicyEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     */
+    confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing>;
     /**
      * A `defaultNodePool` block as defined below.
      */

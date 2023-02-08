@@ -4228,11 +4228,11 @@ func (o VirtualMachineSqlInstancePtrOutput) MinServerMemoryMb() pulumi.IntPtrOut
 }
 
 type VirtualMachineStorageConfiguration struct {
-	// An `storageSettings` as defined below.
+	// A `storageSettings` block as defined below.
 	DataSettings *VirtualMachineStorageConfigurationDataSettings `pulumi:"dataSettings"`
 	// The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
 	DiskType string `pulumi:"diskType"`
-	// An `storageSettings` as defined below.
+	// A `storageSettings` block as defined below.
 	LogSettings *VirtualMachineStorageConfigurationLogSettings `pulumi:"logSettings"`
 	// The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
 	StorageWorkloadType string `pulumi:"storageWorkloadType"`
@@ -4254,11 +4254,11 @@ type VirtualMachineStorageConfigurationInput interface {
 }
 
 type VirtualMachineStorageConfigurationArgs struct {
-	// An `storageSettings` as defined below.
+	// A `storageSettings` block as defined below.
 	DataSettings VirtualMachineStorageConfigurationDataSettingsPtrInput `pulumi:"dataSettings"`
 	// The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
 	DiskType pulumi.StringInput `pulumi:"diskType"`
-	// An `storageSettings` as defined below.
+	// A `storageSettings` block as defined below.
 	LogSettings VirtualMachineStorageConfigurationLogSettingsPtrInput `pulumi:"logSettings"`
 	// The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
 	StorageWorkloadType pulumi.StringInput `pulumi:"storageWorkloadType"`
@@ -4345,7 +4345,7 @@ func (o VirtualMachineStorageConfigurationOutput) ToVirtualMachineStorageConfigu
 	}).(VirtualMachineStorageConfigurationPtrOutput)
 }
 
-// An `storageSettings` as defined below.
+// A `storageSettings` block as defined below.
 func (o VirtualMachineStorageConfigurationOutput) DataSettings() VirtualMachineStorageConfigurationDataSettingsPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationDataSettings {
 		return v.DataSettings
@@ -4357,7 +4357,7 @@ func (o VirtualMachineStorageConfigurationOutput) DiskType() pulumi.StringOutput
 	return o.ApplyT(func(v VirtualMachineStorageConfiguration) string { return v.DiskType }).(pulumi.StringOutput)
 }
 
-// An `storageSettings` as defined below.
+// A `storageSettings` block as defined below.
 func (o VirtualMachineStorageConfigurationOutput) LogSettings() VirtualMachineStorageConfigurationLogSettingsPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationLogSettings {
 		return v.LogSettings
@@ -4405,7 +4405,7 @@ func (o VirtualMachineStorageConfigurationPtrOutput) Elem() VirtualMachineStorag
 	}).(VirtualMachineStorageConfigurationOutput)
 }
 
-// An `storageSettings` as defined below.
+// A `storageSettings` block as defined below.
 func (o VirtualMachineStorageConfigurationPtrOutput) DataSettings() VirtualMachineStorageConfigurationDataSettingsPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationDataSettings {
 		if v == nil {
@@ -4425,7 +4425,7 @@ func (o VirtualMachineStorageConfigurationPtrOutput) DiskType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// An `storageSettings` as defined below.
+// A `storageSettings` block as defined below.
 func (o VirtualMachineStorageConfigurationPtrOutput) LogSettings() VirtualMachineStorageConfigurationLogSettingsPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationLogSettings {
 		if v == nil {

@@ -16,9 +16,17 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
 
     public static final ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs Empty = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs();
 
+    /**
+     * Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
     @Import(name="bestEffortEnforced")
     private @Nullable Output<Boolean> bestEffortEnforced;
 
+    /**
+     * @return Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> bestEffortEnforced() {
         return Optional.ofNullable(this.bestEffortEnforced);
     }
@@ -63,11 +71,23 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
             $ = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bestEffortEnforced Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bestEffortEnforced(@Nullable Output<Boolean> bestEffortEnforced) {
             $.bestEffortEnforced = bestEffortEnforced;
             return this;
         }
 
+        /**
+         * @param bestEffortEnforced Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bestEffortEnforced(Boolean bestEffortEnforced) {
             return bestEffortEnforced(Output.of(bestEffortEnforced));
         }

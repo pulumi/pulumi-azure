@@ -85,8 +85,9 @@ type DatasetParquet struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// A `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetParquetAzureBlobStorageLocationPtrOutput `pulumi:"azureBlobStorageLocation"`
-	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
 	CompressionCodec pulumi.StringPtrOutput `pulumi:"compressionCodec"`
+	// Specifies the compression level. Possible values are `Optimal` and `Fastest`,
 	CompressionLevel pulumi.StringPtrOutput `pulumi:"compressionLevel"`
 	// The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
@@ -147,8 +148,9 @@ type datasetParquetState struct {
 	Annotations []string `pulumi:"annotations"`
 	// A `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation *DatasetParquetAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
-	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
 	CompressionCodec *string `pulumi:"compressionCodec"`
+	// Specifies the compression level. Possible values are `Optimal` and `Fastest`,
 	CompressionLevel *string `pulumi:"compressionLevel"`
 	// The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
@@ -175,8 +177,9 @@ type DatasetParquetState struct {
 	Annotations pulumi.StringArrayInput
 	// A `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetParquetAzureBlobStorageLocationPtrInput
-	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
 	CompressionCodec pulumi.StringPtrInput
+	// Specifies the compression level. Possible values are `Optimal` and `Fastest`,
 	CompressionLevel pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
@@ -207,8 +210,9 @@ type datasetParquetArgs struct {
 	Annotations []string `pulumi:"annotations"`
 	// A `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation *DatasetParquetAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
-	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
 	CompressionCodec *string `pulumi:"compressionCodec"`
+	// Specifies the compression level. Possible values are `Optimal` and `Fastest`,
 	CompressionLevel *string `pulumi:"compressionLevel"`
 	// The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryId string `pulumi:"dataFactoryId"`
@@ -236,8 +240,9 @@ type DatasetParquetArgs struct {
 	Annotations pulumi.StringArrayInput
 	// A `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetParquetAzureBlobStorageLocationPtrInput
-	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
 	CompressionCodec pulumi.StringPtrInput
+	// Specifies the compression level. Possible values are `Optimal` and `Fastest`,
 	CompressionLevel pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringInput
@@ -361,11 +366,12 @@ func (o DatasetParquetOutput) AzureBlobStorageLocation() DatasetParquetAzureBlob
 	}).(DatasetParquetAzureBlobStorageLocationPtrOutput)
 }
 
-// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
 func (o DatasetParquetOutput) CompressionCodec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetParquet) pulumi.StringPtrOutput { return v.CompressionCodec }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the compression level. Possible values are `Optimal` and `Fastest`,
 func (o DatasetParquetOutput) CompressionLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetParquet) pulumi.StringPtrOutput { return v.CompressionLevel }).(pulumi.StringPtrOutput)
 }

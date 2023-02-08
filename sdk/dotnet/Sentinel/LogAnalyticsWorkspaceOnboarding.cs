@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Sentinel
     public partial class LogAnalyticsWorkspaceOnboarding : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+        /// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("customerManagedKeyEnabled")]
         public Output<bool?> CustomerManagedKeyEnabled { get; private set; } = null!;
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+        /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         /// </summary>
         [Output("workspaceName")]
         public Output<string> WorkspaceName { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Sentinel
     public sealed class LogAnalyticsWorkspaceOnboardingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+        /// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("customerManagedKeyEnabled")]
         public Input<bool>? CustomerManagedKeyEnabled { get; set; }
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+        /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Sentinel
     public sealed class LogAnalyticsWorkspaceOnboardingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+        /// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("customerManagedKeyEnabled")]
         public Input<bool>? CustomerManagedKeyEnabled { get; set; }
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+        /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         /// </summary>
         [Input("workspaceName")]
         public Input<string>? WorkspaceName { get; set; }

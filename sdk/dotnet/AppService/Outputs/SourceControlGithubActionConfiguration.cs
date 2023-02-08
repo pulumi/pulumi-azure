@@ -21,6 +21,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// A `container_configuration` block as defined above.
         /// </summary>
         public readonly Outputs.SourceControlGithubActionConfigurationContainerConfiguration? ContainerConfiguration;
+        /// <summary>
+        /// Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool? GenerateWorkflowFile;
         public readonly bool? LinuxAction;
 

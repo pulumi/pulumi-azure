@@ -98,6 +98,10 @@ export class BackendAddressPool extends pulumi.CustomResource {
      * One or more `tunnelInterface` blocks as defined below.
      */
     public readonly tunnelInterfaces!: pulumi.Output<outputs.lb.BackendAddressPoolTunnelInterface[] | undefined>;
+    /**
+     * The ID of the Virtual Network within which the Backend Address Pool should exist.
+     */
+    public readonly virtualNetworkId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BackendAddressPool resource with the given unique name, arguments, and options.
@@ -119,6 +123,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outboundRules"] = state ? state.outboundRules : undefined;
             resourceInputs["tunnelInterfaces"] = state ? state.tunnelInterfaces : undefined;
+            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
         } else {
             const args = argsOrState as BackendAddressPoolArgs | undefined;
             if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
@@ -127,6 +132,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
             resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
+            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
             resourceInputs["backendIpConfigurations"] = undefined /*out*/;
             resourceInputs["inboundNatRules"] = undefined /*out*/;
             resourceInputs["loadBalancingRules"] = undefined /*out*/;
@@ -169,6 +175,10 @@ export interface BackendAddressPoolState {
      * One or more `tunnelInterface` blocks as defined below.
      */
     tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolTunnelInterface>[]>;
+    /**
+     * The ID of the Virtual Network within which the Backend Address Pool should exist.
+     */
+    virtualNetworkId?: pulumi.Input<string>;
 }
 
 /**
@@ -187,4 +197,8 @@ export interface BackendAddressPoolArgs {
      * One or more `tunnelInterface` blocks as defined below.
      */
     tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolTunnelInterface>[]>;
+    /**
+     * The ID of the Virtual Network within which the Backend Address Pool should exist.
+     */
+    virtualNetworkId?: pulumi.Input<string>;
 }

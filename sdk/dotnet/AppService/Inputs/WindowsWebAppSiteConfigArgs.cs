@@ -18,6 +18,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
 
+        /// <summary>
+        /// The URL to the API Definition for this Windows Web App.
+        /// </summary>
         [Input("apiDefinitionUrl")]
         public Input<string>? ApiDefinitionUrl { get; set; }
 

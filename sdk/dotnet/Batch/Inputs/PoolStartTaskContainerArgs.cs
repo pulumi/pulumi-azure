@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolStartTaskContainerRegistryArgs>? _registries;
 
         /// <summary>
-        /// The same reference as `container_registries` block defined as follows.
+        /// The same reference as `container_registries` block defined as below.
         /// </summary>
         public InputList<Inputs.PoolStartTaskContainerRegistryArgs> Registries
         {

@@ -13,14 +13,20 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class KafkaClusterRolesKafkaManagementNodeScriptActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        /// The name of the script action.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The parameters for the script provided.
+        /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
 
+        /// <summary>
+        /// The URI to the script.
+        /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
 

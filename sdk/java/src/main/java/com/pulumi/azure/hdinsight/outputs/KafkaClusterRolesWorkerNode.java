@@ -24,6 +24,10 @@ public final class KafkaClusterRolesWorkerNode {
      * 
      */
     private @Nullable String password;
+    /**
+     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
+     */
     private @Nullable List<KafkaClusterRolesWorkerNodeScriptAction> scriptActions;
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
@@ -71,6 +75,10 @@ public final class KafkaClusterRolesWorkerNode {
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
+    /**
+     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
+     */
     public List<KafkaClusterRolesWorkerNodeScriptAction> scriptActions() {
         return this.scriptActions == null ? List.of() : this.scriptActions;
     }

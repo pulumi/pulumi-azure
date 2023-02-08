@@ -11,9 +11,9 @@ import (
 )
 
 type FlexibleServerAuthentication struct {
-	// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+	// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
 	ActiveDirectoryAuthEnabled *bool `pulumi:"activeDirectoryAuthEnabled"`
-	// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+	// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
 	PasswordAuthEnabled *bool `pulumi:"passwordAuthEnabled"`
 	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
 	TenantId *string `pulumi:"tenantId"`
@@ -31,9 +31,9 @@ type FlexibleServerAuthenticationInput interface {
 }
 
 type FlexibleServerAuthenticationArgs struct {
-	// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+	// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
 	ActiveDirectoryAuthEnabled pulumi.BoolPtrInput `pulumi:"activeDirectoryAuthEnabled"`
-	// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+	// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
 	PasswordAuthEnabled pulumi.BoolPtrInput `pulumi:"passwordAuthEnabled"`
 	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
@@ -116,12 +116,12 @@ func (o FlexibleServerAuthenticationOutput) ToFlexibleServerAuthenticationPtrOut
 	}).(FlexibleServerAuthenticationPtrOutput)
 }
 
-// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
 func (o FlexibleServerAuthenticationOutput) ActiveDirectoryAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlexibleServerAuthentication) *bool { return v.ActiveDirectoryAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
 func (o FlexibleServerAuthenticationOutput) PasswordAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlexibleServerAuthentication) *bool { return v.PasswordAuthEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -155,7 +155,7 @@ func (o FlexibleServerAuthenticationPtrOutput) Elem() FlexibleServerAuthenticati
 	}).(FlexibleServerAuthenticationOutput)
 }
 
-// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
 func (o FlexibleServerAuthenticationPtrOutput) ActiveDirectoryAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerAuthentication) *bool {
 		if v == nil {
@@ -165,7 +165,7 @@ func (o FlexibleServerAuthenticationPtrOutput) ActiveDirectoryAuthEnabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
 func (o FlexibleServerAuthenticationPtrOutput) PasswordAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerAuthentication) *bool {
 		if v == nil {

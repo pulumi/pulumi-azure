@@ -7,6 +7,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterAciConnectorLin
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterApiServerAccessProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterAutoScalerProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterConfidentialComputingArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterHttpProxyConfigArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
@@ -150,6 +151,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<Boolean>> azurePolicyEnabled() {
         return Optional.ofNullable(this.azurePolicyEnabled);
+    }
+
+    /**
+     * A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * 
+     */
+    @Import(name="confidentialComputing")
+    private @Nullable Output<KubernetesClusterConfidentialComputingArgs> confidentialComputing;
+
+    /**
+     * @return A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * 
+     */
+    public Optional<Output<KubernetesClusterConfidentialComputingArgs>> confidentialComputing() {
+        return Optional.ofNullable(this.confidentialComputing);
     }
 
     /**
@@ -946,6 +962,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.automaticChannelUpgrade = $.automaticChannelUpgrade;
         this.azureActiveDirectoryRoleBasedAccessControl = $.azureActiveDirectoryRoleBasedAccessControl;
         this.azurePolicyEnabled = $.azurePolicyEnabled;
+        this.confidentialComputing = $.confidentialComputing;
         this.defaultNodePool = $.defaultNodePool;
         this.diskEncryptionSetId = $.diskEncryptionSetId;
         this.dnsPrefix = $.dnsPrefix;
@@ -1179,6 +1196,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder azurePolicyEnabled(Boolean azurePolicyEnabled) {
             return azurePolicyEnabled(Output.of(azurePolicyEnabled));
+        }
+
+        /**
+         * @param confidentialComputing A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder confidentialComputing(@Nullable Output<KubernetesClusterConfidentialComputingArgs> confidentialComputing) {
+            $.confidentialComputing = confidentialComputing;
+            return this;
+        }
+
+        /**
+         * @param confidentialComputing A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder confidentialComputing(KubernetesClusterConfidentialComputingArgs confidentialComputing) {
+            return confidentialComputing(Output.of(confidentialComputing));
         }
 
         /**

@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class AppServiceAuthSettingsTwitter {
+    /**
+     * @return The consumer key of the Twitter app used for login
+     * 
+     */
     private String consumerKey;
+    /**
+     * @return The consumer secret of the Twitter app used for login.
+     * 
+     */
     private String consumerSecret;
 
     private AppServiceAuthSettingsTwitter() {}
+    /**
+     * @return The consumer key of the Twitter app used for login
+     * 
+     */
     public String consumerKey() {
         return this.consumerKey;
     }
+    /**
+     * @return The consumer secret of the Twitter app used for login.
+     * 
+     */
     public String consumerSecret() {
         return this.consumerSecret;
     }

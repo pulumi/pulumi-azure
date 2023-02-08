@@ -171,16 +171,32 @@ public final class FhirServiceArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ociArtifacts);
     }
 
+    /**
+     * Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
+    /**
+     * @return Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
 
+    /**
+     * A mapping of tags to assign to the Healthcare FHIR Service.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the Healthcare FHIR Service.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -476,20 +492,44 @@ public final class FhirServiceArgs extends com.pulumi.resources.ResourceArgs {
             return ociArtifacts(List.of(ociArtifacts));
         }
 
+        /**
+         * @param resourceGroupName Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupName(Output<String> resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
         }
 
+        /**
+         * @param resourceGroupName Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the Healthcare FHIR Service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the Healthcare FHIR Service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

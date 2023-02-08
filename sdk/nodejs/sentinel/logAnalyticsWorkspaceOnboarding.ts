@@ -44,7 +44,7 @@ export class LogAnalyticsWorkspaceOnboarding extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+     * Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly customerManagedKeyEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -52,7 +52,7 @@ export class LogAnalyticsWorkspaceOnboarding extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      */
     public readonly workspaceName!: pulumi.Output<string>;
 
@@ -94,7 +94,7 @@ export class LogAnalyticsWorkspaceOnboarding extends pulumi.CustomResource {
  */
 export interface LogAnalyticsWorkspaceOnboardingState {
     /**
-     * Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+     * Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
      */
     customerManagedKeyEnabled?: pulumi.Input<boolean>;
     /**
@@ -102,7 +102,7 @@ export interface LogAnalyticsWorkspaceOnboardingState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      */
     workspaceName?: pulumi.Input<string>;
 }
@@ -112,7 +112,7 @@ export interface LogAnalyticsWorkspaceOnboardingState {
  */
 export interface LogAnalyticsWorkspaceOnboardingArgs {
     /**
-     * Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+     * Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
      */
     customerManagedKeyEnabled?: pulumi.Input<boolean>;
     /**
@@ -120,7 +120,7 @@ export interface LogAnalyticsWorkspaceOnboardingArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      */
     workspaceName: pulumi.Input<string>;
 }

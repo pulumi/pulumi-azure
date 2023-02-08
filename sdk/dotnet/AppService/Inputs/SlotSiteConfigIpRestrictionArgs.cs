@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.SlotSiteConfigIpRestrictionHeadersArgs>? Headers { get; set; }
 
         /// <summary>
-        /// The IP Address used for this IP Restriction.
+        /// The IP Address used for this IP Restriction in CIDR notation.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }

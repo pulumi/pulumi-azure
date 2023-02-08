@@ -76,9 +76,17 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.computeIsolation);
     }
 
+    /**
+     * One or more `disk_encryption` block as defined below.
+     * 
+     */
     @Import(name="diskEncryptions")
     private @Nullable Output<List<KafkaClusterDiskEncryptionArgs>> diskEncryptions;
 
+    /**
+     * @return One or more `disk_encryption` block as defined below.
+     * 
+     */
     public Optional<Output<List<KafkaClusterDiskEncryptionArgs>>> diskEncryptions() {
         return Optional.ofNullable(this.diskEncryptions);
     }
@@ -453,15 +461,33 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
             return computeIsolation(Output.of(computeIsolation));
         }
 
+        /**
+         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptions(@Nullable Output<List<KafkaClusterDiskEncryptionArgs>> diskEncryptions) {
             $.diskEncryptions = diskEncryptions;
             return this;
         }
 
+        /**
+         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptions(List<KafkaClusterDiskEncryptionArgs> diskEncryptions) {
             return diskEncryptions(Output.of(diskEncryptions));
         }
 
+        /**
+         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptions(KafkaClusterDiskEncryptionArgs... diskEncryptions) {
             return diskEncryptions(List.of(diskEncryptions));
         }

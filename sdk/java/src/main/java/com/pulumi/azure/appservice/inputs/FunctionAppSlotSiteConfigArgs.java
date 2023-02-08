@@ -126,9 +126,17 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.ftpsState);
     }
 
+    /**
+     * Path which will be checked for this function app health.
+     * 
+     */
     @Import(name="healthCheckPath")
     private @Nullable Output<String> healthCheckPath;
 
+    /**
+     * @return Path which will be checked for this function app health.
+     * 
+     */
     public Optional<Output<String>> healthCheckPath() {
         return Optional.ofNullable(this.healthCheckPath);
     }
@@ -163,9 +171,17 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.ipRestrictions);
     }
 
+    /**
+     * Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
+     * 
+     */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
+    /**
+     * @return Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
+     * 
+     */
     public Optional<Output<String>> javaVersion() {
         return Optional.ofNullable(this.javaVersion);
     }
@@ -230,23 +246,47 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
     }
 
+    /**
+     * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+     * 
+     */
     @Import(name="scmIpRestrictions")
     private @Nullable Output<List<FunctionAppSlotSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
 
+    /**
+     * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+     * 
+     */
     public Optional<Output<List<FunctionAppSlotSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
         return Optional.ofNullable(this.scmIpRestrictions);
     }
 
+    /**
+     * The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+     * 
+     */
     @Import(name="scmType")
     private @Nullable Output<String> scmType;
 
+    /**
+     * @return The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+     * 
+     */
     public Optional<Output<String>> scmType() {
         return Optional.ofNullable(this.scmType);
     }
 
+    /**
+     * IP security restrictions for scm to use main. Defaults to `false`.
+     * 
+     */
     @Import(name="scmUseMainIpRestriction")
     private @Nullable Output<Boolean> scmUseMainIpRestriction;
 
+    /**
+     * @return IP security restrictions for scm to use main. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
     }
@@ -479,11 +519,23 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
             return ftpsState(Output.of(ftpsState));
         }
 
+        /**
+         * @param healthCheckPath Path which will be checked for this function app health.
+         * 
+         * @return builder
+         * 
+         */
         public Builder healthCheckPath(@Nullable Output<String> healthCheckPath) {
             $.healthCheckPath = healthCheckPath;
             return this;
         }
 
+        /**
+         * @param healthCheckPath Path which will be checked for this function app health.
+         * 
+         * @return builder
+         * 
+         */
         public Builder healthCheckPath(String healthCheckPath) {
             return healthCheckPath(Output.of(healthCheckPath));
         }
@@ -540,11 +592,23 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
             return ipRestrictions(List.of(ipRestrictions));
         }
 
+        /**
+         * @param javaVersion Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
+         * 
+         * @return builder
+         * 
+         */
         public Builder javaVersion(@Nullable Output<String> javaVersion) {
             $.javaVersion = javaVersion;
             return this;
         }
 
+        /**
+         * @param javaVersion Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
+         * 
+         * @return builder
+         * 
+         */
         public Builder javaVersion(String javaVersion) {
             return javaVersion(Output.of(javaVersion));
         }
@@ -633,33 +697,75 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
             return runtimeScaleMonitoringEnabled(Output.of(runtimeScaleMonitoringEnabled));
         }
 
+        /**
+         * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scmIpRestrictions(@Nullable Output<List<FunctionAppSlotSiteConfigScmIpRestrictionArgs>> scmIpRestrictions) {
             $.scmIpRestrictions = scmIpRestrictions;
             return this;
         }
 
+        /**
+         * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scmIpRestrictions(List<FunctionAppSlotSiteConfigScmIpRestrictionArgs> scmIpRestrictions) {
             return scmIpRestrictions(Output.of(scmIpRestrictions));
         }
 
+        /**
+         * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scmIpRestrictions(FunctionAppSlotSiteConfigScmIpRestrictionArgs... scmIpRestrictions) {
             return scmIpRestrictions(List.of(scmIpRestrictions));
         }
 
+        /**
+         * @param scmType The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scmType(@Nullable Output<String> scmType) {
             $.scmType = scmType;
             return this;
         }
 
+        /**
+         * @param scmType The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scmType(String scmType) {
             return scmType(Output.of(scmType));
         }
 
+        /**
+         * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scmUseMainIpRestriction(@Nullable Output<Boolean> scmUseMainIpRestriction) {
             $.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
 
+        /**
+         * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scmUseMainIpRestriction(Boolean scmUseMainIpRestriction) {
             return scmUseMainIpRestriction(Output.of(scmUseMainIpRestriction));
         }

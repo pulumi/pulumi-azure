@@ -78,7 +78,7 @@ type LookupVirtualNetworkGatewayResult struct {
 	IpConfigurations []GetVirtualNetworkGatewayIpConfiguration `pulumi:"ipConfigurations"`
 	// The location/region where the Virtual Network Gateway is located.
 	Location string `pulumi:"location"`
-	// The user-defined name of the revoked certificate.
+	// The user-defined name of the root certificate.
 	Name string `pulumi:"name"`
 	// Whether a private IP will be used for this  gateway for connections.
 	PrivateIpAddressEnabled bool   `pulumi:"privateIpAddressEnabled"`
@@ -184,7 +184,7 @@ func (o LookupVirtualNetworkGatewayResultOutput) Location() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The user-defined name of the revoked certificate.
+// The user-defined name of the root certificate.
 func (o LookupVirtualNetworkGatewayResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.Name }).(pulumi.StringOutput)
 }

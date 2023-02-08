@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+        /// Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         /// </summary>
         [Output("scopes")]
         public Output<string> Scopes { get; private set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+        /// Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         /// </summary>
         [Input("scopes", required: true)]
         public Input<string> Scopes { get; set; } = null!;
@@ -438,7 +438,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+        /// Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         /// </summary>
         [Input("scopes")]
         public Input<string>? Scopes { get; set; }

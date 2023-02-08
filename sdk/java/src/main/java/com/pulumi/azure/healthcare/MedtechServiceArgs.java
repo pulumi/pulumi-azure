@@ -122,9 +122,17 @@ public final class MedtechServiceArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * A mapping of tags to assign to the Healthcare Med Tech Service.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the Healthcare Med Tech Service.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -323,11 +331,23 @@ public final class MedtechServiceArgs extends com.pulumi.resources.ResourceArgs 
             return name(Output.of(name));
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the Healthcare Med Tech Service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the Healthcare Med Tech Service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

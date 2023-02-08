@@ -5233,7 +5233,7 @@ class ScaleSetIdentityArgs:
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+        :param pulumi.Input[str] type: Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
@@ -5246,7 +5246,7 @@ class ScaleSetIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+        Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -5789,7 +5789,7 @@ class ScaleSetOsProfileSecretVaultCertificateArgs:
                  certificate_store: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] certificate_url: It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
-        :param pulumi.Input[str] certificate_store: Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+        :param pulumi.Input[str] certificate_store: (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
         """
         pulumi.set(__self__, "certificate_url", certificate_url)
         if certificate_store is not None:
@@ -5811,7 +5811,7 @@ class ScaleSetOsProfileSecretVaultCertificateArgs:
     @pulumi.getter(name="certificateStore")
     def certificate_store(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+        (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
         """
         return pulumi.get(self, "certificate_store")
 

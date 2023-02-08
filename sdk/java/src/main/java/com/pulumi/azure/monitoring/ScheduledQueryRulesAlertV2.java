@@ -245,14 +245,14 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
         return this.resourceGroupName;
     }
     /**
-     * Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+     * Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
      * 
      */
     @Export(name="scopes", type=String.class, parameters={})
     private Output<String> scopes;
 
     /**
-     * @return Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+     * @return Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
      * 
      */
     public Output<String> scopes() {

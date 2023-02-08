@@ -22,6 +22,7 @@ class GatewayArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Gateway resource.
+        :param pulumi.Input[str] api_management_id: The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
         :param pulumi.Input['GatewayLocationDataArgs'] location_data: A `location_data` block as documented below.
         :param pulumi.Input[str] description: The description of the API Management Gateway.
         :param pulumi.Input[str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
@@ -36,6 +37,9 @@ class GatewayArgs:
     @property
     @pulumi.getter(name="apiManagementId")
     def api_management_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+        """
         return pulumi.get(self, "api_management_id")
 
     @api_management_id.setter
@@ -88,6 +92,7 @@ class _GatewayState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Gateway resources.
+        :param pulumi.Input[str] api_management_id: The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
         :param pulumi.Input[str] description: The description of the API Management Gateway.
         :param pulumi.Input['GatewayLocationDataArgs'] location_data: A `location_data` block as documented below.
         :param pulumi.Input[str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
@@ -104,6 +109,9 @@ class _GatewayState:
     @property
     @pulumi.getter(name="apiManagementId")
     def api_management_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+        """
         return pulumi.get(self, "api_management_id")
 
     @api_management_id.setter
@@ -194,6 +202,7 @@ class Gateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_management_id: The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
         :param pulumi.Input[str] description: The description of the API Management Gateway.
         :param pulumi.Input[pulumi.InputType['GatewayLocationDataArgs']] location_data: A `location_data` block as documented below.
         :param pulumi.Input[str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
@@ -296,6 +305,7 @@ class Gateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_management_id: The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
         :param pulumi.Input[str] description: The description of the API Management Gateway.
         :param pulumi.Input[pulumi.InputType['GatewayLocationDataArgs']] location_data: A `location_data` block as documented below.
         :param pulumi.Input[str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
@@ -313,6 +323,9 @@ class Gateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiManagementId")
     def api_management_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+        """
         return pulumi.get(self, "api_management_id")
 
     @property

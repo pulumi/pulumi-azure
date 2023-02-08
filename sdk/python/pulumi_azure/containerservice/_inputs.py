@@ -31,9 +31,11 @@ __all__ = [
     'GroupInitContainerVolumeArgs',
     'GroupInitContainerVolumeGitRepoArgs',
     'KubernetesClusterAciConnectorLinuxArgs',
+    'KubernetesClusterAciConnectorLinuxConnectorIdentityArgs',
     'KubernetesClusterApiServerAccessProfileArgs',
     'KubernetesClusterAutoScalerProfileArgs',
     'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs',
+    'KubernetesClusterConfidentialComputingArgs',
     'KubernetesClusterDefaultNodePoolArgs',
     'KubernetesClusterDefaultNodePoolKubeletConfigArgs',
     'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs',
@@ -1743,11 +1745,15 @@ class GroupInitContainerVolumeGitRepoArgs:
 @pulumi.input_type
 class KubernetesClusterAciConnectorLinuxArgs:
     def __init__(__self__, *,
-                 subnet_name: pulumi.Input[str]):
+                 subnet_name: pulumi.Input[str],
+                 connector_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]]] = None):
         """
         :param pulumi.Input[str] subnet_name: The subnet name for the virtual nodes to run.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "subnet_name", subnet_name)
+        if connector_identities is not None:
+            pulumi.set(__self__, "connector_identities", connector_identities)
 
     @property
     @pulumi.getter(name="subnetName")
@@ -1760,6 +1766,73 @@ class KubernetesClusterAciConnectorLinuxArgs:
     @subnet_name.setter
     def subnet_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_name", value)
+
+    @property
+    @pulumi.getter(name="connectorIdentities")
+    def connector_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]]]:
+        """
+        A `connector_identity` block is exported. The exported attributes are defined below.
+        """
+        return pulumi.get(self, "connector_identities")
+
+    @connector_identities.setter
+    def connector_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]]]):
+        pulumi.set(self, "connector_identities", value)
+
+
+@pulumi.input_type
+class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
 
 
 @pulumi.input_type
@@ -2213,6 +2286,28 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class KubernetesClusterConfidentialComputingArgs:
+    def __init__(__self__, *,
+                 sgx_quote_helper_enabled: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] sgx_quote_helper_enabled: Should the SGX quote helper be enabled?
+        """
+        pulumi.set(__self__, "sgx_quote_helper_enabled", sgx_quote_helper_enabled)
+
+    @property
+    @pulumi.getter(name="sgxQuoteHelperEnabled")
+    def sgx_quote_helper_enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the SGX quote helper be enabled?
+        """
+        return pulumi.get(self, "sgx_quote_helper_enabled")
+
+    @sgx_quote_helper_enabled.setter
+    def sgx_quote_helper_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "sgx_quote_helper_enabled", value)
 
 
 @pulumi.input_type
@@ -3510,7 +3605,7 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs:
     def __init__(__self__, *,
                  node_public_ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
         """
         if node_public_ip_tags is not None:
             pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
@@ -3519,7 +3614,7 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs:
     @pulumi.getter(name="nodePublicIpTags")
     def node_public_ip_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a mapping of tags to the instance-level public IPs.
+        Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_public_ip_tags")
 
@@ -3856,8 +3951,7 @@ class KubernetesClusterKeyManagementServiceArgs:
                  key_vault_network_access: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
-        :param pulumi.Input[str] key_vault_network_access: Network access of the key vault
-               Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+        :param pulumi.Input[str] key_vault_network_access: Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if key_vault_network_access is not None:
@@ -3879,8 +3973,7 @@ class KubernetesClusterKeyManagementServiceArgs:
     @pulumi.getter(name="keyVaultNetworkAccess")
     def key_vault_network_access(self) -> Optional[pulumi.Input[str]]:
         """
-        Network access of the key vault
-        Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+        Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
         """
         return pulumi.get(self, "key_vault_network_access")
 
@@ -5643,7 +5736,7 @@ class KubernetesClusterNodePoolNodeNetworkProfileArgs:
     def __init__(__self__, *,
                  node_public_ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
         """
         if node_public_ip_tags is not None:
             pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
@@ -5652,7 +5745,7 @@ class KubernetesClusterNodePoolNodeNetworkProfileArgs:
     @pulumi.getter(name="nodePublicIpTags")
     def node_public_ip_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a mapping of tags to the instance-level public IPs.
+        Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_public_ip_tags")
 

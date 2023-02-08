@@ -75,9 +75,17 @@ public final class InteractiveQueryClusterState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.computeIsolation);
     }
 
+    /**
+     * A `disk_encryption` block as defined below.
+     * 
+     */
     @Import(name="diskEncryptions")
     private @Nullable Output<List<InteractiveQueryClusterDiskEncryptionArgs>> diskEncryptions;
 
+    /**
+     * @return A `disk_encryption` block as defined below.
+     * 
+     */
     public Optional<Output<List<InteractiveQueryClusterDiskEncryptionArgs>>> diskEncryptions() {
         return Optional.ofNullable(this.diskEncryptions);
     }
@@ -460,15 +468,33 @@ public final class InteractiveQueryClusterState extends com.pulumi.resources.Res
             return computeIsolation(Output.of(computeIsolation));
         }
 
+        /**
+         * @param diskEncryptions A `disk_encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptions(@Nullable Output<List<InteractiveQueryClusterDiskEncryptionArgs>> diskEncryptions) {
             $.diskEncryptions = diskEncryptions;
             return this;
         }
 
+        /**
+         * @param diskEncryptions A `disk_encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptions(List<InteractiveQueryClusterDiskEncryptionArgs> diskEncryptions) {
             return diskEncryptions(Output.of(diskEncryptions));
         }
 
+        /**
+         * @param diskEncryptions A `disk_encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptions(InteractiveQueryClusterDiskEncryptionArgs... diskEncryptions) {
             return diskEncryptions(List.of(diskEncryptions));
         }

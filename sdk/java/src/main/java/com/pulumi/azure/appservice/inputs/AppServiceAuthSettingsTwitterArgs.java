@@ -13,16 +13,32 @@ public final class AppServiceAuthSettingsTwitterArgs extends com.pulumi.resource
 
     public static final AppServiceAuthSettingsTwitterArgs Empty = new AppServiceAuthSettingsTwitterArgs();
 
+    /**
+     * The consumer key of the Twitter app used for login
+     * 
+     */
     @Import(name="consumerKey", required=true)
     private Output<String> consumerKey;
 
+    /**
+     * @return The consumer key of the Twitter app used for login
+     * 
+     */
     public Output<String> consumerKey() {
         return this.consumerKey;
     }
 
+    /**
+     * The consumer secret of the Twitter app used for login.
+     * 
+     */
     @Import(name="consumerSecret", required=true)
     private Output<String> consumerSecret;
 
+    /**
+     * @return The consumer secret of the Twitter app used for login.
+     * 
+     */
     public Output<String> consumerSecret() {
         return this.consumerSecret;
     }
@@ -52,20 +68,44 @@ public final class AppServiceAuthSettingsTwitterArgs extends com.pulumi.resource
             $ = new AppServiceAuthSettingsTwitterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param consumerKey The consumer key of the Twitter app used for login
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumerKey(Output<String> consumerKey) {
             $.consumerKey = consumerKey;
             return this;
         }
 
+        /**
+         * @param consumerKey The consumer key of the Twitter app used for login
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumerKey(String consumerKey) {
             return consumerKey(Output.of(consumerKey));
         }
 
+        /**
+         * @param consumerSecret The consumer secret of the Twitter app used for login.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumerSecret(Output<String> consumerSecret) {
             $.consumerSecret = consumerSecret;
             return this;
         }
 
+        /**
+         * @param consumerSecret The consumer secret of the Twitter app used for login.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumerSecret(String consumerSecret) {
             return consumerSecret(Output.of(consumerSecret));
         }

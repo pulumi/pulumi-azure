@@ -119,6 +119,8 @@ import (
 type ProtectionContainerMapping struct {
 	pulumi.CustomResourceState
 
+	// a `automaticUpdate` block defined as below.
+	AutomaticUpdate ProtectionContainerMappingAutomaticUpdateOutput `pulumi:"automaticUpdate"`
 	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
@@ -182,6 +184,8 @@ func GetProtectionContainerMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectionContainerMapping resources.
 type protectionContainerMappingState struct {
+	// a `automaticUpdate` block defined as below.
+	AutomaticUpdate *ProtectionContainerMappingAutomaticUpdate `pulumi:"automaticUpdate"`
 	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
@@ -199,6 +203,8 @@ type protectionContainerMappingState struct {
 }
 
 type ProtectionContainerMappingState struct {
+	// a `automaticUpdate` block defined as below.
+	AutomaticUpdate ProtectionContainerMappingAutomaticUpdatePtrInput
 	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
@@ -220,6 +226,8 @@ func (ProtectionContainerMappingState) ElementType() reflect.Type {
 }
 
 type protectionContainerMappingArgs struct {
+	// a `automaticUpdate` block defined as below.
+	AutomaticUpdate *ProtectionContainerMappingAutomaticUpdate `pulumi:"automaticUpdate"`
 	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
@@ -238,6 +246,8 @@ type protectionContainerMappingArgs struct {
 
 // The set of arguments for constructing a ProtectionContainerMapping resource.
 type ProtectionContainerMappingArgs struct {
+	// a `automaticUpdate` block defined as below.
+	AutomaticUpdate ProtectionContainerMappingAutomaticUpdatePtrInput
 	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
@@ -339,6 +349,13 @@ func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingOutput() P
 
 func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingOutputWithContext(ctx context.Context) ProtectionContainerMappingOutput {
 	return o
+}
+
+// a `automaticUpdate` block defined as below.
+func (o ProtectionContainerMappingOutput) AutomaticUpdate() ProtectionContainerMappingAutomaticUpdateOutput {
+	return o.ApplyT(func(v *ProtectionContainerMapping) ProtectionContainerMappingAutomaticUpdateOutput {
+		return v.AutomaticUpdate
+	}).(ProtectionContainerMappingAutomaticUpdateOutput)
 }
 
 // The name of the protection container mapping. Changing this forces a new resource to be created.

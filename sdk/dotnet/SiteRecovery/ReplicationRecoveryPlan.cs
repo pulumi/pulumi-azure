@@ -99,7 +99,7 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ReplicationRecoveryPlan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<ImmutableArray<Outputs.ReplicationRecoveryPlanRecoveryGroup>> RecoveryGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the vault that should be updated.
+        /// The ID of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryVaultId")]
         public Output<string> RecoveryVaultId { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ReplicationRecoveryPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
-        /// The ID of the vault that should be updated.
+        /// The ID of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultId", required: true)]
         public Input<string> RecoveryVaultId { get; set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ReplicationRecoveryPlanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
-        /// The ID of the vault that should be updated.
+        /// The ID of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultId")]
         public Input<string>? RecoveryVaultId { get; set; }

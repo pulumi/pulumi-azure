@@ -436,9 +436,17 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> healthProbeId() {
         return Codegen.optional(this.healthProbeId);
     }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
     @Export(name="identity", type=ScaleSetIdentity.class, parameters={})
     private Output<ScaleSetIdentity> identity;
 
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     public Output<ScaleSetIdentity> identity() {
         return this.identity;
     }

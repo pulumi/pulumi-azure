@@ -13,6 +13,21 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatedVMNetworkInterface {
     /**
+     * @return Id of the public IP object to use when a test failover is done.
+     * 
+     */
+    private @Nullable String failoverTestPublicIpAddressId;
+    /**
+     * @return Static IP to assign when a test failover is done.
+     * 
+     */
+    private @Nullable String failoverTestStaticIp;
+    /**
+     * @return Name of the subnet to to use when a test failover is done.
+     * 
+     */
+    private @Nullable String failoverTestSubnetName;
+    /**
      * @deprecated
      * this property is not used and will be removed in version 4.0 of the provider
      * 
@@ -41,6 +56,27 @@ public final class ReplicatedVMNetworkInterface {
     private @Nullable String targetSubnetName;
 
     private ReplicatedVMNetworkInterface() {}
+    /**
+     * @return Id of the public IP object to use when a test failover is done.
+     * 
+     */
+    public Optional<String> failoverTestPublicIpAddressId() {
+        return Optional.ofNullable(this.failoverTestPublicIpAddressId);
+    }
+    /**
+     * @return Static IP to assign when a test failover is done.
+     * 
+     */
+    public Optional<String> failoverTestStaticIp() {
+        return Optional.ofNullable(this.failoverTestStaticIp);
+    }
+    /**
+     * @return Name of the subnet to to use when a test failover is done.
+     * 
+     */
+    public Optional<String> failoverTestSubnetName() {
+        return Optional.ofNullable(this.failoverTestSubnetName);
+    }
     /**
      * @deprecated
      * this property is not used and will be removed in version 4.0 of the provider
@@ -88,6 +124,9 @@ public final class ReplicatedVMNetworkInterface {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String failoverTestPublicIpAddressId;
+        private @Nullable String failoverTestStaticIp;
+        private @Nullable String failoverTestSubnetName;
         private @Nullable Boolean isPrimary;
         private @Nullable String recoveryPublicIpAddressId;
         private @Nullable String sourceNetworkInterfaceId;
@@ -96,6 +135,9 @@ public final class ReplicatedVMNetworkInterface {
         public Builder() {}
         public Builder(ReplicatedVMNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.failoverTestPublicIpAddressId = defaults.failoverTestPublicIpAddressId;
+    	      this.failoverTestStaticIp = defaults.failoverTestStaticIp;
+    	      this.failoverTestSubnetName = defaults.failoverTestSubnetName;
     	      this.isPrimary = defaults.isPrimary;
     	      this.recoveryPublicIpAddressId = defaults.recoveryPublicIpAddressId;
     	      this.sourceNetworkInterfaceId = defaults.sourceNetworkInterfaceId;
@@ -103,6 +145,21 @@ public final class ReplicatedVMNetworkInterface {
     	      this.targetSubnetName = defaults.targetSubnetName;
         }
 
+        @CustomType.Setter
+        public Builder failoverTestPublicIpAddressId(@Nullable String failoverTestPublicIpAddressId) {
+            this.failoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder failoverTestStaticIp(@Nullable String failoverTestStaticIp) {
+            this.failoverTestStaticIp = failoverTestStaticIp;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder failoverTestSubnetName(@Nullable String failoverTestSubnetName) {
+            this.failoverTestSubnetName = failoverTestSubnetName;
+            return this;
+        }
         @CustomType.Setter
         public Builder isPrimary(@Nullable Boolean isPrimary) {
             this.isPrimary = isPrimary;
@@ -130,6 +187,9 @@ public final class ReplicatedVMNetworkInterface {
         }
         public ReplicatedVMNetworkInterface build() {
             final var o = new ReplicatedVMNetworkInterface();
+            o.failoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
+            o.failoverTestStaticIp = failoverTestStaticIp;
+            o.failoverTestSubnetName = failoverTestSubnetName;
             o.isPrimary = isPrimary;
             o.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
             o.sourceNetworkInterfaceId = sourceNetworkInterfaceId;

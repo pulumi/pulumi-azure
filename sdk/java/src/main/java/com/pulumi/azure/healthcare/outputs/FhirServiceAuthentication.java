@@ -18,6 +18,10 @@ public final class FhirServiceAuthentication {
      */
     private String audience;
     private String authority;
+    /**
+     * @return Whether smart proxy is enabled.
+     * 
+     */
     private @Nullable Boolean smartProxyEnabled;
 
     private FhirServiceAuthentication() {}
@@ -31,6 +35,10 @@ public final class FhirServiceAuthentication {
     public String authority() {
         return this.authority;
     }
+    /**
+     * @return Whether smart proxy is enabled.
+     * 
+     */
     public Optional<Boolean> smartProxyEnabled() {
         return Optional.ofNullable(this.smartProxyEnabled);
     }

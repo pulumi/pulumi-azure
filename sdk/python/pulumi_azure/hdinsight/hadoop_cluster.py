@@ -44,6 +44,7 @@ class HadoopClusterArgs:
         :param pulumi.Input['HadoopClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
         :param pulumi.Input['HadoopClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
@@ -176,6 +177,9 @@ class HadoopClusterArgs:
     @property
     @pulumi.getter(name="diskEncryptions")
     def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]:
+        """
+        One or more `disk_encryption` block as defined below.
+        """
         return pulumi.get(self, "disk_encryptions")
 
     @disk_encryptions.setter
@@ -344,6 +348,7 @@ class _HadoopClusterState:
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
         :param pulumi.Input['HadoopClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
         :param pulumi.Input['HadoopClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input['HadoopClusterGatewayArgs'] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
@@ -444,6 +449,9 @@ class _HadoopClusterState:
     @property
     @pulumi.getter(name="diskEncryptions")
     def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]:
+        """
+        One or more `disk_encryption` block as defined below.
+        """
         return pulumi.get(self, "disk_encryptions")
 
     @disk_encryptions.setter
@@ -748,6 +756,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
         :param pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
         :param pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -950,6 +959,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
         :param pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
         :param pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
@@ -1022,6 +1032,9 @@ class HadoopCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="diskEncryptions")
     def disk_encryptions(self) -> pulumi.Output[Optional[Sequence['outputs.HadoopClusterDiskEncryption']]]:
+        """
+        One or more `disk_encryption` block as defined below.
+        """
         return pulumi.get(self, "disk_encryptions")
 
     @property

@@ -110,14 +110,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan")
 public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+     * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+     * @return The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -138,14 +138,14 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.recoveryGroups);
     }
     /**
-     * The ID of the vault that should be updated.
+     * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="recoveryVaultId", type=String.class, parameters={})
     private Output<String> recoveryVaultId;
 
     /**
-     * @return The ID of the vault that should be updated.
+     * @return The ID of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryVaultId() {

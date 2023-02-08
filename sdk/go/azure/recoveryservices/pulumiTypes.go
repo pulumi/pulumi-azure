@@ -16,8 +16,9 @@ type VaultEncryption struct {
 	// The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
 	KeyId string `pulumi:"keyId"`
 	// Indicate that system assigned identity should be used or not. Defaults to `true`.
-	UseSystemAssignedIdentity *bool   `pulumi:"useSystemAssignedIdentity"`
-	UserAssignedIdentityId    *string `pulumi:"userAssignedIdentityId"`
+	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
+	// Specifies the user assigned identity ID to be used.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 // VaultEncryptionInput is an input type that accepts VaultEncryptionArgs and VaultEncryptionOutput values.
@@ -37,8 +38,9 @@ type VaultEncryptionArgs struct {
 	// The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// Indicate that system assigned identity should be used or not. Defaults to `true`.
-	UseSystemAssignedIdentity pulumi.BoolPtrInput   `pulumi:"useSystemAssignedIdentity"`
-	UserAssignedIdentityId    pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
+	// Specifies the user assigned identity ID to be used.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (VaultEncryptionArgs) ElementType() reflect.Type {
@@ -133,6 +135,7 @@ func (o VaultEncryptionOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v VaultEncryption) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the user assigned identity ID to be used.
 func (o VaultEncryptionOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultEncryption) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -191,6 +194,7 @@ func (o VaultEncryptionPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the user assigned identity ID to be used.
 func (o VaultEncryptionPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultEncryption) *string {
 		if v == nil {

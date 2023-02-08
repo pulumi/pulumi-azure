@@ -176,9 +176,17 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<HadoopClusterComputeIsolation>> computeIsolation() {
         return Codegen.optional(this.computeIsolation);
     }
+    /**
+     * One or more `disk_encryption` block as defined below.
+     * 
+     */
     @Export(name="diskEncryptions", type=List.class, parameters={HadoopClusterDiskEncryption.class})
     private Output</* @Nullable */ List<HadoopClusterDiskEncryption>> diskEncryptions;
 
+    /**
+     * @return One or more `disk_encryption` block as defined below.
+     * 
+     */
     public Output<Optional<List<HadoopClusterDiskEncryption>>> diskEncryptions() {
         return Codegen.optional(this.diskEncryptions);
     }

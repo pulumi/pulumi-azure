@@ -17379,7 +17379,7 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Threshold() pulum
 }
 
 type ScheduledQueryRulesAlertV2Action struct {
-	// List of Action Group resource ids to invoke when the alert fires.
+	// List of Action Group resource IDs to invoke when the alert fires.
 	ActionGroups []string `pulumi:"actionGroups"`
 	// Specifies the properties of an alert payload.
 	CustomProperties map[string]string `pulumi:"customProperties"`
@@ -17397,7 +17397,7 @@ type ScheduledQueryRulesAlertV2ActionInput interface {
 }
 
 type ScheduledQueryRulesAlertV2ActionArgs struct {
-	// List of Action Group resource ids to invoke when the alert fires.
+	// List of Action Group resource IDs to invoke when the alert fires.
 	ActionGroups pulumi.StringArrayInput `pulumi:"actionGroups"`
 	// Specifies the properties of an alert payload.
 	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
@@ -17480,7 +17480,7 @@ func (o ScheduledQueryRulesAlertV2ActionOutput) ToScheduledQueryRulesAlertV2Acti
 	}).(ScheduledQueryRulesAlertV2ActionPtrOutput)
 }
 
-// List of Action Group resource ids to invoke when the alert fires.
+// List of Action Group resource IDs to invoke when the alert fires.
 func (o ScheduledQueryRulesAlertV2ActionOutput) ActionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Action) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
 }
@@ -17514,7 +17514,7 @@ func (o ScheduledQueryRulesAlertV2ActionPtrOutput) Elem() ScheduledQueryRulesAle
 	}).(ScheduledQueryRulesAlertV2ActionOutput)
 }
 
-// List of Action Group resource ids to invoke when the alert fires.
+// List of Action Group resource IDs to invoke when the alert fires.
 func (o ScheduledQueryRulesAlertV2ActionPtrOutput) ActionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Action) []string {
 		if v == nil {
@@ -17545,7 +17545,7 @@ type ScheduledQueryRulesAlertV2Criteria struct {
 	Operator string `pulumi:"operator"`
 	// The query to run on logs. The results returned by this query are used to populate the alert.
 	Query string `pulumi:"query"`
-	// Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+	// Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
 	ResourceIdColumn *string `pulumi:"resourceIdColumn"`
 	// Specifies the criteria threshold value that activates the alert.
 	Threshold float64 `pulumi:"threshold"`
@@ -17575,7 +17575,7 @@ type ScheduledQueryRulesAlertV2CriteriaArgs struct {
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// The query to run on logs. The results returned by this query are used to populate the alert.
 	Query pulumi.StringInput `pulumi:"query"`
-	// Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+	// Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
 	ResourceIdColumn pulumi.StringPtrInput `pulumi:"resourceIdColumn"`
 	// Specifies the criteria threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
@@ -17663,7 +17663,7 @@ func (o ScheduledQueryRulesAlertV2CriteriaOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) string { return v.Query }).(pulumi.StringOutput)
 }
 
-// Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+// Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
 func (o ScheduledQueryRulesAlertV2CriteriaOutput) ResourceIdColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) *string { return v.ResourceIdColumn }).(pulumi.StringPtrOutput)
 }

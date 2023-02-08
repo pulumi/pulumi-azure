@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterDefaultNodePoolNodeNetworkProfile {
     /**
-     * @return Specifies a mapping of tags to the instance-level public IPs.
+     * @return Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Map<String,String> nodePublicIpTags;
 
     private KubernetesClusterDefaultNodePoolNodeNetworkProfile() {}
     /**
-     * @return Specifies a mapping of tags to the instance-level public IPs.
+     * @return Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
      * 
      */
     public Map<String,String> nodePublicIpTags() {

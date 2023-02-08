@@ -72,9 +72,17 @@ public class SourceControlToken extends com.pulumi.resources.CustomResource {
     public Output<String> token() {
         return this.token;
     }
+    /**
+     * The Access Token Secret.
+     * 
+     */
     @Export(name="tokenSecret", type=String.class, parameters={})
     private Output</* @Nullable */ String> tokenSecret;
 
+    /**
+     * @return The Access Token Secret.
+     * 
+     */
     public Output<Optional<String>> tokenSecret() {
         return Codegen.optional(this.tokenSecret);
     }

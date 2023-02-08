@@ -177,9 +177,17 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
     public Output<Optional<InteractiveQueryClusterComputeIsolation>> computeIsolation() {
         return Codegen.optional(this.computeIsolation);
     }
+    /**
+     * A `disk_encryption` block as defined below.
+     * 
+     */
     @Export(name="diskEncryptions", type=List.class, parameters={InteractiveQueryClusterDiskEncryption.class})
     private Output</* @Nullable */ List<InteractiveQueryClusterDiskEncryption>> diskEncryptions;
 
+    /**
+     * @return A `disk_encryption` block as defined below.
+     * 
+     */
     public Output<Optional<List<InteractiveQueryClusterDiskEncryption>>> diskEncryptions() {
         return Codegen.optional(this.diskEncryptions);
     }

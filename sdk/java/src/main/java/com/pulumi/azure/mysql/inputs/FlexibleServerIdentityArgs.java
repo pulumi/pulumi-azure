@@ -17,14 +17,14 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
     public static final FlexibleServerIdentityArgs Empty = new FlexibleServerIdentityArgs();
 
     /**
-     * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block as defined below.
+     * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block as defined below.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -88,7 +88,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block as defined below.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block as defined below.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block as defined below.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
          * 
          * @return builder
          * 

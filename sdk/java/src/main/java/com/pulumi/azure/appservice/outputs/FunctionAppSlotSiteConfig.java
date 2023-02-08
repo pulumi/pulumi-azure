@@ -52,6 +52,10 @@ public final class FunctionAppSlotSiteConfig {
      * 
      */
     private @Nullable String ftpsState;
+    /**
+     * @return Path which will be checked for this function app health.
+     * 
+     */
     private @Nullable String healthCheckPath;
     /**
      * @return Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
@@ -63,6 +67,10 @@ public final class FunctionAppSlotSiteConfig {
      * 
      */
     private @Nullable List<FunctionAppSlotSiteConfigIpRestriction> ipRestrictions;
+    /**
+     * @return Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
+     * 
+     */
     private @Nullable String javaVersion;
     /**
      * @return Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
@@ -84,8 +92,20 @@ public final class FunctionAppSlotSiteConfig {
      * 
      */
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
+    /**
+     * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+     * 
+     */
     private @Nullable List<FunctionAppSlotSiteConfigScmIpRestriction> scmIpRestrictions;
+    /**
+     * @return The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+     * 
+     */
     private @Nullable String scmType;
+    /**
+     * @return IP security restrictions for scm to use main. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -149,6 +169,10 @@ public final class FunctionAppSlotSiteConfig {
     public Optional<String> ftpsState() {
         return Optional.ofNullable(this.ftpsState);
     }
+    /**
+     * @return Path which will be checked for this function app health.
+     * 
+     */
     public Optional<String> healthCheckPath() {
         return Optional.ofNullable(this.healthCheckPath);
     }
@@ -166,6 +190,10 @@ public final class FunctionAppSlotSiteConfig {
     public List<FunctionAppSlotSiteConfigIpRestriction> ipRestrictions() {
         return this.ipRestrictions == null ? List.of() : this.ipRestrictions;
     }
+    /**
+     * @return Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
+     * 
+     */
     public Optional<String> javaVersion() {
         return Optional.ofNullable(this.javaVersion);
     }
@@ -197,12 +225,24 @@ public final class FunctionAppSlotSiteConfig {
     public Optional<Boolean> runtimeScaleMonitoringEnabled() {
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
     }
+    /**
+     * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+     * 
+     */
     public List<FunctionAppSlotSiteConfigScmIpRestriction> scmIpRestrictions() {
         return this.scmIpRestrictions == null ? List.of() : this.scmIpRestrictions;
     }
+    /**
+     * @return The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+     * 
+     */
     public Optional<String> scmType() {
         return Optional.ofNullable(this.scmType);
     }
+    /**
+     * @return IP security restrictions for scm to use main. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> scmUseMainIpRestriction() {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
     }

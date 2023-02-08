@@ -20,14 +20,14 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
     public static final VirtualMachineStorageConfigurationArgs Empty = new VirtualMachineStorageConfigurationArgs();
 
     /**
-     * An `storage_settings` as defined below.
+     * A `storage_settings` block as defined below.
      * 
      */
     @Import(name="dataSettings")
     private @Nullable Output<VirtualMachineStorageConfigurationDataSettingsArgs> dataSettings;
 
     /**
-     * @return An `storage_settings` as defined below.
+     * @return A `storage_settings` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineStorageConfigurationDataSettingsArgs>> dataSettings() {
@@ -50,14 +50,14 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * An `storage_settings` as defined below.
+     * A `storage_settings` block as defined below.
      * 
      */
     @Import(name="logSettings")
     private @Nullable Output<VirtualMachineStorageConfigurationLogSettingsArgs> logSettings;
 
     /**
-     * @return An `storage_settings` as defined below.
+     * @return A `storage_settings` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineStorageConfigurationLogSettingsArgs>> logSettings() {
@@ -139,7 +139,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSettings An `storage_settings` as defined below.
+         * @param dataSettings A `storage_settings` block as defined below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSettings An `storage_settings` as defined below.
+         * @param dataSettings A `storage_settings` block as defined below.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param logSettings An `storage_settings` as defined below.
+         * @param logSettings A `storage_settings` block as defined below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param logSettings An `storage_settings` as defined below.
+         * @param logSettings A `storage_settings` block as defined below.
          * 
          * @return builder
          * 

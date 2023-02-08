@@ -24,6 +24,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("containerConfiguration")]
         public Input<Inputs.SourceControlGithubActionConfigurationContainerConfigurationArgs>? ContainerConfiguration { get; set; }
 
+        /// <summary>
+        /// Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("generateWorkflowFile")]
         public Input<bool>? GenerateWorkflowFile { get; set; }
 

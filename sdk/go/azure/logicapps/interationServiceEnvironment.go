@@ -139,7 +139,7 @@ type InterationServiceEnvironment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`. Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -201,7 +201,7 @@ type interationServiceEnvironmentState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`. Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags map[string]string `pulumi:"tags"`
@@ -226,7 +226,7 @@ type InterationServiceEnvironmentState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`. Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags pulumi.StringMapInput
@@ -251,7 +251,7 @@ type interationServiceEnvironmentArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`. Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags map[string]string `pulumi:"tags"`
@@ -269,7 +269,7 @@ type InterationServiceEnvironmentArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`. Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags pulumi.StringMapInput
@@ -394,7 +394,7 @@ func (o InterationServiceEnvironmentOutput) ResourceGroupName() pulumi.StringOut
 	return o.ApplyT(func(v *InterationServiceEnvironment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`. Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
 func (o InterationServiceEnvironmentOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InterationServiceEnvironment) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }

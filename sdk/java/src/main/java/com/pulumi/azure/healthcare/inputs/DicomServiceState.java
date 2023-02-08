@@ -118,9 +118,17 @@ public final class DicomServiceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.serviceUrl);
     }
 
+    /**
+     * A mapping of tags to assign to the Healthcare DICOM Service.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the Healthcare DICOM Service.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -321,11 +329,23 @@ public final class DicomServiceState extends com.pulumi.resources.ResourceArgs {
             return serviceUrl(Output.of(serviceUrl));
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the Healthcare DICOM Service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the Healthcare DICOM Service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

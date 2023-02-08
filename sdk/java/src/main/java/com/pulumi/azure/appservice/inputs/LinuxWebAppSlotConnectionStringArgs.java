@@ -14,14 +14,14 @@ public final class LinuxWebAppSlotConnectionStringArgs extends com.pulumi.resour
     public static final LinuxWebAppSlotConnectionStringArgs Empty = new LinuxWebAppSlotConnectionStringArgs();
 
     /**
-     * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * The name of the Connection String.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * @return The name of the Connection String.
      * 
      */
     public Output<String> name() {
@@ -85,7 +85,7 @@ public final class LinuxWebAppSlotConnectionStringArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+         * @param name The name of the Connection String.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class LinuxWebAppSlotConnectionStringArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+         * @param name The name of the Connection String.
          * 
          * @return builder
          * 

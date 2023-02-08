@@ -202,6 +202,9 @@ namespace Pulumi.Azure.Compute
         [Output("healthProbeId")]
         public Output<string?> HealthProbeId { get; private set; } = null!;
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Output("identity")]
         public Output<Outputs.ScaleSetIdentity> Identity { get; private set; } = null!;
 
@@ -419,6 +422,9 @@ namespace Pulumi.Azure.Compute
         [Input("healthProbeId")]
         public Input<string>? HealthProbeId { get; set; }
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.ScaleSetIdentityArgs>? Identity { get; set; }
 
@@ -628,6 +634,9 @@ namespace Pulumi.Azure.Compute
         [Input("healthProbeId")]
         public Input<string>? HealthProbeId { get; set; }
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.ScaleSetIdentityGetArgs>? Identity { get; set; }
 

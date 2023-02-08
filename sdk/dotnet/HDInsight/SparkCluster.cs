@@ -120,6 +120,9 @@ namespace Pulumi.Azure.HDInsight
         [Output("computeIsolation")]
         public Output<Outputs.SparkClusterComputeIsolation?> ComputeIsolation { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more `disk_encryption` block as defined below.
+        /// </summary>
         [Output("diskEncryptions")]
         public Output<ImmutableArray<Outputs.SparkClusterDiskEncryption>> DiskEncryptions { get; private set; } = null!;
 
@@ -297,6 +300,10 @@ namespace Pulumi.Azure.HDInsight
 
         [Input("diskEncryptions")]
         private InputList<Inputs.SparkClusterDiskEncryptionArgs>? _diskEncryptions;
+
+        /// <summary>
+        /// One or more `disk_encryption` block as defined below.
+        /// </summary>
         public InputList<Inputs.SparkClusterDiskEncryptionArgs> DiskEncryptions
         {
             get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.SparkClusterDiskEncryptionArgs>());
@@ -439,6 +446,10 @@ namespace Pulumi.Azure.HDInsight
 
         [Input("diskEncryptions")]
         private InputList<Inputs.SparkClusterDiskEncryptionGetArgs>? _diskEncryptions;
+
+        /// <summary>
+        /// One or more `disk_encryption` block as defined below.
+        /// </summary>
         public InputList<Inputs.SparkClusterDiskEncryptionGetArgs> DiskEncryptions
         {
             get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.SparkClusterDiskEncryptionGetArgs>());

@@ -23,9 +23,17 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
 
     public static final EndpointState Empty = new EndpointState();
 
+    /**
+     * A `custom_dns_configs` block as defined below.
+     * 
+     */
     @Import(name="customDnsConfigs")
     private @Nullable Output<List<EndpointCustomDnsConfigArgs>> customDnsConfigs;
 
+    /**
+     * @return A `custom_dns_configs` block as defined below.
+     * 
+     */
     public Optional<Output<List<EndpointCustomDnsConfigArgs>>> customDnsConfigs() {
         return Optional.ofNullable(this.customDnsConfigs);
     }
@@ -90,16 +98,32 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * A `network_interface` block as defined below.
+     * 
+     */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<EndpointNetworkInterfaceArgs>> networkInterfaces;
 
+    /**
+     * @return A `network_interface` block as defined below.
+     * 
+     */
     public Optional<Output<List<EndpointNetworkInterfaceArgs>>> networkInterfaces() {
         return Optional.ofNullable(this.networkInterfaces);
     }
 
+    /**
+     * A `private_dns_zone_configs` block as defined below.
+     * 
+     */
     @Import(name="privateDnsZoneConfigs")
     private @Nullable Output<List<EndpointPrivateDnsZoneConfigArgs>> privateDnsZoneConfigs;
 
+    /**
+     * @return A `private_dns_zone_configs` block as defined below.
+     * 
+     */
     public Optional<Output<List<EndpointPrivateDnsZoneConfigArgs>>> privateDnsZoneConfigs() {
         return Optional.ofNullable(this.privateDnsZoneConfigs);
     }
@@ -214,15 +238,33 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
             $ = new EndpointState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customDnsConfigs A `custom_dns_configs` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customDnsConfigs(@Nullable Output<List<EndpointCustomDnsConfigArgs>> customDnsConfigs) {
             $.customDnsConfigs = customDnsConfigs;
             return this;
         }
 
+        /**
+         * @param customDnsConfigs A `custom_dns_configs` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customDnsConfigs(List<EndpointCustomDnsConfigArgs> customDnsConfigs) {
             return customDnsConfigs(Output.of(customDnsConfigs));
         }
 
+        /**
+         * @param customDnsConfigs A `custom_dns_configs` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customDnsConfigs(EndpointCustomDnsConfigArgs... customDnsConfigs) {
             return customDnsConfigs(List.of(customDnsConfigs));
         }
@@ -321,28 +363,64 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param networkInterfaces A `network_interface` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkInterfaces(@Nullable Output<List<EndpointNetworkInterfaceArgs>> networkInterfaces) {
             $.networkInterfaces = networkInterfaces;
             return this;
         }
 
+        /**
+         * @param networkInterfaces A `network_interface` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkInterfaces(List<EndpointNetworkInterfaceArgs> networkInterfaces) {
             return networkInterfaces(Output.of(networkInterfaces));
         }
 
+        /**
+         * @param networkInterfaces A `network_interface` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkInterfaces(EndpointNetworkInterfaceArgs... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
 
+        /**
+         * @param privateDnsZoneConfigs A `private_dns_zone_configs` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateDnsZoneConfigs(@Nullable Output<List<EndpointPrivateDnsZoneConfigArgs>> privateDnsZoneConfigs) {
             $.privateDnsZoneConfigs = privateDnsZoneConfigs;
             return this;
         }
 
+        /**
+         * @param privateDnsZoneConfigs A `private_dns_zone_configs` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateDnsZoneConfigs(List<EndpointPrivateDnsZoneConfigArgs> privateDnsZoneConfigs) {
             return privateDnsZoneConfigs(Output.of(privateDnsZoneConfigs));
         }
 
+        /**
+         * @param privateDnsZoneConfigs A `private_dns_zone_configs` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateDnsZoneConfigs(EndpointPrivateDnsZoneConfigArgs... privateDnsZoneConfigs) {
             return privateDnsZoneConfigs(List.of(privateDnsZoneConfigs));
         }

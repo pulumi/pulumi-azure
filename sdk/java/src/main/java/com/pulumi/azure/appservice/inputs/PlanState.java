@@ -34,9 +34,17 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.appServiceEnvironmentId);
     }
 
+    /**
+     * Whether to create a xenon App Service Plan.
+     * 
+     */
     @Import(name="isXenon")
     private @Nullable Output<Boolean> isXenon;
 
+    /**
+     * @return Whether to create a xenon App Service Plan.
+     * 
+     */
     public Optional<Output<Boolean>> isXenon() {
         return Optional.ofNullable(this.isXenon);
     }
@@ -263,11 +271,23 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
             return appServiceEnvironmentId(Output.of(appServiceEnvironmentId));
         }
 
+        /**
+         * @param isXenon Whether to create a xenon App Service Plan.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isXenon(@Nullable Output<Boolean> isXenon) {
             $.isXenon = isXenon;
             return this;
         }
 
+        /**
+         * @param isXenon Whether to create a xenon App Service Plan.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isXenon(Boolean isXenon) {
             return isXenon(Output.of(isXenon));
         }

@@ -17,6 +17,9 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// The script action which will run on the cluster. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<Outputs.KafkaClusterRolesHeadNodeScriptAction> ScriptActions;
         /// <summary>
         /// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.

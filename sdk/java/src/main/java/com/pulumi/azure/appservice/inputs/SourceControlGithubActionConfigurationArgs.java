@@ -47,9 +47,17 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
         return Optional.ofNullable(this.containerConfiguration);
     }
 
+    /**
+     * Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="generateWorkflowFile")
     private @Nullable Output<Boolean> generateWorkflowFile;
 
+    /**
+     * @return Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<Boolean>> generateWorkflowFile() {
         return Optional.ofNullable(this.generateWorkflowFile);
     }
@@ -130,11 +138,23 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
             return containerConfiguration(Output.of(containerConfiguration));
         }
 
+        /**
+         * @param generateWorkflowFile Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder generateWorkflowFile(@Nullable Output<Boolean> generateWorkflowFile) {
             $.generateWorkflowFile = generateWorkflowFile;
             return this;
         }
 
+        /**
+         * @param generateWorkflowFile Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder generateWorkflowFile(Boolean generateWorkflowFile) {
             return generateWorkflowFile(Output.of(generateWorkflowFile));
         }

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class ScaleSetOsProfileSecretVaultCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+        /// (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
         /// </summary>
         [Input("certificateStore")]
         public Input<string>? CertificateStore { get; set; }

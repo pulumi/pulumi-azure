@@ -95,14 +95,14 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+     * Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
      * 
      */
     @Import(name="resourceIdColumn")
     private @Nullable Output<String> resourceIdColumn;
 
     /**
-     * @return Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+     * @return Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
      * 
      */
     public Optional<Output<String>> resourceIdColumn() {
@@ -286,7 +286,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceIdColumn Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+         * @param resourceIdColumn Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceIdColumn Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+         * @param resourceIdColumn Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
          * 
          * @return builder
          * 

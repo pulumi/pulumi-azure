@@ -6,6 +6,7 @@ package com.pulumi.azure.siterecovery;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.siterecovery.ProtectionContainerMappingArgs;
 import com.pulumi.azure.siterecovery.inputs.ProtectionContainerMappingState;
+import com.pulumi.azure.siterecovery.outputs.ProtectionContainerMappingAutomaticUpdate;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -117,6 +118,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping")
 public class ProtectionContainerMapping extends com.pulumi.resources.CustomResource {
+    /**
+     * a `automatic_update` block defined as below.
+     * 
+     */
+    @Export(name="automaticUpdate", type=ProtectionContainerMappingAutomaticUpdate.class, parameters={})
+    private Output<ProtectionContainerMappingAutomaticUpdate> automaticUpdate;
+
+    /**
+     * @return a `automatic_update` block defined as below.
+     * 
+     */
+    public Output<ProtectionContainerMappingAutomaticUpdate> automaticUpdate() {
+        return this.automaticUpdate;
+    }
     /**
      * The name of the protection container mapping. Changing this forces a new resource to be created.
      * 

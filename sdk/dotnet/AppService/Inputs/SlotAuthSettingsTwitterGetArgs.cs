@@ -12,11 +12,18 @@ namespace Pulumi.Azure.AppService.Inputs
 
     public sealed class SlotAuthSettingsTwitterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The consumer key of the Twitter app used for login
+        /// </summary>
         [Input("consumerKey", required: true)]
         public Input<string> ConsumerKey { get; set; } = null!;
 
         [Input("consumerSecret", required: true)]
         private Input<string>? _consumerSecret;
+
+        /// <summary>
+        /// The consumer secret of the Twitter app used for login.
+        /// </summary>
         public Input<string>? ConsumerSecret
         {
             get => _consumerSecret;

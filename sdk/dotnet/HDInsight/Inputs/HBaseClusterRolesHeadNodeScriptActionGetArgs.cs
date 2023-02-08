@@ -13,7 +13,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class HBaseClusterRolesHeadNodeScriptActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        /// The name of the script action.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

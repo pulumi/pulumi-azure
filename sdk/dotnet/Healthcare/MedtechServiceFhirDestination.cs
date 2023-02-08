@@ -74,6 +74,9 @@ namespace Pulumi.Azure.Healthcare
         [Output("destinationFhirMappingJson")]
         public Output<string> DestinationFhirMappingJson { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+        /// </summary>
         [Output("destinationFhirServiceId")]
         public Output<string> DestinationFhirServiceId { get; private set; } = null!;
 
@@ -153,6 +156,9 @@ namespace Pulumi.Azure.Healthcare
         [Input("destinationFhirMappingJson", required: true)]
         public Input<string> DestinationFhirMappingJson { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+        /// </summary>
         [Input("destinationFhirServiceId", required: true)]
         public Input<string> DestinationFhirServiceId { get; set; } = null!;
 
@@ -194,6 +200,9 @@ namespace Pulumi.Azure.Healthcare
         [Input("destinationFhirMappingJson")]
         public Input<string>? DestinationFhirMappingJson { get; set; }
 
+        /// <summary>
+        /// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+        /// </summary>
         [Input("destinationFhirServiceId")]
         public Input<string>? DestinationFhirServiceId { get; set; }
 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class HadoopClusterRolesEdgeNodeUninstallScriptAction
     {
         /// <summary>
-        /// The name of the uninstall script action. Changing this forces a new resource to be created.
+        /// The name of the uninstall script action.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly string? Parameters;
         /// <summary>
-        /// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        /// The URI pointing to the script to run during the installation of the edge node.
         /// </summary>
         public readonly string Uri;
 

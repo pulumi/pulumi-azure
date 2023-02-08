@@ -20,6 +20,7 @@ class NetworkManagerStaticMemberArgs:
         """
         The set of arguments for constructing a NetworkManagerStaticMember resource.
         :param pulumi.Input[str] network_group_id: Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
+        :param pulumi.Input[str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         """
         pulumi.set(__self__, "network_group_id", network_group_id)
@@ -42,6 +43,9 @@ class NetworkManagerStaticMemberArgs:
     @property
     @pulumi.getter(name="targetVirtualNetworkId")
     def target_virtual_network_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        """
         return pulumi.get(self, "target_virtual_network_id")
 
     @target_virtual_network_id.setter
@@ -73,6 +77,7 @@ class _NetworkManagerStaticMemberState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[str] network_group_id: Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[str] region: The region of the Network Manager Static Member.
+        :param pulumi.Input[str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -122,6 +127,9 @@ class _NetworkManagerStaticMemberState:
     @property
     @pulumi.getter(name="targetVirtualNetworkId")
     def target_virtual_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        """
         return pulumi.get(self, "target_virtual_network_id")
 
     @target_virtual_network_id.setter
@@ -141,6 +149,33 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         """
         Manages a Network Manager Static Member.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_subscription()
+        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            scope=azure.network.NetworkManagerScopeArgs(
+                subscription_ids=[current.id],
+            ),
+            scope_accesses=[
+                "Connectivity",
+                "SecurityAdmin",
+            ],
+            description="example network manager")
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup",
+            network_manager_id=example_network_manager.id,
+            description="example network group")
+        example_network_manager_static_member = azure.network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember",
+            network_group_id=example_network_manager_network_group.id,
+            target_virtual_network_id=azurerm_virtual_network["example"]["id"])
+        ```
+
         ## Import
 
         Network Manager Static Member can be imported using the `resource id`, e.g.
@@ -153,6 +188,7 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[str] network_group_id: Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
+        :param pulumi.Input[str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
         """
         ...
     @overload
@@ -162,6 +198,33 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Static Member.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_subscription()
+        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            scope=azure.network.NetworkManagerScopeArgs(
+                subscription_ids=[current.id],
+            ),
+            scope_accesses=[
+                "Connectivity",
+                "SecurityAdmin",
+            ],
+            description="example network manager")
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup",
+            network_manager_id=example_network_manager.id,
+            description="example network group")
+        example_network_manager_static_member = azure.network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember",
+            network_group_id=example_network_manager_network_group.id,
+            target_virtual_network_id=azurerm_virtual_network["example"]["id"])
+        ```
 
         ## Import
 
@@ -230,6 +293,7 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[str] network_group_id: Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[str] region: The region of the Network Manager Static Member.
+        :param pulumi.Input[str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -268,5 +332,8 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
     @property
     @pulumi.getter(name="targetVirtualNetworkId")
     def target_virtual_network_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        """
         return pulumi.get(self, "target_virtual_network_id")
 

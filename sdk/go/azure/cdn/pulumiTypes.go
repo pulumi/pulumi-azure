@@ -7378,7 +7378,7 @@ type FrontdoorRuleActionsRouteConfigurationOverrideAction struct {
 	CdnFrontdoorOriginGroupId *string `pulumi:"cdnFrontdoorOriginGroupId"`
 	// Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
 	CompressionEnabled *bool `pulumi:"compressionEnabled"`
-	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
@@ -7406,7 +7406,7 @@ type FrontdoorRuleActionsRouteConfigurationOverrideActionArgs struct {
 	CdnFrontdoorOriginGroupId pulumi.StringPtrInput `pulumi:"cdnFrontdoorOriginGroupId"`
 	// Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
 	CompressionEnabled pulumi.BoolPtrInput `pulumi:"compressionEnabled"`
-	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
 	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
 	// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
 	QueryStringCachingBehavior pulumi.StringPtrInput `pulumi:"queryStringCachingBehavior"`
@@ -7513,7 +7513,7 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CompressionE
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *bool { return v.CompressionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) ForwardingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }
@@ -7594,7 +7594,7 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) Compressi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) ForwardingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
 		if v == nil {

@@ -201,6 +201,7 @@ import (
 type Endpoint struct {
 	pulumi.CustomResourceState
 
+	// A `customDnsConfigs` block as defined below.
 	CustomDnsConfigs EndpointCustomDnsConfigArrayOutput `pulumi:"customDnsConfigs"`
 	// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
 	CustomNetworkInterfaceName pulumi.StringPtrOutput `pulumi:"customNetworkInterfaceName"`
@@ -209,8 +210,10 @@ type Endpoint struct {
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-	Name                  pulumi.StringOutput                     `pulumi:"name"`
-	NetworkInterfaces     EndpointNetworkInterfaceArrayOutput     `pulumi:"networkInterfaces"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A `networkInterface` block as defined below.
+	NetworkInterfaces EndpointNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
+	// A `privateDnsZoneConfigs` block as defined below.
 	PrivateDnsZoneConfigs EndpointPrivateDnsZoneConfigArrayOutput `pulumi:"privateDnsZoneConfigs"`
 	// A `privateDnsZoneGroup` block as defined below.
 	PrivateDnsZoneGroup EndpointPrivateDnsZoneGroupPtrOutput `pulumi:"privateDnsZoneGroup"`
@@ -262,6 +265,7 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
+	// A `customDnsConfigs` block as defined below.
 	CustomDnsConfigs []EndpointCustomDnsConfig `pulumi:"customDnsConfigs"`
 	// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
 	CustomNetworkInterfaceName *string `pulumi:"customNetworkInterfaceName"`
@@ -270,8 +274,10 @@ type endpointState struct {
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-	Name                  *string                        `pulumi:"name"`
-	NetworkInterfaces     []EndpointNetworkInterface     `pulumi:"networkInterfaces"`
+	Name *string `pulumi:"name"`
+	// A `networkInterface` block as defined below.
+	NetworkInterfaces []EndpointNetworkInterface `pulumi:"networkInterfaces"`
+	// A `privateDnsZoneConfigs` block as defined below.
 	PrivateDnsZoneConfigs []EndpointPrivateDnsZoneConfig `pulumi:"privateDnsZoneConfigs"`
 	// A `privateDnsZoneGroup` block as defined below.
 	PrivateDnsZoneGroup *EndpointPrivateDnsZoneGroup `pulumi:"privateDnsZoneGroup"`
@@ -286,6 +292,7 @@ type endpointState struct {
 }
 
 type EndpointState struct {
+	// A `customDnsConfigs` block as defined below.
 	CustomDnsConfigs EndpointCustomDnsConfigArrayInput
 	// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
 	CustomNetworkInterfaceName pulumi.StringPtrInput
@@ -294,8 +301,10 @@ type EndpointState struct {
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-	Name                  pulumi.StringPtrInput
-	NetworkInterfaces     EndpointNetworkInterfaceArrayInput
+	Name pulumi.StringPtrInput
+	// A `networkInterface` block as defined below.
+	NetworkInterfaces EndpointNetworkInterfaceArrayInput
+	// A `privateDnsZoneConfigs` block as defined below.
 	PrivateDnsZoneConfigs EndpointPrivateDnsZoneConfigArrayInput
 	// A `privateDnsZoneGroup` block as defined below.
 	PrivateDnsZoneGroup EndpointPrivateDnsZoneGroupPtrInput
@@ -443,6 +452,7 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
+// A `customDnsConfigs` block as defined below.
 func (o EndpointOutput) CustomDnsConfigs() EndpointCustomDnsConfigArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointCustomDnsConfigArrayOutput { return v.CustomDnsConfigs }).(EndpointCustomDnsConfigArrayOutput)
 }
@@ -467,10 +477,12 @@ func (o EndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A `networkInterface` block as defined below.
 func (o EndpointOutput) NetworkInterfaces() EndpointNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(EndpointNetworkInterfaceArrayOutput)
 }
 
+// A `privateDnsZoneConfigs` block as defined below.
 func (o EndpointOutput) PrivateDnsZoneConfigs() EndpointPrivateDnsZoneConfigArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointPrivateDnsZoneConfigArrayOutput { return v.PrivateDnsZoneConfigs }).(EndpointPrivateDnsZoneConfigArrayOutput)
 }

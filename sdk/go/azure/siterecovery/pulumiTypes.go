@@ -10,6 +10,162 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ProtectionContainerMappingAutomaticUpdate struct {
+	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+	AutomationAccountId *string `pulumi:"automationAccountId"`
+	// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ProtectionContainerMappingAutomaticUpdateInput is an input type that accepts ProtectionContainerMappingAutomaticUpdateArgs and ProtectionContainerMappingAutomaticUpdateOutput values.
+// You can construct a concrete instance of `ProtectionContainerMappingAutomaticUpdateInput` via:
+//
+//	ProtectionContainerMappingAutomaticUpdateArgs{...}
+type ProtectionContainerMappingAutomaticUpdateInput interface {
+	pulumi.Input
+
+	ToProtectionContainerMappingAutomaticUpdateOutput() ProtectionContainerMappingAutomaticUpdateOutput
+	ToProtectionContainerMappingAutomaticUpdateOutputWithContext(context.Context) ProtectionContainerMappingAutomaticUpdateOutput
+}
+
+type ProtectionContainerMappingAutomaticUpdateArgs struct {
+	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+	AutomationAccountId pulumi.StringPtrInput `pulumi:"automationAccountId"`
+	// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ProtectionContainerMappingAutomaticUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionContainerMappingAutomaticUpdate)(nil)).Elem()
+}
+
+func (i ProtectionContainerMappingAutomaticUpdateArgs) ToProtectionContainerMappingAutomaticUpdateOutput() ProtectionContainerMappingAutomaticUpdateOutput {
+	return i.ToProtectionContainerMappingAutomaticUpdateOutputWithContext(context.Background())
+}
+
+func (i ProtectionContainerMappingAutomaticUpdateArgs) ToProtectionContainerMappingAutomaticUpdateOutputWithContext(ctx context.Context) ProtectionContainerMappingAutomaticUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingAutomaticUpdateOutput)
+}
+
+func (i ProtectionContainerMappingAutomaticUpdateArgs) ToProtectionContainerMappingAutomaticUpdatePtrOutput() ProtectionContainerMappingAutomaticUpdatePtrOutput {
+	return i.ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i ProtectionContainerMappingAutomaticUpdateArgs) ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingAutomaticUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingAutomaticUpdateOutput).ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(ctx)
+}
+
+// ProtectionContainerMappingAutomaticUpdatePtrInput is an input type that accepts ProtectionContainerMappingAutomaticUpdateArgs, ProtectionContainerMappingAutomaticUpdatePtr and ProtectionContainerMappingAutomaticUpdatePtrOutput values.
+// You can construct a concrete instance of `ProtectionContainerMappingAutomaticUpdatePtrInput` via:
+//
+//	        ProtectionContainerMappingAutomaticUpdateArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProtectionContainerMappingAutomaticUpdatePtrInput interface {
+	pulumi.Input
+
+	ToProtectionContainerMappingAutomaticUpdatePtrOutput() ProtectionContainerMappingAutomaticUpdatePtrOutput
+	ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(context.Context) ProtectionContainerMappingAutomaticUpdatePtrOutput
+}
+
+type protectionContainerMappingAutomaticUpdatePtrType ProtectionContainerMappingAutomaticUpdateArgs
+
+func ProtectionContainerMappingAutomaticUpdatePtr(v *ProtectionContainerMappingAutomaticUpdateArgs) ProtectionContainerMappingAutomaticUpdatePtrInput {
+	return (*protectionContainerMappingAutomaticUpdatePtrType)(v)
+}
+
+func (*protectionContainerMappingAutomaticUpdatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionContainerMappingAutomaticUpdate)(nil)).Elem()
+}
+
+func (i *protectionContainerMappingAutomaticUpdatePtrType) ToProtectionContainerMappingAutomaticUpdatePtrOutput() ProtectionContainerMappingAutomaticUpdatePtrOutput {
+	return i.ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i *protectionContainerMappingAutomaticUpdatePtrType) ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingAutomaticUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingAutomaticUpdatePtrOutput)
+}
+
+type ProtectionContainerMappingAutomaticUpdateOutput struct{ *pulumi.OutputState }
+
+func (ProtectionContainerMappingAutomaticUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionContainerMappingAutomaticUpdate)(nil)).Elem()
+}
+
+func (o ProtectionContainerMappingAutomaticUpdateOutput) ToProtectionContainerMappingAutomaticUpdateOutput() ProtectionContainerMappingAutomaticUpdateOutput {
+	return o
+}
+
+func (o ProtectionContainerMappingAutomaticUpdateOutput) ToProtectionContainerMappingAutomaticUpdateOutputWithContext(ctx context.Context) ProtectionContainerMappingAutomaticUpdateOutput {
+	return o
+}
+
+func (o ProtectionContainerMappingAutomaticUpdateOutput) ToProtectionContainerMappingAutomaticUpdatePtrOutput() ProtectionContainerMappingAutomaticUpdatePtrOutput {
+	return o.ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(context.Background())
+}
+
+func (o ProtectionContainerMappingAutomaticUpdateOutput) ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingAutomaticUpdatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionContainerMappingAutomaticUpdate) *ProtectionContainerMappingAutomaticUpdate {
+		return &v
+	}).(ProtectionContainerMappingAutomaticUpdatePtrOutput)
+}
+
+// The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+func (o ProtectionContainerMappingAutomaticUpdateOutput) AutomationAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionContainerMappingAutomaticUpdate) *string { return v.AutomationAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+func (o ProtectionContainerMappingAutomaticUpdateOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProtectionContainerMappingAutomaticUpdate) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ProtectionContainerMappingAutomaticUpdatePtrOutput struct{ *pulumi.OutputState }
+
+func (ProtectionContainerMappingAutomaticUpdatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionContainerMappingAutomaticUpdate)(nil)).Elem()
+}
+
+func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) ToProtectionContainerMappingAutomaticUpdatePtrOutput() ProtectionContainerMappingAutomaticUpdatePtrOutput {
+	return o
+}
+
+func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingAutomaticUpdatePtrOutput {
+	return o
+}
+
+func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) Elem() ProtectionContainerMappingAutomaticUpdateOutput {
+	return o.ApplyT(func(v *ProtectionContainerMappingAutomaticUpdate) ProtectionContainerMappingAutomaticUpdate {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectionContainerMappingAutomaticUpdate
+		return ret
+	}).(ProtectionContainerMappingAutomaticUpdateOutput)
+}
+
+// The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) AutomationAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionContainerMappingAutomaticUpdate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutomationAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProtectionContainerMappingAutomaticUpdate) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ReplicatedVMManagedDisk struct {
 	// Id of disk that should be replicated. Changing this forces a new resource to be created.
 	DiskId string `pulumi:"diskId"`
@@ -636,6 +792,12 @@ func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) Va
 }
 
 type ReplicatedVMNetworkInterface struct {
+	// Id of the public IP object to use when a test failover is done.
+	FailoverTestPublicIpAddressId *string `pulumi:"failoverTestPublicIpAddressId"`
+	// Static IP to assign when a test failover is done.
+	FailoverTestStaticIp *string `pulumi:"failoverTestStaticIp"`
+	// Name of the subnet to to use when a test failover is done.
+	FailoverTestSubnetName *string `pulumi:"failoverTestSubnetName"`
 	// Deprecated: this property is not used and will be removed in version 4.0 of the provider
 	IsPrimary *bool `pulumi:"isPrimary"`
 	// Id of the public IP object to use when a failover is done.
@@ -660,6 +822,12 @@ type ReplicatedVMNetworkInterfaceInput interface {
 }
 
 type ReplicatedVMNetworkInterfaceArgs struct {
+	// Id of the public IP object to use when a test failover is done.
+	FailoverTestPublicIpAddressId pulumi.StringPtrInput `pulumi:"failoverTestPublicIpAddressId"`
+	// Static IP to assign when a test failover is done.
+	FailoverTestStaticIp pulumi.StringPtrInput `pulumi:"failoverTestStaticIp"`
+	// Name of the subnet to to use when a test failover is done.
+	FailoverTestSubnetName pulumi.StringPtrInput `pulumi:"failoverTestSubnetName"`
 	// Deprecated: this property is not used and will be removed in version 4.0 of the provider
 	IsPrimary pulumi.BoolPtrInput `pulumi:"isPrimary"`
 	// Id of the public IP object to use when a failover is done.
@@ -723,6 +891,21 @@ func (o ReplicatedVMNetworkInterfaceOutput) ToReplicatedVMNetworkInterfaceOutput
 	return o
 }
 
+// Id of the public IP object to use when a test failover is done.
+func (o ReplicatedVMNetworkInterfaceOutput) FailoverTestPublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.FailoverTestPublicIpAddressId }).(pulumi.StringPtrOutput)
+}
+
+// Static IP to assign when a test failover is done.
+func (o ReplicatedVMNetworkInterfaceOutput) FailoverTestStaticIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.FailoverTestStaticIp }).(pulumi.StringPtrOutput)
+}
+
+// Name of the subnet to to use when a test failover is done.
+func (o ReplicatedVMNetworkInterfaceOutput) FailoverTestSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.FailoverTestSubnetName }).(pulumi.StringPtrOutput)
+}
+
 // Deprecated: this property is not used and will be removed in version 4.0 of the provider
 func (o ReplicatedVMNetworkInterfaceOutput) IsPrimary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *bool { return v.IsPrimary }).(pulumi.BoolPtrOutput)
@@ -768,12 +951,127 @@ func (o ReplicatedVMNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Replic
 	}).(ReplicatedVMNetworkInterfaceOutput)
 }
 
+type ReplicatedVMUnmanagedDisk struct {
+	// Id of disk that should be replicated.
+	DiskUri string `pulumi:"diskUri"`
+	// Storage account that should be used for caching.
+	StagingStorageAccountId string `pulumi:"stagingStorageAccountId"`
+	// Storage account disk should belong to when a failover is done.
+	TargetStorageAccountId string `pulumi:"targetStorageAccountId"`
+}
+
+// ReplicatedVMUnmanagedDiskInput is an input type that accepts ReplicatedVMUnmanagedDiskArgs and ReplicatedVMUnmanagedDiskOutput values.
+// You can construct a concrete instance of `ReplicatedVMUnmanagedDiskInput` via:
+//
+//	ReplicatedVMUnmanagedDiskArgs{...}
+type ReplicatedVMUnmanagedDiskInput interface {
+	pulumi.Input
+
+	ToReplicatedVMUnmanagedDiskOutput() ReplicatedVMUnmanagedDiskOutput
+	ToReplicatedVMUnmanagedDiskOutputWithContext(context.Context) ReplicatedVMUnmanagedDiskOutput
+}
+
+type ReplicatedVMUnmanagedDiskArgs struct {
+	// Id of disk that should be replicated.
+	DiskUri pulumi.StringInput `pulumi:"diskUri"`
+	// Storage account that should be used for caching.
+	StagingStorageAccountId pulumi.StringInput `pulumi:"stagingStorageAccountId"`
+	// Storage account disk should belong to when a failover is done.
+	TargetStorageAccountId pulumi.StringInput `pulumi:"targetStorageAccountId"`
+}
+
+func (ReplicatedVMUnmanagedDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMUnmanagedDisk)(nil)).Elem()
+}
+
+func (i ReplicatedVMUnmanagedDiskArgs) ToReplicatedVMUnmanagedDiskOutput() ReplicatedVMUnmanagedDiskOutput {
+	return i.ToReplicatedVMUnmanagedDiskOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMUnmanagedDiskArgs) ToReplicatedVMUnmanagedDiskOutputWithContext(ctx context.Context) ReplicatedVMUnmanagedDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMUnmanagedDiskOutput)
+}
+
+// ReplicatedVMUnmanagedDiskArrayInput is an input type that accepts ReplicatedVMUnmanagedDiskArray and ReplicatedVMUnmanagedDiskArrayOutput values.
+// You can construct a concrete instance of `ReplicatedVMUnmanagedDiskArrayInput` via:
+//
+//	ReplicatedVMUnmanagedDiskArray{ ReplicatedVMUnmanagedDiskArgs{...} }
+type ReplicatedVMUnmanagedDiskArrayInput interface {
+	pulumi.Input
+
+	ToReplicatedVMUnmanagedDiskArrayOutput() ReplicatedVMUnmanagedDiskArrayOutput
+	ToReplicatedVMUnmanagedDiskArrayOutputWithContext(context.Context) ReplicatedVMUnmanagedDiskArrayOutput
+}
+
+type ReplicatedVMUnmanagedDiskArray []ReplicatedVMUnmanagedDiskInput
+
+func (ReplicatedVMUnmanagedDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatedVMUnmanagedDisk)(nil)).Elem()
+}
+
+func (i ReplicatedVMUnmanagedDiskArray) ToReplicatedVMUnmanagedDiskArrayOutput() ReplicatedVMUnmanagedDiskArrayOutput {
+	return i.ToReplicatedVMUnmanagedDiskArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMUnmanagedDiskArray) ToReplicatedVMUnmanagedDiskArrayOutputWithContext(ctx context.Context) ReplicatedVMUnmanagedDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMUnmanagedDiskArrayOutput)
+}
+
+type ReplicatedVMUnmanagedDiskOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMUnmanagedDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMUnmanagedDisk)(nil)).Elem()
+}
+
+func (o ReplicatedVMUnmanagedDiskOutput) ToReplicatedVMUnmanagedDiskOutput() ReplicatedVMUnmanagedDiskOutput {
+	return o
+}
+
+func (o ReplicatedVMUnmanagedDiskOutput) ToReplicatedVMUnmanagedDiskOutputWithContext(ctx context.Context) ReplicatedVMUnmanagedDiskOutput {
+	return o
+}
+
+// Id of disk that should be replicated.
+func (o ReplicatedVMUnmanagedDiskOutput) DiskUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatedVMUnmanagedDisk) string { return v.DiskUri }).(pulumi.StringOutput)
+}
+
+// Storage account that should be used for caching.
+func (o ReplicatedVMUnmanagedDiskOutput) StagingStorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatedVMUnmanagedDisk) string { return v.StagingStorageAccountId }).(pulumi.StringOutput)
+}
+
+// Storage account disk should belong to when a failover is done.
+func (o ReplicatedVMUnmanagedDiskOutput) TargetStorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatedVMUnmanagedDisk) string { return v.TargetStorageAccountId }).(pulumi.StringOutput)
+}
+
+type ReplicatedVMUnmanagedDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMUnmanagedDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatedVMUnmanagedDisk)(nil)).Elem()
+}
+
+func (o ReplicatedVMUnmanagedDiskArrayOutput) ToReplicatedVMUnmanagedDiskArrayOutput() ReplicatedVMUnmanagedDiskArrayOutput {
+	return o
+}
+
+func (o ReplicatedVMUnmanagedDiskArrayOutput) ToReplicatedVMUnmanagedDiskArrayOutputWithContext(ctx context.Context) ReplicatedVMUnmanagedDiskArrayOutput {
+	return o
+}
+
+func (o ReplicatedVMUnmanagedDiskArrayOutput) Index(i pulumi.IntInput) ReplicatedVMUnmanagedDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatedVMUnmanagedDisk {
+		return vs[0].([]ReplicatedVMUnmanagedDisk)[vs[1].(int)]
+	}).(ReplicatedVMUnmanagedDiskOutput)
+}
+
 type ReplicationRecoveryPlanRecoveryGroup struct {
-	// one or more `action` block. which will be executed after the group recovery.
+	// one or more `action` block as defined below. which will be executed after the group recovery.
 	PostActions []ReplicationRecoveryPlanRecoveryGroupPostAction `pulumi:"postActions"`
-	// one or more `action` block. which will be executed before the group recovery.
+	// one or more `action` block as defined below. which will be executed before the group recovery.
 	PreActions []ReplicationRecoveryPlanRecoveryGroupPreAction `pulumi:"preActions"`
-	// one or more id of protected VM.
+	// (required) one or more id of protected VM.
 	ReplicatedProtectedItems []string `pulumi:"replicatedProtectedItems"`
 	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
 	Type string `pulumi:"type"`
@@ -791,11 +1089,11 @@ type ReplicationRecoveryPlanRecoveryGroupInput interface {
 }
 
 type ReplicationRecoveryPlanRecoveryGroupArgs struct {
-	// one or more `action` block. which will be executed after the group recovery.
+	// one or more `action` block as defined below. which will be executed after the group recovery.
 	PostActions ReplicationRecoveryPlanRecoveryGroupPostActionArrayInput `pulumi:"postActions"`
-	// one or more `action` block. which will be executed before the group recovery.
+	// one or more `action` block as defined below. which will be executed before the group recovery.
 	PreActions ReplicationRecoveryPlanRecoveryGroupPreActionArrayInput `pulumi:"preActions"`
-	// one or more id of protected VM.
+	// (required) one or more id of protected VM.
 	ReplicatedProtectedItems pulumi.StringArrayInput `pulumi:"replicatedProtectedItems"`
 	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -852,21 +1150,21 @@ func (o ReplicationRecoveryPlanRecoveryGroupOutput) ToReplicationRecoveryPlanRec
 	return o
 }
 
-// one or more `action` block. which will be executed after the group recovery.
+// one or more `action` block as defined below. which will be executed after the group recovery.
 func (o ReplicationRecoveryPlanRecoveryGroupOutput) PostActions() ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroup) []ReplicationRecoveryPlanRecoveryGroupPostAction {
 		return v.PostActions
 	}).(ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput)
 }
 
-// one or more `action` block. which will be executed before the group recovery.
+// one or more `action` block as defined below. which will be executed before the group recovery.
 func (o ReplicationRecoveryPlanRecoveryGroupOutput) PreActions() ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroup) []ReplicationRecoveryPlanRecoveryGroupPreAction {
 		return v.PreActions
 	}).(ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput)
 }
 
-// one or more id of protected VM.
+// (required) one or more id of protected VM.
 func (o ReplicationRecoveryPlanRecoveryGroupOutput) ReplicatedProtectedItems() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroup) []string { return v.ReplicatedProtectedItems }).(pulumi.StringArrayOutput)
 }
@@ -905,7 +1203,7 @@ type ReplicationRecoveryPlanRecoveryGroupPostAction struct {
 	FailOverTypes []string `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	ManualActionInstruction *string `pulumi:"manualActionInstruction"`
-	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Id of runbook.
 	RunbookId *string `pulumi:"runbookId"`
@@ -935,7 +1233,7 @@ type ReplicationRecoveryPlanRecoveryGroupPostActionArgs struct {
 	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	ManualActionInstruction pulumi.StringPtrInput `pulumi:"manualActionInstruction"`
-	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Id of runbook.
 	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
@@ -1016,7 +1314,7 @@ func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ManualActionInstru
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) *string { return v.ManualActionInstruction }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1065,7 +1363,7 @@ type ReplicationRecoveryPlanRecoveryGroupPreAction struct {
 	FailOverTypes []string `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	ManualActionInstruction *string `pulumi:"manualActionInstruction"`
-	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Id of runbook.
 	RunbookId *string `pulumi:"runbookId"`
@@ -1095,7 +1393,7 @@ type ReplicationRecoveryPlanRecoveryGroupPreActionArgs struct {
 	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	ManualActionInstruction pulumi.StringPtrInput `pulumi:"manualActionInstruction"`
-	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Id of runbook.
 	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
@@ -1176,7 +1474,7 @@ func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ManualActionInstruc
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) *string { return v.ManualActionInstruction }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1755,6 +2053,8 @@ func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput) Index(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionContainerMappingAutomaticUpdateInput)(nil)).Elem(), ProtectionContainerMappingAutomaticUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionContainerMappingAutomaticUpdatePtrInput)(nil)).Elem(), ProtectionContainerMappingAutomaticUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskInput)(nil)).Elem(), ReplicatedVMManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskArrayInput)(nil)).Elem(), ReplicatedVMManagedDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionInput)(nil)).Elem(), ReplicatedVMManagedDiskTargetDiskEncryptionArgs{})
@@ -1765,6 +2065,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrInput)(nil)).Elem(), ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceArrayInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMUnmanagedDiskInput)(nil)).Elem(), ReplicatedVMUnmanagedDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMUnmanagedDiskArrayInput)(nil)).Elem(), ReplicatedVMUnmanagedDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupArrayInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanRecoveryGroupPostActionInput)(nil)).Elem(), ReplicationRecoveryPlanRecoveryGroupPostActionArgs{})
@@ -1779,6 +2081,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPreActionArrayInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupPreActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray{})
+	pulumi.RegisterOutputType(ProtectionContainerMappingAutomaticUpdateOutput{})
+	pulumi.RegisterOutputType(ProtectionContainerMappingAutomaticUpdatePtrOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskTargetDiskEncryptionOutput{})
@@ -1789,6 +2093,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMUnmanagedDiskOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMUnmanagedDiskArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanRecoveryGroupPostActionOutput{})

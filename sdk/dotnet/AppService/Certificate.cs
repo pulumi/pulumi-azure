@@ -81,6 +81,12 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> HostNames { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the App Service Environment where the certificate is in use.
+        /// </summary>
+        [Output("hostingEnvironmentProfileId")]
+        public Output<string> HostingEnvironmentProfileId { get; private set; } = null!;
+
+        /// <summary>
         /// The issue date for the certificate.
         /// </summary>
         [Output("issueDate")]
@@ -134,6 +140,9 @@ namespace Pulumi.Azure.AppService
         [Output("subjectName")]
         public Output<string> SubjectName { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -258,6 +267,10 @@ namespace Pulumi.Azure.AppService
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -301,6 +314,12 @@ namespace Pulumi.Azure.AppService
             get => _hostNames ?? (_hostNames = new InputList<string>());
             set => _hostNames = value;
         }
+
+        /// <summary>
+        /// The ID of the App Service Environment where the certificate is in use.
+        /// </summary>
+        [Input("hostingEnvironmentProfileId")]
+        public Input<string>? HostingEnvironmentProfileId { get; set; }
 
         /// <summary>
         /// The issue date for the certificate.
@@ -378,6 +397,10 @@ namespace Pulumi.Azure.AppService
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

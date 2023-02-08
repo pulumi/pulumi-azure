@@ -84,11 +84,14 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.DatasetParquetAzureBlobStorageLocation?> AzureBlobStorageLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
         /// </summary>
         [Output("compressionCodec")]
         public Output<string?> CompressionCodec { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+        /// </summary>
         [Output("compressionLevel")]
         public Output<string?> CompressionLevel { get; private set; } = null!;
 
@@ -217,11 +220,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.DatasetParquetAzureBlobStorageLocationArgs>? AzureBlobStorageLocation { get; set; }
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
         /// </summary>
         [Input("compressionCodec")]
         public Input<string>? CompressionCodec { get; set; }
 
+        /// <summary>
+        /// Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+        /// </summary>
         [Input("compressionLevel")]
         public Input<string>? CompressionLevel { get; set; }
 
@@ -324,11 +330,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.DatasetParquetAzureBlobStorageLocationGetArgs>? AzureBlobStorageLocation { get; set; }
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        /// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
         /// </summary>
         [Input("compressionCodec")]
         public Input<string>? CompressionCodec { get; set; }
 
+        /// <summary>
+        /// Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+        /// </summary>
         [Input("compressionLevel")]
         public Input<string>? CompressionLevel { get; set; }
 

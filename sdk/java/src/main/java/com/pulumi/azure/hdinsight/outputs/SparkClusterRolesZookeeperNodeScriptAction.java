@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SparkClusterRolesZookeeperNodeScriptAction {
     /**
-     * @return Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+     * @return The name of the script action.
      * 
      */
     private String name;
@@ -29,7 +29,7 @@ public final class SparkClusterRolesZookeeperNodeScriptAction {
 
     private SparkClusterRolesZookeeperNodeScriptAction() {}
     /**
-     * @return Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+     * @return The name of the script action.
      * 
      */
     public String name() {

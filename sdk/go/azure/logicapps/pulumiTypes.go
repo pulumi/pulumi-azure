@@ -608,7 +608,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) Recurrence
 type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence struct {
 	// The end time of the schedule, formatted as an RFC3339 string.
 	EndTime *string `pulumi:"endTime"`
-	// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+	// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
 	Frequency string `pulumi:"frequency"`
 	// The number of `frequency`s between runs.
 	Interval int `pulumi:"interval"`
@@ -634,7 +634,7 @@ type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceInput interfac
 type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs struct {
 	// The end time of the schedule, formatted as an RFC3339 string.
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+	// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// The number of `frequency`s between runs.
 	Interval pulumi.IntInput `pulumi:"interval"`
@@ -728,7 +728,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) End
 	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) string { return v.Frequency }).(pulumi.StringOutput)
 }
@@ -789,7 +789,7 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+// The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *string {
 		if v == nil {

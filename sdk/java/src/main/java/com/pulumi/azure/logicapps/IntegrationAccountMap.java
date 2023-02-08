@@ -105,14 +105,14 @@ public class IntegrationAccountMap extends com.pulumi.resources.CustomResource {
         return this.integrationAccountName;
     }
     /**
-     * The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+     * The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
      * 
      */
     @Export(name="mapType", type=String.class, parameters={})
     private Output<String> mapType;
 
     /**
-     * @return The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+     * @return The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
      * 
      */
     public Output<String> mapType() {

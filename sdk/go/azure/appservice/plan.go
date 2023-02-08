@@ -180,7 +180,8 @@ type Plan struct {
 
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 	AppServiceEnvironmentId pulumi.StringPtrOutput `pulumi:"appServiceEnvironmentId"`
-	IsXenon                 pulumi.BoolPtrOutput   `pulumi:"isXenon"`
+	// Whether to create a xenon App Service Plan.
+	IsXenon pulumi.BoolPtrOutput `pulumi:"isXenon"`
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -242,7 +243,8 @@ func GetPlan(ctx *pulumi.Context,
 type planState struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 	AppServiceEnvironmentId *string `pulumi:"appServiceEnvironmentId"`
-	IsXenon                 *bool   `pulumi:"isXenon"`
+	// Whether to create a xenon App Service Plan.
+	IsXenon *bool `pulumi:"isXenon"`
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind interface{} `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -270,7 +272,8 @@ type planState struct {
 type PlanState struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 	AppServiceEnvironmentId pulumi.StringPtrInput
-	IsXenon                 pulumi.BoolPtrInput
+	// Whether to create a xenon App Service Plan.
+	IsXenon pulumi.BoolPtrInput
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind pulumi.Input
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -302,7 +305,8 @@ func (PlanState) ElementType() reflect.Type {
 type planArgs struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 	AppServiceEnvironmentId *string `pulumi:"appServiceEnvironmentId"`
-	IsXenon                 *bool   `pulumi:"isXenon"`
+	// Whether to create a xenon App Service Plan.
+	IsXenon *bool `pulumi:"isXenon"`
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind interface{} `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -329,7 +333,8 @@ type planArgs struct {
 type PlanArgs struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 	AppServiceEnvironmentId pulumi.StringPtrInput
-	IsXenon                 pulumi.BoolPtrInput
+	// Whether to create a xenon App Service Plan.
+	IsXenon pulumi.BoolPtrInput
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind pulumi.Input
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -444,6 +449,7 @@ func (o PlanOutput) AppServiceEnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringPtrOutput { return v.AppServiceEnvironmentId }).(pulumi.StringPtrOutput)
 }
 
+// Whether to create a xenon App Service Plan.
 func (o PlanOutput) IsXenon() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Plan) pulumi.BoolPtrOutput { return v.IsXenon }).(pulumi.BoolPtrOutput)
 }

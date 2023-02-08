@@ -14,14 +14,14 @@ public final class WindowsWebAppSlotConnectionStringArgs extends com.pulumi.reso
     public static final WindowsWebAppSlotConnectionStringArgs Empty = new WindowsWebAppSlotConnectionStringArgs();
 
     /**
-     * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * The name of the connection String.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * @return The name of the connection String.
      * 
      */
     public Output<String> name() {
@@ -85,7 +85,7 @@ public final class WindowsWebAppSlotConnectionStringArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         * @param name The name of the connection String.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class WindowsWebAppSlotConnectionStringArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         * @param name The name of the connection String.
          * 
          * @return builder
          * 

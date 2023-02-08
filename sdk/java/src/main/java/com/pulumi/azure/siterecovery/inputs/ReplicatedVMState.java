@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery.inputs;
 
 import com.pulumi.azure.siterecovery.inputs.ReplicatedVMManagedDiskArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicatedVMNetworkInterfaceArgs;
+import com.pulumi.azure.siterecovery.inputs.ReplicatedVMUnmanagedDiskArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -34,6 +35,21 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+     * 
+     */
+    @Import(name="multiVmGroupName")
+    private @Nullable Output<String> multiVmGroupName;
+
+    /**
+     * @return Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+     * 
+     */
+    public Optional<Output<String>> multiVmGroupName() {
+        return Optional.ofNullable(this.multiVmGroupName);
+    }
+
+    /**
      * The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      * 
      */
@@ -50,6 +66,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * One or more `network_interface` block as defined below.
+     * *
      * 
      */
     @Import(name="networkInterfaces")
@@ -57,6 +74,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return One or more `network_interface` block as defined below.
+     * *
      * 
      */
     public Optional<Output<List<ReplicatedVMNetworkInterfaceArgs>>> networkInterfaces() {
@@ -169,6 +187,51 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+     * 
+     */
+    @Import(name="targetBootDiagnosticStorageAccountId")
+    private @Nullable Output<String> targetBootDiagnosticStorageAccountId;
+
+    /**
+     * @return Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+     * 
+     */
+    public Optional<Output<String>> targetBootDiagnosticStorageAccountId() {
+        return Optional.ofNullable(this.targetBootDiagnosticStorageAccountId);
+    }
+
+    /**
+     * Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+     * 
+     */
+    @Import(name="targetCapacityReservationGroupId")
+    private @Nullable Output<String> targetCapacityReservationGroupId;
+
+    /**
+     * @return Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+     * 
+     */
+    public Optional<Output<String>> targetCapacityReservationGroupId() {
+        return Optional.ofNullable(this.targetCapacityReservationGroupId);
+    }
+
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="targetEdgeZone")
+    private @Nullable Output<String> targetEdgeZone;
+
+    /**
+     * @return Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> targetEdgeZone() {
+        return Optional.ofNullable(this.targetEdgeZone);
+    }
+
+    /**
      * Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
      * 
      */
@@ -181,6 +244,21 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> targetNetworkId() {
         return Optional.ofNullable(this.targetNetworkId);
+    }
+
+    /**
+     * Id of Proximity Placement Group the new VM should belong to when a failover is done.
+     * 
+     */
+    @Import(name="targetProximityPlacementGroupId")
+    private @Nullable Output<String> targetProximityPlacementGroupId;
+
+    /**
+     * @return Id of Proximity Placement Group the new VM should belong to when a failover is done.
+     * 
+     */
+    public Optional<Output<String>> targetProximityPlacementGroupId() {
+        return Optional.ofNullable(this.targetProximityPlacementGroupId);
     }
 
     /**
@@ -229,6 +307,21 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+     * 
+     */
+    @Import(name="targetVirtualMachineScaleSetId")
+    private @Nullable Output<String> targetVirtualMachineScaleSetId;
+
+    /**
+     * @return Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+     * 
+     */
+    public Optional<Output<String>> targetVirtualMachineScaleSetId() {
+        return Optional.ofNullable(this.targetVirtualMachineScaleSetId);
+    }
+
+    /**
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -243,10 +336,33 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.targetZone);
     }
 
+    @Import(name="testNetworkId")
+    private @Nullable Output<String> testNetworkId;
+
+    public Optional<Output<String>> testNetworkId() {
+        return Optional.ofNullable(this.testNetworkId);
+    }
+
+    /**
+     * One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="unmanagedDisks")
+    private @Nullable Output<List<ReplicatedVMUnmanagedDiskArgs>> unmanagedDisks;
+
+    /**
+     * @return One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<List<ReplicatedVMUnmanagedDiskArgs>>> unmanagedDisks() {
+        return Optional.ofNullable(this.unmanagedDisks);
+    }
+
     private ReplicatedVMState() {}
 
     private ReplicatedVMState(ReplicatedVMState $) {
         this.managedDisks = $.managedDisks;
+        this.multiVmGroupName = $.multiVmGroupName;
         this.name = $.name;
         this.networkInterfaces = $.networkInterfaces;
         this.recoveryReplicationPolicyId = $.recoveryReplicationPolicyId;
@@ -256,11 +372,18 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         this.sourceRecoveryProtectionContainerName = $.sourceRecoveryProtectionContainerName;
         this.sourceVmId = $.sourceVmId;
         this.targetAvailabilitySetId = $.targetAvailabilitySetId;
+        this.targetBootDiagnosticStorageAccountId = $.targetBootDiagnosticStorageAccountId;
+        this.targetCapacityReservationGroupId = $.targetCapacityReservationGroupId;
+        this.targetEdgeZone = $.targetEdgeZone;
         this.targetNetworkId = $.targetNetworkId;
+        this.targetProximityPlacementGroupId = $.targetProximityPlacementGroupId;
         this.targetRecoveryFabricId = $.targetRecoveryFabricId;
         this.targetRecoveryProtectionContainerId = $.targetRecoveryProtectionContainerId;
         this.targetResourceGroupId = $.targetResourceGroupId;
+        this.targetVirtualMachineScaleSetId = $.targetVirtualMachineScaleSetId;
         this.targetZone = $.targetZone;
+        this.testNetworkId = $.testNetworkId;
+        this.unmanagedDisks = $.unmanagedDisks;
     }
 
     public static Builder builder() {
@@ -313,6 +436,27 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param multiVmGroupName Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiVmGroupName(@Nullable Output<String> multiVmGroupName) {
+            $.multiVmGroupName = multiVmGroupName;
+            return this;
+        }
+
+        /**
+         * @param multiVmGroupName Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiVmGroupName(String multiVmGroupName) {
+            return multiVmGroupName(Output.of(multiVmGroupName));
+        }
+
+        /**
          * @param name The name of the replication for the replicated VM. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -335,6 +479,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param networkInterfaces One or more `network_interface` block as defined below.
+         * *
          * 
          * @return builder
          * 
@@ -346,6 +491,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param networkInterfaces One or more `network_interface` block as defined below.
+         * *
          * 
          * @return builder
          * 
@@ -356,6 +502,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param networkInterfaces One or more `network_interface` block as defined below.
+         * *
          * 
          * @return builder
          * 
@@ -512,6 +659,69 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param targetBootDiagnosticStorageAccountId Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetBootDiagnosticStorageAccountId(@Nullable Output<String> targetBootDiagnosticStorageAccountId) {
+            $.targetBootDiagnosticStorageAccountId = targetBootDiagnosticStorageAccountId;
+            return this;
+        }
+
+        /**
+         * @param targetBootDiagnosticStorageAccountId Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetBootDiagnosticStorageAccountId(String targetBootDiagnosticStorageAccountId) {
+            return targetBootDiagnosticStorageAccountId(Output.of(targetBootDiagnosticStorageAccountId));
+        }
+
+        /**
+         * @param targetCapacityReservationGroupId Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetCapacityReservationGroupId(@Nullable Output<String> targetCapacityReservationGroupId) {
+            $.targetCapacityReservationGroupId = targetCapacityReservationGroupId;
+            return this;
+        }
+
+        /**
+         * @param targetCapacityReservationGroupId Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetCapacityReservationGroupId(String targetCapacityReservationGroupId) {
+            return targetCapacityReservationGroupId(Output.of(targetCapacityReservationGroupId));
+        }
+
+        /**
+         * @param targetEdgeZone Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetEdgeZone(@Nullable Output<String> targetEdgeZone) {
+            $.targetEdgeZone = targetEdgeZone;
+            return this;
+        }
+
+        /**
+         * @param targetEdgeZone Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetEdgeZone(String targetEdgeZone) {
+            return targetEdgeZone(Output.of(targetEdgeZone));
+        }
+
+        /**
          * @param targetNetworkId Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
          * 
          * @return builder
@@ -530,6 +740,27 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder targetNetworkId(String targetNetworkId) {
             return targetNetworkId(Output.of(targetNetworkId));
+        }
+
+        /**
+         * @param targetProximityPlacementGroupId Id of Proximity Placement Group the new VM should belong to when a failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetProximityPlacementGroupId(@Nullable Output<String> targetProximityPlacementGroupId) {
+            $.targetProximityPlacementGroupId = targetProximityPlacementGroupId;
+            return this;
+        }
+
+        /**
+         * @param targetProximityPlacementGroupId Id of Proximity Placement Group the new VM should belong to when a failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetProximityPlacementGroupId(String targetProximityPlacementGroupId) {
+            return targetProximityPlacementGroupId(Output.of(targetProximityPlacementGroupId));
         }
 
         /**
@@ -596,6 +827,27 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param targetVirtualMachineScaleSetId Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetVirtualMachineScaleSetId(@Nullable Output<String> targetVirtualMachineScaleSetId) {
+            $.targetVirtualMachineScaleSetId = targetVirtualMachineScaleSetId;
+            return this;
+        }
+
+        /**
+         * @param targetVirtualMachineScaleSetId Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetVirtualMachineScaleSetId(String targetVirtualMachineScaleSetId) {
+            return targetVirtualMachineScaleSetId(Output.of(targetVirtualMachineScaleSetId));
+        }
+
+        /**
          * @param targetZone Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -614,6 +866,46 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder targetZone(String targetZone) {
             return targetZone(Output.of(targetZone));
+        }
+
+        public Builder testNetworkId(@Nullable Output<String> testNetworkId) {
+            $.testNetworkId = testNetworkId;
+            return this;
+        }
+
+        public Builder testNetworkId(String testNetworkId) {
+            return testNetworkId(Output.of(testNetworkId));
+        }
+
+        /**
+         * @param unmanagedDisks One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unmanagedDisks(@Nullable Output<List<ReplicatedVMUnmanagedDiskArgs>> unmanagedDisks) {
+            $.unmanagedDisks = unmanagedDisks;
+            return this;
+        }
+
+        /**
+         * @param unmanagedDisks One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unmanagedDisks(List<ReplicatedVMUnmanagedDiskArgs> unmanagedDisks) {
+            return unmanagedDisks(Output.of(unmanagedDisks));
+        }
+
+        /**
+         * @param unmanagedDisks One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unmanagedDisks(ReplicatedVMUnmanagedDiskArgs... unmanagedDisks) {
+            return unmanagedDisks(List.of(unmanagedDisks));
         }
 
         public ReplicatedVMState build() {

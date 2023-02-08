@@ -13,7 +13,7 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class VirtualMachineStorageConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `storage_settings` as defined below.
+        /// A `storage_settings` block as defined below.
         /// </summary>
         [Input("dataSettings")]
         public Input<Inputs.VirtualMachineStorageConfigurationDataSettingsGetArgs>? DataSettings { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string> DiskType { get; set; } = null!;
 
         /// <summary>
-        /// An `storage_settings` as defined below.
+        /// A `storage_settings` block as defined below.
         /// </summary>
         [Input("logSettings")]
         public Input<Inputs.VirtualMachineStorageConfigurationLogSettingsGetArgs>? LogSettings { get; set; }

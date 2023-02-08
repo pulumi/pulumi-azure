@@ -32,9 +32,17 @@ public final class KafkaClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.password);
     }
 
+    /**
+     * The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="scriptActions")
     private @Nullable Output<List<KafkaClusterRolesHeadNodeScriptActionArgs>> scriptActions;
 
+    /**
+     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<List<KafkaClusterRolesHeadNodeScriptActionArgs>>> scriptActions() {
         return Optional.ofNullable(this.scriptActions);
     }
@@ -165,15 +173,33 @@ public final class KafkaClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
             return password(Output.of(password));
         }
 
+        /**
+         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scriptActions(@Nullable Output<List<KafkaClusterRolesHeadNodeScriptActionArgs>> scriptActions) {
             $.scriptActions = scriptActions;
             return this;
         }
 
+        /**
+         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scriptActions(List<KafkaClusterRolesHeadNodeScriptActionArgs> scriptActions) {
             return scriptActions(Output.of(scriptActions));
         }
 
+        /**
+         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scriptActions(KafkaClusterRolesHeadNodeScriptActionArgs... scriptActions) {
             return scriptActions(List.of(scriptActions));
         }

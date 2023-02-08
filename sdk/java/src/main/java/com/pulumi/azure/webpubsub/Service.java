@@ -112,9 +112,17 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> capacity() {
         return Codegen.optional(this.capacity);
     }
+    /**
+     * The publicly accessible IP of the Web PubSub service.
+     * 
+     */
     @Export(name="externalIp", type=String.class, parameters={})
     private Output<String> externalIp;
 
+    /**
+     * @return The publicly accessible IP of the Web PubSub service.
+     * 
+     */
     public Output<String> externalIp() {
         return this.externalIp;
     }

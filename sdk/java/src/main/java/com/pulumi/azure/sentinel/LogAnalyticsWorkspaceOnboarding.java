@@ -30,14 +30,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding")
 public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+     * Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="customerManagedKeyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> customerManagedKeyEnabled;
 
     /**
-     * @return Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+     * @return Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> customerManagedKeyEnabled() {
@@ -58,14 +58,14 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
         return this.resourceGroupName;
     }
     /**
-     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="workspaceName", type=String.class, parameters={})
     private Output<String> workspaceName;
 
     /**
-     * @return Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+     * @return Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> workspaceName() {

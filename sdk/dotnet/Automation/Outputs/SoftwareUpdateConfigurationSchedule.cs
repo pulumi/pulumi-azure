@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Automation.Outputs
         public readonly bool? IsEnabled;
         public readonly string? LastModifiedTime;
         /// <summary>
-        /// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+        /// List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence> MonthlyOccurrences;
         public readonly string? NextRun;

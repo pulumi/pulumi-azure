@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly bool? CompressionEnabled;
         /// <summary>
-        /// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+        /// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
         /// </summary>
         public readonly string? ForwardingProtocol;
         /// <summary>

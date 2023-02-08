@@ -196,14 +196,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.createMode);
     }
     /**
-     * A `customer_managed_key` block as defined below.
+     * A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="customerManagedKey", type=FlexibleServerCustomerManagedKey.class, parameters={})
     private Output</* @Nullable */ FlexibleServerCustomerManagedKey> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as defined below.
+     * @return A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<FlexibleServerCustomerManagedKey>> customerManagedKey() {

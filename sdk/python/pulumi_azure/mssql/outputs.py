@@ -1664,8 +1664,8 @@ class VirtualMachineStorageConfiguration(dict):
         """
         :param str disk_type: The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
         :param str storage_workload_type: The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
-        :param 'VirtualMachineStorageConfigurationDataSettingsArgs' data_settings: An `storage_settings` as defined below.
-        :param 'VirtualMachineStorageConfigurationLogSettingsArgs' log_settings: An `storage_settings` as defined below.
+        :param 'VirtualMachineStorageConfigurationDataSettingsArgs' data_settings: A `storage_settings` block as defined below.
+        :param 'VirtualMachineStorageConfigurationLogSettingsArgs' log_settings: A `storage_settings` block as defined below.
         :param bool system_db_on_data_disk_enabled: Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
         :param 'VirtualMachineStorageConfigurationTempDbSettingsArgs' temp_db_settings: An `temp_db_settings` as defined below.
         """
@@ -1700,7 +1700,7 @@ class VirtualMachineStorageConfiguration(dict):
     @pulumi.getter(name="dataSettings")
     def data_settings(self) -> Optional['outputs.VirtualMachineStorageConfigurationDataSettings']:
         """
-        An `storage_settings` as defined below.
+        A `storage_settings` block as defined below.
         """
         return pulumi.get(self, "data_settings")
 
@@ -1708,7 +1708,7 @@ class VirtualMachineStorageConfiguration(dict):
     @pulumi.getter(name="logSettings")
     def log_settings(self) -> Optional['outputs.VirtualMachineStorageConfigurationLogSettings']:
         """
-        An `storage_settings` as defined below.
+        A `storage_settings` block as defined below.
         """
         return pulumi.get(self, "log_settings")
 

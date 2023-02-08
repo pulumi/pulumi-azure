@@ -81,9 +81,17 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.appCommandLine);
     }
 
+    /**
+     * The name of the slot to automatically swap to during deployment
+     * 
+     */
     @Import(name="autoSwapSlotName")
     private @Nullable Output<String> autoSwapSlotName;
 
+    /**
+     * @return The name of the slot to automatically swap to during deployment
+     * 
+     */
     public Optional<Output<String>> autoSwapSlotName() {
         return Optional.ofNullable(this.autoSwapSlotName);
     }
@@ -616,11 +624,23 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
             return appCommandLine(Output.of(appCommandLine));
         }
 
+        /**
+         * @param autoSwapSlotName The name of the slot to automatically swap to during deployment
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoSwapSlotName(@Nullable Output<String> autoSwapSlotName) {
             $.autoSwapSlotName = autoSwapSlotName;
             return this;
         }
 
+        /**
+         * @param autoSwapSlotName The name of the slot to automatically swap to during deployment
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoSwapSlotName(String autoSwapSlotName) {
             return autoSwapSlotName(Output.of(autoSwapSlotName));
         }

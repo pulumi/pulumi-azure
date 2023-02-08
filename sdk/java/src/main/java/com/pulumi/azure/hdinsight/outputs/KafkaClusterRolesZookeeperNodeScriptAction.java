@@ -12,24 +12,40 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KafkaClusterRolesZookeeperNodeScriptAction {
     /**
-     * @return Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+     * @return The name of the script action.
      * 
      */
     private String name;
+    /**
+     * @return The parameters for the script provided.
+     * 
+     */
     private @Nullable String parameters;
+    /**
+     * @return The URI to the script.
+     * 
+     */
     private String uri;
 
     private KafkaClusterRolesZookeeperNodeScriptAction() {}
     /**
-     * @return Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+     * @return The name of the script action.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The parameters for the script provided.
+     * 
+     */
     public Optional<String> parameters() {
         return Optional.ofNullable(this.parameters);
     }
+    /**
+     * @return The URI to the script.
+     * 
+     */
     public String uri() {
         return this.uri;
     }

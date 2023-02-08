@@ -28,9 +28,17 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
         return this.name;
     }
 
+    /**
+     * Specifies the public data of the certificate.
+     * 
+     */
     @Import(name="thumbprint", required=true)
     private Output<String> thumbprint;
 
+    /**
+     * @return Specifies the public data of the certificate.
+     * 
+     */
     public Output<String> thumbprint() {
         return this.thumbprint;
     }
@@ -81,11 +89,23 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
             return name(Output.of(name));
         }
 
+        /**
+         * @param thumbprint Specifies the public data of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thumbprint(Output<String> thumbprint) {
             $.thumbprint = thumbprint;
             return this;
         }
 
+        /**
+         * @param thumbprint Specifies the public data of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thumbprint(String thumbprint) {
             return thumbprint(Output.of(thumbprint));
         }
