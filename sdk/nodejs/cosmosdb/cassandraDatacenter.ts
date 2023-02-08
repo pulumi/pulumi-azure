@@ -13,51 +13,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * ```
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as azuread from "@pulumi/azuread";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     addressSpaces: ["10.0.0.0/16"],
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
- * });
- * const exampleServicePrincipal = azuread.getServicePrincipal({
- *     displayName: "Azure Cosmos DB",
- * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
- *     scope: exampleVirtualNetwork.id,
- *     roleDefinitionName: "Network Contributor",
- *     principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
- * });
- * const exampleCassandraCluster = new azure.cosmosdb.CassandraCluster("exampleCassandraCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     delegatedManagementSubnetId: exampleSubnet.id,
- *     defaultAdminPassword: "Password1234",
- * }, {
- *     dependsOn: [exampleAssignment],
- * });
- * const exampleCassandraDatacenter = new azure.cosmosdb.CassandraDatacenter("exampleCassandraDatacenter", {
- *     location: exampleCassandraCluster.location,
- *     cassandraClusterId: exampleCassandraCluster.id,
- *     delegatedManagementSubnetId: exampleSubnet.id,
- *     nodeCount: 3,
- *     diskCount: 4,
- *     skuName: "Standard_DS14_v2",
- *     availabilityZonesEnabled: false,
- * });
- * ```
- *
  * ## Import
  *
  * Cassandra Datacenters can be imported using the `resource id`, e.g.
