@@ -178,6 +178,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
+     * A `galleryApplication` block as defined below.
+     */
+    public readonly galleryApplication!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetGalleryApplication[]>;
+    /**
      * @deprecated `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      */
     public readonly galleryApplications!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetGalleryApplication[]>;
@@ -356,6 +360,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["extensionOperationsEnabled"] = state ? state.extensionOperationsEnabled : undefined;
             resourceInputs["extensions"] = state ? state.extensions : undefined;
             resourceInputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
+            resourceInputs["galleryApplication"] = state ? state.galleryApplication : undefined;
             resourceInputs["galleryApplications"] = state ? state.galleryApplications : undefined;
             resourceInputs["healthProbeId"] = state ? state.healthProbeId : undefined;
             resourceInputs["hostGroupId"] = state ? state.hostGroupId : undefined;
@@ -428,6 +433,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["extensionOperationsEnabled"] = args ? args.extensionOperationsEnabled : undefined;
             resourceInputs["extensions"] = args ? args.extensions : undefined;
             resourceInputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
+            resourceInputs["galleryApplication"] = args ? args.galleryApplication : undefined;
             resourceInputs["galleryApplications"] = args ? args.galleryApplications : undefined;
             resourceInputs["healthProbeId"] = args ? args.healthProbeId : undefined;
             resourceInputs["hostGroupId"] = args ? args.hostGroupId : undefined;
@@ -552,6 +558,10 @@ export interface LinuxVirtualMachineScaleSetState {
      * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
      */
     extensionsTimeBudget?: pulumi.Input<string>;
+    /**
+     * A `galleryApplication` block as defined below.
+     */
+    galleryApplication?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[]>;
     /**
      * @deprecated `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      */
@@ -780,6 +790,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
      */
     extensionsTimeBudget?: pulumi.Input<string>;
+    /**
+     * A `galleryApplication` block as defined below.
+     */
+    galleryApplication?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[]>;
     /**
      * @deprecated `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      */
