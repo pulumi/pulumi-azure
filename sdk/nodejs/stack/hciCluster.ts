@@ -7,6 +7,26 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Stack HCI Cluster.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const exampleApplication = azuread.getApplication({
+ *     displayName: "Allowed resource types",
+ * });
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleHciCluster = new azure.stack.HciCluster("exampleHciCluster", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     clientId: exampleApplication.then(exampleApplication => exampleApplication.applicationId),
+ *     tenantId: current.then(current => current.tenantId),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Azure Stack HCI Clusters can be imported using the `resource id`, e.g.

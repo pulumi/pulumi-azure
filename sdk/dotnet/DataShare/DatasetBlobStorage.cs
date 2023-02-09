@@ -12,6 +12,85 @@ namespace Pulumi.Azure.DataShare
     /// <summary>
     /// Manages a Data Share Blob Storage Dataset.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.DataShare.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.DataShare.Share("exampleShare", new()
+    ///     {
+    ///         AccountId = exampleAccount.Id,
+    ///         Kind = "CopyBased",
+    ///     });
+    /// 
+    ///     var exampleStorage_accountAccount = new Azure.Storage.Account("exampleStorage/accountAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "RAGRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleStorage / accountAccount.Name,
+    ///         ContainerAccessType = "container",
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     {
+    ///         Scope = exampleStorage / accountAccount.Id,
+    ///         RoleDefinitionName = "Storage Blob Data Reader",
+    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///     });
+    /// 
+    ///     var exampleDatasetBlobStorage = new Azure.DataShare.DatasetBlobStorage("exampleDatasetBlobStorage", new()
+    ///     {
+    ///         DataShareId = exampleShare.Id,
+    ///         ContainerName = exampleContainer.Name,
+    ///         StorageAccount = new Azure.DataShare.Inputs.DatasetBlobStorageStorageAccountArgs
+    ///         {
+    ///             Name = exampleStorage / accountAccount.Name,
+    ///             ResourceGroupName = exampleStorage / accountAccount.ResourceGroupName,
+    ///             SubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         FilePath = "myfile.txt",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Share Blob Storage Datasets can be imported using the `resource id`, e.g.

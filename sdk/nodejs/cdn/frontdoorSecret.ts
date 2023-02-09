@@ -7,6 +7,64 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ * import * as fs from "fs";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const frontdoor = azuread.getServicePrincipal({
+ *     displayName: "Microsoft.Azure.Cdn",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     softDeleteRetentionDays: 7,
+ *     networkAcls: {
+ *         defaultAction: "Deny",
+ *         bypass: "AzureServices",
+ *         ipRules: ["10.0.0.0/24"],
+ *     },
+ *     accessPolicies: [
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: frontdoor.then(frontdoor => frontdoor.objectId),
+ *             secretPermissions: ["Get"],
+ *         },
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: current.then(current => current.objectId),
+ *             certificatePermissions: [
+ *                 "Get",
+ *                 "Import",
+ *                 "Delete",
+ *                 "Purge",
+ *             ],
+ *             secretPermissions: ["Get"],
+ *         },
+ *     ],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ *     keyVaultId: azurerm_key_vault.test.id,
+ *     certificate: {
+ *         contents: Buffer.from(fs.readFileSync("my-certificate.pfx"), 'binary').toString('base64'),
+ *     },
+ * });
+ * const exampleFrontdoorSecret = new azure.cdn.FrontdoorSecret("exampleFrontdoorSecret", {
+ *     cdnFrontdoorProfileId: azurerm_cdn_frontdoor_profile.test.id,
+ *     secret: {
+ *         customerCertificates: [{
+ *             keyVaultCertificateId: azurerm_key_vault_certificate.test.id,
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Front Door Secrets can be imported using the `resource id`, e.g.

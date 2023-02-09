@@ -79,6 +79,92 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// });
     /// ```
+    /// ### Automatically Regenerate Storage Account Access Key)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var test = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         ApplicationId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093",
+    ///     });
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "Delete",
+    ///                 },
+    ///                 StoragePermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "List",
+    ///                     "Set",
+    ///                     "SetSAS",
+    ///                     "GetSAS",
+    ///                     "DeleteSAS",
+    ///                     "Update",
+    ///                     "RegenerateKey",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         RoleDefinitionName = "Storage Account Key Operator Service Role",
+    ///         PrincipalId = test.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.Id),
+    ///     });
+    /// 
+    ///     var exampleManagedStorageAccount = new Azure.KeyVault.ManagedStorageAccount("exampleManagedStorageAccount", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         StorageAccountKey = "key1",
+    ///         RegenerateKeyAutomatically = true,
+    ///         RegenerationPeriod = "P1D",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

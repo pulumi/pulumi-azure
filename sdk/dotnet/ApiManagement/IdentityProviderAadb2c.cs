@@ -12,6 +12,63 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management Azure AD B2C Identity Provider.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleApplication = new AzureAD.Application("exampleApplication", new()
+    ///     {
+    ///         DisplayName = "acctestam-example",
+    ///     });
+    /// 
+    ///     var exampleApplicationPassword = new AzureAD.ApplicationPassword("exampleApplicationPassword", new()
+    ///     {
+    ///         ApplicationObjectId = exampleApplication.ObjectId,
+    ///         EndDateRelative = "36h",
+    ///     });
+    /// 
+    ///     var exampleIdentityProviderAadb2c = new Azure.ApiManagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         ClientId = exampleApplication.ApplicationId,
+    ///         ClientSecret = "P@55w0rD!",
+    ///         AllowedTenant = "myb2ctenant.onmicrosoft.com",
+    ///         SigninTenant = "myb2ctenant.onmicrosoft.com",
+    ///         Authority = "myb2ctenant.b2clogin.com",
+    ///         SigninPolicy = "B2C_1_Login",
+    ///         SignupPolicy = "B2C_1_Signup",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleApplicationPassword,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management Azure AD B2C Identity Providers can be imported using the `resource id`, e.g.

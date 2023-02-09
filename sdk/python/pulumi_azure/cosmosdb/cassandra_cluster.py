@@ -503,6 +503,35 @@ class CassandraCluster(pulumi.CustomResource):
         import pulumi
         ```
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        example_service_principal = azuread.get_service_principal(display_name="Azure Cosmos DB")
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            scope=example_virtual_network.id,
+            role_definition_name="Network Contributor",
+            principal_id=example_service_principal.object_id)
+        example_cassandra_cluster = azure.cosmosdb.CassandraCluster("exampleCassandraCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            delegated_management_subnet_id=example_subnet.id,
+            default_admin_password="Password1234",
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+        ```
+
         ## Import
 
         Cassandra Clusters can be imported using the `resource id`, e.g.
@@ -541,6 +570,35 @@ class CassandraCluster(pulumi.CustomResource):
 
         ```python
         import pulumi
+        ```
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        example_service_principal = azuread.get_service_principal(display_name="Azure Cosmos DB")
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            scope=example_virtual_network.id,
+            role_definition_name="Network Contributor",
+            principal_id=example_service_principal.object_id)
+        example_cassandra_cluster = azure.cosmosdb.CassandraCluster("exampleCassandraCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            delegated_management_subnet_id=example_subnet.id,
+            default_admin_password="Password1234",
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import

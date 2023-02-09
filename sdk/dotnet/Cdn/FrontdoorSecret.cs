@@ -10,6 +10,102 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 	}
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var frontdoor = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "Microsoft.Azure.Cdn",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = azurerm_resource_group.Example.Location,
+    ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         SoftDeleteRetentionDays = 7,
+    ///         NetworkAcls = new Azure.KeyVault.Inputs.KeyVaultNetworkAclsArgs
+    ///         {
+    ///             DefaultAction = "Deny",
+    ///             Bypass = "AzureServices",
+    ///             IpRules = new[]
+    ///             {
+    ///                 "10.0.0.0/24",
+    ///             },
+    ///         },
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = frontdoor.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 CertificatePermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "Import",
+    ///                     "Delete",
+    ///                     "Purge",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     {
+    ///         KeyVaultId = azurerm_key_vault.Test.Id,
+    ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
+    ///         {
+    ///             Contents = ReadFileBase64("my-certificate.pfx"),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFrontdoorSecret = new Azure.Cdn.FrontdoorSecret("exampleFrontdoorSecret", new()
+    ///     {
+    ///         CdnFrontdoorProfileId = azurerm_cdn_frontdoor_profile.Test.Id,
+    ///         Secret = new Azure.Cdn.Inputs.FrontdoorSecretSecretArgs
+    ///         {
+    ///             CustomerCertificates = new[]
+    ///             {
+    ///                 new Azure.Cdn.Inputs.FrontdoorSecretSecretCustomerCertificateArgs
+    ///                 {
+    ///                     KeyVaultCertificateId = azurerm_key_vault_certificate.Test.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Front Door Secrets can be imported using the `resource id`, e.g.

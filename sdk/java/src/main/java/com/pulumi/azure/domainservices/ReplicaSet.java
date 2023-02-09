@@ -17,6 +17,292 @@ import javax.annotation.Nullable;
 /**
  * Manages a Replica Set for an Active Directory Domain Service.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.NetworkSecurityGroup;
+ * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
+ * import com.pulumi.azure.network.inputs.NetworkSecurityGroupSecurityRuleArgs;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
+ * import com.pulumi.azuread.Group;
+ * import com.pulumi.azuread.GroupArgs;
+ * import com.pulumi.azuread.User;
+ * import com.pulumi.azuread.UserArgs;
+ * import com.pulumi.azuread.GroupMember;
+ * import com.pulumi.azuread.GroupMemberArgs;
+ * import com.pulumi.azuread.ServicePrincipal;
+ * import com.pulumi.azuread.ServicePrincipalArgs;
+ * import com.pulumi.azure.domainservices.Service;
+ * import com.pulumi.azure.domainservices.ServiceArgs;
+ * import com.pulumi.azure.domainservices.inputs.ServiceInitialReplicaSetArgs;
+ * import com.pulumi.azure.domainservices.inputs.ServiceNotificationsArgs;
+ * import com.pulumi.azure.domainservices.inputs.ServiceSecurityArgs;
+ * import com.pulumi.azure.network.VirtualNetworkPeering;
+ * import com.pulumi.azure.network.VirtualNetworkPeeringArgs;
+ * import com.pulumi.azure.network.VirtualNetworkDnsServers;
+ * import com.pulumi.azure.network.VirtualNetworkDnsServersArgs;
+ * import com.pulumi.azure.domainservices.ReplicaSet;
+ * import com.pulumi.azure.domainservices.ReplicaSetArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var primaryResourceGroup = new ResourceGroup(&#34;primaryResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var primaryVirtualNetwork = new VirtualNetwork(&#34;primaryVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .location(primaryResourceGroup.location())
+ *             .resourceGroupName(primaryResourceGroup.name())
+ *             .addressSpaces(&#34;10.0.1.0/16&#34;)
+ *             .build());
+ * 
+ *         var primarySubnet = new Subnet(&#34;primarySubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(primaryResourceGroup.name())
+ *             .virtualNetworkName(primaryVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .build());
+ * 
+ *         var primaryNetworkSecurityGroup = new NetworkSecurityGroup(&#34;primaryNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
+ *             .location(primaryResourceGroup.location())
+ *             .resourceGroupName(primaryResourceGroup.name())
+ *             .securityRules(            
+ *                 NetworkSecurityGroupSecurityRuleArgs.builder()
+ *                     .name(&#34;AllowSyncWithAzureAD&#34;)
+ *                     .priority(101)
+ *                     .direction(&#34;Inbound&#34;)
+ *                     .access(&#34;Allow&#34;)
+ *                     .protocol(&#34;Tcp&#34;)
+ *                     .sourcePortRange(&#34;*&#34;)
+ *                     .destinationPortRange(&#34;443&#34;)
+ *                     .sourceAddressPrefix(&#34;AzureActiveDirectoryDomainServices&#34;)
+ *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .build(),
+ *                 NetworkSecurityGroupSecurityRuleArgs.builder()
+ *                     .name(&#34;AllowRD&#34;)
+ *                     .priority(201)
+ *                     .direction(&#34;Inbound&#34;)
+ *                     .access(&#34;Allow&#34;)
+ *                     .protocol(&#34;Tcp&#34;)
+ *                     .sourcePortRange(&#34;*&#34;)
+ *                     .destinationPortRange(&#34;3389&#34;)
+ *                     .sourceAddressPrefix(&#34;CorpNetSaw&#34;)
+ *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .build(),
+ *                 NetworkSecurityGroupSecurityRuleArgs.builder()
+ *                     .name(&#34;AllowPSRemoting&#34;)
+ *                     .priority(301)
+ *                     .direction(&#34;Inbound&#34;)
+ *                     .access(&#34;Allow&#34;)
+ *                     .protocol(&#34;Tcp&#34;)
+ *                     .sourcePortRange(&#34;*&#34;)
+ *                     .destinationPortRange(&#34;5986&#34;)
+ *                     .sourceAddressPrefix(&#34;AzureActiveDirectoryDomainServices&#34;)
+ *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .build(),
+ *                 NetworkSecurityGroupSecurityRuleArgs.builder()
+ *                     .name(&#34;AllowLDAPS&#34;)
+ *                     .priority(401)
+ *                     .direction(&#34;Inbound&#34;)
+ *                     .access(&#34;Allow&#34;)
+ *                     .protocol(&#34;Tcp&#34;)
+ *                     .sourcePortRange(&#34;*&#34;)
+ *                     .destinationPortRange(&#34;636&#34;)
+ *                     .sourceAddressPrefix(&#34;*&#34;)
+ *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var primarySubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;primarySubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *             .subnetId(primarySubnet.id())
+ *             .networkSecurityGroupId(primaryNetworkSecurityGroup.id())
+ *             .build());
+ * 
+ *         var dcAdmins = new Group(&#34;dcAdmins&#34;, GroupArgs.builder()        
+ *             .displayName(&#34;aad-dc-administrators&#34;)
+ *             .securityEnabled(true)
+ *             .build());
+ * 
+ *         var adminUser = new User(&#34;adminUser&#34;, UserArgs.builder()        
+ *             .userPrincipalName(&#34;dc-admin@hashicorp-example.net&#34;)
+ *             .displayName(&#34;DC Administrator&#34;)
+ *             .password(&#34;Pa55w0Rd!!1&#34;)
+ *             .build());
+ * 
+ *         var adminGroupMember = new GroupMember(&#34;adminGroupMember&#34;, GroupMemberArgs.builder()        
+ *             .groupObjectId(dcAdmins.objectId())
+ *             .memberObjectId(adminUser.objectId())
+ *             .build());
+ * 
+ *         var exampleServicePrincipal = new ServicePrincipal(&#34;exampleServicePrincipal&#34;, ServicePrincipalArgs.builder()        
+ *             .applicationId(&#34;2565bd9d-da50-47d4-8b85-4c97f669dc36&#34;)
+ *             .build());
+ * 
+ *         var aadds = new ResourceGroup(&#34;aadds&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;westeurope&#34;)
+ *             .build());
+ * 
+ *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .location(aadds.location())
+ *             .resourceGroupName(aadds.name())
+ *             .domainName(&#34;widgetslogin.net&#34;)
+ *             .sku(&#34;Enterprise&#34;)
+ *             .filteredSyncEnabled(false)
+ *             .initialReplicaSet(ServiceInitialReplicaSetArgs.builder()
+ *                 .location(primaryVirtualNetwork.location())
+ *                 .subnetId(primarySubnet.id())
+ *                 .build())
+ *             .notifications(ServiceNotificationsArgs.builder()
+ *                 .additionalRecipients(                
+ *                     &#34;notifyA@example.net&#34;,
+ *                     &#34;notifyB@example.org&#34;)
+ *                 .notifyDcAdmins(true)
+ *                 .notifyGlobalAdmins(true)
+ *                 .build())
+ *             .security(ServiceSecurityArgs.builder()
+ *                 .syncKerberosPasswords(true)
+ *                 .syncNtlmPasswords(true)
+ *                 .syncOnPremPasswords(true)
+ *                 .build())
+ *             .tags(Map.of(&#34;Environment&#34;, &#34;prod&#34;))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleServicePrincipal,
+ *                     primarySubnetNetworkSecurityGroupAssociation)
+ *                 .build());
+ * 
+ *         var replicaResourceGroup = new ResourceGroup(&#34;replicaResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;North Europe&#34;)
+ *             .build());
+ * 
+ *         var replicaVirtualNetwork = new VirtualNetwork(&#34;replicaVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .location(replicaResourceGroup.location())
+ *             .resourceGroupName(replicaResourceGroup.name())
+ *             .addressSpaces(&#34;10.20.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var aaddsReplicaSubnet = new Subnet(&#34;aaddsReplicaSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(replicaResourceGroup.name())
+ *             .virtualNetworkName(replicaVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.20.0.0/24&#34;)
+ *             .build());
+ * 
+ *         var aaddsReplicaNetworkSecurityGroup = new NetworkSecurityGroup(&#34;aaddsReplicaNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
+ *             .location(replicaResourceGroup.location())
+ *             .resourceGroupName(replicaResourceGroup.name())
+ *             .securityRules(            
+ *                 NetworkSecurityGroupSecurityRuleArgs.builder()
+ *                     .name(&#34;AllowSyncWithAzureAD&#34;)
+ *                     .priority(101)
+ *                     .direction(&#34;Inbound&#34;)
+ *                     .access(&#34;Allow&#34;)
+ *                     .protocol(&#34;Tcp&#34;)
+ *                     .sourcePortRange(&#34;*&#34;)
+ *                     .destinationPortRange(&#34;443&#34;)
+ *                     .sourceAddressPrefix(&#34;AzureActiveDirectoryDomainServices&#34;)
+ *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .build(),
+ *                 NetworkSecurityGroupSecurityRuleArgs.builder()
+ *                     .name(&#34;AllowRD&#34;)
+ *                     .priority(201)
+ *                     .direction(&#34;Inbound&#34;)
+ *                     .access(&#34;Allow&#34;)
+ *                     .protocol(&#34;Tcp&#34;)
+ *                     .sourcePortRange(&#34;*&#34;)
+ *                     .destinationPortRange(&#34;3389&#34;)
+ *                     .sourceAddressPrefix(&#34;CorpNetSaw&#34;)
+ *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .build(),
+ *                 NetworkSecurityGroupSecurityRuleArgs.builder()
+ *                     .name(&#34;AllowPSRemoting&#34;)
+ *                     .priority(301)
+ *                     .direction(&#34;Inbound&#34;)
+ *                     .access(&#34;Allow&#34;)
+ *                     .protocol(&#34;Tcp&#34;)
+ *                     .sourcePortRange(&#34;*&#34;)
+ *                     .destinationPortRange(&#34;5986&#34;)
+ *                     .sourceAddressPrefix(&#34;AzureActiveDirectoryDomainServices&#34;)
+ *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .build(),
+ *                 NetworkSecurityGroupSecurityRuleArgs.builder()
+ *                     .name(&#34;AllowLDAPS&#34;)
+ *                     .priority(401)
+ *                     .direction(&#34;Inbound&#34;)
+ *                     .access(&#34;Allow&#34;)
+ *                     .protocol(&#34;Tcp&#34;)
+ *                     .sourcePortRange(&#34;*&#34;)
+ *                     .destinationPortRange(&#34;636&#34;)
+ *                     .sourceAddressPrefix(&#34;*&#34;)
+ *                     .destinationAddressPrefix(&#34;*&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var replicaSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;replicaSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *             .subnetId(aaddsReplicaSubnet.id())
+ *             .networkSecurityGroupId(aaddsReplicaNetworkSecurityGroup.id())
+ *             .build());
+ * 
+ *         var primaryReplica = new VirtualNetworkPeering(&#34;primaryReplica&#34;, VirtualNetworkPeeringArgs.builder()        
+ *             .resourceGroupName(primaryVirtualNetwork.resourceGroupName())
+ *             .virtualNetworkName(primaryVirtualNetwork.name())
+ *             .remoteVirtualNetworkId(replicaVirtualNetwork.id())
+ *             .allowForwardedTraffic(true)
+ *             .allowGatewayTransit(false)
+ *             .allowVirtualNetworkAccess(true)
+ *             .useRemoteGateways(false)
+ *             .build());
+ * 
+ *         var replicaPrimary = new VirtualNetworkPeering(&#34;replicaPrimary&#34;, VirtualNetworkPeeringArgs.builder()        
+ *             .resourceGroupName(replicaVirtualNetwork.resourceGroupName())
+ *             .virtualNetworkName(replicaVirtualNetwork.name())
+ *             .remoteVirtualNetworkId(primaryVirtualNetwork.id())
+ *             .allowForwardedTraffic(true)
+ *             .allowGatewayTransit(false)
+ *             .allowVirtualNetworkAccess(true)
+ *             .useRemoteGateways(false)
+ *             .build());
+ * 
+ *         var replicaVirtualNetworkDnsServers = new VirtualNetworkDnsServers(&#34;replicaVirtualNetworkDnsServers&#34;, VirtualNetworkDnsServersArgs.builder()        
+ *             .virtualNetworkId(replicaVirtualNetwork.id())
+ *             .dnsServers(exampleService.initialReplicaSet().applyValue(initialReplicaSet -&gt; initialReplicaSet.domainControllerIpAddresses()))
+ *             .build());
+ * 
+ *         var replicaReplicaSet = new ReplicaSet(&#34;replicaReplicaSet&#34;, ReplicaSetArgs.builder()        
+ *             .domainServiceId(exampleService.id())
+ *             .location(replicaResourceGroup.location())
+ *             .subnetId(aaddsReplicaSubnet.id())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     replicaSubnetNetworkSecurityGroupAssociation,
+ *                     primaryReplica,
+ *                     replicaPrimary)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Domain Service Replica Sets can be imported using the resource ID of the parent Domain Service and the Replica Set ID, e.g.

@@ -15,6 +15,94 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultNetworkAclsArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.Certificate;
+ * import com.pulumi.azure.keyvault.CertificateArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
+ * import com.pulumi.azure.cdn.FrontdoorSecret;
+ * import com.pulumi.azure.cdn.FrontdoorSecretArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorSecretSecretArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         final var frontdoor = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *             .displayName(&#34;Microsoft.Azure.Cdn&#34;)
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(azurerm_resource_group.example().location())
+ *             .resourceGroupName(azurerm_resource_group.example().name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;premium&#34;)
+ *             .softDeleteRetentionDays(7)
+ *             .networkAcls(KeyVaultNetworkAclsArgs.builder()
+ *                 .defaultAction(&#34;Deny&#34;)
+ *                 .bypass(&#34;AzureServices&#34;)
+ *                 .ipRules(&#34;10.0.0.0/24&#34;)
+ *                 .build())
+ *             .accessPolicies(            
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                     .objectId(frontdoor.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *                     .secretPermissions(&#34;Get&#34;)
+ *                     .build(),
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .certificatePermissions(                    
+ *                         &#34;Get&#34;,
+ *                         &#34;Import&#34;,
+ *                         &#34;Delete&#34;,
+ *                         &#34;Purge&#34;)
+ *                     .secretPermissions(&#34;Get&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *             .keyVaultId(azurerm_key_vault.test().id())
+ *             .certificate(CertificateCertificateArgs.builder()
+ *                 .contents(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;my-certificate.pfx&#34;))))
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFrontdoorSecret = new FrontdoorSecret(&#34;exampleFrontdoorSecret&#34;, FrontdoorSecretArgs.builder()        
+ *             .cdnFrontdoorProfileId(azurerm_cdn_frontdoor_profile.test().id())
+ *             .secret(FrontdoorSecretSecretArgs.builder()
+ *                 .customerCertificates(FrontdoorSecretSecretCustomerCertificateArgs.builder()
+ *                     .keyVaultCertificateId(azurerm_key_vault_certificate.test().id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Front Door Secrets can be imported using the `resource id`, e.g.

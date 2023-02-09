@@ -19,6 +19,106 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace &#39;Microsoft.StorageCache&#39;`.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.hpc.Cache;
+ * import com.pulumi.azure.hpc.CacheArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.Container;
+ * import com.pulumi.azure.storage.ContainerArgs;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.hpc.CacheBlobTarget;
+ * import com.pulumi.azure.hpc.CacheBlobTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .build());
+ * 
+ *         var exampleCache = new Cache(&#34;exampleCache&#34;, CacheArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .cacheSizeInGb(3072)
+ *             .subnetId(exampleSubnet.id())
+ *             .skuName(&#34;Standard_2G&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .storageAccountName(exampleAccount.name())
+ *             .build());
+ * 
+ *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *             .displayName(&#34;HPC Cache Resource Provider&#34;)
+ *             .build());
+ * 
+ *         var exampleStorageAccountContrib = new Assignment(&#34;exampleStorageAccountContrib&#34;, AssignmentArgs.builder()        
+ *             .scope(exampleAccount.id())
+ *             .roleDefinitionName(&#34;Storage Account Contributor&#34;)
+ *             .principalId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *             .build());
+ * 
+ *         var exampleStorageBlobDataContrib = new Assignment(&#34;exampleStorageBlobDataContrib&#34;, AssignmentArgs.builder()        
+ *             .scope(exampleAccount.id())
+ *             .roleDefinitionName(&#34;Storage Blob Data Contributor&#34;)
+ *             .principalId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *             .build());
+ * 
+ *         var exampleCacheBlobTarget = new CacheBlobTarget(&#34;exampleCacheBlobTarget&#34;, CacheBlobTargetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .cacheName(exampleCache.name())
+ *             .storageContainerId(exampleContainer.resourceManagerId())
+ *             .namespacePath(&#34;/blob_storage&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Blob Targets within an HPC Cache can be imported using the `resource id`, e.g.
