@@ -39,6 +39,7 @@ class LinuxVirtualMachineScaleSetArgs:
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -95,6 +96,7 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_application: A `gallery_application` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -166,6 +168,8 @@ class LinuxVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+        if gallery_application is not None:
+            pulumi.set(__self__, "gallery_application", gallery_application)
         if gallery_applications is not None:
             warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
@@ -513,6 +517,18 @@ class LinuxVirtualMachineScaleSetArgs:
     @extensions_time_budget.setter
     def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "extensions_time_budget", value)
+
+    @property
+    @pulumi.getter(name="galleryApplication")
+    def gallery_application(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+        """
+        A `gallery_application` block as defined below.
+        """
+        return pulumi.get(self, "gallery_application")
+
+    @gallery_application.setter
+    def gallery_application(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]):
+        pulumi.set(self, "gallery_application", value)
 
     @property
     @pulumi.getter(name="galleryApplications")
@@ -903,6 +919,7 @@ class _LinuxVirtualMachineScaleSetState:
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -960,6 +977,7 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_application: A `gallery_application` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -1033,6 +1051,8 @@ class _LinuxVirtualMachineScaleSetState:
             pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+        if gallery_application is not None:
+            pulumi.set(__self__, "gallery_application", gallery_application)
         if gallery_applications is not None:
             warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
@@ -1342,6 +1362,18 @@ class _LinuxVirtualMachineScaleSetState:
     @extensions_time_budget.setter
     def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "extensions_time_budget", value)
+
+    @property
+    @pulumi.getter(name="galleryApplication")
+    def gallery_application(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+        """
+        A `gallery_application` block as defined below.
+        """
+        return pulumi.get(self, "gallery_application")
+
+    @gallery_application.setter
+    def gallery_application(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]):
+        pulumi.set(self, "gallery_application", value)
 
     @property
     @pulumi.getter(name="galleryApplications")
@@ -1794,6 +1826,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -1915,6 +1948,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] gallery_application: A `gallery_application` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -2053,6 +2087,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -2118,6 +2153,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
             __props__.__dict__["extensions"] = extensions
             __props__.__dict__["extensions_time_budget"] = extensions_time_budget
+            __props__.__dict__["gallery_application"] = gallery_application
             if gallery_applications is not None and not opts.urn:
                 warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
                 pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
@@ -2202,6 +2238,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
             extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]]] = None,
             extensions_time_budget: Optional[pulumi.Input[str]] = None,
+            gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
             gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
             health_probe_id: Optional[pulumi.Input[str]] = None,
             host_group_id: Optional[pulumi.Input[str]] = None,
@@ -2264,6 +2301,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] gallery_application: A `gallery_application` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -2322,6 +2360,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
         __props__.__dict__["extensions"] = extensions
         __props__.__dict__["extensions_time_budget"] = extensions_time_budget
+        __props__.__dict__["gallery_application"] = gallery_application
         __props__.__dict__["gallery_applications"] = gallery_applications
         __props__.__dict__["health_probe_id"] = health_probe_id
         __props__.__dict__["host_group_id"] = host_group_id
@@ -2511,6 +2550,14 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
         """
         return pulumi.get(self, "extensions_time_budget")
+
+    @property
+    @pulumi.getter(name="galleryApplication")
+    def gallery_application(self) -> pulumi.Output[Sequence['outputs.LinuxVirtualMachineScaleSetGalleryApplication']]:
+        """
+        A `gallery_application` block as defined below.
+        """
+        return pulumi.get(self, "gallery_application")
 
     @property
     @pulumi.getter(name="galleryApplications")

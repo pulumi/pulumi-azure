@@ -223,6 +223,12 @@ namespace Pulumi.Azure.Compute
         [Output("extensionsTimeBudget")]
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
+        /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        [Output("galleryApplication")]
+        public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetGalleryApplication>> GalleryApplication { get; private set; } = null!;
+
         [Output("galleryApplications")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetGalleryApplication>> GalleryApplications { get; private set; } = null!;
 
@@ -654,6 +660,18 @@ namespace Pulumi.Azure.Compute
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
+        [Input("galleryApplication")]
+        private InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationArgs>? _galleryApplication;
+
+        /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        public InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationArgs> GalleryApplication
+        {
+            get => _galleryApplication ?? (_galleryApplication = new InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationArgs>());
+            set => _galleryApplication = value;
+        }
+
         [Input("galleryApplications")]
         private InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationArgs>? _galleryApplications;
         [Obsolete(@"`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0")]
@@ -1071,6 +1089,18 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
+
+        [Input("galleryApplication")]
+        private InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationGetArgs>? _galleryApplication;
+
+        /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        public InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationGetArgs> GalleryApplication
+        {
+            get => _galleryApplication ?? (_galleryApplication = new InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationGetArgs>());
+            set => _galleryApplication = value;
+        }
 
         [Input("galleryApplications")]
         private InputList<Inputs.WindowsVirtualMachineScaleSetGalleryApplicationGetArgs>? _galleryApplications;

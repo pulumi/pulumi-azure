@@ -40,6 +40,7 @@ class WindowsVirtualMachineScaleSetArgs:
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -99,6 +100,7 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_application: A `gallery_application` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -172,6 +174,8 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+        if gallery_application is not None:
+            pulumi.set(__self__, "gallery_application", gallery_application)
         if gallery_applications is not None:
             warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
@@ -535,6 +539,18 @@ class WindowsVirtualMachineScaleSetArgs:
     @extensions_time_budget.setter
     def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "extensions_time_budget", value)
+
+    @property
+    @pulumi.getter(name="galleryApplication")
+    def gallery_application(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+        """
+        A `gallery_application` block as defined below.
+        """
+        return pulumi.get(self, "gallery_application")
+
+    @gallery_application.setter
+    def gallery_application(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]):
+        pulumi.set(self, "gallery_application", value)
 
     @property
     @pulumi.getter(name="galleryApplications")
@@ -949,6 +965,7 @@ class _WindowsVirtualMachineScaleSetState:
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -1009,6 +1026,7 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_application: A `gallery_application` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -1085,6 +1103,8 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+        if gallery_application is not None:
+            pulumi.set(__self__, "gallery_application", gallery_application)
         if gallery_applications is not None:
             warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
@@ -1400,6 +1420,18 @@ class _WindowsVirtualMachineScaleSetState:
     @extensions_time_budget.setter
     def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "extensions_time_budget", value)
+
+    @property
+    @pulumi.getter(name="galleryApplication")
+    def gallery_application(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+        """
+        A `gallery_application` block as defined below.
+        """
+        return pulumi.get(self, "gallery_application")
+
+    @gallery_application.setter
+    def gallery_application(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]):
+        pulumi.set(self, "gallery_application", value)
 
     @property
     @pulumi.getter(name="galleryApplications")
@@ -1888,6 +1920,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -2012,6 +2045,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] gallery_application: A `gallery_application` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -2153,6 +2187,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -2223,6 +2258,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
             __props__.__dict__["extensions"] = extensions
             __props__.__dict__["extensions_time_budget"] = extensions_time_budget
+            __props__.__dict__["gallery_application"] = gallery_application
             if gallery_applications is not None and not opts.urn:
                 warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
                 pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
@@ -2312,6 +2348,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
             extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]]] = None,
             extensions_time_budget: Optional[pulumi.Input[str]] = None,
+            gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
             gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
             health_probe_id: Optional[pulumi.Input[str]] = None,
             host_group_id: Optional[pulumi.Input[str]] = None,
@@ -2377,6 +2414,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] gallery_application: A `gallery_application` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -2438,6 +2476,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
         __props__.__dict__["extensions"] = extensions
         __props__.__dict__["extensions_time_budget"] = extensions_time_budget
+        __props__.__dict__["gallery_application"] = gallery_application
         __props__.__dict__["gallery_applications"] = gallery_applications
         __props__.__dict__["health_probe_id"] = health_probe_id
         __props__.__dict__["host_group_id"] = host_group_id
@@ -2630,6 +2669,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
         """
         return pulumi.get(self, "extensions_time_budget")
+
+    @property
+    @pulumi.getter(name="galleryApplication")
+    def gallery_application(self) -> pulumi.Output[Sequence['outputs.WindowsVirtualMachineScaleSetGalleryApplication']]:
+        """
+        A `gallery_application` block as defined below.
+        """
+        return pulumi.get(self, "gallery_application")
 
     @property
     @pulumi.getter(name="galleryApplications")
