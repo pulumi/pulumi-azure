@@ -155,6 +155,8 @@ type WindowsVirtualMachineScaleSet struct {
 	Extensions WindowsVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
+	// A `galleryApplication` block as defined below.
+	GalleryApplication WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput `pulumi:"galleryApplication"`
 	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
@@ -336,6 +338,8 @@ type windowsVirtualMachineScaleSetState struct {
 	Extensions []WindowsVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
+	// A `galleryApplication` block as defined below.
+	GalleryApplication []WindowsVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplication"`
 	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications []WindowsVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
@@ -457,6 +461,8 @@ type WindowsVirtualMachineScaleSetState struct {
 	Extensions WindowsVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
+	// A `galleryApplication` block as defined below.
+	GalleryApplication WindowsVirtualMachineScaleSetGalleryApplicationArrayInput
 	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications WindowsVirtualMachineScaleSetGalleryApplicationArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
@@ -582,6 +588,8 @@ type windowsVirtualMachineScaleSetArgs struct {
 	Extensions []WindowsVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
+	// A `galleryApplication` block as defined below.
+	GalleryApplication []WindowsVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplication"`
 	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications []WindowsVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
@@ -702,6 +710,8 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	Extensions WindowsVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
+	// A `galleryApplication` block as defined below.
+	GalleryApplication WindowsVirtualMachineScaleSetGalleryApplicationArrayInput
 	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications WindowsVirtualMachineScaleSetGalleryApplicationArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
@@ -978,6 +988,13 @@ func (o WindowsVirtualMachineScaleSetOutput) Extensions() WindowsVirtualMachineS
 // Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 func (o WindowsVirtualMachineScaleSetOutput) ExtensionsTimeBudget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ExtensionsTimeBudget }).(pulumi.StringPtrOutput)
+}
+
+// A `galleryApplication` block as defined below.
+func (o WindowsVirtualMachineScaleSetOutput) GalleryApplication() WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput {
+		return v.GalleryApplication
+	}).(WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput)
 }
 
 // Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0

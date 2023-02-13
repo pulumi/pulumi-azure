@@ -228,6 +228,12 @@ namespace Pulumi.Azure.Compute
         [Output("extensionsTimeBudget")]
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
+        /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        [Output("galleryApplication")]
+        public Output<ImmutableArray<Outputs.LinuxVirtualMachineScaleSetGalleryApplication>> GalleryApplication { get; private set; } = null!;
+
         [Output("galleryApplications")]
         public Output<ImmutableArray<Outputs.LinuxVirtualMachineScaleSetGalleryApplication>> GalleryApplications { get; private set; } = null!;
 
@@ -641,6 +647,18 @@ namespace Pulumi.Azure.Compute
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
+        [Input("galleryApplication")]
+        private InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationArgs>? _galleryApplication;
+
+        /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        public InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationArgs> GalleryApplication
+        {
+            get => _galleryApplication ?? (_galleryApplication = new InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationArgs>());
+            set => _galleryApplication = value;
+        }
+
         [Input("galleryApplications")]
         private InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationArgs>? _galleryApplications;
         [Obsolete(@"`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0")]
@@ -1034,6 +1052,18 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
+
+        [Input("galleryApplication")]
+        private InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationGetArgs>? _galleryApplication;
+
+        /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        public InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationGetArgs> GalleryApplication
+        {
+            get => _galleryApplication ?? (_galleryApplication = new InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationGetArgs>());
+            set => _galleryApplication = value;
+        }
 
         [Input("galleryApplications")]
         private InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationGetArgs>? _galleryApplications;

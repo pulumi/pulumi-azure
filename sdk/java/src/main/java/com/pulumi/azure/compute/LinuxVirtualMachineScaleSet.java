@@ -410,6 +410,20 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.extensionsTimeBudget);
     }
     /**
+     * A `gallery_application` block as defined below.
+     * 
+     */
+    @Export(name="galleryApplication", type=List.class, parameters={LinuxVirtualMachineScaleSetGalleryApplication.class})
+    private Output<List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplication;
+
+    /**
+     * @return A `gallery_application` block as defined below.
+     * 
+     */
+    public Output<List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplication() {
+        return this.galleryApplication;
+    }
+    /**
      * @deprecated
      * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      * 

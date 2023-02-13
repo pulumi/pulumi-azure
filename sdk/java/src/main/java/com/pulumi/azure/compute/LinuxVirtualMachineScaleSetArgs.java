@@ -325,6 +325,21 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
     }
 
     /**
+     * A `gallery_application` block as defined below.
+     * 
+     */
+    @Import(name="galleryApplication")
+    private @Nullable Output<List<LinuxVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplication;
+
+    /**
+     * @return A `gallery_application` block as defined below.
+     * 
+     */
+    public Optional<Output<List<LinuxVirtualMachineScaleSetGalleryApplicationArgs>>> galleryApplication() {
+        return Optional.ofNullable(this.galleryApplication);
+    }
+
+    /**
      * @deprecated
      * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
      * 
@@ -887,6 +902,7 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
         this.extensionOperationsEnabled = $.extensionOperationsEnabled;
         this.extensions = $.extensions;
         this.extensionsTimeBudget = $.extensionsTimeBudget;
+        this.galleryApplication = $.galleryApplication;
         this.galleryApplications = $.galleryApplications;
         this.healthProbeId = $.healthProbeId;
         this.hostGroupId = $.hostGroupId;
@@ -1369,6 +1385,37 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
          */
         public Builder extensionsTimeBudget(String extensionsTimeBudget) {
             return extensionsTimeBudget(Output.of(extensionsTimeBudget));
+        }
+
+        /**
+         * @param galleryApplication A `gallery_application` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplication(@Nullable Output<List<LinuxVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplication) {
+            $.galleryApplication = galleryApplication;
+            return this;
+        }
+
+        /**
+         * @param galleryApplication A `gallery_application` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplication(List<LinuxVirtualMachineScaleSetGalleryApplicationArgs> galleryApplication) {
+            return galleryApplication(Output.of(galleryApplication));
+        }
+
+        /**
+         * @param galleryApplication A `gallery_application` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplication(LinuxVirtualMachineScaleSetGalleryApplicationArgs... galleryApplication) {
+            return galleryApplication(List.of(galleryApplication));
         }
 
         /**
