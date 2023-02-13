@@ -52,23 +52,26 @@ namespace Pulumi.Azure.EventHub
     [AzureResourceType("azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup")]
     public partial class NamespaceSchemaGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies the name of this schema group. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("namespaceId")]
         public Output<string> NamespaceId { get; private set; } = null!;
 
         /// <summary>
-        /// The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+        /// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("schemaCompatibility")]
         public Output<string> SchemaCompatibility { get; private set; } = null!;
 
         /// <summary>
-        /// The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("schemaType")]
         public Output<string> SchemaType { get; private set; } = null!;
@@ -119,23 +122,26 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class NamespaceSchemaGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name of this schema group. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
 
         /// <summary>
-        /// The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+        /// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("schemaCompatibility", required: true)]
         public Input<string> SchemaCompatibility { get; set; } = null!;
 
         /// <summary>
-        /// The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("schemaType", required: true)]
         public Input<string> SchemaType { get; set; } = null!;
@@ -148,23 +154,26 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class NamespaceSchemaGroupState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name of this schema group. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
 
         /// <summary>
-        /// The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+        /// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("schemaCompatibility")]
         public Input<string>? SchemaCompatibility { get; set; }
 
         /// <summary>
-        /// The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("schemaType")]
         public Input<string>? SchemaType { get; set; }

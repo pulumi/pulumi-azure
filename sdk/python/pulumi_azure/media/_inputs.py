@@ -173,7 +173,7 @@ class AccountFilterTrackSelectionArgs:
     def __init__(__self__, *,
                  conditions: pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]] conditions: One or more `condition` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]] conditions: One or more `selection` blocks as defined above.
         """
         pulumi.set(__self__, "conditions", conditions)
 
@@ -181,7 +181,7 @@ class AccountFilterTrackSelectionArgs:
     @pulumi.getter
     def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]]:
         """
-        One or more `condition` blocks as defined above.
+        One or more `selection` blocks as defined above.
         """
         return pulumi.get(self, "conditions")
 
@@ -1123,6 +1123,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicit
                  best_effort_enforced: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] control_bits: The restriction control bits. Possible value is integer between `0` and `3` inclusive.
+        :param pulumi.Input[bool] best_effort_enforced: Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
         """
         pulumi.set(__self__, "control_bits", control_bits)
         if best_effort_enforced is not None:
@@ -1143,6 +1144,9 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicit
     @property
     @pulumi.getter(name="bestEffortEnforced")
     def best_effort_enforced(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
+        """
         return pulumi.get(self, "best_effort_enforced")
 
     @best_effort_enforced.setter
@@ -2266,7 +2270,7 @@ class StreamingEndpointAccessControlArgs:
                  ip_allows: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs']]] akamai_signature_header_authentication_keys: One or more `akamai_signature_header_authentication_key` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArgs']]] ip_allows: A `ip` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArgs']]] ip_allows: A `ip_allow` block as defined below.
         """
         if akamai_signature_header_authentication_keys is not None:
             pulumi.set(__self__, "akamai_signature_header_authentication_keys", akamai_signature_header_authentication_keys)
@@ -2289,7 +2293,7 @@ class StreamingEndpointAccessControlArgs:
     @pulumi.getter(name="ipAllows")
     def ip_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArgs']]]]:
         """
-        A `ip` block as defined below.
+        A `ip_allow` block as defined below.
         """
         return pulumi.get(self, "ip_allows")
 

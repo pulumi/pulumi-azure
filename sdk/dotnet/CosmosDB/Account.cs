@@ -161,13 +161,13 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> DefaultIdentityType { get; private set; } = null!;
 
         /// <summary>
-        /// Enable automatic fail over for this Cosmos DB account.
+        /// Enable automatic failover for this Cosmos DB account.
         /// </summary>
         [Output("enableAutomaticFailover")]
         public Output<bool?> EnableAutomaticFailover { get; private set; } = null!;
 
         /// <summary>
-        /// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("enableFreeTier")]
         public Output<bool?> EnableFreeTier { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+        /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         /// </summary>
         [Output("ipRangeFilter")]
         public Output<string?> IpRangeFilter { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableArray<string>> NetworkAclBypassIds { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+        /// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         /// </summary>
         [Output("offerType")]
         public Output<string> OfferType { get; private set; } = null!;
@@ -465,13 +465,13 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? DefaultIdentityType { get; set; }
 
         /// <summary>
-        /// Enable automatic fail over for this Cosmos DB account.
+        /// Enable automatic failover for this Cosmos DB account.
         /// </summary>
         [Input("enableAutomaticFailover")]
         public Input<bool>? EnableAutomaticFailover { get; set; }
 
         /// <summary>
-        /// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableFreeTier")]
         public Input<bool>? EnableFreeTier { get; set; }
@@ -501,7 +501,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+        /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         /// </summary>
         [Input("ipRangeFilter")]
         public Input<string>? IpRangeFilter { get; set; }
@@ -567,7 +567,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+        /// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         /// </summary>
         [Input("offerType", required: true)]
         public Input<string> OfferType { get; set; } = null!;
@@ -705,13 +705,13 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? DefaultIdentityType { get; set; }
 
         /// <summary>
-        /// Enable automatic fail over for this Cosmos DB account.
+        /// Enable automatic failover for this Cosmos DB account.
         /// </summary>
         [Input("enableAutomaticFailover")]
         public Input<bool>? EnableAutomaticFailover { get; set; }
 
         /// <summary>
-        /// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableFreeTier")]
         public Input<bool>? EnableFreeTier { get; set; }
@@ -747,7 +747,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+        /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         /// </summary>
         [Input("ipRangeFilter")]
         public Input<string>? IpRangeFilter { get; set; }
@@ -813,7 +813,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+        /// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         /// </summary>
         [Input("offerType")]
         public Input<string>? OfferType { get; set; }

@@ -58,7 +58,7 @@ public final class GetVirtualNetworkGatewayResult {
      */
     private String location;
     /**
-     * @return The user-defined name of the revoked certificate.
+     * @return The user-defined name of the root certificate.
      * 
      */
     private String name;
@@ -155,7 +155,7 @@ public final class GetVirtualNetworkGatewayResult {
         return this.location;
     }
     /**
-     * @return The user-defined name of the revoked certificate.
+     * @return The user-defined name of the root certificate.
      * 
      */
     public String name() {

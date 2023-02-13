@@ -74,9 +74,17 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.computeIsolation);
     }
 
+    /**
+     * One or more `disk_encryption` block as defined below.
+     * 
+     */
     @Import(name="diskEncryptions")
     private @Nullable Output<List<HBaseClusterDiskEncryptionArgs>> diskEncryptions;
 
+    /**
+     * @return One or more `disk_encryption` block as defined below.
+     * 
+     */
     public Optional<Output<List<HBaseClusterDiskEncryptionArgs>>> diskEncryptions() {
         return Optional.ofNullable(this.diskEncryptions);
     }
@@ -443,15 +451,33 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
             return computeIsolation(Output.of(computeIsolation));
         }
 
+        /**
+         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptions(@Nullable Output<List<HBaseClusterDiskEncryptionArgs>> diskEncryptions) {
             $.diskEncryptions = diskEncryptions;
             return this;
         }
 
+        /**
+         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptions(List<HBaseClusterDiskEncryptionArgs> diskEncryptions) {
             return diskEncryptions(Output.of(diskEncryptions));
         }
 
+        /**
+         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptions(HBaseClusterDiskEncryptionArgs... diskEncryptions) {
             return diskEncryptions(List.of(diskEncryptions));
         }

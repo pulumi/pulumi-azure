@@ -133,7 +133,13 @@ export class FhirService extends pulumi.CustomResource {
      * Whether public networks access is enabled.
      */
     public /*out*/ readonly publicNetworkAccessEnabled!: pulumi.Output<boolean>;
+    /**
+     * Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+     */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the Healthcare FHIR Service.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
@@ -246,7 +252,13 @@ export interface FhirServiceState {
      * Whether public networks access is enabled.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+     */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the Healthcare FHIR Service.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
@@ -298,7 +310,13 @@ export interface FhirServiceArgs {
      * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
      */
     ociArtifacts?: pulumi.Input<pulumi.Input<inputs.healthcare.FhirServiceOciArtifact>[]>;
+    /**
+     * Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+     */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the Healthcare FHIR Service.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.

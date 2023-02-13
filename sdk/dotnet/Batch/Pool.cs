@@ -277,6 +277,9 @@ namespace Pulumi.Azure.Batch
         [Output("startTask")]
         public Output<Outputs.PoolStartTask?> StartTask { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to stop if there is a pending resize operation on this pool.
+        /// </summary>
         [Output("stopPendingResizeOperation")]
         public Output<bool?> StopPendingResizeOperation { get; private set; } = null!;
 
@@ -530,6 +533,9 @@ namespace Pulumi.Azure.Batch
         [Input("startTask")]
         public Input<Inputs.PoolStartTaskArgs>? StartTask { get; set; }
 
+        /// <summary>
+        /// Whether to stop if there is a pending resize operation on this pool.
+        /// </summary>
         [Input("stopPendingResizeOperation")]
         public Input<bool>? StopPendingResizeOperation { get; set; }
 
@@ -763,6 +769,9 @@ namespace Pulumi.Azure.Batch
         [Input("startTask")]
         public Input<Inputs.PoolStartTaskGetArgs>? StartTask { get; set; }
 
+        /// <summary>
+        /// Whether to stop if there is a pending resize operation on this pool.
+        /// </summary>
         [Input("stopPendingResizeOperation")]
         public Input<bool>? StopPendingResizeOperation { get; set; }
 

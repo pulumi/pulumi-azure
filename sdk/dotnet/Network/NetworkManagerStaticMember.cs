@@ -12,6 +12,56 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Network Manager Static Member.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("exampleNetworkManager", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
+    ///         {
+    ///             SubscriptionIds = new[]
+    ///             {
+    ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///             },
+    ///         },
+    ///         ScopeAccesses = new[]
+    ///         {
+    ///             "Connectivity",
+    ///             "SecurityAdmin",
+    ///         },
+    ///         Description = "example network manager",
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerNetworkGroup = new Azure.Network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", new()
+    ///     {
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///         Description = "example network group",
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerStaticMember = new Azure.Network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember", new()
+    ///     {
+    ///         NetworkGroupId = exampleNetworkManagerNetworkGroup.Id,
+    ///         TargetVirtualNetworkId = azurerm_virtual_network.Example.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Network Manager Static Member can be imported using the `resource id`, e.g.
@@ -41,6 +91,9 @@ namespace Pulumi.Azure.Network
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        /// </summary>
         [Output("targetVirtualNetworkId")]
         public Output<string> TargetVirtualNetworkId { get; private set; } = null!;
 
@@ -102,6 +155,9 @@ namespace Pulumi.Azure.Network
         [Input("networkGroupId", required: true)]
         public Input<string> NetworkGroupId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        /// </summary>
         [Input("targetVirtualNetworkId", required: true)]
         public Input<string> TargetVirtualNetworkId { get; set; } = null!;
 
@@ -131,6 +187,9 @@ namespace Pulumi.Azure.Network
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+        /// </summary>
         [Input("targetVirtualNetworkId")]
         public Input<string>? TargetVirtualNetworkId { get; set; }
 

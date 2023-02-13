@@ -71,6 +71,9 @@ export class Gateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === Gateway.__pulumiType;
     }
 
+    /**
+     * The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+     */
     public readonly apiManagementId!: pulumi.Output<string>;
     /**
      * The description of the API Management Gateway.
@@ -124,6 +127,9 @@ export class Gateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Gateway resources.
  */
 export interface GatewayState {
+    /**
+     * The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+     */
     apiManagementId?: pulumi.Input<string>;
     /**
      * The description of the API Management Gateway.
@@ -143,6 +149,9 @@ export interface GatewayState {
  * The set of arguments for constructing a Gateway resource.
  */
 export interface GatewayArgs {
+    /**
+     * The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
+     */
     apiManagementId: pulumi.Input<string>;
     /**
      * The description of the API Management Gateway.

@@ -54,6 +54,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("ftpsState")]
         public Input<string>? FtpsState { get; set; }
 
+        /// <summary>
+        /// Path which will be checked for this function app health.
+        /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
 
@@ -75,6 +78,9 @@ namespace Pulumi.Azure.AppService.Inputs
             set => _ipRestrictions = value;
         }
 
+        /// <summary>
+        /// Java version hosted by the function app in Azure. Possible values are `1.8`, `11` &amp; `17` (In-Preview).
+        /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }
 
@@ -104,15 +110,25 @@ namespace Pulumi.Azure.AppService.Inputs
 
         [Input("scmIpRestrictions")]
         private InputList<Inputs.FunctionAppSlotSiteConfigScmIpRestrictionArgs>? _scmIpRestrictions;
+
+        /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        /// </summary>
         public InputList<Inputs.FunctionAppSlotSiteConfigScmIpRestrictionArgs> ScmIpRestrictions
         {
             get => _scmIpRestrictions ?? (_scmIpRestrictions = new InputList<Inputs.FunctionAppSlotSiteConfigScmIpRestrictionArgs>());
             set => _scmIpRestrictions = value;
         }
 
+        /// <summary>
+        /// The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+        /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
 
+        /// <summary>
+        /// IP security restrictions for scm to use main. Defaults to `false`.
+        /// </summary>
         [Input("scmUseMainIpRestriction")]
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 

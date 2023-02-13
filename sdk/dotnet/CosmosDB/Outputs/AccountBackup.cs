@@ -22,7 +22,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly int? RetentionInHours;
         /// <summary>
-        /// The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+        /// The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
         /// </summary>
         public readonly string? StorageRedundancy;
         /// <summary>

@@ -173,6 +173,9 @@ namespace Pulumi.Azure.PrivateLink
     [AzureResourceType("azure:privatelink/endpoint:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A `custom_dns_configs` block as defined below.
+        /// </summary>
         [Output("customDnsConfigs")]
         public Output<ImmutableArray<Outputs.EndpointCustomDnsConfig>> CustomDnsConfigs { get; private set; } = null!;
 
@@ -200,9 +203,15 @@ namespace Pulumi.Azure.PrivateLink
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A `network_interface` block as defined below.
+        /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.EndpointNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
+        /// <summary>
+        /// A `private_dns_zone_configs` block as defined below.
+        /// </summary>
         [Output("privateDnsZoneConfigs")]
         public Output<ImmutableArray<Outputs.EndpointPrivateDnsZoneConfig>> PrivateDnsZoneConfigs { get; private set; } = null!;
 
@@ -358,6 +367,10 @@ namespace Pulumi.Azure.PrivateLink
     {
         [Input("customDnsConfigs")]
         private InputList<Inputs.EndpointCustomDnsConfigGetArgs>? _customDnsConfigs;
+
+        /// <summary>
+        /// A `custom_dns_configs` block as defined below.
+        /// </summary>
         public InputList<Inputs.EndpointCustomDnsConfigGetArgs> CustomDnsConfigs
         {
             get => _customDnsConfigs ?? (_customDnsConfigs = new InputList<Inputs.EndpointCustomDnsConfigGetArgs>());
@@ -396,6 +409,10 @@ namespace Pulumi.Azure.PrivateLink
 
         [Input("networkInterfaces")]
         private InputList<Inputs.EndpointNetworkInterfaceGetArgs>? _networkInterfaces;
+
+        /// <summary>
+        /// A `network_interface` block as defined below.
+        /// </summary>
         public InputList<Inputs.EndpointNetworkInterfaceGetArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.EndpointNetworkInterfaceGetArgs>());
@@ -404,6 +421,10 @@ namespace Pulumi.Azure.PrivateLink
 
         [Input("privateDnsZoneConfigs")]
         private InputList<Inputs.EndpointPrivateDnsZoneConfigGetArgs>? _privateDnsZoneConfigs;
+
+        /// <summary>
+        /// A `private_dns_zone_configs` block as defined below.
+        /// </summary>
         public InputList<Inputs.EndpointPrivateDnsZoneConfigGetArgs> PrivateDnsZoneConfigs
         {
             get => _privateDnsZoneConfigs ?? (_privateDnsZoneConfigs = new InputList<Inputs.EndpointPrivateDnsZoneConfigGetArgs>());

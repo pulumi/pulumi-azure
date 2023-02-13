@@ -112,6 +112,9 @@ export class SparkCluster extends pulumi.CustomResource {
      * A `computeIsolation` block as defined below.
      */
     public readonly computeIsolation!: pulumi.Output<outputs.hdinsight.SparkClusterComputeIsolation | undefined>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.SparkClusterDiskEncryption[] | undefined>;
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
@@ -285,6 +288,9 @@ export interface SparkClusterState {
      * A `computeIsolation` block as defined below.
      */
     computeIsolation?: pulumi.Input<inputs.hdinsight.SparkClusterComputeIsolation>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterDiskEncryption>[]>;
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
@@ -376,6 +382,9 @@ export interface SparkClusterArgs {
      * A `computeIsolation` block as defined below.
      */
     computeIsolation?: pulumi.Input<inputs.hdinsight.SparkClusterComputeIsolation>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterDiskEncryption>[]>;
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.

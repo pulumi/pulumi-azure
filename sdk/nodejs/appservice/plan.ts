@@ -120,6 +120,9 @@ export class Plan extends pulumi.CustomResource {
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      */
     public readonly appServiceEnvironmentId!: pulumi.Output<string | undefined>;
+    /**
+     * Whether to create a xenon App Service Plan.
+     */
     public readonly isXenon!: pulumi.Output<boolean | undefined>;
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
@@ -227,6 +230,9 @@ export interface PlanState {
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      */
     appServiceEnvironmentId?: pulumi.Input<string>;
+    /**
+     * Whether to create a xenon App Service Plan.
+     */
     isXenon?: pulumi.Input<boolean>;
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
@@ -282,6 +288,9 @@ export interface PlanArgs {
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      */
     appServiceEnvironmentId?: pulumi.Input<string>;
+    /**
+     * Whether to create a xenon App Service Plan.
+     */
     isXenon?: pulumi.Input<boolean>;
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.

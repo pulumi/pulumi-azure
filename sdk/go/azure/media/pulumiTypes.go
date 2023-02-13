@@ -251,7 +251,7 @@ func (o AccountFilterPresentationTimeRangePtrOutput) UnitTimescaleInMilliseconds
 }
 
 type AccountFilterTrackSelection struct {
-	// One or more `condition` blocks as defined above.
+	// One or more `selection` blocks as defined above.
 	Conditions []AccountFilterTrackSelectionCondition `pulumi:"conditions"`
 }
 
@@ -267,7 +267,7 @@ type AccountFilterTrackSelectionInput interface {
 }
 
 type AccountFilterTrackSelectionArgs struct {
-	// One or more `condition` blocks as defined above.
+	// One or more `selection` blocks as defined above.
 	Conditions AccountFilterTrackSelectionConditionArrayInput `pulumi:"conditions"`
 }
 
@@ -322,7 +322,7 @@ func (o AccountFilterTrackSelectionOutput) ToAccountFilterTrackSelectionOutputWi
 	return o
 }
 
-// One or more `condition` blocks as defined above.
+// One or more `selection` blocks as defined above.
 func (o AccountFilterTrackSelectionOutput) Conditions() AccountFilterTrackSelectionConditionArrayOutput {
 	return o.ApplyT(func(v AccountFilterTrackSelection) []AccountFilterTrackSelectionCondition { return v.Conditions }).(AccountFilterTrackSelectionConditionArrayOutput)
 }
@@ -2070,6 +2070,7 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOut
 }
 
 type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction struct {
+	// Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
 	BestEffortEnforced *bool `pulumi:"bestEffortEnforced"`
 	// The restriction control bits. Possible value is integer between `0` and `3` inclusive.
 	ControlBits int `pulumi:"controlBits"`
@@ -2087,6 +2088,7 @@ type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitA
 }
 
 type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs struct {
+	// Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
 	BestEffortEnforced pulumi.BoolPtrInput `pulumi:"bestEffortEnforced"`
 	// The restriction control bits. Possible value is integer between `0` and `3` inclusive.
 	ControlBits pulumi.IntInput `pulumi:"controlBits"`
@@ -2169,6 +2171,7 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplic
 	}).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutput)
 }
 
+// Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionOutput) BestEffortEnforced() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction) *bool {
 		return v.BestEffortEnforced
@@ -2206,6 +2209,7 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplic
 	}).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionOutput)
 }
 
+// Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutput) BestEffortEnforced() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction) *bool {
 		if v == nil {
@@ -5203,7 +5207,7 @@ func (o ServiceAccountStorageAccountManagedIdentityPtrOutput) UserAssignedIdenti
 type StreamingEndpointAccessControl struct {
 	// One or more `akamaiSignatureHeaderAuthenticationKey` blocks as defined below.
 	AkamaiSignatureHeaderAuthenticationKeys []StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey `pulumi:"akamaiSignatureHeaderAuthenticationKeys"`
-	// A `ip` block as defined below.
+	// A `ipAllow` block as defined below.
 	IpAllows []StreamingEndpointAccessControlIpAllow `pulumi:"ipAllows"`
 }
 
@@ -5221,7 +5225,7 @@ type StreamingEndpointAccessControlInput interface {
 type StreamingEndpointAccessControlArgs struct {
 	// One or more `akamaiSignatureHeaderAuthenticationKey` blocks as defined below.
 	AkamaiSignatureHeaderAuthenticationKeys StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayInput `pulumi:"akamaiSignatureHeaderAuthenticationKeys"`
-	// A `ip` block as defined below.
+	// A `ipAllow` block as defined below.
 	IpAllows StreamingEndpointAccessControlIpAllowArrayInput `pulumi:"ipAllows"`
 }
 
@@ -5309,7 +5313,7 @@ func (o StreamingEndpointAccessControlOutput) AkamaiSignatureHeaderAuthenticatio
 	}).(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput)
 }
 
-// A `ip` block as defined below.
+// A `ipAllow` block as defined below.
 func (o StreamingEndpointAccessControlOutput) IpAllows() StreamingEndpointAccessControlIpAllowArrayOutput {
 	return o.ApplyT(func(v StreamingEndpointAccessControl) []StreamingEndpointAccessControlIpAllow { return v.IpAllows }).(StreamingEndpointAccessControlIpAllowArrayOutput)
 }
@@ -5348,7 +5352,7 @@ func (o StreamingEndpointAccessControlPtrOutput) AkamaiSignatureHeaderAuthentica
 	}).(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput)
 }
 
-// A `ip` block as defined below.
+// A `ipAllow` block as defined below.
 func (o StreamingEndpointAccessControlPtrOutput) IpAllows() StreamingEndpointAccessControlIpAllowArrayOutput {
 	return o.ApplyT(func(v *StreamingEndpointAccessControl) []StreamingEndpointAccessControlIpAllow {
 		if v == nil {

@@ -55,7 +55,7 @@ type ScheduledQueryRulesAlertV2 struct {
 	QueryTimeRangeOverride pulumi.StringPtrOutput `pulumi:"queryTimeRangeOverride"`
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+	// Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
 	Scopes pulumi.StringOutput `pulumi:"scopes"`
 	// Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
 	Severity pulumi.IntOutput `pulumi:"severity"`
@@ -145,7 +145,7 @@ type scheduledQueryRulesAlertV2State struct {
 	QueryTimeRangeOverride *string `pulumi:"queryTimeRangeOverride"`
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+	// Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
 	Scopes *string `pulumi:"scopes"`
 	// Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
 	Severity *int `pulumi:"severity"`
@@ -192,7 +192,7 @@ type ScheduledQueryRulesAlertV2State struct {
 	QueryTimeRangeOverride pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+	// Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
 	Scopes pulumi.StringPtrInput
 	// Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
 	Severity pulumi.IntPtrInput
@@ -237,7 +237,7 @@ type scheduledQueryRulesAlertV2Args struct {
 	QueryTimeRangeOverride *string `pulumi:"queryTimeRangeOverride"`
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+	// Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
 	Scopes string `pulumi:"scopes"`
 	// Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
 	Severity int `pulumi:"severity"`
@@ -279,7 +279,7 @@ type ScheduledQueryRulesAlertV2Args struct {
 	QueryTimeRangeOverride pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+	// Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
 	Scopes pulumi.StringInput
 	// Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
 	Severity pulumi.IntInput
@@ -457,7 +457,7 @@ func (o ScheduledQueryRulesAlertV2Output) ResourceGroupName() pulumi.StringOutpu
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+// Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
 func (o ScheduledQueryRulesAlertV2Output) Scopes() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringOutput { return v.Scopes }).(pulumi.StringOutput)
 }

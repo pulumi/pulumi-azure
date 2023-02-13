@@ -36,6 +36,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("appCommandLine")]
         public Input<string>? AppCommandLine { get; set; }
 
+        /// <summary>
+        /// The name of the slot to automatically swap to during deployment
+        /// </summary>
         [Input("autoSwapSlotName")]
         public Input<string>? AutoSwapSlotName { get; set; }
 

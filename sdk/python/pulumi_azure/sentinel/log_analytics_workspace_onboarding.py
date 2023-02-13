@@ -20,8 +20,8 @@ class LogAnalyticsWorkspaceOnboardingArgs:
         """
         The set of arguments for constructing a LogAnalyticsWorkspaceOnboarding resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
@@ -44,7 +44,7 @@ class LogAnalyticsWorkspaceOnboardingArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+        Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -56,7 +56,7 @@ class LogAnalyticsWorkspaceOnboardingArgs:
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+        Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 
@@ -73,9 +73,9 @@ class _LogAnalyticsWorkspaceOnboardingState:
                  workspace_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LogAnalyticsWorkspaceOnboarding resources.
-        :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+        :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
         if customer_managed_key_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
@@ -88,7 +88,7 @@ class _LogAnalyticsWorkspaceOnboardingState:
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+        Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 
@@ -112,7 +112,7 @@ class _LogAnalyticsWorkspaceOnboardingState:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+        Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -143,9 +143,9 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+        :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -218,9 +218,9 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+        :param pulumi.Input[bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -235,7 +235,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if the Workspace is using Customer managed key. Defaults to `false`.
+        Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 
@@ -251,7 +251,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Output[str]:
         """
-        Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again.
+        Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_name")
 

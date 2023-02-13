@@ -11,11 +11,13 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ProtectionContainerMappingAutomaticUpdate',
     'ReplicatedVMManagedDisk',
     'ReplicatedVMManagedDiskTargetDiskEncryption',
     'ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey',
     'ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey',
     'ReplicatedVMNetworkInterface',
+    'ReplicatedVMUnmanagedDisk',
     'ReplicationRecoveryPlanRecoveryGroup',
     'ReplicationRecoveryPlanRecoveryGroupPostAction',
     'ReplicationRecoveryPlanRecoveryGroupPreAction',
@@ -23,6 +25,54 @@ __all__ = [
     'GetReplicationRecoveryPlanRecoveryGroupPostActionResult',
     'GetReplicationRecoveryPlanRecoveryGroupPreActionResult',
 ]
+
+@pulumi.output_type
+class ProtectionContainerMappingAutomaticUpdate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automationAccountId":
+            suggest = "automation_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProtectionContainerMappingAutomaticUpdate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProtectionContainerMappingAutomaticUpdate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProtectionContainerMappingAutomaticUpdate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automation_account_id: Optional[str] = None,
+                 enabled: Optional[bool] = None):
+        """
+        :param str automation_account_id: The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+        :param bool enabled: Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+        """
+        if automation_account_id is not None:
+            pulumi.set(__self__, "automation_account_id", automation_account_id)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="automationAccountId")
+    def automation_account_id(self) -> Optional[str]:
+        """
+        The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "automation_account_id")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
 
 @pulumi.output_type
 class ReplicatedVMManagedDisk(dict):
@@ -289,7 +339,13 @@ class ReplicatedVMNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "isPrimary":
+        if key == "failoverTestPublicIpAddressId":
+            suggest = "failover_test_public_ip_address_id"
+        elif key == "failoverTestStaticIp":
+            suggest = "failover_test_static_ip"
+        elif key == "failoverTestSubnetName":
+            suggest = "failover_test_subnet_name"
+        elif key == "isPrimary":
             suggest = "is_primary"
         elif key == "recoveryPublicIpAddressId":
             suggest = "recovery_public_ip_address_id"
@@ -312,17 +368,29 @@ class ReplicatedVMNetworkInterface(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 failover_test_public_ip_address_id: Optional[str] = None,
+                 failover_test_static_ip: Optional[str] = None,
+                 failover_test_subnet_name: Optional[str] = None,
                  is_primary: Optional[bool] = None,
                  recovery_public_ip_address_id: Optional[str] = None,
                  source_network_interface_id: Optional[str] = None,
                  target_static_ip: Optional[str] = None,
                  target_subnet_name: Optional[str] = None):
         """
+        :param str failover_test_public_ip_address_id: Id of the public IP object to use when a test failover is done.
+        :param str failover_test_static_ip: Static IP to assign when a test failover is done.
+        :param str failover_test_subnet_name: Name of the subnet to to use when a test failover is done.
         :param str recovery_public_ip_address_id: Id of the public IP object to use when a failover is done.
         :param str source_network_interface_id: (Required if the network_interface block is specified) Id source network interface.
         :param str target_static_ip: Static IP to assign when a failover is done.
         :param str target_subnet_name: Name of the subnet to to use when a failover is done.
         """
+        if failover_test_public_ip_address_id is not None:
+            pulumi.set(__self__, "failover_test_public_ip_address_id", failover_test_public_ip_address_id)
+        if failover_test_static_ip is not None:
+            pulumi.set(__self__, "failover_test_static_ip", failover_test_static_ip)
+        if failover_test_subnet_name is not None:
+            pulumi.set(__self__, "failover_test_subnet_name", failover_test_subnet_name)
         if is_primary is not None:
             pulumi.set(__self__, "is_primary", is_primary)
         if recovery_public_ip_address_id is not None:
@@ -333,6 +401,30 @@ class ReplicatedVMNetworkInterface(dict):
             pulumi.set(__self__, "target_static_ip", target_static_ip)
         if target_subnet_name is not None:
             pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+
+    @property
+    @pulumi.getter(name="failoverTestPublicIpAddressId")
+    def failover_test_public_ip_address_id(self) -> Optional[str]:
+        """
+        Id of the public IP object to use when a test failover is done.
+        """
+        return pulumi.get(self, "failover_test_public_ip_address_id")
+
+    @property
+    @pulumi.getter(name="failoverTestStaticIp")
+    def failover_test_static_ip(self) -> Optional[str]:
+        """
+        Static IP to assign when a test failover is done.
+        """
+        return pulumi.get(self, "failover_test_static_ip")
+
+    @property
+    @pulumi.getter(name="failoverTestSubnetName")
+    def failover_test_subnet_name(self) -> Optional[str]:
+        """
+        Name of the subnet to to use when a test failover is done.
+        """
+        return pulumi.get(self, "failover_test_subnet_name")
 
     @property
     @pulumi.getter(name="isPrimary")
@@ -373,6 +465,67 @@ class ReplicatedVMNetworkInterface(dict):
 
 
 @pulumi.output_type
+class ReplicatedVMUnmanagedDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskUri":
+            suggest = "disk_uri"
+        elif key == "stagingStorageAccountId":
+            suggest = "staging_storage_account_id"
+        elif key == "targetStorageAccountId":
+            suggest = "target_storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatedVMUnmanagedDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatedVMUnmanagedDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatedVMUnmanagedDisk.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disk_uri: str,
+                 staging_storage_account_id: str,
+                 target_storage_account_id: str):
+        """
+        :param str disk_uri: Id of disk that should be replicated.
+        :param str staging_storage_account_id: Storage account that should be used for caching.
+        :param str target_storage_account_id: Storage account disk should belong to when a failover is done.
+        """
+        pulumi.set(__self__, "disk_uri", disk_uri)
+        pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
+        pulumi.set(__self__, "target_storage_account_id", target_storage_account_id)
+
+    @property
+    @pulumi.getter(name="diskUri")
+    def disk_uri(self) -> str:
+        """
+        Id of disk that should be replicated.
+        """
+        return pulumi.get(self, "disk_uri")
+
+    @property
+    @pulumi.getter(name="stagingStorageAccountId")
+    def staging_storage_account_id(self) -> str:
+        """
+        Storage account that should be used for caching.
+        """
+        return pulumi.get(self, "staging_storage_account_id")
+
+    @property
+    @pulumi.getter(name="targetStorageAccountId")
+    def target_storage_account_id(self) -> str:
+        """
+        Storage account disk should belong to when a failover is done.
+        """
+        return pulumi.get(self, "target_storage_account_id")
+
+
+@pulumi.output_type
 class ReplicationRecoveryPlanRecoveryGroup(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -402,9 +555,9 @@ class ReplicationRecoveryPlanRecoveryGroup(dict):
                  replicated_protected_items: Optional[Sequence[str]] = None):
         """
         :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
-        :param Sequence['ReplicationRecoveryPlanRecoveryGroupPostActionArgs'] post_actions: one or more `action` block. which will be executed after the group recovery.
-        :param Sequence['ReplicationRecoveryPlanRecoveryGroupPreActionArgs'] pre_actions: one or more `action` block. which will be executed before the group recovery.
-        :param Sequence[str] replicated_protected_items: one or more id of protected VM.
+        :param Sequence['ReplicationRecoveryPlanRecoveryGroupPostActionArgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param Sequence['ReplicationRecoveryPlanRecoveryGroupPreActionArgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        :param Sequence[str] replicated_protected_items: (required) one or more id of protected VM.
         """
         pulumi.set(__self__, "type", type)
         if post_actions is not None:
@@ -426,7 +579,7 @@ class ReplicationRecoveryPlanRecoveryGroup(dict):
     @pulumi.getter(name="postActions")
     def post_actions(self) -> Optional[Sequence['outputs.ReplicationRecoveryPlanRecoveryGroupPostAction']]:
         """
-        one or more `action` block. which will be executed after the group recovery.
+        one or more `action` block as defined below. which will be executed after the group recovery.
         """
         return pulumi.get(self, "post_actions")
 
@@ -434,7 +587,7 @@ class ReplicationRecoveryPlanRecoveryGroup(dict):
     @pulumi.getter(name="preActions")
     def pre_actions(self) -> Optional[Sequence['outputs.ReplicationRecoveryPlanRecoveryGroupPreAction']]:
         """
-        one or more `action` block. which will be executed before the group recovery.
+        one or more `action` block as defined below. which will be executed before the group recovery.
         """
         return pulumi.get(self, "pre_actions")
 
@@ -442,7 +595,7 @@ class ReplicationRecoveryPlanRecoveryGroup(dict):
     @pulumi.getter(name="replicatedProtectedItems")
     def replicated_protected_items(self) -> Optional[Sequence[str]]:
         """
-        one or more id of protected VM.
+        (required) one or more id of protected VM.
         """
         return pulumi.get(self, "replicated_protected_items")
 
@@ -488,7 +641,7 @@ class ReplicationRecoveryPlanRecoveryGroupPostAction(dict):
         """
         :param Sequence[str] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param Sequence[str] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-        :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
         :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
         :param str manual_action_instruction: Instructions of manual action.
@@ -528,7 +681,7 @@ class ReplicationRecoveryPlanRecoveryGroupPostAction(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -614,7 +767,7 @@ class ReplicationRecoveryPlanRecoveryGroupPreAction(dict):
         """
         :param Sequence[str] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param Sequence[str] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-        :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        :param str name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
         :param str fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
         :param str manual_action_instruction: Instructions of manual action.
@@ -654,7 +807,7 @@ class ReplicationRecoveryPlanRecoveryGroupPreAction(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters.
+        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

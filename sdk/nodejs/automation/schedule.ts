@@ -94,7 +94,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly monthDays!: pulumi.Output<number[] | undefined>;
     /**
-     * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+     * List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
     public readonly monthlyOccurrences!: pulumi.Output<outputs.automation.ScheduleMonthlyOccurrence[] | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface ScheduleState {
      */
     monthDays?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+     * List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
     monthlyOccurrences?: pulumi.Input<pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence>[]>;
     /**
@@ -255,7 +255,7 @@ export interface ScheduleArgs {
      */
     monthDays?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+     * List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
     monthlyOccurrences?: pulumi.Input<pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence>[]>;
     /**

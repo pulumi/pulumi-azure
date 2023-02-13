@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+        /// Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
         /// </summary>
         [Input("resourceIdColumn")]
         public Input<string>? ResourceIdColumn { get; set; }

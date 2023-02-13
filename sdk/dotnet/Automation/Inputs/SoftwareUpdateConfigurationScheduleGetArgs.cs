@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Automation.Inputs
         private InputList<Inputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrenceGetArgs>? _monthlyOccurrences;
 
         /// <summary>
-        /// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+        /// List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrenceGetArgs> MonthlyOccurrences
         {

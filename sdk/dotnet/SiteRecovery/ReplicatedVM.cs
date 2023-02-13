@@ -271,6 +271,12 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<ImmutableArray<Outputs.ReplicatedVMManagedDisk>> ManagedDisks { get; private set; } = null!;
 
         /// <summary>
+        /// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+        /// </summary>
+        [Output("multiVmGroupName")]
+        public Output<string?> MultiVmGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -278,6 +284,7 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One or more `network_interface` block as defined below.
+        /// *
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.ReplicatedVMNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
@@ -325,10 +332,34 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string?> TargetAvailabilitySetId { get; private set; } = null!;
 
         /// <summary>
+        /// Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+        /// </summary>
+        [Output("targetBootDiagnosticStorageAccountId")]
+        public Output<string?> TargetBootDiagnosticStorageAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+        /// </summary>
+        [Output("targetCapacityReservationGroupId")]
+        public Output<string?> TargetCapacityReservationGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("targetEdgeZone")]
+        public Output<string?> TargetEdgeZone { get; private set; } = null!;
+
+        /// <summary>
         /// Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
         /// </summary>
         [Output("targetNetworkId")]
         public Output<string> TargetNetworkId { get; private set; } = null!;
+
+        /// <summary>
+        /// Id of Proximity Placement Group the new VM should belong to when a failover is done.
+        /// </summary>
+        [Output("targetProximityPlacementGroupId")]
+        public Output<string?> TargetProximityPlacementGroupId { get; private set; } = null!;
 
         /// <summary>
         /// Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
@@ -349,10 +380,25 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> TargetResourceGroupId { get; private set; } = null!;
 
         /// <summary>
+        /// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+        /// </summary>
+        [Output("targetVirtualMachineScaleSetId")]
+        public Output<string?> TargetVirtualMachineScaleSetId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("targetZone")]
         public Output<string?> TargetZone { get; private set; } = null!;
+
+        [Output("testNetworkId")]
+        public Output<string> TestNetworkId { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("unmanagedDisks")]
+        public Output<ImmutableArray<Outputs.ReplicatedVMUnmanagedDisk>> UnmanagedDisks { get; private set; } = null!;
 
 
         /// <summary>
@@ -413,6 +459,12 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
+        /// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+        /// </summary>
+        [Input("multiVmGroupName")]
+        public Input<string>? MultiVmGroupName { get; set; }
+
+        /// <summary>
         /// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -423,6 +475,7 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One or more `network_interface` block as defined below.
+        /// *
         /// </summary>
         public InputList<Inputs.ReplicatedVMNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -473,10 +526,34 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? TargetAvailabilitySetId { get; set; }
 
         /// <summary>
+        /// Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+        /// </summary>
+        [Input("targetBootDiagnosticStorageAccountId")]
+        public Input<string>? TargetBootDiagnosticStorageAccountId { get; set; }
+
+        /// <summary>
+        /// Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+        /// </summary>
+        [Input("targetCapacityReservationGroupId")]
+        public Input<string>? TargetCapacityReservationGroupId { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("targetEdgeZone")]
+        public Input<string>? TargetEdgeZone { get; set; }
+
+        /// <summary>
         /// Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
         /// </summary>
         [Input("targetNetworkId")]
         public Input<string>? TargetNetworkId { get; set; }
+
+        /// <summary>
+        /// Id of Proximity Placement Group the new VM should belong to when a failover is done.
+        /// </summary>
+        [Input("targetProximityPlacementGroupId")]
+        public Input<string>? TargetProximityPlacementGroupId { get; set; }
 
         /// <summary>
         /// Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
@@ -497,10 +574,31 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string> TargetResourceGroupId { get; set; } = null!;
 
         /// <summary>
+        /// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+        /// </summary>
+        [Input("targetVirtualMachineScaleSetId")]
+        public Input<string>? TargetVirtualMachineScaleSetId { get; set; }
+
+        /// <summary>
         /// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetZone")]
         public Input<string>? TargetZone { get; set; }
+
+        [Input("testNetworkId")]
+        public Input<string>? TestNetworkId { get; set; }
+
+        [Input("unmanagedDisks")]
+        private InputList<Inputs.ReplicatedVMUnmanagedDiskArgs>? _unmanagedDisks;
+
+        /// <summary>
+        /// One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<Inputs.ReplicatedVMUnmanagedDiskArgs> UnmanagedDisks
+        {
+            get => _unmanagedDisks ?? (_unmanagedDisks = new InputList<Inputs.ReplicatedVMUnmanagedDiskArgs>());
+            set => _unmanagedDisks = value;
+        }
 
         public ReplicatedVMArgs()
         {
@@ -523,6 +621,12 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
+        /// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+        /// </summary>
+        [Input("multiVmGroupName")]
+        public Input<string>? MultiVmGroupName { get; set; }
+
+        /// <summary>
         /// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -533,6 +637,7 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One or more `network_interface` block as defined below.
+        /// *
         /// </summary>
         public InputList<Inputs.ReplicatedVMNetworkInterfaceGetArgs> NetworkInterfaces
         {
@@ -583,10 +688,34 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? TargetAvailabilitySetId { get; set; }
 
         /// <summary>
+        /// Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+        /// </summary>
+        [Input("targetBootDiagnosticStorageAccountId")]
+        public Input<string>? TargetBootDiagnosticStorageAccountId { get; set; }
+
+        /// <summary>
+        /// Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+        /// </summary>
+        [Input("targetCapacityReservationGroupId")]
+        public Input<string>? TargetCapacityReservationGroupId { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("targetEdgeZone")]
+        public Input<string>? TargetEdgeZone { get; set; }
+
+        /// <summary>
         /// Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
         /// </summary>
         [Input("targetNetworkId")]
         public Input<string>? TargetNetworkId { get; set; }
+
+        /// <summary>
+        /// Id of Proximity Placement Group the new VM should belong to when a failover is done.
+        /// </summary>
+        [Input("targetProximityPlacementGroupId")]
+        public Input<string>? TargetProximityPlacementGroupId { get; set; }
 
         /// <summary>
         /// Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
@@ -607,10 +736,31 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? TargetResourceGroupId { get; set; }
 
         /// <summary>
+        /// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+        /// </summary>
+        [Input("targetVirtualMachineScaleSetId")]
+        public Input<string>? TargetVirtualMachineScaleSetId { get; set; }
+
+        /// <summary>
         /// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetZone")]
         public Input<string>? TargetZone { get; set; }
+
+        [Input("testNetworkId")]
+        public Input<string>? TestNetworkId { get; set; }
+
+        [Input("unmanagedDisks")]
+        private InputList<Inputs.ReplicatedVMUnmanagedDiskGetArgs>? _unmanagedDisks;
+
+        /// <summary>
+        /// One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<Inputs.ReplicatedVMUnmanagedDiskGetArgs> UnmanagedDisks
+        {
+            get => _unmanagedDisks ?? (_unmanagedDisks = new InputList<Inputs.ReplicatedVMUnmanagedDiskGetArgs>());
+            set => _unmanagedDisks = value;
+        }
 
         public ReplicatedVMState()
         {

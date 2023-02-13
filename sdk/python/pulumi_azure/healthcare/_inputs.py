@@ -167,6 +167,7 @@ class FhirServiceAuthenticationArgs:
                  smart_proxy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] audience: The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
+        :param pulumi.Input[bool] smart_proxy_enabled: Whether smart proxy is enabled.
         """
         pulumi.set(__self__, "audience", audience)
         pulumi.set(__self__, "authority", authority)
@@ -197,6 +198,9 @@ class FhirServiceAuthenticationArgs:
     @property
     @pulumi.getter(name="smartProxyEnabled")
     def smart_proxy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether smart proxy is enabled.
+        """
         return pulumi.get(self, "smart_proxy_enabled")
 
     @smart_proxy_enabled.setter

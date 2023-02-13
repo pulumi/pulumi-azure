@@ -20,9 +20,17 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
 
     public static final HadoopClusterRolesEdgeNodeArgs Empty = new HadoopClusterRolesEdgeNodeArgs();
 
+    /**
+     * The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+     * 
+     */
     @Import(name="httpsEndpoints")
     private @Nullable Output<List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs>> httpsEndpoints;
 
+    /**
+     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+     * 
+     */
     public Optional<Output<List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs>>> httpsEndpoints() {
         return Optional.ofNullable(this.httpsEndpoints);
     }
@@ -57,9 +65,17 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         return this.targetInstanceCount;
     }
 
+    /**
+     * A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="uninstallScriptActions")
     private @Nullable Output<List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs>> uninstallScriptActions;
 
+    /**
+     * @return A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs>>> uninstallScriptActions() {
         return Optional.ofNullable(this.uninstallScriptActions);
     }
@@ -107,15 +123,33 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
             $ = new HadoopClusterRolesEdgeNodeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpsEndpoints(@Nullable Output<List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs>> httpsEndpoints) {
             $.httpsEndpoints = httpsEndpoints;
             return this;
         }
 
+        /**
+         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpsEndpoints(List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs> httpsEndpoints) {
             return httpsEndpoints(Output.of(httpsEndpoints));
         }
 
+        /**
+         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpsEndpoints(HadoopClusterRolesEdgeNodeHttpsEndpointArgs... httpsEndpoints) {
             return httpsEndpoints(List.of(httpsEndpoints));
         }
@@ -172,15 +206,33 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
             return targetInstanceCount(Output.of(targetInstanceCount));
         }
 
+        /**
+         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uninstallScriptActions(@Nullable Output<List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs>> uninstallScriptActions) {
             $.uninstallScriptActions = uninstallScriptActions;
             return this;
         }
 
+        /**
+         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uninstallScriptActions(List<HadoopClusterRolesEdgeNodeUninstallScriptActionArgs> uninstallScriptActions) {
             return uninstallScriptActions(Output.of(uninstallScriptActions));
         }
 
+        /**
+         * @param uninstallScriptActions A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uninstallScriptActions(HadoopClusterRolesEdgeNodeUninstallScriptActionArgs... uninstallScriptActions) {
             return uninstallScriptActions(List.of(uninstallScriptActions));
         }

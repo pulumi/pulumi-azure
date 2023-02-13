@@ -48,14 +48,14 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
     }
 
     /**
-     * The IP Address used for this IP Restriction.
+     * The IP Address used for this IP Restriction in CIDR notation.
      * 
      */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
     /**
-     * @return The IP Address used for this IP Restriction.
+     * @return The IP Address used for this IP Restriction in CIDR notation.
      * 
      */
     public Optional<Output<String>> ipAddress() {
@@ -195,7 +195,7 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ipAddress The IP Address used for this IP Restriction.
+         * @param ipAddress The IP Address used for this IP Restriction in CIDR notation.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ipAddress The IP Address used for this IP Restriction.
+         * @param ipAddress The IP Address used for this IP Restriction in CIDR notation.
          * 
          * @return builder
          * 

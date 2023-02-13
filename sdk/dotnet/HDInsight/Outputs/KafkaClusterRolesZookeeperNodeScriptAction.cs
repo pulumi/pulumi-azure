@@ -14,10 +14,16 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class KafkaClusterRolesZookeeperNodeScriptAction
     {
         /// <summary>
-        /// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        /// The name of the script action.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The parameters for the script provided.
+        /// </summary>
         public readonly string? Parameters;
+        /// <summary>
+        /// The URI to the script.
+        /// </summary>
         public readonly string Uri;
 
         [OutputConstructor]

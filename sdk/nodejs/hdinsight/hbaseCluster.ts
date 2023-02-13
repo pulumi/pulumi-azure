@@ -112,6 +112,9 @@ export class HBaseCluster extends pulumi.CustomResource {
      * A `computeIsolation` block as defined below.
      */
     public readonly computeIsolation!: pulumi.Output<outputs.hdinsight.HBaseClusterComputeIsolation | undefined>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.HBaseClusterDiskEncryption[] | undefined>;
     /**
      * An `extension` block as defined below.
@@ -279,6 +282,9 @@ export interface HBaseClusterState {
      * A `computeIsolation` block as defined below.
      */
     computeIsolation?: pulumi.Input<inputs.hdinsight.HBaseClusterComputeIsolation>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterDiskEncryption>[]>;
     /**
      * An `extension` block as defined below.
@@ -366,6 +372,9 @@ export interface HBaseClusterArgs {
      * A `computeIsolation` block as defined below.
      */
     computeIsolation?: pulumi.Input<inputs.hdinsight.HBaseClusterComputeIsolation>;
+    /**
+     * One or more `diskEncryption` block as defined below.
+     */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterDiskEncryption>[]>;
     /**
      * An `extension` block as defined below.

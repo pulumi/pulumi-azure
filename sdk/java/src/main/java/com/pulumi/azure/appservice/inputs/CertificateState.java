@@ -78,6 +78,21 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the App Service Environment where the certificate is in use.
+     * 
+     */
+    @Import(name="hostingEnvironmentProfileId")
+    private @Nullable Output<String> hostingEnvironmentProfileId;
+
+    /**
+     * @return The ID of the App Service Environment where the certificate is in use.
+     * 
+     */
+    public Optional<Output<String>> hostingEnvironmentProfileId() {
+        return Optional.ofNullable(this.hostingEnvironmentProfileId);
+    }
+
+    /**
      * The issue date for the certificate.
      * 
      */
@@ -212,9 +227,17 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.subjectName);
     }
 
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -241,6 +264,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         this.expirationDate = $.expirationDate;
         this.friendlyName = $.friendlyName;
         this.hostNames = $.hostNames;
+        this.hostingEnvironmentProfileId = $.hostingEnvironmentProfileId;
         this.issueDate = $.issueDate;
         this.issuer = $.issuer;
         this.keyVaultSecretId = $.keyVaultSecretId;
@@ -364,6 +388,27 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder hostNames(String... hostNames) {
             return hostNames(List.of(hostNames));
+        }
+
+        /**
+         * @param hostingEnvironmentProfileId The ID of the App Service Environment where the certificate is in use.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostingEnvironmentProfileId(@Nullable Output<String> hostingEnvironmentProfileId) {
+            $.hostingEnvironmentProfileId = hostingEnvironmentProfileId;
+            return this;
+        }
+
+        /**
+         * @param hostingEnvironmentProfileId The ID of the App Service Environment where the certificate is in use.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostingEnvironmentProfileId(String hostingEnvironmentProfileId) {
+            return hostingEnvironmentProfileId(Output.of(hostingEnvironmentProfileId));
         }
 
         /**
@@ -555,11 +600,23 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
             return subjectName(Output.of(subjectName));
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -17,6 +17,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// If this Windows Web App is Always On enabled. Defaults to `true`.
         /// </summary>
         public readonly bool? AlwaysOn;
+        /// <summary>
+        /// The URL to the API Definition for this Windows Web App.
+        /// </summary>
         public readonly string? ApiDefinitionUrl;
         /// <summary>
         /// The API Management API ID this Windows Web App Slot is associated with.

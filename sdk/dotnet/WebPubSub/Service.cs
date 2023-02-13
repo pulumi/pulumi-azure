@@ -71,6 +71,9 @@ namespace Pulumi.Azure.WebPubSub
         [Output("capacity")]
         public Output<int?> Capacity { get; private set; } = null!;
 
+        /// <summary>
+        /// The publicly accessible IP of the Web PubSub service.
+        /// </summary>
         [Output("externalIp")]
         public Output<string> ExternalIp { get; private set; } = null!;
 
@@ -330,6 +333,9 @@ namespace Pulumi.Azure.WebPubSub
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
+        /// <summary>
+        /// The publicly accessible IP of the Web PubSub service.
+        /// </summary>
         [Input("externalIp")]
         public Input<string>? ExternalIp { get; set; }
 

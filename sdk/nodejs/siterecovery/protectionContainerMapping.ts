@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -93,6 +95,10 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
     }
 
     /**
+     * a `automaticUpdate` block defined as below.
+     */
+    public readonly automaticUpdate!: pulumi.Output<outputs.siterecovery.ProtectionContainerMappingAutomaticUpdate>;
+    /**
      * The name of the protection container mapping. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -134,6 +140,7 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectionContainerMappingState | undefined;
+            resourceInputs["automaticUpdate"] = state ? state.automaticUpdate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recoveryFabricName"] = state ? state.recoveryFabricName : undefined;
             resourceInputs["recoveryReplicationPolicyId"] = state ? state.recoveryReplicationPolicyId : undefined;
@@ -161,6 +168,7 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["automaticUpdate"] = args ? args.automaticUpdate : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recoveryFabricName"] = args ? args.recoveryFabricName : undefined;
             resourceInputs["recoveryReplicationPolicyId"] = args ? args.recoveryReplicationPolicyId : undefined;
@@ -178,6 +186,10 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProtectionContainerMapping resources.
  */
 export interface ProtectionContainerMappingState {
+    /**
+     * a `automaticUpdate` block defined as below.
+     */
+    automaticUpdate?: pulumi.Input<inputs.siterecovery.ProtectionContainerMappingAutomaticUpdate>;
     /**
      * The name of the protection container mapping. Changing this forces a new resource to be created.
      */
@@ -212,6 +224,10 @@ export interface ProtectionContainerMappingState {
  * The set of arguments for constructing a ProtectionContainerMapping resource.
  */
 export interface ProtectionContainerMappingArgs {
+    /**
+     * a `automaticUpdate` block defined as below.
+     */
+    automaticUpdate?: pulumi.Input<inputs.siterecovery.ProtectionContainerMappingAutomaticUpdate>;
     /**
      * The name of the protection container mapping. Changing this forces a new resource to be created.
      */

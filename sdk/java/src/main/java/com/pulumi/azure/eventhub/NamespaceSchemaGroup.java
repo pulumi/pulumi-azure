@@ -71,49 +71,57 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup")
 public class NamespaceSchemaGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies the name of this schema group. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return Specifies the name of this schema group. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="namespaceId", type=String.class, parameters={})
     private Output<String> namespaceId;
 
     /**
-     * @return The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+     * @return Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> namespaceId() {
         return this.namespaceId;
     }
     /**
-     * The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+     * Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="schemaCompatibility", type=String.class, parameters={})
     private Output<String> schemaCompatibility;
 
     /**
-     * @return The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+     * @return Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> schemaCompatibility() {
         return this.schemaCompatibility;
     }
     /**
-     * The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="schemaType", type=String.class, parameters={})
     private Output<String> schemaType;
 
     /**
-     * @return The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * @return Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> schemaType() {

@@ -167,9 +167,17 @@ public class DicomService extends com.pulumi.resources.CustomResource {
     public Output<String> serviceUrl() {
         return this.serviceUrl;
     }
+    /**
+     * A mapping of tags to assign to the Healthcare DICOM Service.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the Healthcare DICOM Service.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

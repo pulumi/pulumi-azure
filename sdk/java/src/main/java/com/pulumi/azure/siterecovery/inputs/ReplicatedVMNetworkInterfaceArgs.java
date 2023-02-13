@@ -17,6 +17,51 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
     public static final ReplicatedVMNetworkInterfaceArgs Empty = new ReplicatedVMNetworkInterfaceArgs();
 
     /**
+     * Id of the public IP object to use when a test failover is done.
+     * 
+     */
+    @Import(name="failoverTestPublicIpAddressId")
+    private @Nullable Output<String> failoverTestPublicIpAddressId;
+
+    /**
+     * @return Id of the public IP object to use when a test failover is done.
+     * 
+     */
+    public Optional<Output<String>> failoverTestPublicIpAddressId() {
+        return Optional.ofNullable(this.failoverTestPublicIpAddressId);
+    }
+
+    /**
+     * Static IP to assign when a test failover is done.
+     * 
+     */
+    @Import(name="failoverTestStaticIp")
+    private @Nullable Output<String> failoverTestStaticIp;
+
+    /**
+     * @return Static IP to assign when a test failover is done.
+     * 
+     */
+    public Optional<Output<String>> failoverTestStaticIp() {
+        return Optional.ofNullable(this.failoverTestStaticIp);
+    }
+
+    /**
+     * Name of the subnet to to use when a test failover is done.
+     * 
+     */
+    @Import(name="failoverTestSubnetName")
+    private @Nullable Output<String> failoverTestSubnetName;
+
+    /**
+     * @return Name of the subnet to to use when a test failover is done.
+     * 
+     */
+    public Optional<Output<String>> failoverTestSubnetName() {
+        return Optional.ofNullable(this.failoverTestSubnetName);
+    }
+
+    /**
      * @deprecated
      * this property is not used and will be removed in version 4.0 of the provider
      * 
@@ -98,6 +143,9 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
     private ReplicatedVMNetworkInterfaceArgs() {}
 
     private ReplicatedVMNetworkInterfaceArgs(ReplicatedVMNetworkInterfaceArgs $) {
+        this.failoverTestPublicIpAddressId = $.failoverTestPublicIpAddressId;
+        this.failoverTestStaticIp = $.failoverTestStaticIp;
+        this.failoverTestSubnetName = $.failoverTestSubnetName;
         this.isPrimary = $.isPrimary;
         this.recoveryPublicIpAddressId = $.recoveryPublicIpAddressId;
         this.sourceNetworkInterfaceId = $.sourceNetworkInterfaceId;
@@ -121,6 +169,69 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
 
         public Builder(ReplicatedVMNetworkInterfaceArgs defaults) {
             $ = new ReplicatedVMNetworkInterfaceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param failoverTestPublicIpAddressId Id of the public IP object to use when a test failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failoverTestPublicIpAddressId(@Nullable Output<String> failoverTestPublicIpAddressId) {
+            $.failoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
+            return this;
+        }
+
+        /**
+         * @param failoverTestPublicIpAddressId Id of the public IP object to use when a test failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failoverTestPublicIpAddressId(String failoverTestPublicIpAddressId) {
+            return failoverTestPublicIpAddressId(Output.of(failoverTestPublicIpAddressId));
+        }
+
+        /**
+         * @param failoverTestStaticIp Static IP to assign when a test failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failoverTestStaticIp(@Nullable Output<String> failoverTestStaticIp) {
+            $.failoverTestStaticIp = failoverTestStaticIp;
+            return this;
+        }
+
+        /**
+         * @param failoverTestStaticIp Static IP to assign when a test failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failoverTestStaticIp(String failoverTestStaticIp) {
+            return failoverTestStaticIp(Output.of(failoverTestStaticIp));
+        }
+
+        /**
+         * @param failoverTestSubnetName Name of the subnet to to use when a test failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failoverTestSubnetName(@Nullable Output<String> failoverTestSubnetName) {
+            $.failoverTestSubnetName = failoverTestSubnetName;
+            return this;
+        }
+
+        /**
+         * @param failoverTestSubnetName Name of the subnet to to use when a test failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failoverTestSubnetName(String failoverTestSubnetName) {
+            return failoverTestSubnetName(Output.of(failoverTestSubnetName));
         }
 
         /**

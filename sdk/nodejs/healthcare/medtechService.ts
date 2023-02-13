@@ -114,6 +114,9 @@ export class MedtechService extends pulumi.CustomResource {
      * Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the Healthcare Med Tech Service.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
@@ -206,6 +209,9 @@ export interface MedtechServiceState {
      * Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the Healthcare Med Tech Service.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
@@ -245,6 +251,9 @@ export interface MedtechServiceArgs {
      * Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the Healthcare Med Tech Service.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.

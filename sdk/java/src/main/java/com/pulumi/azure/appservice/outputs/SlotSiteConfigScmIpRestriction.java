@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SlotSiteConfigScmIpRestriction {
     /**
-     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+     * @return Allow or Deny access for this IP range. Defaults to `Allow`.
      * 
      */
     private @Nullable String action;
     /**
-     * @return The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * @return The headers for this specific `scm_ip_restriction` as defined below.
      * 
      */
     private @Nullable SlotSiteConfigScmIpRestrictionHeaders headers;
@@ -29,7 +29,7 @@ public final class SlotSiteConfigScmIpRestriction {
      */
     private @Nullable String ipAddress;
     /**
-     * @return Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+     * @return The name for this IP Restriction.
      * 
      */
     private @Nullable String name;
@@ -51,14 +51,14 @@ public final class SlotSiteConfigScmIpRestriction {
 
     private SlotSiteConfigScmIpRestriction() {}
     /**
-     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+     * @return Allow or Deny access for this IP range. Defaults to `Allow`.
      * 
      */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * @return The headers for this specific `scm_ip_restriction` as defined below.
      * 
      */
     public Optional<SlotSiteConfigScmIpRestrictionHeaders> headers() {
@@ -72,7 +72,7 @@ public final class SlotSiteConfigScmIpRestriction {
         return Optional.ofNullable(this.ipAddress);
     }
     /**
-     * @return Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+     * @return The name for this IP Restriction.
      * 
      */
     public Optional<String> name() {

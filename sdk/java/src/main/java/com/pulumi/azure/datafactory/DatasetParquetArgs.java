@@ -66,23 +66,31 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
      * 
      */
     @Import(name="compressionCodec")
     private @Nullable Output<String> compressionCodec;
 
     /**
-     * @return The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * @return The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
      * 
      */
     public Optional<Output<String>> compressionCodec() {
         return Optional.ofNullable(this.compressionCodec);
     }
 
+    /**
+     * Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+     * 
+     */
     @Import(name="compressionLevel")
     private @Nullable Output<String> compressionLevel;
 
+    /**
+     * @return Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+     * 
+     */
     public Optional<Output<String>> compressionLevel() {
         return Optional.ofNullable(this.compressionLevel);
     }
@@ -317,7 +325,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param compressionCodec The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+         * @param compressionCodec The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
          * 
          * @return builder
          * 
@@ -328,7 +336,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param compressionCodec The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+         * @param compressionCodec The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
          * 
          * @return builder
          * 
@@ -337,11 +345,23 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
             return compressionCodec(Output.of(compressionCodec));
         }
 
+        /**
+         * @param compressionLevel Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+         * 
+         * @return builder
+         * 
+         */
         public Builder compressionLevel(@Nullable Output<String> compressionLevel) {
             $.compressionLevel = compressionLevel;
             return this;
         }
 
+        /**
+         * @param compressionLevel Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+         * 
+         * @return builder
+         * 
+         */
         public Builder compressionLevel(String compressionLevel) {
             return compressionLevel(Output.of(compressionLevel));
         }

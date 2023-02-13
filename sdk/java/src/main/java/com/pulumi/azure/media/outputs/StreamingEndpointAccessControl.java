@@ -18,7 +18,7 @@ public final class StreamingEndpointAccessControl {
      */
     private @Nullable List<StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey> akamaiSignatureHeaderAuthenticationKeys;
     /**
-     * @return A `ip` block as defined below.
+     * @return A `ip_allow` block as defined below.
      * 
      */
     private @Nullable List<StreamingEndpointAccessControlIpAllow> ipAllows;
@@ -32,7 +32,7 @@ public final class StreamingEndpointAccessControl {
         return this.akamaiSignatureHeaderAuthenticationKeys == null ? List.of() : this.akamaiSignatureHeaderAuthenticationKeys;
     }
     /**
-     * @return A `ip` block as defined below.
+     * @return A `ip_allow` block as defined below.
      * 
      */
     public List<StreamingEndpointAccessControlIpAllow> ipAllows() {

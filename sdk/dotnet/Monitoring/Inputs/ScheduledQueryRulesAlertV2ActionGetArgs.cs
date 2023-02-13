@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<string>? _actionGroups;
 
         /// <summary>
-        /// List of Action Group resource ids to invoke when the alert fires.
+        /// List of Action Group resource IDs to invoke when the alert fires.
         /// </summary>
         public InputList<string> ActionGroups
         {

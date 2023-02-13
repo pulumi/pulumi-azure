@@ -38,9 +38,17 @@ public final class FhirServiceAuthenticationArgs extends com.pulumi.resources.Re
         return this.authority;
     }
 
+    /**
+     * Whether smart proxy is enabled.
+     * 
+     */
     @Import(name="smartProxyEnabled")
     private @Nullable Output<Boolean> smartProxyEnabled;
 
+    /**
+     * @return Whether smart proxy is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> smartProxyEnabled() {
         return Optional.ofNullable(this.smartProxyEnabled);
     }
@@ -101,11 +109,23 @@ public final class FhirServiceAuthenticationArgs extends com.pulumi.resources.Re
             return authority(Output.of(authority));
         }
 
+        /**
+         * @param smartProxyEnabled Whether smart proxy is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder smartProxyEnabled(@Nullable Output<Boolean> smartProxyEnabled) {
             $.smartProxyEnabled = smartProxyEnabled;
             return this;
         }
 
+        /**
+         * @param smartProxyEnabled Whether smart proxy is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder smartProxyEnabled(Boolean smartProxyEnabled) {
             return smartProxyEnabled(Output.of(smartProxyEnabled));
         }

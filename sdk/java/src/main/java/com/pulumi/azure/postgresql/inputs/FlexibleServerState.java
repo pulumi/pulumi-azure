@@ -99,14 +99,14 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `customer_managed_key` block as defined below.
+     * A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="customerManagedKey")
     private @Nullable Output<FlexibleServerCustomerManagedKeyArgs> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as defined below.
+     * @return A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<FlexibleServerCustomerManagedKeyArgs>> customerManagedKey() {
@@ -536,7 +536,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as defined below.
+         * @param customerManagedKey A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as defined below.
+         * @param customerManagedKey A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

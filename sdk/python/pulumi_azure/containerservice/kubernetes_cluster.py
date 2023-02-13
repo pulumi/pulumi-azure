@@ -25,6 +25,7 @@ class KubernetesClusterArgs:
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
@@ -76,6 +77,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
@@ -136,6 +138,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "azure_active_directory_role_based_access_control", azure_active_directory_role_based_access_control)
         if azure_policy_enabled is not None:
             pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
+        if confidential_computing is not None:
+            pulumi.set(__self__, "confidential_computing", confidential_computing)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if dns_prefix is not None:
@@ -326,6 +330,18 @@ class KubernetesClusterArgs:
     @azure_policy_enabled.setter
     def azure_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "azure_policy_enabled", value)
+
+    @property
+    @pulumi.getter(name="confidentialComputing")
+    def confidential_computing(self) -> Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']]:
+        """
+        A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        """
+        return pulumi.get(self, "confidential_computing")
+
+    @confidential_computing.setter
+    def confidential_computing(self, value: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']]):
+        pulumi.set(self, "confidential_computing", value)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -827,6 +843,7 @@ class _KubernetesClusterState:
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
                  default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -887,6 +904,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -956,6 +974,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "azure_active_directory_role_based_access_control", azure_active_directory_role_based_access_control)
         if azure_policy_enabled is not None:
             pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
+        if confidential_computing is not None:
+            pulumi.set(__self__, "confidential_computing", confidential_computing)
         if default_node_pool is not None:
             pulumi.set(__self__, "default_node_pool", default_node_pool)
         if disk_encryption_set_id is not None:
@@ -1144,6 +1164,18 @@ class _KubernetesClusterState:
     @azure_policy_enabled.setter
     def azure_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "azure_policy_enabled", value)
+
+    @property
+    @pulumi.getter(name="confidentialComputing")
+    def confidential_computing(self) -> Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']]:
+        """
+        A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        """
+        return pulumi.get(self, "confidential_computing")
+
+    @confidential_computing.setter
+    def confidential_computing(self, value: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']]):
+        pulumi.set(self, "confidential_computing", value)
 
     @property
     @pulumi.getter(name="defaultNodePool")
@@ -1779,6 +1811,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -1870,6 +1903,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -1980,6 +2014,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -2042,6 +2077,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["automatic_channel_upgrade"] = automatic_channel_upgrade
             __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
             __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
+            __props__.__dict__["confidential_computing"] = confidential_computing
             if default_node_pool is None and not opts.urn:
                 raise TypeError("Missing required property 'default_node_pool'")
             __props__.__dict__["default_node_pool"] = default_node_pool
@@ -2120,6 +2156,7 @@ class KubernetesCluster(pulumi.CustomResource):
             automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
             azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
             azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
+            confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
             default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
             dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -2185,6 +2222,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -2248,6 +2286,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["automatic_channel_upgrade"] = automatic_channel_upgrade
         __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
         __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
+        __props__.__dict__["confidential_computing"] = confidential_computing
         __props__.__dict__["default_node_pool"] = default_node_pool
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__.__dict__["dns_prefix"] = dns_prefix
@@ -2354,6 +2393,14 @@ class KubernetesCluster(pulumi.CustomResource):
         Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         """
         return pulumi.get(self, "azure_policy_enabled")
+
+    @property
+    @pulumi.getter(name="confidentialComputing")
+    def confidential_computing(self) -> pulumi.Output[Optional['outputs.KubernetesClusterConfidentialComputing']]:
+        """
+        A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        """
+        return pulumi.get(self, "confidential_computing")
 
     @property
     @pulumi.getter(name="defaultNodePool")

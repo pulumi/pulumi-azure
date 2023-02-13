@@ -30,9 +30,17 @@ public final class SourceControlTokenArgs extends com.pulumi.resources.ResourceA
         return this.token;
     }
 
+    /**
+     * The Access Token Secret.
+     * 
+     */
     @Import(name="tokenSecret")
     private @Nullable Output<String> tokenSecret;
 
+    /**
+     * @return The Access Token Secret.
+     * 
+     */
     public Optional<Output<String>> tokenSecret() {
         return Optional.ofNullable(this.tokenSecret);
     }
@@ -99,11 +107,23 @@ public final class SourceControlTokenArgs extends com.pulumi.resources.ResourceA
             return token(Output.of(token));
         }
 
+        /**
+         * @param tokenSecret The Access Token Secret.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenSecret(@Nullable Output<String> tokenSecret) {
             $.tokenSecret = tokenSecret;
             return this;
         }
 
+        /**
+         * @param tokenSecret The Access Token Secret.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenSecret(String tokenSecret) {
             return tokenSecret(Output.of(tokenSecret));
         }

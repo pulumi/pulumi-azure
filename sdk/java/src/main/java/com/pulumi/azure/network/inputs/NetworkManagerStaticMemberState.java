@@ -60,9 +60,17 @@ public final class NetworkManagerStaticMemberState extends com.pulumi.resources.
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     * 
+     */
     @Import(name="targetVirtualNetworkId")
     private @Nullable Output<String> targetVirtualNetworkId;
 
+    /**
+     * @return Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     * 
+     */
     public Optional<Output<String>> targetVirtualNetworkId() {
         return Optional.ofNullable(this.targetVirtualNetworkId);
     }
@@ -157,11 +165,23 @@ public final class NetworkManagerStaticMemberState extends com.pulumi.resources.
             return region(Output.of(region));
         }
 
+        /**
+         * @param targetVirtualNetworkId Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetVirtualNetworkId(@Nullable Output<String> targetVirtualNetworkId) {
             $.targetVirtualNetworkId = targetVirtualNetworkId;
             return this;
         }
 
+        /**
+         * @param targetVirtualNetworkId Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetVirtualNetworkId(String targetVirtualNetworkId) {
             return targetVirtualNetworkId(Output.of(targetVirtualNetworkId));
         }

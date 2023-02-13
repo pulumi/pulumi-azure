@@ -290,7 +290,7 @@ class PoolContainerConfigurationArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] container_image_names: A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]] container_registries: Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]] container_registries: One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of container configuration. Possible value is `DockerCompatible`.
         """
         if container_image_names is not None:
@@ -316,7 +316,7 @@ class PoolContainerConfigurationArgs:
     @pulumi.getter(name="containerRegistries")
     def container_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]]]:
         """
-        Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
+        One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_registries")
 
@@ -1243,7 +1243,7 @@ class PoolNetworkConfigurationEndpointConfigurationArgs:
         :param pulumi.Input[str] frontend_port_range: The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs']]] network_security_group_rules: A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs']]] network_security_group_rules: A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "frontend_port_range", frontend_port_range)
@@ -1304,7 +1304,7 @@ class PoolNetworkConfigurationEndpointConfigurationArgs:
     @pulumi.getter(name="networkSecurityGroupRules")
     def network_security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs']]]]:
         """
-        A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+        A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_security_group_rules")
 
@@ -1530,7 +1530,7 @@ class PoolStartTaskContainerArgs:
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] image_name: The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]] registries: The same reference as `container_registries` block defined as follows.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]] registries: The same reference as `container_registries` block defined as below.
         :param pulumi.Input[str] run_options: Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
         :param pulumi.Input[str] working_directory: A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
         """
@@ -1558,7 +1558,7 @@ class PoolStartTaskContainerArgs:
     @pulumi.getter
     def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]]]:
         """
-        The same reference as `container_registries` block defined as follows.
+        The same reference as `container_registries` block defined as below.
         """
         return pulumi.get(self, "registries")
 

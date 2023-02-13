@@ -142,6 +142,9 @@ namespace Pulumi.Azure.AppService
         [Output("appServiceEnvironmentId")]
         public Output<string?> AppServiceEnvironmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to create a xenon App Service Plan.
+        /// </summary>
         [Output("isXenon")]
         public Output<bool?> IsXenon { get; private set; } = null!;
 
@@ -263,6 +266,9 @@ namespace Pulumi.Azure.AppService
         [Input("appServiceEnvironmentId")]
         public Input<string>? AppServiceEnvironmentId { get; set; }
 
+        /// <summary>
+        /// Whether to create a xenon App Service Plan.
+        /// </summary>
         [Input("isXenon")]
         public Input<bool>? IsXenon { get; set; }
 
@@ -346,6 +352,9 @@ namespace Pulumi.Azure.AppService
         [Input("appServiceEnvironmentId")]
         public Input<string>? AppServiceEnvironmentId { get; set; }
 
+        /// <summary>
+        /// Whether to create a xenon App Service Plan.
+        /// </summary>
         [Input("isXenon")]
         public Input<bool>? IsXenon { get; set; }
 

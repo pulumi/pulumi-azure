@@ -25,6 +25,9 @@ namespace Pulumi.Azure.RecoveryServices.Outputs
         /// Indicate that system assigned identity should be used or not. Defaults to `true`.
         /// </summary>
         public readonly bool? UseSystemAssignedIdentity;
+        /// <summary>
+        /// Specifies the user assigned identity ID to be used.
+        /// </summary>
         public readonly string? UserAssignedIdentityId;
 
         [OutputConstructor]

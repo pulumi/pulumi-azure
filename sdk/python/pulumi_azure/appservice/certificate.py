@@ -31,6 +31,7 @@ class CertificateArgs:
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_service_plan_id is not None:
@@ -135,6 +136,9 @@ class CertificateArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -149,6 +153,7 @@ class _CertificateState:
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
                  issue_date: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -166,6 +171,7 @@ class _CertificateState:
         :param pulumi.Input[str] expiration_date: The expiration date for the certificate.
         :param pulumi.Input[str] friendly_name: The friendly name of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: List of host names the certificate applies to.
+        :param pulumi.Input[str] hosting_environment_profile_id: The ID of the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -175,6 +181,7 @@ class _CertificateState:
         :param pulumi.Input[str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subject_name: The subject name of the certificate.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The thumbprint for the certificate.
         """
         if app_service_plan_id is not None:
@@ -185,6 +192,8 @@ class _CertificateState:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if host_names is not None:
             pulumi.set(__self__, "host_names", host_names)
+        if hosting_environment_profile_id is not None:
+            pulumi.set(__self__, "hosting_environment_profile_id", hosting_environment_profile_id)
         if issue_date is not None:
             pulumi.set(__self__, "issue_date", issue_date)
         if issuer is not None:
@@ -255,6 +264,18 @@ class _CertificateState:
     @host_names.setter
     def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "host_names", value)
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentProfileId")
+    def hosting_environment_profile_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the App Service Environment where the certificate is in use.
+        """
+        return pulumi.get(self, "hosting_environment_profile_id")
+
+    @hosting_environment_profile_id.setter
+    def hosting_environment_profile_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hosting_environment_profile_id", value)
 
     @property
     @pulumi.getter(name="issueDate")
@@ -367,6 +388,9 @@ class _CertificateState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -437,6 +461,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -517,6 +542,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["expiration_date"] = None
             __props__.__dict__["friendly_name"] = None
             __props__.__dict__["host_names"] = None
+            __props__.__dict__["hosting_environment_profile_id"] = None
             __props__.__dict__["issue_date"] = None
             __props__.__dict__["issuer"] = None
             __props__.__dict__["subject_name"] = None
@@ -537,6 +563,7 @@ class Certificate(pulumi.CustomResource):
             expiration_date: Optional[pulumi.Input[str]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
             host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
             issue_date: Optional[pulumi.Input[str]] = None,
             issuer: Optional[pulumi.Input[str]] = None,
             key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -559,6 +586,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_date: The expiration date for the certificate.
         :param pulumi.Input[str] friendly_name: The friendly name of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: List of host names the certificate applies to.
+        :param pulumi.Input[str] hosting_environment_profile_id: The ID of the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -568,6 +596,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subject_name: The subject name of the certificate.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The thumbprint for the certificate.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -578,6 +607,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["expiration_date"] = expiration_date
         __props__.__dict__["friendly_name"] = friendly_name
         __props__.__dict__["host_names"] = host_names
+        __props__.__dict__["hosting_environment_profile_id"] = hosting_environment_profile_id
         __props__.__dict__["issue_date"] = issue_date
         __props__.__dict__["issuer"] = issuer
         __props__.__dict__["key_vault_secret_id"] = key_vault_secret_id
@@ -622,6 +652,14 @@ class Certificate(pulumi.CustomResource):
         List of host names the certificate applies to.
         """
         return pulumi.get(self, "host_names")
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentProfileId")
+    def hosting_environment_profile_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the App Service Environment where the certificate is in use.
+        """
+        return pulumi.get(self, "hosting_environment_profile_id")
 
     @property
     @pulumi.getter(name="issueDate")
@@ -698,6 +736,9 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property

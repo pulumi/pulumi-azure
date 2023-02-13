@@ -97,7 +97,8 @@ type MedtechService struct {
 	// Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
-	Name pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A mapping of tags to assign to the Healthcare Med Tech Service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
@@ -160,7 +161,8 @@ type medtechServiceState struct {
 	// Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A mapping of tags to assign to the Healthcare Med Tech Service.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
 	WorkspaceId *string `pulumi:"workspaceId"`
@@ -181,6 +183,7 @@ type MedtechServiceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
 	Name pulumi.StringPtrInput
+	// A mapping of tags to assign to the Healthcare Med Tech Service.
 	Tags pulumi.StringMapInput
 	// Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
 	WorkspaceId pulumi.StringPtrInput
@@ -204,7 +207,8 @@ type medtechServiceArgs struct {
 	// Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A mapping of tags to assign to the Healthcare Med Tech Service.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
 	WorkspaceId string `pulumi:"workspaceId"`
@@ -226,6 +230,7 @@ type MedtechServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
 	Name pulumi.StringPtrInput
+	// A mapping of tags to assign to the Healthcare Med Tech Service.
 	Tags pulumi.StringMapInput
 	// Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
 	WorkspaceId pulumi.StringInput
@@ -353,6 +358,7 @@ func (o MedtechServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MedtechService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the Healthcare Med Tech Service.
 func (o MedtechServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MedtechService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -66,12 +66,13 @@ import (
 type NamespaceSchemaGroup struct {
 	pulumi.CustomResourceState
 
+	// Specifies the name of this schema group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
-	// The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+	// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
 	SchemaCompatibility pulumi.StringOutput `pulumi:"schemaCompatibility"`
-	// The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
 	SchemaType pulumi.StringOutput `pulumi:"schemaType"`
 }
 
@@ -113,22 +114,24 @@ func GetNamespaceSchemaGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamespaceSchemaGroup resources.
 type namespaceSchemaGroupState struct {
+	// Specifies the name of this schema group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+	// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
 	SchemaCompatibility *string `pulumi:"schemaCompatibility"`
-	// The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
 	SchemaType *string `pulumi:"schemaType"`
 }
 
 type NamespaceSchemaGroupState struct {
+	// Specifies the name of this schema group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceId pulumi.StringPtrInput
-	// The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+	// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
 	SchemaCompatibility pulumi.StringPtrInput
-	// The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
 	SchemaType pulumi.StringPtrInput
 }
 
@@ -137,23 +140,25 @@ func (NamespaceSchemaGroupState) ElementType() reflect.Type {
 }
 
 type namespaceSchemaGroupArgs struct {
+	// Specifies the name of this schema group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceId string `pulumi:"namespaceId"`
-	// The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+	// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
 	SchemaCompatibility string `pulumi:"schemaCompatibility"`
-	// The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
 	SchemaType string `pulumi:"schemaType"`
 }
 
 // The set of arguments for constructing a NamespaceSchemaGroup resource.
 type NamespaceSchemaGroupArgs struct {
+	// Specifies the name of this schema group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceId pulumi.StringInput
-	// The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+	// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
 	SchemaCompatibility pulumi.StringInput
-	// The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+	// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
 	SchemaType pulumi.StringInput
 }
 
@@ -244,21 +249,22 @@ func (o NamespaceSchemaGroupOutput) ToNamespaceSchemaGroupOutputWithContext(ctx 
 	return o
 }
 
+// Specifies the name of this schema group. Changing this forces a new resource to be created.
 func (o NamespaceSchemaGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceSchemaGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
 func (o NamespaceSchemaGroupOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceSchemaGroup) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
 }
 
-// The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+// Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
 func (o NamespaceSchemaGroupOutput) SchemaCompatibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceSchemaGroup) pulumi.StringOutput { return v.SchemaCompatibility }).(pulumi.StringOutput)
 }
 
-// The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
 func (o NamespaceSchemaGroupOutput) SchemaType() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceSchemaGroup) pulumi.StringOutput { return v.SchemaType }).(pulumi.StringOutput)
 }

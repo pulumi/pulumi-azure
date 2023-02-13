@@ -201,9 +201,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:privatelink/endpoint:Endpoint")
 public class Endpoint extends com.pulumi.resources.CustomResource {
+    /**
+     * A `custom_dns_configs` block as defined below.
+     * 
+     */
     @Export(name="customDnsConfigs", type=List.class, parameters={EndpointCustomDnsConfig.class})
     private Output<List<EndpointCustomDnsConfig>> customDnsConfigs;
 
+    /**
+     * @return A `custom_dns_configs` block as defined below.
+     * 
+     */
     public Output<List<EndpointCustomDnsConfig>> customDnsConfigs() {
         return this.customDnsConfigs;
     }
@@ -263,15 +271,31 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * A `network_interface` block as defined below.
+     * 
+     */
     @Export(name="networkInterfaces", type=List.class, parameters={EndpointNetworkInterface.class})
     private Output<List<EndpointNetworkInterface>> networkInterfaces;
 
+    /**
+     * @return A `network_interface` block as defined below.
+     * 
+     */
     public Output<List<EndpointNetworkInterface>> networkInterfaces() {
         return this.networkInterfaces;
     }
+    /**
+     * A `private_dns_zone_configs` block as defined below.
+     * 
+     */
     @Export(name="privateDnsZoneConfigs", type=List.class, parameters={EndpointPrivateDnsZoneConfig.class})
     private Output<List<EndpointPrivateDnsZoneConfig>> privateDnsZoneConfigs;
 
+    /**
+     * @return A `private_dns_zone_configs` block as defined below.
+     * 
+     */
     public Output<List<EndpointPrivateDnsZoneConfig>> privateDnsZoneConfigs() {
         return this.privateDnsZoneConfigs;
     }

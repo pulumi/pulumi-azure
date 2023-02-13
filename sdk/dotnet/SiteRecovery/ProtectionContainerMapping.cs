@@ -99,6 +99,12 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ProtectionContainerMapping : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// a `automatic_update` block defined as below.
+        /// </summary>
+        [Output("automaticUpdate")]
+        public Output<Outputs.ProtectionContainerMappingAutomaticUpdate> AutomaticUpdate { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the protection container mapping. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -187,6 +193,12 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ProtectionContainerMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// a `automatic_update` block defined as below.
+        /// </summary>
+        [Input("automaticUpdate")]
+        public Input<Inputs.ProtectionContainerMappingAutomaticUpdateArgs>? AutomaticUpdate { get; set; }
+
+        /// <summary>
         /// The name of the protection container mapping. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -236,6 +248,12 @@ namespace Pulumi.Azure.SiteRecovery
 
     public sealed class ProtectionContainerMappingState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// a `automatic_update` block defined as below.
+        /// </summary>
+        [Input("automaticUpdate")]
+        public Input<Inputs.ProtectionContainerMappingAutomaticUpdateGetArgs>? AutomaticUpdate { get; set; }
+
         /// <summary>
         /// The name of the protection container mapping. Changing this forces a new resource to be created.
         /// </summary>

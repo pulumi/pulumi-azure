@@ -193,8 +193,9 @@ type Pool struct {
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
-	StartTask                  PoolStartTaskPtrOutput `pulumi:"startTask"`
-	StopPendingResizeOperation pulumi.BoolPtrOutput   `pulumi:"stopPendingResizeOperation"`
+	StartTask PoolStartTaskPtrOutput `pulumi:"startTask"`
+	// Whether to stop if there is a pending resize operation on this pool.
+	StopPendingResizeOperation pulumi.BoolPtrOutput `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferenceOutput `pulumi:"storageImageReference"`
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
@@ -294,8 +295,9 @@ type poolState struct {
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
-	StartTask                  *PoolStartTask `pulumi:"startTask"`
-	StopPendingResizeOperation *bool          `pulumi:"stopPendingResizeOperation"`
+	StartTask *PoolStartTask `pulumi:"startTask"`
+	// Whether to stop if there is a pending resize operation on this pool.
+	StopPendingResizeOperation *bool `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference *PoolStorageImageReference `pulumi:"storageImageReference"`
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
@@ -352,7 +354,8 @@ type PoolState struct {
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
-	StartTask                  PoolStartTaskPtrInput
+	StartTask PoolStartTaskPtrInput
+	// Whether to stop if there is a pending resize operation on this pool.
 	StopPendingResizeOperation pulumi.BoolPtrInput
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferencePtrInput
@@ -414,8 +417,9 @@ type poolArgs struct {
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
-	StartTask                  *PoolStartTask `pulumi:"startTask"`
-	StopPendingResizeOperation *bool          `pulumi:"stopPendingResizeOperation"`
+	StartTask *PoolStartTask `pulumi:"startTask"`
+	// Whether to stop if there is a pending resize operation on this pool.
+	StopPendingResizeOperation *bool `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReference `pulumi:"storageImageReference"`
 	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
@@ -473,7 +477,8 @@ type PoolArgs struct {
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
-	StartTask                  PoolStartTaskPtrInput
+	StartTask PoolStartTaskPtrInput
+	// Whether to stop if there is a pending resize operation on this pool.
 	StopPendingResizeOperation pulumi.BoolPtrInput
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferenceInput
@@ -684,6 +689,7 @@ func (o PoolOutput) StartTask() PoolStartTaskPtrOutput {
 	return o.ApplyT(func(v *Pool) PoolStartTaskPtrOutput { return v.StartTask }).(PoolStartTaskPtrOutput)
 }
 
+// Whether to stop if there is a pending resize operation on this pool.
 func (o PoolOutput) StopPendingResizeOperation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.BoolPtrOutput { return v.StopPendingResizeOperation }).(pulumi.BoolPtrOutput)
 }

@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the public data of the certificate.
+        /// </summary>
         [Input("thumbprint", required: true)]
         public Input<string> Thumbprint { get; set; } = null!;
 

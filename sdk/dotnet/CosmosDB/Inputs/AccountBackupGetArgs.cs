@@ -25,7 +25,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public Input<int>? RetentionInHours { get; set; }
 
         /// <summary>
-        /// The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+        /// The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
         /// </summary>
         [Input("storageRedundancy")]
         public Input<string>? StorageRedundancy { get; set; }

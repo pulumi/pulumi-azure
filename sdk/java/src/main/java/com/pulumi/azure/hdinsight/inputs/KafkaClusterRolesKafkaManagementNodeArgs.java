@@ -32,9 +32,17 @@ public final class KafkaClusterRolesKafkaManagementNodeArgs extends com.pulumi.r
         return Optional.ofNullable(this.password);
     }
 
+    /**
+     * The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="scriptActions")
     private @Nullable Output<List<KafkaClusterRolesKafkaManagementNodeScriptActionArgs>> scriptActions;
 
+    /**
+     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<List<KafkaClusterRolesKafkaManagementNodeScriptActionArgs>>> scriptActions() {
         return Optional.ofNullable(this.scriptActions);
     }
@@ -165,15 +173,33 @@ public final class KafkaClusterRolesKafkaManagementNodeArgs extends com.pulumi.r
             return password(Output.of(password));
         }
 
+        /**
+         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scriptActions(@Nullable Output<List<KafkaClusterRolesKafkaManagementNodeScriptActionArgs>> scriptActions) {
             $.scriptActions = scriptActions;
             return this;
         }
 
+        /**
+         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scriptActions(List<KafkaClusterRolesKafkaManagementNodeScriptActionArgs> scriptActions) {
             return scriptActions(Output.of(scriptActions));
         }
 
+        /**
+         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scriptActions(KafkaClusterRolesKafkaManagementNodeScriptActionArgs... scriptActions) {
             return scriptActions(List.of(scriptActions));
         }

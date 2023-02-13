@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Healthcare.Outputs
         /// </summary>
         public readonly string Audience;
         public readonly string Authority;
+        /// <summary>
+        /// Whether smart proxy is enabled.
+        /// </summary>
         public readonly bool? SmartProxyEnabled;
 
         [OutputConstructor]

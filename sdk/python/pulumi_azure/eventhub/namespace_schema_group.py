@@ -20,9 +20,10 @@ class NamespaceSchemaGroupArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NamespaceSchemaGroup resource.
-        :param pulumi.Input[str] namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] schema_compatibility: The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] schema_type: The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schema_compatibility: Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of this schema group. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "namespace_id", namespace_id)
         pulumi.set(__self__, "schema_compatibility", schema_compatibility)
@@ -34,7 +35,7 @@ class NamespaceSchemaGroupArgs:
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> pulumi.Input[str]:
         """
-        The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -46,7 +47,7 @@ class NamespaceSchemaGroupArgs:
     @pulumi.getter(name="schemaCompatibility")
     def schema_compatibility(self) -> pulumi.Input[str]:
         """
-        The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+        Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schema_compatibility")
 
@@ -58,7 +59,7 @@ class NamespaceSchemaGroupArgs:
     @pulumi.getter(name="schemaType")
     def schema_type(self) -> pulumi.Input[str]:
         """
-        The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schema_type")
 
@@ -69,6 +70,9 @@ class NamespaceSchemaGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of this schema group. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -85,9 +89,10 @@ class _NamespaceSchemaGroupState:
                  schema_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NamespaceSchemaGroup resources.
-        :param pulumi.Input[str] namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] schema_compatibility: The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] schema_type: The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of this schema group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schema_compatibility: Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -101,6 +106,9 @@ class _NamespaceSchemaGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of this schema group. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -111,7 +119,7 @@ class _NamespaceSchemaGroupState:
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -123,7 +131,7 @@ class _NamespaceSchemaGroupState:
     @pulumi.getter(name="schemaCompatibility")
     def schema_compatibility(self) -> Optional[pulumi.Input[str]]:
         """
-        The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+        Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schema_compatibility")
 
@@ -135,7 +143,7 @@ class _NamespaceSchemaGroupState:
     @pulumi.getter(name="schemaType")
     def schema_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schema_type")
 
@@ -182,9 +190,10 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] schema_compatibility: The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] schema_type: The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of this schema group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schema_compatibility: Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -277,9 +286,10 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] schema_compatibility: The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] schema_type: The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of this schema group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schema_compatibility: Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -294,13 +304,16 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Specifies the name of this schema group. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> pulumi.Output[str]:
         """
-        The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+        Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -308,7 +321,7 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
     @pulumi.getter(name="schemaCompatibility")
     def schema_compatibility(self) -> pulumi.Output[str]:
         """
-        The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+        Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schema_compatibility")
 
@@ -316,7 +329,7 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
     @pulumi.getter(name="schemaType")
     def schema_type(self) -> pulumi.Output[str]:
         """
-        The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+        Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schema_type")
 

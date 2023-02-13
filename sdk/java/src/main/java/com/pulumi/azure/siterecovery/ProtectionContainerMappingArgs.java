@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.siterecovery;
 
+import com.pulumi.azure.siterecovery.inputs.ProtectionContainerMappingAutomaticUpdateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ProtectionContainerMappingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProtectionContainerMappingArgs Empty = new ProtectionContainerMappingArgs();
+
+    /**
+     * a `automatic_update` block defined as below.
+     * 
+     */
+    @Import(name="automaticUpdate")
+    private @Nullable Output<ProtectionContainerMappingAutomaticUpdateArgs> automaticUpdate;
+
+    /**
+     * @return a `automatic_update` block defined as below.
+     * 
+     */
+    public Optional<Output<ProtectionContainerMappingAutomaticUpdateArgs>> automaticUpdate() {
+        return Optional.ofNullable(this.automaticUpdate);
+    }
 
     /**
      * The name of the protection container mapping. Changing this forces a new resource to be created.
@@ -123,6 +139,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
     private ProtectionContainerMappingArgs() {}
 
     private ProtectionContainerMappingArgs(ProtectionContainerMappingArgs $) {
+        this.automaticUpdate = $.automaticUpdate;
         this.name = $.name;
         this.recoveryFabricName = $.recoveryFabricName;
         this.recoveryReplicationPolicyId = $.recoveryReplicationPolicyId;
@@ -148,6 +165,27 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
 
         public Builder(ProtectionContainerMappingArgs defaults) {
             $ = new ProtectionContainerMappingArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param automaticUpdate a `automatic_update` block defined as below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticUpdate(@Nullable Output<ProtectionContainerMappingAutomaticUpdateArgs> automaticUpdate) {
+            $.automaticUpdate = automaticUpdate;
+            return this;
+        }
+
+        /**
+         * @param automaticUpdate a `automatic_update` block defined as below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticUpdate(ProtectionContainerMappingAutomaticUpdateArgs automaticUpdate) {
+            return automaticUpdate(Output.of(automaticUpdate));
         }
 
         /**

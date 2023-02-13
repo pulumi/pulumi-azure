@@ -83,7 +83,7 @@ type IntegrationAccountMapResource struct {
 	Content pulumi.StringOutput `pulumi:"content"`
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
 	IntegrationAccountName pulumi.StringOutput `pulumi:"integrationAccountName"`
-	// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+	// The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
 	MapType pulumi.StringOutput `pulumi:"mapType"`
 	// The metadata of the Logic App Integration Account Map.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
@@ -138,7 +138,7 @@ type integrationAccountMapResourceState struct {
 	Content *string `pulumi:"content"`
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
 	IntegrationAccountName *string `pulumi:"integrationAccountName"`
-	// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+	// The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
 	MapType *string `pulumi:"mapType"`
 	// The metadata of the Logic App Integration Account Map.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -153,7 +153,7 @@ type IntegrationAccountMapResourceState struct {
 	Content pulumi.StringPtrInput
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
 	IntegrationAccountName pulumi.StringPtrInput
-	// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+	// The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
 	MapType pulumi.StringPtrInput
 	// The metadata of the Logic App Integration Account Map.
 	Metadata pulumi.StringMapInput
@@ -172,7 +172,7 @@ type integrationAccountMapResourceArgs struct {
 	Content string `pulumi:"content"`
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+	// The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
 	MapType string `pulumi:"mapType"`
 	// The metadata of the Logic App Integration Account Map.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -188,7 +188,7 @@ type IntegrationAccountMapResourceArgs struct {
 	Content pulumi.StringInput
 	// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
 	IntegrationAccountName pulumi.StringInput
-	// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+	// The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
 	MapType pulumi.StringInput
 	// The metadata of the Logic App Integration Account Map.
 	Metadata pulumi.StringMapInput
@@ -295,7 +295,7 @@ func (o IntegrationAccountMapResourceOutput) IntegrationAccountName() pulumi.Str
 	return o.ApplyT(func(v *IntegrationAccountMapResource) pulumi.StringOutput { return v.IntegrationAccountName }).(pulumi.StringOutput)
 }
 
-// The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+// The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
 func (o IntegrationAccountMapResourceOutput) MapType() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationAccountMapResource) pulumi.StringOutput { return v.MapType }).(pulumi.StringOutput)
 }

@@ -284,9 +284,12 @@ type ReplicatedVM struct {
 
 	// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 	ManagedDisks ReplicatedVMManagedDiskArrayOutput `pulumi:"managedDisks"`
+	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+	MultiVmGroupName pulumi.StringPtrOutput `pulumi:"multiVmGroupName"`
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
+	// *
 	NetworkInterfaces ReplicatedVMNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringOutput `pulumi:"recoveryReplicationPolicyId"`
@@ -302,16 +305,29 @@ type ReplicatedVM struct {
 	SourceVmId pulumi.StringOutput `pulumi:"sourceVmId"`
 	// Id of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId pulumi.StringPtrOutput `pulumi:"targetAvailabilitySetId"`
+	// Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+	TargetBootDiagnosticStorageAccountId pulumi.StringPtrOutput `pulumi:"targetBootDiagnosticStorageAccountId"`
+	// Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+	TargetCapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"targetCapacityReservationGroupId"`
+	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	TargetEdgeZone pulumi.StringPtrOutput `pulumi:"targetEdgeZone"`
 	// Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
 	TargetNetworkId pulumi.StringOutput `pulumi:"targetNetworkId"`
+	// Id of Proximity Placement Group the new VM should belong to when a failover is done.
+	TargetProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"targetProximityPlacementGroupId"`
 	// Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
 	TargetRecoveryFabricId pulumi.StringOutput `pulumi:"targetRecoveryFabricId"`
 	// Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetRecoveryProtectionContainerId pulumi.StringOutput `pulumi:"targetRecoveryProtectionContainerId"`
 	// Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetResourceGroupId pulumi.StringOutput `pulumi:"targetResourceGroupId"`
+	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+	TargetVirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"targetVirtualMachineScaleSetId"`
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
-	TargetZone pulumi.StringPtrOutput `pulumi:"targetZone"`
+	TargetZone    pulumi.StringPtrOutput `pulumi:"targetZone"`
+	TestNetworkId pulumi.StringOutput    `pulumi:"testNetworkId"`
+	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+	UnmanagedDisks ReplicatedVMUnmanagedDiskArrayOutput `pulumi:"unmanagedDisks"`
 }
 
 // NewReplicatedVM registers a new resource with the given unique name, arguments, and options.
@@ -372,9 +388,12 @@ func GetReplicatedVM(ctx *pulumi.Context,
 type replicatedVMState struct {
 	// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
+	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
+	// *
 	NetworkInterfaces []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
 	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId *string `pulumi:"recoveryReplicationPolicyId"`
@@ -390,24 +409,40 @@ type replicatedVMState struct {
 	SourceVmId *string `pulumi:"sourceVmId"`
 	// Id of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
+	// Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+	TargetBootDiagnosticStorageAccountId *string `pulumi:"targetBootDiagnosticStorageAccountId"`
+	// Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+	TargetCapacityReservationGroupId *string `pulumi:"targetCapacityReservationGroupId"`
+	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	TargetEdgeZone *string `pulumi:"targetEdgeZone"`
 	// Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
 	TargetNetworkId *string `pulumi:"targetNetworkId"`
+	// Id of Proximity Placement Group the new VM should belong to when a failover is done.
+	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
 	// Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
 	TargetRecoveryFabricId *string `pulumi:"targetRecoveryFabricId"`
 	// Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetRecoveryProtectionContainerId *string `pulumi:"targetRecoveryProtectionContainerId"`
 	// Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetResourceGroupId *string `pulumi:"targetResourceGroupId"`
+	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+	TargetVirtualMachineScaleSetId *string `pulumi:"targetVirtualMachineScaleSetId"`
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
-	TargetZone *string `pulumi:"targetZone"`
+	TargetZone    *string `pulumi:"targetZone"`
+	TestNetworkId *string `pulumi:"testNetworkId"`
+	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+	UnmanagedDisks []ReplicatedVMUnmanagedDisk `pulumi:"unmanagedDisks"`
 }
 
 type ReplicatedVMState struct {
 	// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
+	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+	MultiVmGroupName pulumi.StringPtrInput
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `networkInterface` block as defined below.
+	// *
 	NetworkInterfaces ReplicatedVMNetworkInterfaceArrayInput
 	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringPtrInput
@@ -423,16 +458,29 @@ type ReplicatedVMState struct {
 	SourceVmId pulumi.StringPtrInput
 	// Id of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId pulumi.StringPtrInput
+	// Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+	TargetBootDiagnosticStorageAccountId pulumi.StringPtrInput
+	// Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+	TargetCapacityReservationGroupId pulumi.StringPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	TargetEdgeZone pulumi.StringPtrInput
 	// Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
 	TargetNetworkId pulumi.StringPtrInput
+	// Id of Proximity Placement Group the new VM should belong to when a failover is done.
+	TargetProximityPlacementGroupId pulumi.StringPtrInput
 	// Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
 	TargetRecoveryFabricId pulumi.StringPtrInput
 	// Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetRecoveryProtectionContainerId pulumi.StringPtrInput
 	// Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetResourceGroupId pulumi.StringPtrInput
+	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+	TargetVirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
-	TargetZone pulumi.StringPtrInput
+	TargetZone    pulumi.StringPtrInput
+	TestNetworkId pulumi.StringPtrInput
+	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+	UnmanagedDisks ReplicatedVMUnmanagedDiskArrayInput
 }
 
 func (ReplicatedVMState) ElementType() reflect.Type {
@@ -442,9 +490,12 @@ func (ReplicatedVMState) ElementType() reflect.Type {
 type replicatedVMArgs struct {
 	// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
+	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
+	// *
 	NetworkInterfaces []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
 	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId string `pulumi:"recoveryReplicationPolicyId"`
@@ -460,25 +511,41 @@ type replicatedVMArgs struct {
 	SourceVmId string `pulumi:"sourceVmId"`
 	// Id of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
+	// Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+	TargetBootDiagnosticStorageAccountId *string `pulumi:"targetBootDiagnosticStorageAccountId"`
+	// Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+	TargetCapacityReservationGroupId *string `pulumi:"targetCapacityReservationGroupId"`
+	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	TargetEdgeZone *string `pulumi:"targetEdgeZone"`
 	// Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
 	TargetNetworkId *string `pulumi:"targetNetworkId"`
+	// Id of Proximity Placement Group the new VM should belong to when a failover is done.
+	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
 	// Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
 	TargetRecoveryFabricId string `pulumi:"targetRecoveryFabricId"`
 	// Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetRecoveryProtectionContainerId string `pulumi:"targetRecoveryProtectionContainerId"`
 	// Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
+	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+	TargetVirtualMachineScaleSetId *string `pulumi:"targetVirtualMachineScaleSetId"`
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
-	TargetZone *string `pulumi:"targetZone"`
+	TargetZone    *string `pulumi:"targetZone"`
+	TestNetworkId *string `pulumi:"testNetworkId"`
+	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+	UnmanagedDisks []ReplicatedVMUnmanagedDisk `pulumi:"unmanagedDisks"`
 }
 
 // The set of arguments for constructing a ReplicatedVM resource.
 type ReplicatedVMArgs struct {
 	// One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
+	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+	MultiVmGroupName pulumi.StringPtrInput
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `networkInterface` block as defined below.
+	// *
 	NetworkInterfaces ReplicatedVMNetworkInterfaceArrayInput
 	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringInput
@@ -494,16 +561,29 @@ type ReplicatedVMArgs struct {
 	SourceVmId pulumi.StringInput
 	// Id of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId pulumi.StringPtrInput
+	// Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+	TargetBootDiagnosticStorageAccountId pulumi.StringPtrInput
+	// Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+	TargetCapacityReservationGroupId pulumi.StringPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	TargetEdgeZone pulumi.StringPtrInput
 	// Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
 	TargetNetworkId pulumi.StringPtrInput
+	// Id of Proximity Placement Group the new VM should belong to when a failover is done.
+	TargetProximityPlacementGroupId pulumi.StringPtrInput
 	// Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
 	TargetRecoveryFabricId pulumi.StringInput
 	// Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetRecoveryProtectionContainerId pulumi.StringInput
 	// Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetResourceGroupId pulumi.StringInput
+	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+	TargetVirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
-	TargetZone pulumi.StringPtrInput
+	TargetZone    pulumi.StringPtrInput
+	TestNetworkId pulumi.StringPtrInput
+	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+	UnmanagedDisks ReplicatedVMUnmanagedDiskArrayInput
 }
 
 func (ReplicatedVMArgs) ElementType() reflect.Type {
@@ -598,12 +678,18 @@ func (o ReplicatedVMOutput) ManagedDisks() ReplicatedVMManagedDiskArrayOutput {
 	return o.ApplyT(func(v *ReplicatedVM) ReplicatedVMManagedDiskArrayOutput { return v.ManagedDisks }).(ReplicatedVMManagedDiskArrayOutput)
 }
 
+// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
+func (o ReplicatedVMOutput) MultiVmGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringPtrOutput { return v.MultiVmGroupName }).(pulumi.StringPtrOutput)
+}
+
 // The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 func (o ReplicatedVMOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // One or more `networkInterface` block as defined below.
+// *
 func (o ReplicatedVMOutput) NetworkInterfaces() ReplicatedVMNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *ReplicatedVM) ReplicatedVMNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(ReplicatedVMNetworkInterfaceArrayOutput)
 }
@@ -643,9 +729,29 @@ func (o ReplicatedVMOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringPtrOutput { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
+// Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
+func (o ReplicatedVMOutput) TargetBootDiagnosticStorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringPtrOutput { return v.TargetBootDiagnosticStorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Id of the Capacity reservation group where the new VM should belong to when a failover is done.
+func (o ReplicatedVMOutput) TargetCapacityReservationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringPtrOutput { return v.TargetCapacityReservationGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+func (o ReplicatedVMOutput) TargetEdgeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringPtrOutput { return v.TargetEdgeZone }).(pulumi.StringPtrOutput)
+}
+
 // Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
 func (o ReplicatedVMOutput) TargetNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringOutput { return v.TargetNetworkId }).(pulumi.StringOutput)
+}
+
+// Id of Proximity Placement Group the new VM should belong to when a failover is done.
+func (o ReplicatedVMOutput) TargetProximityPlacementGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringPtrOutput { return v.TargetProximityPlacementGroupId }).(pulumi.StringPtrOutput)
 }
 
 // Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
@@ -663,9 +769,23 @@ func (o ReplicatedVMOutput) TargetResourceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringOutput { return v.TargetResourceGroupId }).(pulumi.StringOutput)
 }
 
+// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+func (o ReplicatedVMOutput) TargetVirtualMachineScaleSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringPtrOutput { return v.TargetVirtualMachineScaleSetId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
 func (o ReplicatedVMOutput) TargetZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringPtrOutput { return v.TargetZone }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicatedVMOutput) TestNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringOutput { return v.TestNetworkId }).(pulumi.StringOutput)
+}
+
+// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+func (o ReplicatedVMOutput) UnmanagedDisks() ReplicatedVMUnmanagedDiskArrayOutput {
+	return o.ApplyT(func(v *ReplicatedVM) ReplicatedVMUnmanagedDiskArrayOutput { return v.UnmanagedDisks }).(ReplicatedVMUnmanagedDiskArrayOutput)
 }
 
 type ReplicatedVMArrayOutput struct{ *pulumi.OutputState }

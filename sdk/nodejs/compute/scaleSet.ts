@@ -154,6 +154,9 @@ export class ScaleSet extends pulumi.CustomResource {
      * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
      */
     public readonly healthProbeId!: pulumi.Output<string | undefined>;
+    /**
+     * An `identity` block as defined below.
+     */
     public readonly identity!: pulumi.Output<outputs.compute.ScaleSetIdentity>;
     /**
      * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
@@ -363,6 +366,9 @@ export interface ScaleSetState {
      * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
      */
     healthProbeId?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
     identity?: pulumi.Input<inputs.compute.ScaleSetIdentity>;
     /**
      * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
@@ -478,6 +484,9 @@ export interface ScaleSetArgs {
      * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
      */
     healthProbeId?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
     identity?: pulumi.Input<inputs.compute.ScaleSetIdentity>;
     /**
      * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.

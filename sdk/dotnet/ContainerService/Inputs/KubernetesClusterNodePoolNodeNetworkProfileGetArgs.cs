@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputMap<string>? _nodePublicIpTags;
 
         /// <summary>
-        /// Specifies a mapping of tags to the instance-level public IPs.
+        /// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> NodePublicIpTags
         {

@@ -64,14 +64,14 @@ public final class PoolNetworkConfigurationEndpointConfigurationArgs extends com
     }
 
     /**
-     * A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+     * A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="networkSecurityGroupRules")
     private @Nullable Output<List<PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs>> networkSecurityGroupRules;
 
     /**
-     * @return A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+     * @return A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs>>> networkSecurityGroupRules() {
@@ -185,7 +185,7 @@ public final class PoolNetworkConfigurationEndpointConfigurationArgs extends com
         }
 
         /**
-         * @param networkSecurityGroupRules A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+         * @param networkSecurityGroupRules A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class PoolNetworkConfigurationEndpointConfigurationArgs extends com
         }
 
         /**
-         * @param networkSecurityGroupRules A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+         * @param networkSecurityGroupRules A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class PoolNetworkConfigurationEndpointConfigurationArgs extends com
         }
 
         /**
-         * @param networkSecurityGroupRules A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+         * @param networkSecurityGroupRules A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

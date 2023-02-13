@@ -179,10 +179,13 @@ class _EndpointState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Endpoint resources.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]] custom_dns_configs: A `custom_dns_configs` block as defined below.
         :param pulumi.Input[str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]] network_interfaces: A `network_interface` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]] private_dns_zone_configs: A `private_dns_zone_configs` block as defined below.
         :param pulumi.Input['EndpointPrivateDnsZoneGroupArgs'] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
         :param pulumi.Input['EndpointPrivateServiceConnectionArgs'] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
@@ -217,6 +220,9 @@ class _EndpointState:
     @property
     @pulumi.getter(name="customDnsConfigs")
     def custom_dns_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]]:
+        """
+        A `custom_dns_configs` block as defined below.
+        """
         return pulumi.get(self, "custom_dns_configs")
 
     @custom_dns_configs.setter
@@ -274,6 +280,9 @@ class _EndpointState:
     @property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]]:
+        """
+        A `network_interface` block as defined below.
+        """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
@@ -283,6 +292,9 @@ class _EndpointState:
     @property
     @pulumi.getter(name="privateDnsZoneConfigs")
     def private_dns_zone_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]]:
+        """
+        A `private_dns_zone_configs` block as defined below.
+        """
         return pulumi.get(self, "private_dns_zone_configs")
 
     @private_dns_zone_configs.setter
@@ -645,10 +657,13 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointCustomDnsConfigArgs']]]] custom_dns_configs: A `custom_dns_configs` block as defined below.
         :param pulumi.Input[str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArgs']]]] network_interfaces: A `network_interface` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneConfigArgs']]]] private_dns_zone_configs: A `private_dns_zone_configs` block as defined below.
         :param pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
         :param pulumi.Input[pulumi.InputType['EndpointPrivateServiceConnectionArgs']] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
@@ -676,6 +691,9 @@ class Endpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customDnsConfigs")
     def custom_dns_configs(self) -> pulumi.Output[Sequence['outputs.EndpointCustomDnsConfig']]:
+        """
+        A `custom_dns_configs` block as defined below.
+        """
         return pulumi.get(self, "custom_dns_configs")
 
     @property
@@ -713,11 +731,17 @@ class Endpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> pulumi.Output[Sequence['outputs.EndpointNetworkInterface']]:
+        """
+        A `network_interface` block as defined below.
+        """
         return pulumi.get(self, "network_interfaces")
 
     @property
     @pulumi.getter(name="privateDnsZoneConfigs")
     def private_dns_zone_configs(self) -> pulumi.Output[Sequence['outputs.EndpointPrivateDnsZoneConfig']]:
+        """
+        A `private_dns_zone_configs` block as defined below.
+        """
         return pulumi.get(self, "private_dns_zone_configs")
 
     @property

@@ -3286,6 +3286,8 @@ func (o GroupInitContainerVolumeGitRepoPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type KubernetesClusterAciConnectorLinux struct {
+	// A `connectorIdentity` block is exported. The exported attributes are defined below.
+	ConnectorIdentities []KubernetesClusterAciConnectorLinuxConnectorIdentity `pulumi:"connectorIdentities"`
 	// The subnet name for the virtual nodes to run.
 	SubnetName string `pulumi:"subnetName"`
 }
@@ -3302,6 +3304,8 @@ type KubernetesClusterAciConnectorLinuxInput interface {
 }
 
 type KubernetesClusterAciConnectorLinuxArgs struct {
+	// A `connectorIdentity` block is exported. The exported attributes are defined below.
+	ConnectorIdentities KubernetesClusterAciConnectorLinuxConnectorIdentityArrayInput `pulumi:"connectorIdentities"`
 	// The subnet name for the virtual nodes to run.
 	SubnetName pulumi.StringInput `pulumi:"subnetName"`
 }
@@ -3383,6 +3387,13 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ToKubernetesClusterAciConnecto
 	}).(KubernetesClusterAciConnectorLinuxPtrOutput)
 }
 
+// A `connectorIdentity` block is exported. The exported attributes are defined below.
+func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterAciConnectorLinux) []KubernetesClusterAciConnectorLinuxConnectorIdentity {
+		return v.ConnectorIdentities
+	}).(KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput)
+}
+
 // The subnet name for the virtual nodes to run.
 func (o KubernetesClusterAciConnectorLinuxOutput) SubnetName() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinux) string { return v.SubnetName }).(pulumi.StringOutput)
@@ -3412,6 +3423,16 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) Elem() KubernetesClusterAci
 	}).(KubernetesClusterAciConnectorLinuxOutput)
 }
 
+// A `connectorIdentity` block is exported. The exported attributes are defined below.
+func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterAciConnectorLinux) []KubernetesClusterAciConnectorLinuxConnectorIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectorIdentities
+	}).(KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput)
+}
+
 // The subnet name for the virtual nodes to run.
 func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAciConnectorLinux) *string {
@@ -3420,6 +3441,121 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringP
 		}
 		return &v.SubnetName
 	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterAciConnectorLinuxConnectorIdentity struct {
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	ClientId *string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	ObjectId *string `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// KubernetesClusterAciConnectorLinuxConnectorIdentityInput is an input type that accepts KubernetesClusterAciConnectorLinuxConnectorIdentityArgs and KubernetesClusterAciConnectorLinuxConnectorIdentityOutput values.
+// You can construct a concrete instance of `KubernetesClusterAciConnectorLinuxConnectorIdentityInput` via:
+//
+//	KubernetesClusterAciConnectorLinuxConnectorIdentityArgs{...}
+type KubernetesClusterAciConnectorLinuxConnectorIdentityInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAciConnectorLinuxConnectorIdentityOutput() KubernetesClusterAciConnectorLinuxConnectorIdentityOutput
+	ToKubernetesClusterAciConnectorLinuxConnectorIdentityOutputWithContext(context.Context) KubernetesClusterAciConnectorLinuxConnectorIdentityOutput
+}
+
+type KubernetesClusterAciConnectorLinuxConnectorIdentityArgs struct {
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (KubernetesClusterAciConnectorLinuxConnectorIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAciConnectorLinuxConnectorIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterAciConnectorLinuxConnectorIdentityArgs) ToKubernetesClusterAciConnectorLinuxConnectorIdentityOutput() KubernetesClusterAciConnectorLinuxConnectorIdentityOutput {
+	return i.ToKubernetesClusterAciConnectorLinuxConnectorIdentityOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAciConnectorLinuxConnectorIdentityArgs) ToKubernetesClusterAciConnectorLinuxConnectorIdentityOutputWithContext(ctx context.Context) KubernetesClusterAciConnectorLinuxConnectorIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAciConnectorLinuxConnectorIdentityOutput)
+}
+
+// KubernetesClusterAciConnectorLinuxConnectorIdentityArrayInput is an input type that accepts KubernetesClusterAciConnectorLinuxConnectorIdentityArray and KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterAciConnectorLinuxConnectorIdentityArrayInput` via:
+//
+//	KubernetesClusterAciConnectorLinuxConnectorIdentityArray{ KubernetesClusterAciConnectorLinuxConnectorIdentityArgs{...} }
+type KubernetesClusterAciConnectorLinuxConnectorIdentityArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput() KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput
+	ToKubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutputWithContext(context.Context) KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput
+}
+
+type KubernetesClusterAciConnectorLinuxConnectorIdentityArray []KubernetesClusterAciConnectorLinuxConnectorIdentityInput
+
+func (KubernetesClusterAciConnectorLinuxConnectorIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterAciConnectorLinuxConnectorIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterAciConnectorLinuxConnectorIdentityArray) ToKubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput() KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput {
+	return i.ToKubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAciConnectorLinuxConnectorIdentityArray) ToKubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput)
+}
+
+type KubernetesClusterAciConnectorLinuxConnectorIdentityOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAciConnectorLinuxConnectorIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ToKubernetesClusterAciConnectorLinuxConnectorIdentityOutput() KubernetesClusterAciConnectorLinuxConnectorIdentityOutput {
+	return o
+}
+
+func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ToKubernetesClusterAciConnectorLinuxConnectorIdentityOutputWithContext(ctx context.Context) KubernetesClusterAciConnectorLinuxConnectorIdentityOutput {
+	return o
+}
+
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAciConnectorLinuxConnectorIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAciConnectorLinuxConnectorIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAciConnectorLinuxConnectorIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterAciConnectorLinuxConnectorIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput) ToKubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput() KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput) ToKubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterAciConnectorLinuxConnectorIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterAciConnectorLinuxConnectorIdentity {
+		return vs[0].([]KubernetesClusterAciConnectorLinuxConnectorIdentity)[vs[1].(int)]
+	}).(KubernetesClusterAciConnectorLinuxConnectorIdentityOutput)
 }
 
 type KubernetesClusterApiServerAccessProfile struct {
@@ -4289,6 +4425,143 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Te
 		}
 		return v.TenantId
 	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterConfidentialComputing struct {
+	// Should the SGX quote helper be enabled?
+	SgxQuoteHelperEnabled bool `pulumi:"sgxQuoteHelperEnabled"`
+}
+
+// KubernetesClusterConfidentialComputingInput is an input type that accepts KubernetesClusterConfidentialComputingArgs and KubernetesClusterConfidentialComputingOutput values.
+// You can construct a concrete instance of `KubernetesClusterConfidentialComputingInput` via:
+//
+//	KubernetesClusterConfidentialComputingArgs{...}
+type KubernetesClusterConfidentialComputingInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterConfidentialComputingOutput() KubernetesClusterConfidentialComputingOutput
+	ToKubernetesClusterConfidentialComputingOutputWithContext(context.Context) KubernetesClusterConfidentialComputingOutput
+}
+
+type KubernetesClusterConfidentialComputingArgs struct {
+	// Should the SGX quote helper be enabled?
+	SgxQuoteHelperEnabled pulumi.BoolInput `pulumi:"sgxQuoteHelperEnabled"`
+}
+
+func (KubernetesClusterConfidentialComputingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterConfidentialComputing)(nil)).Elem()
+}
+
+func (i KubernetesClusterConfidentialComputingArgs) ToKubernetesClusterConfidentialComputingOutput() KubernetesClusterConfidentialComputingOutput {
+	return i.ToKubernetesClusterConfidentialComputingOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterConfidentialComputingArgs) ToKubernetesClusterConfidentialComputingOutputWithContext(ctx context.Context) KubernetesClusterConfidentialComputingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterConfidentialComputingOutput)
+}
+
+func (i KubernetesClusterConfidentialComputingArgs) ToKubernetesClusterConfidentialComputingPtrOutput() KubernetesClusterConfidentialComputingPtrOutput {
+	return i.ToKubernetesClusterConfidentialComputingPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterConfidentialComputingArgs) ToKubernetesClusterConfidentialComputingPtrOutputWithContext(ctx context.Context) KubernetesClusterConfidentialComputingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterConfidentialComputingOutput).ToKubernetesClusterConfidentialComputingPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterConfidentialComputingPtrInput is an input type that accepts KubernetesClusterConfidentialComputingArgs, KubernetesClusterConfidentialComputingPtr and KubernetesClusterConfidentialComputingPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterConfidentialComputingPtrInput` via:
+//
+//	        KubernetesClusterConfidentialComputingArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterConfidentialComputingPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterConfidentialComputingPtrOutput() KubernetesClusterConfidentialComputingPtrOutput
+	ToKubernetesClusterConfidentialComputingPtrOutputWithContext(context.Context) KubernetesClusterConfidentialComputingPtrOutput
+}
+
+type kubernetesClusterConfidentialComputingPtrType KubernetesClusterConfidentialComputingArgs
+
+func KubernetesClusterConfidentialComputingPtr(v *KubernetesClusterConfidentialComputingArgs) KubernetesClusterConfidentialComputingPtrInput {
+	return (*kubernetesClusterConfidentialComputingPtrType)(v)
+}
+
+func (*kubernetesClusterConfidentialComputingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterConfidentialComputing)(nil)).Elem()
+}
+
+func (i *kubernetesClusterConfidentialComputingPtrType) ToKubernetesClusterConfidentialComputingPtrOutput() KubernetesClusterConfidentialComputingPtrOutput {
+	return i.ToKubernetesClusterConfidentialComputingPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterConfidentialComputingPtrType) ToKubernetesClusterConfidentialComputingPtrOutputWithContext(ctx context.Context) KubernetesClusterConfidentialComputingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterConfidentialComputingPtrOutput)
+}
+
+type KubernetesClusterConfidentialComputingOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterConfidentialComputingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterConfidentialComputing)(nil)).Elem()
+}
+
+func (o KubernetesClusterConfidentialComputingOutput) ToKubernetesClusterConfidentialComputingOutput() KubernetesClusterConfidentialComputingOutput {
+	return o
+}
+
+func (o KubernetesClusterConfidentialComputingOutput) ToKubernetesClusterConfidentialComputingOutputWithContext(ctx context.Context) KubernetesClusterConfidentialComputingOutput {
+	return o
+}
+
+func (o KubernetesClusterConfidentialComputingOutput) ToKubernetesClusterConfidentialComputingPtrOutput() KubernetesClusterConfidentialComputingPtrOutput {
+	return o.ToKubernetesClusterConfidentialComputingPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterConfidentialComputingOutput) ToKubernetesClusterConfidentialComputingPtrOutputWithContext(ctx context.Context) KubernetesClusterConfidentialComputingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterConfidentialComputing) *KubernetesClusterConfidentialComputing {
+		return &v
+	}).(KubernetesClusterConfidentialComputingPtrOutput)
+}
+
+// Should the SGX quote helper be enabled?
+func (o KubernetesClusterConfidentialComputingOutput) SgxQuoteHelperEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v KubernetesClusterConfidentialComputing) bool { return v.SgxQuoteHelperEnabled }).(pulumi.BoolOutput)
+}
+
+type KubernetesClusterConfidentialComputingPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterConfidentialComputingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterConfidentialComputing)(nil)).Elem()
+}
+
+func (o KubernetesClusterConfidentialComputingPtrOutput) ToKubernetesClusterConfidentialComputingPtrOutput() KubernetesClusterConfidentialComputingPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterConfidentialComputingPtrOutput) ToKubernetesClusterConfidentialComputingPtrOutputWithContext(ctx context.Context) KubernetesClusterConfidentialComputingPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterConfidentialComputingPtrOutput) Elem() KubernetesClusterConfidentialComputingOutput {
+	return o.ApplyT(func(v *KubernetesClusterConfidentialComputing) KubernetesClusterConfidentialComputing {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterConfidentialComputing
+		return ret
+	}).(KubernetesClusterConfidentialComputingOutput)
+}
+
+// Should the SGX quote helper be enabled?
+func (o KubernetesClusterConfidentialComputingPtrOutput) SgxQuoteHelperEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterConfidentialComputing) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SgxQuoteHelperEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type KubernetesClusterDefaultNodePool struct {
@@ -6303,7 +6576,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmVf
 }
 
 type KubernetesClusterDefaultNodePoolNodeNetworkProfile struct {
-	// Specifies a mapping of tags to the instance-level public IPs.
+	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 	NodePublicIpTags map[string]string `pulumi:"nodePublicIpTags"`
 }
 
@@ -6319,7 +6592,7 @@ type KubernetesClusterDefaultNodePoolNodeNetworkProfileInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs struct {
-	// Specifies a mapping of tags to the instance-level public IPs.
+	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 	NodePublicIpTags pulumi.StringMapInput `pulumi:"nodePublicIpTags"`
 }
 
@@ -6400,7 +6673,7 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ToKubernetesCl
 	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput)
 }
 
-// Specifies a mapping of tags to the instance-level public IPs.
+// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolNodeNetworkProfile) map[string]string {
 		return v.NodePublicIpTags
@@ -6431,7 +6704,7 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) Elem() Kube
 	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput)
 }
 
-// Specifies a mapping of tags to the instance-level public IPs.
+// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolNodeNetworkProfile) map[string]string {
 		if v == nil {
@@ -7324,8 +7597,7 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 type KubernetesClusterKeyManagementService struct {
 	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
-	// Network access of the key vault
-	// Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
 	KeyVaultNetworkAccess *string `pulumi:"keyVaultNetworkAccess"`
 }
 
@@ -7343,8 +7615,7 @@ type KubernetesClusterKeyManagementServiceInput interface {
 type KubernetesClusterKeyManagementServiceArgs struct {
 	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
-	// Network access of the key vault
-	// Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
 	KeyVaultNetworkAccess pulumi.StringPtrInput `pulumi:"keyVaultNetworkAccess"`
 }
 
@@ -7430,8 +7701,7 @@ func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultKeyId() pulumi.Stri
 	return o.ApplyT(func(v KubernetesClusterKeyManagementService) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
 
-// Network access of the key vault
-// Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
 func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyManagementService) *string { return v.KeyVaultNetworkAccess }).(pulumi.StringPtrOutput)
 }
@@ -7470,8 +7740,7 @@ func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultKeyId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network access of the key vault
-// Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
 func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKeyManagementService) *string {
 		if v == nil {
@@ -11220,7 +11489,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmVfsCacheP
 }
 
 type KubernetesClusterNodePoolNodeNetworkProfile struct {
-	// Specifies a mapping of tags to the instance-level public IPs.
+	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 	NodePublicIpTags map[string]string `pulumi:"nodePublicIpTags"`
 }
 
@@ -11236,7 +11505,7 @@ type KubernetesClusterNodePoolNodeNetworkProfileInput interface {
 }
 
 type KubernetesClusterNodePoolNodeNetworkProfileArgs struct {
-	// Specifies a mapping of tags to the instance-level public IPs.
+	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 	NodePublicIpTags pulumi.StringMapInput `pulumi:"nodePublicIpTags"`
 }
 
@@ -11317,7 +11586,7 @@ func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ToKubernetesClusterNo
 	}).(KubernetesClusterNodePoolNodeNetworkProfilePtrOutput)
 }
 
-// Specifies a mapping of tags to the instance-level public IPs.
+// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolNodeNetworkProfile) map[string]string { return v.NodePublicIpTags }).(pulumi.StringMapOutput)
 }
@@ -11346,7 +11615,7 @@ func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) Elem() KubernetesC
 	}).(KubernetesClusterNodePoolNodeNetworkProfileOutput)
 }
 
-// Specifies a mapping of tags to the instance-level public IPs.
+// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolNodeNetworkProfile) map[string]string {
 		if v == nil {
@@ -19892,12 +20161,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerVolumeGitRepoPtrInput)(nil)).Elem(), GroupInitContainerVolumeGitRepoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAciConnectorLinuxInput)(nil)).Elem(), KubernetesClusterAciConnectorLinuxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAciConnectorLinuxPtrInput)(nil)).Elem(), KubernetesClusterAciConnectorLinuxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAciConnectorLinuxConnectorIdentityInput)(nil)).Elem(), KubernetesClusterAciConnectorLinuxConnectorIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAciConnectorLinuxConnectorIdentityArrayInput)(nil)).Elem(), KubernetesClusterAciConnectorLinuxConnectorIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterApiServerAccessProfileInput)(nil)).Elem(), KubernetesClusterApiServerAccessProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterApiServerAccessProfilePtrInput)(nil)).Elem(), KubernetesClusterApiServerAccessProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAutoScalerProfileInput)(nil)).Elem(), KubernetesClusterAutoScalerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAutoScalerProfilePtrInput)(nil)).Elem(), KubernetesClusterAutoScalerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlInput)(nil)).Elem(), KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrInput)(nil)).Elem(), KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterConfidentialComputingInput)(nil)).Elem(), KubernetesClusterConfidentialComputingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterConfidentialComputingPtrInput)(nil)).Elem(), KubernetesClusterConfidentialComputingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolPtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolKubeletConfigInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolKubeletConfigArgs{})
@@ -20116,12 +20389,16 @@ func init() {
 	pulumi.RegisterOutputType(GroupInitContainerVolumeGitRepoPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAciConnectorLinuxOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAciConnectorLinuxPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAciConnectorLinuxConnectorIdentityOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterApiServerAccessProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterApiServerAccessProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterConfidentialComputingOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterConfidentialComputingPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolKubeletConfigOutput{})

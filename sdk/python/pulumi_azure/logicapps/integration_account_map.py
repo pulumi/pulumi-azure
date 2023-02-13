@@ -24,7 +24,7 @@ class IntegrationAccountMapArgs:
         The set of arguments for constructing a IntegrationAccountMap resource.
         :param pulumi.Input[str] content: The content of the Logic App Integration Account Map.
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
-        :param pulumi.Input[str] map_type: The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+        :param pulumi.Input[str] map_type: The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Map should exist. Changing this forces a new Logic App Integration Account Map to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata of the Logic App Integration Account Map.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
@@ -66,7 +66,7 @@ class IntegrationAccountMapArgs:
     @pulumi.getter(name="mapType")
     def map_type(self) -> pulumi.Input[str]:
         """
-        The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+        The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
         """
         return pulumi.get(self, "map_type")
 
@@ -124,7 +124,7 @@ class _IntegrationAccountMapState:
         Input properties used for looking up and filtering IntegrationAccountMap resources.
         :param pulumi.Input[str] content: The content of the Logic App Integration Account Map.
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
-        :param pulumi.Input[str] map_type: The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+        :param pulumi.Input[str] map_type: The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata of the Logic App Integration Account Map.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Map should exist. Changing this forces a new Logic App Integration Account Map to be created.
@@ -170,7 +170,7 @@ class _IntegrationAccountMapState:
     @pulumi.getter(name="mapType")
     def map_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+        The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
         """
         return pulumi.get(self, "map_type")
 
@@ -260,7 +260,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: The content of the Logic App Integration Account Map.
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
-        :param pulumi.Input[str] map_type: The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+        :param pulumi.Input[str] map_type: The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata of the Logic App Integration Account Map.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Map should exist. Changing this forces a new Logic App Integration Account Map to be created.
@@ -369,7 +369,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: The content of the Logic App Integration Account Map.
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
-        :param pulumi.Input[str] map_type: The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+        :param pulumi.Input[str] map_type: The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata of the Logic App Integration Account Map.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Map should exist. Changing this forces a new Logic App Integration Account Map to be created.
@@ -406,7 +406,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
     @pulumi.getter(name="mapType")
     def map_type(self) -> pulumi.Output[str]:
         """
-        The type of the Logic App Integration Account Map. Possible values are `Xslt`, `Xslt20`, `Xslt30` and `Liquid`.
+        The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
         """
         return pulumi.get(self, "map_type")
 

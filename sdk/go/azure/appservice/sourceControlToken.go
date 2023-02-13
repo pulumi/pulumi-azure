@@ -51,7 +51,8 @@ type SourceControlToken struct {
 	pulumi.CustomResourceState
 
 	// The Access Token.
-	Token       pulumi.StringOutput    `pulumi:"token"`
+	Token pulumi.StringOutput `pulumi:"token"`
+	// The Access Token Secret.
 	TokenSecret pulumi.StringPtrOutput `pulumi:"tokenSecret"`
 	// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -104,7 +105,8 @@ func GetSourceControlToken(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SourceControlToken resources.
 type sourceControlTokenState struct {
 	// The Access Token.
-	Token       *string `pulumi:"token"`
+	Token *string `pulumi:"token"`
+	// The Access Token Secret.
 	TokenSecret *string `pulumi:"tokenSecret"`
 	// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
 	Type *string `pulumi:"type"`
@@ -112,7 +114,8 @@ type sourceControlTokenState struct {
 
 type SourceControlTokenState struct {
 	// The Access Token.
-	Token       pulumi.StringPtrInput
+	Token pulumi.StringPtrInput
+	// The Access Token Secret.
 	TokenSecret pulumi.StringPtrInput
 	// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
 	Type pulumi.StringPtrInput
@@ -124,7 +127,8 @@ func (SourceControlTokenState) ElementType() reflect.Type {
 
 type sourceControlTokenArgs struct {
 	// The Access Token.
-	Token       string  `pulumi:"token"`
+	Token string `pulumi:"token"`
+	// The Access Token Secret.
 	TokenSecret *string `pulumi:"tokenSecret"`
 	// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
 	Type string `pulumi:"type"`
@@ -133,7 +137,8 @@ type sourceControlTokenArgs struct {
 // The set of arguments for constructing a SourceControlToken resource.
 type SourceControlTokenArgs struct {
 	// The Access Token.
-	Token       pulumi.StringInput
+	Token pulumi.StringInput
+	// The Access Token Secret.
 	TokenSecret pulumi.StringPtrInput
 	// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
 	Type pulumi.StringInput
@@ -231,6 +236,7 @@ func (o SourceControlTokenOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceControlToken) pulumi.StringOutput { return v.Token }).(pulumi.StringOutput)
 }
 
+// The Access Token Secret.
 func (o SourceControlTokenOutput) TokenSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlToken) pulumi.StringPtrOutput { return v.TokenSecret }).(pulumi.StringPtrOutput)
 }

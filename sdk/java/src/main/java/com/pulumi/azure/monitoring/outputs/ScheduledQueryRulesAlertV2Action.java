@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScheduledQueryRulesAlertV2Action {
     /**
-     * @return List of Action Group resource ids to invoke when the alert fires.
+     * @return List of Action Group resource IDs to invoke when the alert fires.
      * 
      */
     private @Nullable List<String> actionGroups;
@@ -25,7 +25,7 @@ public final class ScheduledQueryRulesAlertV2Action {
 
     private ScheduledQueryRulesAlertV2Action() {}
     /**
-     * @return List of Action Group resource ids to invoke when the alert fires.
+     * @return List of Action Group resource IDs to invoke when the alert fires.
      * 
      */
     public List<String> actionGroups() {

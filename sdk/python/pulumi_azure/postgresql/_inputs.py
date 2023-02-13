@@ -26,8 +26,8 @@ class FlexibleServerAuthenticationArgs:
                  password_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] active_directory_auth_enabled: Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
-        :param pulumi.Input[bool] password_auth_enabled: Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+        :param pulumi.Input[bool] active_directory_auth_enabled: Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+        :param pulumi.Input[bool] password_auth_enabled: Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
         """
         if active_directory_auth_enabled is not None:
@@ -41,7 +41,7 @@ class FlexibleServerAuthenticationArgs:
     @pulumi.getter(name="activeDirectoryAuthEnabled")
     def active_directory_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+        Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
         """
         return pulumi.get(self, "active_directory_auth_enabled")
 
@@ -53,7 +53,7 @@ class FlexibleServerAuthenticationArgs:
     @pulumi.getter(name="passwordAuthEnabled")
     def password_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+        Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
         """
         return pulumi.get(self, "password_auth_enabled")
 

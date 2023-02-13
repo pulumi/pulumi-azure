@@ -112,6 +112,9 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
      * A `computeIsolation` block as defined below.
      */
     public readonly computeIsolation!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterComputeIsolation | undefined>;
+    /**
+     * A `diskEncryption` block as defined below.
+     */
     public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterDiskEncryption[] | undefined>;
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
@@ -285,6 +288,9 @@ export interface InteractiveQueryClusterState {
      * A `computeIsolation` block as defined below.
      */
     computeIsolation?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterComputeIsolation>;
+    /**
+     * A `diskEncryption` block as defined below.
+     */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterDiskEncryption>[]>;
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
@@ -376,6 +382,9 @@ export interface InteractiveQueryClusterArgs {
      * A `computeIsolation` block as defined below.
      */
     computeIsolation?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterComputeIsolation>;
+    /**
+     * A `diskEncryption` block as defined below.
+     */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterDiskEncryption>[]>;
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.

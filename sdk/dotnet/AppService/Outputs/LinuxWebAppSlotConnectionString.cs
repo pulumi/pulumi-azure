@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppSlotConnectionString
     {
         /// <summary>
-        /// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+        /// The name of the Connection String.
         /// </summary>
         public readonly string Name;
         /// <summary>

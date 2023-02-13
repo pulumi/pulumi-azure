@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction {
+    /**
+     * @return Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean bestEffortEnforced;
     /**
      * @return The restriction control bits. Possible value is integer between `0` and `3` inclusive.
@@ -20,6 +24,10 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
     private Integer controlBits;
 
     private ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction() {}
+    /**
+     * @return Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> bestEffortEnforced() {
         return Optional.ofNullable(this.bestEffortEnforced);
     }

@@ -239,6 +239,7 @@ class _ServiceState:
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        :param pulumi.Input[str] external_ip: The publicly accessible IP of the Web PubSub service.
         :param pulumi.Input[str] hostname: The FQDN of the Web PubSub service.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
@@ -327,6 +328,9 @@ class _ServiceState:
     @property
     @pulumi.getter(name="externalIp")
     def external_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        The publicly accessible IP of the Web PubSub service.
+        """
         return pulumi.get(self, "external_ip")
 
     @external_ip.setter
@@ -757,6 +761,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        :param pulumi.Input[str] external_ip: The publicly accessible IP of the Web PubSub service.
         :param pulumi.Input[str] hostname: The FQDN of the Web PubSub service.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']] live_trace: A `live_trace` block as defined below.
@@ -821,6 +826,9 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="externalIp")
     def external_ip(self) -> pulumi.Output[str]:
+        """
+        The publicly accessible IP of the Web PubSub service.
+        """
         return pulumi.get(self, "external_ip")
 
     @property

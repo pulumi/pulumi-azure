@@ -41,7 +41,7 @@ public final class ScheduledQueryRulesAlertV2Criteria {
      */
     private String query;
     /**
-     * @return Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+     * @return Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
      * 
      */
     private @Nullable String resourceIdColumn;
@@ -93,7 +93,7 @@ public final class ScheduledQueryRulesAlertV2Criteria {
         return this.query;
     }
     /**
-     * @return Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+     * @return Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
      * 
      */
     public Optional<String> resourceIdColumn() {

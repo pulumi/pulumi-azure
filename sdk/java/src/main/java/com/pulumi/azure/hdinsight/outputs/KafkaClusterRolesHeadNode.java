@@ -18,6 +18,10 @@ public final class KafkaClusterRolesHeadNode {
      * 
      */
     private @Nullable String password;
+    /**
+     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
+     */
     private @Nullable List<KafkaClusterRolesHeadNodeScriptAction> scriptActions;
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
@@ -53,6 +57,10 @@ public final class KafkaClusterRolesHeadNode {
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
+    /**
+     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
+     */
     public List<KafkaClusterRolesHeadNodeScriptAction> scriptActions() {
         return this.scriptActions == null ? List.of() : this.scriptActions;
     }

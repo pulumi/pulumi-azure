@@ -7,6 +7,36 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Manager Static Member.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const current = azure.core.getSubscription({});
+ * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     scope: {
+ *         subscriptionIds: [current.then(current => current.id)],
+ *     },
+ *     scopeAccesses: [
+ *         "Connectivity",
+ *         "SecurityAdmin",
+ *     ],
+ *     description: "example network manager",
+ * });
+ * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", {
+ *     networkManagerId: exampleNetworkManager.id,
+ *     description: "example network group",
+ * });
+ * const exampleNetworkManagerStaticMember = new azure.network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember", {
+ *     networkGroupId: exampleNetworkManagerNetworkGroup.id,
+ *     targetVirtualNetworkId: azurerm_virtual_network.example.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Network Manager Static Member can be imported using the `resource id`, e.g.
@@ -55,6 +85,9 @@ export class NetworkManagerStaticMember extends pulumi.CustomResource {
      * The region of the Network Manager Static Member.
      */
     public /*out*/ readonly region!: pulumi.Output<string>;
+    /**
+     * Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     */
     public readonly targetVirtualNetworkId!: pulumi.Output<string>;
 
     /**
@@ -108,6 +141,9 @@ export interface NetworkManagerStaticMemberState {
      * The region of the Network Manager Static Member.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     */
     targetVirtualNetworkId?: pulumi.Input<string>;
 }
 
@@ -123,5 +159,8 @@ export interface NetworkManagerStaticMemberArgs {
      * Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
      */
     networkGroupId: pulumi.Input<string>;
+    /**
+     * Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     */
     targetVirtualNetworkId: pulumi.Input<string>;
 }

@@ -33,14 +33,14 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
     }
 
     /**
-     * The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+     * The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
      * 
      */
     @Import(name="frequency", required=true)
     private Output<String> frequency;
 
     /**
-     * @return The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+     * @return The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
      * 
      */
     public Output<String> frequency() {
@@ -158,7 +158,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
 
         /**
-         * @param frequency The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+         * @param frequency The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
 
         /**
-         * @param frequency The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+         * @param frequency The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
          * 
          * @return builder
          * 

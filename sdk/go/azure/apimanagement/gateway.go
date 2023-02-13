@@ -75,6 +75,7 @@ import (
 type Gateway struct {
 	pulumi.CustomResourceState
 
+	// The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
 	ApiManagementId pulumi.StringOutput `pulumi:"apiManagementId"`
 	// The description of the API Management Gateway.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -119,6 +120,7 @@ func GetGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Gateway resources.
 type gatewayState struct {
+	// The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
 	ApiManagementId *string `pulumi:"apiManagementId"`
 	// The description of the API Management Gateway.
 	Description *string `pulumi:"description"`
@@ -129,6 +131,7 @@ type gatewayState struct {
 }
 
 type GatewayState struct {
+	// The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
 	ApiManagementId pulumi.StringPtrInput
 	// The description of the API Management Gateway.
 	Description pulumi.StringPtrInput
@@ -143,6 +146,7 @@ func (GatewayState) ElementType() reflect.Type {
 }
 
 type gatewayArgs struct {
+	// The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
 	ApiManagementId string `pulumi:"apiManagementId"`
 	// The description of the API Management Gateway.
 	Description *string `pulumi:"description"`
@@ -154,6 +158,7 @@ type gatewayArgs struct {
 
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
+	// The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
 	ApiManagementId pulumi.StringInput
 	// The description of the API Management Gateway.
 	Description pulumi.StringPtrInput
@@ -250,6 +255,7 @@ func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOu
 	return o
 }
 
+// The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
 func (o GatewayOutput) ApiManagementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.ApiManagementId }).(pulumi.StringOutput)
 }

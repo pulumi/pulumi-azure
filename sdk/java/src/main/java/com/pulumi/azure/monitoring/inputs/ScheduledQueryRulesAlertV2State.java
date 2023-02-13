@@ -247,14 +247,14 @@ public final class ScheduledQueryRulesAlertV2State extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+     * Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
      * 
      */
     @Import(name="scopes")
     private @Nullable Output<String> scopes;
 
     /**
-     * @return Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+     * @return Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
      * 
      */
     public Optional<Output<String>> scopes() {
@@ -722,7 +722,7 @@ public final class ScheduledQueryRulesAlertV2State extends com.pulumi.resources.
         }
 
         /**
-         * @param scopes Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+         * @param scopes Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class ScheduledQueryRulesAlertV2State extends com.pulumi.resources.
         }
 
         /**
-         * @param scopes Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
+         * @param scopes Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
          * 
          * @return builder
          * 

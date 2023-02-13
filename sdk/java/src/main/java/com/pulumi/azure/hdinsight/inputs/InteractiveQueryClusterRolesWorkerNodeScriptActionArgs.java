@@ -16,14 +16,14 @@ public final class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs extend
     public static final InteractiveQueryClusterRolesWorkerNodeScriptActionArgs Empty = new InteractiveQueryClusterRolesWorkerNodeScriptActionArgs();
 
     /**
-     * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+     * The name of the script action.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+     * @return The name of the script action.
      * 
      */
     public Output<String> name() {
@@ -87,7 +87,7 @@ public final class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs extend
         }
 
         /**
-         * @param name Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+         * @param name The name of the script action.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs extend
         }
 
         /**
-         * @param name Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+         * @param name The name of the script action.
          * 
          * @return builder
          * 

@@ -23,7 +23,7 @@ public final class AccountBackup {
      */
     private @Nullable Integer retentionInHours;
     /**
-     * @return The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+     * @return The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
      * 
      */
     private @Nullable String storageRedundancy;
@@ -49,7 +49,7 @@ public final class AccountBackup {
         return Optional.ofNullable(this.retentionInHours);
     }
     /**
-     * @return The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+     * @return The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
      * 
      */
     public Optional<String> storageRedundancy() {

@@ -21,6 +21,7 @@ class SourceControlTokenArgs:
         The set of arguments for constructing a SourceControlToken resource.
         :param pulumi.Input[str] token: The Access Token.
         :param pulumi.Input[str] type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
+        :param pulumi.Input[str] token_secret: The Access Token Secret.
         """
         pulumi.set(__self__, "token", token)
         pulumi.set(__self__, "type", type)
@@ -54,6 +55,9 @@ class SourceControlTokenArgs:
     @property
     @pulumi.getter(name="tokenSecret")
     def token_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Access Token Secret.
+        """
         return pulumi.get(self, "token_secret")
 
     @token_secret.setter
@@ -70,6 +74,7 @@ class _SourceControlTokenState:
         """
         Input properties used for looking up and filtering SourceControlToken resources.
         :param pulumi.Input[str] token: The Access Token.
+        :param pulumi.Input[str] token_secret: The Access Token Secret.
         :param pulumi.Input[str] type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
         """
         if token is not None:
@@ -94,6 +99,9 @@ class _SourceControlTokenState:
     @property
     @pulumi.getter(name="tokenSecret")
     def token_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Access Token Secret.
+        """
         return pulumi.get(self, "token_secret")
 
     @token_secret.setter
@@ -145,6 +153,7 @@ class SourceControlToken(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] token: The Access Token.
+        :param pulumi.Input[str] token_secret: The Access Token Secret.
         :param pulumi.Input[str] type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
         """
         ...
@@ -230,6 +239,7 @@ class SourceControlToken(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] token: The Access Token.
+        :param pulumi.Input[str] token_secret: The Access Token Secret.
         :param pulumi.Input[str] type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -252,6 +262,9 @@ class SourceControlToken(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tokenSecret")
     def token_secret(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Access Token Secret.
+        """
         return pulumi.get(self, "token_secret")
 
     @property

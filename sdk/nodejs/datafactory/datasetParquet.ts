@@ -85,9 +85,12 @@ export class DatasetParquet extends pulumi.CustomResource {
      */
     public readonly azureBlobStorageLocation!: pulumi.Output<outputs.datafactory.DatasetParquetAzureBlobStorageLocation | undefined>;
     /**
-     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
      */
     public readonly compressionCodec!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+     */
     public readonly compressionLevel!: pulumi.Output<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
@@ -192,9 +195,12 @@ export interface DatasetParquetState {
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetParquetAzureBlobStorageLocation>;
     /**
-     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
      */
     compressionCodec?: pulumi.Input<string>;
+    /**
+     * Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+     */
     compressionLevel?: pulumi.Input<string>;
     /**
      * The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
@@ -247,9 +253,12 @@ export interface DatasetParquetArgs {
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetParquetAzureBlobStorageLocation>;
     /**
-     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
      */
     compressionCodec?: pulumi.Input<string>;
+    /**
+     * Specifies the compression level. Possible values are `Optimal` and `Fastest`,
+     */
     compressionLevel?: pulumi.Input<string>;
     /**
      * The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.

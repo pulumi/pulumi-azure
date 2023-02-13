@@ -221,7 +221,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] frequency: The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+        :param pulumi.Input[str] frequency: The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
         :param pulumi.Input[int] interval: The number of `frequency`s between runs.
         :param pulumi.Input[str] end_time: The end time of the schedule, formatted as an RFC3339 string.
         :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs'] schedule: A `schedule` block as documented below.
@@ -243,7 +243,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
     @pulumi.getter
     def frequency(self) -> pulumi.Input[str]:
         """
-        The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+        The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
         """
         return pulumi.get(self, "frequency")
 

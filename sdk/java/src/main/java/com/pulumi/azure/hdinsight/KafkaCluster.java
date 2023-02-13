@@ -179,9 +179,17 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<KafkaClusterComputeIsolation>> computeIsolation() {
         return Codegen.optional(this.computeIsolation);
     }
+    /**
+     * One or more `disk_encryption` block as defined below.
+     * 
+     */
     @Export(name="diskEncryptions", type=List.class, parameters={KafkaClusterDiskEncryption.class})
     private Output</* @Nullable */ List<KafkaClusterDiskEncryption>> diskEncryptions;
 
+    /**
+     * @return One or more `disk_encryption` block as defined below.
+     * 
+     */
     public Output<Optional<List<KafkaClusterDiskEncryption>>> diskEncryptions() {
         return Codegen.optional(this.diskEncryptions);
     }

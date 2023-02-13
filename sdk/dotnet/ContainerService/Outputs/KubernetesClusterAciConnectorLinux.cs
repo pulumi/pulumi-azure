@@ -14,13 +14,21 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterAciConnectorLinux
     {
         /// <summary>
+        /// A `connector_identity` block is exported. The exported attributes are defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.KubernetesClusterAciConnectorLinuxConnectorIdentity> ConnectorIdentities;
+        /// <summary>
         /// The subnet name for the virtual nodes to run.
         /// </summary>
         public readonly string SubnetName;
 
         [OutputConstructor]
-        private KubernetesClusterAciConnectorLinux(string subnetName)
+        private KubernetesClusterAciConnectorLinux(
+            ImmutableArray<Outputs.KubernetesClusterAciConnectorLinuxConnectorIdentity> connectorIdentities,
+
+            string subnetName)
         {
+            ConnectorIdentities = connectorIdentities;
             SubnetName = subnetName;
         }
     }

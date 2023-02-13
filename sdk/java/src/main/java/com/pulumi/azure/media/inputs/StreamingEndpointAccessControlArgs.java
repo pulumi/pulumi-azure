@@ -33,14 +33,14 @@ public final class StreamingEndpointAccessControlArgs extends com.pulumi.resourc
     }
 
     /**
-     * A `ip` block as defined below.
+     * A `ip_allow` block as defined below.
      * 
      */
     @Import(name="ipAllows")
     private @Nullable Output<List<StreamingEndpointAccessControlIpAllowArgs>> ipAllows;
 
     /**
-     * @return A `ip` block as defined below.
+     * @return A `ip_allow` block as defined below.
      * 
      */
     public Optional<Output<List<StreamingEndpointAccessControlIpAllowArgs>>> ipAllows() {
@@ -104,7 +104,7 @@ public final class StreamingEndpointAccessControlArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipAllows A `ip` block as defined below.
+         * @param ipAllows A `ip_allow` block as defined below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class StreamingEndpointAccessControlArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipAllows A `ip` block as defined below.
+         * @param ipAllows A `ip_allow` block as defined below.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class StreamingEndpointAccessControlArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipAllows A `ip` block as defined below.
+         * @param ipAllows A `ip_allow` block as defined below.
          * 
          * @return builder
          * 

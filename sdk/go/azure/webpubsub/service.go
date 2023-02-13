@@ -73,7 +73,8 @@ type Service struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled pulumi.BoolPtrOutput `pulumi:"aadAuthEnabled"`
 	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
-	Capacity   pulumi.IntPtrOutput `pulumi:"capacity"`
+	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
+	// The publicly accessible IP of the Web PubSub service.
 	ExternalIp pulumi.StringOutput `pulumi:"externalIp"`
 	// The FQDN of the Web PubSub service.
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
@@ -157,7 +158,8 @@ type serviceState struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
 	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
-	Capacity   *int    `pulumi:"capacity"`
+	Capacity *int `pulumi:"capacity"`
+	// The publicly accessible IP of the Web PubSub service.
 	ExternalIp *string `pulumi:"externalIp"`
 	// The FQDN of the Web PubSub service.
 	Hostname *string `pulumi:"hostname"`
@@ -200,7 +202,8 @@ type ServiceState struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled pulumi.BoolPtrInput
 	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
-	Capacity   pulumi.IntPtrInput
+	Capacity pulumi.IntPtrInput
+	// The publicly accessible IP of the Web PubSub service.
 	ExternalIp pulumi.StringPtrInput
 	// The FQDN of the Web PubSub service.
 	Hostname pulumi.StringPtrInput
@@ -395,6 +398,7 @@ func (o ServiceOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
+// The publicly accessible IP of the Web PubSub service.
 func (o ServiceOutput) ExternalIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ExternalIp }).(pulumi.StringOutput)
 }

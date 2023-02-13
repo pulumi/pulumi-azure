@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Automation
         public Output<ImmutableArray<int>> MonthDays { get; private set; } = null!;
 
         /// <summary>
-        /// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        /// List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         /// </summary>
         [Output("monthlyOccurrences")]
         public Output<ImmutableArray<Outputs.ScheduleMonthlyOccurrence>> MonthlyOccurrences { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.ScheduleMonthlyOccurrenceArgs>? _monthlyOccurrences;
 
         /// <summary>
-        /// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        /// List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.ScheduleMonthlyOccurrenceArgs> MonthlyOccurrences
         {
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.ScheduleMonthlyOccurrenceGetArgs>? _monthlyOccurrences;
 
         /// <summary>
-        /// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        /// List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.ScheduleMonthlyOccurrenceGetArgs> MonthlyOccurrences
         {

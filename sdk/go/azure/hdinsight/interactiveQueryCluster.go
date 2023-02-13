@@ -116,7 +116,8 @@ type InteractiveQueryCluster struct {
 	ComponentVersion InteractiveQueryClusterComponentVersionOutput `pulumi:"componentVersion"`
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation InteractiveQueryClusterComputeIsolationPtrOutput `pulumi:"computeIsolation"`
-	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
+	// A `diskEncryption` block as defined below.
+	DiskEncryptions InteractiveQueryClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolOutput `pulumi:"encryptionInTransitEnabled"`
 	// An `extension` block as defined below.
@@ -208,7 +209,8 @@ type interactiveQueryClusterState struct {
 	ComponentVersion *InteractiveQueryClusterComponentVersion `pulumi:"componentVersion"`
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation *InteractiveQueryClusterComputeIsolation `pulumi:"computeIsolation"`
-	DiskEncryptions  []InteractiveQueryClusterDiskEncryption  `pulumi:"diskEncryptions"`
+	// A `diskEncryption` block as defined below.
+	DiskEncryptions []InteractiveQueryClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// An `extension` block as defined below.
@@ -254,7 +256,8 @@ type InteractiveQueryClusterState struct {
 	ComponentVersion InteractiveQueryClusterComponentVersionPtrInput
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation InteractiveQueryClusterComputeIsolationPtrInput
-	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayInput
+	// A `diskEncryption` block as defined below.
+	DiskEncryptions InteractiveQueryClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// An `extension` block as defined below.
@@ -304,7 +307,8 @@ type interactiveQueryClusterArgs struct {
 	ComponentVersion InteractiveQueryClusterComponentVersion `pulumi:"componentVersion"`
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation *InteractiveQueryClusterComputeIsolation `pulumi:"computeIsolation"`
-	DiskEncryptions  []InteractiveQueryClusterDiskEncryption  `pulumi:"diskEncryptions"`
+	// A `diskEncryption` block as defined below.
+	DiskEncryptions []InteractiveQueryClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// An `extension` block as defined below.
@@ -347,7 +351,8 @@ type InteractiveQueryClusterArgs struct {
 	ComponentVersion InteractiveQueryClusterComponentVersionInput
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation InteractiveQueryClusterComputeIsolationPtrInput
-	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayInput
+	// A `diskEncryption` block as defined below.
+	DiskEncryptions InteractiveQueryClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// An `extension` block as defined below.
@@ -488,6 +493,7 @@ func (o InteractiveQueryClusterOutput) ComputeIsolation() InteractiveQueryCluste
 	}).(InteractiveQueryClusterComputeIsolationPtrOutput)
 }
 
+// A `diskEncryption` block as defined below.
 func (o InteractiveQueryClusterOutput) DiskEncryptions() InteractiveQueryClusterDiskEncryptionArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryCluster) InteractiveQueryClusterDiskEncryptionArrayOutput {
 		return v.DiskEncryptions

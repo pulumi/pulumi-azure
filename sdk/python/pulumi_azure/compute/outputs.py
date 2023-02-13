@@ -5298,7 +5298,7 @@ class ScaleSetIdentity(dict):
                  identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+        :param str type: Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
@@ -5311,7 +5311,7 @@ class ScaleSetIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+        Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -5911,7 +5911,7 @@ class ScaleSetOsProfileSecretVaultCertificate(dict):
                  certificate_store: Optional[str] = None):
         """
         :param str certificate_url: It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
-        :param str certificate_store: Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+        :param str certificate_store: (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
         """
         pulumi.set(__self__, "certificate_url", certificate_url)
         if certificate_store is not None:
@@ -5929,7 +5929,7 @@ class ScaleSetOsProfileSecretVaultCertificate(dict):
     @pulumi.getter(name="certificateStore")
     def certificate_store(self) -> Optional[str]:
         """
-        Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+        (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
         """
         return pulumi.get(self, "certificate_store")
 

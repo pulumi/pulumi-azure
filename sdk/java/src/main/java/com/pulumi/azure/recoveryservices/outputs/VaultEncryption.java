@@ -27,6 +27,10 @@ public final class VaultEncryption {
      * 
      */
     private @Nullable Boolean useSystemAssignedIdentity;
+    /**
+     * @return Specifies the user assigned identity ID to be used.
+     * 
+     */
     private @Nullable String userAssignedIdentityId;
 
     private VaultEncryption() {}
@@ -51,6 +55,10 @@ public final class VaultEncryption {
     public Optional<Boolean> useSystemAssignedIdentity() {
         return Optional.ofNullable(this.useSystemAssignedIdentity);
     }
+    /**
+     * @return Specifies the user assigned identity ID to be used.
+     * 
+     */
     public Optional<String> userAssignedIdentityId() {
         return Optional.ofNullable(this.userAssignedIdentityId);
     }

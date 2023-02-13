@@ -100,9 +100,17 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
     public Output<String> destinationFhirMappingJson() {
         return this.destinationFhirMappingJson;
     }
+    /**
+     * Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+     * 
+     */
     @Export(name="destinationFhirServiceId", type=String.class, parameters={})
     private Output<String> destinationFhirServiceId;
 
+    /**
+     * @return Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+     * 
+     */
     public Output<String> destinationFhirServiceId() {
         return this.destinationFhirServiceId;
     }

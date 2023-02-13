@@ -58,8 +58,9 @@ type Workspace struct {
 	Name                       pulumi.StringOutput                           `pulumi:"name"`
 	PrivateEndpointConnections WorkspacePrivateEndpointConnectionArrayOutput `pulumi:"privateEndpointConnections"`
 	// Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
-	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the Healthcare Workspace.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -100,8 +101,9 @@ type workspaceState struct {
 	Name                       *string                              `pulumi:"name"`
 	PrivateEndpointConnections []WorkspacePrivateEndpointConnection `pulumi:"privateEndpointConnections"`
 	// Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
-	ResourceGroupName *string           `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the Healthcare Workspace.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type WorkspaceState struct {
@@ -112,7 +114,8 @@ type WorkspaceState struct {
 	PrivateEndpointConnections WorkspacePrivateEndpointConnectionArrayInput
 	// Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	// A mapping of tags to assign to the Healthcare Workspace.
+	Tags pulumi.StringMapInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {
@@ -125,8 +128,9 @@ type workspaceArgs struct {
 	// Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the Healthcare Workspace.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -137,7 +141,8 @@ type WorkspaceArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
 	ResourceGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	// A mapping of tags to assign to the Healthcare Workspace.
+	Tags pulumi.StringMapInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -246,6 +251,7 @@ func (o WorkspaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the Healthcare Workspace.
 func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

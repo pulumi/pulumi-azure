@@ -21,6 +21,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         /// </summary>
         public readonly int? AppScaleLimit;
+        /// <summary>
+        /// The name of the slot to automatically swap to during deployment
+        /// </summary>
         public readonly string? AutoSwapSlotName;
         /// <summary>
         /// A `cors` block as defined below.

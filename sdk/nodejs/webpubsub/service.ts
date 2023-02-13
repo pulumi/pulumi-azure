@@ -77,6 +77,9 @@ export class Service extends pulumi.CustomResource {
      * Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
+    /**
+     * The publicly accessible IP of the Web PubSub service.
+     */
     public /*out*/ readonly externalIp!: pulumi.Output<string>;
     /**
      * The FQDN of the Web PubSub service.
@@ -231,6 +234,9 @@ export interface ServiceState {
      * Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      */
     capacity?: pulumi.Input<number>;
+    /**
+     * The publicly accessible IP of the Web PubSub service.
+     */
     externalIp?: pulumi.Input<string>;
     /**
      * The FQDN of the Web PubSub service.

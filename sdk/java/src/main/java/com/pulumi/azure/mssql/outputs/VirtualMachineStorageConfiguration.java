@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualMachineStorageConfiguration {
     /**
-     * @return An `storage_settings` as defined below.
+     * @return A `storage_settings` block as defined below.
      * 
      */
     private @Nullable VirtualMachineStorageConfigurationDataSettings dataSettings;
@@ -26,7 +26,7 @@ public final class VirtualMachineStorageConfiguration {
      */
     private String diskType;
     /**
-     * @return An `storage_settings` as defined below.
+     * @return A `storage_settings` block as defined below.
      * 
      */
     private @Nullable VirtualMachineStorageConfigurationLogSettings logSettings;
@@ -48,7 +48,7 @@ public final class VirtualMachineStorageConfiguration {
 
     private VirtualMachineStorageConfiguration() {}
     /**
-     * @return An `storage_settings` as defined below.
+     * @return A `storage_settings` block as defined below.
      * 
      */
     public Optional<VirtualMachineStorageConfigurationDataSettings> dataSettings() {
@@ -62,7 +62,7 @@ public final class VirtualMachineStorageConfiguration {
         return this.diskType;
     }
     /**
-     * @return An `storage_settings` as defined below.
+     * @return A `storage_settings` block as defined below.
      * 
      */
     public Optional<VirtualMachineStorageConfigurationLogSettings> logSettings() {

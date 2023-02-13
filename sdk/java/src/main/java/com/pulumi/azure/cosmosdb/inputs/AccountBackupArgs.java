@@ -47,14 +47,14 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+     * The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
      * 
      */
     @Import(name="storageRedundancy")
     private @Nullable Output<String> storageRedundancy;
 
     /**
-     * @return The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+     * @return The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
      * 
      */
     public Optional<Output<String>> storageRedundancy() {
@@ -146,7 +146,7 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageRedundancy The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+         * @param storageRedundancy The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageRedundancy The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+         * @param storageRedundancy The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
          * 
          * @return builder
          * 

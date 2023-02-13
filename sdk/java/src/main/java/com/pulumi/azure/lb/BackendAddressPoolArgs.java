@@ -62,12 +62,28 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.tunnelInterfaces);
     }
 
+    /**
+     * The ID of the Virtual Network within which the Backend Address Pool should exist.
+     * 
+     */
+    @Import(name="virtualNetworkId")
+    private @Nullable Output<String> virtualNetworkId;
+
+    /**
+     * @return The ID of the Virtual Network within which the Backend Address Pool should exist.
+     * 
+     */
+    public Optional<Output<String>> virtualNetworkId() {
+        return Optional.ofNullable(this.virtualNetworkId);
+    }
+
     private BackendAddressPoolArgs() {}
 
     private BackendAddressPoolArgs(BackendAddressPoolArgs $) {
         this.loadbalancerId = $.loadbalancerId;
         this.name = $.name;
         this.tunnelInterfaces = $.tunnelInterfaces;
+        this.virtualNetworkId = $.virtualNetworkId;
     }
 
     public static Builder builder() {
@@ -159,6 +175,27 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
          */
         public Builder tunnelInterfaces(BackendAddressPoolTunnelInterfaceArgs... tunnelInterfaces) {
             return tunnelInterfaces(List.of(tunnelInterfaces));
+        }
+
+        /**
+         * @param virtualNetworkId The ID of the Virtual Network within which the Backend Address Pool should exist.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkId(@Nullable Output<String> virtualNetworkId) {
+            $.virtualNetworkId = virtualNetworkId;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkId The ID of the Virtual Network within which the Backend Address Pool should exist.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkId(String virtualNetworkId) {
+            return virtualNetworkId(Output.of(virtualNetworkId));
         }
 
         public BackendAddressPoolArgs build() {

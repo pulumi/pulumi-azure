@@ -16,14 +16,14 @@ public final class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs extends c
     public static final HadoopClusterRolesEdgeNodeUninstallScriptActionArgs Empty = new HadoopClusterRolesEdgeNodeUninstallScriptActionArgs();
 
     /**
-     * The name of the uninstall script action. Changing this forces a new resource to be created.
+     * The name of the uninstall script action.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the uninstall script action. Changing this forces a new resource to be created.
+     * @return The name of the uninstall script action.
      * 
      */
     public Output<String> name() {
@@ -46,14 +46,14 @@ public final class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs extends c
     }
 
     /**
-     * The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+     * The URI pointing to the script to run during the installation of the edge node.
      * 
      */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
     /**
-     * @return The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+     * @return The URI pointing to the script to run during the installation of the edge node.
      * 
      */
     public Output<String> uri() {
@@ -87,7 +87,7 @@ public final class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs extends c
         }
 
         /**
-         * @param name The name of the uninstall script action. Changing this forces a new resource to be created.
+         * @param name The name of the uninstall script action.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs extends c
         }
 
         /**
-         * @param name The name of the uninstall script action. Changing this forces a new resource to be created.
+         * @param name The name of the uninstall script action.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs extends c
         }
 
         /**
-         * @param uri The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+         * @param uri The URI pointing to the script to run during the installation of the edge node.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs extends c
         }
 
         /**
-         * @param uri The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+         * @param uri The URI pointing to the script to run during the installation of the edge node.
          * 
          * @return builder
          * 

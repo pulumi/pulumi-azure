@@ -84,7 +84,8 @@ type MedtechServiceFhirDestination struct {
 
 	// Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
 	DestinationFhirMappingJson pulumi.StringOutput `pulumi:"destinationFhirMappingJson"`
-	DestinationFhirServiceId   pulumi.StringOutput `pulumi:"destinationFhirServiceId"`
+	// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+	DestinationFhirServiceId pulumi.StringOutput `pulumi:"destinationFhirServiceId"`
 	// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
 	DestinationIdentityResolutionType pulumi.StringOutput `pulumi:"destinationIdentityResolutionType"`
 	// Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
@@ -138,7 +139,8 @@ func GetMedtechServiceFhirDestination(ctx *pulumi.Context,
 type medtechServiceFhirDestinationState struct {
 	// Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
 	DestinationFhirMappingJson *string `pulumi:"destinationFhirMappingJson"`
-	DestinationFhirServiceId   *string `pulumi:"destinationFhirServiceId"`
+	// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+	DestinationFhirServiceId *string `pulumi:"destinationFhirServiceId"`
 	// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
 	DestinationIdentityResolutionType *string `pulumi:"destinationIdentityResolutionType"`
 	// Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
@@ -152,7 +154,8 @@ type medtechServiceFhirDestinationState struct {
 type MedtechServiceFhirDestinationState struct {
 	// Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
 	DestinationFhirMappingJson pulumi.StringPtrInput
-	DestinationFhirServiceId   pulumi.StringPtrInput
+	// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+	DestinationFhirServiceId pulumi.StringPtrInput
 	// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
 	DestinationIdentityResolutionType pulumi.StringPtrInput
 	// Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
@@ -170,7 +173,8 @@ func (MedtechServiceFhirDestinationState) ElementType() reflect.Type {
 type medtechServiceFhirDestinationArgs struct {
 	// Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
 	DestinationFhirMappingJson string `pulumi:"destinationFhirMappingJson"`
-	DestinationFhirServiceId   string `pulumi:"destinationFhirServiceId"`
+	// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+	DestinationFhirServiceId string `pulumi:"destinationFhirServiceId"`
 	// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
 	DestinationIdentityResolutionType string `pulumi:"destinationIdentityResolutionType"`
 	// Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
@@ -185,7 +189,8 @@ type medtechServiceFhirDestinationArgs struct {
 type MedtechServiceFhirDestinationArgs struct {
 	// Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
 	DestinationFhirMappingJson pulumi.StringInput
-	DestinationFhirServiceId   pulumi.StringInput
+	// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
+	DestinationFhirServiceId pulumi.StringInput
 	// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
 	DestinationIdentityResolutionType pulumi.StringInput
 	// Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
@@ -288,6 +293,7 @@ func (o MedtechServiceFhirDestinationOutput) DestinationFhirMappingJson() pulumi
 	return o.ApplyT(func(v *MedtechServiceFhirDestination) pulumi.StringOutput { return v.DestinationFhirMappingJson }).(pulumi.StringOutput)
 }
 
+// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
 func (o MedtechServiceFhirDestinationOutput) DestinationFhirServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MedtechServiceFhirDestination) pulumi.StringOutput { return v.DestinationFhirServiceId }).(pulumi.StringOutput)
 }

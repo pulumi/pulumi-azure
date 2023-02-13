@@ -25,6 +25,7 @@ class VaultEncryptionArgs:
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Enabling/Disabling the Double Encryption state.
         :param pulumi.Input[str] key_id: The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
         :param pulumi.Input[bool] use_system_assigned_identity: Indicate that system assigned identity should be used or not. Defaults to `true`.
+        :param pulumi.Input[str] user_assigned_identity_id: Specifies the user assigned identity ID to be used.
         """
         pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         pulumi.set(__self__, "key_id", key_id)
@@ -72,6 +73,9 @@ class VaultEncryptionArgs:
     @property
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the user assigned identity ID to be used.
+        """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter

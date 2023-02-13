@@ -162,6 +162,10 @@ public final class LinuxWebAppSlotSiteConfig {
      * 
      */
     private @Nullable Boolean vnetRouteAllEnabled;
+    /**
+     * @return Should Web Sockets be enabled? Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean websocketsEnabled;
     /**
      * @return The number of Workers for this Linux App Service Slot.
@@ -375,6 +379,10 @@ public final class LinuxWebAppSlotSiteConfig {
     public Optional<Boolean> vnetRouteAllEnabled() {
         return Optional.ofNullable(this.vnetRouteAllEnabled);
     }
+    /**
+     * @return Should Web Sockets be enabled? Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> websocketsEnabled() {
         return Optional.ofNullable(this.websocketsEnabled);
     }

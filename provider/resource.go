@@ -1839,6 +1839,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_network_manager_subscription_connection":     {Tok: azureResource(azureNetwork, "NetworkManagerSubscriptionConnection")},
 			"azurerm_network_manager_scope_connection":            {Tok: azureResource(azureNetwork, "NetworkManagerScopeConnection")},
 			"azurerm_network_manager_static_member":               {Tok: azureResource(azureNetwork, "NetworkManagerStaticMember")},
+			"azurerm_network_manager_connectivity_configuration":  {Tok: azureResource(azureNetwork, "NetworkManagerConnectivityConfiguration")},
 
 			"azurerm_public_ip": {
 				Tok: azureResource(azureNetwork, "PublicIp"),
@@ -1921,6 +1922,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_vpn_gateway_connection":                {Tok: azureResource(azureNetwork, "VpnGatewayConnection")},
 			"azurerm_vpn_server_configuration":              {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
 			"azurerm_ip_group":                              {Tok: azureResource(azureNetwork, "IPGroup")},
+			"azurerm_ip_group_cidr":                         {Tok: azureResource(azureNetwork, "IPGroupCIDR")},
 			"azurerm_vpn_site":                              {Tok: azureResource(azureNetwork, "VpnSite")},
 			"azurerm_express_route_port":                    {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
 			"azurerm_virtual_network_dns_servers":           {Tok: azureResource(azureNetwork, "VirtualNetworkDnsServers")},

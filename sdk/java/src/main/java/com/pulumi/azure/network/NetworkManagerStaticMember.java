@@ -17,7 +17,6 @@ import javax.annotation.Nullable;
  * Manages a Network Manager Static Member.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -73,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleNetworkManagerStaticMember = new NetworkManagerStaticMember(&#34;exampleNetworkManagerStaticMember&#34;, NetworkManagerStaticMemberArgs.builder()        
  *             .networkGroupId(exampleNetworkManagerNetworkGroup.id())
- *             .targetNetworkId(azurerm_virtual_network.example().id())
+ *             .targetVirtualNetworkId(azurerm_virtual_network.example().id())
  *             .build());
  * 
  *     }
@@ -133,9 +132,17 @@ public class NetworkManagerStaticMember extends com.pulumi.resources.CustomResou
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     * 
+     */
     @Export(name="targetVirtualNetworkId", type=String.class, parameters={})
     private Output<String> targetVirtualNetworkId;
 
+    /**
+     * @return Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
+     * 
+     */
     public Output<String> targetVirtualNetworkId() {
         return this.targetVirtualNetworkId;
     }

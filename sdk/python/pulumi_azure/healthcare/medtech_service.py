@@ -35,6 +35,7 @@ class MedtechServiceArgs:
         :param pulumi.Input['MedtechServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Med Tech Service.
         """
         pulumi.set(__self__, "device_mapping_json", device_mapping_json)
         pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
@@ -149,6 +150,9 @@ class MedtechServiceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the Healthcare Med Tech Service.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -177,6 +181,7 @@ class _MedtechServiceState:
         :param pulumi.Input['MedtechServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Med Tech Service.
         :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
         """
         if device_mapping_json is not None:
@@ -285,6 +290,9 @@ class _MedtechServiceState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the Healthcare Med Tech Service.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -379,6 +387,7 @@ class MedtechService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MedtechServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Med Tech Service.
         :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
         """
         ...
@@ -523,6 +532,7 @@ class MedtechService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MedtechServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Med Tech Service.
         :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -599,6 +609,9 @@ class MedtechService(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags to assign to the Healthcare Med Tech Service.
+        """
         return pulumi.get(self, "tags")
 
     @property

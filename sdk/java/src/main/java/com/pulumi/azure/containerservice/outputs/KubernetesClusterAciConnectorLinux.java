@@ -3,12 +3,20 @@
 
 package com.pulumi.azure.containerservice.outputs;
 
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterAciConnectorLinuxConnectorIdentity;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class KubernetesClusterAciConnectorLinux {
+    /**
+     * @return A `connector_identity` block is exported. The exported attributes are defined below.
+     * 
+     */
+    private @Nullable List<KubernetesClusterAciConnectorLinuxConnectorIdentity> connectorIdentities;
     /**
      * @return The subnet name for the virtual nodes to run.
      * 
@@ -16,6 +24,13 @@ public final class KubernetesClusterAciConnectorLinux {
     private String subnetName;
 
     private KubernetesClusterAciConnectorLinux() {}
+    /**
+     * @return A `connector_identity` block is exported. The exported attributes are defined below.
+     * 
+     */
+    public List<KubernetesClusterAciConnectorLinuxConnectorIdentity> connectorIdentities() {
+        return this.connectorIdentities == null ? List.of() : this.connectorIdentities;
+    }
     /**
      * @return The subnet name for the virtual nodes to run.
      * 
@@ -33,13 +48,23 @@ public final class KubernetesClusterAciConnectorLinux {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<KubernetesClusterAciConnectorLinuxConnectorIdentity> connectorIdentities;
         private String subnetName;
         public Builder() {}
         public Builder(KubernetesClusterAciConnectorLinux defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.connectorIdentities = defaults.connectorIdentities;
     	      this.subnetName = defaults.subnetName;
         }
 
+        @CustomType.Setter
+        public Builder connectorIdentities(@Nullable List<KubernetesClusterAciConnectorLinuxConnectorIdentity> connectorIdentities) {
+            this.connectorIdentities = connectorIdentities;
+            return this;
+        }
+        public Builder connectorIdentities(KubernetesClusterAciConnectorLinuxConnectorIdentity... connectorIdentities) {
+            return connectorIdentities(List.of(connectorIdentities));
+        }
         @CustomType.Setter
         public Builder subnetName(String subnetName) {
             this.subnetName = Objects.requireNonNull(subnetName);
@@ -47,6 +72,7 @@ public final class KubernetesClusterAciConnectorLinux {
         }
         public KubernetesClusterAciConnectorLinux build() {
             final var o = new KubernetesClusterAciConnectorLinux();
+            o.connectorIdentities = connectorIdentities;
             o.subnetName = subnetName;
             return o;
         }

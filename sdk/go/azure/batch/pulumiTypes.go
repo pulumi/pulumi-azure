@@ -780,7 +780,7 @@ func (o PoolCertificateArrayOutput) Index(i pulumi.IntInput) PoolCertificateOutp
 type PoolContainerConfiguration struct {
 	// A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
 	ContainerImageNames []string `pulumi:"containerImageNames"`
-	// Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
+	// One or more `containerRegistries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
 	ContainerRegistries []PoolContainerConfigurationContainerRegistry `pulumi:"containerRegistries"`
 	// The type of container configuration. Possible value is `DockerCompatible`.
 	Type *string `pulumi:"type"`
@@ -800,7 +800,7 @@ type PoolContainerConfigurationInput interface {
 type PoolContainerConfigurationArgs struct {
 	// A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
 	ContainerImageNames pulumi.StringArrayInput `pulumi:"containerImageNames"`
-	// Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
+	// One or more `containerRegistries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
 	ContainerRegistries PoolContainerConfigurationContainerRegistryArrayInput `pulumi:"containerRegistries"`
 	// The type of container configuration. Possible value is `DockerCompatible`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -888,7 +888,7 @@ func (o PoolContainerConfigurationOutput) ContainerImageNames() pulumi.StringArr
 	return o.ApplyT(func(v PoolContainerConfiguration) []string { return v.ContainerImageNames }).(pulumi.StringArrayOutput)
 }
 
-// Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
+// One or more `containerRegistries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
 func (o PoolContainerConfigurationOutput) ContainerRegistries() PoolContainerConfigurationContainerRegistryArrayOutput {
 	return o.ApplyT(func(v PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry {
 		return v.ContainerRegistries
@@ -934,7 +934,7 @@ func (o PoolContainerConfigurationPtrOutput) ContainerImageNames() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
+// One or more `containerRegistries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
 func (o PoolContainerConfigurationPtrOutput) ContainerRegistries() PoolContainerConfigurationContainerRegistryArrayOutput {
 	return o.ApplyT(func(v *PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry {
 		if v == nil {
@@ -2787,7 +2787,7 @@ type PoolNetworkConfigurationEndpointConfiguration struct {
 	FrontendPortRange string `pulumi:"frontendPortRange"`
 	// The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	// A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the networkSecurityGroupRules block below. Changing this forces a new resource to be created.
+	// A list of `networkSecurityGroupRules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the networkSecurityGroupRules block below. Changing this forces a new resource to be created.
 	NetworkSecurityGroupRules []PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule `pulumi:"networkSecurityGroupRules"`
 	// The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
 	Protocol string `pulumi:"protocol"`
@@ -2811,7 +2811,7 @@ type PoolNetworkConfigurationEndpointConfigurationArgs struct {
 	FrontendPortRange pulumi.StringInput `pulumi:"frontendPortRange"`
 	// The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the networkSecurityGroupRules block below. Changing this forces a new resource to be created.
+	// A list of `networkSecurityGroupRules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the networkSecurityGroupRules block below. Changing this forces a new resource to be created.
 	NetworkSecurityGroupRules PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput `pulumi:"networkSecurityGroupRules"`
 	// The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
@@ -2883,7 +2883,7 @@ func (o PoolNetworkConfigurationEndpointConfigurationOutput) Name() pulumi.Strin
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the networkSecurityGroupRules block below. Changing this forces a new resource to be created.
+// A list of `networkSecurityGroupRules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the networkSecurityGroupRules block below. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) NetworkSecurityGroupRules() PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput {
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) []PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
 		return v.NetworkSecurityGroupRules
@@ -3394,7 +3394,7 @@ func (o PoolStartTaskPtrOutput) WaitForSuccess() pulumi.BoolPtrOutput {
 type PoolStartTaskContainer struct {
 	// The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
 	ImageName string `pulumi:"imageName"`
-	// The same reference as `containerRegistries` block defined as follows.
+	// The same reference as `containerRegistries` block defined as below.
 	Registries []PoolStartTaskContainerRegistry `pulumi:"registries"`
 	// Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
 	RunOptions *string `pulumi:"runOptions"`
@@ -3416,7 +3416,7 @@ type PoolStartTaskContainerInput interface {
 type PoolStartTaskContainerArgs struct {
 	// The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
 	ImageName pulumi.StringInput `pulumi:"imageName"`
-	// The same reference as `containerRegistries` block defined as follows.
+	// The same reference as `containerRegistries` block defined as below.
 	Registries PoolStartTaskContainerRegistryArrayInput `pulumi:"registries"`
 	// Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
 	RunOptions pulumi.StringPtrInput `pulumi:"runOptions"`
@@ -3480,7 +3480,7 @@ func (o PoolStartTaskContainerOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolStartTaskContainer) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
-// The same reference as `containerRegistries` block defined as follows.
+// The same reference as `containerRegistries` block defined as below.
 func (o PoolStartTaskContainerOutput) Registries() PoolStartTaskContainerRegistryArrayOutput {
 	return o.ApplyT(func(v PoolStartTaskContainer) []PoolStartTaskContainerRegistry { return v.Registries }).(PoolStartTaskContainerRegistryArrayOutput)
 }

@@ -57,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FirewallPolicyRuleCollectionGroup{}
 	case "azure:network/iPGroup:IPGroup":
 		r = &IPGroup{}
+	case "azure:network/iPGroupCIDR:IPGroupCIDR":
+		r = &IPGroupCIDR{}
 	case "azure:network/localNetworkGateway:LocalNetworkGateway":
 		r = &LocalNetworkGateway{}
 	case "azure:network/natGateway:NatGateway":
@@ -81,6 +83,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkInterfaceSecurityGroupAssociation{}
 	case "azure:network/networkManager:NetworkManager":
 		r = &NetworkManager{}
+	case "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration":
+		r = &NetworkManagerConnectivityConfiguration{}
 	case "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection":
 		r = &NetworkManagerManagementGroupConnection{}
 	case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
@@ -282,6 +286,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"network/iPGroupCIDR",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"network/localNetworkGateway",
 		&module{version},
 	)
@@ -338,6 +347,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/networkManager",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkManagerConnectivityConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

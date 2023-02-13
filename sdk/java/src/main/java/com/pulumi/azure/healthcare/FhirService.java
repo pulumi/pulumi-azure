@@ -263,15 +263,31 @@ public class FhirService extends com.pulumi.resources.CustomResource {
     public Output<Boolean> publicNetworkAccessEnabled() {
         return this.publicNetworkAccessEnabled;
     }
+    /**
+     * Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
+    /**
+     * @return Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * A mapping of tags to assign to the Healthcare FHIR Service.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the Healthcare FHIR Service.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

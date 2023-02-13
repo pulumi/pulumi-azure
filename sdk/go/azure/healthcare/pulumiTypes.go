@@ -407,9 +407,10 @@ func (o DicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) DicomSe
 
 type FhirServiceAuthentication struct {
 	// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
-	Audience          string `pulumi:"audience"`
-	Authority         string `pulumi:"authority"`
-	SmartProxyEnabled *bool  `pulumi:"smartProxyEnabled"`
+	Audience  string `pulumi:"audience"`
+	Authority string `pulumi:"authority"`
+	// Whether smart proxy is enabled.
+	SmartProxyEnabled *bool `pulumi:"smartProxyEnabled"`
 }
 
 // FhirServiceAuthenticationInput is an input type that accepts FhirServiceAuthenticationArgs and FhirServiceAuthenticationOutput values.
@@ -425,8 +426,9 @@ type FhirServiceAuthenticationInput interface {
 
 type FhirServiceAuthenticationArgs struct {
 	// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
-	Audience          pulumi.StringInput  `pulumi:"audience"`
-	Authority         pulumi.StringInput  `pulumi:"authority"`
+	Audience  pulumi.StringInput `pulumi:"audience"`
+	Authority pulumi.StringInput `pulumi:"authority"`
+	// Whether smart proxy is enabled.
 	SmartProxyEnabled pulumi.BoolPtrInput `pulumi:"smartProxyEnabled"`
 }
 
@@ -516,6 +518,7 @@ func (o FhirServiceAuthenticationOutput) Authority() pulumi.StringOutput {
 	return o.ApplyT(func(v FhirServiceAuthentication) string { return v.Authority }).(pulumi.StringOutput)
 }
 
+// Whether smart proxy is enabled.
 func (o FhirServiceAuthenticationOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FhirServiceAuthentication) *bool { return v.SmartProxyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -563,6 +566,7 @@ func (o FhirServiceAuthenticationPtrOutput) Authority() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether smart proxy is enabled.
 func (o FhirServiceAuthenticationPtrOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FhirServiceAuthentication) *bool {
 		if v == nil {

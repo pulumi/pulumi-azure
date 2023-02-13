@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlexibleServerIdentity {
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block as defined below.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -27,7 +27,7 @@ public final class FlexibleServerIdentity {
 
     private FlexibleServerIdentity() {}
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block as defined below.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
      * 
      */
     public List<String> identityIds() {

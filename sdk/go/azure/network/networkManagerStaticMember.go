@@ -13,6 +13,68 @@ import (
 
 // Manages a Network Manager Static Member.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "exampleNetworkManager", &network.NetworkManagerArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Scope: &network.NetworkManagerScopeArgs{
+//					SubscriptionIds: pulumi.StringArray{
+//						*pulumi.String(current.Id),
+//					},
+//				},
+//				ScopeAccesses: pulumi.StringArray{
+//					pulumi.String("Connectivity"),
+//					pulumi.String("SecurityAdmin"),
+//				},
+//				Description: pulumi.String("example network manager"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "exampleNetworkManagerNetworkGroup", &network.NetworkManagerNetworkGroupArgs{
+//				NetworkManagerId: exampleNetworkManager.ID(),
+//				Description:      pulumi.String("example network group"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkManagerStaticMember(ctx, "exampleNetworkManagerStaticMember", &network.NetworkManagerStaticMemberArgs{
+//				NetworkGroupId:         exampleNetworkManagerNetworkGroup.ID(),
+//				TargetVirtualNetworkId: pulumi.Any(azurerm_virtual_network.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Network Manager Static Member can be imported using the `resource id`, e.g.
@@ -30,7 +92,8 @@ type NetworkManagerStaticMember struct {
 	// Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
 	NetworkGroupId pulumi.StringOutput `pulumi:"networkGroupId"`
 	// The region of the Network Manager Static Member.
-	Region                 pulumi.StringOutput `pulumi:"region"`
+	Region pulumi.StringOutput `pulumi:"region"`
+	// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
 	TargetVirtualNetworkId pulumi.StringOutput `pulumi:"targetVirtualNetworkId"`
 }
 
@@ -74,7 +137,8 @@ type networkManagerStaticMemberState struct {
 	// Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
 	NetworkGroupId *string `pulumi:"networkGroupId"`
 	// The region of the Network Manager Static Member.
-	Region                 *string `pulumi:"region"`
+	Region *string `pulumi:"region"`
+	// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
 	TargetVirtualNetworkId *string `pulumi:"targetVirtualNetworkId"`
 }
 
@@ -84,7 +148,8 @@ type NetworkManagerStaticMemberState struct {
 	// Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
 	NetworkGroupId pulumi.StringPtrInput
 	// The region of the Network Manager Static Member.
-	Region                 pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
 	TargetVirtualNetworkId pulumi.StringPtrInput
 }
 
@@ -96,7 +161,8 @@ type networkManagerStaticMemberArgs struct {
 	// Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
-	NetworkGroupId         string `pulumi:"networkGroupId"`
+	NetworkGroupId string `pulumi:"networkGroupId"`
+	// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
 	TargetVirtualNetworkId string `pulumi:"targetVirtualNetworkId"`
 }
 
@@ -105,7 +171,8 @@ type NetworkManagerStaticMemberArgs struct {
 	// Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
-	NetworkGroupId         pulumi.StringInput
+	NetworkGroupId pulumi.StringInput
+	// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
 	TargetVirtualNetworkId pulumi.StringInput
 }
 
@@ -211,6 +278,7 @@ func (o NetworkManagerStaticMemberOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerStaticMember) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
 func (o NetworkManagerStaticMemberOutput) TargetVirtualNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerStaticMember) pulumi.StringOutput { return v.TargetVirtualNetworkId }).(pulumi.StringOutput)
 }

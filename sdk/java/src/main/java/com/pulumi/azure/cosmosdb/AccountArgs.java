@@ -179,14 +179,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable automatic fail over for this Cosmos DB account.
+     * Enable automatic failover for this Cosmos DB account.
      * 
      */
     @Import(name="enableAutomaticFailover")
     private @Nullable Output<Boolean> enableAutomaticFailover;
 
     /**
-     * @return Enable automatic fail over for this Cosmos DB account.
+     * @return Enable automatic failover for this Cosmos DB account.
      * 
      */
     public Optional<Output<Boolean>> enableAutomaticFailover() {
@@ -194,14 +194,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="enableFreeTier")
     private @Nullable Output<Boolean> enableFreeTier;
 
     /**
-     * @return Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> enableFreeTier() {
@@ -254,14 +254,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP&#39;s for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+     * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      * 
      */
     @Import(name="ipRangeFilter")
     private @Nullable Output<String> ipRangeFilter;
 
     /**
-     * @return CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP&#39;s for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+     * @return CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      * 
      */
     public Optional<Output<String>> ipRangeFilter() {
@@ -404,14 +404,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+     * Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
      * 
      */
     @Import(name="offerType", required=true)
     private Output<String> offerType;
 
     /**
-     * @return Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+     * @return Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
      * 
      */
     public Output<String> offerType() {
@@ -768,7 +768,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableAutomaticFailover Enable automatic fail over for this Cosmos DB account.
+         * @param enableAutomaticFailover Enable automatic failover for this Cosmos DB account.
          * 
          * @return builder
          * 
@@ -779,7 +779,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableAutomaticFailover Enable automatic fail over for this Cosmos DB account.
+         * @param enableAutomaticFailover Enable automatic failover for this Cosmos DB account.
          * 
          * @return builder
          * 
@@ -789,7 +789,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableFreeTier Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param enableFreeTier Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -800,7 +800,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableFreeTier Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param enableFreeTier Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -883,7 +883,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipRangeFilter CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP&#39;s for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+         * @param ipRangeFilter CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
          * 
          * @return builder
          * 
@@ -894,7 +894,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipRangeFilter CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP&#39;s for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+         * @param ipRangeFilter CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
          * 
          * @return builder
          * 
@@ -1103,7 +1103,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param offerType Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+         * @param offerType Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
          * 
          * @return builder
          * 
@@ -1114,7 +1114,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param offerType Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+         * @param offerType Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
          * 
          * @return builder
          * 

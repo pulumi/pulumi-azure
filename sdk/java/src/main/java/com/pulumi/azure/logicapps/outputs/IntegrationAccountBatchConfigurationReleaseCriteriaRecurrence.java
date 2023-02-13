@@ -19,7 +19,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
      */
     private @Nullable String endTime;
     /**
-     * @return The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+     * @return The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
      * 
      */
     private String frequency;
@@ -53,7 +53,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         return Optional.ofNullable(this.endTime);
     }
     /**
-     * @return The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
+     * @return The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
      * 
      */
     public String frequency() {

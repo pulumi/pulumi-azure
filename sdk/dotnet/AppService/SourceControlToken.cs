@@ -45,6 +45,9 @@ namespace Pulumi.Azure.AppService
         [Output("token")]
         public Output<string> Token { get; private set; } = null!;
 
+        /// <summary>
+        /// The Access Token Secret.
+        /// </summary>
         [Output("tokenSecret")]
         public Output<string?> TokenSecret { get; private set; } = null!;
 
@@ -123,6 +126,10 @@ namespace Pulumi.Azure.AppService
 
         [Input("tokenSecret")]
         private Input<string>? _tokenSecret;
+
+        /// <summary>
+        /// The Access Token Secret.
+        /// </summary>
         public Input<string>? TokenSecret
         {
             get => _tokenSecret;
@@ -165,6 +172,10 @@ namespace Pulumi.Azure.AppService
 
         [Input("tokenSecret")]
         private Input<string>? _tokenSecret;
+
+        /// <summary>
+        /// The Access Token Secret.
+        /// </summary>
         public Input<string>? TokenSecret
         {
             get => _tokenSecret;

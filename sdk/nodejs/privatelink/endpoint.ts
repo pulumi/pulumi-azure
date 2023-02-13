@@ -139,6 +139,9 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
+    /**
+     * A `customDnsConfigs` block as defined below.
+     */
     public /*out*/ readonly customDnsConfigs!: pulumi.Output<outputs.privatelink.EndpointCustomDnsConfig[]>;
     /**
      * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
@@ -156,7 +159,13 @@ export class Endpoint extends pulumi.CustomResource {
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A `networkInterface` block as defined below.
+     */
     public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.privatelink.EndpointNetworkInterface[]>;
+    /**
+     * A `privateDnsZoneConfigs` block as defined below.
+     */
     public /*out*/ readonly privateDnsZoneConfigs!: pulumi.Output<outputs.privatelink.EndpointPrivateDnsZoneConfig[]>;
     /**
      * A `privateDnsZoneGroup` block as defined below.
@@ -237,6 +246,9 @@ export class Endpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Endpoint resources.
  */
 export interface EndpointState {
+    /**
+     * A `customDnsConfigs` block as defined below.
+     */
     customDnsConfigs?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointCustomDnsConfig>[]>;
     /**
      * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
@@ -254,7 +266,13 @@ export interface EndpointState {
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `networkInterface` block as defined below.
+     */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointNetworkInterface>[]>;
+    /**
+     * A `privateDnsZoneConfigs` block as defined below.
+     */
     privateDnsZoneConfigs?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneConfig>[]>;
     /**
      * A `privateDnsZoneGroup` block as defined below.

@@ -1851,6 +1851,7 @@ func (o EventHubCaptureDescriptionDestinationPtrOutput) StorageAccountId() pulum
 }
 
 type EventHubNamespaceIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1872,6 +1873,7 @@ type EventHubNamespaceIdentityInput interface {
 }
 
 type EventHubNamespaceIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1958,6 +1960,7 @@ func (o EventHubNamespaceIdentityOutput) ToEventHubNamespaceIdentityPtrOutputWit
 	}).(EventHubNamespaceIdentityPtrOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
 func (o EventHubNamespaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventHubNamespaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -2001,6 +2004,7 @@ func (o EventHubNamespaceIdentityPtrOutput) Elem() EventHubNamespaceIdentityOutp
 	}).(EventHubNamespaceIdentityOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
 func (o EventHubNamespaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventHubNamespaceIdentity) []string {
 		if v == nil {

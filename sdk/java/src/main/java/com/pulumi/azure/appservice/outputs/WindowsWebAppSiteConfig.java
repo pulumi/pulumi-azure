@@ -25,6 +25,10 @@ public final class WindowsWebAppSiteConfig {
      * 
      */
     private @Nullable Boolean alwaysOn;
+    /**
+     * @return The URL to the API Definition for this Windows Web App.
+     * 
+     */
     private @Nullable String apiDefinitionUrl;
     /**
      * @return The API Management API ID this Windows Web App Slot is associated with.
@@ -179,6 +183,10 @@ public final class WindowsWebAppSiteConfig {
     public Optional<Boolean> alwaysOn() {
         return Optional.ofNullable(this.alwaysOn);
     }
+    /**
+     * @return The URL to the API Definition for this Windows Web App.
+     * 
+     */
     public Optional<String> apiDefinitionUrl() {
         return Optional.ofNullable(this.apiDefinitionUrl);
     }

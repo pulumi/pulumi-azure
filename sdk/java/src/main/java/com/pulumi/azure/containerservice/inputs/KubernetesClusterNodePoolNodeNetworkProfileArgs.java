@@ -17,14 +17,14 @@ public final class KubernetesClusterNodePoolNodeNetworkProfileArgs extends com.p
     public static final KubernetesClusterNodePoolNodeNetworkProfileArgs Empty = new KubernetesClusterNodePoolNodeNetworkProfileArgs();
 
     /**
-     * Specifies a mapping of tags to the instance-level public IPs.
+     * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="nodePublicIpTags")
     private @Nullable Output<Map<String,String>> nodePublicIpTags;
 
     /**
-     * @return Specifies a mapping of tags to the instance-level public IPs.
+     * @return Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Map<String,String>>> nodePublicIpTags() {
@@ -56,7 +56,7 @@ public final class KubernetesClusterNodePoolNodeNetworkProfileArgs extends com.p
         }
 
         /**
-         * @param nodePublicIpTags Specifies a mapping of tags to the instance-level public IPs.
+         * @param nodePublicIpTags Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class KubernetesClusterNodePoolNodeNetworkProfileArgs extends com.p
         }
 
         /**
-         * @param nodePublicIpTags Specifies a mapping of tags to the instance-level public IPs.
+         * @param nodePublicIpTags Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

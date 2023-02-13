@@ -17,14 +17,14 @@ public final class FlexibleServerAuthenticationArgs extends com.pulumi.resources
     public static final FlexibleServerAuthenticationArgs Empty = new FlexibleServerAuthenticationArgs();
 
     /**
-     * Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+     * Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
      * 
      */
     @Import(name="activeDirectoryAuthEnabled")
     private @Nullable Output<Boolean> activeDirectoryAuthEnabled;
 
     /**
-     * @return Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+     * @return Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> activeDirectoryAuthEnabled() {
@@ -32,14 +32,14 @@ public final class FlexibleServerAuthenticationArgs extends com.pulumi.resources
     }
 
     /**
-     * Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+     * Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
      * 
      */
     @Import(name="passwordAuthEnabled")
     private @Nullable Output<Boolean> passwordAuthEnabled;
 
     /**
-     * @return Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+     * @return Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> passwordAuthEnabled() {
@@ -88,7 +88,7 @@ public final class FlexibleServerAuthenticationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param activeDirectoryAuthEnabled Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+         * @param activeDirectoryAuthEnabled Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FlexibleServerAuthenticationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param activeDirectoryAuthEnabled Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server.
+         * @param activeDirectoryAuthEnabled Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FlexibleServerAuthenticationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param passwordAuthEnabled Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+         * @param passwordAuthEnabled Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FlexibleServerAuthenticationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param passwordAuthEnabled Whether or not password authentication is allowed to access the PostgreSQL Flexible Server.
+         * @param passwordAuthEnabled Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
          * 
          * @return builder
          * 

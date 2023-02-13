@@ -14,6 +14,10 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
      * 
      */
     private String name;
+    /**
+     * @return Specifies the public data of the certificate.
+     * 
+     */
     private String thumbprint;
 
     private VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate() {}
@@ -24,6 +28,10 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
     public String name() {
         return this.name;
     }
+    /**
+     * @return Specifies the public data of the certificate.
+     * 
+     */
     public String thumbprint() {
         return this.thumbprint;
     }

@@ -37,6 +37,10 @@ public final class AppServiceSiteConfig {
      * 
      */
     private @Nullable String appCommandLine;
+    /**
+     * @return The name of the slot to automatically swap to during deployment
+     * 
+     */
     private @Nullable String autoSwapSlotName;
     /**
      * @return A `cors` block as defined below.
@@ -198,6 +202,10 @@ public final class AppServiceSiteConfig {
     public Optional<String> appCommandLine() {
         return Optional.ofNullable(this.appCommandLine);
     }
+    /**
+     * @return The name of the slot to automatically swap to during deployment
+     * 
+     */
     public Optional<String> autoSwapSlotName() {
         return Optional.ofNullable(this.autoSwapSlotName);
     }

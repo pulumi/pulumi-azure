@@ -5729,6 +5729,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/iPGroupCIDR",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/iPGroupCIDR:IPGroupCIDR": "IPGroupCIDR"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/localNetworkGateway",
   "fqn": "pulumi_azure.network",
   "classes": {
@@ -5821,6 +5829,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/networkManager:NetworkManager": "NetworkManager"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkManagerConnectivityConfiguration",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration": "NetworkManagerConnectivityConfiguration"
   }
  },
  {

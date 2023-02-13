@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class VirtualMachineStorageConfiguration
     {
         /// <summary>
-        /// An `storage_settings` as defined below.
+        /// A `storage_settings` block as defined below.
         /// </summary>
         public readonly Outputs.VirtualMachineStorageConfigurationDataSettings? DataSettings;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string DiskType;
         /// <summary>
-        /// An `storage_settings` as defined below.
+        /// A `storage_settings` block as defined below.
         /// </summary>
         public readonly Outputs.VirtualMachineStorageConfigurationLogSettings? LogSettings;
         /// <summary>

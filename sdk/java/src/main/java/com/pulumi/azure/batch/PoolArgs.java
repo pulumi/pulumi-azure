@@ -365,9 +365,17 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.startTask);
     }
 
+    /**
+     * Whether to stop if there is a pending resize operation on this pool.
+     * 
+     */
     @Import(name="stopPendingResizeOperation")
     private @Nullable Output<Boolean> stopPendingResizeOperation;
 
+    /**
+     * @return Whether to stop if there is a pending resize operation on this pool.
+     * 
+     */
     public Optional<Output<Boolean>> stopPendingResizeOperation() {
         return Optional.ofNullable(this.stopPendingResizeOperation);
     }
@@ -1020,11 +1028,23 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
             return startTask(Output.of(startTask));
         }
 
+        /**
+         * @param stopPendingResizeOperation Whether to stop if there is a pending resize operation on this pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stopPendingResizeOperation(@Nullable Output<Boolean> stopPendingResizeOperation) {
             $.stopPendingResizeOperation = stopPendingResizeOperation;
             return this;
         }
 
+        /**
+         * @param stopPendingResizeOperation Whether to stop if there is a pending resize operation on this pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stopPendingResizeOperation(Boolean stopPendingResizeOperation) {
             return stopPendingResizeOperation(Output.of(stopPendingResizeOperation));
         }

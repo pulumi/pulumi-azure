@@ -25,6 +25,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Workspace.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
@@ -73,6 +74,9 @@ class WorkspaceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the Healthcare Workspace.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -93,6 +97,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Workspace.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -153,6 +158,9 @@ class _WorkspaceState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the Healthcare Workspace.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -197,6 +205,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Workspace.
         """
         ...
     @overload
@@ -286,6 +295,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Workspace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -330,5 +340,8 @@ class Workspace(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags to assign to the Healthcare Workspace.
+        """
         return pulumi.get(self, "tags")
 

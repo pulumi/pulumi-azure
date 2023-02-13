@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Media.Inputs
         private InputList<Inputs.StreamingEndpointAccessControlIpAllowArgs>? _ipAllows;
 
         /// <summary>
-        /// A `ip` block as defined below.
+        /// A `ip_allow` block as defined below.
         /// </summary>
         public InputList<Inputs.StreamingEndpointAccessControlIpAllowArgs> IpAllows
         {

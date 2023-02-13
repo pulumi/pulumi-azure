@@ -14,17 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicationRecoveryPlanRecoveryGroup {
     /**
-     * @return one or more `action` block. which will be executed after the group recovery.
+     * @return one or more `action` block as defined below. which will be executed after the group recovery.
      * 
      */
     private @Nullable List<ReplicationRecoveryPlanRecoveryGroupPostAction> postActions;
     /**
-     * @return one or more `action` block. which will be executed before the group recovery.
+     * @return one or more `action` block as defined below. which will be executed before the group recovery.
      * 
      */
     private @Nullable List<ReplicationRecoveryPlanRecoveryGroupPreAction> preActions;
     /**
-     * @return one or more id of protected VM.
+     * @return (required) one or more id of protected VM.
      * 
      */
     private @Nullable List<String> replicatedProtectedItems;
@@ -36,21 +36,21 @@ public final class ReplicationRecoveryPlanRecoveryGroup {
 
     private ReplicationRecoveryPlanRecoveryGroup() {}
     /**
-     * @return one or more `action` block. which will be executed after the group recovery.
+     * @return one or more `action` block as defined below. which will be executed after the group recovery.
      * 
      */
     public List<ReplicationRecoveryPlanRecoveryGroupPostAction> postActions() {
         return this.postActions == null ? List.of() : this.postActions;
     }
     /**
-     * @return one or more `action` block. which will be executed before the group recovery.
+     * @return one or more `action` block as defined below. which will be executed before the group recovery.
      * 
      */
     public List<ReplicationRecoveryPlanRecoveryGroupPreAction> preActions() {
         return this.preActions == null ? List.of() : this.preActions;
     }
     /**
-     * @return one or more id of protected VM.
+     * @return (required) one or more id of protected VM.
      * 
      */
     public List<String> replicatedProtectedItems() {

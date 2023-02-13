@@ -113,7 +113,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
-     * A `customerManagedKey` block as defined below.
+     * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly customerManagedKey!: pulumi.Output<outputs.postgresql.FlexibleServerCustomerManagedKey | undefined>;
     /**
@@ -288,7 +288,7 @@ export interface FlexibleServerState {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * A `customerManagedKey` block as defined below.
+     * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      */
     customerManagedKey?: pulumi.Input<inputs.postgresql.FlexibleServerCustomerManagedKey>;
     /**
@@ -390,7 +390,7 @@ export interface FlexibleServerArgs {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * A `customerManagedKey` block as defined below.
+     * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      */
     customerManagedKey?: pulumi.Input<inputs.postgresql.FlexibleServerCustomerManagedKey>;
     /**

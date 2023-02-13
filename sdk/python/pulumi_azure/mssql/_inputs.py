@@ -1568,8 +1568,8 @@ class VirtualMachineStorageConfigurationArgs:
         """
         :param pulumi.Input[str] disk_type: The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
         :param pulumi.Input[str] storage_workload_type: The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
-        :param pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs'] data_settings: An `storage_settings` as defined below.
-        :param pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs'] log_settings: An `storage_settings` as defined below.
+        :param pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs'] data_settings: A `storage_settings` block as defined below.
+        :param pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs'] log_settings: A `storage_settings` block as defined below.
         :param pulumi.Input[bool] system_db_on_data_disk_enabled: Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
         :param pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs'] temp_db_settings: An `temp_db_settings` as defined below.
         """
@@ -1612,7 +1612,7 @@ class VirtualMachineStorageConfigurationArgs:
     @pulumi.getter(name="dataSettings")
     def data_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']]:
         """
-        An `storage_settings` as defined below.
+        A `storage_settings` block as defined below.
         """
         return pulumi.get(self, "data_settings")
 
@@ -1624,7 +1624,7 @@ class VirtualMachineStorageConfigurationArgs:
     @pulumi.getter(name="logSettings")
     def log_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']]:
         """
-        An `storage_settings` as defined below.
+        A `storage_settings` block as defined below.
         """
         return pulumi.get(self, "log_settings")
 

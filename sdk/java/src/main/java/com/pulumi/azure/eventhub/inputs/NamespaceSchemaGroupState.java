@@ -15,22 +15,30 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
 
     public static final NamespaceSchemaGroupState Empty = new NamespaceSchemaGroupState();
 
+    /**
+     * Specifies the name of this schema group. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Specifies the name of this schema group. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
     /**
-     * The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="namespaceId")
     private @Nullable Output<String> namespaceId;
 
     /**
-     * @return The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+     * @return Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> namespaceId() {
@@ -38,14 +46,14 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+     * Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="schemaCompatibility")
     private @Nullable Output<String> schemaCompatibility;
 
     /**
-     * @return The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+     * @return Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> schemaCompatibility() {
@@ -53,14 +61,14 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="schemaType")
     private @Nullable Output<String> schemaType;
 
     /**
-     * @return The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+     * @return Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> schemaType() {
@@ -94,17 +102,29 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
             $ = new NamespaceSchemaGroupState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Specifies the name of this schema group. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Specifies the name of this schema group. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
         /**
-         * @param namespaceId The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+         * @param namespaceId Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -115,7 +135,7 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param namespaceId The ID of the EventHub Namespace. Changing this forces a new resource to be created.
+         * @param namespaceId Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -125,7 +145,7 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param schemaCompatibility The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+         * @param schemaCompatibility Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -136,7 +156,7 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param schemaCompatibility The compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
+         * @param schemaCompatibility Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -146,7 +166,7 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param schemaType The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+         * @param schemaType Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -157,7 +177,7 @@ public final class NamespaceSchemaGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param schemaType The Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
+         * @param schemaType Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

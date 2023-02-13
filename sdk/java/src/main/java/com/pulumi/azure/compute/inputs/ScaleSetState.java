@@ -107,9 +107,17 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.healthProbeId);
     }
 
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
     @Import(name="identity")
     private @Nullable Output<ScaleSetIdentityArgs> identity;
 
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     public Optional<Output<ScaleSetIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
     }
@@ -610,11 +618,23 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
             return healthProbeId(Output.of(healthProbeId));
         }
 
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(@Nullable Output<ScaleSetIdentityArgs> identity) {
             $.identity = identity;
             return this;
         }
 
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(ScaleSetIdentityArgs identity) {
             return identity(Output.of(identity));
         }

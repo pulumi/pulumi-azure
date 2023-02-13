@@ -186,6 +186,20 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<BackendAddressPoolTunnelInterface>>> tunnelInterfaces() {
         return Codegen.optional(this.tunnelInterfaces);
     }
+    /**
+     * The ID of the Virtual Network within which the Backend Address Pool should exist.
+     * 
+     */
+    @Export(name="virtualNetworkId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> virtualNetworkId;
+
+    /**
+     * @return The ID of the Virtual Network within which the Backend Address Pool should exist.
+     * 
+     */
+    public Output<Optional<String>> virtualNetworkId() {
+        return Codegen.optional(this.virtualNetworkId);
+    }
 
     /**
      *

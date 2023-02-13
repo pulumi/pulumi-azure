@@ -23,6 +23,10 @@ public final class SourceControlGithubActionConfiguration {
      * 
      */
     private @Nullable SourceControlGithubActionConfigurationContainerConfiguration containerConfiguration;
+    /**
+     * @return Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
     private @Nullable Boolean generateWorkflowFile;
     private @Nullable Boolean linuxAction;
 
@@ -41,6 +45,10 @@ public final class SourceControlGithubActionConfiguration {
     public Optional<SourceControlGithubActionConfigurationContainerConfiguration> containerConfiguration() {
         return Optional.ofNullable(this.containerConfiguration);
     }
+    /**
+     * @return Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Boolean> generateWorkflowFile() {
         return Optional.ofNullable(this.generateWorkflowFile);
     }

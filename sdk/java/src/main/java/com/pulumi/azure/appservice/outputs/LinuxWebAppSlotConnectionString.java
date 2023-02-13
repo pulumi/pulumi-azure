@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class LinuxWebAppSlotConnectionString {
     /**
-     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * @return The name of the Connection String.
      * 
      */
     private String name;
@@ -27,7 +27,7 @@ public final class LinuxWebAppSlotConnectionString {
 
     private LinuxWebAppSlotConnectionString() {}
     /**
-     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * @return The name of the Connection String.
      * 
      */
     public String name() {

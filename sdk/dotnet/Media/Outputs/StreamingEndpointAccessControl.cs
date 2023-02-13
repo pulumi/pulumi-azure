@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey> AkamaiSignatureHeaderAuthenticationKeys;
         /// <summary>
-        /// A `ip` block as defined below.
+        /// A `ip_allow` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.StreamingEndpointAccessControlIpAllow> IpAllows;
 

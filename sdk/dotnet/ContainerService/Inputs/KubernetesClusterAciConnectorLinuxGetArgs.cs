@@ -12,6 +12,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class KubernetesClusterAciConnectorLinuxGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("connectorIdentities")]
+        private InputList<Inputs.KubernetesClusterAciConnectorLinuxConnectorIdentityGetArgs>? _connectorIdentities;
+
+        /// <summary>
+        /// A `connector_identity` block is exported. The exported attributes are defined below.
+        /// </summary>
+        public InputList<Inputs.KubernetesClusterAciConnectorLinuxConnectorIdentityGetArgs> ConnectorIdentities
+        {
+            get => _connectorIdentities ?? (_connectorIdentities = new InputList<Inputs.KubernetesClusterAciConnectorLinuxConnectorIdentityGetArgs>());
+            set => _connectorIdentities = value;
+        }
+
         /// <summary>
         /// The subnet name for the virtual nodes to run.
         /// </summary>

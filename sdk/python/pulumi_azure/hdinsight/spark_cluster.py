@@ -45,6 +45,7 @@ class SparkClusterArgs:
         :param pulumi.Input['SparkClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
@@ -180,6 +181,9 @@ class SparkClusterArgs:
     @property
     @pulumi.getter(name="diskEncryptions")
     def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]]:
+        """
+        One or more `disk_encryption` block as defined below.
+        """
         return pulumi.get(self, "disk_encryptions")
 
     @disk_encryptions.setter
@@ -361,6 +365,7 @@ class _SparkClusterState:
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
         :param pulumi.Input['SparkClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input['SparkClusterGatewayArgs'] gateway: A `gateway` block as defined below.
@@ -464,6 +469,9 @@ class _SparkClusterState:
     @property
     @pulumi.getter(name="diskEncryptions")
     def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]]:
+        """
+        One or more `disk_encryption` block as defined below.
+        """
         return pulumi.get(self, "disk_encryptions")
 
     @disk_encryptions.setter
@@ -781,6 +789,7 @@ class SparkCluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SparkClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkClusterGatewayArgs']] gateway: A `gateway` block as defined below.
@@ -987,6 +996,7 @@ class SparkCluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SparkClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkClusterGatewayArgs']] gateway: A `gateway` block as defined below.
@@ -1061,6 +1071,9 @@ class SparkCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="diskEncryptions")
     def disk_encryptions(self) -> pulumi.Output[Optional[Sequence['outputs.SparkClusterDiskEncryption']]]:
+        """
+        One or more `disk_encryption` block as defined below.
+        """
         return pulumi.get(self, "disk_encryptions")
 
     @property

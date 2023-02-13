@@ -464,9 +464,17 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.vnetRouteAllEnabled);
     }
 
+    /**
+     * Should Web Sockets be enabled? Defaults to `false`.
+     * 
+     */
     @Import(name="websocketsEnabled")
     private @Nullable Output<Boolean> websocketsEnabled;
 
+    /**
+     * @return Should Web Sockets be enabled? Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> websocketsEnabled() {
         return Optional.ofNullable(this.websocketsEnabled);
     }
@@ -1187,11 +1195,23 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
             return vnetRouteAllEnabled(Output.of(vnetRouteAllEnabled));
         }
 
+        /**
+         * @param websocketsEnabled Should Web Sockets be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder websocketsEnabled(@Nullable Output<Boolean> websocketsEnabled) {
             $.websocketsEnabled = websocketsEnabled;
             return this;
         }
 
+        /**
+         * @param websocketsEnabled Should Web Sockets be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder websocketsEnabled(Boolean websocketsEnabled) {
             return websocketsEnabled(Output.of(websocketsEnabled));
         }

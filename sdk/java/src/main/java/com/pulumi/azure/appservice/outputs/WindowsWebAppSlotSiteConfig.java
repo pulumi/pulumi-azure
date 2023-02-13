@@ -167,6 +167,10 @@ public final class WindowsWebAppSlotSiteConfig {
      * 
      */
     private @Nullable Boolean vnetRouteAllEnabled;
+    /**
+     * @return Should Web Sockets be enabled. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean websocketsEnabled;
     private @Nullable String windowsFxVersion;
     /**
@@ -385,6 +389,10 @@ public final class WindowsWebAppSlotSiteConfig {
     public Optional<Boolean> vnetRouteAllEnabled() {
         return Optional.ofNullable(this.vnetRouteAllEnabled);
     }
+    /**
+     * @return Should Web Sockets be enabled. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> websocketsEnabled() {
         return Optional.ofNullable(this.websocketsEnabled);
     }

@@ -30,6 +30,9 @@ namespace Pulumi.Azure.RecoveryServices.Inputs
         [Input("useSystemAssignedIdentity")]
         public Input<bool>? UseSystemAssignedIdentity { get; set; }
 
+        /// <summary>
+        /// Specifies the user assigned identity ID to be used.
+        /// </summary>
         [Input("userAssignedIdentityId")]
         public Input<string>? UserAssignedIdentityId { get; set; }
 
