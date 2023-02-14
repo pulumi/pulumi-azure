@@ -52,6 +52,36 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="confidentialVmEnabled")
+    private @Nullable Output<Boolean> confidentialVmEnabled;
+
+    /**
+     * @return Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> confidentialVmEnabled() {
+        return Optional.ofNullable(this.confidentialVmEnabled);
+    }
+
+    /**
+     * Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="confidentialVmSupported")
+    private @Nullable Output<Boolean> confidentialVmSupported;
+
+    /**
+     * @return Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> confidentialVmSupported() {
+        return Optional.ofNullable(this.confidentialVmSupported);
+    }
+
+    /**
      * A description of this Shared Image.
      * 
      */
@@ -371,6 +401,8 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
     private SharedImageArgs(SharedImageArgs $) {
         this.acceleratedNetworkSupportEnabled = $.acceleratedNetworkSupportEnabled;
         this.architecture = $.architecture;
+        this.confidentialVmEnabled = $.confidentialVmEnabled;
+        this.confidentialVmSupported = $.confidentialVmSupported;
         this.description = $.description;
         this.diskTypesNotAlloweds = $.diskTypesNotAlloweds;
         this.endOfLifeDate = $.endOfLifeDate;
@@ -452,6 +484,48 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder architecture(String architecture) {
             return architecture(Output.of(architecture));
+        }
+
+        /**
+         * @param confidentialVmEnabled Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder confidentialVmEnabled(@Nullable Output<Boolean> confidentialVmEnabled) {
+            $.confidentialVmEnabled = confidentialVmEnabled;
+            return this;
+        }
+
+        /**
+         * @param confidentialVmEnabled Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder confidentialVmEnabled(Boolean confidentialVmEnabled) {
+            return confidentialVmEnabled(Output.of(confidentialVmEnabled));
+        }
+
+        /**
+         * @param confidentialVmSupported Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder confidentialVmSupported(@Nullable Output<Boolean> confidentialVmSupported) {
+            $.confidentialVmSupported = confidentialVmSupported;
+            return this;
+        }
+
+        /**
+         * @param confidentialVmSupported Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder confidentialVmSupported(Boolean confidentialVmSupported) {
+            return confidentialVmSupported(Output.of(confidentialVmSupported));
         }
 
         /**

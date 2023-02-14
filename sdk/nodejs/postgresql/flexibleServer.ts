@@ -109,7 +109,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly backupRetentionDays!: pulumi.Output<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
@@ -161,6 +161,10 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicNetworkAccessEnabled!: pulumi.Output<boolean>;
     /**
+     * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+     */
+    public readonly replicationRole!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -169,7 +173,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly sourceServerId!: pulumi.Output<string | undefined>;
     /**
@@ -219,6 +223,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["pointInTimeRestoreTimeInUtc"] = state ? state.pointInTimeRestoreTimeInUtc : undefined;
             resourceInputs["privateDnsZoneId"] = state ? state.privateDnsZoneId : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["replicationRole"] = state ? state.replicationRole : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["sourceServerId"] = state ? state.sourceServerId : undefined;
@@ -246,6 +251,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pointInTimeRestoreTimeInUtc"] = args ? args.pointInTimeRestoreTimeInUtc : undefined;
             resourceInputs["privateDnsZoneId"] = args ? args.privateDnsZoneId : undefined;
+            resourceInputs["replicationRole"] = args ? args.replicationRole : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["sourceServerId"] = args ? args.sourceServerId : undefined;
@@ -284,7 +290,7 @@ export interface FlexibleServerState {
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -336,6 +342,10 @@ export interface FlexibleServerState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
+     * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+     */
+    replicationRole?: pulumi.Input<string>;
+    /**
      * The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -344,7 +354,7 @@ export interface FlexibleServerState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     sourceServerId?: pulumi.Input<string>;
     /**
@@ -386,7 +396,7 @@ export interface FlexibleServerArgs {
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -430,6 +440,10 @@ export interface FlexibleServerArgs {
      */
     privateDnsZoneId?: pulumi.Input<string>;
     /**
+     * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+     */
+    replicationRole?: pulumi.Input<string>;
+    /**
      * The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -438,7 +452,7 @@ export interface FlexibleServerArgs {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     sourceServerId?: pulumi.Input<string>;
     /**

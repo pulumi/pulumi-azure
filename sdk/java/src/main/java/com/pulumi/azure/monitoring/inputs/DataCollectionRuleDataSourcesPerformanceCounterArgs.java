@@ -16,14 +16,14 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
     public static final DataCollectionRuleDataSourcesPerformanceCounterArgs Empty = new DataCollectionRuleDataSourcesPerformanceCounterArgs();
 
     /**
-     * Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+     * Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
      * 
      */
     @Import(name="counterSpecifiers", required=true)
     private Output<List<String>> counterSpecifiers;
 
     /**
-     * @return Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+     * @return Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
      * 
      */
     public Output<List<String>> counterSpecifiers() {
@@ -46,14 +46,14 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
     }
 
     /**
-     * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+     * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
      * 
      */
     @Import(name="samplingFrequencyInSeconds", required=true)
     private Output<Integer> samplingFrequencyInSeconds;
 
     /**
-     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
      * 
      */
     public Output<Integer> samplingFrequencyInSeconds() {
@@ -103,7 +103,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+         * @param counterSpecifiers Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
          * 
          * @return builder
          * 

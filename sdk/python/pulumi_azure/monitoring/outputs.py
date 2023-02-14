@@ -4787,9 +4787,9 @@ class DataCollectionRuleDataSourcesPerformanceCounter(dict):
                  sampling_frequency_in_seconds: int,
                  streams: Sequence[str]):
         """
-        :param Sequence[str] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+        :param Sequence[str] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
         :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-        :param int sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+        :param int sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
         :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
         """
         pulumi.set(__self__, "counter_specifiers", counter_specifiers)
@@ -4801,7 +4801,7 @@ class DataCollectionRuleDataSourcesPerformanceCounter(dict):
     @pulumi.getter(name="counterSpecifiers")
     def counter_specifiers(self) -> Sequence[str]:
         """
-        Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+        Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
         """
         return pulumi.get(self, "counter_specifiers")
 
@@ -4817,7 +4817,7 @@ class DataCollectionRuleDataSourcesPerformanceCounter(dict):
     @pulumi.getter(name="samplingFrequencyInSeconds")
     def sampling_frequency_in_seconds(self) -> int:
         """
-        The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+        The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
         """
         return pulumi.get(self, "sampling_frequency_in_seconds")
 
@@ -4927,7 +4927,7 @@ class DataCollectionRuleDataSourcesWindowsEventLog(dict):
         """
         :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
-        :param Sequence[str] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression.
+        :param Sequence[str] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "streams", streams)
@@ -4953,7 +4953,7 @@ class DataCollectionRuleDataSourcesWindowsEventLog(dict):
     @pulumi.getter(name="xPathQueries")
     def x_path_queries(self) -> Sequence[str]:
         """
-        Specifies a list of Windows Event Log queries in XPath expression.
+        Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
         """
         return pulumi.get(self, "x_path_queries")
 

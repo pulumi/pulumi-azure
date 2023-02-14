@@ -87,7 +87,7 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
      */
     public readonly query!: pulumi.Output<string>;
     /**
-     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
      */
     public readonly queryType!: pulumi.Output<string | undefined>;
     /**
@@ -237,7 +237,7 @@ export interface ScheduledQueryRulesAlertState {
      */
     query?: pulumi.Input<string>;
     /**
-     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
      */
     queryType?: pulumi.Input<string>;
     /**
@@ -312,7 +312,7 @@ export interface ScheduledQueryRulesAlertArgs {
      */
     query: pulumi.Input<string>;
     /**
-     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
      */
     queryType?: pulumi.Input<string>;
     /**

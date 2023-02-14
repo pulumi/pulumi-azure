@@ -40,6 +40,7 @@ import * as confidentialledger from "./confidentialledger";
 import * as config from "./config";
 import * as connections from "./connections";
 import * as consumption from "./consumption";
+import * as containerapp from "./containerapp";
 import * as containerservice from "./containerservice";
 import * as core from "./core";
 import * as cosmosdb from "./cosmosdb";
@@ -88,6 +89,7 @@ import * as marketplace from "./marketplace";
 import * as media from "./media";
 import * as mediaservices from "./mediaservices";
 import * as mixedreality from "./mixedreality";
+import * as mobile from "./mobile";
 import * as monitoring from "./monitoring";
 import * as msi from "./msi";
 import * as mssql from "./mssql";
@@ -155,6 +157,7 @@ export {
     config,
     connections,
     consumption,
+    containerapp,
     containerservice,
     core,
     cosmosdb,
@@ -203,6 +206,7 @@ export {
     media,
     mediaservices,
     mixedreality,
+    mobile,
     monitoring,
     msi,
     mssql,

@@ -127,7 +127,7 @@ type FlexibleServer struct {
 	Authentication FlexibleServerAuthenticationOutput `pulumi:"authentication"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
@@ -153,11 +153,13 @@ type FlexibleServer struct {
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
+	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+	ReplicationRole pulumi.StringPtrOutput `pulumi:"replicationRole"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrOutput `pulumi:"sourceServerId"`
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
 	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
@@ -216,7 +218,7 @@ type flexibleServerState struct {
 	Authentication *FlexibleServerAuthentication `pulumi:"authentication"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey *FlexibleServerCustomerManagedKey `pulumi:"customerManagedKey"`
@@ -242,11 +244,13 @@ type flexibleServerState struct {
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+	ReplicationRole *string `pulumi:"replicationRole"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
 	SkuName *string `pulumi:"skuName"`
-	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
 	StorageMb *int `pulumi:"storageMb"`
@@ -267,7 +271,7 @@ type FlexibleServerState struct {
 	Authentication FlexibleServerAuthenticationPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrInput
@@ -293,11 +297,13 @@ type FlexibleServerState struct {
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+	ReplicationRole pulumi.StringPtrInput
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
 	SkuName pulumi.StringPtrInput
-	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrInput
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
 	StorageMb pulumi.IntPtrInput
@@ -322,7 +328,7 @@ type flexibleServerArgs struct {
 	Authentication *FlexibleServerAuthentication `pulumi:"authentication"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey *FlexibleServerCustomerManagedKey `pulumi:"customerManagedKey"`
@@ -344,11 +350,13 @@ type flexibleServerArgs struct {
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
 	// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
+	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+	ReplicationRole *string `pulumi:"replicationRole"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
 	SkuName *string `pulumi:"skuName"`
-	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
 	StorageMb *int `pulumi:"storageMb"`
@@ -370,7 +378,7 @@ type FlexibleServerArgs struct {
 	Authentication FlexibleServerAuthenticationPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrInput
@@ -392,11 +400,13 @@ type FlexibleServerArgs struct {
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
 	// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
+	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+	ReplicationRole pulumi.StringPtrInput
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
 	SkuName pulumi.StringPtrInput
-	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrInput
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
 	StorageMb pulumi.IntPtrInput
@@ -515,7 +525,7 @@ func (o FlexibleServerOutput) BackupRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.IntOutput { return v.BackupRetentionDays }).(pulumi.IntOutput)
 }
 
-// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 func (o FlexibleServerOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
@@ -580,6 +590,11 @@ func (o FlexibleServerOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.BoolOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
+// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+func (o FlexibleServerOutput) ReplicationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.ReplicationRole }).(pulumi.StringPtrOutput)
+}
+
 // The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 func (o FlexibleServerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
@@ -590,7 +605,7 @@ func (o FlexibleServerOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 func (o FlexibleServerOutput) SourceServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.SourceServerId }).(pulumi.StringPtrOutput)
 }

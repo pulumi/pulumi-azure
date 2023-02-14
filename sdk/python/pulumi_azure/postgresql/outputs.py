@@ -157,7 +157,7 @@ class FlexibleServerHighAvailability(dict):
                  mode: str,
                  standby_availability_zone: Optional[str] = None):
         """
-        :param str mode: The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+        :param str mode: The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
         :param str standby_availability_zone: Specifies the Availability Zone in which the standby Flexible Server should be located.
         """
         pulumi.set(__self__, "mode", mode)
@@ -168,7 +168,7 @@ class FlexibleServerHighAvailability(dict):
     @pulumi.getter
     def mode(self) -> str:
         """
-        The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+        The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
         """
         return pulumi.get(self, "mode")
 

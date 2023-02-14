@@ -8,6 +8,8 @@ import typing
 from .compute_cluster import *
 from .compute_instance import *
 from .datastore_blobstorage import *
+from .datastore_datalake_gen2 import *
+from .datastore_fileshare import *
 from .get_workspace import *
 from .inference_cluster import *
 from .synapse_spark import *

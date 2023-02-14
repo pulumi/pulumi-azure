@@ -15,6 +15,33 @@ import (
 //
 // Manages a Load Test Service.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loadtest"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := loadtest.NewLoadTest(ctx, "example", &loadtest.LoadTestArgs{
+//				Location:          pulumi.Any(azurerm_resource_group.Example.Location),
+//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // An existing Load Test can be imported into Terraform using the `resource id`, e.g.

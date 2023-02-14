@@ -13,16 +13,21 @@ __all__ = [
     'AlertRuleFusionSourceArgs',
     'AlertRuleFusionSourceSubTypeArgs',
     'AlertRuleNrtAlertDetailsOverrideArgs',
+    'AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs',
     'AlertRuleNrtEntityMappingArgs',
     'AlertRuleNrtEntityMappingFieldMappingArgs',
+    'AlertRuleNrtEventGroupingArgs',
     'AlertRuleNrtIncidentArgs',
     'AlertRuleNrtIncidentGroupingArgs',
+    'AlertRuleNrtSentinelEntityMappingArgs',
     'AlertRuleScheduledAlertDetailsOverrideArgs',
+    'AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs',
     'AlertRuleScheduledEntityMappingArgs',
     'AlertRuleScheduledEntityMappingFieldMappingArgs',
     'AlertRuleScheduledEventGroupingArgs',
     'AlertRuleScheduledIncidentConfigurationArgs',
     'AlertRuleScheduledIncidentConfigurationGroupingArgs',
+    'AlertRuleScheduledSentinelEntityMappingArgs',
     'AuthomationRuleActionIncidentArgs',
     'AuthomationRuleActionPlaybookArgs',
     'AuthomationRuleConditionArgs',
@@ -143,11 +148,13 @@ class AlertRuleNrtAlertDetailsOverrideArgs:
     def __init__(__self__, *,
                  description_format: Optional[pulumi.Input[str]] = None,
                  display_name_format: Optional[pulumi.Input[str]] = None,
+                 dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
                  severity_column_name: Optional[pulumi.Input[str]] = None,
                  tactics_column_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] description_format: The format containing columns name(s) to override the description of this Sentinel Alert Rule.
         :param pulumi.Input[str] display_name_format: The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]] dynamic_properties: A list of `dynamic_property` blocks as defined below.
         :param pulumi.Input[str] severity_column_name: The column name to take the alert severity from.
         :param pulumi.Input[str] tactics_column_name: The column name to take the alert tactics from.
         """
@@ -155,6 +162,8 @@ class AlertRuleNrtAlertDetailsOverrideArgs:
             pulumi.set(__self__, "description_format", description_format)
         if display_name_format is not None:
             pulumi.set(__self__, "display_name_format", display_name_format)
+        if dynamic_properties is not None:
+            pulumi.set(__self__, "dynamic_properties", dynamic_properties)
         if severity_column_name is not None:
             pulumi.set(__self__, "severity_column_name", severity_column_name)
         if tactics_column_name is not None:
@@ -185,6 +194,18 @@ class AlertRuleNrtAlertDetailsOverrideArgs:
         pulumi.set(self, "display_name_format", value)
 
     @property
+    @pulumi.getter(name="dynamicProperties")
+    def dynamic_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]]:
+        """
+        A list of `dynamic_property` blocks as defined below.
+        """
+        return pulumi.get(self, "dynamic_properties")
+
+    @dynamic_properties.setter
+    def dynamic_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]]):
+        pulumi.set(self, "dynamic_properties", value)
+
+    @property
     @pulumi.getter(name="severityColumnName")
     def severity_column_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -207,6 +228,43 @@ class AlertRuleNrtAlertDetailsOverrideArgs:
     @tactics_column_name.setter
     def tactics_column_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tactics_column_name", value)
+
+
+@pulumi.input_type
+class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+        :param pulumi.Input[str] value: The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -281,6 +339,28 @@ class AlertRuleNrtEntityMappingFieldMappingArgs:
     @identifier.setter
     def identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "identifier", value)
+
+
+@pulumi.input_type
+class AlertRuleNrtEventGroupingArgs:
+    def __init__(__self__, *,
+                 aggregation_method: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] aggregation_method: The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
+        """
+        pulumi.set(__self__, "aggregation_method", aggregation_method)
+
+    @property
+    @pulumi.getter(name="aggregationMethod")
+    def aggregation_method(self) -> pulumi.Input[str]:
+        """
+        The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
+        """
+        return pulumi.get(self, "aggregation_method")
+
+    @aggregation_method.setter
+    def aggregation_method(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation_method", value)
 
 
 @pulumi.input_type
@@ -440,15 +520,39 @@ class AlertRuleNrtIncidentGroupingArgs:
 
 
 @pulumi.input_type
+class AlertRuleNrtSentinelEntityMappingArgs:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] column_name: The column name to be mapped to the identifier.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[str]:
+        """
+        The column name to be mapped to the identifier.
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_name", value)
+
+
+@pulumi.input_type
 class AlertRuleScheduledAlertDetailsOverrideArgs:
     def __init__(__self__, *,
                  description_format: Optional[pulumi.Input[str]] = None,
                  display_name_format: Optional[pulumi.Input[str]] = None,
+                 dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
                  severity_column_name: Optional[pulumi.Input[str]] = None,
                  tactics_column_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] description_format: The format containing columns name(s) to override the description of this Sentinel Alert Rule.
         :param pulumi.Input[str] display_name_format: The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]] dynamic_properties: A list of `dynamic_property` blocks as defined below.
         :param pulumi.Input[str] severity_column_name: The column name to take the alert severity from.
         :param pulumi.Input[str] tactics_column_name: The column name to take the alert tactics from.
         """
@@ -456,6 +560,8 @@ class AlertRuleScheduledAlertDetailsOverrideArgs:
             pulumi.set(__self__, "description_format", description_format)
         if display_name_format is not None:
             pulumi.set(__self__, "display_name_format", display_name_format)
+        if dynamic_properties is not None:
+            pulumi.set(__self__, "dynamic_properties", dynamic_properties)
         if severity_column_name is not None:
             pulumi.set(__self__, "severity_column_name", severity_column_name)
         if tactics_column_name is not None:
@@ -486,6 +592,18 @@ class AlertRuleScheduledAlertDetailsOverrideArgs:
         pulumi.set(self, "display_name_format", value)
 
     @property
+    @pulumi.getter(name="dynamicProperties")
+    def dynamic_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]]:
+        """
+        A list of `dynamic_property` blocks as defined below.
+        """
+        return pulumi.get(self, "dynamic_properties")
+
+    @dynamic_properties.setter
+    def dynamic_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]]):
+        pulumi.set(self, "dynamic_properties", value)
+
+    @property
     @pulumi.getter(name="severityColumnName")
     def severity_column_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -508,6 +626,43 @@ class AlertRuleScheduledAlertDetailsOverrideArgs:
     @tactics_column_name.setter
     def tactics_column_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tactics_column_name", value)
+
+
+@pulumi.input_type
+class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+        :param pulumi.Input[str] value: The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -760,6 +915,28 @@ class AlertRuleScheduledIncidentConfigurationGroupingArgs:
     @reopen_closed_incidents.setter
     def reopen_closed_incidents(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "reopen_closed_incidents", value)
+
+
+@pulumi.input_type
+class AlertRuleScheduledSentinelEntityMappingArgs:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] column_name: The column name to be mapped to the identifier.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[str]:
+        """
+        The column name to be mapped to the identifier.
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_name", value)
 
 
 @pulumi.input_type

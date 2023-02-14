@@ -21,7 +21,7 @@ public final class DataCollectionRuleDataSourcesWindowsEventLog {
      */
     private List<String> streams;
     /**
-     * @return Specifies a list of Windows Event Log queries in XPath expression.
+     * @return Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
      * 
      */
     private List<String> xPathQueries;
@@ -42,7 +42,7 @@ public final class DataCollectionRuleDataSourcesWindowsEventLog {
         return this.streams;
     }
     /**
-     * @return Specifies a list of Windows Event Log queries in XPath expression.
+     * @return Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
      * 
      */
     public List<String> xPathQueries() {

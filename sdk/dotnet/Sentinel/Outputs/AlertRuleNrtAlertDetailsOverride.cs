@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string? DisplayNameFormat;
         /// <summary>
+        /// A list of `dynamic_property` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AlertRuleNrtAlertDetailsOverrideDynamicProperty> DynamicProperties;
+        /// <summary>
         /// The column name to take the alert severity from.
         /// </summary>
         public readonly string? SeverityColumnName;
@@ -36,12 +40,15 @@ namespace Pulumi.Azure.Sentinel.Outputs
 
             string? displayNameFormat,
 
+            ImmutableArray<Outputs.AlertRuleNrtAlertDetailsOverrideDynamicProperty> dynamicProperties,
+
             string? severityColumnName,
 
             string? tacticsColumnName)
         {
             DescriptionFormat = descriptionFormat;
             DisplayNameFormat = displayNameFormat;
+            DynamicProperties = dynamicProperties;
             SeverityColumnName = severityColumnName;
             TacticsColumnName = tacticsColumnName;
         }

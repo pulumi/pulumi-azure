@@ -91,9 +91,9 @@ type DiagnosticSetting struct {
 
 	// One or more `enabledLog` blocks as defined below.
 	EnabledLogs DiagnosticSettingEnabledLogArrayOutput `pulumi:"enabledLogs"`
-	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 	EventhubAuthorizationRuleId pulumi.StringPtrOutput `pulumi:"eventhubAuthorizationRuleId"`
-	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	// Specifies the name of the Event Hub where Diagnostics Data should be sent.
 	EventhubName pulumi.StringPtrOutput `pulumi:"eventhubName"`
 	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType pulumi.StringPtrOutput `pulumi:"logAnalyticsDestinationType"`
@@ -109,7 +109,7 @@ type DiagnosticSetting struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
 	PartnerSolutionId pulumi.StringPtrOutput `pulumi:"partnerSolutionId"`
-	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+	// The ID of the Storage Account where logs should be sent.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
@@ -149,9 +149,9 @@ func GetDiagnosticSetting(ctx *pulumi.Context,
 type diagnosticSettingState struct {
 	// One or more `enabledLog` blocks as defined below.
 	EnabledLogs []DiagnosticSettingEnabledLog `pulumi:"enabledLogs"`
-	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 	EventhubAuthorizationRuleId *string `pulumi:"eventhubAuthorizationRuleId"`
-	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	// Specifies the name of the Event Hub where Diagnostics Data should be sent.
 	EventhubName *string `pulumi:"eventhubName"`
 	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
@@ -167,7 +167,7 @@ type diagnosticSettingState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
 	PartnerSolutionId *string `pulumi:"partnerSolutionId"`
-	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+	// The ID of the Storage Account where logs should be sent.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId *string `pulumi:"targetResourceId"`
@@ -176,9 +176,9 @@ type diagnosticSettingState struct {
 type DiagnosticSettingState struct {
 	// One or more `enabledLog` blocks as defined below.
 	EnabledLogs DiagnosticSettingEnabledLogArrayInput
-	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 	EventhubAuthorizationRuleId pulumi.StringPtrInput
-	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	// Specifies the name of the Event Hub where Diagnostics Data should be sent.
 	EventhubName pulumi.StringPtrInput
 	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType pulumi.StringPtrInput
@@ -194,7 +194,7 @@ type DiagnosticSettingState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
 	PartnerSolutionId pulumi.StringPtrInput
-	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+	// The ID of the Storage Account where logs should be sent.
 	StorageAccountId pulumi.StringPtrInput
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringPtrInput
@@ -207,9 +207,9 @@ func (DiagnosticSettingState) ElementType() reflect.Type {
 type diagnosticSettingArgs struct {
 	// One or more `enabledLog` blocks as defined below.
 	EnabledLogs []DiagnosticSettingEnabledLog `pulumi:"enabledLogs"`
-	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 	EventhubAuthorizationRuleId *string `pulumi:"eventhubAuthorizationRuleId"`
-	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	// Specifies the name of the Event Hub where Diagnostics Data should be sent.
 	EventhubName *string `pulumi:"eventhubName"`
 	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
@@ -225,7 +225,7 @@ type diagnosticSettingArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
 	PartnerSolutionId *string `pulumi:"partnerSolutionId"`
-	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+	// The ID of the Storage Account where logs should be sent.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId string `pulumi:"targetResourceId"`
@@ -235,9 +235,9 @@ type diagnosticSettingArgs struct {
 type DiagnosticSettingArgs struct {
 	// One or more `enabledLog` blocks as defined below.
 	EnabledLogs DiagnosticSettingEnabledLogArrayInput
-	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 	EventhubAuthorizationRuleId pulumi.StringPtrInput
-	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	// Specifies the name of the Event Hub where Diagnostics Data should be sent.
 	EventhubName pulumi.StringPtrInput
 	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType pulumi.StringPtrInput
@@ -253,7 +253,7 @@ type DiagnosticSettingArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
 	PartnerSolutionId pulumi.StringPtrInput
-	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+	// The ID of the Storage Account where logs should be sent.
 	StorageAccountId pulumi.StringPtrInput
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringInput
@@ -351,12 +351,12 @@ func (o DiagnosticSettingOutput) EnabledLogs() DiagnosticSettingEnabledLogArrayO
 	return o.ApplyT(func(v *DiagnosticSetting) DiagnosticSettingEnabledLogArrayOutput { return v.EnabledLogs }).(DiagnosticSettingEnabledLogArrayOutput)
 }
 
-// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 func (o DiagnosticSettingOutput) EventhubAuthorizationRuleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.EventhubAuthorizationRuleId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+// Specifies the name of the Event Hub where Diagnostics Data should be sent.
 func (o DiagnosticSettingOutput) EventhubName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.EventhubName }).(pulumi.StringPtrOutput)
 }
@@ -393,7 +393,7 @@ func (o DiagnosticSettingOutput) PartnerSolutionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.PartnerSolutionId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+// The ID of the Storage Account where logs should be sent.
 func (o DiagnosticSettingOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }

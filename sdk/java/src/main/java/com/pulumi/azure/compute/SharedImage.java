@@ -120,6 +120,34 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.architecture);
     }
     /**
+     * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="confidentialVmEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> confidentialVmEnabled;
+
+    /**
+     * @return Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> confidentialVmEnabled() {
+        return Codegen.optional(this.confidentialVmEnabled);
+    }
+    /**
+     * Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="confidentialVmSupported", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> confidentialVmSupported;
+
+    /**
+     * @return Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> confidentialVmSupported() {
+        return Codegen.optional(this.confidentialVmSupported);
+    }
+    /**
      * A description of this Shared Image.
      * 
      */

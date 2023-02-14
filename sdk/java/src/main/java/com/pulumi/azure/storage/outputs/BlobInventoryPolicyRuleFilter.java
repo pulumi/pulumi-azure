@@ -19,6 +19,11 @@ public final class BlobInventoryPolicyRuleFilter {
      */
     private List<String> blobTypes;
     /**
+     * @return A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+     * 
+     */
+    private @Nullable List<String> excludePrefixes;
+    /**
      * @return Includes blob versions in blob inventory or not? Defaults to `false`.
      * 
      */
@@ -34,7 +39,7 @@ public final class BlobInventoryPolicyRuleFilter {
      */
     private @Nullable Boolean includeSnapshots;
     /**
-     * @return A set of strings for blob prefixes to be matched.
+     * @return A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
      * 
      */
     private @Nullable List<String> prefixMatches;
@@ -46,6 +51,13 @@ public final class BlobInventoryPolicyRuleFilter {
      */
     public List<String> blobTypes() {
         return this.blobTypes;
+    }
+    /**
+     * @return A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+     * 
+     */
+    public List<String> excludePrefixes() {
+        return this.excludePrefixes == null ? List.of() : this.excludePrefixes;
     }
     /**
      * @return Includes blob versions in blob inventory or not? Defaults to `false`.
@@ -69,7 +81,7 @@ public final class BlobInventoryPolicyRuleFilter {
         return Optional.ofNullable(this.includeSnapshots);
     }
     /**
-     * @return A set of strings for blob prefixes to be matched.
+     * @return A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
      * 
      */
     public List<String> prefixMatches() {
@@ -86,6 +98,7 @@ public final class BlobInventoryPolicyRuleFilter {
     @CustomType.Builder
     public static final class Builder {
         private List<String> blobTypes;
+        private @Nullable List<String> excludePrefixes;
         private @Nullable Boolean includeBlobVersions;
         private @Nullable Boolean includeDeleted;
         private @Nullable Boolean includeSnapshots;
@@ -94,6 +107,7 @@ public final class BlobInventoryPolicyRuleFilter {
         public Builder(BlobInventoryPolicyRuleFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobTypes = defaults.blobTypes;
+    	      this.excludePrefixes = defaults.excludePrefixes;
     	      this.includeBlobVersions = defaults.includeBlobVersions;
     	      this.includeDeleted = defaults.includeDeleted;
     	      this.includeSnapshots = defaults.includeSnapshots;
@@ -107,6 +121,14 @@ public final class BlobInventoryPolicyRuleFilter {
         }
         public Builder blobTypes(String... blobTypes) {
             return blobTypes(List.of(blobTypes));
+        }
+        @CustomType.Setter
+        public Builder excludePrefixes(@Nullable List<String> excludePrefixes) {
+            this.excludePrefixes = excludePrefixes;
+            return this;
+        }
+        public Builder excludePrefixes(String... excludePrefixes) {
+            return excludePrefixes(List.of(excludePrefixes));
         }
         @CustomType.Setter
         public Builder includeBlobVersions(@Nullable Boolean includeBlobVersions) {
@@ -134,6 +156,7 @@ public final class BlobInventoryPolicyRuleFilter {
         public BlobInventoryPolicyRuleFilter build() {
             final var o = new BlobInventoryPolicyRuleFilter();
             o.blobTypes = blobTypes;
+            o.excludePrefixes = excludePrefixes;
             o.includeBlobVersions = includeBlobVersions;
             o.includeDeleted = includeDeleted;
             o.includeSnapshots = includeSnapshots;

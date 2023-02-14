@@ -7,6 +7,7 @@ import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledAlertDetailsOverrideAr
 import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledEntityMappingArgs;
 import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledEventGroupingArgs;
 import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledIncidentConfigurationArgs;
+import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledSentinelEntityMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -249,6 +250,21 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     */
+    @Import(name="sentinelEntityMappings")
+    private @Nullable Output<List<AlertRuleScheduledSentinelEntityMappingArgs>> sentinelEntityMappings;
+
+    /**
+     * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<AlertRuleScheduledSentinelEntityMappingArgs>>> sentinelEntityMappings() {
+        return Optional.ofNullable(this.sentinelEntityMappings);
+    }
+
+    /**
      * The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      * 
      */
@@ -371,6 +387,7 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
         this.query = $.query;
         this.queryFrequency = $.queryFrequency;
         this.queryPeriod = $.queryPeriod;
+        this.sentinelEntityMappings = $.sentinelEntityMappings;
         this.severity = $.severity;
         this.suppressionDuration = $.suppressionDuration;
         this.suppressionEnabled = $.suppressionEnabled;
@@ -731,6 +748,37 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
          */
         public Builder queryPeriod(String queryPeriod) {
             return queryPeriod(Output.of(queryPeriod));
+        }
+
+        /**
+         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sentinelEntityMappings(@Nullable Output<List<AlertRuleScheduledSentinelEntityMappingArgs>> sentinelEntityMappings) {
+            $.sentinelEntityMappings = sentinelEntityMappings;
+            return this;
+        }
+
+        /**
+         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sentinelEntityMappings(List<AlertRuleScheduledSentinelEntityMappingArgs> sentinelEntityMappings) {
+            return sentinelEntityMappings(Output.of(sentinelEntityMappings));
+        }
+
+        /**
+         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sentinelEntityMappings(AlertRuleScheduledSentinelEntityMappingArgs... sentinelEntityMappings) {
+            return sentinelEntityMappings(List.of(sentinelEntityMappings));
         }
 
         /**

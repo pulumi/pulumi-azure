@@ -245,6 +245,8 @@ type AlertRuleNrtAlertDetailsOverride struct {
 	DescriptionFormat *string `pulumi:"descriptionFormat"`
 	// The format containing columns name(s) to override the name of this Sentinel Alert Rule.
 	DisplayNameFormat *string `pulumi:"displayNameFormat"`
+	// A list of `dynamicProperty` blocks as defined below.
+	DynamicProperties []AlertRuleNrtAlertDetailsOverrideDynamicProperty `pulumi:"dynamicProperties"`
 	// The column name to take the alert severity from.
 	SeverityColumnName *string `pulumi:"severityColumnName"`
 	// The column name to take the alert tactics from.
@@ -267,6 +269,8 @@ type AlertRuleNrtAlertDetailsOverrideArgs struct {
 	DescriptionFormat pulumi.StringPtrInput `pulumi:"descriptionFormat"`
 	// The format containing columns name(s) to override the name of this Sentinel Alert Rule.
 	DisplayNameFormat pulumi.StringPtrInput `pulumi:"displayNameFormat"`
+	// A list of `dynamicProperty` blocks as defined below.
+	DynamicProperties AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayInput `pulumi:"dynamicProperties"`
 	// The column name to take the alert severity from.
 	SeverityColumnName pulumi.StringPtrInput `pulumi:"severityColumnName"`
 	// The column name to take the alert tactics from.
@@ -334,6 +338,13 @@ func (o AlertRuleNrtAlertDetailsOverrideOutput) DisplayNameFormat() pulumi.Strin
 	return o.ApplyT(func(v AlertRuleNrtAlertDetailsOverride) *string { return v.DisplayNameFormat }).(pulumi.StringPtrOutput)
 }
 
+// A list of `dynamicProperty` blocks as defined below.
+func (o AlertRuleNrtAlertDetailsOverrideOutput) DynamicProperties() AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput {
+	return o.ApplyT(func(v AlertRuleNrtAlertDetailsOverride) []AlertRuleNrtAlertDetailsOverrideDynamicProperty {
+		return v.DynamicProperties
+	}).(AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput)
+}
+
 // The column name to take the alert severity from.
 func (o AlertRuleNrtAlertDetailsOverrideOutput) SeverityColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleNrtAlertDetailsOverride) *string { return v.SeverityColumnName }).(pulumi.StringPtrOutput)
@@ -362,6 +373,112 @@ func (o AlertRuleNrtAlertDetailsOverrideArrayOutput) Index(i pulumi.IntInput) Al
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleNrtAlertDetailsOverride {
 		return vs[0].([]AlertRuleNrtAlertDetailsOverride)[vs[1].(int)]
 	}).(AlertRuleNrtAlertDetailsOverrideOutput)
+}
+
+type AlertRuleNrtAlertDetailsOverrideDynamicProperty struct {
+	// The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+	Name string `pulumi:"name"`
+	// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+	Value string `pulumi:"value"`
+}
+
+// AlertRuleNrtAlertDetailsOverrideDynamicPropertyInput is an input type that accepts AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs and AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput values.
+// You can construct a concrete instance of `AlertRuleNrtAlertDetailsOverrideDynamicPropertyInput` via:
+//
+//	AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs{...}
+type AlertRuleNrtAlertDetailsOverrideDynamicPropertyInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput() AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput
+	ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyOutputWithContext(context.Context) AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput
+}
+
+type AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs struct {
+	// The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtAlertDetailsOverrideDynamicProperty)(nil)).Elem()
+}
+
+func (i AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs) ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput() AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput {
+	return i.ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs) ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput)
+}
+
+// AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayInput is an input type that accepts AlertRuleNrtAlertDetailsOverrideDynamicPropertyArray and AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput values.
+// You can construct a concrete instance of `AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayInput` via:
+//
+//	AlertRuleNrtAlertDetailsOverrideDynamicPropertyArray{ AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs{...} }
+type AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput() AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput
+	ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(context.Context) AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput
+}
+
+type AlertRuleNrtAlertDetailsOverrideDynamicPropertyArray []AlertRuleNrtAlertDetailsOverrideDynamicPropertyInput
+
+func (AlertRuleNrtAlertDetailsOverrideDynamicPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleNrtAlertDetailsOverrideDynamicProperty)(nil)).Elem()
+}
+
+func (i AlertRuleNrtAlertDetailsOverrideDynamicPropertyArray) ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput() AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput {
+	return i.ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtAlertDetailsOverrideDynamicPropertyArray) ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput)
+}
+
+type AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtAlertDetailsOverrideDynamicProperty)(nil)).Elem()
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput) ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput() AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput {
+	return o
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput) ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput {
+	return o
+}
+
+// The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleNrtAlertDetailsOverrideDynamicProperty) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleNrtAlertDetailsOverrideDynamicProperty) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleNrtAlertDetailsOverrideDynamicProperty)(nil)).Elem()
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput) ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput() AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput {
+	return o
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput) ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput {
+	return o
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput) Index(i pulumi.IntInput) AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleNrtAlertDetailsOverrideDynamicProperty {
+		return vs[0].([]AlertRuleNrtAlertDetailsOverrideDynamicProperty)[vs[1].(int)]
+	}).(AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput)
 }
 
 type AlertRuleNrtEntityMapping struct {
@@ -574,6 +691,143 @@ func (o AlertRuleNrtEntityMappingFieldMappingArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleNrtEntityMappingFieldMapping {
 		return vs[0].([]AlertRuleNrtEntityMappingFieldMapping)[vs[1].(int)]
 	}).(AlertRuleNrtEntityMappingFieldMappingOutput)
+}
+
+type AlertRuleNrtEventGrouping struct {
+	// The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
+	AggregationMethod string `pulumi:"aggregationMethod"`
+}
+
+// AlertRuleNrtEventGroupingInput is an input type that accepts AlertRuleNrtEventGroupingArgs and AlertRuleNrtEventGroupingOutput values.
+// You can construct a concrete instance of `AlertRuleNrtEventGroupingInput` via:
+//
+//	AlertRuleNrtEventGroupingArgs{...}
+type AlertRuleNrtEventGroupingInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtEventGroupingOutput() AlertRuleNrtEventGroupingOutput
+	ToAlertRuleNrtEventGroupingOutputWithContext(context.Context) AlertRuleNrtEventGroupingOutput
+}
+
+type AlertRuleNrtEventGroupingArgs struct {
+	// The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
+	AggregationMethod pulumi.StringInput `pulumi:"aggregationMethod"`
+}
+
+func (AlertRuleNrtEventGroupingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtEventGrouping)(nil)).Elem()
+}
+
+func (i AlertRuleNrtEventGroupingArgs) ToAlertRuleNrtEventGroupingOutput() AlertRuleNrtEventGroupingOutput {
+	return i.ToAlertRuleNrtEventGroupingOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtEventGroupingArgs) ToAlertRuleNrtEventGroupingOutputWithContext(ctx context.Context) AlertRuleNrtEventGroupingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEventGroupingOutput)
+}
+
+func (i AlertRuleNrtEventGroupingArgs) ToAlertRuleNrtEventGroupingPtrOutput() AlertRuleNrtEventGroupingPtrOutput {
+	return i.ToAlertRuleNrtEventGroupingPtrOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtEventGroupingArgs) ToAlertRuleNrtEventGroupingPtrOutputWithContext(ctx context.Context) AlertRuleNrtEventGroupingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEventGroupingOutput).ToAlertRuleNrtEventGroupingPtrOutputWithContext(ctx)
+}
+
+// AlertRuleNrtEventGroupingPtrInput is an input type that accepts AlertRuleNrtEventGroupingArgs, AlertRuleNrtEventGroupingPtr and AlertRuleNrtEventGroupingPtrOutput values.
+// You can construct a concrete instance of `AlertRuleNrtEventGroupingPtrInput` via:
+//
+//	        AlertRuleNrtEventGroupingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertRuleNrtEventGroupingPtrInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtEventGroupingPtrOutput() AlertRuleNrtEventGroupingPtrOutput
+	ToAlertRuleNrtEventGroupingPtrOutputWithContext(context.Context) AlertRuleNrtEventGroupingPtrOutput
+}
+
+type alertRuleNrtEventGroupingPtrType AlertRuleNrtEventGroupingArgs
+
+func AlertRuleNrtEventGroupingPtr(v *AlertRuleNrtEventGroupingArgs) AlertRuleNrtEventGroupingPtrInput {
+	return (*alertRuleNrtEventGroupingPtrType)(v)
+}
+
+func (*alertRuleNrtEventGroupingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleNrtEventGrouping)(nil)).Elem()
+}
+
+func (i *alertRuleNrtEventGroupingPtrType) ToAlertRuleNrtEventGroupingPtrOutput() AlertRuleNrtEventGroupingPtrOutput {
+	return i.ToAlertRuleNrtEventGroupingPtrOutputWithContext(context.Background())
+}
+
+func (i *alertRuleNrtEventGroupingPtrType) ToAlertRuleNrtEventGroupingPtrOutputWithContext(ctx context.Context) AlertRuleNrtEventGroupingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEventGroupingPtrOutput)
+}
+
+type AlertRuleNrtEventGroupingOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtEventGroupingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtEventGrouping)(nil)).Elem()
+}
+
+func (o AlertRuleNrtEventGroupingOutput) ToAlertRuleNrtEventGroupingOutput() AlertRuleNrtEventGroupingOutput {
+	return o
+}
+
+func (o AlertRuleNrtEventGroupingOutput) ToAlertRuleNrtEventGroupingOutputWithContext(ctx context.Context) AlertRuleNrtEventGroupingOutput {
+	return o
+}
+
+func (o AlertRuleNrtEventGroupingOutput) ToAlertRuleNrtEventGroupingPtrOutput() AlertRuleNrtEventGroupingPtrOutput {
+	return o.ToAlertRuleNrtEventGroupingPtrOutputWithContext(context.Background())
+}
+
+func (o AlertRuleNrtEventGroupingOutput) ToAlertRuleNrtEventGroupingPtrOutputWithContext(ctx context.Context) AlertRuleNrtEventGroupingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleNrtEventGrouping) *AlertRuleNrtEventGrouping {
+		return &v
+	}).(AlertRuleNrtEventGroupingPtrOutput)
+}
+
+// The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
+func (o AlertRuleNrtEventGroupingOutput) AggregationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleNrtEventGrouping) string { return v.AggregationMethod }).(pulumi.StringOutput)
+}
+
+type AlertRuleNrtEventGroupingPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtEventGroupingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleNrtEventGrouping)(nil)).Elem()
+}
+
+func (o AlertRuleNrtEventGroupingPtrOutput) ToAlertRuleNrtEventGroupingPtrOutput() AlertRuleNrtEventGroupingPtrOutput {
+	return o
+}
+
+func (o AlertRuleNrtEventGroupingPtrOutput) ToAlertRuleNrtEventGroupingPtrOutputWithContext(ctx context.Context) AlertRuleNrtEventGroupingPtrOutput {
+	return o
+}
+
+func (o AlertRuleNrtEventGroupingPtrOutput) Elem() AlertRuleNrtEventGroupingOutput {
+	return o.ApplyT(func(v *AlertRuleNrtEventGrouping) AlertRuleNrtEventGrouping {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleNrtEventGrouping
+		return ret
+	}).(AlertRuleNrtEventGroupingOutput)
+}
+
+// The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
+func (o AlertRuleNrtEventGroupingPtrOutput) AggregationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertRuleNrtEventGrouping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AggregationMethod
+	}).(pulumi.StringPtrOutput)
 }
 
 type AlertRuleNrtIncident struct {
@@ -983,11 +1237,110 @@ func (o AlertRuleNrtIncidentGroupingPtrOutput) ReopenClosedIncidents() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+type AlertRuleNrtSentinelEntityMapping struct {
+	// The column name to be mapped to the identifier.
+	ColumnName string `pulumi:"columnName"`
+}
+
+// AlertRuleNrtSentinelEntityMappingInput is an input type that accepts AlertRuleNrtSentinelEntityMappingArgs and AlertRuleNrtSentinelEntityMappingOutput values.
+// You can construct a concrete instance of `AlertRuleNrtSentinelEntityMappingInput` via:
+//
+//	AlertRuleNrtSentinelEntityMappingArgs{...}
+type AlertRuleNrtSentinelEntityMappingInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtSentinelEntityMappingOutput() AlertRuleNrtSentinelEntityMappingOutput
+	ToAlertRuleNrtSentinelEntityMappingOutputWithContext(context.Context) AlertRuleNrtSentinelEntityMappingOutput
+}
+
+type AlertRuleNrtSentinelEntityMappingArgs struct {
+	// The column name to be mapped to the identifier.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+}
+
+func (AlertRuleNrtSentinelEntityMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtSentinelEntityMapping)(nil)).Elem()
+}
+
+func (i AlertRuleNrtSentinelEntityMappingArgs) ToAlertRuleNrtSentinelEntityMappingOutput() AlertRuleNrtSentinelEntityMappingOutput {
+	return i.ToAlertRuleNrtSentinelEntityMappingOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtSentinelEntityMappingArgs) ToAlertRuleNrtSentinelEntityMappingOutputWithContext(ctx context.Context) AlertRuleNrtSentinelEntityMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtSentinelEntityMappingOutput)
+}
+
+// AlertRuleNrtSentinelEntityMappingArrayInput is an input type that accepts AlertRuleNrtSentinelEntityMappingArray and AlertRuleNrtSentinelEntityMappingArrayOutput values.
+// You can construct a concrete instance of `AlertRuleNrtSentinelEntityMappingArrayInput` via:
+//
+//	AlertRuleNrtSentinelEntityMappingArray{ AlertRuleNrtSentinelEntityMappingArgs{...} }
+type AlertRuleNrtSentinelEntityMappingArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtSentinelEntityMappingArrayOutput() AlertRuleNrtSentinelEntityMappingArrayOutput
+	ToAlertRuleNrtSentinelEntityMappingArrayOutputWithContext(context.Context) AlertRuleNrtSentinelEntityMappingArrayOutput
+}
+
+type AlertRuleNrtSentinelEntityMappingArray []AlertRuleNrtSentinelEntityMappingInput
+
+func (AlertRuleNrtSentinelEntityMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleNrtSentinelEntityMapping)(nil)).Elem()
+}
+
+func (i AlertRuleNrtSentinelEntityMappingArray) ToAlertRuleNrtSentinelEntityMappingArrayOutput() AlertRuleNrtSentinelEntityMappingArrayOutput {
+	return i.ToAlertRuleNrtSentinelEntityMappingArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtSentinelEntityMappingArray) ToAlertRuleNrtSentinelEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleNrtSentinelEntityMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtSentinelEntityMappingArrayOutput)
+}
+
+type AlertRuleNrtSentinelEntityMappingOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtSentinelEntityMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtSentinelEntityMapping)(nil)).Elem()
+}
+
+func (o AlertRuleNrtSentinelEntityMappingOutput) ToAlertRuleNrtSentinelEntityMappingOutput() AlertRuleNrtSentinelEntityMappingOutput {
+	return o
+}
+
+func (o AlertRuleNrtSentinelEntityMappingOutput) ToAlertRuleNrtSentinelEntityMappingOutputWithContext(ctx context.Context) AlertRuleNrtSentinelEntityMappingOutput {
+	return o
+}
+
+// The column name to be mapped to the identifier.
+func (o AlertRuleNrtSentinelEntityMappingOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleNrtSentinelEntityMapping) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+type AlertRuleNrtSentinelEntityMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtSentinelEntityMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleNrtSentinelEntityMapping)(nil)).Elem()
+}
+
+func (o AlertRuleNrtSentinelEntityMappingArrayOutput) ToAlertRuleNrtSentinelEntityMappingArrayOutput() AlertRuleNrtSentinelEntityMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleNrtSentinelEntityMappingArrayOutput) ToAlertRuleNrtSentinelEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleNrtSentinelEntityMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleNrtSentinelEntityMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleNrtSentinelEntityMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleNrtSentinelEntityMapping {
+		return vs[0].([]AlertRuleNrtSentinelEntityMapping)[vs[1].(int)]
+	}).(AlertRuleNrtSentinelEntityMappingOutput)
+}
+
 type AlertRuleScheduledAlertDetailsOverride struct {
 	// The format containing columns name(s) to override the description of this Sentinel Alert Rule.
 	DescriptionFormat *string `pulumi:"descriptionFormat"`
 	// The format containing columns name(s) to override the name of this Sentinel Alert Rule.
 	DisplayNameFormat *string `pulumi:"displayNameFormat"`
+	// A list of `dynamicProperty` blocks as defined below.
+	DynamicProperties []AlertRuleScheduledAlertDetailsOverrideDynamicProperty `pulumi:"dynamicProperties"`
 	// The column name to take the alert severity from.
 	SeverityColumnName *string `pulumi:"severityColumnName"`
 	// The column name to take the alert tactics from.
@@ -1010,6 +1363,8 @@ type AlertRuleScheduledAlertDetailsOverrideArgs struct {
 	DescriptionFormat pulumi.StringPtrInput `pulumi:"descriptionFormat"`
 	// The format containing columns name(s) to override the name of this Sentinel Alert Rule.
 	DisplayNameFormat pulumi.StringPtrInput `pulumi:"displayNameFormat"`
+	// A list of `dynamicProperty` blocks as defined below.
+	DynamicProperties AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayInput `pulumi:"dynamicProperties"`
 	// The column name to take the alert severity from.
 	SeverityColumnName pulumi.StringPtrInput `pulumi:"severityColumnName"`
 	// The column name to take the alert tactics from.
@@ -1077,6 +1432,13 @@ func (o AlertRuleScheduledAlertDetailsOverrideOutput) DisplayNameFormat() pulumi
 	return o.ApplyT(func(v AlertRuleScheduledAlertDetailsOverride) *string { return v.DisplayNameFormat }).(pulumi.StringPtrOutput)
 }
 
+// A list of `dynamicProperty` blocks as defined below.
+func (o AlertRuleScheduledAlertDetailsOverrideOutput) DynamicProperties() AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput {
+	return o.ApplyT(func(v AlertRuleScheduledAlertDetailsOverride) []AlertRuleScheduledAlertDetailsOverrideDynamicProperty {
+		return v.DynamicProperties
+	}).(AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput)
+}
+
 // The column name to take the alert severity from.
 func (o AlertRuleScheduledAlertDetailsOverrideOutput) SeverityColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleScheduledAlertDetailsOverride) *string { return v.SeverityColumnName }).(pulumi.StringPtrOutput)
@@ -1105,6 +1467,112 @@ func (o AlertRuleScheduledAlertDetailsOverrideArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleScheduledAlertDetailsOverride {
 		return vs[0].([]AlertRuleScheduledAlertDetailsOverride)[vs[1].(int)]
 	}).(AlertRuleScheduledAlertDetailsOverrideOutput)
+}
+
+type AlertRuleScheduledAlertDetailsOverrideDynamicProperty struct {
+	// The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+	Name string `pulumi:"name"`
+	// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+	Value string `pulumi:"value"`
+}
+
+// AlertRuleScheduledAlertDetailsOverrideDynamicPropertyInput is an input type that accepts AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs and AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledAlertDetailsOverrideDynamicPropertyInput` via:
+//
+//	AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs{...}
+type AlertRuleScheduledAlertDetailsOverrideDynamicPropertyInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput() AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput
+	ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutputWithContext(context.Context) AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput
+}
+
+type AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs struct {
+	// The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverrideDynamicProperty)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs) ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput() AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput {
+	return i.ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs) ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput)
+}
+
+// AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayInput is an input type that accepts AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArray and AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayInput` via:
+//
+//	AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArray{ AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs{...} }
+type AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput() AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput
+	ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(context.Context) AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput
+}
+
+type AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArray []AlertRuleScheduledAlertDetailsOverrideDynamicPropertyInput
+
+func (AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleScheduledAlertDetailsOverrideDynamicProperty)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArray) ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput() AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput {
+	return i.ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArray) ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput)
+}
+
+type AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverrideDynamicProperty)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput) ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput() AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput {
+	return o
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput) ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput {
+	return o
+}
+
+// The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleScheduledAlertDetailsOverrideDynamicProperty) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleScheduledAlertDetailsOverrideDynamicProperty) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleScheduledAlertDetailsOverrideDynamicProperty)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput) ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput() AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput {
+	return o
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput) ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput {
+	return o
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleScheduledAlertDetailsOverrideDynamicProperty {
+		return vs[0].([]AlertRuleScheduledAlertDetailsOverrideDynamicProperty)[vs[1].(int)]
+	}).(AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput)
 }
 
 type AlertRuleScheduledEntityMapping struct {
@@ -1865,6 +2333,103 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) ReopenClosedIn
 		}
 		return v.ReopenClosedIncidents
 	}).(pulumi.BoolPtrOutput)
+}
+
+type AlertRuleScheduledSentinelEntityMapping struct {
+	// The column name to be mapped to the identifier.
+	ColumnName string `pulumi:"columnName"`
+}
+
+// AlertRuleScheduledSentinelEntityMappingInput is an input type that accepts AlertRuleScheduledSentinelEntityMappingArgs and AlertRuleScheduledSentinelEntityMappingOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledSentinelEntityMappingInput` via:
+//
+//	AlertRuleScheduledSentinelEntityMappingArgs{...}
+type AlertRuleScheduledSentinelEntityMappingInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledSentinelEntityMappingOutput() AlertRuleScheduledSentinelEntityMappingOutput
+	ToAlertRuleScheduledSentinelEntityMappingOutputWithContext(context.Context) AlertRuleScheduledSentinelEntityMappingOutput
+}
+
+type AlertRuleScheduledSentinelEntityMappingArgs struct {
+	// The column name to be mapped to the identifier.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+}
+
+func (AlertRuleScheduledSentinelEntityMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledSentinelEntityMapping)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledSentinelEntityMappingArgs) ToAlertRuleScheduledSentinelEntityMappingOutput() AlertRuleScheduledSentinelEntityMappingOutput {
+	return i.ToAlertRuleScheduledSentinelEntityMappingOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledSentinelEntityMappingArgs) ToAlertRuleScheduledSentinelEntityMappingOutputWithContext(ctx context.Context) AlertRuleScheduledSentinelEntityMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledSentinelEntityMappingOutput)
+}
+
+// AlertRuleScheduledSentinelEntityMappingArrayInput is an input type that accepts AlertRuleScheduledSentinelEntityMappingArray and AlertRuleScheduledSentinelEntityMappingArrayOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledSentinelEntityMappingArrayInput` via:
+//
+//	AlertRuleScheduledSentinelEntityMappingArray{ AlertRuleScheduledSentinelEntityMappingArgs{...} }
+type AlertRuleScheduledSentinelEntityMappingArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledSentinelEntityMappingArrayOutput() AlertRuleScheduledSentinelEntityMappingArrayOutput
+	ToAlertRuleScheduledSentinelEntityMappingArrayOutputWithContext(context.Context) AlertRuleScheduledSentinelEntityMappingArrayOutput
+}
+
+type AlertRuleScheduledSentinelEntityMappingArray []AlertRuleScheduledSentinelEntityMappingInput
+
+func (AlertRuleScheduledSentinelEntityMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleScheduledSentinelEntityMapping)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledSentinelEntityMappingArray) ToAlertRuleScheduledSentinelEntityMappingArrayOutput() AlertRuleScheduledSentinelEntityMappingArrayOutput {
+	return i.ToAlertRuleScheduledSentinelEntityMappingArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledSentinelEntityMappingArray) ToAlertRuleScheduledSentinelEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleScheduledSentinelEntityMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledSentinelEntityMappingArrayOutput)
+}
+
+type AlertRuleScheduledSentinelEntityMappingOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledSentinelEntityMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledSentinelEntityMapping)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledSentinelEntityMappingOutput) ToAlertRuleScheduledSentinelEntityMappingOutput() AlertRuleScheduledSentinelEntityMappingOutput {
+	return o
+}
+
+func (o AlertRuleScheduledSentinelEntityMappingOutput) ToAlertRuleScheduledSentinelEntityMappingOutputWithContext(ctx context.Context) AlertRuleScheduledSentinelEntityMappingOutput {
+	return o
+}
+
+// The column name to be mapped to the identifier.
+func (o AlertRuleScheduledSentinelEntityMappingOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleScheduledSentinelEntityMapping) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+type AlertRuleScheduledSentinelEntityMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledSentinelEntityMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleScheduledSentinelEntityMapping)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledSentinelEntityMappingArrayOutput) ToAlertRuleScheduledSentinelEntityMappingArrayOutput() AlertRuleScheduledSentinelEntityMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleScheduledSentinelEntityMappingArrayOutput) ToAlertRuleScheduledSentinelEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleScheduledSentinelEntityMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleScheduledSentinelEntityMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledSentinelEntityMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleScheduledSentinelEntityMapping {
+		return vs[0].([]AlertRuleScheduledSentinelEntityMapping)[vs[1].(int)]
+	}).(AlertRuleScheduledSentinelEntityMappingOutput)
 }
 
 type AuthomationRuleActionIncident struct {
@@ -3026,16 +3591,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionSourceSubTypeArrayInput)(nil)).Elem(), AlertRuleFusionSourceSubTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtAlertDetailsOverrideInput)(nil)).Elem(), AlertRuleNrtAlertDetailsOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtAlertDetailsOverrideArrayInput)(nil)).Elem(), AlertRuleNrtAlertDetailsOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtAlertDetailsOverrideDynamicPropertyInput)(nil)).Elem(), AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayInput)(nil)).Elem(), AlertRuleNrtAlertDetailsOverrideDynamicPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtEntityMappingInput)(nil)).Elem(), AlertRuleNrtEntityMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtEntityMappingArrayInput)(nil)).Elem(), AlertRuleNrtEntityMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtEntityMappingFieldMappingInput)(nil)).Elem(), AlertRuleNrtEntityMappingFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtEntityMappingFieldMappingArrayInput)(nil)).Elem(), AlertRuleNrtEntityMappingFieldMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtEventGroupingInput)(nil)).Elem(), AlertRuleNrtEventGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtEventGroupingPtrInput)(nil)).Elem(), AlertRuleNrtEventGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtIncidentInput)(nil)).Elem(), AlertRuleNrtIncidentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtIncidentPtrInput)(nil)).Elem(), AlertRuleNrtIncidentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtIncidentGroupingInput)(nil)).Elem(), AlertRuleNrtIncidentGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtIncidentGroupingPtrInput)(nil)).Elem(), AlertRuleNrtIncidentGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtSentinelEntityMappingInput)(nil)).Elem(), AlertRuleNrtSentinelEntityMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtSentinelEntityMappingArrayInput)(nil)).Elem(), AlertRuleNrtSentinelEntityMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverrideInput)(nil)).Elem(), AlertRuleScheduledAlertDetailsOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverrideArrayInput)(nil)).Elem(), AlertRuleScheduledAlertDetailsOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverrideDynamicPropertyInput)(nil)).Elem(), AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayInput)(nil)).Elem(), AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEntityMappingInput)(nil)).Elem(), AlertRuleScheduledEntityMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEntityMappingArrayInput)(nil)).Elem(), AlertRuleScheduledEntityMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEntityMappingFieldMappingInput)(nil)).Elem(), AlertRuleScheduledEntityMappingFieldMappingArgs{})
@@ -3046,6 +3619,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationPtrInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationGroupingInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationGroupingPtrInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledSentinelEntityMappingInput)(nil)).Elem(), AlertRuleScheduledSentinelEntityMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledSentinelEntityMappingArrayInput)(nil)).Elem(), AlertRuleScheduledSentinelEntityMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionIncidentInput)(nil)).Elem(), AuthomationRuleActionIncidentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionIncidentArrayInput)(nil)).Elem(), AuthomationRuleActionIncidentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionPlaybookInput)(nil)).Elem(), AuthomationRuleActionPlaybookArgs{})
@@ -3070,16 +3645,24 @@ func init() {
 	pulumi.RegisterOutputType(AlertRuleFusionSourceSubTypeArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtAlertDetailsOverrideOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtAlertDetailsOverrideArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtEntityMappingOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtEntityMappingArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtEntityMappingFieldMappingOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtEntityMappingFieldMappingArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtEventGroupingOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtEventGroupingPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtIncidentOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtIncidentPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtIncidentGroupingOutput{})
 	pulumi.RegisterOutputType(AlertRuleNrtIncidentGroupingPtrOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtSentinelEntityMappingOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtSentinelEntityMappingArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledAlertDetailsOverrideOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledAlertDetailsOverrideArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledEntityMappingOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledEntityMappingArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledEntityMappingFieldMappingOutput{})
@@ -3090,6 +3673,8 @@ func init() {
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationGroupingOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationGroupingPtrOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledSentinelEntityMappingOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledSentinelEntityMappingArrayOutput{})
 	pulumi.RegisterOutputType(AuthomationRuleActionIncidentOutput{})
 	pulumi.RegisterOutputType(AuthomationRuleActionIncidentArrayOutput{})
 	pulumi.RegisterOutputType(AuthomationRuleActionPlaybookOutput{})

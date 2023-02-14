@@ -87,13 +87,13 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<Outputs.DiagnosticSettingEnabledLog>> EnabledLogs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
         /// </summary>
         [Output("eventhubAuthorizationRuleId")]
         public Output<string?> EventhubAuthorizationRuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+        /// Specifies the name of the Event Hub where Diagnostics Data should be sent.
         /// </summary>
         [Output("eventhubName")]
         public Output<string?> EventhubName { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> PartnerSolutionId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where logs should be sent.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -205,13 +205,13 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
         /// </summary>
         [Input("eventhubAuthorizationRuleId")]
         public Input<string>? EventhubAuthorizationRuleId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+        /// Specifies the name of the Event Hub where Diagnostics Data should be sent.
         /// </summary>
         [Input("eventhubName")]
         public Input<string>? EventhubName { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? PartnerSolutionId { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where logs should be sent.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -298,13 +298,13 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
         /// </summary>
         [Input("eventhubAuthorizationRuleId")]
         public Input<string>? EventhubAuthorizationRuleId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+        /// Specifies the name of the Event Hub where Diagnostics Data should be sent.
         /// </summary>
         [Input("eventhubName")]
         public Input<string>? EventhubName { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? PartnerSolutionId { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where logs should be sent.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

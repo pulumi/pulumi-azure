@@ -24,6 +24,7 @@ class StreamingLocatorArgs:
                  content_keys: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingLocatorContentKeyArgs']]]] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
+                 filter_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  streaming_locator_id: Optional[pulumi.Input[str]] = None):
@@ -37,6 +38,7 @@ class StreamingLocatorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StreamingLocatorContentKeyArgs']]] content_keys: One or more `content_key` blocks as defined below. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] default_content_key_policy_name: Name of the default Content Key Policy used by this Streaming Locator.Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] end_time: The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_names: A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] name: The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] start_time: The start time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] streaming_locator_id: The ID of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
@@ -53,6 +55,8 @@ class StreamingLocatorArgs:
             pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
+        if filter_names is not None:
+            pulumi.set(__self__, "filter_names", filter_names)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if start_time is not None:
@@ -157,6 +161,18 @@ class StreamingLocatorArgs:
         pulumi.set(self, "end_time", value)
 
     @property
+    @pulumi.getter(name="filterNames")
+    def filter_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "filter_names")
+
+    @filter_names.setter
+    def filter_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "filter_names", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -201,6 +217,7 @@ class _StreamingLocatorState:
                  content_keys: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingLocatorContentKeyArgs']]]] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
+                 filter_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -214,6 +231,7 @@ class _StreamingLocatorState:
         :param pulumi.Input[Sequence[pulumi.Input['StreamingLocatorContentKeyArgs']]] content_keys: One or more `content_key` blocks as defined below. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] default_content_key_policy_name: Name of the default Content Key Policy used by this Streaming Locator.Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] end_time: The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_names: A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] name: The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Streaming Locator should exist. Changing this forces a new Streaming Locator to be created.
@@ -231,6 +249,8 @@ class _StreamingLocatorState:
             pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
+        if filter_names is not None:
+            pulumi.set(__self__, "filter_names", filter_names)
         if media_services_account_name is not None:
             pulumi.set(__self__, "media_services_account_name", media_services_account_name)
         if name is not None:
@@ -303,6 +323,18 @@ class _StreamingLocatorState:
     @end_time.setter
     def end_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="filterNames")
+    def filter_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "filter_names")
+
+    @filter_names.setter
+    def filter_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "filter_names", value)
 
     @property
     @pulumi.getter(name="mediaServicesAccountName")
@@ -387,6 +419,7 @@ class StreamingLocator(pulumi.CustomResource):
                  content_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingLocatorContentKeyArgs']]]]] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
+                 filter_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -416,6 +449,9 @@ class StreamingLocator(pulumi.CustomResource):
                 id=example_account.id,
                 is_primary=True,
             )])
+        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name)
         example_asset = azure.media.Asset("exampleAsset",
             resource_group_name=example_resource_group.name,
             media_services_account_name=example_service_account.name,
@@ -424,7 +460,8 @@ class StreamingLocator(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             media_services_account_name=example_service_account.name,
             asset_name=example_asset.name,
-            streaming_policy_name="Predefined_ClearStreamingOnly")
+            streaming_policy_name="Predefined_ClearStreamingOnly",
+            filter_names=[example_account_filter.name])
         ```
 
         ## Import
@@ -442,6 +479,7 @@ class StreamingLocator(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingLocatorContentKeyArgs']]]] content_keys: One or more `content_key` blocks as defined below. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] default_content_key_policy_name: Name of the default Content Key Policy used by this Streaming Locator.Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] end_time: The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_names: A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] name: The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Streaming Locator should exist. Changing this forces a new Streaming Locator to be created.
@@ -477,6 +515,9 @@ class StreamingLocator(pulumi.CustomResource):
                 id=example_account.id,
                 is_primary=True,
             )])
+        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name)
         example_asset = azure.media.Asset("exampleAsset",
             resource_group_name=example_resource_group.name,
             media_services_account_name=example_service_account.name,
@@ -485,7 +526,8 @@ class StreamingLocator(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             media_services_account_name=example_service_account.name,
             asset_name=example_asset.name,
-            streaming_policy_name="Predefined_ClearStreamingOnly")
+            streaming_policy_name="Predefined_ClearStreamingOnly",
+            filter_names=[example_account_filter.name])
         ```
 
         ## Import
@@ -516,6 +558,7 @@ class StreamingLocator(pulumi.CustomResource):
                  content_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingLocatorContentKeyArgs']]]]] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
+                 filter_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -538,6 +581,7 @@ class StreamingLocator(pulumi.CustomResource):
             __props__.__dict__["content_keys"] = content_keys
             __props__.__dict__["default_content_key_policy_name"] = default_content_key_policy_name
             __props__.__dict__["end_time"] = end_time
+            __props__.__dict__["filter_names"] = filter_names
             if media_services_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'media_services_account_name'")
             __props__.__dict__["media_services_account_name"] = media_services_account_name
@@ -565,6 +609,7 @@ class StreamingLocator(pulumi.CustomResource):
             content_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingLocatorContentKeyArgs']]]]] = None,
             default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
             end_time: Optional[pulumi.Input[str]] = None,
+            filter_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             media_services_account_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -583,6 +628,7 @@ class StreamingLocator(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingLocatorContentKeyArgs']]]] content_keys: One or more `content_key` blocks as defined below. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] default_content_key_policy_name: Name of the default Content Key Policy used by this Streaming Locator.Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] end_time: The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_names: A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] name: The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Streaming Locator should exist. Changing this forces a new Streaming Locator to be created.
@@ -599,6 +645,7 @@ class StreamingLocator(pulumi.CustomResource):
         __props__.__dict__["content_keys"] = content_keys
         __props__.__dict__["default_content_key_policy_name"] = default_content_key_policy_name
         __props__.__dict__["end_time"] = end_time
+        __props__.__dict__["filter_names"] = filter_names
         __props__.__dict__["media_services_account_name"] = media_services_account_name
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -646,6 +693,14 @@ class StreamingLocator(pulumi.CustomResource):
         The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
         """
         return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="filterNames")
+    def filter_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "filter_names")
 
     @property
     @pulumi.getter(name="mediaServicesAccountName")

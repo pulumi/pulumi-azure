@@ -24,6 +24,18 @@ namespace Pulumi.Azure.Sentinel.Inputs
         [Input("displayNameFormat")]
         public Input<string>? DisplayNameFormat { get; set; }
 
+        [Input("dynamicProperties")]
+        private InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs>? _dynamicProperties;
+
+        /// <summary>
+        /// A list of `dynamic_property` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs> DynamicProperties
+        {
+            get => _dynamicProperties ?? (_dynamicProperties = new InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs>());
+            set => _dynamicProperties = value;
+        }
+
         /// <summary>
         /// The column name to take the alert severity from.
         /// </summary>

@@ -13303,11 +13303,11 @@ func (o DataCollectionRuleDataSourcesExtensionArrayOutput) Index(i pulumi.IntInp
 }
 
 type DataCollectionRuleDataSourcesPerformanceCounter struct {
-	// Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+	// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
 	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
 	SamplingFrequencyInSeconds int `pulumi:"samplingFrequencyInSeconds"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
 	Streams []string `pulumi:"streams"`
@@ -13325,11 +13325,11 @@ type DataCollectionRuleDataSourcesPerformanceCounterInput interface {
 }
 
 type DataCollectionRuleDataSourcesPerformanceCounterArgs struct {
-	// Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+	// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
 	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
 	SamplingFrequencyInSeconds pulumi.IntInput `pulumi:"samplingFrequencyInSeconds"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -13386,7 +13386,7 @@ func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) ToDataCollectionR
 	return o
 }
 
-// Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
 func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) CounterSpecifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) []string { return v.CounterSpecifiers }).(pulumi.StringArrayOutput)
 }
@@ -13396,7 +13396,7 @@ func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) Name() pulumi.Str
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
 func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) SamplingFrequencyInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) int { return v.SamplingFrequencyInSeconds }).(pulumi.IntOutput)
 }
@@ -13555,7 +13555,7 @@ type DataCollectionRuleDataSourcesWindowsEventLog struct {
 	Name string `pulumi:"name"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
 	Streams []string `pulumi:"streams"`
-	// Specifies a list of Windows Event Log queries in XPath expression.
+	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 	XPathQueries []string `pulumi:"xPathQueries"`
 }
 
@@ -13575,7 +13575,7 @@ type DataCollectionRuleDataSourcesWindowsEventLogArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
-	// Specifies a list of Windows Event Log queries in XPath expression.
+	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
 }
 
@@ -13640,7 +13640,7 @@ func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) Streams() pulumi.Str
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of Windows Event Log queries in XPath expression.
+// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) XPathQueries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) []string { return v.XPathQueries }).(pulumi.StringArrayOutput)
 }

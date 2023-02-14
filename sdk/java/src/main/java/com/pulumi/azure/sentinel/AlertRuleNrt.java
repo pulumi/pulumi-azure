@@ -8,7 +8,9 @@ import com.pulumi.azure.sentinel.AlertRuleNrtArgs;
 import com.pulumi.azure.sentinel.inputs.AlertRuleNrtState;
 import com.pulumi.azure.sentinel.outputs.AlertRuleNrtAlertDetailsOverride;
 import com.pulumi.azure.sentinel.outputs.AlertRuleNrtEntityMapping;
+import com.pulumi.azure.sentinel.outputs.AlertRuleNrtEventGrouping;
 import com.pulumi.azure.sentinel.outputs.AlertRuleNrtIncident;
+import com.pulumi.azure.sentinel.outputs.AlertRuleNrtSentinelEntityMapping;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -214,6 +216,20 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.entityMappings);
     }
     /**
+     * A `event_grouping` block as defined below.
+     * 
+     */
+    @Export(name="eventGrouping", type=AlertRuleNrtEventGrouping.class, parameters={})
+    private Output<AlertRuleNrtEventGrouping> eventGrouping;
+
+    /**
+     * @return A `event_grouping` block as defined below.
+     * 
+     */
+    public Output<AlertRuleNrtEventGrouping> eventGrouping() {
+        return this.eventGrouping;
+    }
+    /**
      * A `incident` block as defined below.
      * 
      */
@@ -268,6 +284,20 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      */
     public Output<String> query() {
         return this.query;
+    }
+    /**
+     * A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     */
+    @Export(name="sentinelEntityMappings", type=List.class, parameters={AlertRuleNrtSentinelEntityMapping.class})
+    private Output</* @Nullable */ List<AlertRuleNrtSentinelEntityMapping>> sentinelEntityMappings;
+
+    /**
+     * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     */
+    public Output<Optional<List<AlertRuleNrtSentinelEntityMapping>>> sentinelEntityMappings() {
+        return Codegen.optional(this.sentinelEntityMappings);
     }
     /**
      * The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.

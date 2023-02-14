@@ -35,14 +35,14 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      * 
      */
     @Import(name="eventhubAuthorizationRuleId")
     private @Nullable Output<String> eventhubAuthorizationRuleId;
 
     /**
-     * @return Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     * @return Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      * 
      */
     public Optional<Output<String>> eventhubAuthorizationRuleId() {
@@ -50,14 +50,14 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     * Specifies the name of the Event Hub where Diagnostics Data should be sent.
      * 
      */
     @Import(name="eventhubName")
     private @Nullable Output<String> eventhubName;
 
     /**
-     * @return Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Event Hub where Diagnostics Data should be sent.
      * 
      */
     public Optional<Output<String>> eventhubName() {
@@ -163,14 +163,14 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     * The ID of the Storage Account where logs should be sent.
      * 
      */
     @Import(name="storageAccountId")
     private @Nullable Output<String> storageAccountId;
 
     /**
-     * @return The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     * @return The ID of the Storage Account where logs should be sent.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -258,7 +258,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param eventhubAuthorizationRuleId Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+         * @param eventhubAuthorizationRuleId Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param eventhubAuthorizationRuleId Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+         * @param eventhubAuthorizationRuleId Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param eventhubName Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+         * @param eventhubName Specifies the name of the Event Hub where Diagnostics Data should be sent.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param eventhubName Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+         * @param eventhubName Specifies the name of the Event Hub where Diagnostics Data should be sent.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAccountId The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+         * @param storageAccountId The ID of the Storage Account where logs should be sent.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAccountId The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+         * @param storageAccountId The ID of the Storage Account where logs should be sent.
          * 
          * @return builder
          * 

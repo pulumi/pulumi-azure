@@ -24,8 +24,8 @@ class AccessConnectorIdentityArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
-        :param pulumi.Input[str] principal_id: The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
-        :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this system-assigned managed identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this system-assigned managed identity.
         """
         pulumi.set(__self__, "type", type)
         if principal_id is not None:
@@ -49,7 +49,7 @@ class AccessConnectorIdentityArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+        The Principal ID associated with this system-assigned managed identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -61,7 +61,7 @@ class AccessConnectorIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The tenant id in which the principal resides.
+        The Tenant ID associated with this system-assigned managed identity.
         """
         return pulumi.get(self, "tenant_id")
 

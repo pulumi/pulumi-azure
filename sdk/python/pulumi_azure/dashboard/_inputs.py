@@ -10,8 +10,31 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'GrafanaAzureMonitorWorkspaceIntegrationArgs',
     'GrafanaIdentityArgs',
 ]
+
+@pulumi.input_type
+class GrafanaAzureMonitorWorkspaceIntegrationArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] resource_id: Specifies the resource ID of the connected Azure Monitor Workspace.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the resource ID of the connected Azure Monitor Workspace.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
 
 @pulumi.input_type
 class GrafanaIdentityArgs:

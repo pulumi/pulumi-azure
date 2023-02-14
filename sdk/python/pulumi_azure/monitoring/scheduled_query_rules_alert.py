@@ -49,7 +49,7 @@ class ScheduledQueryRulesAlertArgs:
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] query_type: The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        :param pulumi.Input[str] query_type: The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         :param pulumi.Input[int] severity: Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] throttling: Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
@@ -243,7 +243,7 @@ class ScheduledQueryRulesAlertArgs:
     @pulumi.getter(name="queryType")
     def query_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         """
         return pulumi.get(self, "query_type")
 
@@ -321,7 +321,7 @@ class _ScheduledQueryRulesAlertState:
         :param pulumi.Input[str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: Log search query.
-        :param pulumi.Input[str] query_type: The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        :param pulumi.Input[str] query_type: The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
         :param pulumi.Input[int] severity: Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -489,7 +489,7 @@ class _ScheduledQueryRulesAlertState:
     @pulumi.getter(name="queryType")
     def query_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         """
         return pulumi.get(self, "query_type")
 
@@ -617,7 +617,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: Log search query.
-        :param pulumi.Input[str] query_type: The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        :param pulumi.Input[str] query_type: The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
         :param pulumi.Input[int] severity: Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -759,7 +759,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: Log search query.
-        :param pulumi.Input[str] query_type: The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        :param pulumi.Input[str] query_type: The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
         :param pulumi.Input[int] severity: Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -875,7 +875,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
     @pulumi.getter(name="queryType")
     def query_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         """
         return pulumi.get(self, "query_type")
 

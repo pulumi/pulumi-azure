@@ -48,6 +48,12 @@ namespace Pulumi.Azure.Media
     ///         },
     ///     });
     /// 
+    ///     var exampleAccountFilter = new Azure.Media.AccountFilter("exampleAccountFilter", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///     });
+    /// 
     ///     var exampleAsset = new Azure.Media.Asset("exampleAsset", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -61,6 +67,10 @@ namespace Pulumi.Azure.Media
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         AssetName = exampleAsset.Name,
     ///         StreamingPolicyName = "Predefined_ClearStreamingOnly",
+    ///         FilterNames = new[]
+    ///         {
+    ///             exampleAccountFilter.Name,
+    ///         },
     ///     });
     /// 
     /// });
@@ -106,6 +116,12 @@ namespace Pulumi.Azure.Media
         /// </summary>
         [Output("endTime")]
         public Output<string> EndTime { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+        /// </summary>
+        [Output("filterNames")]
+        public Output<ImmutableArray<string>> FilterNames { get; private set; } = null!;
 
         /// <summary>
         /// The Media Services account name. Changing this forces a new Streaming Locator to be created.
@@ -225,6 +241,18 @@ namespace Pulumi.Azure.Media
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
+        [Input("filterNames")]
+        private InputList<string>? _filterNames;
+
+        /// <summary>
+        /// A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+        /// </summary>
+        public InputList<string> FilterNames
+        {
+            get => _filterNames ?? (_filterNames = new InputList<string>());
+            set => _filterNames = value;
+        }
+
         /// <summary>
         /// The Media Services account name. Changing this forces a new Streaming Locator to be created.
         /// </summary>
@@ -304,6 +332,18 @@ namespace Pulumi.Azure.Media
         /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
+
+        [Input("filterNames")]
+        private InputList<string>? _filterNames;
+
+        /// <summary>
+        /// A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+        /// </summary>
+        public InputList<string> FilterNames
+        {
+            get => _filterNames ?? (_filterNames = new InputList<string>());
+            set => _filterNames = value;
+        }
 
         /// <summary>
         /// The Media Services account name. Changing this forces a new Streaming Locator to be created.

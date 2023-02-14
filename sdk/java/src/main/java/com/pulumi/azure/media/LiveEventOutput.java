@@ -101,6 +101,7 @@ import javax.annotation.Nullable;
  *             .manifestName(&#34;testmanifest&#34;)
  *             .outputSnapTimeInSeconds(0)
  *             .hlsFragmentsPerTsSegment(5)
+ *             .rewindWindowDuration(&#34;PT5M&#34;)
  *             .build());
  * 
  *     }
@@ -229,6 +230,12 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> outputSnapTimeInSeconds() {
         return Codegen.optional(this.outputSnapTimeInSeconds);
+    }
+    @Export(name="rewindWindowDuration", type=String.class, parameters={})
+    private Output</* @Nullable */ String> rewindWindowDuration;
+
+    public Output<Optional<String>> rewindWindowDuration() {
+        return Codegen.optional(this.rewindWindowDuration);
     }
 
     /**

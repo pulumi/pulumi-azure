@@ -10,6 +10,103 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type GrafanaAzureMonitorWorkspaceIntegration struct {
+	// Specifies the resource ID of the connected Azure Monitor Workspace.
+	ResourceId string `pulumi:"resourceId"`
+}
+
+// GrafanaAzureMonitorWorkspaceIntegrationInput is an input type that accepts GrafanaAzureMonitorWorkspaceIntegrationArgs and GrafanaAzureMonitorWorkspaceIntegrationOutput values.
+// You can construct a concrete instance of `GrafanaAzureMonitorWorkspaceIntegrationInput` via:
+//
+//	GrafanaAzureMonitorWorkspaceIntegrationArgs{...}
+type GrafanaAzureMonitorWorkspaceIntegrationInput interface {
+	pulumi.Input
+
+	ToGrafanaAzureMonitorWorkspaceIntegrationOutput() GrafanaAzureMonitorWorkspaceIntegrationOutput
+	ToGrafanaAzureMonitorWorkspaceIntegrationOutputWithContext(context.Context) GrafanaAzureMonitorWorkspaceIntegrationOutput
+}
+
+type GrafanaAzureMonitorWorkspaceIntegrationArgs struct {
+	// Specifies the resource ID of the connected Azure Monitor Workspace.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+}
+
+func (GrafanaAzureMonitorWorkspaceIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrafanaAzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (i GrafanaAzureMonitorWorkspaceIntegrationArgs) ToGrafanaAzureMonitorWorkspaceIntegrationOutput() GrafanaAzureMonitorWorkspaceIntegrationOutput {
+	return i.ToGrafanaAzureMonitorWorkspaceIntegrationOutputWithContext(context.Background())
+}
+
+func (i GrafanaAzureMonitorWorkspaceIntegrationArgs) ToGrafanaAzureMonitorWorkspaceIntegrationOutputWithContext(ctx context.Context) GrafanaAzureMonitorWorkspaceIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrafanaAzureMonitorWorkspaceIntegrationOutput)
+}
+
+// GrafanaAzureMonitorWorkspaceIntegrationArrayInput is an input type that accepts GrafanaAzureMonitorWorkspaceIntegrationArray and GrafanaAzureMonitorWorkspaceIntegrationArrayOutput values.
+// You can construct a concrete instance of `GrafanaAzureMonitorWorkspaceIntegrationArrayInput` via:
+//
+//	GrafanaAzureMonitorWorkspaceIntegrationArray{ GrafanaAzureMonitorWorkspaceIntegrationArgs{...} }
+type GrafanaAzureMonitorWorkspaceIntegrationArrayInput interface {
+	pulumi.Input
+
+	ToGrafanaAzureMonitorWorkspaceIntegrationArrayOutput() GrafanaAzureMonitorWorkspaceIntegrationArrayOutput
+	ToGrafanaAzureMonitorWorkspaceIntegrationArrayOutputWithContext(context.Context) GrafanaAzureMonitorWorkspaceIntegrationArrayOutput
+}
+
+type GrafanaAzureMonitorWorkspaceIntegrationArray []GrafanaAzureMonitorWorkspaceIntegrationInput
+
+func (GrafanaAzureMonitorWorkspaceIntegrationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GrafanaAzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (i GrafanaAzureMonitorWorkspaceIntegrationArray) ToGrafanaAzureMonitorWorkspaceIntegrationArrayOutput() GrafanaAzureMonitorWorkspaceIntegrationArrayOutput {
+	return i.ToGrafanaAzureMonitorWorkspaceIntegrationArrayOutputWithContext(context.Background())
+}
+
+func (i GrafanaAzureMonitorWorkspaceIntegrationArray) ToGrafanaAzureMonitorWorkspaceIntegrationArrayOutputWithContext(ctx context.Context) GrafanaAzureMonitorWorkspaceIntegrationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrafanaAzureMonitorWorkspaceIntegrationArrayOutput)
+}
+
+type GrafanaAzureMonitorWorkspaceIntegrationOutput struct{ *pulumi.OutputState }
+
+func (GrafanaAzureMonitorWorkspaceIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrafanaAzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (o GrafanaAzureMonitorWorkspaceIntegrationOutput) ToGrafanaAzureMonitorWorkspaceIntegrationOutput() GrafanaAzureMonitorWorkspaceIntegrationOutput {
+	return o
+}
+
+func (o GrafanaAzureMonitorWorkspaceIntegrationOutput) ToGrafanaAzureMonitorWorkspaceIntegrationOutputWithContext(ctx context.Context) GrafanaAzureMonitorWorkspaceIntegrationOutput {
+	return o
+}
+
+// Specifies the resource ID of the connected Azure Monitor Workspace.
+func (o GrafanaAzureMonitorWorkspaceIntegrationOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GrafanaAzureMonitorWorkspaceIntegration) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+type GrafanaAzureMonitorWorkspaceIntegrationArrayOutput struct{ *pulumi.OutputState }
+
+func (GrafanaAzureMonitorWorkspaceIntegrationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GrafanaAzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (o GrafanaAzureMonitorWorkspaceIntegrationArrayOutput) ToGrafanaAzureMonitorWorkspaceIntegrationArrayOutput() GrafanaAzureMonitorWorkspaceIntegrationArrayOutput {
+	return o
+}
+
+func (o GrafanaAzureMonitorWorkspaceIntegrationArrayOutput) ToGrafanaAzureMonitorWorkspaceIntegrationArrayOutputWithContext(ctx context.Context) GrafanaAzureMonitorWorkspaceIntegrationArrayOutput {
+	return o
+}
+
+func (o GrafanaAzureMonitorWorkspaceIntegrationArrayOutput) Index(i pulumi.IntInput) GrafanaAzureMonitorWorkspaceIntegrationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GrafanaAzureMonitorWorkspaceIntegration {
+		return vs[0].([]GrafanaAzureMonitorWorkspaceIntegration)[vs[1].(int)]
+	}).(GrafanaAzureMonitorWorkspaceIntegrationOutput)
+}
+
 type GrafanaIdentity struct {
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -186,8 +283,12 @@ func (o GrafanaIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaAzureMonitorWorkspaceIntegrationInput)(nil)).Elem(), GrafanaAzureMonitorWorkspaceIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaAzureMonitorWorkspaceIntegrationArrayInput)(nil)).Elem(), GrafanaAzureMonitorWorkspaceIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaIdentityInput)(nil)).Elem(), GrafanaIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaIdentityPtrInput)(nil)).Elem(), GrafanaIdentityArgs{})
+	pulumi.RegisterOutputType(GrafanaAzureMonitorWorkspaceIntegrationOutput{})
+	pulumi.RegisterOutputType(GrafanaAzureMonitorWorkspaceIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(GrafanaIdentityOutput{})
 	pulumi.RegisterOutputType(GrafanaIdentityPtrOutput{})
 }

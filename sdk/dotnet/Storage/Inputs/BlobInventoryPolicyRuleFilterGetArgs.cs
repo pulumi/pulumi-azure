@@ -24,6 +24,18 @@ namespace Pulumi.Azure.Storage.Inputs
             set => _blobTypes = value;
         }
 
+        [Input("excludePrefixes")]
+        private InputList<string>? _excludePrefixes;
+
+        /// <summary>
+        /// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+        /// </summary>
+        public InputList<string> ExcludePrefixes
+        {
+            get => _excludePrefixes ?? (_excludePrefixes = new InputList<string>());
+            set => _excludePrefixes = value;
+        }
+
         /// <summary>
         /// Includes blob versions in blob inventory or not? Defaults to `false`.
         /// </summary>
@@ -46,7 +58,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<string>? _prefixMatches;
 
         /// <summary>
-        /// A set of strings for blob prefixes to be matched.
+        /// A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
         /// </summary>
         public InputList<string> PrefixMatches
         {

@@ -22,6 +22,8 @@ class SharedImageArgs:
                  resource_group_name: pulumi.Input[str],
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  architecture: Optional[pulumi.Input[str]] = None,
+                 confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
+                 confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -47,6 +49,8 @@ class SharedImageArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
@@ -73,6 +77,10 @@ class SharedImageArgs:
             pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
         if architecture is not None:
             pulumi.set(__self__, "architecture", architecture)
+        if confidential_vm_enabled is not None:
+            pulumi.set(__self__, "confidential_vm_enabled", confidential_vm_enabled)
+        if confidential_vm_supported is not None:
+            pulumi.set(__self__, "confidential_vm_supported", confidential_vm_supported)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disk_types_not_alloweds is not None:
@@ -179,6 +187,30 @@ class SharedImageArgs:
     @architecture.setter
     def architecture(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "architecture", value)
+
+    @property
+    @pulumi.getter(name="confidentialVmEnabled")
+    def confidential_vm_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "confidential_vm_enabled")
+
+    @confidential_vm_enabled.setter
+    def confidential_vm_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "confidential_vm_enabled", value)
+
+    @property
+    @pulumi.getter(name="confidentialVmSupported")
+    def confidential_vm_supported(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "confidential_vm_supported")
+
+    @confidential_vm_supported.setter
+    def confidential_vm_supported(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "confidential_vm_supported", value)
 
     @property
     @pulumi.getter
@@ -390,6 +422,8 @@ class _SharedImageState:
     def __init__(__self__, *,
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  architecture: Optional[pulumi.Input[str]] = None,
+                 confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
+                 confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -415,6 +449,8 @@ class _SharedImageState:
         Input properties used for looking up and filtering SharedImage resources.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
@@ -441,6 +477,10 @@ class _SharedImageState:
             pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
         if architecture is not None:
             pulumi.set(__self__, "architecture", architecture)
+        if confidential_vm_enabled is not None:
+            pulumi.set(__self__, "confidential_vm_enabled", confidential_vm_enabled)
+        if confidential_vm_supported is not None:
+            pulumi.set(__self__, "confidential_vm_supported", confidential_vm_supported)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disk_types_not_alloweds is not None:
@@ -507,6 +547,30 @@ class _SharedImageState:
     @architecture.setter
     def architecture(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "architecture", value)
+
+    @property
+    @pulumi.getter(name="confidentialVmEnabled")
+    def confidential_vm_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "confidential_vm_enabled")
+
+    @confidential_vm_enabled.setter
+    def confidential_vm_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "confidential_vm_enabled", value)
+
+    @property
+    @pulumi.getter(name="confidentialVmSupported")
+    def confidential_vm_supported(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "confidential_vm_supported")
+
+    @confidential_vm_supported.setter
+    def confidential_vm_supported(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "confidential_vm_supported", value)
 
     @property
     @pulumi.getter
@@ -768,6 +832,8 @@ class SharedImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  architecture: Optional[pulumi.Input[str]] = None,
+                 confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
+                 confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -832,6 +898,8 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
@@ -915,6 +983,8 @@ class SharedImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  architecture: Optional[pulumi.Input[str]] = None,
+                 confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
+                 confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -947,6 +1017,8 @@ class SharedImage(pulumi.CustomResource):
 
             __props__.__dict__["accelerated_network_support_enabled"] = accelerated_network_support_enabled
             __props__.__dict__["architecture"] = architecture
+            __props__.__dict__["confidential_vm_enabled"] = confidential_vm_enabled
+            __props__.__dict__["confidential_vm_supported"] = confidential_vm_supported
             __props__.__dict__["description"] = description
             __props__.__dict__["disk_types_not_alloweds"] = disk_types_not_alloweds
             __props__.__dict__["end_of_life_date"] = end_of_life_date
@@ -988,6 +1060,8 @@ class SharedImage(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
             architecture: Optional[pulumi.Input[str]] = None,
+            confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
+            confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -1018,6 +1092,8 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
@@ -1046,6 +1122,8 @@ class SharedImage(pulumi.CustomResource):
 
         __props__.__dict__["accelerated_network_support_enabled"] = accelerated_network_support_enabled
         __props__.__dict__["architecture"] = architecture
+        __props__.__dict__["confidential_vm_enabled"] = confidential_vm_enabled
+        __props__.__dict__["confidential_vm_supported"] = confidential_vm_supported
         __props__.__dict__["description"] = description
         __props__.__dict__["disk_types_not_alloweds"] = disk_types_not_alloweds
         __props__.__dict__["end_of_life_date"] = end_of_life_date
@@ -1084,6 +1162,22 @@ class SharedImage(pulumi.CustomResource):
         CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "architecture")
+
+    @property
+    @pulumi.getter(name="confidentialVmEnabled")
+    def confidential_vm_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "confidential_vm_enabled")
+
+    @property
+    @pulumi.getter(name="confidentialVmSupported")
+    def confidential_vm_supported(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "confidential_vm_supported")
 
     @property
     @pulumi.getter

@@ -136,6 +136,13 @@ public final class LiveEventOutputState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.outputSnapTimeInSeconds);
     }
 
+    @Import(name="rewindWindowDuration")
+    private @Nullable Output<String> rewindWindowDuration;
+
+    public Optional<Output<String>> rewindWindowDuration() {
+        return Optional.ofNullable(this.rewindWindowDuration);
+    }
+
     private LiveEventOutputState() {}
 
     private LiveEventOutputState(LiveEventOutputState $) {
@@ -147,6 +154,7 @@ public final class LiveEventOutputState extends com.pulumi.resources.ResourceArg
         this.manifestName = $.manifestName;
         this.name = $.name;
         this.outputSnapTimeInSeconds = $.outputSnapTimeInSeconds;
+        this.rewindWindowDuration = $.rewindWindowDuration;
     }
 
     public static Builder builder() {
@@ -333,6 +341,15 @@ public final class LiveEventOutputState extends com.pulumi.resources.ResourceArg
          */
         public Builder outputSnapTimeInSeconds(Integer outputSnapTimeInSeconds) {
             return outputSnapTimeInSeconds(Output.of(outputSnapTimeInSeconds));
+        }
+
+        public Builder rewindWindowDuration(@Nullable Output<String> rewindWindowDuration) {
+            $.rewindWindowDuration = rewindWindowDuration;
+            return this;
+        }
+
+        public Builder rewindWindowDuration(String rewindWindowDuration) {
+            return rewindWindowDuration(Output.of(rewindWindowDuration));
         }
 
         public LiveEventOutputState build() {

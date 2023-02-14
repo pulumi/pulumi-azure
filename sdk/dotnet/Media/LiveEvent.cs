@@ -86,6 +86,10 @@ namespace Pulumi.Azure.Media
     ///                 },
     ///             },
     ///         },
+    ///         StreamOptions = new[]
+    ///         {
+    ///             "LowLatency",
+    ///         },
     ///         UseStaticHostname = true,
     ///         HostnamePrefix = "special-event",
     ///         TranscriptionLanguages = new[]
@@ -173,6 +177,12 @@ namespace Pulumi.Azure.Media
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("streamOptions")]
+        public Output<ImmutableArray<string>> StreamOptions { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Live Event.
@@ -304,6 +314,18 @@ namespace Pulumi.Azure.Media
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("streamOptions")]
+        private InputList<string>? _streamOptions;
+
+        /// <summary>
+        /// A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> StreamOptions
+        {
+            get => _streamOptions ?? (_streamOptions = new InputList<string>());
+            set => _streamOptions = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -407,6 +429,18 @@ namespace Pulumi.Azure.Media
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("streamOptions")]
+        private InputList<string>? _streamOptions;
+
+        /// <summary>
+        /// A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> StreamOptions
+        {
+            get => _streamOptions ?? (_streamOptions = new InputList<string>());
+            set => _streamOptions = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

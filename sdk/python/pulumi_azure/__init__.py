@@ -62,6 +62,8 @@ if typing.TYPE_CHECKING:
     connections = __connections
     import pulumi_azure.consumption as __consumption
     consumption = __consumption
+    import pulumi_azure.containerapp as __containerapp
+    containerapp = __containerapp
     import pulumi_azure.containerservice as __containerservice
     containerservice = __containerservice
     import pulumi_azure.core as __core
@@ -158,6 +160,8 @@ if typing.TYPE_CHECKING:
     mediaservices = __mediaservices
     import pulumi_azure.mixedreality as __mixedreality
     mixedreality = __mixedreality
+    import pulumi_azure.mobile as __mobile
+    mobile = __mobile
     import pulumi_azure.monitoring as __monitoring
     monitoring = __monitoring
     import pulumi_azure.msi as __msi
@@ -261,6 +265,7 @@ else:
     config = _utilities.lazy_import('pulumi_azure.config')
     connections = _utilities.lazy_import('pulumi_azure.connections')
     consumption = _utilities.lazy_import('pulumi_azure.consumption')
+    containerapp = _utilities.lazy_import('pulumi_azure.containerapp')
     containerservice = _utilities.lazy_import('pulumi_azure.containerservice')
     core = _utilities.lazy_import('pulumi_azure.core')
     cosmosdb = _utilities.lazy_import('pulumi_azure.cosmosdb')
@@ -309,6 +314,7 @@ else:
     media = _utilities.lazy_import('pulumi_azure.media')
     mediaservices = _utilities.lazy_import('pulumi_azure.mediaservices')
     mixedreality = _utilities.lazy_import('pulumi_azure.mixedreality')
+    mobile = _utilities.lazy_import('pulumi_azure.mobile')
     monitoring = _utilities.lazy_import('pulumi_azure.monitoring')
     msi = _utilities.lazy_import('pulumi_azure.msi')
     mssql = _utilities.lazy_import('pulumi_azure.mssql')
@@ -2293,6 +2299,46 @@ _utilities.register(
   "fqn": "pulumi_azure.consumption",
   "classes": {
    "azure:consumption/budgetSubscription:BudgetSubscription": "BudgetSubscription"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerapp/app",
+  "fqn": "pulumi_azure.containerapp",
+  "classes": {
+   "azure:containerapp/app:App": "App"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerapp/environment",
+  "fqn": "pulumi_azure.containerapp",
+  "classes": {
+   "azure:containerapp/environment:Environment": "Environment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerapp/environmentCertificate",
+  "fqn": "pulumi_azure.containerapp",
+  "classes": {
+   "azure:containerapp/environmentCertificate:EnvironmentCertificate": "EnvironmentCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerapp/environmentDaprComponent",
+  "fqn": "pulumi_azure.containerapp",
+  "classes": {
+   "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent": "EnvironmentDaprComponent"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerapp/environmentStorage",
+  "fqn": "pulumi_azure.containerapp",
+  "classes": {
+   "azure:containerapp/environmentStorage:EnvironmentStorage": "EnvironmentStorage"
   }
  },
  {
@@ -4737,6 +4783,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "machinelearning/datastoreDatalakeGen2",
+  "fqn": "pulumi_azure.machinelearning",
+  "classes": {
+   "azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2": "DatastoreDatalakeGen2"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "machinelearning/datastoreFileshare",
+  "fqn": "pulumi_azure.machinelearning",
+  "classes": {
+   "azure:machinelearning/datastoreFileshare:DatastoreFileshare": "DatastoreFileshare"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "machinelearning/inferenceCluster",
   "fqn": "pulumi_azure.machinelearning",
   "classes": {
@@ -5053,6 +5115,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mixedreality",
   "classes": {
    "azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount": "SpatialAnchorsAccount"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mobile/network",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/network:Network": "Network"
   }
  },
  {
@@ -6949,6 +7019,14 @@ _utilities.register(
   "fqn": "pulumi_azure.sentinel",
   "classes": {
    "azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection": "DataConnectorMicrosoftDefenderAdvancedThreatProtection"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sentinel/dataConnectorMicrosoftThreatIntelligence",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence": "DataConnectorMicrosoftThreatIntelligence"
   }
  },
  {

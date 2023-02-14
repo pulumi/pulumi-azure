@@ -10,8 +10,44 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'GrafanaAzureMonitorWorkspaceIntegration',
     'GrafanaIdentity',
 ]
+
+@pulumi.output_type
+class GrafanaAzureMonitorWorkspaceIntegration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrafanaAzureMonitorWorkspaceIntegration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrafanaAzureMonitorWorkspaceIntegration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrafanaAzureMonitorWorkspaceIntegration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: str):
+        """
+        :param str resource_id: Specifies the resource ID of the connected Azure Monitor Workspace.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        Specifies the resource ID of the connected Azure Monitor Workspace.
+        """
+        return pulumi.get(self, "resource_id")
+
 
 @pulumi.output_type
 class GrafanaIdentity(dict):

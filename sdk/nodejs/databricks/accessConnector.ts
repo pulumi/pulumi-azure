@@ -67,7 +67,7 @@ export class AccessConnector extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.databricks.AccessConnectorIdentity>;
+    public readonly identity!: pulumi.Output<outputs.databricks.AccessConnectorIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
@@ -105,9 +105,6 @@ export class AccessConnector extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccessConnectorArgs | undefined;
-            if ((!args || args.identity === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'identity'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -155,7 +152,7 @@ export interface AccessConnectorArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity: pulumi.Input<inputs.databricks.AccessConnectorIdentity>;
+    identity?: pulumi.Input<inputs.databricks.AccessConnectorIdentity>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */

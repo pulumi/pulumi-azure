@@ -22,6 +22,7 @@ namespace Pulumi.Azure.KeyVault
     /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -52,6 +53,25 @@ namespace Pulumi.Azure.KeyVault
     ///         SecretPermissions = new[]
     ///         {
     ///             "Get",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "example-app",
+    ///     });
+    /// 
+    ///     var example_principal = new Azure.KeyVault.AccessPolicy("example-principal", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "List",
+    ///             "Encrypt",
+    ///             "Decrypt",
     ///         },
     ///     });
     /// 
@@ -102,7 +122,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> KeyVaultId { get; private set; } = null!;
 
         /// <summary>
-        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
         /// </summary>
         [Output("objectId")]
         public Output<string> ObjectId { get; private set; } = null!;
@@ -208,7 +228,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string> KeyVaultId { get; set; } = null!;
 
         /// <summary>
-        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
         /// </summary>
         [Input("objectId", required: true)]
         public Input<string> ObjectId { get; set; } = null!;
@@ -288,7 +308,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
         /// </summary>
         [Input("objectId")]
         public Input<string>? ObjectId { get; set; }

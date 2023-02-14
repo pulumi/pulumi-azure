@@ -5,7 +5,9 @@ package com.pulumi.azure.sentinel.inputs;
 
 import com.pulumi.azure.sentinel.inputs.AlertRuleNrtAlertDetailsOverrideArgs;
 import com.pulumi.azure.sentinel.inputs.AlertRuleNrtEntityMappingArgs;
+import com.pulumi.azure.sentinel.inputs.AlertRuleNrtEventGroupingArgs;
 import com.pulumi.azure.sentinel.inputs.AlertRuleNrtIncidentArgs;
+import com.pulumi.azure.sentinel.inputs.AlertRuleNrtSentinelEntityMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -142,6 +144,21 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `event_grouping` block as defined below.
+     * 
+     */
+    @Import(name="eventGrouping")
+    private @Nullable Output<AlertRuleNrtEventGroupingArgs> eventGrouping;
+
+    /**
+     * @return A `event_grouping` block as defined below.
+     * 
+     */
+    public Optional<Output<AlertRuleNrtEventGroupingArgs>> eventGrouping() {
+        return Optional.ofNullable(this.eventGrouping);
+    }
+
+    /**
      * A `incident` block as defined below.
      * 
      */
@@ -199,6 +216,21 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> query() {
         return Optional.ofNullable(this.query);
+    }
+
+    /**
+     * A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     */
+    @Import(name="sentinelEntityMappings")
+    private @Nullable Output<List<AlertRuleNrtSentinelEntityMappingArgs>> sentinelEntityMappings;
+
+    /**
+     * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<AlertRuleNrtSentinelEntityMappingArgs>>> sentinelEntityMappings() {
+        return Optional.ofNullable(this.sentinelEntityMappings);
     }
 
     /**
@@ -287,10 +319,12 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
         this.displayName = $.displayName;
         this.enabled = $.enabled;
         this.entityMappings = $.entityMappings;
+        this.eventGrouping = $.eventGrouping;
         this.incident = $.incident;
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
         this.name = $.name;
         this.query = $.query;
+        this.sentinelEntityMappings = $.sentinelEntityMappings;
         this.severity = $.severity;
         this.suppressionDuration = $.suppressionDuration;
         this.suppressionEnabled = $.suppressionEnabled;
@@ -505,6 +539,27 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param eventGrouping A `event_grouping` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventGrouping(@Nullable Output<AlertRuleNrtEventGroupingArgs> eventGrouping) {
+            $.eventGrouping = eventGrouping;
+            return this;
+        }
+
+        /**
+         * @param eventGrouping A `event_grouping` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventGrouping(AlertRuleNrtEventGroupingArgs eventGrouping) {
+            return eventGrouping(Output.of(eventGrouping));
+        }
+
+        /**
          * @param incident A `incident` block as defined below.
          * 
          * @return builder
@@ -586,6 +641,37 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder query(String query) {
             return query(Output.of(query));
+        }
+
+        /**
+         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sentinelEntityMappings(@Nullable Output<List<AlertRuleNrtSentinelEntityMappingArgs>> sentinelEntityMappings) {
+            $.sentinelEntityMappings = sentinelEntityMappings;
+            return this;
+        }
+
+        /**
+         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sentinelEntityMappings(List<AlertRuleNrtSentinelEntityMappingArgs> sentinelEntityMappings) {
+            return sentinelEntityMappings(Output.of(sentinelEntityMappings));
+        }
+
+        /**
+         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sentinelEntityMappings(AlertRuleNrtSentinelEntityMappingArgs... sentinelEntityMappings) {
+            return sentinelEntityMappings(List.of(sentinelEntityMappings));
         }
 
         /**

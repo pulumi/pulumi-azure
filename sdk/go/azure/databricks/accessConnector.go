@@ -66,7 +66,7 @@ type AccessConnector struct {
 	pulumi.CustomResourceState
 
 	// An `identity` block as defined below.
-	Identity AccessConnectorIdentityOutput `pulumi:"identity"`
+	Identity AccessConnectorIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created.
@@ -84,9 +84,6 @@ func NewAccessConnector(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Identity == nil {
-		return nil, errors.New("invalid value for required argument 'Identity'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -143,7 +140,7 @@ func (AccessConnectorState) ElementType() reflect.Type {
 
 type accessConnectorArgs struct {
 	// An `identity` block as defined below.
-	Identity AccessConnectorIdentity `pulumi:"identity"`
+	Identity *AccessConnectorIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created.
@@ -157,7 +154,7 @@ type accessConnectorArgs struct {
 // The set of arguments for constructing a AccessConnector resource.
 type AccessConnectorArgs struct {
 	// An `identity` block as defined below.
-	Identity AccessConnectorIdentityInput
+	Identity AccessConnectorIdentityPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created.
@@ -256,8 +253,8 @@ func (o AccessConnectorOutput) ToAccessConnectorOutputWithContext(ctx context.Co
 }
 
 // An `identity` block as defined below.
-func (o AccessConnectorOutput) Identity() AccessConnectorIdentityOutput {
-	return o.ApplyT(func(v *AccessConnector) AccessConnectorIdentityOutput { return v.Identity }).(AccessConnectorIdentityOutput)
+func (o AccessConnectorOutput) Identity() AccessConnectorIdentityPtrOutput {
+	return o.ApplyT(func(v *AccessConnector) AccessConnectorIdentityPtrOutput { return v.Identity }).(AccessConnectorIdentityPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.

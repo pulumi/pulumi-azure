@@ -84,14 +84,14 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     @Import(name="createMode")
     private @Nullable Output<String> createMode;
 
     /**
-     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     public Optional<Output<String>> createMode() {
@@ -249,6 +249,21 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+     * 
+     */
+    @Import(name="replicationRole")
+    private @Nullable Output<String> replicationRole;
+
+    /**
+     * @return The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+     * 
+     */
+    public Optional<Output<String>> replicationRole() {
+        return Optional.ofNullable(this.replicationRole);
+    }
+
+    /**
      * The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
@@ -279,14 +294,14 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     @Import(name="sourceServerId")
     private @Nullable Output<String> sourceServerId;
 
     /**
-     * @return The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * @return The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     public Optional<Output<String>> sourceServerId() {
@@ -371,6 +386,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         this.name = $.name;
         this.pointInTimeRestoreTimeInUtc = $.pointInTimeRestoreTimeInUtc;
         this.privateDnsZoneId = $.privateDnsZoneId;
+        this.replicationRole = $.replicationRole;
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
         this.sourceServerId = $.sourceServerId;
@@ -483,7 +499,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 
@@ -494,7 +510,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 
@@ -714,6 +730,27 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param replicationRole The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicationRole(@Nullable Output<String> replicationRole) {
+            $.replicationRole = replicationRole;
+            return this;
+        }
+
+        /**
+         * @param replicationRole The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicationRole(String replicationRole) {
+            return replicationRole(Output.of(replicationRole));
+        }
+
+        /**
          * @param resourceGroupName The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
@@ -756,7 +793,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceServerId The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * @param sourceServerId The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 
@@ -767,7 +804,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceServerId The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+         * @param sourceServerId The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 

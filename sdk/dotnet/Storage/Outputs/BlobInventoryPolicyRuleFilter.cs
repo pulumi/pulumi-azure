@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly ImmutableArray<string> BlobTypes;
         /// <summary>
+        /// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+        /// </summary>
+        public readonly ImmutableArray<string> ExcludePrefixes;
+        /// <summary>
         /// Includes blob versions in blob inventory or not? Defaults to `false`.
         /// </summary>
         public readonly bool? IncludeBlobVersions;
@@ -30,13 +34,15 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly bool? IncludeSnapshots;
         /// <summary>
-        /// A set of strings for blob prefixes to be matched.
+        /// A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
         /// </summary>
         public readonly ImmutableArray<string> PrefixMatches;
 
         [OutputConstructor]
         private BlobInventoryPolicyRuleFilter(
             ImmutableArray<string> blobTypes,
+
+            ImmutableArray<string> excludePrefixes,
 
             bool? includeBlobVersions,
 
@@ -47,6 +53,7 @@ namespace Pulumi.Azure.Storage.Outputs
             ImmutableArray<string> prefixMatches)
         {
             BlobTypes = blobTypes;
+            ExcludePrefixes = excludePrefixes;
             IncludeBlobVersions = includeBlobVersions;
             IncludeDeleted = includeDeleted;
             IncludeSnapshots = includeSnapshots;

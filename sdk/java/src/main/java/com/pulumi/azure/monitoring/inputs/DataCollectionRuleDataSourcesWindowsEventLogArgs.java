@@ -45,14 +45,14 @@ public final class DataCollectionRuleDataSourcesWindowsEventLogArgs extends com.
     }
 
     /**
-     * Specifies a list of Windows Event Log queries in XPath expression.
+     * Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
      * 
      */
     @Import(name="xPathQueries", required=true)
     private Output<List<String>> xPathQueries;
 
     /**
-     * @return Specifies a list of Windows Event Log queries in XPath expression.
+     * @return Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
      * 
      */
     public Output<List<String>> xPathQueries() {
@@ -138,7 +138,7 @@ public final class DataCollectionRuleDataSourcesWindowsEventLogArgs extends com.
         }
 
         /**
-         * @param xPathQueries Specifies a list of Windows Event Log queries in XPath expression.
+         * @param xPathQueries Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DataCollectionRuleDataSourcesWindowsEventLogArgs extends com.
         }
 
         /**
-         * @param xPathQueries Specifies a list of Windows Event Log queries in XPath expression.
+         * @param xPathQueries Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DataCollectionRuleDataSourcesWindowsEventLogArgs extends com.
         }
 
         /**
-         * @param xPathQueries Specifies a list of Windows Event Log queries in XPath expression.
+         * @param xPathQueries Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
          * 
          * @return builder
          * 

@@ -93,6 +93,21 @@ public final class StreamingLocatorState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+     * 
+     */
+    @Import(name="filterNames")
+    private @Nullable Output<List<String>> filterNames;
+
+    /**
+     * @return A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+     * 
+     */
+    public Optional<Output<List<String>>> filterNames() {
+        return Optional.ofNullable(this.filterNames);
+    }
+
+    /**
      * The Media Services account name. Changing this forces a new Streaming Locator to be created.
      * 
      */
@@ -190,6 +205,7 @@ public final class StreamingLocatorState extends com.pulumi.resources.ResourceAr
         this.contentKeys = $.contentKeys;
         this.defaultContentKeyPolicyName = $.defaultContentKeyPolicyName;
         this.endTime = $.endTime;
+        this.filterNames = $.filterNames;
         this.mediaServicesAccountName = $.mediaServicesAccountName;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -329,6 +345,37 @@ public final class StreamingLocatorState extends com.pulumi.resources.ResourceAr
          */
         public Builder endTime(String endTime) {
             return endTime(Output.of(endTime));
+        }
+
+        /**
+         * @param filterNames A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterNames(@Nullable Output<List<String>> filterNames) {
+            $.filterNames = filterNames;
+            return this;
+        }
+
+        /**
+         * @param filterNames A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterNames(List<String> filterNames) {
+            return filterNames(Output.of(filterNames));
+        }
+
+        /**
+         * @param filterNames A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterNames(String... filterNames) {
+            return filterNames(List.of(filterNames));
         }
 
         /**

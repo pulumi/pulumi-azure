@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlexibleServerHighAvailability {
     /**
-     * @return The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+     * @return The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
      * 
      */
     private String mode;
@@ -24,7 +24,7 @@ public final class FlexibleServerHighAvailability {
 
     private FlexibleServerHighAvailability() {}
     /**
-     * @return The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+     * @return The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
      * 
      */
     public String mode() {

@@ -56,6 +56,7 @@ import * as utilities from "../utilities";
  *             subnetPrefixLength: 0,
  *         }],
  *     },
+ *     streamOptions: ["LowLatency"],
  *     useStaticHostname: true,
  *     hostnamePrefix: "special-event",
  *     transcriptionLanguages: ["en-US"],
@@ -143,6 +144,10 @@ export class LiveEvent extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+     */
+    public readonly streamOptions!: pulumi.Output<string[] | undefined>;
+    /**
      * A mapping of tags which should be assigned to the Live Event.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -179,6 +184,7 @@ export class LiveEvent extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["preview"] = state ? state.preview : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["streamOptions"] = state ? state.streamOptions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["transcriptionLanguages"] = state ? state.transcriptionLanguages : undefined;
             resourceInputs["useStaticHostname"] = state ? state.useStaticHostname : undefined;
@@ -204,6 +210,7 @@ export class LiveEvent extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["preview"] = args ? args.preview : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["streamOptions"] = args ? args.streamOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transcriptionLanguages"] = args ? args.transcriptionLanguages : undefined;
             resourceInputs["useStaticHostname"] = args ? args.useStaticHostname : undefined;
@@ -261,6 +268,10 @@ export interface LiveEventState {
      * The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+     */
+    streamOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags which should be assigned to the Live Event.
      */
@@ -323,6 +334,10 @@ export interface LiveEventArgs {
      * The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+     */
+    streamOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags which should be assigned to the Live Event.
      */

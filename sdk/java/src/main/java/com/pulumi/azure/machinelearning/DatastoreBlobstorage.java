@@ -21,6 +21,93 @@ import javax.annotation.Nullable;
  * Manages a Machine Learning Blob Storage DataStore.
  * 
  * ## Example Usage
+ * ### With Azure Blob
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.appinsights.Insights;
+ * import com.pulumi.azure.appinsights.InsightsArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.machinelearning.Workspace;
+ * import com.pulumi.azure.machinelearning.WorkspaceArgs;
+ * import com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs;
+ * import com.pulumi.azure.storage.Container;
+ * import com.pulumi.azure.storage.ContainerArgs;
+ * import com.pulumi.azure.machinelearning.DatastoreBlobstorage;
+ * import com.pulumi.azure.machinelearning.DatastoreBlobstorageArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .applicationType(&#34;web&#34;)
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;premium&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;GRS&#34;)
+ *             .build());
+ * 
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .applicationInsightsId(exampleInsights.id())
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .storageAccountId(exampleAccount.id())
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .storageAccountName(exampleAccount.name())
+ *             .containerAccessType(&#34;private&#34;)
+ *             .build());
+ * 
+ *         var exampleDatastoreBlobstorage = new DatastoreBlobstorage(&#34;exampleDatastoreBlobstorage&#34;, DatastoreBlobstorageArgs.builder()        
+ *             .workspaceId(exampleWorkspace.id())
+ *             .storageContainerId(exampleContainer.resourceManagerId())
+ *             .accountKey(exampleAccount.primaryAccessKey())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

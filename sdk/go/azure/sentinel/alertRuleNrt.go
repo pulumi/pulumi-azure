@@ -102,6 +102,8 @@ type AlertRuleNrt struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings AlertRuleNrtEntityMappingArrayOutput `pulumi:"entityMappings"`
+	// A `eventGrouping` block as defined below.
+	EventGrouping AlertRuleNrtEventGroupingOutput `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident AlertRuleNrtIncidentOutput `pulumi:"incident"`
 	// The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
@@ -110,6 +112,8 @@ type AlertRuleNrt struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The query of this Sentinel NRT Alert Rule.
 	Query pulumi.StringOutput `pulumi:"query"`
+	// A list of `sentinelEntityMapping` blocks as defined below.
+	SentinelEntityMappings AlertRuleNrtSentinelEntityMappingArrayOutput `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringOutput `pulumi:"severity"`
 	// If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
@@ -179,6 +183,8 @@ type alertRuleNrtState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings []AlertRuleNrtEntityMapping `pulumi:"entityMappings"`
+	// A `eventGrouping` block as defined below.
+	EventGrouping *AlertRuleNrtEventGrouping `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident *AlertRuleNrtIncident `pulumi:"incident"`
 	// The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
@@ -187,6 +193,8 @@ type alertRuleNrtState struct {
 	Name *string `pulumi:"name"`
 	// The query of this Sentinel NRT Alert Rule.
 	Query *string `pulumi:"query"`
+	// A list of `sentinelEntityMapping` blocks as defined below.
+	SentinelEntityMappings []AlertRuleNrtSentinelEntityMapping `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity *string `pulumi:"severity"`
 	// If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
@@ -216,6 +224,8 @@ type AlertRuleNrtState struct {
 	Enabled pulumi.BoolPtrInput
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings AlertRuleNrtEntityMappingArrayInput
+	// A `eventGrouping` block as defined below.
+	EventGrouping AlertRuleNrtEventGroupingPtrInput
 	// A `incident` block as defined below.
 	Incident AlertRuleNrtIncidentPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
@@ -224,6 +234,8 @@ type AlertRuleNrtState struct {
 	Name pulumi.StringPtrInput
 	// The query of this Sentinel NRT Alert Rule.
 	Query pulumi.StringPtrInput
+	// A list of `sentinelEntityMapping` blocks as defined below.
+	SentinelEntityMappings AlertRuleNrtSentinelEntityMappingArrayInput
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringPtrInput
 	// If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
@@ -257,6 +269,8 @@ type alertRuleNrtArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings []AlertRuleNrtEntityMapping `pulumi:"entityMappings"`
+	// A `eventGrouping` block as defined below.
+	EventGrouping *AlertRuleNrtEventGrouping `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident *AlertRuleNrtIncident `pulumi:"incident"`
 	// The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
@@ -265,6 +279,8 @@ type alertRuleNrtArgs struct {
 	Name *string `pulumi:"name"`
 	// The query of this Sentinel NRT Alert Rule.
 	Query string `pulumi:"query"`
+	// A list of `sentinelEntityMapping` blocks as defined below.
+	SentinelEntityMappings []AlertRuleNrtSentinelEntityMapping `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity string `pulumi:"severity"`
 	// If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
@@ -295,6 +311,8 @@ type AlertRuleNrtArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings AlertRuleNrtEntityMappingArrayInput
+	// A `eventGrouping` block as defined below.
+	EventGrouping AlertRuleNrtEventGroupingPtrInput
 	// A `incident` block as defined below.
 	Incident AlertRuleNrtIncidentPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
@@ -303,6 +321,8 @@ type AlertRuleNrtArgs struct {
 	Name pulumi.StringPtrInput
 	// The query of this Sentinel NRT Alert Rule.
 	Query pulumi.StringInput
+	// A list of `sentinelEntityMapping` blocks as defined below.
+	SentinelEntityMappings AlertRuleNrtSentinelEntityMappingArrayInput
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringInput
 	// If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
@@ -442,6 +462,11 @@ func (o AlertRuleNrtOutput) EntityMappings() AlertRuleNrtEntityMappingArrayOutpu
 	return o.ApplyT(func(v *AlertRuleNrt) AlertRuleNrtEntityMappingArrayOutput { return v.EntityMappings }).(AlertRuleNrtEntityMappingArrayOutput)
 }
 
+// A `eventGrouping` block as defined below.
+func (o AlertRuleNrtOutput) EventGrouping() AlertRuleNrtEventGroupingOutput {
+	return o.ApplyT(func(v *AlertRuleNrt) AlertRuleNrtEventGroupingOutput { return v.EventGrouping }).(AlertRuleNrtEventGroupingOutput)
+}
+
 // A `incident` block as defined below.
 func (o AlertRuleNrtOutput) Incident() AlertRuleNrtIncidentOutput {
 	return o.ApplyT(func(v *AlertRuleNrt) AlertRuleNrtIncidentOutput { return v.Incident }).(AlertRuleNrtIncidentOutput)
@@ -460,6 +485,11 @@ func (o AlertRuleNrtOutput) Name() pulumi.StringOutput {
 // The query of this Sentinel NRT Alert Rule.
 func (o AlertRuleNrtOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleNrt) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
+}
+
+// A list of `sentinelEntityMapping` blocks as defined below.
+func (o AlertRuleNrtOutput) SentinelEntityMappings() AlertRuleNrtSentinelEntityMappingArrayOutput {
+	return o.ApplyT(func(v *AlertRuleNrt) AlertRuleNrtSentinelEntityMappingArrayOutput { return v.SentinelEntityMappings }).(AlertRuleNrtSentinelEntityMappingArrayOutput)
 }
 
 // The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.

@@ -85,6 +85,11 @@ export type DataConnectorMicrosoftDefenderAdvancedThreatProtection = import("./d
 export const DataConnectorMicrosoftDefenderAdvancedThreatProtection: typeof import("./dataConnectorMicrosoftDefenderAdvancedThreatProtection").DataConnectorMicrosoftDefenderAdvancedThreatProtection = null as any;
 utilities.lazyLoad(exports, ["DataConnectorMicrosoftDefenderAdvancedThreatProtection"], () => require("./dataConnectorMicrosoftDefenderAdvancedThreatProtection"));
 
+export { DataConnectorMicrosoftThreatIntelligenceArgs, DataConnectorMicrosoftThreatIntelligenceState } from "./dataConnectorMicrosoftThreatIntelligence";
+export type DataConnectorMicrosoftThreatIntelligence = import("./dataConnectorMicrosoftThreatIntelligence").DataConnectorMicrosoftThreatIntelligence;
+export const DataConnectorMicrosoftThreatIntelligence: typeof import("./dataConnectorMicrosoftThreatIntelligence").DataConnectorMicrosoftThreatIntelligence = null as any;
+utilities.lazyLoad(exports, ["DataConnectorMicrosoftThreatIntelligence"], () => require("./dataConnectorMicrosoftThreatIntelligence"));
+
 export { DataConnectorMicrosoftThreatProtectionArgs, DataConnectorMicrosoftThreatProtectionState } from "./dataConnectorMicrosoftThreatProtection";
 export type DataConnectorMicrosoftThreatProtection = import("./dataConnectorMicrosoftThreatProtection").DataConnectorMicrosoftThreatProtection;
 export const DataConnectorMicrosoftThreatProtection: typeof import("./dataConnectorMicrosoftThreatProtection").DataConnectorMicrosoftThreatProtection = null as any;
@@ -187,6 +192,8 @@ const _module = {
                 return new DataConnectorMicrosoftCloudAppSecurity(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection":
                 return new DataConnectorMicrosoftDefenderAdvancedThreatProtection(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence":
+                return new DataConnectorMicrosoftThreatIntelligence(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorMicrosoftThreatProtection:DataConnectorMicrosoftThreatProtection":
                 return new DataConnectorMicrosoftThreatProtection(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
@@ -230,6 +237,7 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorDynamics36
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorIot", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftCloudAppSecurity", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftThreatIntelligence", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftThreatProtection", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOffice365", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOffice365Project", _module)

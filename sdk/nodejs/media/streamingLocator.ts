@@ -30,6 +30,10 @@ import * as utilities from "../utilities";
  *         isPrimary: true,
  *     }],
  * });
+ * const exampleAccountFilter = new azure.media.AccountFilter("exampleAccountFilter", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     mediaServicesAccountName: exampleServiceAccount.name,
+ * });
  * const exampleAsset = new azure.media.Asset("exampleAsset", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     mediaServicesAccountName: exampleServiceAccount.name,
@@ -40,6 +44,7 @@ import * as utilities from "../utilities";
  *     mediaServicesAccountName: exampleServiceAccount.name,
  *     assetName: exampleAsset.name,
  *     streamingPolicyName: "Predefined_ClearStreamingOnly",
+ *     filterNames: [exampleAccountFilter.name],
  * });
  * ```
  *
@@ -100,6 +105,10 @@ export class StreamingLocator extends pulumi.CustomResource {
      */
     public readonly endTime!: pulumi.Output<string>;
     /**
+     * A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+     */
+    public readonly filterNames!: pulumi.Output<string[] | undefined>;
+    /**
      * The Media Services account name. Changing this forces a new Streaming Locator to be created.
      */
     public readonly mediaServicesAccountName!: pulumi.Output<string>;
@@ -142,6 +151,7 @@ export class StreamingLocator extends pulumi.CustomResource {
             resourceInputs["contentKeys"] = state ? state.contentKeys : undefined;
             resourceInputs["defaultContentKeyPolicyName"] = state ? state.defaultContentKeyPolicyName : undefined;
             resourceInputs["endTime"] = state ? state.endTime : undefined;
+            resourceInputs["filterNames"] = state ? state.filterNames : undefined;
             resourceInputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -167,6 +177,7 @@ export class StreamingLocator extends pulumi.CustomResource {
             resourceInputs["contentKeys"] = args ? args.contentKeys : undefined;
             resourceInputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
             resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["filterNames"] = args ? args.filterNames : undefined;
             resourceInputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -203,6 +214,10 @@ export interface StreamingLocatorState {
      * The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
     endTime?: pulumi.Input<string>;
+    /**
+     * A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+     */
+    filterNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Media Services account name. Changing this forces a new Streaming Locator to be created.
      */
@@ -253,6 +268,10 @@ export interface StreamingLocatorArgs {
      * The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
     endTime?: pulumi.Input<string>;
+    /**
+     * A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+     */
+    filterNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Media Services account name. Changing this forces a new Streaming Locator to be created.
      */

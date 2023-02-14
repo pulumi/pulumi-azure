@@ -10,6 +10,7 @@ import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledAlertDetailsOverride;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledEntityMapping;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledEventGrouping;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledIncidentConfiguration;
+import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledSentinelEntityMapping;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -312,6 +313,20 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> queryPeriod() {
         return Codegen.optional(this.queryPeriod);
+    }
+    /**
+     * A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     */
+    @Export(name="sentinelEntityMappings", type=List.class, parameters={AlertRuleScheduledSentinelEntityMapping.class})
+    private Output</* @Nullable */ List<AlertRuleScheduledSentinelEntityMapping>> sentinelEntityMappings;
+
+    /**
+     * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     */
+    public Output<Optional<List<AlertRuleScheduledSentinelEntityMapping>>> sentinelEntityMappings() {
+        return Codegen.optional(this.sentinelEntityMappings);
     }
     /**
      * The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
