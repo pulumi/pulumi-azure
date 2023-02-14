@@ -72,6 +72,7 @@ const (
 	azureConfidentialLedger    = "ConfidentialLedger"    // Confidential Ledger
 	azureConnections           = "Connections"           // Connection
 	azureConsumption           = "Consumption"           // Consumption
+	azureContainerApp          = "ContainerApp"          // Container App
 	azureContainerService      = "ContainerService"      // Azure Container Service
 	azureCore                  = "Core"                  // Base Resources
 	azureCosmosDB              = "CosmosDB"              // Cosmos DB
@@ -119,6 +120,7 @@ const (
 	azureMedia                 = "Media"                 // Media
 	azureMixedReality          = "MixedReality"          // Mixed Reality
 	azureMonitoring            = "Monitoring"            // Metrics/monitoring resources
+	azureMobile                = "Mobile"                // Mobile
 	azureMSSQL                 = "MSSql"                 // MS Sql
 	azureMySQL                 = "MySql"                 // MySql
 	azureNetapp                = "NetApp"                // NetApp
@@ -2321,6 +2323,8 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "machine_learning_datastore_blogstorage.html.markdown",
 				},
 			},
+			"azurerm_machine_learning_datastore_datalake_gen2": {Tok: azureResource(azureMachineLearning, "DatastoreDatalakeGen2")},
+			"azurerm_machine_learning_datastore_fileshare":     {Tok: azureResource(azureMachineLearning, "DatastoreFileshare")},
 
 			// Managed Applications
 			"azurerm_managed_application":            {Tok: azureResource(azureManagedApplication, "Application")},
@@ -2411,6 +2415,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_sentinel_log_analytics_workspace_onboarding": {
 				Tok: azureResource(azureSentinel, "LogAnalyticsWorkspaceOnboarding"),
+			},
+			"azurerm_sentinel_data_connector_microsoft_threat_intelligence": {
+				Tok: azureResource(azureSentinel, "DataConnectorMicrosoftThreatIntelligence"),
 			},
 
 			// Eventgrid
@@ -2558,6 +2565,16 @@ func Provider() tfbridge.ProviderInfo {
 
 			// ARM MSI
 			"azurerm_federated_identity_credential": {Tok: azureResource(armMsi, "FederatedIdentityCredential")},
+
+			// Container Apps
+			"azurerm_container_app":                            {Tok: azureResource(azureContainerApp, "App")},
+			"azurerm_container_app_environment":                {Tok: azureResource(azureContainerApp, "Environment")},
+			"azurerm_container_app_environment_certificate":    {Tok: azureResource(azureContainerApp, "EnvironmentCertificate")},
+			"azurerm_container_app_environment_dapr_component": {Tok: azureResource(azureContainerApp, "EnvironmentDaprComponent")},
+			"azurerm_container_app_environment_storage":        {Tok: azureResource(azureContainerApp, "EnvironmentStorage")},
+
+			// Mobile
+			"azurerm_mobile_network": {Tok: azureResource(azureMobile, "Network")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_aadb2c_directory": {Tok: azureDataSource(aadb2c, "getDirectory")},
@@ -3023,6 +3040,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_hub_route_table": {Tok: azureDataSource(azureNetwork, "getVirtualHubRouteTable")},
 
 			"azurerm_bastion_host": {Tok: azureDataSource(azureCompute, "getBastionHost")},
+
+			"azurerm_container_app_environment":             {Tok: azureDataSource(azureContainerApp, "getEnvironment")},
+			"azurerm_container_app_environment_certificate": {Tok: azureDataSource(azureContainerApp, "getEnvironmentCertificate")},
+
+			"azurerm_mobile_network": {Tok: azureDataSource(azureMobile, "getNetwork")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			TypeScriptVersion: "4.7.4",
