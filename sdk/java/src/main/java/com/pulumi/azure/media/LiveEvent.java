@@ -102,6 +102,7 @@ import javax.annotation.Nullable;
  *                     .subnetPrefixLength(0)
  *                     .build())
  *                 .build())
+ *             .streamOptions(&#34;LowLatency&#34;)
  *             .useStaticHostname(true)
  *             .hostnamePrefix(&#34;special-event&#34;)
  *             .transcriptionLanguages(&#34;en-US&#34;)
@@ -275,6 +276,20 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="streamOptions", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> streamOptions;
+
+    /**
+     * @return A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<List<String>>> streamOptions() {
+        return Codegen.optional(this.streamOptions);
     }
     /**
      * A mapping of tags which should be assigned to the Live Event.

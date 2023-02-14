@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> Query { get; private set; } = null!;
 
         /// <summary>
-        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         /// </summary>
         [Output("queryType")]
         public Output<string?> QueryType { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
-        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         /// </summary>
         [Input("queryType")]
         public Input<string>? QueryType { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         /// </summary>
         [Input("queryType")]
         public Input<string>? QueryType { get; set; }

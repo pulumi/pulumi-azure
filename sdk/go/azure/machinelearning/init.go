@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ComputeInstance{}
 	case "azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage":
 		r = &DatastoreBlobstorage{}
+	case "azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2":
+		r = &DatastoreDatalakeGen2{}
+	case "azure:machinelearning/datastoreFileshare:DatastoreFileshare":
+		r = &DatastoreFileshare{}
 	case "azure:machinelearning/inferenceCluster:InferenceCluster":
 		r = &InferenceCluster{}
 	case "azure:machinelearning/synapseSpark:SynapseSpark":
@@ -59,6 +63,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"machinelearning/datastoreBlobstorage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"machinelearning/datastoreDatalakeGen2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"machinelearning/datastoreFileshare",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

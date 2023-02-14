@@ -87,6 +87,9 @@ import (
 //						},
 //					},
 //				},
+//				StreamOptions: pulumi.StringArray{
+//					pulumi.String("LowLatency"),
+//				},
 //				UseStaticHostname: pulumi.Bool(true),
 //				HostnamePrefix:    pulumi.String("special-event"),
 //				TranscriptionLanguages: pulumi.StringArray{
@@ -136,6 +139,8 @@ type LiveEvent struct {
 	Preview LiveEventPreviewOutput `pulumi:"preview"`
 	// The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+	StreamOptions pulumi.StringArrayOutput `pulumi:"streamOptions"`
 	// A mapping of tags which should be assigned to the Live Event.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742).
@@ -204,6 +209,8 @@ type liveEventState struct {
 	Preview *LiveEventPreview `pulumi:"preview"`
 	// The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+	StreamOptions []string `pulumi:"streamOptions"`
 	// A mapping of tags which should be assigned to the Live Event.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742).
@@ -235,6 +242,8 @@ type LiveEventState struct {
 	Preview LiveEventPreviewPtrInput
 	// The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+	StreamOptions pulumi.StringArrayInput
 	// A mapping of tags which should be assigned to the Live Event.
 	Tags pulumi.StringMapInput
 	// Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742).
@@ -270,6 +279,8 @@ type liveEventArgs struct {
 	Preview *LiveEventPreview `pulumi:"preview"`
 	// The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+	StreamOptions []string `pulumi:"streamOptions"`
 	// A mapping of tags which should be assigned to the Live Event.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742).
@@ -302,6 +313,8 @@ type LiveEventArgs struct {
 	Preview LiveEventPreviewPtrInput
 	// The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
 	ResourceGroupName pulumi.StringInput
+	// A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+	StreamOptions pulumi.StringArrayInput
 	// A mapping of tags which should be assigned to the Live Event.
 	Tags pulumi.StringMapInput
 	// Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742).
@@ -450,6 +463,11 @@ func (o LiveEventOutput) Preview() LiveEventPreviewOutput {
 // The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
 func (o LiveEventOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+func (o LiveEventOutput) StreamOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringArrayOutput { return v.StreamOptions }).(pulumi.StringArrayOutput)
 }
 
 // A mapping of tags which should be assigned to the Live Event.

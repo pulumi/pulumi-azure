@@ -253,6 +253,17 @@ class LoadTest(pulumi.CustomResource):
 
         Manages a Load Test Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.loadtest.LoadTest("example",
+            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=azurerm_resource_group["example"]["name"])
+        ```
+
         ## Import
 
         An existing Load Test can be imported into Terraform using the `resource id`, e.g.
@@ -282,6 +293,17 @@ class LoadTest(pulumi.CustomResource):
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
 
         Manages a Load Test Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.loadtest.LoadTest("example",
+            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=azurerm_resource_group["example"]["name"])
+        ```
 
         ## Import
 

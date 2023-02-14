@@ -16,14 +16,14 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
     public static final AccessConnectorIdentityArgs Empty = new AccessConnectorIdentityArgs();
 
     /**
-     * The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+     * The Principal ID associated with this system-assigned managed identity.
      * 
      */
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
 
     /**
-     * @return The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+     * @return The Principal ID associated with this system-assigned managed identity.
      * 
      */
     public Optional<Output<String>> principalId() {
@@ -31,14 +31,14 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The tenant id in which the principal resides.
+     * The Tenant ID associated with this system-assigned managed identity.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return The tenant id in which the principal resides.
+     * @return The Tenant ID associated with this system-assigned managed identity.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -87,7 +87,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principalId The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+         * @param principalId The Principal ID associated with this system-assigned managed identity.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principalId The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+         * @param principalId The Principal ID associated with this system-assigned managed identity.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tenantId The tenant id in which the principal resides.
+         * @param tenantId The Tenant ID associated with this system-assigned managed identity.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tenantId The tenant id in which the principal resides.
+         * @param tenantId The Tenant ID associated with this system-assigned managed identity.
          * 
          * @return builder
          * 

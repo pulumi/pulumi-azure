@@ -27,6 +27,7 @@ class LiveEventArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input['LiveEventPreviewArgs']] = None,
+                 stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  use_static_hostname: Optional[pulumi.Input[bool]] = None):
@@ -43,6 +44,7 @@ class LiveEventArgs:
         :param pulumi.Input[str] location: The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
         :param pulumi.Input['LiveEventPreviewArgs'] preview: A `preview` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] stream_options: A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Live Event.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transcription_languages: Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ).
         :param pulumi.Input[bool] use_static_hostname: Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
@@ -66,6 +68,8 @@ class LiveEventArgs:
             pulumi.set(__self__, "name", name)
         if preview is not None:
             pulumi.set(__self__, "preview", preview)
+        if stream_options is not None:
+            pulumi.set(__self__, "stream_options", stream_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if transcription_languages is not None:
@@ -206,6 +210,18 @@ class LiveEventArgs:
         pulumi.set(self, "preview", value)
 
     @property
+    @pulumi.getter(name="streamOptions")
+    def stream_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "stream_options")
+
+    @stream_options.setter
+    def stream_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "stream_options", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -256,6 +272,7 @@ class _LiveEventState:
                  name: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input['LiveEventPreviewArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  use_static_hostname: Optional[pulumi.Input[bool]] = None):
@@ -272,6 +289,7 @@ class _LiveEventState:
         :param pulumi.Input[str] name: The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
         :param pulumi.Input['LiveEventPreviewArgs'] preview: A `preview` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] stream_options: A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Live Event.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transcription_languages: Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ).
         :param pulumi.Input[bool] use_static_hostname: Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
@@ -298,6 +316,8 @@ class _LiveEventState:
             pulumi.set(__self__, "preview", preview)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if stream_options is not None:
+            pulumi.set(__self__, "stream_options", stream_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if transcription_languages is not None:
@@ -438,6 +458,18 @@ class _LiveEventState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="streamOptions")
+    def stream_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "stream_options")
+
+    @stream_options.setter
+    def stream_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "stream_options", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -490,6 +522,7 @@ class LiveEvent(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  use_static_hostname: Optional[pulumi.Input[bool]] = None,
@@ -542,6 +575,7 @@ class LiveEvent(pulumi.CustomResource):
                     subnet_prefix_length=0,
                 )],
             ),
+            stream_options=["LowLatency"],
             use_static_hostname=True,
             hostname_prefix="special-event",
             transcription_languages=["en-US"])
@@ -568,6 +602,7 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
         :param pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']] preview: A `preview` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] stream_options: A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Live Event.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transcription_languages: Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ).
         :param pulumi.Input[bool] use_static_hostname: Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
@@ -626,6 +661,7 @@ class LiveEvent(pulumi.CustomResource):
                     subnet_prefix_length=0,
                 )],
             ),
+            stream_options=["LowLatency"],
             use_static_hostname=True,
             hostname_prefix="special-event",
             transcription_languages=["en-US"])
@@ -665,6 +701,7 @@ class LiveEvent(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  use_static_hostname: Optional[pulumi.Input[bool]] = None,
@@ -694,6 +731,7 @@ class LiveEvent(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["stream_options"] = stream_options
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transcription_languages"] = transcription_languages
             __props__.__dict__["use_static_hostname"] = use_static_hostname
@@ -718,6 +756,7 @@ class LiveEvent(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             use_static_hostname: Optional[pulumi.Input[bool]] = None) -> 'LiveEvent':
@@ -739,6 +778,7 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
         :param pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']] preview: A `preview` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] stream_options: A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Live Event.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transcription_languages: Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ).
         :param pulumi.Input[bool] use_static_hostname: Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
@@ -758,6 +798,7 @@ class LiveEvent(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["preview"] = preview
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["stream_options"] = stream_options
         __props__.__dict__["tags"] = tags
         __props__.__dict__["transcription_languages"] = transcription_languages
         __props__.__dict__["use_static_hostname"] = use_static_hostname
@@ -850,6 +891,14 @@ class LiveEvent(pulumi.CustomResource):
         The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="streamOptions")
+    def stream_options(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "stream_options")
 
     @property
     @pulumi.getter

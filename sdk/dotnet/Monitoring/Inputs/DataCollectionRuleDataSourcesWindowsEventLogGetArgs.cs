@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<string>? _xPathQueries;
 
         /// <summary>
-        /// Specifies a list of Windows Event Log queries in XPath expression.
+        /// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
         /// </summary>
         public InputList<string> XPathQueries
         {

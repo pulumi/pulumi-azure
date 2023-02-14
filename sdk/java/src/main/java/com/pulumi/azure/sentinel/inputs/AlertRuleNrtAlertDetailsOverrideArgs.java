@@ -3,9 +3,11 @@
 
 package com.pulumi.azure.sentinel.inputs;
 
+import com.pulumi.azure.sentinel.inputs.AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -46,6 +48,21 @@ public final class AlertRuleNrtAlertDetailsOverrideArgs extends com.pulumi.resou
     }
 
     /**
+     * A list of `dynamic_property` blocks as defined below.
+     * 
+     */
+    @Import(name="dynamicProperties")
+    private @Nullable Output<List<AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs>> dynamicProperties;
+
+    /**
+     * @return A list of `dynamic_property` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs>>> dynamicProperties() {
+        return Optional.ofNullable(this.dynamicProperties);
+    }
+
+    /**
      * The column name to take the alert severity from.
      * 
      */
@@ -80,6 +97,7 @@ public final class AlertRuleNrtAlertDetailsOverrideArgs extends com.pulumi.resou
     private AlertRuleNrtAlertDetailsOverrideArgs(AlertRuleNrtAlertDetailsOverrideArgs $) {
         this.descriptionFormat = $.descriptionFormat;
         this.displayNameFormat = $.displayNameFormat;
+        this.dynamicProperties = $.dynamicProperties;
         this.severityColumnName = $.severityColumnName;
         this.tacticsColumnName = $.tacticsColumnName;
     }
@@ -142,6 +160,37 @@ public final class AlertRuleNrtAlertDetailsOverrideArgs extends com.pulumi.resou
          */
         public Builder displayNameFormat(String displayNameFormat) {
             return displayNameFormat(Output.of(displayNameFormat));
+        }
+
+        /**
+         * @param dynamicProperties A list of `dynamic_property` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicProperties(@Nullable Output<List<AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs>> dynamicProperties) {
+            $.dynamicProperties = dynamicProperties;
+            return this;
+        }
+
+        /**
+         * @param dynamicProperties A list of `dynamic_property` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicProperties(List<AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs> dynamicProperties) {
+            return dynamicProperties(Output.of(dynamicProperties));
+        }
+
+        /**
+         * @param dynamicProperties A list of `dynamic_property` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicProperties(AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs... dynamicProperties) {
+            return dynamicProperties(List.of(dynamicProperties));
         }
 
         /**

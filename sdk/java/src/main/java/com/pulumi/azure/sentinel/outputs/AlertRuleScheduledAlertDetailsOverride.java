@@ -3,8 +3,10 @@
 
 package com.pulumi.azure.sentinel.outputs;
 
+import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledAlertDetailsOverrideDynamicProperty;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +23,11 @@ public final class AlertRuleScheduledAlertDetailsOverride {
      * 
      */
     private @Nullable String displayNameFormat;
+    /**
+     * @return A list of `dynamic_property` blocks as defined below.
+     * 
+     */
+    private @Nullable List<AlertRuleScheduledAlertDetailsOverrideDynamicProperty> dynamicProperties;
     /**
      * @return The column name to take the alert severity from.
      * 
@@ -48,6 +55,13 @@ public final class AlertRuleScheduledAlertDetailsOverride {
         return Optional.ofNullable(this.displayNameFormat);
     }
     /**
+     * @return A list of `dynamic_property` blocks as defined below.
+     * 
+     */
+    public List<AlertRuleScheduledAlertDetailsOverrideDynamicProperty> dynamicProperties() {
+        return this.dynamicProperties == null ? List.of() : this.dynamicProperties;
+    }
+    /**
      * @return The column name to take the alert severity from.
      * 
      */
@@ -73,6 +87,7 @@ public final class AlertRuleScheduledAlertDetailsOverride {
     public static final class Builder {
         private @Nullable String descriptionFormat;
         private @Nullable String displayNameFormat;
+        private @Nullable List<AlertRuleScheduledAlertDetailsOverrideDynamicProperty> dynamicProperties;
         private @Nullable String severityColumnName;
         private @Nullable String tacticsColumnName;
         public Builder() {}
@@ -80,6 +95,7 @@ public final class AlertRuleScheduledAlertDetailsOverride {
     	      Objects.requireNonNull(defaults);
     	      this.descriptionFormat = defaults.descriptionFormat;
     	      this.displayNameFormat = defaults.displayNameFormat;
+    	      this.dynamicProperties = defaults.dynamicProperties;
     	      this.severityColumnName = defaults.severityColumnName;
     	      this.tacticsColumnName = defaults.tacticsColumnName;
         }
@@ -95,6 +111,14 @@ public final class AlertRuleScheduledAlertDetailsOverride {
             return this;
         }
         @CustomType.Setter
+        public Builder dynamicProperties(@Nullable List<AlertRuleScheduledAlertDetailsOverrideDynamicProperty> dynamicProperties) {
+            this.dynamicProperties = dynamicProperties;
+            return this;
+        }
+        public Builder dynamicProperties(AlertRuleScheduledAlertDetailsOverrideDynamicProperty... dynamicProperties) {
+            return dynamicProperties(List.of(dynamicProperties));
+        }
+        @CustomType.Setter
         public Builder severityColumnName(@Nullable String severityColumnName) {
             this.severityColumnName = severityColumnName;
             return this;
@@ -108,6 +132,7 @@ public final class AlertRuleScheduledAlertDetailsOverride {
             final var o = new AlertRuleScheduledAlertDetailsOverride();
             o.descriptionFormat = descriptionFormat;
             o.displayNameFormat = displayNameFormat;
+            o.dynamicProperties = dynamicProperties;
             o.severityColumnName = severityColumnName;
             o.tacticsColumnName = tacticsColumnName;
             return o;

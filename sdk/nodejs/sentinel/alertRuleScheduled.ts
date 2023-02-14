@@ -141,6 +141,10 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      */
     public readonly queryPeriod!: pulumi.Output<string | undefined>;
     /**
+     * A list of `sentinelEntityMapping` blocks as defined below.
+     */
+    public readonly sentinelEntityMappings!: pulumi.Output<outputs.sentinel.AlertRuleScheduledSentinelEntityMapping[] | undefined>;
+    /**
      * The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
     public readonly severity!: pulumi.Output<string>;
@@ -197,6 +201,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             resourceInputs["query"] = state ? state.query : undefined;
             resourceInputs["queryFrequency"] = state ? state.queryFrequency : undefined;
             resourceInputs["queryPeriod"] = state ? state.queryPeriod : undefined;
+            resourceInputs["sentinelEntityMappings"] = state ? state.sentinelEntityMappings : undefined;
             resourceInputs["severity"] = state ? state.severity : undefined;
             resourceInputs["suppressionDuration"] = state ? state.suppressionDuration : undefined;
             resourceInputs["suppressionEnabled"] = state ? state.suppressionEnabled : undefined;
@@ -233,6 +238,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             resourceInputs["query"] = args ? args.query : undefined;
             resourceInputs["queryFrequency"] = args ? args.queryFrequency : undefined;
             resourceInputs["queryPeriod"] = args ? args.queryPeriod : undefined;
+            resourceInputs["sentinelEntityMappings"] = args ? args.sentinelEntityMappings : undefined;
             resourceInputs["severity"] = args ? args.severity : undefined;
             resourceInputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
             resourceInputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
@@ -310,6 +316,10 @@ export interface AlertRuleScheduledState {
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      */
     queryPeriod?: pulumi.Input<string>;
+    /**
+     * A list of `sentinelEntityMapping` blocks as defined below.
+     */
+    sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledSentinelEntityMapping>[]>;
     /**
      * The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
@@ -404,6 +414,10 @@ export interface AlertRuleScheduledArgs {
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      */
     queryPeriod?: pulumi.Input<string>;
+    /**
+     * A list of `sentinelEntityMapping` blocks as defined below.
+     */
+    sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledSentinelEntityMapping>[]>;
     /**
      * The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */

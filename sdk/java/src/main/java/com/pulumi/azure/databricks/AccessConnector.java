@@ -77,14 +77,14 @@ public class AccessConnector extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identity", type=AccessConnectorIdentity.class, parameters={})
-    private Output<AccessConnectorIdentity> identity;
+    private Output</* @Nullable */ AccessConnectorIdentity> identity;
 
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    public Output<AccessConnectorIdentity> identity() {
-        return this.identity;
+    public Output<Optional<AccessConnectorIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.

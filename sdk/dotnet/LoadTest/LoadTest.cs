@@ -14,6 +14,24 @@ namespace Pulumi.Azure.LoadTest
     /// 
     /// Manages a Load Test Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.LoadTest.LoadTest("example", new()
+    ///     {
+    ///         Location = azurerm_resource_group.Example.Location,
+    ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// An existing Load Test can be imported into Terraform using the `resource id`, e.g.

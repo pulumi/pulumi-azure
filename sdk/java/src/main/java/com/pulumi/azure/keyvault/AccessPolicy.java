@@ -36,6 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
  * import com.pulumi.azure.keyvault.AccessPolicy;
  * import com.pulumi.azure.keyvault.AccessPolicyArgs;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,6 +70,21 @@ import javax.annotation.Nullable;
  *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .keyPermissions(&#34;Get&#34;)
  *             .secretPermissions(&#34;Get&#34;)
+ *             .build());
+ * 
+ *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *             .displayName(&#34;example-app&#34;)
+ *             .build());
+ * 
+ *         var example_principal = new AccessPolicy(&#34;example-principal&#34;, AccessPolicyArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .objectId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *             .keyPermissions(            
+ *                 &#34;Get&#34;,
+ *                 &#34;List&#34;,
+ *                 &#34;Encrypt&#34;,
+ *                 &#34;Decrypt&#34;)
  *             .build());
  * 
  *     }
@@ -150,14 +167,14 @@ public class AccessPolicy extends com.pulumi.resources.CustomResource {
         return this.keyVaultId;
     }
     /**
-     * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+     * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="objectId", type=String.class, parameters={})
     private Output<String> objectId;
 
     /**
-     * @return The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+     * @return The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> objectId() {

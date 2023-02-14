@@ -77,14 +77,14 @@ public final class AccessPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+     * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="objectId", required=true)
     private Output<String> objectId;
 
     /**
-     * @return The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+     * @return The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> objectId() {
@@ -272,7 +272,7 @@ public final class AccessPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param objectId The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+         * @param objectId The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class AccessPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param objectId The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+         * @param objectId The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

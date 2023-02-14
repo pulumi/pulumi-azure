@@ -32,6 +32,7 @@ class FlexibleServerArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
+                 replication_role: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  source_server_id: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
@@ -45,7 +46,7 @@ class FlexibleServerArgs:
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input['FlexibleServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -56,8 +57,9 @@ class FlexibleServerArgs:
         :param pulumi.Input[str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] replication_role: The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
         :param pulumi.Input[str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
-        :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -94,6 +96,8 @@ class FlexibleServerArgs:
             pulumi.set(__self__, "point_in_time_restore_time_in_utc", point_in_time_restore_time_in_utc)
         if private_dns_zone_id is not None:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+        if replication_role is not None:
+            pulumi.set(__self__, "replication_role", replication_role)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if source_server_id is not None:
@@ -171,7 +175,7 @@ class FlexibleServerArgs:
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         """
         return pulumi.get(self, "create_mode")
 
@@ -300,6 +304,18 @@ class FlexibleServerArgs:
         pulumi.set(self, "private_dns_zone_id", value)
 
     @property
+    @pulumi.getter(name="replicationRole")
+    def replication_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+        """
+        return pulumi.get(self, "replication_role")
+
+    @replication_role.setter
+    def replication_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_role", value)
+
+    @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -315,7 +331,7 @@ class FlexibleServerArgs:
     @pulumi.getter(name="sourceServerId")
     def source_server_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         """
         return pulumi.get(self, "source_server_id")
 
@@ -392,6 +408,7 @@ class _FlexibleServerState:
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 replication_role: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  source_server_id: Optional[pulumi.Input[str]] = None,
@@ -405,7 +422,7 @@ class _FlexibleServerState:
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input['FlexibleServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the PostgreSQL Flexible Server.
@@ -418,9 +435,10 @@ class _FlexibleServerState:
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
+        :param pulumi.Input[str] replication_role: The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
-        :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -460,6 +478,8 @@ class _FlexibleServerState:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if replication_role is not None:
+            pulumi.set(__self__, "replication_role", replication_role)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
@@ -527,7 +547,7 @@ class _FlexibleServerState:
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         """
         return pulumi.get(self, "create_mode")
 
@@ -680,6 +700,18 @@ class _FlexibleServerState:
         pulumi.set(self, "public_network_access_enabled", value)
 
     @property
+    @pulumi.getter(name="replicationRole")
+    def replication_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+        """
+        return pulumi.get(self, "replication_role")
+
+    @replication_role.setter
+    def replication_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_role", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -707,7 +739,7 @@ class _FlexibleServerState:
     @pulumi.getter(name="sourceServerId")
     def source_server_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         """
         return pulumi.get(self, "source_server_id")
 
@@ -784,6 +816,7 @@ class FlexibleServer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
+                 replication_role: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  source_server_id: Optional[pulumi.Input[str]] = None,
@@ -851,7 +884,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
         :param pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -862,9 +895,10 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] replication_role: The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
-        :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -959,6 +993,7 @@ class FlexibleServer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
+                 replication_role: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  source_server_id: Optional[pulumi.Input[str]] = None,
@@ -990,6 +1025,7 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["point_in_time_restore_time_in_utc"] = point_in_time_restore_time_in_utc
             __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
+            __props__.__dict__["replication_role"] = replication_role
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1030,6 +1066,7 @@ class FlexibleServer(pulumi.CustomResource):
             point_in_time_restore_time_in_utc: Optional[pulumi.Input[str]] = None,
             private_dns_zone_id: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+            replication_role: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             source_server_id: Optional[pulumi.Input[str]] = None,
@@ -1048,7 +1085,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
         :param pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the PostgreSQL Flexible Server.
@@ -1061,9 +1098,10 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
+        :param pulumi.Input[str] replication_role: The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] sku_name: The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
-        :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] source_server_id: The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -1090,6 +1128,7 @@ class FlexibleServer(pulumi.CustomResource):
         __props__.__dict__["point_in_time_restore_time_in_utc"] = point_in_time_restore_time_in_utc
         __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+        __props__.__dict__["replication_role"] = replication_role
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["source_server_id"] = source_server_id
@@ -1135,7 +1174,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter(name="createMode")
     def create_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         """
         return pulumi.get(self, "create_mode")
 
@@ -1236,6 +1275,14 @@ class FlexibleServer(pulumi.CustomResource):
         return pulumi.get(self, "public_network_access_enabled")
 
     @property
+    @pulumi.getter(name="replicationRole")
+    def replication_role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+        """
+        return pulumi.get(self, "replication_role")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
@@ -1255,7 +1302,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter(name="sourceServerId")
     def source_server_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         """
         return pulumi.get(self, "source_server_id")
 

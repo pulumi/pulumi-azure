@@ -16608,6 +16608,410 @@ export namespace consumption {
 
 }
 
+export namespace containerapp {
+    export interface AppDapr {
+        /**
+         * The Dapr Application Identifier.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The port which the application is listening on. This is the same as the `ingress` port.
+         */
+        appPort: pulumi.Input<number>;
+        /**
+         * The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+         */
+        appProtocol?: pulumi.Input<string>;
+    }
+
+    export interface AppIdentity {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface AppIngress {
+        /**
+         * Should this ingress allow insecure connections?
+         */
+        allowInsecureConnections?: pulumi.Input<boolean>;
+        /**
+         * One or more `customDomain` block as detailed below.
+         */
+        customDomain?: pulumi.Input<inputs.containerapp.AppIngressCustomDomain>;
+        /**
+         * Is this an external Ingress.
+         */
+        externalEnabled?: pulumi.Input<boolean>;
+        /**
+         * The FQDN of the ingress.
+         */
+        fqdn?: pulumi.Input<string>;
+        /**
+         * The target port on the container for the Ingress traffic.
+         */
+        targetPort: pulumi.Input<number>;
+        /**
+         * A `trafficWeight` block as detailed below.
+         */
+        trafficWeights: pulumi.Input<pulumi.Input<inputs.containerapp.AppIngressTrafficWeight>[]>;
+        /**
+         * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         */
+        transport?: pulumi.Input<string>;
+    }
+
+    export interface AppIngressCustomDomain {
+        certificateBindingType?: pulumi.Input<string>;
+        certificateId: pulumi.Input<string>;
+        /**
+         * The name for this Container App. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface AppIngressTrafficWeight {
+        /**
+         * The label to apply to the revision as a name prefix for routing traffic.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * This traffic Weight relates to the latest stable Container Revision.
+         */
+        latestRevision?: pulumi.Input<boolean>;
+        /**
+         * The percentage of traffic which should be sent this revision.
+         */
+        percentage: pulumi.Input<number>;
+        /**
+         * The suffix string to which this `trafficWeight` applies.
+         */
+        revisionSuffix?: pulumi.Input<string>;
+    }
+
+    export interface AppRegistry {
+        /**
+         * The name of the Secret Reference containing the password value for this user on the Container Registry.
+         */
+        passwordSecretName: pulumi.Input<string>;
+        /**
+         * The hostname for the Container Registry.
+         */
+        server: pulumi.Input<string>;
+        /**
+         * The username to use for this Container Registry.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface AppSecret {
+        /**
+         * The Secret name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value for this secret.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AppTemplate {
+        /**
+         * A `container` block as detailed below.
+         */
+        container: pulumi.Input<inputs.containerapp.AppTemplateContainer>;
+        /**
+         * The maximum number of replicas for this container.
+         */
+        maxReplicas?: pulumi.Input<number>;
+        /**
+         * The minimum number of replicas for this container.
+         */
+        minReplicas?: pulumi.Input<number>;
+        /**
+         * The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
+         */
+        revisionSuffix?: pulumi.Input<string>;
+        /**
+         * A `volume` block as detailed below.
+         */
+        volumes?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateVolume>[]>;
+    }
+
+    export interface AppTemplateContainer {
+        /**
+         * A list of extra arguments to pass to the container.
+         */
+        args?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+         */
+        commands?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         */
+        cpu: pulumi.Input<number>;
+        /**
+         * An `env` block as detailed below.
+         */
+        envs?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainerEnv>[]>;
+        /**
+         * The amount of ephemeral storage available to the Container App.
+         */
+        ephemeralStorage?: pulumi.Input<string>;
+        /**
+         * The image to use to create the container.
+         */
+        image: pulumi.Input<string>;
+        /**
+         * A `livenessProbe` block as detailed below.
+         */
+        livenessProbes?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainerLivenessProbe>[]>;
+        /**
+         * The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+         */
+        memory: pulumi.Input<string>;
+        /**
+         * The name of the container
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `readinessProbe` block as detailed below.
+         */
+        readinessProbes?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainerReadinessProbe>[]>;
+        /**
+         * A `startupProbe` block as detailed below.
+         */
+        startupProbes?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainerStartupProbe>[]>;
+        /**
+         * A `volumeMounts` block as detailed below.
+         */
+        volumeMounts?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainerVolumeMount>[]>;
+    }
+
+    export interface AppTemplateContainerEnv {
+        /**
+         * The name of the environment variable for the container.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name of the secret that contains the value for this environment variable.
+         */
+        secretName?: pulumi.Input<string>;
+        /**
+         * The value for this environment variable.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateContainerLivenessProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold?: pulumi.Input<number>;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainerLivenessProbeHeader>[]>;
+        /**
+         * The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * The time in seconds to wait after the container has started before the probe is started.
+         */
+        initialDelay?: pulumi.Input<number>;
+        /**
+         * (Optional) How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+         */
+        intervalSeconds?: pulumi.Input<number>;
+        /**
+         * The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+         */
+        terminationGracePeriodSeconds?: pulumi.Input<number>;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout?: pulumi.Input<number>;
+        /**
+         * Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+         */
+        transport: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateContainerLivenessProbeHeader {
+        /**
+         * The HTTP Header Name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The HTTP Header value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateContainerReadinessProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold?: pulumi.Input<number>;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainerReadinessProbeHeader>[]>;
+        /**
+         * The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         */
+        intervalSeconds?: pulumi.Input<number>;
+        /**
+         * The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        successCountThreshold?: pulumi.Input<number>;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout?: pulumi.Input<number>;
+        /**
+         * Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+         */
+        transport: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateContainerReadinessProbeHeader {
+        /**
+         * The HTTP Header Name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The HTTP Header value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateContainerStartupProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold?: pulumi.Input<number>;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainerStartupProbeHeader>[]>;
+        /**
+         * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         */
+        intervalSeconds?: pulumi.Input<number>;
+        /**
+         * The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+         */
+        terminationGracePeriodSeconds?: pulumi.Input<number>;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout?: pulumi.Input<number>;
+        /**
+         * Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+         */
+        transport: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateContainerStartupProbeHeader {
+        /**
+         * The HTTP Header Name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The HTTP Header value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateContainerVolumeMount {
+        /**
+         * The name of the Volume to be mounted in the container.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The path in the container at which to mount this volume.
+         */
+        path: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateVolume {
+        /**
+         * The name of the volume.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name of the `AzureFile` storage.
+         */
+        storageName?: pulumi.Input<string>;
+        /**
+         * The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+         */
+        storageType?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentDaprComponentMetadata {
+        /**
+         * The name of the Metadata configuration item.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name of a secret specified in the `secrets` block that contains the value for this metadata configuration item.
+         */
+        secretName?: pulumi.Input<string>;
+        /**
+         * The value for this metadata configuration item.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentDaprComponentSecret {
+        /**
+         * The Secret name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value for this secret.
+         */
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace containerservice {
     export interface ConnectedRegistryNotification {
         /**
@@ -19351,6 +19755,13 @@ export namespace cosmosdb {
 }
 
 export namespace dashboard {
+    export interface GrafanaAzureMonitorWorkspaceIntegration {
+        /**
+         * Specifies the resource ID of the connected Azure Monitor Workspace.
+         */
+        resourceId: pulumi.Input<string>;
+    }
+
     export interface GrafanaIdentity {
         /**
          * The Principal ID associated with this Managed Service Identity.
@@ -19533,11 +19944,11 @@ export namespace databoxedge {
 export namespace databricks {
     export interface AccessConnectorIdentity {
         /**
-         * The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+         * The Principal ID associated with this system-assigned managed identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The tenant id in which the principal resides.
+         * The Tenant ID associated with this system-assigned managed identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
@@ -31713,7 +32124,7 @@ export namespace monitoring {
 
     export interface DataCollectionRuleDataSourcesPerformanceCounter {
         /**
-         * Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+         * Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
          */
         counterSpecifiers: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -31721,7 +32132,7 @@ export namespace monitoring {
          */
         name: pulumi.Input<string>;
         /**
-         * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+         * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
          */
         samplingFrequencyInSeconds: pulumi.Input<number>;
         /**
@@ -31759,7 +32170,7 @@ export namespace monitoring {
          */
         streams: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of Windows Event Log queries in XPath expression.
+         * Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
          */
         xPathQueries: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -36531,7 +36942,7 @@ export namespace postgresql {
 
     export interface FlexibleServerHighAvailability {
         /**
-         * The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+         * The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
          */
         mode: pulumi.Input<string>;
         /**
@@ -37223,6 +37634,10 @@ export namespace sentinel {
          */
         displayNameFormat?: pulumi.Input<string>;
         /**
+         * A list of `dynamicProperty` blocks as defined below.
+         */
+        dynamicProperties?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtAlertDetailsOverrideDynamicProperty>[]>;
+        /**
          * The column name to take the alert severity from.
          */
         severityColumnName?: pulumi.Input<string>;
@@ -37230,6 +37645,17 @@ export namespace sentinel {
          * The column name to take the alert tactics from.
          */
         tacticsColumnName?: pulumi.Input<string>;
+    }
+
+    export interface AlertRuleNrtAlertDetailsOverrideDynamicProperty {
+        /**
+         * The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface AlertRuleNrtEntityMapping {
@@ -37252,6 +37678,13 @@ export namespace sentinel {
          * The identifier of the entity.
          */
         identifier: pulumi.Input<string>;
+    }
+
+    export interface AlertRuleNrtEventGrouping {
+        /**
+         * The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
+         */
+        aggregationMethod: pulumi.Input<string>;
     }
 
     export interface AlertRuleNrtIncident {
@@ -37296,6 +37729,13 @@ export namespace sentinel {
         reopenClosedIncidents?: pulumi.Input<boolean>;
     }
 
+    export interface AlertRuleNrtSentinelEntityMapping {
+        /**
+         * The column name to be mapped to the identifier.
+         */
+        columnName: pulumi.Input<string>;
+    }
+
     export interface AlertRuleScheduledAlertDetailsOverride {
         /**
          * The format containing columns name(s) to override the description of this Sentinel Alert Rule.
@@ -37306,6 +37746,10 @@ export namespace sentinel {
          */
         displayNameFormat?: pulumi.Input<string>;
         /**
+         * A list of `dynamicProperty` blocks as defined below.
+         */
+        dynamicProperties?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledAlertDetailsOverrideDynamicProperty>[]>;
+        /**
          * The column name to take the alert severity from.
          */
         severityColumnName?: pulumi.Input<string>;
@@ -37313,6 +37757,17 @@ export namespace sentinel {
          * The column name to take the alert tactics from.
          */
         tacticsColumnName?: pulumi.Input<string>;
+    }
+
+    export interface AlertRuleScheduledAlertDetailsOverrideDynamicProperty {
+        /**
+         * The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface AlertRuleScheduledEntityMapping {
@@ -37384,6 +37839,13 @@ export namespace sentinel {
          * Whether to re-open closed matching incidents? Defaults to `false`.
          */
         reopenClosedIncidents?: pulumi.Input<boolean>;
+    }
+
+    export interface AlertRuleScheduledSentinelEntityMapping {
+        /**
+         * The column name to be mapped to the identifier.
+         */
+        columnName: pulumi.Input<string>;
     }
 
     export interface AuthomationRuleActionIncident {
@@ -38617,7 +39079,7 @@ export namespace storage {
          */
         corsRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountBlobPropertiesCorsRule>[]>;
         /**
-         * The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+         * The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
          */
         defaultServiceVersion?: pulumi.Input<string>;
         /**
@@ -39031,6 +39493,10 @@ export namespace storage {
          */
         blobTypes: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+         */
+        excludePrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * Includes blob versions in blob inventory or not? Defaults to `false`.
          */
         includeBlobVersions?: pulumi.Input<boolean>;
@@ -39043,7 +39509,7 @@ export namespace storage {
          */
         includeSnapshots?: pulumi.Input<boolean>;
         /**
-         * A set of strings for blob prefixes to be matched.
+         * A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
          */
         prefixMatches?: pulumi.Input<pulumi.Input<string>[]>;
     }

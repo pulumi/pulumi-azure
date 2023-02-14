@@ -11,6 +11,18 @@ import * as utilities from "../utilities";
  *
  * Manages a Load Test Service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.loadtest.LoadTest("example", {
+ *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * ```
+ *
  * ## Import
  *
  * An existing Load Test can be imported into Terraform using the `resource id`, e.g.

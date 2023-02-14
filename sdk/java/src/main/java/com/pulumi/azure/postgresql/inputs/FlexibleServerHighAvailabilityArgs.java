@@ -16,14 +16,14 @@ public final class FlexibleServerHighAvailabilityArgs extends com.pulumi.resourc
     public static final FlexibleServerHighAvailabilityArgs Empty = new FlexibleServerHighAvailabilityArgs();
 
     /**
-     * The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+     * The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
      * 
      */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
     /**
-     * @return The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+     * @return The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
      * 
      */
     public Output<String> mode() {
@@ -71,7 +71,7 @@ public final class FlexibleServerHighAvailabilityArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param mode The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+         * @param mode The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FlexibleServerHighAvailabilityArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param mode The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+         * @param mode The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
          * 
          * @return builder
          * 

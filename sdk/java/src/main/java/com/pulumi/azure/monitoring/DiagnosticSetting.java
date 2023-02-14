@@ -114,28 +114,28 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
         return this.enabledLogs;
     }
     /**
-     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      * 
      */
     @Export(name="eventhubAuthorizationRuleId", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventhubAuthorizationRuleId;
 
     /**
-     * @return Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     * @return Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      * 
      */
     public Output<Optional<String>> eventhubAuthorizationRuleId() {
         return Codegen.optional(this.eventhubAuthorizationRuleId);
     }
     /**
-     * Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     * Specifies the name of the Event Hub where Diagnostics Data should be sent.
      * 
      */
     @Export(name="eventhubName", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventhubName;
 
     /**
-     * @return Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Event Hub where Diagnostics Data should be sent.
      * 
      */
     public Output<Optional<String>> eventhubName() {
@@ -230,14 +230,14 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.partnerSolutionId);
     }
     /**
-     * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     * The ID of the Storage Account where logs should be sent.
      * 
      */
     @Export(name="storageAccountId", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
-     * @return The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     * @return The ID of the Storage Account where logs should be sent.
      * 
      */
     public Output<Optional<String>> storageAccountId() {

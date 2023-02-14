@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataConnectorMicrosoftCloudAppSecurity{}
 	case "azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection":
 		r = &DataConnectorMicrosoftDefenderAdvancedThreatProtection{}
+	case "azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence":
+		r = &DataConnectorMicrosoftThreatIntelligence{}
 	case "azure:sentinel/dataConnectorMicrosoftThreatProtection:DataConnectorMicrosoftThreatProtection":
 		r = &DataConnectorMicrosoftThreatProtection{}
 	case "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
@@ -166,6 +168,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorMicrosoftThreatIntelligence",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.PostgreSql.Inputs
     public sealed class FlexibleServerHighAvailabilityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+        /// The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;

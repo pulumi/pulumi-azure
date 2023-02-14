@@ -79,6 +79,18 @@ namespace Pulumi.Azure.Compute
         public Output<string?> Architecture { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("confidentialVmEnabled")]
+        public Output<bool?> ConfidentialVmEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("confidentialVmSupported")]
+        public Output<bool?> ConfidentialVmSupported { get; private set; } = null!;
+
+        /// <summary>
         /// A description of this Shared Image.
         /// </summary>
         [Output("description")]
@@ -263,6 +275,18 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Architecture { get; set; }
 
         /// <summary>
+        /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("confidentialVmEnabled")]
+        public Input<bool>? ConfidentialVmEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("confidentialVmSupported")]
+        public Input<bool>? ConfidentialVmSupported { get; set; }
+
+        /// <summary>
         /// A description of this Shared Image.
         /// </summary>
         [Input("description")]
@@ -419,6 +443,18 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("architecture")]
         public Input<string>? Architecture { get; set; }
+
+        /// <summary>
+        /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("confidentialVmEnabled")]
+        public Input<bool>? ConfidentialVmEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("confidentialVmSupported")]
+        public Input<bool>? ConfidentialVmSupported { get; set; }
 
         /// <summary>
         /// A description of this Shared Image.

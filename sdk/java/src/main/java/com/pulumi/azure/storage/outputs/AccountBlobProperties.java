@@ -39,7 +39,7 @@ public final class AccountBlobProperties {
      */
     private @Nullable List<AccountBlobPropertiesCorsRule> corsRules;
     /**
-     * @return The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version. Defaults to `2020-06-12`.
+     * @return The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version.
      * 
      */
     private @Nullable String defaultServiceVersion;
@@ -94,7 +94,7 @@ public final class AccountBlobProperties {
         return this.corsRules == null ? List.of() : this.corsRules;
     }
     /**
-     * @return The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version. Defaults to `2020-06-12`.
+     * @return The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version.
      * 
      */
     public Optional<String> defaultServiceVersion() {

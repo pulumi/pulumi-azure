@@ -83,6 +83,14 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly architecture!: pulumi.Output<string | undefined>;
     /**
+     * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     */
+    public readonly confidentialVmEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+     */
+    public readonly confidentialVmSupported!: pulumi.Output<boolean | undefined>;
+    /**
      * A description of this Shared Image.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -182,6 +190,8 @@ export class SharedImage extends pulumi.CustomResource {
             const state = argsOrState as SharedImageState | undefined;
             resourceInputs["acceleratedNetworkSupportEnabled"] = state ? state.acceleratedNetworkSupportEnabled : undefined;
             resourceInputs["architecture"] = state ? state.architecture : undefined;
+            resourceInputs["confidentialVmEnabled"] = state ? state.confidentialVmEnabled : undefined;
+            resourceInputs["confidentialVmSupported"] = state ? state.confidentialVmSupported : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["diskTypesNotAlloweds"] = state ? state.diskTypesNotAlloweds : undefined;
             resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
@@ -219,6 +229,8 @@ export class SharedImage extends pulumi.CustomResource {
             }
             resourceInputs["acceleratedNetworkSupportEnabled"] = args ? args.acceleratedNetworkSupportEnabled : undefined;
             resourceInputs["architecture"] = args ? args.architecture : undefined;
+            resourceInputs["confidentialVmEnabled"] = args ? args.confidentialVmEnabled : undefined;
+            resourceInputs["confidentialVmSupported"] = args ? args.confidentialVmSupported : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["diskTypesNotAlloweds"] = args ? args.diskTypesNotAlloweds : undefined;
             resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
@@ -258,6 +270,14 @@ export interface SharedImageState {
      * CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
      */
     architecture?: pulumi.Input<string>;
+    /**
+     * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     */
+    confidentialVmEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+     */
+    confidentialVmSupported?: pulumi.Input<boolean>;
     /**
      * A description of this Shared Image.
      */
@@ -356,6 +376,14 @@ export interface SharedImageArgs {
      * CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
      */
     architecture?: pulumi.Input<string>;
+    /**
+     * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
+     */
+    confidentialVmEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
+     */
+    confidentialVmSupported?: pulumi.Input<boolean>;
     /**
      * A description of this Shared Image.
      */

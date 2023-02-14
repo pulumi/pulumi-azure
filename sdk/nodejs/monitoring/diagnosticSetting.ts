@@ -83,11 +83,11 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly enabledLogs!: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledLog[]>;
     /**
-     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      */
     public readonly eventhubAuthorizationRuleId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     * Specifies the name of the Event Hub where Diagnostics Data should be sent.
      */
     public readonly eventhubName!: pulumi.Output<string | undefined>;
     /**
@@ -117,7 +117,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly partnerSolutionId!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     * The ID of the Storage Account where logs should be sent.
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
@@ -180,11 +180,11 @@ export interface DiagnosticSettingState {
      */
     enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLog>[]>;
     /**
-     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      */
     eventhubAuthorizationRuleId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     * Specifies the name of the Event Hub where Diagnostics Data should be sent.
      */
     eventhubName?: pulumi.Input<string>;
     /**
@@ -214,7 +214,7 @@ export interface DiagnosticSettingState {
      */
     partnerSolutionId?: pulumi.Input<string>;
     /**
-     * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     * The ID of the Storage Account where logs should be sent.
      */
     storageAccountId?: pulumi.Input<string>;
     /**
@@ -232,11 +232,11 @@ export interface DiagnosticSettingArgs {
      */
     enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLog>[]>;
     /**
-     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      */
     eventhubAuthorizationRuleId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     * Specifies the name of the Event Hub where Diagnostics Data should be sent.
      */
     eventhubName?: pulumi.Input<string>;
     /**
@@ -266,7 +266,7 @@ export interface DiagnosticSettingArgs {
      */
     partnerSolutionId?: pulumi.Input<string>;
     /**
-     * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     * The ID of the Storage Account where logs should be sent.
      */
     storageAccountId?: pulumi.Input<string>;
     /**

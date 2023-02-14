@@ -55,6 +55,7 @@ import * as utilities from "../utilities";
  *     manifestName: "testmanifest",
  *     outputSnapTimeInSeconds: 0,
  *     hlsFragmentsPerTsSegment: 5,
+ *     rewindWindowDuration: "PT5M",
  * });
  * ```
  *
@@ -126,6 +127,7 @@ export class LiveEventOutput extends pulumi.CustomResource {
      * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
      */
     public readonly outputSnapTimeInSeconds!: pulumi.Output<number | undefined>;
+    public readonly rewindWindowDuration!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LiveEventOutput resource with the given unique name, arguments, and options.
@@ -148,6 +150,7 @@ export class LiveEventOutput extends pulumi.CustomResource {
             resourceInputs["manifestName"] = state ? state.manifestName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outputSnapTimeInSeconds"] = state ? state.outputSnapTimeInSeconds : undefined;
+            resourceInputs["rewindWindowDuration"] = state ? state.rewindWindowDuration : undefined;
         } else {
             const args = argsOrState as LiveEventOutputArgs | undefined;
             if ((!args || args.archiveWindowDuration === undefined) && !opts.urn) {
@@ -167,6 +170,7 @@ export class LiveEventOutput extends pulumi.CustomResource {
             resourceInputs["manifestName"] = args ? args.manifestName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputSnapTimeInSeconds"] = args ? args.outputSnapTimeInSeconds : undefined;
+            resourceInputs["rewindWindowDuration"] = args ? args.rewindWindowDuration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LiveEventOutput.__pulumiType, name, resourceInputs, opts);
@@ -209,6 +213,7 @@ export interface LiveEventOutputState {
      * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
      */
     outputSnapTimeInSeconds?: pulumi.Input<number>;
+    rewindWindowDuration?: pulumi.Input<string>;
 }
 
 /**
@@ -247,4 +252,5 @@ export interface LiveEventOutputArgs {
      * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
      */
     outputSnapTimeInSeconds?: pulumi.Input<number>;
+    rewindWindowDuration?: pulumi.Input<string>;
 }

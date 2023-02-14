@@ -274,7 +274,7 @@ class AccountBlobProperties(dict):
         :param int change_feed_retention_in_days: The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
         :param 'AccountBlobPropertiesContainerDeleteRetentionPolicyArgs' container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
         :param Sequence['AccountBlobPropertiesCorsRuleArgs'] cors_rules: A `cors_rule` block as defined below.
-        :param str default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+        :param str default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
         :param 'AccountBlobPropertiesDeleteRetentionPolicyArgs' delete_retention_policy: A `delete_retention_policy` block as defined below.
         :param bool last_access_time_enabled: Is the last access time based tracking enabled? Default to `false`.
         :param 'AccountBlobPropertiesRestorePolicyArgs' restore_policy: A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
@@ -335,7 +335,7 @@ class AccountBlobProperties(dict):
     @pulumi.getter(name="defaultServiceVersion")
     def default_service_version(self) -> Optional[str]:
         """
-        The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+        The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
         """
         return pulumi.get(self, "default_service_version")
 
@@ -1854,6 +1854,8 @@ class BlobInventoryPolicyRuleFilter(dict):
         suggest = None
         if key == "blobTypes":
             suggest = "blob_types"
+        elif key == "excludePrefixes":
+            suggest = "exclude_prefixes"
         elif key == "includeBlobVersions":
             suggest = "include_blob_versions"
         elif key == "includeDeleted":
@@ -1876,18 +1878,22 @@ class BlobInventoryPolicyRuleFilter(dict):
 
     def __init__(__self__, *,
                  blob_types: Sequence[str],
+                 exclude_prefixes: Optional[Sequence[str]] = None,
                  include_blob_versions: Optional[bool] = None,
                  include_deleted: Optional[bool] = None,
                  include_snapshots: Optional[bool] = None,
                  prefix_matches: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] blob_types: A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
+        :param Sequence[str] exclude_prefixes: A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
         :param bool include_blob_versions: Includes blob versions in blob inventory or not? Defaults to `false`.
         :param bool include_deleted: Includes deleted blobs in blob inventory or not? Defaults to `false`.
         :param bool include_snapshots: Includes blob snapshots in blob inventory or not? Defaults to `false`.
-        :param Sequence[str] prefix_matches: A set of strings for blob prefixes to be matched.
+        :param Sequence[str] prefix_matches: A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
         """
         pulumi.set(__self__, "blob_types", blob_types)
+        if exclude_prefixes is not None:
+            pulumi.set(__self__, "exclude_prefixes", exclude_prefixes)
         if include_blob_versions is not None:
             pulumi.set(__self__, "include_blob_versions", include_blob_versions)
         if include_deleted is not None:
@@ -1904,6 +1910,14 @@ class BlobInventoryPolicyRuleFilter(dict):
         A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
         """
         return pulumi.get(self, "blob_types")
+
+    @property
+    @pulumi.getter(name="excludePrefixes")
+    def exclude_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+        """
+        return pulumi.get(self, "exclude_prefixes")
 
     @property
     @pulumi.getter(name="includeBlobVersions")
@@ -1933,7 +1947,7 @@ class BlobInventoryPolicyRuleFilter(dict):
     @pulumi.getter(name="prefixMatches")
     def prefix_matches(self) -> Optional[Sequence[str]]:
         """
-        A set of strings for blob prefixes to be matched.
+        A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
         """
         return pulumi.get(self, "prefix_matches")
 

@@ -13,13 +13,13 @@ namespace Pulumi.Azure.DataBricks.Inputs
     public sealed class AccessConnectorIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+        /// The Principal ID associated with this system-assigned managed identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The tenant id in which the principal resides.
+        /// The Tenant ID associated with this system-assigned managed identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

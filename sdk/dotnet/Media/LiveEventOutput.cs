@@ -85,6 +85,7 @@ namespace Pulumi.Azure.Media
     ///         ManifestName = "testmanifest",
     ///         OutputSnapTimeInSeconds = 0,
     ///         HlsFragmentsPerTsSegment = 5,
+    ///         RewindWindowDuration = "PT5M",
     ///     });
     /// 
     /// });
@@ -148,6 +149,9 @@ namespace Pulumi.Azure.Media
         /// </summary>
         [Output("outputSnapTimeInSeconds")]
         public Output<int?> OutputSnapTimeInSeconds { get; private set; } = null!;
+
+        [Output("rewindWindowDuration")]
+        public Output<string?> RewindWindowDuration { get; private set; } = null!;
 
 
         /// <summary>
@@ -243,6 +247,9 @@ namespace Pulumi.Azure.Media
         [Input("outputSnapTimeInSeconds")]
         public Input<int>? OutputSnapTimeInSeconds { get; set; }
 
+        [Input("rewindWindowDuration")]
+        public Input<string>? RewindWindowDuration { get; set; }
+
         public LiveEventOutputArgs()
         {
         }
@@ -298,6 +305,9 @@ namespace Pulumi.Azure.Media
         /// </summary>
         [Input("outputSnapTimeInSeconds")]
         public Input<int>? OutputSnapTimeInSeconds { get; set; }
+
+        [Input("rewindWindowDuration")]
+        public Input<string>? RewindWindowDuration { get; set; }
 
         public LiveEventOutputState()
         {

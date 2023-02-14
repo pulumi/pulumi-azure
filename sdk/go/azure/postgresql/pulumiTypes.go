@@ -342,7 +342,7 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) PrimaryUserAssignedIdentityId
 }
 
 type FlexibleServerHighAvailability struct {
-	// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+	// The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
 	Mode string `pulumi:"mode"`
 	// Specifies the Availability Zone in which the standby Flexible Server should be located.
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
@@ -360,7 +360,7 @@ type FlexibleServerHighAvailabilityInput interface {
 }
 
 type FlexibleServerHighAvailabilityArgs struct {
-	// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+	// The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
 	Mode pulumi.StringInput `pulumi:"mode"`
 	// Specifies the Availability Zone in which the standby Flexible Server should be located.
 	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
@@ -443,7 +443,7 @@ func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityPt
 	}).(FlexibleServerHighAvailabilityPtrOutput)
 }
 
-// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+// The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
 func (o FlexibleServerHighAvailabilityOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -477,7 +477,7 @@ func (o FlexibleServerHighAvailabilityPtrOutput) Elem() FlexibleServerHighAvaila
 	}).(FlexibleServerHighAvailabilityOutput)
 }
 
-// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
+// The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
 func (o FlexibleServerHighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
 		if v == nil {

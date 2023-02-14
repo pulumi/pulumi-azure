@@ -188,6 +188,21 @@ public final class LiveEventArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="streamOptions")
+    private @Nullable Output<List<String>> streamOptions;
+
+    /**
+     * @return A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<List<String>>> streamOptions() {
+        return Optional.ofNullable(this.streamOptions);
+    }
+
+    /**
      * A mapping of tags which should be assigned to the Live Event.
      * 
      */
@@ -246,6 +261,7 @@ public final class LiveEventArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.preview = $.preview;
         this.resourceGroupName = $.resourceGroupName;
+        this.streamOptions = $.streamOptions;
         this.tags = $.tags;
         this.transcriptionLanguages = $.transcriptionLanguages;
         this.useStaticHostname = $.useStaticHostname;
@@ -498,6 +514,37 @@ public final class LiveEventArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param streamOptions A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamOptions(@Nullable Output<List<String>> streamOptions) {
+            $.streamOptions = streamOptions;
+            return this;
+        }
+
+        /**
+         * @param streamOptions A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamOptions(List<String> streamOptions) {
+            return streamOptions(Output.of(streamOptions));
+        }
+
+        /**
+         * @param streamOptions A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamOptions(String... streamOptions) {
+            return streamOptions(List.of(streamOptions));
         }
 
         /**

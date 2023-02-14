@@ -174,14 +174,14 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
      * 
      */
     @Import(name="queryType")
     private @Nullable Output<String> queryType;
 
     /**
-     * @return The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     * @return The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
      * 
      */
     public Optional<Output<String>> queryType() {
@@ -541,7 +541,7 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param queryType The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+         * @param queryType The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
          * 
          * @return builder
          * 
@@ -552,7 +552,7 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param queryType The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+         * @param queryType The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
          * 
          * @return builder
          * 

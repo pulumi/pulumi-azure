@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Databox Edge Order.
  * 
+ * !&gt; Creation of Databox Edge Order is not supported by the Azure API - as such the `azure.databoxedge.Order` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

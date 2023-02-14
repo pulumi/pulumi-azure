@@ -11,9 +11,9 @@ import (
 )
 
 type AccessConnectorIdentity struct {
-	// The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+	// The Principal ID associated with this system-assigned managed identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The tenant id in which the principal resides.
+	// The Tenant ID associated with this system-assigned managed identity.
 	TenantId *string `pulumi:"tenantId"`
 	// The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
 	Type string `pulumi:"type"`
@@ -31,9 +31,9 @@ type AccessConnectorIdentityInput interface {
 }
 
 type AccessConnectorIdentityArgs struct {
-	// The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+	// The Principal ID associated with this system-assigned managed identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The tenant id in which the principal resides.
+	// The Tenant ID associated with this system-assigned managed identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -116,12 +116,12 @@ func (o AccessConnectorIdentityOutput) ToAccessConnectorIdentityPtrOutputWithCon
 	}).(AccessConnectorIdentityPtrOutput)
 }
 
-// The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+// The Principal ID associated with this system-assigned managed identity.
 func (o AccessConnectorIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessConnectorIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant id in which the principal resides.
+// The Tenant ID associated with this system-assigned managed identity.
 func (o AccessConnectorIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessConnectorIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -155,7 +155,7 @@ func (o AccessConnectorIdentityPtrOutput) Elem() AccessConnectorIdentityOutput {
 	}).(AccessConnectorIdentityOutput)
 }
 
-// The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+// The Principal ID associated with this system-assigned managed identity.
 func (o AccessConnectorIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessConnectorIdentity) *string {
 		if v == nil {
@@ -165,7 +165,7 @@ func (o AccessConnectorIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id in which the principal resides.
+// The Tenant ID associated with this system-assigned managed identity.
 func (o AccessConnectorIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessConnectorIdentity) *string {
 		if v == nil {

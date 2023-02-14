@@ -83,14 +83,14 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version. Defaults to `2020-06-12`.
+     * The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version.
      * 
      */
     @Import(name="defaultServiceVersion")
     private @Nullable Output<String> defaultServiceVersion;
 
     /**
-     * @return The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version. Defaults to `2020-06-12`.
+     * @return The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version.
      * 
      */
     public Optional<Output<String>> defaultServiceVersion() {
@@ -284,7 +284,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param defaultServiceVersion The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version. Defaults to `2020-06-12`.
+         * @param defaultServiceVersion The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param defaultServiceVersion The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version. Defaults to `2020-06-12`.
+         * @param defaultServiceVersion The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version.
          * 
          * @return builder
          * 

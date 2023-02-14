@@ -182,14 +182,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return this.backupRetentionDays;
     }
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     @Export(name="createMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> createMode;
 
     /**
-     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     public Output<Optional<String>> createMode() {
@@ -364,6 +364,20 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return this.publicNetworkAccessEnabled;
     }
     /**
+     * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+     * 
+     */
+    @Export(name="replicationRole", type=String.class, parameters={})
+    private Output</* @Nullable */ String> replicationRole;
+
+    /**
+     * @return The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
+     * 
+     */
+    public Output<Optional<String>> replicationRole() {
+        return Codegen.optional(this.replicationRole);
+    }
+    /**
      * The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
@@ -392,14 +406,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return this.skuName;
     }
     /**
-     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     @Export(name="sourceServerId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceServerId;
 
     /**
-     * @return The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * @return The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     public Output<Optional<String>> sourceServerId() {

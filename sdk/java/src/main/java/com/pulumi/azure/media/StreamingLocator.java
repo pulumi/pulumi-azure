@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.media.ServiceAccount;
  * import com.pulumi.azure.media.ServiceAccountArgs;
  * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
+ * import com.pulumi.azure.media.AccountFilter;
+ * import com.pulumi.azure.media.AccountFilterArgs;
  * import com.pulumi.azure.media.Asset;
  * import com.pulumi.azure.media.AssetArgs;
  * import com.pulumi.azure.media.StreamingLocator;
@@ -70,6 +72,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         var exampleAccountFilter = new AccountFilter(&#34;exampleAccountFilter&#34;, AccountFilterArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .mediaServicesAccountName(exampleServiceAccount.name())
+ *             .build());
+ * 
  *         var exampleAsset = new Asset(&#34;exampleAsset&#34;, AssetArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
@@ -81,6 +88,7 @@ import javax.annotation.Nullable;
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .assetName(exampleAsset.name())
  *             .streamingPolicyName(&#34;Predefined_ClearStreamingOnly&#34;)
+ *             .filterNames(exampleAccountFilter.name())
  *             .build());
  * 
  *     }
@@ -167,6 +175,20 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      */
     public Output<String> endTime() {
         return this.endTime;
+    }
+    /**
+     * A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+     * 
+     */
+    @Export(name="filterNames", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> filterNames;
+
+    /**
+     * @return A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+     * 
+     */
+    public Output<Optional<List<String>>> filterNames() {
+        return Codegen.optional(this.filterNames);
     }
     /**
      * The Media Services account name. Changing this forces a new Streaming Locator to be created.

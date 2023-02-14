@@ -409,7 +409,7 @@ type AccountBlobProperties struct {
 	ContainerDeleteRetentionPolicy *AccountBlobPropertiesContainerDeleteRetentionPolicy `pulumi:"containerDeleteRetentionPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRules []AccountBlobPropertiesCorsRule `pulumi:"corsRules"`
-	// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+	// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
 	DefaultServiceVersion *string `pulumi:"defaultServiceVersion"`
 	// A `deleteRetentionPolicy` block as defined below.
 	DeleteRetentionPolicy *AccountBlobPropertiesDeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
@@ -441,7 +441,7 @@ type AccountBlobPropertiesArgs struct {
 	ContainerDeleteRetentionPolicy AccountBlobPropertiesContainerDeleteRetentionPolicyPtrInput `pulumi:"containerDeleteRetentionPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRules AccountBlobPropertiesCorsRuleArrayInput `pulumi:"corsRules"`
-	// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+	// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
 	DefaultServiceVersion pulumi.StringPtrInput `pulumi:"defaultServiceVersion"`
 	// A `deleteRetentionPolicy` block as defined below.
 	DeleteRetentionPolicy AccountBlobPropertiesDeleteRetentionPolicyPtrInput `pulumi:"deleteRetentionPolicy"`
@@ -552,7 +552,7 @@ func (o AccountBlobPropertiesOutput) CorsRules() AccountBlobPropertiesCorsRuleAr
 	return o.ApplyT(func(v AccountBlobProperties) []AccountBlobPropertiesCorsRule { return v.CorsRules }).(AccountBlobPropertiesCorsRuleArrayOutput)
 }
 
-// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
 func (o AccountBlobPropertiesOutput) DefaultServiceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *string { return v.DefaultServiceVersion }).(pulumi.StringPtrOutput)
 }
@@ -643,7 +643,7 @@ func (o AccountBlobPropertiesPtrOutput) CorsRules() AccountBlobPropertiesCorsRul
 	}).(AccountBlobPropertiesCorsRuleArrayOutput)
 }
 
-// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
 func (o AccountBlobPropertiesPtrOutput) DefaultServiceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *string {
 		if v == nil {
@@ -4579,13 +4579,15 @@ func (o BlobInventoryPolicyRuleArrayOutput) Index(i pulumi.IntInput) BlobInvento
 type BlobInventoryPolicyRuleFilter struct {
 	// A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
 	BlobTypes []string `pulumi:"blobTypes"`
+	// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+	ExcludePrefixes []string `pulumi:"excludePrefixes"`
 	// Includes blob versions in blob inventory or not? Defaults to `false`.
 	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
 	// Includes deleted blobs in blob inventory or not? Defaults to `false`.
 	IncludeDeleted *bool `pulumi:"includeDeleted"`
 	// Includes blob snapshots in blob inventory or not? Defaults to `false`.
 	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
-	// A set of strings for blob prefixes to be matched.
+	// A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
 	PrefixMatches []string `pulumi:"prefixMatches"`
 }
 
@@ -4603,13 +4605,15 @@ type BlobInventoryPolicyRuleFilterInput interface {
 type BlobInventoryPolicyRuleFilterArgs struct {
 	// A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
+	// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+	ExcludePrefixes pulumi.StringArrayInput `pulumi:"excludePrefixes"`
 	// Includes blob versions in blob inventory or not? Defaults to `false`.
 	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
 	// Includes deleted blobs in blob inventory or not? Defaults to `false`.
 	IncludeDeleted pulumi.BoolPtrInput `pulumi:"includeDeleted"`
 	// Includes blob snapshots in blob inventory or not? Defaults to `false`.
 	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
-	// A set of strings for blob prefixes to be matched.
+	// A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
 	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
 }
 
@@ -4695,6 +4699,11 @@ func (o BlobInventoryPolicyRuleFilterOutput) BlobTypes() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
+// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+func (o BlobInventoryPolicyRuleFilterOutput) ExcludePrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) []string { return v.ExcludePrefixes }).(pulumi.StringArrayOutput)
+}
+
 // Includes blob versions in blob inventory or not? Defaults to `false`.
 func (o BlobInventoryPolicyRuleFilterOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
@@ -4710,7 +4719,7 @@ func (o BlobInventoryPolicyRuleFilterOutput) IncludeSnapshots() pulumi.BoolPtrOu
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
 }
 
-// A set of strings for blob prefixes to be matched.
+// A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
 func (o BlobInventoryPolicyRuleFilterOutput) PrefixMatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
 }
@@ -4749,6 +4758,16 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) BlobTypes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
+// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+func (o BlobInventoryPolicyRuleFilterPtrOutput) ExcludePrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePrefixes
+	}).(pulumi.StringArrayOutput)
+}
+
 // Includes blob versions in blob inventory or not? Defaults to `false`.
 func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) *bool {
@@ -4779,7 +4798,7 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeSnapshots() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A set of strings for blob prefixes to be matched.
+// A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
 func (o BlobInventoryPolicyRuleFilterPtrOutput) PrefixMatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) []string {
 		if v == nil {

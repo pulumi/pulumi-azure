@@ -33,6 +33,21 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     }
 
     /**
+     * A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+     * 
+     */
+    @Import(name="excludePrefixes")
+    private @Nullable Output<List<String>> excludePrefixes;
+
+    /**
+     * @return A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+     * 
+     */
+    public Optional<Output<List<String>>> excludePrefixes() {
+        return Optional.ofNullable(this.excludePrefixes);
+    }
+
+    /**
      * Includes blob versions in blob inventory or not? Defaults to `false`.
      * 
      */
@@ -78,14 +93,14 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
     }
 
     /**
-     * A set of strings for blob prefixes to be matched.
+     * A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
      * 
      */
     @Import(name="prefixMatches")
     private @Nullable Output<List<String>> prefixMatches;
 
     /**
-     * @return A set of strings for blob prefixes to be matched.
+     * @return A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
      * 
      */
     public Optional<Output<List<String>>> prefixMatches() {
@@ -96,6 +111,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
 
     private BlobInventoryPolicyRuleFilterArgs(BlobInventoryPolicyRuleFilterArgs $) {
         this.blobTypes = $.blobTypes;
+        this.excludePrefixes = $.excludePrefixes;
         this.includeBlobVersions = $.includeBlobVersions;
         this.includeDeleted = $.includeDeleted;
         this.includeSnapshots = $.includeSnapshots;
@@ -149,6 +165,37 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
          */
         public Builder blobTypes(String... blobTypes) {
             return blobTypes(List.of(blobTypes));
+        }
+
+        /**
+         * @param excludePrefixes A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludePrefixes(@Nullable Output<List<String>> excludePrefixes) {
+            $.excludePrefixes = excludePrefixes;
+            return this;
+        }
+
+        /**
+         * @param excludePrefixes A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludePrefixes(List<String> excludePrefixes) {
+            return excludePrefixes(Output.of(excludePrefixes));
+        }
+
+        /**
+         * @param excludePrefixes A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludePrefixes(String... excludePrefixes) {
+            return excludePrefixes(List.of(excludePrefixes));
         }
 
         /**
@@ -215,7 +262,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param prefixMatches A set of strings for blob prefixes to be matched.
+         * @param prefixMatches A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
          * 
          * @return builder
          * 
@@ -226,7 +273,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param prefixMatches A set of strings for blob prefixes to be matched.
+         * @param prefixMatches A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
          * 
          * @return builder
          * 
@@ -236,7 +283,7 @@ public final class BlobInventoryPolicyRuleFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param prefixMatches A set of strings for blob prefixes to be matched.
+         * @param prefixMatches A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
          * 
          * @return builder
          * 

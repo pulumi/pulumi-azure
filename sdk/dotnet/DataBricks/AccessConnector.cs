@@ -58,7 +58,7 @@ namespace Pulumi.Azure.DataBricks
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.AccessConnectorIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.AccessConnectorIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -133,8 +133,8 @@ namespace Pulumi.Azure.DataBricks
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
-        [Input("identity", required: true)]
-        public Input<Inputs.AccessConnectorIdentityArgs> Identity { get; set; } = null!;
+        [Input("identity")]
+        public Input<Inputs.AccessConnectorIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.

@@ -57,6 +57,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			exampleAccountFilter, err := media.NewAccountFilter(ctx, "exampleAccountFilter", &media.AccountFilterArgs{
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				MediaServicesAccountName: exampleServiceAccount.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			exampleAsset, err := media.NewAsset(ctx, "exampleAsset", &media.AssetArgs{
 //				ResourceGroupName:        exampleResourceGroup.Name,
 //				MediaServicesAccountName: exampleServiceAccount.Name,
@@ -70,6 +77,9 @@ import (
 //				MediaServicesAccountName: exampleServiceAccount.Name,
 //				AssetName:                exampleAsset.Name,
 //				StreamingPolicyName:      pulumi.String("Predefined_ClearStreamingOnly"),
+//				FilterNames: pulumi.StringArray{
+//					exampleAccountFilter.Name,
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -102,6 +112,8 @@ type StreamingLocator struct {
 	DefaultContentKeyPolicyName pulumi.StringPtrOutput `pulumi:"defaultContentKeyPolicyName"`
 	// The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
 	EndTime pulumi.StringOutput `pulumi:"endTime"`
+	// A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+	FilterNames pulumi.StringArrayOutput `pulumi:"filterNames"`
 	// The Media Services account name. Changing this forces a new Streaming Locator to be created.
 	MediaServicesAccountName pulumi.StringOutput `pulumi:"mediaServicesAccountName"`
 	// The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
@@ -167,6 +179,8 @@ type streamingLocatorState struct {
 	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
 	// The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
 	EndTime *string `pulumi:"endTime"`
+	// A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+	FilterNames []string `pulumi:"filterNames"`
 	// The Media Services account name. Changing this forces a new Streaming Locator to be created.
 	MediaServicesAccountName *string `pulumi:"mediaServicesAccountName"`
 	// The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
@@ -192,6 +206,8 @@ type StreamingLocatorState struct {
 	DefaultContentKeyPolicyName pulumi.StringPtrInput
 	// The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
 	EndTime pulumi.StringPtrInput
+	// A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+	FilterNames pulumi.StringArrayInput
 	// The Media Services account name. Changing this forces a new Streaming Locator to be created.
 	MediaServicesAccountName pulumi.StringPtrInput
 	// The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
@@ -221,6 +237,8 @@ type streamingLocatorArgs struct {
 	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
 	// The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
 	EndTime *string `pulumi:"endTime"`
+	// A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+	FilterNames []string `pulumi:"filterNames"`
 	// The Media Services account name. Changing this forces a new Streaming Locator to be created.
 	MediaServicesAccountName string `pulumi:"mediaServicesAccountName"`
 	// The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
@@ -247,6 +265,8 @@ type StreamingLocatorArgs struct {
 	DefaultContentKeyPolicyName pulumi.StringPtrInput
 	// The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
 	EndTime pulumi.StringPtrInput
+	// A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+	FilterNames pulumi.StringArrayInput
 	// The Media Services account name. Changing this forces a new Streaming Locator to be created.
 	MediaServicesAccountName pulumi.StringInput
 	// The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
@@ -371,6 +391,11 @@ func (o StreamingLocatorOutput) DefaultContentKeyPolicyName() pulumi.StringPtrOu
 // The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
 func (o StreamingLocatorOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingLocator) pulumi.StringOutput { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
+func (o StreamingLocatorOutput) FilterNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringArrayOutput { return v.FilterNames }).(pulumi.StringArrayOutput)
 }
 
 // The Media Services account name. Changing this forces a new Streaming Locator to be created.

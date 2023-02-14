@@ -113,6 +113,10 @@ export class AlertRuleNrt extends pulumi.CustomResource {
      */
     public readonly entityMappings!: pulumi.Output<outputs.sentinel.AlertRuleNrtEntityMapping[] | undefined>;
     /**
+     * A `eventGrouping` block as defined below.
+     */
+    public readonly eventGrouping!: pulumi.Output<outputs.sentinel.AlertRuleNrtEventGrouping>;
+    /**
      * A `incident` block as defined below.
      */
     public readonly incident!: pulumi.Output<outputs.sentinel.AlertRuleNrtIncident>;
@@ -128,6 +132,10 @@ export class AlertRuleNrt extends pulumi.CustomResource {
      * The query of this Sentinel NRT Alert Rule.
      */
     public readonly query!: pulumi.Output<string>;
+    /**
+     * A list of `sentinelEntityMapping` blocks as defined below.
+     */
+    public readonly sentinelEntityMappings!: pulumi.Output<outputs.sentinel.AlertRuleNrtSentinelEntityMapping[] | undefined>;
     /**
      * The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
@@ -170,10 +178,12 @@ export class AlertRuleNrt extends pulumi.CustomResource {
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["entityMappings"] = state ? state.entityMappings : undefined;
+            resourceInputs["eventGrouping"] = state ? state.eventGrouping : undefined;
             resourceInputs["incident"] = state ? state.incident : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["sentinelEntityMappings"] = state ? state.sentinelEntityMappings : undefined;
             resourceInputs["severity"] = state ? state.severity : undefined;
             resourceInputs["suppressionDuration"] = state ? state.suppressionDuration : undefined;
             resourceInputs["suppressionEnabled"] = state ? state.suppressionEnabled : undefined;
@@ -201,10 +211,12 @@ export class AlertRuleNrt extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["entityMappings"] = args ? args.entityMappings : undefined;
+            resourceInputs["eventGrouping"] = args ? args.eventGrouping : undefined;
             resourceInputs["incident"] = args ? args.incident : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["sentinelEntityMappings"] = args ? args.sentinelEntityMappings : undefined;
             resourceInputs["severity"] = args ? args.severity : undefined;
             resourceInputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
             resourceInputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
@@ -253,6 +265,10 @@ export interface AlertRuleNrtState {
      */
     entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtEntityMapping>[]>;
     /**
+     * A `eventGrouping` block as defined below.
+     */
+    eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleNrtEventGrouping>;
+    /**
      * A `incident` block as defined below.
      */
     incident?: pulumi.Input<inputs.sentinel.AlertRuleNrtIncident>;
@@ -268,6 +284,10 @@ export interface AlertRuleNrtState {
      * The query of this Sentinel NRT Alert Rule.
      */
     query?: pulumi.Input<string>;
+    /**
+     * A list of `sentinelEntityMapping` blocks as defined below.
+     */
+    sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtSentinelEntityMapping>[]>;
     /**
      * The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
@@ -327,6 +347,10 @@ export interface AlertRuleNrtArgs {
      */
     entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtEntityMapping>[]>;
     /**
+     * A `eventGrouping` block as defined below.
+     */
+    eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleNrtEventGrouping>;
+    /**
      * A `incident` block as defined below.
      */
     incident?: pulumi.Input<inputs.sentinel.AlertRuleNrtIncident>;
@@ -342,6 +366,10 @@ export interface AlertRuleNrtArgs {
      * The query of this Sentinel NRT Alert Rule.
      */
     query: pulumi.Input<string>;
+    /**
+     * A list of `sentinelEntityMapping` blocks as defined below.
+     */
+    sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtSentinelEntityMapping>[]>;
     /**
      * The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */

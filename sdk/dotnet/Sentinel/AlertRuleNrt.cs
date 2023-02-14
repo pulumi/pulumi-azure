@@ -122,6 +122,12 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<Outputs.AlertRuleNrtEntityMapping>> EntityMappings { get; private set; } = null!;
 
         /// <summary>
+        /// A `event_grouping` block as defined below.
+        /// </summary>
+        [Output("eventGrouping")]
+        public Output<Outputs.AlertRuleNrtEventGrouping> EventGrouping { get; private set; } = null!;
+
+        /// <summary>
         /// A `incident` block as defined below.
         /// </summary>
         [Output("incident")]
@@ -144,6 +150,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// </summary>
+        [Output("sentinelEntityMappings")]
+        public Output<ImmutableArray<Outputs.AlertRuleNrtSentinelEntityMapping>> SentinelEntityMappings { get; private set; } = null!;
 
         /// <summary>
         /// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
@@ -288,6 +300,12 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
+        /// A `event_grouping` block as defined below.
+        /// </summary>
+        [Input("eventGrouping")]
+        public Input<Inputs.AlertRuleNrtEventGroupingArgs>? EventGrouping { get; set; }
+
+        /// <summary>
         /// A `incident` block as defined below.
         /// </summary>
         [Input("incident")]
@@ -310,6 +328,18 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
+
+        [Input("sentinelEntityMappings")]
+        private InputList<Inputs.AlertRuleNrtSentinelEntityMappingArgs>? _sentinelEntityMappings;
+
+        /// <summary>
+        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AlertRuleNrtSentinelEntityMappingArgs> SentinelEntityMappings
+        {
+            get => _sentinelEntityMappings ?? (_sentinelEntityMappings = new InputList<Inputs.AlertRuleNrtSentinelEntityMappingArgs>());
+            set => _sentinelEntityMappings = value;
+        }
 
         /// <summary>
         /// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
@@ -428,6 +458,12 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
+        /// A `event_grouping` block as defined below.
+        /// </summary>
+        [Input("eventGrouping")]
+        public Input<Inputs.AlertRuleNrtEventGroupingGetArgs>? EventGrouping { get; set; }
+
+        /// <summary>
         /// A `incident` block as defined below.
         /// </summary>
         [Input("incident")]
@@ -450,6 +486,18 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
+
+        [Input("sentinelEntityMappings")]
+        private InputList<Inputs.AlertRuleNrtSentinelEntityMappingGetArgs>? _sentinelEntityMappings;
+
+        /// <summary>
+        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AlertRuleNrtSentinelEntityMappingGetArgs> SentinelEntityMappings
+        {
+            get => _sentinelEntityMappings ?? (_sentinelEntityMappings = new InputList<Inputs.AlertRuleNrtSentinelEntityMappingGetArgs>());
+            set => _sentinelEntityMappings = value;
+        }
 
         /// <summary>
         /// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.

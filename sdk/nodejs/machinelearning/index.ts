@@ -20,6 +20,16 @@ export type DatastoreBlobstorage = import("./datastoreBlobstorage").DatastoreBlo
 export const DatastoreBlobstorage: typeof import("./datastoreBlobstorage").DatastoreBlobstorage = null as any;
 utilities.lazyLoad(exports, ["DatastoreBlobstorage"], () => require("./datastoreBlobstorage"));
 
+export { DatastoreDatalakeGen2Args, DatastoreDatalakeGen2State } from "./datastoreDatalakeGen2";
+export type DatastoreDatalakeGen2 = import("./datastoreDatalakeGen2").DatastoreDatalakeGen2;
+export const DatastoreDatalakeGen2: typeof import("./datastoreDatalakeGen2").DatastoreDatalakeGen2 = null as any;
+utilities.lazyLoad(exports, ["DatastoreDatalakeGen2"], () => require("./datastoreDatalakeGen2"));
+
+export { DatastoreFileshareArgs, DatastoreFileshareState } from "./datastoreFileshare";
+export type DatastoreFileshare = import("./datastoreFileshare").DatastoreFileshare;
+export const DatastoreFileshare: typeof import("./datastoreFileshare").DatastoreFileshare = null as any;
+utilities.lazyLoad(exports, ["DatastoreFileshare"], () => require("./datastoreFileshare"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -51,6 +61,10 @@ const _module = {
                 return new ComputeInstance(name, <any>undefined, { urn })
             case "azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage":
                 return new DatastoreBlobstorage(name, <any>undefined, { urn })
+            case "azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2":
+                return new DatastoreDatalakeGen2(name, <any>undefined, { urn })
+            case "azure:machinelearning/datastoreFileshare:DatastoreFileshare":
+                return new DatastoreFileshare(name, <any>undefined, { urn })
             case "azure:machinelearning/inferenceCluster:InferenceCluster":
                 return new InferenceCluster(name, <any>undefined, { urn })
             case "azure:machinelearning/synapseSpark:SynapseSpark":
@@ -65,6 +79,8 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "machinelearning/computeCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/computeInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/datastoreBlobstorage", _module)
+pulumi.runtime.registerResourceModule("azure", "machinelearning/datastoreDatalakeGen2", _module)
+pulumi.runtime.registerResourceModule("azure", "machinelearning/datastoreFileshare", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/inferenceCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/synapseSpark", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/workspace", _module)

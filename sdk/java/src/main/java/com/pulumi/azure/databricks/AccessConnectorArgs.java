@@ -21,15 +21,15 @@ public final class AccessConnectorArgs extends com.pulumi.resources.ResourceArgs
      * An `identity` block as defined below.
      * 
      */
-    @Import(name="identity", required=true)
-    private Output<AccessConnectorIdentityArgs> identity;
+    @Import(name="identity")
+    private @Nullable Output<AccessConnectorIdentityArgs> identity;
 
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    public Output<AccessConnectorIdentityArgs> identity() {
-        return this.identity;
+    public Optional<Output<AccessConnectorIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -126,7 +126,7 @@ public final class AccessConnectorArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder identity(Output<AccessConnectorIdentityArgs> identity) {
+        public Builder identity(@Nullable Output<AccessConnectorIdentityArgs> identity) {
             $.identity = identity;
             return this;
         }
@@ -226,7 +226,6 @@ public final class AccessConnectorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public AccessConnectorArgs build() {
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
             return $;
         }

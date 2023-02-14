@@ -262,6 +262,8 @@ class Order(pulumi.CustomResource):
         """
         Manages a Databox Edge Order.
 
+        !> Creation of Databox Edge Order is not supported by the Azure API - as such the `databoxedge.Order` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
+
         ## Example Usage
 
         ```python
@@ -314,6 +316,8 @@ class Order(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Databox Edge Order.
+
+        !> Creation of Databox Edge Order is not supported by the Azure API - as such the `databoxedge.Order` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
 
         ## Example Usage
 

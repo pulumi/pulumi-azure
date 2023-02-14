@@ -92,6 +92,7 @@ import (
 //				ManifestName:             pulumi.String("testmanifest"),
 //				OutputSnapTimeInSeconds:  pulumi.Int(0),
 //				HlsFragmentsPerTsSegment: pulumi.Int(5),
+//				RewindWindowDuration:     pulumi.String("PT5M"),
 //			})
 //			if err != nil {
 //				return err
@@ -129,7 +130,8 @@ type LiveEventOutputResource struct {
 	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
-	OutputSnapTimeInSeconds pulumi.IntPtrOutput `pulumi:"outputSnapTimeInSeconds"`
+	OutputSnapTimeInSeconds pulumi.IntPtrOutput    `pulumi:"outputSnapTimeInSeconds"`
+	RewindWindowDuration    pulumi.StringPtrOutput `pulumi:"rewindWindowDuration"`
 }
 
 // NewLiveEventOutputResource registers a new resource with the given unique name, arguments, and options.
@@ -185,7 +187,8 @@ type liveEventOutputResourceState struct {
 	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
 	Name *string `pulumi:"name"`
 	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
-	OutputSnapTimeInSeconds *int `pulumi:"outputSnapTimeInSeconds"`
+	OutputSnapTimeInSeconds *int    `pulumi:"outputSnapTimeInSeconds"`
+	RewindWindowDuration    *string `pulumi:"rewindWindowDuration"`
 }
 
 type LiveEventOutputResourceState struct {
@@ -205,6 +208,7 @@ type LiveEventOutputResourceState struct {
 	Name pulumi.StringPtrInput
 	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
 	OutputSnapTimeInSeconds pulumi.IntPtrInput
+	RewindWindowDuration    pulumi.StringPtrInput
 }
 
 func (LiveEventOutputResourceState) ElementType() reflect.Type {
@@ -227,7 +231,8 @@ type liveEventOutputResourceArgs struct {
 	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
 	Name *string `pulumi:"name"`
 	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
-	OutputSnapTimeInSeconds *int `pulumi:"outputSnapTimeInSeconds"`
+	OutputSnapTimeInSeconds *int    `pulumi:"outputSnapTimeInSeconds"`
+	RewindWindowDuration    *string `pulumi:"rewindWindowDuration"`
 }
 
 // The set of arguments for constructing a LiveEventOutputResource resource.
@@ -248,6 +253,7 @@ type LiveEventOutputResourceArgs struct {
 	Name pulumi.StringPtrInput
 	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
 	OutputSnapTimeInSeconds pulumi.IntPtrInput
+	RewindWindowDuration    pulumi.StringPtrInput
 }
 
 func (LiveEventOutputResourceArgs) ElementType() reflect.Type {
@@ -375,6 +381,10 @@ func (o LiveEventOutputResourceOutput) Name() pulumi.StringOutput {
 // The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
 func (o LiveEventOutputResourceOutput) OutputSnapTimeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LiveEventOutputResource) pulumi.IntPtrOutput { return v.OutputSnapTimeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o LiveEventOutputResourceOutput) RewindWindowDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventOutputResource) pulumi.StringPtrOutput { return v.RewindWindowDuration }).(pulumi.StringPtrOutput)
 }
 
 type LiveEventOutputResourceArrayOutput struct{ *pulumi.OutputState }

@@ -21,7 +21,8 @@ class LiveEventOutputArgs:
                  hls_fragments_per_ts_segment: Optional[pulumi.Input[int]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None):
+                 output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None,
+                 rewind_window_duration: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LiveEventOutput resource.
         :param pulumi.Input[str] archive_window_duration: `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
@@ -46,6 +47,8 @@ class LiveEventOutputArgs:
             pulumi.set(__self__, "name", name)
         if output_snap_time_in_seconds is not None:
             pulumi.set(__self__, "output_snap_time_in_seconds", output_snap_time_in_seconds)
+        if rewind_window_duration is not None:
+            pulumi.set(__self__, "rewind_window_duration", rewind_window_duration)
 
     @property
     @pulumi.getter(name="archiveWindowDuration")
@@ -143,6 +146,15 @@ class LiveEventOutputArgs:
     def output_snap_time_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "output_snap_time_in_seconds", value)
 
+    @property
+    @pulumi.getter(name="rewindWindowDuration")
+    def rewind_window_duration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "rewind_window_duration")
+
+    @rewind_window_duration.setter
+    def rewind_window_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rewind_window_duration", value)
+
 
 @pulumi.input_type
 class _LiveEventOutputState:
@@ -154,7 +166,8 @@ class _LiveEventOutputState:
                  live_event_id: Optional[pulumi.Input[str]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None):
+                 output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None,
+                 rewind_window_duration: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LiveEventOutput resources.
         :param pulumi.Input[str] archive_window_duration: `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
@@ -182,6 +195,8 @@ class _LiveEventOutputState:
             pulumi.set(__self__, "name", name)
         if output_snap_time_in_seconds is not None:
             pulumi.set(__self__, "output_snap_time_in_seconds", output_snap_time_in_seconds)
+        if rewind_window_duration is not None:
+            pulumi.set(__self__, "rewind_window_duration", rewind_window_duration)
 
     @property
     @pulumi.getter(name="archiveWindowDuration")
@@ -279,6 +294,15 @@ class _LiveEventOutputState:
     def output_snap_time_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "output_snap_time_in_seconds", value)
 
+    @property
+    @pulumi.getter(name="rewindWindowDuration")
+    def rewind_window_duration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "rewind_window_duration")
+
+    @rewind_window_duration.setter
+    def rewind_window_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rewind_window_duration", value)
+
 
 class LiveEventOutput(pulumi.CustomResource):
     @overload
@@ -293,6 +317,7 @@ class LiveEventOutput(pulumi.CustomResource):
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None,
+                 rewind_window_duration: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Azure Media Live Event Output.
@@ -340,7 +365,8 @@ class LiveEventOutput(pulumi.CustomResource):
             description="Test live output 1",
             manifest_name="testmanifest",
             output_snap_time_in_seconds=0,
-            hls_fragments_per_ts_segment=5)
+            hls_fragments_per_ts_segment=5,
+            rewind_window_duration="PT5M")
         ```
 
         ## Import
@@ -414,7 +440,8 @@ class LiveEventOutput(pulumi.CustomResource):
             description="Test live output 1",
             manifest_name="testmanifest",
             output_snap_time_in_seconds=0,
-            hls_fragments_per_ts_segment=5)
+            hls_fragments_per_ts_segment=5,
+            rewind_window_duration="PT5M")
         ```
 
         ## Import
@@ -448,6 +475,7 @@ class LiveEventOutput(pulumi.CustomResource):
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None,
+                 rewind_window_duration: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -471,6 +499,7 @@ class LiveEventOutput(pulumi.CustomResource):
             __props__.__dict__["manifest_name"] = manifest_name
             __props__.__dict__["name"] = name
             __props__.__dict__["output_snap_time_in_seconds"] = output_snap_time_in_seconds
+            __props__.__dict__["rewind_window_duration"] = rewind_window_duration
         super(LiveEventOutput, __self__).__init__(
             'azure:media/liveEventOutput:LiveEventOutput',
             resource_name,
@@ -488,7 +517,8 @@ class LiveEventOutput(pulumi.CustomResource):
             live_event_id: Optional[pulumi.Input[str]] = None,
             manifest_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None) -> 'LiveEventOutput':
+            output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None,
+            rewind_window_duration: Optional[pulumi.Input[str]] = None) -> 'LiveEventOutput':
         """
         Get an existing LiveEventOutput resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -517,6 +547,7 @@ class LiveEventOutput(pulumi.CustomResource):
         __props__.__dict__["manifest_name"] = manifest_name
         __props__.__dict__["name"] = name
         __props__.__dict__["output_snap_time_in_seconds"] = output_snap_time_in_seconds
+        __props__.__dict__["rewind_window_duration"] = rewind_window_duration
         return LiveEventOutput(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -582,4 +613,9 @@ class LiveEventOutput(pulumi.CustomResource):
         The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
         """
         return pulumi.get(self, "output_snap_time_in_seconds")
+
+    @property
+    @pulumi.getter(name="rewindWindowDuration")
+    def rewind_window_duration(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "rewind_window_duration")
 

@@ -164,6 +164,12 @@ namespace Pulumi.Azure.Sentinel
         public Output<string?> QueryPeriod { get; private set; } = null!;
 
         /// <summary>
+        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// </summary>
+        [Output("sentinelEntityMappings")]
+        public Output<ImmutableArray<Outputs.AlertRuleScheduledSentinelEntityMapping>> SentinelEntityMappings { get; private set; } = null!;
+
+        /// <summary>
         /// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         /// </summary>
         [Output("severity")]
@@ -359,6 +365,18 @@ namespace Pulumi.Azure.Sentinel
         [Input("queryPeriod")]
         public Input<string>? QueryPeriod { get; set; }
 
+        [Input("sentinelEntityMappings")]
+        private InputList<Inputs.AlertRuleScheduledSentinelEntityMappingArgs>? _sentinelEntityMappings;
+
+        /// <summary>
+        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AlertRuleScheduledSentinelEntityMappingArgs> SentinelEntityMappings
+        {
+            get => _sentinelEntityMappings ?? (_sentinelEntityMappings = new InputList<Inputs.AlertRuleScheduledSentinelEntityMappingArgs>());
+            set => _sentinelEntityMappings = value;
+        }
+
         /// <summary>
         /// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         /// </summary>
@@ -528,6 +546,18 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("queryPeriod")]
         public Input<string>? QueryPeriod { get; set; }
+
+        [Input("sentinelEntityMappings")]
+        private InputList<Inputs.AlertRuleScheduledSentinelEntityMappingGetArgs>? _sentinelEntityMappings;
+
+        /// <summary>
+        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AlertRuleScheduledSentinelEntityMappingGetArgs> SentinelEntityMappings
+        {
+            get => _sentinelEntityMappings ?? (_sentinelEntityMappings = new InputList<Inputs.AlertRuleScheduledSentinelEntityMappingGetArgs>());
+            set => _sentinelEntityMappings = value;
+        }
 
         /// <summary>
         /// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
