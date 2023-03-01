@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetCertificatesResult',
@@ -21,7 +22,10 @@ class GetCertificatesResult:
     """
     A collection of values returned by getCertificates.
     """
-    def __init__(__self__, id=None, include_pending=None, key_vault_id=None, names=None):
+    def __init__(__self__, certificates=None, id=None, include_pending=None, key_vault_id=None, names=None):
+        if certificates and not isinstance(certificates, list):
+            raise TypeError("Expected argument 'certificates' to be a list")
+        pulumi.set(__self__, "certificates", certificates)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -34,6 +38,14 @@ class GetCertificatesResult:
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         pulumi.set(__self__, "names", names)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Sequence['outputs.GetCertificatesCertificateResult']:
+        """
+        One or more `certificates` blocks as defined below.
+        """
+        return pulumi.get(self, "certificates")
 
     @property
     @pulumi.getter
@@ -71,6 +83,7 @@ class AwaitableGetCertificatesResult(GetCertificatesResult):
         if False:
             yield self
         return GetCertificatesResult(
+            certificates=self.certificates,
             id=self.id,
             include_pending=self.include_pending,
             key_vault_id=self.key_vault_id,
@@ -94,6 +107,7 @@ def get_certificates(include_pending: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getCertificates:getCertificates', __args__, opts=opts, typ=GetCertificatesResult).value
 
     return AwaitableGetCertificatesResult(
+        certificates=__ret__.certificates,
         id=__ret__.id,
         include_pending=__ret__.include_pending,
         key_vault_id=__ret__.key_vault_id,

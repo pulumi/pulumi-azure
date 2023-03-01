@@ -5,6 +5,7 @@ package com.pulumi.azure.media.inputs;
 
 import com.pulumi.azure.media.inputs.StreamingEndpointAccessControlArgs;
 import com.pulumi.azure.media.inputs.StreamingEndpointCrossSiteAccessPolicyArgs;
+import com.pulumi.azure.media.inputs.StreamingEndpointSkusArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -202,14 +203,14 @@ public final class StreamingEndpointState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+     * The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+     * @return The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -232,18 +233,33 @@ public final class StreamingEndpointState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+     * The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
      * 
      */
     @Import(name="scaleUnits")
     private @Nullable Output<Integer> scaleUnits;
 
     /**
-     * @return The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+     * @return The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
      * 
      */
     public Optional<Output<Integer>> scaleUnits() {
         return Optional.ofNullable(this.scaleUnits);
+    }
+
+    /**
+     * A `sku` block defined as below.
+     * 
+     */
+    @Import(name="skus")
+    private @Nullable Output<List<StreamingEndpointSkusArgs>> skus;
+
+    /**
+     * @return A `sku` block defined as below.
+     * 
+     */
+    public Optional<Output<List<StreamingEndpointSkusArgs>>> skus() {
+        return Optional.ofNullable(this.skus);
     }
 
     /**
@@ -279,6 +295,7 @@ public final class StreamingEndpointState extends com.pulumi.resources.ResourceA
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.scaleUnits = $.scaleUnits;
+        this.skus = $.skus;
         this.tags = $.tags;
     }
 
@@ -563,7 +580,7 @@ public final class StreamingEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+         * @param name The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
          * 
          * @return builder
          * 
@@ -574,7 +591,7 @@ public final class StreamingEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+         * @param name The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
          * 
          * @return builder
          * 
@@ -605,7 +622,7 @@ public final class StreamingEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scaleUnits The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+         * @param scaleUnits The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
          * 
          * @return builder
          * 
@@ -616,13 +633,44 @@ public final class StreamingEndpointState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scaleUnits The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+         * @param scaleUnits The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
          * 
          * @return builder
          * 
          */
         public Builder scaleUnits(Integer scaleUnits) {
             return scaleUnits(Output.of(scaleUnits));
+        }
+
+        /**
+         * @param skus A `sku` block defined as below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skus(@Nullable Output<List<StreamingEndpointSkusArgs>> skus) {
+            $.skus = skus;
+            return this;
+        }
+
+        /**
+         * @param skus A `sku` block defined as below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skus(List<StreamingEndpointSkusArgs> skus) {
+            return skus(Output.of(skus));
+        }
+
+        /**
+         * @param skus A `sku` block defined as below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skus(StreamingEndpointSkusArgs... skus) {
+            return skus(List.of(skus));
         }
 
         /**

@@ -49,7 +49,7 @@ class ProtectionContainerMappingAutomaticUpdate(dict):
                  automation_account_id: Optional[str] = None,
                  enabled: Optional[bool] = None):
         """
-        :param str automation_account_id: The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+        :param str automation_account_id: The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
         :param bool enabled: Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
         """
         if automation_account_id is not None:
@@ -61,7 +61,7 @@ class ProtectionContainerMappingAutomaticUpdate(dict):
     @pulumi.getter(name="automationAccountId")
     def automation_account_id(self) -> Optional[str]:
         """
-        The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+        The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
         """
         return pulumi.get(self, "automation_account_id")
 

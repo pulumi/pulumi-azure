@@ -16,14 +16,14 @@ public final class StreamingEndpointCrossSiteAccessPolicyArgs extends com.pulumi
     public static final StreamingEndpointCrossSiteAccessPolicyArgs Empty = new StreamingEndpointCrossSiteAccessPolicyArgs();
 
     /**
-     * The content of clientaccesspolicy.xml used by Silverlight.
+     * The content of `clientaccesspolicy.xml` used by Silverlight.
      * 
      */
     @Import(name="clientAccessPolicy")
     private @Nullable Output<String> clientAccessPolicy;
 
     /**
-     * @return The content of clientaccesspolicy.xml used by Silverlight.
+     * @return The content of `clientaccesspolicy.xml` used by Silverlight.
      * 
      */
     public Optional<Output<String>> clientAccessPolicy() {
@@ -31,14 +31,14 @@ public final class StreamingEndpointCrossSiteAccessPolicyArgs extends com.pulumi
     }
 
     /**
-     * The content of crossdomain.xml used by Silverlight.
+     * The content of `crossdomain.xml` used by Silverlight.
      * 
      */
     @Import(name="crossDomainPolicy")
     private @Nullable Output<String> crossDomainPolicy;
 
     /**
-     * @return The content of crossdomain.xml used by Silverlight.
+     * @return The content of `crossdomain.xml` used by Silverlight.
      * 
      */
     public Optional<Output<String>> crossDomainPolicy() {
@@ -71,7 +71,7 @@ public final class StreamingEndpointCrossSiteAccessPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param clientAccessPolicy The content of clientaccesspolicy.xml used by Silverlight.
+         * @param clientAccessPolicy The content of `clientaccesspolicy.xml` used by Silverlight.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class StreamingEndpointCrossSiteAccessPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param clientAccessPolicy The content of clientaccesspolicy.xml used by Silverlight.
+         * @param clientAccessPolicy The content of `clientaccesspolicy.xml` used by Silverlight.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class StreamingEndpointCrossSiteAccessPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param crossDomainPolicy The content of crossdomain.xml used by Silverlight.
+         * @param crossDomainPolicy The content of `crossdomain.xml` used by Silverlight.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class StreamingEndpointCrossSiteAccessPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param crossDomainPolicy The content of crossdomain.xml used by Silverlight.
+         * @param crossDomainPolicy The content of `crossdomain.xml` used by Silverlight.
          * 
          * @return builder
          * 

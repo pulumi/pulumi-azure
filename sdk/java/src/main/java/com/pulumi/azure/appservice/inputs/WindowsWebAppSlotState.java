@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotAuthSettingsArgs;
+import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotAuthSettingsV2Args;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotBackupArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotConnectionStringArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotIdentityArgs;
@@ -57,18 +58,33 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `auth_settings` block as defined below.
+     * An `auth_settings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<WindowsWebAppSlotAuthSettingsArgs> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return An `auth_settings` block as defined below.
      * 
      */
     public Optional<Output<WindowsWebAppSlotAuthSettingsArgs>> authSettings() {
         return Optional.ofNullable(this.authSettings);
+    }
+
+    /**
+     * An `auth_settings_v2` block as defined below.
+     * 
+     */
+    @Import(name="authSettingsV2")
+    private @Nullable Output<WindowsWebAppSlotAuthSettingsV2Args> authSettingsV2;
+
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    public Optional<Output<WindowsWebAppSlotAuthSettingsV2Args>> authSettingsV2() {
+        return Optional.ofNullable(this.authSettingsV2);
     }
 
     /**
@@ -467,6 +483,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         this.appServiceId = $.appServiceId;
         this.appSettings = $.appSettings;
         this.authSettings = $.authSettings;
+        this.authSettingsV2 = $.authSettingsV2;
         this.backup = $.backup;
         this.clientAffinityEnabled = $.clientAffinityEnabled;
         this.clientCertificateEnabled = $.clientCertificateEnabled;
@@ -556,7 +573,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings An `auth_settings` block as defined below.
          * 
          * @return builder
          * 
@@ -567,13 +584,34 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings An `auth_settings` block as defined below.
          * 
          * @return builder
          * 
          */
         public Builder authSettings(WindowsWebAppSlotAuthSettingsArgs authSettings) {
             return authSettings(Output.of(authSettings));
+        }
+
+        /**
+         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSettingsV2(@Nullable Output<WindowsWebAppSlotAuthSettingsV2Args> authSettingsV2) {
+            $.authSettingsV2 = authSettingsV2;
+            return this;
+        }
+
+        /**
+         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSettingsV2(WindowsWebAppSlotAuthSettingsV2Args authSettingsV2) {
+            return authSettingsV2(Output.of(authSettingsV2));
         }
 
         /**

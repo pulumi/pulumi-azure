@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterWebAppRoutingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+        /// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
         /// </summary>
         [Input("dnsZoneId", required: true)]
         public Input<string> DnsZoneId { get; set; } = null!;

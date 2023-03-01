@@ -137,14 +137,14 @@ public class EventHub extends com.pulumi.resources.CustomResource {
         return this.namespaceName;
     }
     /**
-     * Specifies the current number of shards on the Event Hub.
+     * Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
      * 
      */
     @Export(name="partitionCount", type=Integer.class, parameters={})
     private Output<Integer> partitionCount;
 
     /**
-     * @return Specifies the current number of shards on the Event Hub.
+     * @return Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
      * 
      */
     public Output<Integer> partitionCount() {

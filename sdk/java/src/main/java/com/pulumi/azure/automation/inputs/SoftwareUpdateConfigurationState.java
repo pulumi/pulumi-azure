@@ -70,16 +70,31 @@ public final class SoftwareUpdateConfigurationState extends com.pulumi.resources
     /**
      * The Error message indicating why the operation failed.
      * 
+     * @deprecated
+     * `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
+     * 
      */
+    @Deprecated /* `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider */
     @Import(name="errorMeesage")
     private @Nullable Output<String> errorMeesage;
 
     /**
      * @return The Error message indicating why the operation failed.
      * 
+     * @deprecated
+     * `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
+     * 
      */
+    @Deprecated /* `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider */
     public Optional<Output<String>> errorMeesage() {
         return Optional.ofNullable(this.errorMeesage);
+    }
+
+    @Import(name="errorMessage")
+    private @Nullable Output<String> errorMessage;
+
+    public Optional<Output<String>> errorMessage() {
+        return Optional.ofNullable(this.errorMessage);
     }
 
     /**
@@ -239,6 +254,7 @@ public final class SoftwareUpdateConfigurationState extends com.pulumi.resources
         this.duration = $.duration;
         this.errorCode = $.errorCode;
         this.errorMeesage = $.errorMeesage;
+        this.errorMessage = $.errorMessage;
         this.linuxes = $.linuxes;
         this.name = $.name;
         this.nonAzureComputerNames = $.nonAzureComputerNames;
@@ -337,7 +353,11 @@ public final class SoftwareUpdateConfigurationState extends com.pulumi.resources
          * 
          * @return builder
          * 
+         * @deprecated
+         * `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider */
         public Builder errorMeesage(@Nullable Output<String> errorMeesage) {
             $.errorMeesage = errorMeesage;
             return this;
@@ -348,9 +368,22 @@ public final class SoftwareUpdateConfigurationState extends com.pulumi.resources
          * 
          * @return builder
          * 
+         * @deprecated
+         * `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider */
         public Builder errorMeesage(String errorMeesage) {
             return errorMeesage(Output.of(errorMeesage));
+        }
+
+        public Builder errorMessage(@Nullable Output<String> errorMessage) {
+            $.errorMessage = errorMessage;
+            return this;
+        }
+
+        public Builder errorMessage(String errorMessage) {
+            return errorMessage(Output.of(errorMessage));
         }
 
         /**

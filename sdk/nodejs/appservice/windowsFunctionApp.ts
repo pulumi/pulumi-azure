@@ -81,7 +81,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
     /**
      * A `authSettings` block as defined below.
      */
-    public readonly authSettings!: pulumi.Output<outputs.appservice.WindowsFunctionAppAuthSettings>;
+    public readonly authSettings!: pulumi.Output<outputs.appservice.WindowsFunctionAppAuthSettings | undefined>;
     /**
      * A `backup` block as defined below.
      */

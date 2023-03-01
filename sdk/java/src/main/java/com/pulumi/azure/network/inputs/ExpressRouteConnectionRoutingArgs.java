@@ -32,6 +32,36 @@ public final class ExpressRouteConnectionRoutingArgs extends com.pulumi.resource
     }
 
     /**
+     * The ID of the Route Map associated with this Express Route Connection for inbound routes.
+     * 
+     */
+    @Import(name="inboundRouteMapId")
+    private @Nullable Output<String> inboundRouteMapId;
+
+    /**
+     * @return The ID of the Route Map associated with this Express Route Connection for inbound routes.
+     * 
+     */
+    public Optional<Output<String>> inboundRouteMapId() {
+        return Optional.ofNullable(this.inboundRouteMapId);
+    }
+
+    /**
+     * The ID of the Route Map associated with this Express Route Connection for outbound routes.
+     * 
+     */
+    @Import(name="outboundRouteMapId")
+    private @Nullable Output<String> outboundRouteMapId;
+
+    /**
+     * @return The ID of the Route Map associated with this Express Route Connection for outbound routes.
+     * 
+     */
+    public Optional<Output<String>> outboundRouteMapId() {
+        return Optional.ofNullable(this.outboundRouteMapId);
+    }
+
+    /**
      * A `propagated_route_table` block as defined below.
      * 
      */
@@ -50,6 +80,8 @@ public final class ExpressRouteConnectionRoutingArgs extends com.pulumi.resource
 
     private ExpressRouteConnectionRoutingArgs(ExpressRouteConnectionRoutingArgs $) {
         this.associatedRouteTableId = $.associatedRouteTableId;
+        this.inboundRouteMapId = $.inboundRouteMapId;
+        this.outboundRouteMapId = $.outboundRouteMapId;
         this.propagatedRouteTable = $.propagatedRouteTable;
     }
 
@@ -90,6 +122,48 @@ public final class ExpressRouteConnectionRoutingArgs extends com.pulumi.resource
          */
         public Builder associatedRouteTableId(String associatedRouteTableId) {
             return associatedRouteTableId(Output.of(associatedRouteTableId));
+        }
+
+        /**
+         * @param inboundRouteMapId The ID of the Route Map associated with this Express Route Connection for inbound routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundRouteMapId(@Nullable Output<String> inboundRouteMapId) {
+            $.inboundRouteMapId = inboundRouteMapId;
+            return this;
+        }
+
+        /**
+         * @param inboundRouteMapId The ID of the Route Map associated with this Express Route Connection for inbound routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundRouteMapId(String inboundRouteMapId) {
+            return inboundRouteMapId(Output.of(inboundRouteMapId));
+        }
+
+        /**
+         * @param outboundRouteMapId The ID of the Route Map associated with this Express Route Connection for outbound routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outboundRouteMapId(@Nullable Output<String> outboundRouteMapId) {
+            $.outboundRouteMapId = outboundRouteMapId;
+            return this;
+        }
+
+        /**
+         * @param outboundRouteMapId The ID of the Route Map associated with this Express Route Connection for outbound routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outboundRouteMapId(String outboundRouteMapId) {
+            return outboundRouteMapId(Output.of(outboundRouteMapId));
         }
 
         /**

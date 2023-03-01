@@ -17,14 +17,14 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     public static final ProtectionContainerMappingAutomaticUpdateArgs Empty = new ProtectionContainerMappingAutomaticUpdateArgs();
 
     /**
-     * The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+     * The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
      */
     @Import(name="automationAccountId")
     private @Nullable Output<String> automationAccountId;
 
     /**
-     * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+     * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
      */
     public Optional<Output<String>> automationAccountId() {
@@ -72,7 +72,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
         }
 
         /**
-         * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+         * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
         }
 
         /**
-         * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+         * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
          * 
          * @return builder
          * 

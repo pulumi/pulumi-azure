@@ -66,6 +66,10 @@ export interface GetPolicyDefintionResult {
      * Any Metadata defined in the Policy.
      */
     readonly metadata: string;
+    /**
+     * The Mode of the Policy.
+     */
+    readonly mode: string;
     readonly name: string;
     /**
      * Any Parameters defined in the Policy.

@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appservice.LinuxWebAppSlotArgs;
 import com.pulumi.azure.appservice.inputs.LinuxWebAppSlotState;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotAuthSettings;
+import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotAuthSettingsV2;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotBackup;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotConnectionString;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotIdentity;
@@ -139,18 +140,32 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appSettings);
     }
     /**
-     * A `auth_settings` block as defined below.
+     * An `auth_settings` block as defined below.
      * 
      */
     @Export(name="authSettings", type=LinuxWebAppSlotAuthSettings.class, parameters={})
-    private Output<LinuxWebAppSlotAuthSettings> authSettings;
+    private Output</* @Nullable */ LinuxWebAppSlotAuthSettings> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return An `auth_settings` block as defined below.
      * 
      */
-    public Output<LinuxWebAppSlotAuthSettings> authSettings() {
-        return this.authSettings;
+    public Output<Optional<LinuxWebAppSlotAuthSettings>> authSettings() {
+        return Codegen.optional(this.authSettings);
+    }
+    /**
+     * An `auth_settings_v2` block as defined below.
+     * 
+     */
+    @Export(name="authSettingsV2", type=LinuxWebAppSlotAuthSettingsV2.class, parameters={})
+    private Output</* @Nullable */ LinuxWebAppSlotAuthSettingsV2> authSettingsV2;
+
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    public Output<Optional<LinuxWebAppSlotAuthSettingsV2>> authSettingsV2() {
+        return Codegen.optional(this.authSettingsV2);
     }
     /**
      * A `backup` block as defined below.

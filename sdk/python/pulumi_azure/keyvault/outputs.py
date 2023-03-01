@@ -49,8 +49,10 @@ __all__ = [
     'GetCertificateCertificatePolicyX509CertificatePropertyResult',
     'GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult',
     'GetCertificateIssuerAdminResult',
+    'GetCertificatesCertificateResult',
     'GetKeyVaultAccessPolicyResult',
     'GetKeyVaultNetworkAclResult',
+    'GetSecretsSecretResult',
 ]
 
 @pulumi.output_type
@@ -2068,6 +2070,42 @@ class GetCertificateIssuerAdminResult(dict):
 
 
 @pulumi.output_type
+class GetCertificatesCertificateResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 id: str,
+                 name: str):
+        """
+        :param bool enabled: Whether this secret is enabled.
+        :param str name: The name of secret.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether this secret is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of secret.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class GetKeyVaultAccessPolicyResult(dict):
     def __init__(__self__, *,
                  application_id: str,
@@ -2182,5 +2220,45 @@ class GetKeyVaultNetworkAclResult(dict):
     @pulumi.getter(name="virtualNetworkSubnetIds")
     def virtual_network_subnet_ids(self) -> Sequence[str]:
         return pulumi.get(self, "virtual_network_subnet_ids")
+
+
+@pulumi.output_type
+class GetSecretsSecretResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 id: str,
+                 name: str):
+        """
+        :param bool enabled: Whether this secret is enabled.
+        :param str id: The ID of this secret.
+        :param str name: The name of secret.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether this secret is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of this secret.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of secret.
+        """
+        return pulumi.get(self, "name")
 
 

@@ -18,6 +18,14 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? AssociatedRouteTableId;
         /// <summary>
+        /// The ID of the Route Map associated with this Express Route Connection for inbound routes.
+        /// </summary>
+        public readonly string? InboundRouteMapId;
+        /// <summary>
+        /// The ID of the Route Map associated with this Express Route Connection for outbound routes.
+        /// </summary>
+        public readonly string? OutboundRouteMapId;
+        /// <summary>
         /// A `propagated_route_table` block as defined below.
         /// </summary>
         public readonly Outputs.ExpressRouteConnectionRoutingPropagatedRouteTable? PropagatedRouteTable;
@@ -26,9 +34,15 @@ namespace Pulumi.Azure.Network.Outputs
         private ExpressRouteConnectionRouting(
             string? associatedRouteTableId,
 
+            string? inboundRouteMapId,
+
+            string? outboundRouteMapId,
+
             Outputs.ExpressRouteConnectionRoutingPropagatedRouteTable? propagatedRouteTable)
         {
             AssociatedRouteTableId = associatedRouteTableId;
+            InboundRouteMapId = inboundRouteMapId;
+            OutboundRouteMapId = outboundRouteMapId;
             PropagatedRouteTable = propagatedRouteTable;
         }
     }

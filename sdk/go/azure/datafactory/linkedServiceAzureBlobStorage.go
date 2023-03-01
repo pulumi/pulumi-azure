@@ -155,8 +155,10 @@ type LinkedServiceAzureBlobStorage struct {
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
-	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
+	// The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
 	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
+	// The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
+	ConnectionStringInsecure pulumi.StringPtrOutput `pulumi:"connectionStringInsecure"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service.
@@ -169,9 +171,9 @@ type LinkedServiceAzureBlobStorage struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
+	// The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
 	SasUri pulumi.StringPtrOutput `pulumi:"sasUri"`
-	// The Service Endpoint. Conflicts with `connectionString` and `sasUri`.
+	// The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
 	ServiceEndpoint pulumi.StringPtrOutput `pulumi:"serviceEndpoint"`
 	// The service principal id in which to authenticate against the Azure Blob Storage account.
 	ServicePrincipalId pulumi.StringPtrOutput `pulumi:"servicePrincipalId"`
@@ -238,8 +240,10 @@ type linkedServiceAzureBlobStorageState struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
-	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
+	// The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
+	ConnectionStringInsecure *string `pulumi:"connectionStringInsecure"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service.
@@ -252,9 +256,9 @@ type linkedServiceAzureBlobStorageState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
+	// The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
 	SasUri *string `pulumi:"sasUri"`
-	// The Service Endpoint. Conflicts with `connectionString` and `sasUri`.
+	// The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
 	ServiceEndpoint *string `pulumi:"serviceEndpoint"`
 	// The service principal id in which to authenticate against the Azure Blob Storage account.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
@@ -275,8 +279,10 @@ type LinkedServiceAzureBlobStorageState struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
-	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
+	// The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
 	ConnectionString pulumi.StringPtrInput
+	// The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
+	ConnectionStringInsecure pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
@@ -289,9 +295,9 @@ type LinkedServiceAzureBlobStorageState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
+	// The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
 	SasUri pulumi.StringPtrInput
-	// The Service Endpoint. Conflicts with `connectionString` and `sasUri`.
+	// The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
 	ServiceEndpoint pulumi.StringPtrInput
 	// The service principal id in which to authenticate against the Azure Blob Storage account.
 	ServicePrincipalId pulumi.StringPtrInput
@@ -316,8 +322,10 @@ type linkedServiceAzureBlobStorageArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
-	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
+	// The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
+	ConnectionStringInsecure *string `pulumi:"connectionStringInsecure"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service.
@@ -330,9 +338,9 @@ type linkedServiceAzureBlobStorageArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
+	// The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
 	SasUri *string `pulumi:"sasUri"`
-	// The Service Endpoint. Conflicts with `connectionString` and `sasUri`.
+	// The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
 	ServiceEndpoint *string `pulumi:"serviceEndpoint"`
 	// The service principal id in which to authenticate against the Azure Blob Storage account.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
@@ -354,8 +362,10 @@ type LinkedServiceAzureBlobStorageArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
-	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
+	// The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
 	ConnectionString pulumi.StringPtrInput
+	// The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
+	ConnectionStringInsecure pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service.
@@ -368,9 +378,9 @@ type LinkedServiceAzureBlobStorageArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
+	// The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
 	SasUri pulumi.StringPtrInput
-	// The Service Endpoint. Conflicts with `connectionString` and `sasUri`.
+	// The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
 	ServiceEndpoint pulumi.StringPtrInput
 	// The service principal id in which to authenticate against the Azure Blob Storage account.
 	ServicePrincipalId pulumi.StringPtrInput
@@ -483,9 +493,14 @@ func (o LinkedServiceAzureBlobStorageOutput) Annotations() pulumi.StringArrayOut
 	return o.ApplyT(func(v *LinkedServiceAzureBlobStorage) pulumi.StringArrayOutput { return v.Annotations }).(pulumi.StringArrayOutput)
 }
 
-// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
+// The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
 func (o LinkedServiceAzureBlobStorageOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureBlobStorage) pulumi.StringPtrOutput { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
+func (o LinkedServiceAzureBlobStorageOutput) ConnectionStringInsecure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureBlobStorage) pulumi.StringPtrOutput { return v.ConnectionStringInsecure }).(pulumi.StringPtrOutput)
 }
 
 // The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -520,12 +535,12 @@ func (o LinkedServiceAzureBlobStorageOutput) Parameters() pulumi.StringMapOutput
 	return o.ApplyT(func(v *LinkedServiceAzureBlobStorage) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
+// The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
 func (o LinkedServiceAzureBlobStorageOutput) SasUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureBlobStorage) pulumi.StringPtrOutput { return v.SasUri }).(pulumi.StringPtrOutput)
 }
 
-// The Service Endpoint. Conflicts with `connectionString` and `sasUri`.
+// The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
 func (o LinkedServiceAzureBlobStorageOutput) ServiceEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureBlobStorage) pulumi.StringPtrOutput { return v.ServiceEndpoint }).(pulumi.StringPtrOutput)
 }

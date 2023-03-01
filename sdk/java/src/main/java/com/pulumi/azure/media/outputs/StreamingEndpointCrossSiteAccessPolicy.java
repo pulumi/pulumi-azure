@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StreamingEndpointCrossSiteAccessPolicy {
     /**
-     * @return The content of clientaccesspolicy.xml used by Silverlight.
+     * @return The content of `clientaccesspolicy.xml` used by Silverlight.
      * 
      */
     private @Nullable String clientAccessPolicy;
     /**
-     * @return The content of crossdomain.xml used by Silverlight.
+     * @return The content of `crossdomain.xml` used by Silverlight.
      * 
      */
     private @Nullable String crossDomainPolicy;
 
     private StreamingEndpointCrossSiteAccessPolicy() {}
     /**
-     * @return The content of clientaccesspolicy.xml used by Silverlight.
+     * @return The content of `clientaccesspolicy.xml` used by Silverlight.
      * 
      */
     public Optional<String> clientAccessPolicy() {
         return Optional.ofNullable(this.clientAccessPolicy);
     }
     /**
-     * @return The content of crossdomain.xml used by Silverlight.
+     * @return The content of `crossdomain.xml` used by Silverlight.
      * 
      */
     public Optional<String> crossDomainPolicy() {

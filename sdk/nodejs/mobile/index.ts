@@ -10,10 +10,50 @@ export const getNetwork: typeof import("./getNetwork").getNetwork = null as any;
 export const getNetworkOutput: typeof import("./getNetwork").getNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getNetwork","getNetworkOutput"], () => require("./getNetwork"));
 
+export { GetNetworkServiceArgs, GetNetworkServiceResult, GetNetworkServiceOutputArgs } from "./getNetworkService";
+export const getNetworkService: typeof import("./getNetworkService").getNetworkService = null as any;
+export const getNetworkServiceOutput: typeof import("./getNetworkService").getNetworkServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkService","getNetworkServiceOutput"], () => require("./getNetworkService"));
+
+export { GetNetworkSimGroupArgs, GetNetworkSimGroupResult, GetNetworkSimGroupOutputArgs } from "./getNetworkSimGroup";
+export const getNetworkSimGroup: typeof import("./getNetworkSimGroup").getNetworkSimGroup = null as any;
+export const getNetworkSimGroupOutput: typeof import("./getNetworkSimGroup").getNetworkSimGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSimGroup","getNetworkSimGroupOutput"], () => require("./getNetworkSimGroup"));
+
+export { GetNetworkSiteArgs, GetNetworkSiteResult, GetNetworkSiteOutputArgs } from "./getNetworkSite";
+export const getNetworkSite: typeof import("./getNetworkSite").getNetworkSite = null as any;
+export const getNetworkSiteOutput: typeof import("./getNetworkSite").getNetworkSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSite","getNetworkSiteOutput"], () => require("./getNetworkSite"));
+
+export { GetNetworkSliceArgs, GetNetworkSliceResult, GetNetworkSliceOutputArgs } from "./getNetworkSlice";
+export const getNetworkSlice: typeof import("./getNetworkSlice").getNetworkSlice = null as any;
+export const getNetworkSliceOutput: typeof import("./getNetworkSlice").getNetworkSliceOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSlice","getNetworkSliceOutput"], () => require("./getNetworkSlice"));
+
 export { NetworkArgs, NetworkState } from "./network";
 export type Network = import("./network").Network;
 export const Network: typeof import("./network").Network = null as any;
 utilities.lazyLoad(exports, ["Network"], () => require("./network"));
+
+export { NetworkServiceArgs, NetworkServiceState } from "./networkService";
+export type NetworkService = import("./networkService").NetworkService;
+export const NetworkService: typeof import("./networkService").NetworkService = null as any;
+utilities.lazyLoad(exports, ["NetworkService"], () => require("./networkService"));
+
+export { NetworkSimGroupArgs, NetworkSimGroupState } from "./networkSimGroup";
+export type NetworkSimGroup = import("./networkSimGroup").NetworkSimGroup;
+export const NetworkSimGroup: typeof import("./networkSimGroup").NetworkSimGroup = null as any;
+utilities.lazyLoad(exports, ["NetworkSimGroup"], () => require("./networkSimGroup"));
+
+export { NetworkSiteArgs, NetworkSiteState } from "./networkSite";
+export type NetworkSite = import("./networkSite").NetworkSite;
+export const NetworkSite: typeof import("./networkSite").NetworkSite = null as any;
+utilities.lazyLoad(exports, ["NetworkSite"], () => require("./networkSite"));
+
+export { NetworkSliceArgs, NetworkSliceState } from "./networkSlice";
+export type NetworkSlice = import("./networkSlice").NetworkSlice;
+export const NetworkSlice: typeof import("./networkSlice").NetworkSlice = null as any;
+utilities.lazyLoad(exports, ["NetworkSlice"], () => require("./networkSlice"));
 
 
 const _module = {
@@ -22,9 +62,21 @@ const _module = {
         switch (type) {
             case "azure:mobile/network:Network":
                 return new Network(name, <any>undefined, { urn })
+            case "azure:mobile/networkService:NetworkService":
+                return new NetworkService(name, <any>undefined, { urn })
+            case "azure:mobile/networkSimGroup:NetworkSimGroup":
+                return new NetworkSimGroup(name, <any>undefined, { urn })
+            case "azure:mobile/networkSite:NetworkSite":
+                return new NetworkSite(name, <any>undefined, { urn })
+            case "azure:mobile/networkSlice:NetworkSlice":
+                return new NetworkSlice(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "mobile/network", _module)
+pulumi.runtime.registerResourceModule("azure", "mobile/networkService", _module)
+pulumi.runtime.registerResourceModule("azure", "mobile/networkSimGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "mobile/networkSite", _module)
+pulumi.runtime.registerResourceModule("azure", "mobile/networkSlice", _module)

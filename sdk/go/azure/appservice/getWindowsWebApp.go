@@ -62,6 +62,8 @@ type LookupWindowsWebAppResult struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings []GetWindowsWebAppAuthSetting `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2s []GetWindowsWebAppAuthSettingsV2 `pulumi:"authSettingsV2s"`
 	// A `backup` block as defined below.
 	Backups []GetWindowsWebAppBackup `pulumi:"backups"`
 	// Is Client Affinity enabled?
@@ -167,6 +169,11 @@ func (o LookupWindowsWebAppResultOutput) AppSettings() pulumi.StringMapOutput {
 // A `authSettings` block as defined below.
 func (o LookupWindowsWebAppResultOutput) AuthSettings() GetWindowsWebAppAuthSettingArrayOutput {
 	return o.ApplyT(func(v LookupWindowsWebAppResult) []GetWindowsWebAppAuthSetting { return v.AuthSettings }).(GetWindowsWebAppAuthSettingArrayOutput)
+}
+
+// An `authSettingsV2` block as defined below.
+func (o LookupWindowsWebAppResultOutput) AuthSettingsV2s() GetWindowsWebAppAuthSettingsV2ArrayOutput {
+	return o.ApplyT(func(v LookupWindowsWebAppResult) []GetWindowsWebAppAuthSettingsV2 { return v.AuthSettingsV2s }).(GetWindowsWebAppAuthSettingsV2ArrayOutput)
 }
 
 // A `backup` block as defined below.

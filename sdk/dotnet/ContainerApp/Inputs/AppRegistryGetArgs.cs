@@ -13,10 +13,16 @@ namespace Pulumi.Azure.ContainerApp.Inputs
     public sealed class AppRegistryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Secret Reference containing the password value for this user on the Container Registry.
+        /// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         /// </summary>
-        [Input("passwordSecretName", required: true)]
-        public Input<string> PasswordSecretName { get; set; } = null!;
+        [Input("identity")]
+        public Input<string>? Identity { get; set; }
+
+        /// <summary>
+        /// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+        /// </summary>
+        [Input("passwordSecretName")]
+        public Input<string>? PasswordSecretName { get; set; }
 
         /// <summary>
         /// The hostname for the Container Registry.
@@ -25,10 +31,10 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string> Server { get; set; } = null!;
 
         /// <summary>
-        /// The username to use for this Container Registry.
+        /// The username to use for this Container Registry, `password_secret_name` must also be supplied..
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public AppRegistryGetArgs()
         {

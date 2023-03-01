@@ -23,6 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:siterecovery/fabric:Fabric":
 		r = &Fabric{}
+	case "azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy":
+		r = &HyperVReplicationPolicy{}
+	case "azure:siterecovery/hyperVReplicationPolicyAssociation:HyperVReplicationPolicyAssociation":
+		r = &HyperVReplicationPolicyAssociation{}
+	case "azure:siterecovery/hyperVSite:HyperVSite":
+		r = &HyperVSite{}
 	case "azure:siterecovery/networkMapping:NetworkMapping":
 		r = &NetworkMapping{}
 	case "azure:siterecovery/protectionContainer:ProtectionContainer":
@@ -51,6 +57,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"siterecovery/fabric",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"siterecovery/hyperVReplicationPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"siterecovery/hyperVReplicationPolicyAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"siterecovery/hyperVSite",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

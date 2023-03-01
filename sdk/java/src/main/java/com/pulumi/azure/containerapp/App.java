@@ -41,7 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerapp.App;
  * import com.pulumi.azure.containerapp.AppArgs;
  * import com.pulumi.azure.containerapp.inputs.AppTemplateArgs;
- * import com.pulumi.azure.containerapp.inputs.AppTemplateContainerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -77,7 +76,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .revisionMode(&#34;Single&#34;)
  *             .template(AppTemplateArgs.builder()
- *                 .container(AppTemplateContainerArgs.builder()
+ *                 .containers(AppTemplateContainerArgs.builder()
  *                     .name(&#34;examplecontainerapp&#34;)
  *                     .image(&#34;mcr.microsoft.com/azuredocs/containerapps-helloworld:latest&#34;)
  *                     .cpu(0.25)
@@ -143,9 +142,17 @@ public class App extends com.pulumi.resources.CustomResource {
     public Output<Optional<AppDapr>> dapr() {
         return Codegen.optional(this.dapr);
     }
+    /**
+     * An `identity` block as detailed below.
+     * 
+     */
     @Export(name="identity", type=AppIdentity.class, parameters={})
     private Output</* @Nullable */ AppIdentity> identity;
 
+    /**
+     * @return An `identity` block as detailed below.
+     * 
+     */
     public Output<Optional<AppIdentity>> identity() {
         return Codegen.optional(this.identity);
     }

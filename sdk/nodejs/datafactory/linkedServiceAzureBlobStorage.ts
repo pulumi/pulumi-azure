@@ -116,9 +116,13 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
-     * The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
+     * The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
      */
     public readonly connectionString!: pulumi.Output<string | undefined>;
+    /**
+     * The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
+     */
+    public readonly connectionStringInsecure!: pulumi.Output<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -144,11 +148,11 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
+     * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
     public readonly sasUri!: pulumi.Output<string | undefined>;
     /**
-     * The Service Endpoint. Conflicts with `connectionString` and `sasUri`.
+     * The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
      */
     public readonly serviceEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -192,6 +196,7 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["connectionString"] = state ? state.connectionString : undefined;
+            resourceInputs["connectionStringInsecure"] = state ? state.connectionStringInsecure : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
@@ -214,6 +219,7 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
+            resourceInputs["connectionStringInsecure"] = args ? args.connectionStringInsecure : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
@@ -249,9 +255,13 @@ export interface LinkedServiceAzureBlobStorageState {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
+     * The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
      */
     connectionString?: pulumi.Input<string>;
+    /**
+     * The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
+     */
+    connectionStringInsecure?: pulumi.Input<string>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -277,11 +287,11 @@ export interface LinkedServiceAzureBlobStorageState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
+     * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
     sasUri?: pulumi.Input<string>;
     /**
-     * The Service Endpoint. Conflicts with `connectionString` and `sasUri`.
+     * The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
      */
     serviceEndpoint?: pulumi.Input<string>;
     /**
@@ -323,9 +333,13 @@ export interface LinkedServiceAzureBlobStorageArgs {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
+     * The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
      */
     connectionString?: pulumi.Input<string>;
+    /**
+     * The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
+     */
+    connectionStringInsecure?: pulumi.Input<string>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -351,11 +365,11 @@ export interface LinkedServiceAzureBlobStorageArgs {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
+     * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
     sasUri?: pulumi.Input<string>;
     /**
-     * The Service Endpoint. Conflicts with `connectionString` and `sasUri`.
+     * The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
      */
     serviceEndpoint?: pulumi.Input<string>;
     /**

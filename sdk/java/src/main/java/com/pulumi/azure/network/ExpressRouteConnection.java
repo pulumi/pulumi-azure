@@ -175,6 +175,20 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
         return this.expressRouteCircuitPeeringId;
     }
     /**
+     * Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+     * 
+     */
+    @Export(name="expressRouteGatewayBypassEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> expressRouteGatewayBypassEnabled;
+
+    /**
+     * @return Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> expressRouteGatewayBypassEnabled() {
+        return Codegen.optional(this.expressRouteGatewayBypassEnabled);
+    }
+    /**
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      * 
      */

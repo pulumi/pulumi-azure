@@ -73,7 +73,9 @@ type WindowsWebApp struct {
 	// A map of key-value pairs of App Settings.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// An `authSettings` block as defined below.
-	AuthSettings WindowsWebAppAuthSettingsOutput `pulumi:"authSettings"`
+	AuthSettings WindowsWebAppAuthSettingsPtrOutput `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 WindowsWebAppAuthSettingsV2PtrOutput `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup WindowsWebAppBackupPtrOutput `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -180,6 +182,8 @@ type windowsWebAppState struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// An `authSettings` block as defined below.
 	AuthSettings *WindowsWebAppAuthSettings `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 *WindowsWebAppAuthSettingsV2 `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup *WindowsWebAppBackup `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -245,6 +249,8 @@ type WindowsWebAppState struct {
 	AppSettings pulumi.StringMapInput
 	// An `authSettings` block as defined below.
 	AuthSettings WindowsWebAppAuthSettingsPtrInput
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 WindowsWebAppAuthSettingsV2PtrInput
 	// A `backup` block as defined below.
 	Backup WindowsWebAppBackupPtrInput
 	// Should Client Affinity be enabled?
@@ -314,6 +320,8 @@ type windowsWebAppArgs struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// An `authSettings` block as defined below.
 	AuthSettings *WindowsWebAppAuthSettings `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 *WindowsWebAppAuthSettingsV2 `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup *WindowsWebAppBackup `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -364,6 +372,8 @@ type WindowsWebAppArgs struct {
 	AppSettings pulumi.StringMapInput
 	// An `authSettings` block as defined below.
 	AuthSettings WindowsWebAppAuthSettingsPtrInput
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 WindowsWebAppAuthSettingsV2PtrInput
 	// A `backup` block as defined below.
 	Backup WindowsWebAppBackupPtrInput
 	// Should Client Affinity be enabled?
@@ -501,8 +511,13 @@ func (o WindowsWebAppOutput) AppSettings() pulumi.StringMapOutput {
 }
 
 // An `authSettings` block as defined below.
-func (o WindowsWebAppOutput) AuthSettings() WindowsWebAppAuthSettingsOutput {
-	return o.ApplyT(func(v *WindowsWebApp) WindowsWebAppAuthSettingsOutput { return v.AuthSettings }).(WindowsWebAppAuthSettingsOutput)
+func (o WindowsWebAppOutput) AuthSettings() WindowsWebAppAuthSettingsPtrOutput {
+	return o.ApplyT(func(v *WindowsWebApp) WindowsWebAppAuthSettingsPtrOutput { return v.AuthSettings }).(WindowsWebAppAuthSettingsPtrOutput)
+}
+
+// An `authSettingsV2` block as defined below.
+func (o WindowsWebAppOutput) AuthSettingsV2() WindowsWebAppAuthSettingsV2PtrOutput {
+	return o.ApplyT(func(v *WindowsWebApp) WindowsWebAppAuthSettingsV2PtrOutput { return v.AuthSettingsV2 }).(WindowsWebAppAuthSettingsV2PtrOutput)
 }
 
 // A `backup` block as defined below.

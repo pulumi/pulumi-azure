@@ -16,10 +16,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppTemplate {
     /**
-     * @return A `container` block as detailed below.
+     * @return One or more `container` blocks as detailed below.
      * 
      */
-    private AppTemplateContainer container;
+    private List<AppTemplateContainer> containers;
     /**
      * @return The maximum number of replicas for this container.
      * 
@@ -43,11 +43,11 @@ public final class AppTemplate {
 
     private AppTemplate() {}
     /**
-     * @return A `container` block as detailed below.
+     * @return One or more `container` blocks as detailed below.
      * 
      */
-    public AppTemplateContainer container() {
-        return this.container;
+    public List<AppTemplateContainer> containers() {
+        return this.containers;
     }
     /**
      * @return The maximum number of replicas for this container.
@@ -87,7 +87,7 @@ public final class AppTemplate {
     }
     @CustomType.Builder
     public static final class Builder {
-        private AppTemplateContainer container;
+        private List<AppTemplateContainer> containers;
         private @Nullable Integer maxReplicas;
         private @Nullable Integer minReplicas;
         private @Nullable String revisionSuffix;
@@ -95,7 +95,7 @@ public final class AppTemplate {
         public Builder() {}
         public Builder(AppTemplate defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.container = defaults.container;
+    	      this.containers = defaults.containers;
     	      this.maxReplicas = defaults.maxReplicas;
     	      this.minReplicas = defaults.minReplicas;
     	      this.revisionSuffix = defaults.revisionSuffix;
@@ -103,9 +103,12 @@ public final class AppTemplate {
         }
 
         @CustomType.Setter
-        public Builder container(AppTemplateContainer container) {
-            this.container = Objects.requireNonNull(container);
+        public Builder containers(List<AppTemplateContainer> containers) {
+            this.containers = Objects.requireNonNull(containers);
             return this;
+        }
+        public Builder containers(AppTemplateContainer... containers) {
+            return containers(List.of(containers));
         }
         @CustomType.Setter
         public Builder maxReplicas(@Nullable Integer maxReplicas) {
@@ -132,7 +135,7 @@ public final class AppTemplate {
         }
         public AppTemplate build() {
             final var o = new AppTemplate();
-            o.container = container;
+            o.containers = containers;
             o.maxReplicas = maxReplicas;
             o.minReplicas = minReplicas;
             o.revisionSuffix = revisionSuffix;

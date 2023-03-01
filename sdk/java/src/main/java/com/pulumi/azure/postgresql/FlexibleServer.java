@@ -126,28 +126,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:postgresql/flexibleServer:FlexibleServer")
 public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
-     * The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
      */
     @Export(name="administratorLogin", type=String.class, parameters={})
     private Output<String> administratorLogin;
 
     /**
-     * @return The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * @return The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
      */
     public Output<String> administratorLogin() {
         return this.administratorLogin;
     }
     /**
-     * The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
+     * The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
      */
     @Export(name="administratorPassword", type=String.class, parameters={})
     private Output</* @Nullable */ String> administratorPassword;
 
     /**
-     * @return The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
+     * @return The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
      */
     public Output<Optional<String>> administratorPassword() {
@@ -182,14 +182,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return this.backupRetentionDays;
     }
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     @Export(name="createMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> createMode;
 
     /**
-     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     public Output<Optional<String>> createMode() {

@@ -19,6 +19,7 @@ class PolicyVMArgs:
                  backup: pulumi.Input['PolicyVMBackupArgs'],
                  recovery_vault_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 instant_restore_resource_group: Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']] = None,
                  instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,8 @@ class PolicyVMArgs:
         pulumi.set(__self__, "backup", backup)
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if instant_restore_resource_group is not None:
+            pulumi.set(__self__, "instant_restore_resource_group", instant_restore_resource_group)
         if instant_restore_retention_days is not None:
             pulumi.set(__self__, "instant_restore_retention_days", instant_restore_retention_days)
         if name is not None:
@@ -96,6 +99,15 @@ class PolicyVMArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="instantRestoreResourceGroup")
+    def instant_restore_resource_group(self) -> Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']]:
+        return pulumi.get(self, "instant_restore_resource_group")
+
+    @instant_restore_resource_group.setter
+    def instant_restore_resource_group(self, value: Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']]):
+        pulumi.set(self, "instant_restore_resource_group", value)
 
     @property
     @pulumi.getter(name="instantRestoreRetentionDays")
@@ -198,6 +210,7 @@ class PolicyVMArgs:
 class _PolicyVMState:
     def __init__(__self__, *,
                  backup: Optional[pulumi.Input['PolicyVMBackupArgs']] = None,
+                 instant_restore_resource_group: Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']] = None,
                  instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
@@ -224,6 +237,8 @@ class _PolicyVMState:
         """
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
+        if instant_restore_resource_group is not None:
+            pulumi.set(__self__, "instant_restore_resource_group", instant_restore_resource_group)
         if instant_restore_retention_days is not None:
             pulumi.set(__self__, "instant_restore_retention_days", instant_restore_retention_days)
         if name is not None:
@@ -256,6 +271,15 @@ class _PolicyVMState:
     @backup.setter
     def backup(self, value: Optional[pulumi.Input['PolicyVMBackupArgs']]):
         pulumi.set(self, "backup", value)
+
+    @property
+    @pulumi.getter(name="instantRestoreResourceGroup")
+    def instant_restore_resource_group(self) -> Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']]:
+        return pulumi.get(self, "instant_restore_resource_group")
+
+    @instant_restore_resource_group.setter
+    def instant_restore_resource_group(self, value: Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']]):
+        pulumi.set(self, "instant_restore_resource_group", value)
 
     @property
     @pulumi.getter(name="instantRestoreRetentionDays")
@@ -384,6 +408,7 @@ class PolicyVM(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
+                 instant_restore_resource_group: Optional[pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']]] = None,
                  instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
@@ -553,6 +578,7 @@ class PolicyVM(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
+                 instant_restore_resource_group: Optional[pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']]] = None,
                  instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
@@ -575,6 +601,7 @@ class PolicyVM(pulumi.CustomResource):
             if backup is None and not opts.urn:
                 raise TypeError("Missing required property 'backup'")
             __props__.__dict__["backup"] = backup
+            __props__.__dict__["instant_restore_resource_group"] = instant_restore_resource_group
             __props__.__dict__["instant_restore_retention_days"] = instant_restore_retention_days
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_type"] = policy_type
@@ -600,6 +627,7 @@ class PolicyVM(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
+            instant_restore_resource_group: Optional[pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']]] = None,
             instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             policy_type: Optional[pulumi.Input[str]] = None,
@@ -634,6 +662,7 @@ class PolicyVM(pulumi.CustomResource):
         __props__ = _PolicyVMState.__new__(_PolicyVMState)
 
         __props__.__dict__["backup"] = backup
+        __props__.__dict__["instant_restore_resource_group"] = instant_restore_resource_group
         __props__.__dict__["instant_restore_retention_days"] = instant_restore_retention_days
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_type"] = policy_type
@@ -653,6 +682,11 @@ class PolicyVM(pulumi.CustomResource):
         Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         """
         return pulumi.get(self, "backup")
+
+    @property
+    @pulumi.getter(name="instantRestoreResourceGroup")
+    def instant_restore_resource_group(self) -> pulumi.Output[Optional['outputs.PolicyVMInstantRestoreResourceGroup']]:
+        return pulumi.get(self, "instant_restore_resource_group")
 
     @property
     @pulumi.getter(name="instantRestoreRetentionDays")

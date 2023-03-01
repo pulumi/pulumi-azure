@@ -16,6 +16,7 @@
 package provider
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -23,7 +24,8 @@ import (
 	"unicode"
 
 	"github.com/Azure/go-autorest/autorest/azure/cli"
-	"github.com/hashicorp/go-azure-helpers/authentication"
+	"github.com/hashicorp/go-azure-sdk/sdk/auth"
+	"github.com/hashicorp/go-azure-sdk/sdk/environments"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-provider-azurerm/helpers/azure"
 	"github.com/hashicorp/terraform-provider-azurerm/shim"
@@ -97,6 +99,7 @@ const (
 	azureHealthcare            = "Healthcare"            // HealthCare
 	azureHpc                   = "Hpc"                   // High-performance Compute
 	azureHsm                   = "Hsm"                   // Hardware Security Module
+	azureHybrid                = "Hybrid"                // Hybrid Compute
 	azureIot                   = "Iot"                   // IoT resource
 	azureIotCentral            = "IotCentral"            // IoT central
 	azureKeyVault              = "KeyVault"              // Key Vault
@@ -300,38 +303,38 @@ func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []str
 
 // preConfigureCallback returns an error when cloud provider setup is misconfigured
 func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) error {
-
 	envName := stringValue(vars, "environment", []string{"ARM_ENVIRONMENT"})
 	if envName == "" {
 		envName = "public"
+	}
+
+	env, err := environments.FromName(envName)
+	if err != nil {
+		return fmt.Errorf("failed to read Azure environment \"%s\": %v", envName, err)
 	}
 
 	//check for auxiliary tenants
 	auxTenants := arrayValue(vars, "auxiliaryTenantIDs", []string{"ARM_AUXILIARY_TENANT_IDS"})
 
 	// validate the azure config
-	// make a Builder
-	builder := &authentication.Builder{
-		SubscriptionID:       stringValue(vars, "subscriptionId", []string{"ARM_SUBSCRIPTION_ID"}),
-		ClientID:             stringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
-		ClientSecret:         stringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
-		TenantID:             stringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
-		Environment:          envName,
-		ClientCertPath:       stringValue(vars, "clientCertificatePath", []string{"ARM_CLIENT_CERTIFICATE_PATH"}),
-		ClientCertPassword:   stringValue(vars, "clientCertificatePassword", []string{"ARM_CLIENT_CERTIFICATE_PASSWORD"}),
-		MsiEndpoint:          stringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
-		AuxiliaryTenantIDs:   auxTenants,
-		ClientSecretDocsLink: "https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/#service-principal-authentication",
+	authConfig := auth.Credentials{
+		ClientID:                      stringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
+		ClientSecret:                  stringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
+		TenantID:                      stringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
+		Environment:                   *env,
+		ClientCertificatePath:         stringValue(vars, "clientCertificatePath", []string{"ARM_CLIENT_CERTIFICATE_PATH"}),
+		ClientCertificatePassword:     stringValue(vars, "clientCertificatePassword", []string{"ARM_CLIENT_CERTIFICATE_PASSWORD"}),
+		CustomManagedIdentityEndpoint: stringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
+		AuxiliaryTenantIDs:            auxTenants,
 
 		// Feature Toggles
-		SupportsClientCertAuth:         true,
-		SupportsClientSecretAuth:       true,
-		SupportsManagedServiceIdentity: boolValue(vars, "msiEndpoint", []string{"ARM_USE_MSI"}),
-		SupportsAzureCliToken:          true,
-		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
+		EnableAuthenticatingUsingClientCertificate: true,
+		EnableAuthenticatingUsingClientSecret:      true,
+		EnableAuthenticatingUsingManagedIdentity:   boolValue(vars, "msiEndpoint", []string{"ARM_USE_MSI"}),
+		EnableAuthenticatingUsingAzureCLI:          true,
 	}
 
-	_, err := builder.Build()
+	_, err = auth.NewAuthorizerFromCredentials(context.Background(), authConfig, env.MicrosoftGraph)
 
 	if err != nil {
 		return fmt.Errorf("failed to load application credentials:\n"+
@@ -1833,15 +1836,18 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_network_watcher":                             {Tok: azureResource(azureNetwork, "NetworkWatcher")},
-			"azurerm_network_watcher_flow_log":                    {Tok: azureResource(azureNetwork, "NetworkWatcherFlowLog")},
-			"azurerm_network_manager":                             {Tok: azureResource(azureNetwork, "NetworkManager")},
-			"azurerm_network_manager_network_group":               {Tok: azureResource(azureNetwork, "NetworkManagerNetworkGroup")},
-			"azurerm_network_manager_management_group_connection": {Tok: azureResource(azureNetwork, "NetworkManagerManagementGroupConnection")},
-			"azurerm_network_manager_subscription_connection":     {Tok: azureResource(azureNetwork, "NetworkManagerSubscriptionConnection")},
-			"azurerm_network_manager_scope_connection":            {Tok: azureResource(azureNetwork, "NetworkManagerScopeConnection")},
-			"azurerm_network_manager_static_member":               {Tok: azureResource(azureNetwork, "NetworkManagerStaticMember")},
-			"azurerm_network_manager_connectivity_configuration":  {Tok: azureResource(azureNetwork, "NetworkManagerConnectivityConfiguration")},
+			"azurerm_network_watcher":                              {Tok: azureResource(azureNetwork, "NetworkWatcher")},
+			"azurerm_network_watcher_flow_log":                     {Tok: azureResource(azureNetwork, "NetworkWatcherFlowLog")},
+			"azurerm_network_manager":                              {Tok: azureResource(azureNetwork, "NetworkManager")},
+			"azurerm_network_manager_network_group":                {Tok: azureResource(azureNetwork, "NetworkManagerNetworkGroup")},
+			"azurerm_network_manager_management_group_connection":  {Tok: azureResource(azureNetwork, "NetworkManagerManagementGroupConnection")},
+			"azurerm_network_manager_subscription_connection":      {Tok: azureResource(azureNetwork, "NetworkManagerSubscriptionConnection")},
+			"azurerm_network_manager_scope_connection":             {Tok: azureResource(azureNetwork, "NetworkManagerScopeConnection")},
+			"azurerm_network_manager_static_member":                {Tok: azureResource(azureNetwork, "NetworkManagerStaticMember")},
+			"azurerm_network_manager_connectivity_configuration":   {Tok: azureResource(azureNetwork, "NetworkManagerConnectivityConfiguration")},
+			"azurerm_network_manager_admin_rule":                   {Tok: azureResource(azureNetwork, "NetworkManagerAdminRule")},
+			"azurerm_network_manager_admin_rule_collection":        {Tok: azureResource(azureNetwork, "NetworkManagerAdminRuleCollection")},
+			"azurerm_network_manager_security_admin_configuration": {Tok: azureResource(azureNetwork, "NetworkManagerSecurityAdminConfiguration")},
 
 			"azurerm_public_ip": {
 				Tok: azureResource(azureNetwork, "PublicIp"),
@@ -2283,7 +2289,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_site_recovery_protection_container_mapping": {
 				Tok: azureResource(azureSiteRecovery, "ProtectionContainerMapping"),
 			},
-			"azurerm_site_recovery_replication_recovery_plan": {Tok: azureResource(azureSiteRecovery, "ReplicationRecoveryPlan")},
+			"azurerm_site_recovery_replication_recovery_plan":             {Tok: azureResource(azureSiteRecovery, "ReplicationRecoveryPlan")},
+			"azurerm_site_recovery_hyperv_replication_policy":             {Tok: azureResource(azureSiteRecovery, "HyperVReplicationPolicy")},
+			"azurerm_site_recovery_hyperv_replication_policy_association": {Tok: azureResource(azureSiteRecovery, "HyperVReplicationPolicyAssociation")},
+			"azurerm_site_recovery_services_vault_hyperv_site":            {Tok: azureResource(azureSiteRecovery, "HyperVSite")},
 
 			"azurerm_recovery_services_vault": {Tok: azureResource(azureRecoveryServices, "Vault")},
 
@@ -2574,7 +2583,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_app_environment_storage":        {Tok: azureResource(azureContainerApp, "EnvironmentStorage")},
 
 			// Mobile
-			"azurerm_mobile_network": {Tok: azureResource(azureMobile, "Network")},
+			"azurerm_mobile_network":           {Tok: azureResource(azureMobile, "Network")},
+			"azurerm_mobile_network_service":   {Tok: azureResource(azureMobile, "NetworkService")},
+			"azurerm_mobile_network_sim_group": {Tok: azureResource(azureMobile, "NetworkSimGroup")},
+			"azurerm_mobile_network_site":      {Tok: azureResource(azureMobile, "NetworkSite")},
+			"azurerm_mobile_network_slice":     {Tok: azureResource(azureMobile, "NetworkSlice")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_aadb2c_directory": {Tok: azureDataSource(aadb2c, "getDirectory")},
@@ -2837,6 +2850,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_template_spec_version":              {Tok: azureDataSource(azureCore, "getTemplateSpecVersion")},
 			"azurerm_tenant_template_deployment":         {Tok: azureDataSource(azureCore, "getTenantTemplateDeployment")},
 			"azurerm_policy_definition":                  {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
+			"azurerm_policy_definition_built_in":         {Tok: azureDataSource(azurePolicy, "getPolicyDefintionBuiltIn")},
 			"azurerm_policy_assignment":                  {Tok: azureDataSource(azurePolicy, "getPolicyAssignment")},
 			"azurerm_policy_set_definition":              {Tok: azureDataSource(azurePolicy, "getPolicySetDefinition")},
 			"azurerm_policy_virtual_machine_configuration_assignment": {
@@ -3044,7 +3058,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_app_environment":             {Tok: azureDataSource(azureContainerApp, "getEnvironment")},
 			"azurerm_container_app_environment_certificate": {Tok: azureDataSource(azureContainerApp, "getEnvironmentCertificate")},
 
-			"azurerm_mobile_network": {Tok: azureDataSource(azureMobile, "getNetwork")},
+			"azurerm_mobile_network":           {Tok: azureDataSource(azureMobile, "getNetwork")},
+			"azurerm_mobile_network_service":   {Tok: azureDataSource(azureMobile, "getNetworkService")},
+			"azurerm_mobile_network_sim_group": {Tok: azureDataSource(azureMobile, "getNetworkSimGroup")},
+			"azurerm_mobile_network_site":      {Tok: azureDataSource(azureMobile, "getNetworkSite")},
+			"azurerm_mobile_network_slice":     {Tok: azureDataSource(azureMobile, "getNetworkSlice")},
+
+			"azurerm_virtual_desktop_host_pool": {Tok: azureDataSource(azureDesktopVirtualization, "getHostPool")},
+			"azurerm_hybrid_compute_machine":    {Tok: azureDataSource(azureHybrid, "getComputeMachine")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			TypeScriptVersion: "4.7.4",

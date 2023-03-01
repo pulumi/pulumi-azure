@@ -33,11 +33,11 @@ export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetNetworkArgs {
     /**
-     * Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
+     * Specifies the name which should be used for this Mobile Network.
      */
     name: string;
     /**
-     * Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+     * Specifies the name of the Resource Group where the Mobile Network should exist.
      */
     resourceGroupName: string;
 }
@@ -97,11 +97,11 @@ export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.Invok
  */
 export interface GetNetworkOutputArgs {
     /**
-     * Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
+     * Specifies the name which should be used for this Mobile Network.
      */
     name: pulumi.Input<string>;
     /**
-     * Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+     * Specifies the name of the Resource Group where the Mobile Network should exist.
      */
     resourceGroupName: pulumi.Input<string>;
 }

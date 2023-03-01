@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Front Door (standard/premium) Secret.
+//
 // ## Example Usage
 //
 // ```go

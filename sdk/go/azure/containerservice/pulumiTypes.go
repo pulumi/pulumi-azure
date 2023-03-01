@@ -12542,7 +12542,7 @@ func (o KubernetesClusterStorageProfilePtrOutput) SnapshotControllerEnabled() pu
 }
 
 type KubernetesClusterWebAppRouting struct {
-	// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+	// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
 	DnsZoneId string `pulumi:"dnsZoneId"`
 }
 
@@ -12558,7 +12558,7 @@ type KubernetesClusterWebAppRoutingInput interface {
 }
 
 type KubernetesClusterWebAppRoutingArgs struct {
-	// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+	// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
 	DnsZoneId pulumi.StringInput `pulumi:"dnsZoneId"`
 }
 
@@ -12639,7 +12639,7 @@ func (o KubernetesClusterWebAppRoutingOutput) ToKubernetesClusterWebAppRoutingPt
 	}).(KubernetesClusterWebAppRoutingPtrOutput)
 }
 
-// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
 func (o KubernetesClusterWebAppRoutingOutput) DnsZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterWebAppRouting) string { return v.DnsZoneId }).(pulumi.StringOutput)
 }
@@ -12668,7 +12668,7 @@ func (o KubernetesClusterWebAppRoutingPtrOutput) Elem() KubernetesClusterWebAppR
 	}).(KubernetesClusterWebAppRoutingOutput)
 }
 
-// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+// Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
 func (o KubernetesClusterWebAppRoutingPtrOutput) DnsZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWebAppRouting) *string {
 		if v == nil {

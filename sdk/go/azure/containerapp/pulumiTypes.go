@@ -186,10 +186,12 @@ func (o AppDaprPtrOutput) AppProtocol() pulumi.StringPtrOutput {
 }
 
 type AppIdentity struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
-	Type        string   `pulumi:"type"`
+	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+	Type string `pulumi:"type"`
 }
 
 // AppIdentityInput is an input type that accepts AppIdentityArgs and AppIdentityOutput values.
@@ -204,10 +206,12 @@ type AppIdentityInput interface {
 }
 
 type AppIdentityArgs struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	Type        pulumi.StringInput      `pulumi:"type"`
+	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AppIdentityArgs) ElementType() reflect.Type {
@@ -287,6 +291,7 @@ func (o AppIdentityOutput) ToAppIdentityPtrOutputWithContext(ctx context.Context
 	}).(AppIdentityPtrOutput)
 }
 
+// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
 func (o AppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -299,6 +304,7 @@ func (o AppIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
 func (o AppIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AppIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -327,6 +333,7 @@ func (o AppIdentityPtrOutput) Elem() AppIdentityOutput {
 	}).(AppIdentityOutput)
 }
 
+// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
 func (o AppIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppIdentity) []string {
 		if v == nil {
@@ -354,6 +361,7 @@ func (o AppIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
 func (o AppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppIdentity) *string {
 		if v == nil {
@@ -906,12 +914,14 @@ func (o AppIngressTrafficWeightArrayOutput) Index(i pulumi.IntInput) AppIngressT
 }
 
 type AppRegistry struct {
-	// The name of the Secret Reference containing the password value for this user on the Container Registry.
-	PasswordSecretName string `pulumi:"passwordSecretName"`
+	// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+	Identity *string `pulumi:"identity"`
+	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+	PasswordSecretName *string `pulumi:"passwordSecretName"`
 	// The hostname for the Container Registry.
 	Server string `pulumi:"server"`
-	// The username to use for this Container Registry.
-	Username string `pulumi:"username"`
+	// The username to use for this Container Registry, `passwordSecretName` must also be supplied..
+	Username *string `pulumi:"username"`
 }
 
 // AppRegistryInput is an input type that accepts AppRegistryArgs and AppRegistryOutput values.
@@ -926,12 +936,14 @@ type AppRegistryInput interface {
 }
 
 type AppRegistryArgs struct {
-	// The name of the Secret Reference containing the password value for this user on the Container Registry.
-	PasswordSecretName pulumi.StringInput `pulumi:"passwordSecretName"`
+	// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
+	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+	PasswordSecretName pulumi.StringPtrInput `pulumi:"passwordSecretName"`
 	// The hostname for the Container Registry.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The username to use for this Container Registry.
-	Username pulumi.StringInput `pulumi:"username"`
+	// The username to use for this Container Registry, `passwordSecretName` must also be supplied..
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (AppRegistryArgs) ElementType() reflect.Type {
@@ -985,9 +997,14 @@ func (o AppRegistryOutput) ToAppRegistryOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// The name of the Secret Reference containing the password value for this user on the Container Registry.
-func (o AppRegistryOutput) PasswordSecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v AppRegistry) string { return v.PasswordSecretName }).(pulumi.StringOutput)
+// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+func (o AppRegistryOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppRegistry) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+func (o AppRegistryOutput) PasswordSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppRegistry) *string { return v.PasswordSecretName }).(pulumi.StringPtrOutput)
 }
 
 // The hostname for the Container Registry.
@@ -995,9 +1012,9 @@ func (o AppRegistryOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v AppRegistry) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The username to use for this Container Registry.
-func (o AppRegistryOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v AppRegistry) string { return v.Username }).(pulumi.StringOutput)
+// The username to use for this Container Registry, `passwordSecretName` must also be supplied..
+func (o AppRegistryOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppRegistry) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type AppRegistryArrayOutput struct{ *pulumi.OutputState }
@@ -1127,8 +1144,8 @@ func (o AppSecretArrayOutput) Index(i pulumi.IntInput) AppSecretOutput {
 }
 
 type AppTemplate struct {
-	// A `container` block as detailed below.
-	Container AppTemplateContainer `pulumi:"container"`
+	// One or more `container` blocks as detailed below.
+	Containers []AppTemplateContainer `pulumi:"containers"`
 	// The maximum number of replicas for this container.
 	MaxReplicas *int `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
@@ -1151,8 +1168,8 @@ type AppTemplateInput interface {
 }
 
 type AppTemplateArgs struct {
-	// A `container` block as detailed below.
-	Container AppTemplateContainerInput `pulumi:"container"`
+	// One or more `container` blocks as detailed below.
+	Containers AppTemplateContainerArrayInput `pulumi:"containers"`
 	// The maximum number of replicas for this container.
 	MaxReplicas pulumi.IntPtrInput `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
@@ -1240,9 +1257,9 @@ func (o AppTemplateOutput) ToAppTemplatePtrOutputWithContext(ctx context.Context
 	}).(AppTemplatePtrOutput)
 }
 
-// A `container` block as detailed below.
-func (o AppTemplateOutput) Container() AppTemplateContainerOutput {
-	return o.ApplyT(func(v AppTemplate) AppTemplateContainer { return v.Container }).(AppTemplateContainerOutput)
+// One or more `container` blocks as detailed below.
+func (o AppTemplateOutput) Containers() AppTemplateContainerArrayOutput {
+	return o.ApplyT(func(v AppTemplate) []AppTemplateContainer { return v.Containers }).(AppTemplateContainerArrayOutput)
 }
 
 // The maximum number of replicas for this container.
@@ -1289,14 +1306,14 @@ func (o AppTemplatePtrOutput) Elem() AppTemplateOutput {
 	}).(AppTemplateOutput)
 }
 
-// A `container` block as detailed below.
-func (o AppTemplatePtrOutput) Container() AppTemplateContainerPtrOutput {
-	return o.ApplyT(func(v *AppTemplate) *AppTemplateContainer {
+// One or more `container` blocks as detailed below.
+func (o AppTemplatePtrOutput) Containers() AppTemplateContainerArrayOutput {
+	return o.ApplyT(func(v *AppTemplate) []AppTemplateContainer {
 		if v == nil {
 			return nil
 		}
-		return &v.Container
-	}).(AppTemplateContainerPtrOutput)
+		return v.Containers
+	}).(AppTemplateContainerArrayOutput)
 }
 
 // The maximum number of replicas for this container.
@@ -1346,7 +1363,7 @@ type AppTemplateContainer struct {
 	Commands []string `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 	Cpu float64 `pulumi:"cpu"`
-	// An `env` block as detailed below.
+	// One or more `env` blocks as detailed below.
 	Envs []AppTemplateContainerEnv `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
 	EphemeralStorage *string `pulumi:"ephemeralStorage"`
@@ -1384,7 +1401,7 @@ type AppTemplateContainerArgs struct {
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 	Cpu pulumi.Float64Input `pulumi:"cpu"`
-	// An `env` block as detailed below.
+	// One or more `env` blocks as detailed below.
 	Envs AppTemplateContainerEnvArrayInput `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
 	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
@@ -1416,45 +1433,29 @@ func (i AppTemplateContainerArgs) ToAppTemplateContainerOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerOutput)
 }
 
-func (i AppTemplateContainerArgs) ToAppTemplateContainerPtrOutput() AppTemplateContainerPtrOutput {
-	return i.ToAppTemplateContainerPtrOutputWithContext(context.Background())
-}
-
-func (i AppTemplateContainerArgs) ToAppTemplateContainerPtrOutputWithContext(ctx context.Context) AppTemplateContainerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerOutput).ToAppTemplateContainerPtrOutputWithContext(ctx)
-}
-
-// AppTemplateContainerPtrInput is an input type that accepts AppTemplateContainerArgs, AppTemplateContainerPtr and AppTemplateContainerPtrOutput values.
-// You can construct a concrete instance of `AppTemplateContainerPtrInput` via:
+// AppTemplateContainerArrayInput is an input type that accepts AppTemplateContainerArray and AppTemplateContainerArrayOutput values.
+// You can construct a concrete instance of `AppTemplateContainerArrayInput` via:
 //
-//	        AppTemplateContainerArgs{...}
-//
-//	or:
-//
-//	        nil
-type AppTemplateContainerPtrInput interface {
+//	AppTemplateContainerArray{ AppTemplateContainerArgs{...} }
+type AppTemplateContainerArrayInput interface {
 	pulumi.Input
 
-	ToAppTemplateContainerPtrOutput() AppTemplateContainerPtrOutput
-	ToAppTemplateContainerPtrOutputWithContext(context.Context) AppTemplateContainerPtrOutput
+	ToAppTemplateContainerArrayOutput() AppTemplateContainerArrayOutput
+	ToAppTemplateContainerArrayOutputWithContext(context.Context) AppTemplateContainerArrayOutput
 }
 
-type appTemplateContainerPtrType AppTemplateContainerArgs
+type AppTemplateContainerArray []AppTemplateContainerInput
 
-func AppTemplateContainerPtr(v *AppTemplateContainerArgs) AppTemplateContainerPtrInput {
-	return (*appTemplateContainerPtrType)(v)
+func (AppTemplateContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateContainer)(nil)).Elem()
 }
 
-func (*appTemplateContainerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppTemplateContainer)(nil)).Elem()
+func (i AppTemplateContainerArray) ToAppTemplateContainerArrayOutput() AppTemplateContainerArrayOutput {
+	return i.ToAppTemplateContainerArrayOutputWithContext(context.Background())
 }
 
-func (i *appTemplateContainerPtrType) ToAppTemplateContainerPtrOutput() AppTemplateContainerPtrOutput {
-	return i.ToAppTemplateContainerPtrOutputWithContext(context.Background())
-}
-
-func (i *appTemplateContainerPtrType) ToAppTemplateContainerPtrOutputWithContext(ctx context.Context) AppTemplateContainerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerPtrOutput)
+func (i AppTemplateContainerArray) ToAppTemplateContainerArrayOutputWithContext(ctx context.Context) AppTemplateContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerArrayOutput)
 }
 
 type AppTemplateContainerOutput struct{ *pulumi.OutputState }
@@ -1469,16 +1470,6 @@ func (o AppTemplateContainerOutput) ToAppTemplateContainerOutput() AppTemplateCo
 
 func (o AppTemplateContainerOutput) ToAppTemplateContainerOutputWithContext(ctx context.Context) AppTemplateContainerOutput {
 	return o
-}
-
-func (o AppTemplateContainerOutput) ToAppTemplateContainerPtrOutput() AppTemplateContainerPtrOutput {
-	return o.ToAppTemplateContainerPtrOutputWithContext(context.Background())
-}
-
-func (o AppTemplateContainerOutput) ToAppTemplateContainerPtrOutputWithContext(ctx context.Context) AppTemplateContainerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppTemplateContainer) *AppTemplateContainer {
-		return &v
-	}).(AppTemplateContainerPtrOutput)
 }
 
 // A list of extra arguments to pass to the container.
@@ -1496,7 +1487,7 @@ func (o AppTemplateContainerOutput) Cpu() pulumi.Float64Output {
 	return o.ApplyT(func(v AppTemplateContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
 
-// An `env` block as detailed below.
+// One or more `env` blocks as detailed below.
 func (o AppTemplateContainerOutput) Envs() AppTemplateContainerEnvArrayOutput {
 	return o.ApplyT(func(v AppTemplateContainer) []AppTemplateContainerEnv { return v.Envs }).(AppTemplateContainerEnvArrayOutput)
 }
@@ -1541,148 +1532,24 @@ func (o AppTemplateContainerOutput) VolumeMounts() AppTemplateContainerVolumeMou
 	return o.ApplyT(func(v AppTemplateContainer) []AppTemplateContainerVolumeMount { return v.VolumeMounts }).(AppTemplateContainerVolumeMountArrayOutput)
 }
 
-type AppTemplateContainerPtrOutput struct{ *pulumi.OutputState }
+type AppTemplateContainerArrayOutput struct{ *pulumi.OutputState }
 
-func (AppTemplateContainerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppTemplateContainer)(nil)).Elem()
+func (AppTemplateContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateContainer)(nil)).Elem()
 }
 
-func (o AppTemplateContainerPtrOutput) ToAppTemplateContainerPtrOutput() AppTemplateContainerPtrOutput {
+func (o AppTemplateContainerArrayOutput) ToAppTemplateContainerArrayOutput() AppTemplateContainerArrayOutput {
 	return o
 }
 
-func (o AppTemplateContainerPtrOutput) ToAppTemplateContainerPtrOutputWithContext(ctx context.Context) AppTemplateContainerPtrOutput {
+func (o AppTemplateContainerArrayOutput) ToAppTemplateContainerArrayOutputWithContext(ctx context.Context) AppTemplateContainerArrayOutput {
 	return o
 }
 
-func (o AppTemplateContainerPtrOutput) Elem() AppTemplateContainerOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) AppTemplateContainer {
-		if v != nil {
-			return *v
-		}
-		var ret AppTemplateContainer
-		return ret
+func (o AppTemplateContainerArrayOutput) Index(i pulumi.IntInput) AppTemplateContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateContainer {
+		return vs[0].([]AppTemplateContainer)[vs[1].(int)]
 	}).(AppTemplateContainerOutput)
-}
-
-// A list of extra arguments to pass to the container.
-func (o AppTemplateContainerPtrOutput) Args() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Args
-	}).(pulumi.StringArrayOutput)
-}
-
-// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
-func (o AppTemplateContainerPtrOutput) Commands() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Commands
-	}).(pulumi.StringArrayOutput)
-}
-
-// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
-func (o AppTemplateContainerPtrOutput) Cpu() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.Cpu
-	}).(pulumi.Float64PtrOutput)
-}
-
-// An `env` block as detailed below.
-func (o AppTemplateContainerPtrOutput) Envs() AppTemplateContainerEnvArrayOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) []AppTemplateContainerEnv {
-		if v == nil {
-			return nil
-		}
-		return v.Envs
-	}).(AppTemplateContainerEnvArrayOutput)
-}
-
-// The amount of ephemeral storage available to the Container App.
-func (o AppTemplateContainerPtrOutput) EphemeralStorage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EphemeralStorage
-	}).(pulumi.StringPtrOutput)
-}
-
-// The image to use to create the container.
-func (o AppTemplateContainerPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Image
-	}).(pulumi.StringPtrOutput)
-}
-
-// A `livenessProbe` block as detailed below.
-func (o AppTemplateContainerPtrOutput) LivenessProbes() AppTemplateContainerLivenessProbeArrayOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) []AppTemplateContainerLivenessProbe {
-		if v == nil {
-			return nil
-		}
-		return v.LivenessProbes
-	}).(AppTemplateContainerLivenessProbeArrayOutput)
-}
-
-// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
-func (o AppTemplateContainerPtrOutput) Memory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Memory
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the container
-func (o AppTemplateContainerPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// A `readinessProbe` block as detailed below.
-func (o AppTemplateContainerPtrOutput) ReadinessProbes() AppTemplateContainerReadinessProbeArrayOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) []AppTemplateContainerReadinessProbe {
-		if v == nil {
-			return nil
-		}
-		return v.ReadinessProbes
-	}).(AppTemplateContainerReadinessProbeArrayOutput)
-}
-
-// A `startupProbe` block as detailed below.
-func (o AppTemplateContainerPtrOutput) StartupProbes() AppTemplateContainerStartupProbeArrayOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) []AppTemplateContainerStartupProbe {
-		if v == nil {
-			return nil
-		}
-		return v.StartupProbes
-	}).(AppTemplateContainerStartupProbeArrayOutput)
-}
-
-// A `volumeMounts` block as detailed below.
-func (o AppTemplateContainerPtrOutput) VolumeMounts() AppTemplateContainerVolumeMountArrayOutput {
-	return o.ApplyT(func(v *AppTemplateContainer) []AppTemplateContainerVolumeMount {
-		if v == nil {
-			return nil
-		}
-		return v.VolumeMounts
-	}).(AppTemplateContainerVolumeMountArrayOutput)
 }
 
 type AppTemplateContainerEnv struct {
@@ -3096,7 +2963,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateInput)(nil)).Elem(), AppTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplatePtrInput)(nil)).Elem(), AppTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerInput)(nil)).Elem(), AppTemplateContainerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerPtrInput)(nil)).Elem(), AppTemplateContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerArrayInput)(nil)).Elem(), AppTemplateContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerEnvInput)(nil)).Elem(), AppTemplateContainerEnvArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerEnvArrayInput)(nil)).Elem(), AppTemplateContainerEnvArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerLivenessProbeInput)(nil)).Elem(), AppTemplateContainerLivenessProbeArgs{})
@@ -3136,7 +3003,7 @@ func init() {
 	pulumi.RegisterOutputType(AppTemplateOutput{})
 	pulumi.RegisterOutputType(AppTemplatePtrOutput{})
 	pulumi.RegisterOutputType(AppTemplateContainerOutput{})
-	pulumi.RegisterOutputType(AppTemplateContainerPtrOutput{})
+	pulumi.RegisterOutputType(AppTemplateContainerArrayOutput{})
 	pulumi.RegisterOutputType(AppTemplateContainerEnvOutput{})
 	pulumi.RegisterOutputType(AppTemplateContainerEnvArrayOutput{})
 	pulumi.RegisterOutputType(AppTemplateContainerLivenessProbeOutput{})

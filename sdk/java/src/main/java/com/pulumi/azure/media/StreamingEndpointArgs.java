@@ -187,14 +187,14 @@ public final class StreamingEndpointArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+     * The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+     * @return The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -217,14 +217,14 @@ public final class StreamingEndpointArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+     * The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
      * 
      */
     @Import(name="scaleUnits", required=true)
     private Output<Integer> scaleUnits;
 
     /**
-     * @return The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+     * @return The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
      * 
      */
     public Output<Integer> scaleUnits() {
@@ -526,7 +526,7 @@ public final class StreamingEndpointArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+         * @param name The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class StreamingEndpointArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+         * @param name The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class StreamingEndpointArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param scaleUnits The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+         * @param scaleUnits The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class StreamingEndpointArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param scaleUnits The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+         * @param scaleUnits The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
          * 
          * @return builder
          * 

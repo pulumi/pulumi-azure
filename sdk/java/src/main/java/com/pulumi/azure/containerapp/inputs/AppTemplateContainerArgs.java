@@ -68,14 +68,14 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * An `env` block as detailed below.
+     * One or more `env` blocks as detailed below.
      * 
      */
     @Import(name="envs")
     private @Nullable Output<List<AppTemplateContainerEnvArgs>> envs;
 
     /**
-     * @return An `env` block as detailed below.
+     * @return One or more `env` blocks as detailed below.
      * 
      */
     public Optional<Output<List<AppTemplateContainerEnvArgs>>> envs() {
@@ -321,7 +321,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param envs An `env` block as detailed below.
+         * @param envs One or more `env` blocks as detailed below.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param envs An `env` block as detailed below.
+         * @param envs One or more `env` blocks as detailed below.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param envs An `env` block as detailed below.
+         * @param envs One or more `env` blocks as detailed below.
          * 
          * @return builder
          * 

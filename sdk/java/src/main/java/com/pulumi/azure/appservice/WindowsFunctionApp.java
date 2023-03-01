@@ -119,14 +119,14 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="authSettings", type=WindowsFunctionAppAuthSettings.class, parameters={})
-    private Output<WindowsFunctionAppAuthSettings> authSettings;
+    private Output</* @Nullable */ WindowsFunctionAppAuthSettings> authSettings;
 
     /**
      * @return A `auth_settings` block as defined below.
      * 
      */
-    public Output<WindowsFunctionAppAuthSettings> authSettings() {
-        return this.authSettings;
+    public Output<Optional<WindowsFunctionAppAuthSettings>> authSettings() {
+        return Codegen.optional(this.authSettings);
     }
     /**
      * A `backup` block as defined below.

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Core.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+        /// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
         /// </summary>
         public readonly string Type;
 

@@ -11,7 +11,7 @@ import (
 )
 
 type ProtectionContainerMappingAutomaticUpdate struct {
-	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 	AutomationAccountId *string `pulumi:"automationAccountId"`
 	// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
@@ -29,7 +29,7 @@ type ProtectionContainerMappingAutomaticUpdateInput interface {
 }
 
 type ProtectionContainerMappingAutomaticUpdateArgs struct {
-	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 	AutomationAccountId pulumi.StringPtrInput `pulumi:"automationAccountId"`
 	// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -112,7 +112,7 @@ func (o ProtectionContainerMappingAutomaticUpdateOutput) ToProtectionContainerMa
 	}).(ProtectionContainerMappingAutomaticUpdatePtrOutput)
 }
 
-// The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 func (o ProtectionContainerMappingAutomaticUpdateOutput) AutomationAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingAutomaticUpdate) *string { return v.AutomationAccountId }).(pulumi.StringPtrOutput)
 }
@@ -146,7 +146,7 @@ func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) Elem() ProtectionCon
 	}).(ProtectionContainerMappingAutomaticUpdateOutput)
 }
 
-// The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) AutomationAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingAutomaticUpdate) *string {
 		if v == nil {

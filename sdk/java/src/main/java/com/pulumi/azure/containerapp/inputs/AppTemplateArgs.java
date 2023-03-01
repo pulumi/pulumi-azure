@@ -20,18 +20,18 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     public static final AppTemplateArgs Empty = new AppTemplateArgs();
 
     /**
-     * A `container` block as detailed below.
+     * One or more `container` blocks as detailed below.
      * 
      */
-    @Import(name="container", required=true)
-    private Output<AppTemplateContainerArgs> container;
+    @Import(name="containers", required=true)
+    private Output<List<AppTemplateContainerArgs>> containers;
 
     /**
-     * @return A `container` block as detailed below.
+     * @return One or more `container` blocks as detailed below.
      * 
      */
-    public Output<AppTemplateContainerArgs> container() {
-        return this.container;
+    public Output<List<AppTemplateContainerArgs>> containers() {
+        return this.containers;
     }
 
     /**
@@ -97,7 +97,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     private AppTemplateArgs() {}
 
     private AppTemplateArgs(AppTemplateArgs $) {
-        this.container = $.container;
+        this.containers = $.containers;
         this.maxReplicas = $.maxReplicas;
         this.minReplicas = $.minReplicas;
         this.revisionSuffix = $.revisionSuffix;
@@ -123,24 +123,34 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param container A `container` block as detailed below.
+         * @param containers One or more `container` blocks as detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder container(Output<AppTemplateContainerArgs> container) {
-            $.container = container;
+        public Builder containers(Output<List<AppTemplateContainerArgs>> containers) {
+            $.containers = containers;
             return this;
         }
 
         /**
-         * @param container A `container` block as detailed below.
+         * @param containers One or more `container` blocks as detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder container(AppTemplateContainerArgs container) {
-            return container(Output.of(container));
+        public Builder containers(List<AppTemplateContainerArgs> containers) {
+            return containers(Output.of(containers));
+        }
+
+        /**
+         * @param containers One or more `container` blocks as detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containers(AppTemplateContainerArgs... containers) {
+            return containers(List.of(containers));
         }
 
         /**
@@ -238,7 +248,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AppTemplateArgs build() {
-            $.container = Objects.requireNonNull($.container, "expected parameter 'container' to be non-null");
+            $.containers = Objects.requireNonNull($.containers, "expected parameter 'containers' to be non-null");
             return $;
         }
     }

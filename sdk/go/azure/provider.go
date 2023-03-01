@@ -17,6 +17,8 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
+	// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+	ClientCertificate pulumi.StringPtrOutput `pulumi:"clientCertificate"`
 	// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
 	// Certificate
 	ClientCertificatePassword pulumi.StringPtrOutput `pulumi:"clientCertificatePassword"`
@@ -84,6 +86,8 @@ func NewProvider(ctx *pulumi.Context,
 
 type providerArgs struct {
 	AuxiliaryTenantIds []string `pulumi:"auxiliaryTenantIds"`
+	// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+	ClientCertificate *string `pulumi:"clientCertificate"`
 	// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
 	// Certificate
 	ClientCertificatePassword *string `pulumi:"clientCertificatePassword"`
@@ -127,7 +131,9 @@ type providerArgs struct {
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Tenant ID which should be used.
 	TenantId *string `pulumi:"tenantId"`
-	// Allowed Managed Service Identity be used for Authentication.
+	// Allow Azure CLI to be used for Authentication.
+	UseCli *bool `pulumi:"useCli"`
+	// Allow Managed Service Identity to be used for Authentication.
 	UseMsi *bool `pulumi:"useMsi"`
 	// Allow OpenID Connect to be used for authentication
 	UseOidc *bool `pulumi:"useOidc"`
@@ -136,6 +142,8 @@ type providerArgs struct {
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
 	AuxiliaryTenantIds pulumi.StringArrayInput
+	// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+	ClientCertificate pulumi.StringPtrInput
 	// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
 	// Certificate
 	ClientCertificatePassword pulumi.StringPtrInput
@@ -179,7 +187,9 @@ type ProviderArgs struct {
 	SubscriptionId pulumi.StringPtrInput
 	// The Tenant ID which should be used.
 	TenantId pulumi.StringPtrInput
-	// Allowed Managed Service Identity be used for Authentication.
+	// Allow Azure CLI to be used for Authentication.
+	UseCli pulumi.BoolPtrInput
+	// Allow Managed Service Identity to be used for Authentication.
 	UseMsi pulumi.BoolPtrInput
 	// Allow OpenID Connect to be used for authentication
 	UseOidc pulumi.BoolPtrInput
@@ -220,6 +230,11 @@ func (o ProviderOutput) ToProviderOutput() ProviderOutput {
 
 func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
 	return o
+}
+
+// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+func (o ProviderOutput) ClientCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientCertificate }).(pulumi.StringPtrOutput)
 }
 
 // The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client

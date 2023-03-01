@@ -12,11 +12,17 @@ namespace Pulumi.Azure.ContainerApp.Inputs
 
     public sealed class AppTemplateGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("containers", required: true)]
+        private InputList<Inputs.AppTemplateContainerGetArgs>? _containers;
+
         /// <summary>
-        /// A `container` block as detailed below.
+        /// One or more `container` blocks as detailed below.
         /// </summary>
-        [Input("container", required: true)]
-        public Input<Inputs.AppTemplateContainerGetArgs> Container { get; set; } = null!;
+        public InputList<Inputs.AppTemplateContainerGetArgs> Containers
+        {
+            get => _containers ?? (_containers = new InputList<Inputs.AppTemplateContainerGetArgs>());
+            set => _containers = value;
+        }
 
         /// <summary>
         /// The maximum number of replicas for this container.

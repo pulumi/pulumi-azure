@@ -2152,19 +2152,18 @@ class ManagementPolicyRuleArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input['ManagementPolicyRuleActionsArgs'],
                  enabled: pulumi.Input[bool],
-                 name: pulumi.Input[str],
-                 filters: Optional[pulumi.Input['ManagementPolicyRuleFiltersArgs']] = None):
+                 filters: pulumi.Input['ManagementPolicyRuleFiltersArgs'],
+                 name: pulumi.Input[str]):
         """
         :param pulumi.Input['ManagementPolicyRuleActionsArgs'] actions: An `actions` block as documented below.
         :param pulumi.Input[bool] enabled: Boolean to specify whether the rule is enabled.
-        :param pulumi.Input[str] name: The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         :param pulumi.Input['ManagementPolicyRuleFiltersArgs'] filters: A `filters` block as documented below.
+        :param pulumi.Input[str] name: The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "name", name)
-        if filters is not None:
-            pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
@@ -2192,6 +2191,18 @@ class ManagementPolicyRuleArgs:
 
     @property
     @pulumi.getter
+    def filters(self) -> pulumi.Input['ManagementPolicyRuleFiltersArgs']:
+        """
+        A `filters` block as documented below.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input['ManagementPolicyRuleFiltersArgs']):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
         The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
@@ -2201,18 +2212,6 @@ class ManagementPolicyRuleArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input['ManagementPolicyRuleFiltersArgs']]:
-        """
-        A `filters` block as documented below.
-        """
-        return pulumi.get(self, "filters")
-
-    @filters.setter
-    def filters(self, value: Optional[pulumi.Input['ManagementPolicyRuleFiltersArgs']]):
-        pulumi.set(self, "filters", value)
 
 
 @pulumi.input_type

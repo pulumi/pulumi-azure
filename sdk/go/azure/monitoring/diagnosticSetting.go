@@ -36,21 +36,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
-//				Name:              pulumi.String("examplestoracc"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			}, nil)
-//			exampleKeyVault := keyvault.LookupKeyVaultOutput(ctx, keyvault.GetKeyVaultOutputArgs{
-//				Name:              pulumi.String("example-vault"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			}, nil)
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				TenantId:                *pulumi.String(current.TenantId),
+//				SoftDeleteRetentionDays: pulumi.Int(7),
+//				PurgeProtectionEnabled:  pulumi.Bool(false),
+//				SkuName:                 pulumi.String("standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = monitoring.NewDiagnosticSetting(ctx, "exampleDiagnosticSetting", &monitoring.DiagnosticSettingArgs{
-//				TargetResourceId: exampleKeyVault.ApplyT(func(exampleKeyVault keyvault.GetKeyVaultResult) (*string, error) {
-//					return &exampleKeyVault.Id, nil
-//				}).(pulumi.StringPtrOutput),
-//				StorageAccountId: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (*string, error) {
-//					return &exampleAccount.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				TargetResourceId: exampleKeyVault.ID(),
+//				StorageAccountId: exampleAccount.ID(),
 //				EnabledLogs: monitoring.DiagnosticSettingEnabledLogArray{
 //					&monitoring.DiagnosticSettingEnabledLogArgs{
 //						Category: pulumi.String("AuditEvent"),
@@ -95,8 +107,8 @@ type DiagnosticSetting struct {
 	EventhubAuthorizationRuleId pulumi.StringPtrOutput `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent.
 	EventhubName pulumi.StringPtrOutput `pulumi:"eventhubName"`
-	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
-	LogAnalyticsDestinationType pulumi.StringPtrOutput `pulumi:"logAnalyticsDestinationType"`
+	// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
+	LogAnalyticsDestinationType pulumi.StringOutput `pulumi:"logAnalyticsDestinationType"`
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// One or more `log` blocks as defined below.
@@ -153,7 +165,7 @@ type diagnosticSettingState struct {
 	EventhubAuthorizationRuleId *string `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent.
 	EventhubName *string `pulumi:"eventhubName"`
-	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
@@ -180,7 +192,7 @@ type DiagnosticSettingState struct {
 	EventhubAuthorizationRuleId pulumi.StringPtrInput
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent.
 	EventhubName pulumi.StringPtrInput
-	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
 	LogAnalyticsDestinationType pulumi.StringPtrInput
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
@@ -211,7 +223,7 @@ type diagnosticSettingArgs struct {
 	EventhubAuthorizationRuleId *string `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent.
 	EventhubName *string `pulumi:"eventhubName"`
-	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
@@ -239,7 +251,7 @@ type DiagnosticSettingArgs struct {
 	EventhubAuthorizationRuleId pulumi.StringPtrInput
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent.
 	EventhubName pulumi.StringPtrInput
-	// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
 	LogAnalyticsDestinationType pulumi.StringPtrInput
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
@@ -361,9 +373,9 @@ func (o DiagnosticSettingOutput) EventhubName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.EventhubName }).(pulumi.StringPtrOutput)
 }
 
-// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
-func (o DiagnosticSettingOutput) LogAnalyticsDestinationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.LogAnalyticsDestinationType }).(pulumi.StringPtrOutput)
+// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
+func (o DiagnosticSettingOutput) LogAnalyticsDestinationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringOutput { return v.LogAnalyticsDestinationType }).(pulumi.StringOutput)
 }
 
 // Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.

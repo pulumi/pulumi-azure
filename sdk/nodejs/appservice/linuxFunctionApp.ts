@@ -81,7 +81,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
     /**
      * A `authSettings` block as defined below.
      */
-    public readonly authSettings!: pulumi.Output<outputs.appservice.LinuxFunctionAppAuthSettings>;
+    public readonly authSettings!: pulumi.Output<outputs.appservice.LinuxFunctionAppAuthSettings | undefined>;
     /**
      * A `backup` block as defined below.
      */

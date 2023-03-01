@@ -66,6 +66,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<bool?> ClientCertificateEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// A `delegation` block as defined below.
+        /// </summary>
+        [Output("delegation")]
+        public Output<Outputs.ServiceDelegation> Delegation { get; private set; } = null!;
+
+        /// <summary>
         /// The URL for the Developer Portal associated with this API Management service.
         /// </summary>
         [Output("developerPortalUrl")]
@@ -328,6 +334,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? ClientCertificateEnabled { get; set; }
 
         /// <summary>
+        /// A `delegation` block as defined below.
+        /// </summary>
+        [Input("delegation")]
+        public Input<Inputs.ServiceDelegationArgs>? Delegation { get; set; }
+
+        /// <summary>
         /// Disable the gateway in main region? This is only supported when `additional_location` is set.
         /// </summary>
         [Input("gatewayDisabled")]
@@ -514,6 +526,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("clientCertificateEnabled")]
         public Input<bool>? ClientCertificateEnabled { get; set; }
+
+        /// <summary>
+        /// A `delegation` block as defined below.
+        /// </summary>
+        [Input("delegation")]
+        public Input<Inputs.ServiceDelegationGetArgs>? Delegation { get; set; }
 
         /// <summary>
         /// The URL for the Developer Portal associated with this API Management service.

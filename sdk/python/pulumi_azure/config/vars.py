@@ -21,6 +21,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('auxiliaryTenantIds')
 
     @property
+    def client_certificate(self) -> Optional[str]:
+        """
+        Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        """
+        return __config__.get('clientCertificate')
+
+    @property
     def client_certificate_password(self) -> Optional[str]:
         """
         The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
@@ -161,9 +168,16 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('tenantId')
 
     @property
+    def use_cli(self) -> Optional[bool]:
+        """
+        Allow Azure CLI to be used for Authentication.
+        """
+        return __config__.get_bool('useCli')
+
+    @property
     def use_msi(self) -> Optional[bool]:
         """
-        Allowed Managed Service Identity be used for Authentication.
+        Allow Managed Service Identity to be used for Authentication.
         """
         return __config__.get_bool('useMsi')
 

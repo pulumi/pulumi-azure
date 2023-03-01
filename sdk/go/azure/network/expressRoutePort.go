@@ -64,6 +64,8 @@ type ExpressRoutePort struct {
 
 	// Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
 	BandwidthInGbps pulumi.IntOutput `pulumi:"bandwidthInGbps"`
+	// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+	BillingType pulumi.StringOutput `pulumi:"billingType"`
 	// The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
 	Encapsulation pulumi.StringOutput `pulumi:"encapsulation"`
 	// The EtherType of the Express Route Port.
@@ -133,6 +135,8 @@ func GetExpressRoutePort(ctx *pulumi.Context,
 type expressRoutePortState struct {
 	// Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
 	BandwidthInGbps *int `pulumi:"bandwidthInGbps"`
+	// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+	BillingType *string `pulumi:"billingType"`
 	// The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
 	Encapsulation *string `pulumi:"encapsulation"`
 	// The EtherType of the Express Route Port.
@@ -162,6 +166,8 @@ type expressRoutePortState struct {
 type ExpressRoutePortState struct {
 	// Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
 	BandwidthInGbps pulumi.IntPtrInput
+	// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+	BillingType pulumi.StringPtrInput
 	// The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
 	Encapsulation pulumi.StringPtrInput
 	// The EtherType of the Express Route Port.
@@ -195,6 +201,8 @@ func (ExpressRoutePortState) ElementType() reflect.Type {
 type expressRoutePortArgs struct {
 	// Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
 	BandwidthInGbps int `pulumi:"bandwidthInGbps"`
+	// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+	BillingType *string `pulumi:"billingType"`
 	// The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
 	Encapsulation string `pulumi:"encapsulation"`
 	// An `identity` block as defined below.
@@ -219,6 +227,8 @@ type expressRoutePortArgs struct {
 type ExpressRoutePortArgs struct {
 	// Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
 	BandwidthInGbps pulumi.IntInput
+	// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+	BillingType pulumi.StringPtrInput
 	// The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
 	Encapsulation pulumi.StringInput
 	// An `identity` block as defined below.
@@ -329,6 +339,11 @@ func (o ExpressRoutePortOutput) ToExpressRoutePortOutputWithContext(ctx context.
 // Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
 func (o ExpressRoutePortOutput) BandwidthInGbps() pulumi.IntOutput {
 	return o.ApplyT(func(v *ExpressRoutePort) pulumi.IntOutput { return v.BandwidthInGbps }).(pulumi.IntOutput)
+}
+
+// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+func (o ExpressRoutePortOutput) BillingType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringOutput { return v.BillingType }).(pulumi.StringOutput)
 }
 
 // The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.

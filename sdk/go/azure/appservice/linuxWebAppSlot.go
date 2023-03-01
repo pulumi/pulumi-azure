@@ -83,8 +83,10 @@ type LinuxWebAppSlot struct {
 	AppServiceId pulumi.StringOutput `pulumi:"appServiceId"`
 	// A map of key-value pairs of App Settings.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
-	// A `authSettings` block as defined below.
-	AuthSettings LinuxWebAppSlotAuthSettingsOutput `pulumi:"authSettings"`
+	// An `authSettings` block as defined below.
+	AuthSettings LinuxWebAppSlotAuthSettingsPtrOutput `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 LinuxWebAppSlotAuthSettingsV2PtrOutput `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup LinuxWebAppSlotBackupPtrOutput `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -184,8 +186,10 @@ type linuxWebAppSlotState struct {
 	AppServiceId *string `pulumi:"appServiceId"`
 	// A map of key-value pairs of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
-	// A `authSettings` block as defined below.
+	// An `authSettings` block as defined below.
 	AuthSettings *LinuxWebAppSlotAuthSettings `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 *LinuxWebAppSlotAuthSettingsV2 `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup *LinuxWebAppSlotBackup `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -247,8 +251,10 @@ type LinuxWebAppSlotState struct {
 	AppServiceId pulumi.StringPtrInput
 	// A map of key-value pairs of App Settings.
 	AppSettings pulumi.StringMapInput
-	// A `authSettings` block as defined below.
+	// An `authSettings` block as defined below.
 	AuthSettings LinuxWebAppSlotAuthSettingsPtrInput
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 LinuxWebAppSlotAuthSettingsV2PtrInput
 	// A `backup` block as defined below.
 	Backup LinuxWebAppSlotBackupPtrInput
 	// Should Client Affinity be enabled?
@@ -312,8 +318,10 @@ type linuxWebAppSlotArgs struct {
 	AppServiceId string `pulumi:"appServiceId"`
 	// A map of key-value pairs of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
-	// A `authSettings` block as defined below.
+	// An `authSettings` block as defined below.
 	AuthSettings *LinuxWebAppSlotAuthSettings `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 *LinuxWebAppSlotAuthSettingsV2 `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup *LinuxWebAppSlotBackup `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -358,8 +366,10 @@ type LinuxWebAppSlotArgs struct {
 	AppServiceId pulumi.StringInput
 	// A map of key-value pairs of App Settings.
 	AppSettings pulumi.StringMapInput
-	// A `authSettings` block as defined below.
+	// An `authSettings` block as defined below.
 	AuthSettings LinuxWebAppSlotAuthSettingsPtrInput
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 LinuxWebAppSlotAuthSettingsV2PtrInput
 	// A `backup` block as defined below.
 	Backup LinuxWebAppSlotBackupPtrInput
 	// Should Client Affinity be enabled?
@@ -500,9 +510,14 @@ func (o LinuxWebAppSlotOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }
 
-// A `authSettings` block as defined below.
-func (o LinuxWebAppSlotOutput) AuthSettings() LinuxWebAppSlotAuthSettingsOutput {
-	return o.ApplyT(func(v *LinuxWebAppSlot) LinuxWebAppSlotAuthSettingsOutput { return v.AuthSettings }).(LinuxWebAppSlotAuthSettingsOutput)
+// An `authSettings` block as defined below.
+func (o LinuxWebAppSlotOutput) AuthSettings() LinuxWebAppSlotAuthSettingsPtrOutput {
+	return o.ApplyT(func(v *LinuxWebAppSlot) LinuxWebAppSlotAuthSettingsPtrOutput { return v.AuthSettings }).(LinuxWebAppSlotAuthSettingsPtrOutput)
+}
+
+// An `authSettingsV2` block as defined below.
+func (o LinuxWebAppSlotOutput) AuthSettingsV2() LinuxWebAppSlotAuthSettingsV2PtrOutput {
+	return o.ApplyT(func(v *LinuxWebAppSlot) LinuxWebAppSlotAuthSettingsV2PtrOutput { return v.AuthSettingsV2 }).(LinuxWebAppSlotAuthSettingsV2PtrOutput)
 }
 
 // A `backup` block as defined below.

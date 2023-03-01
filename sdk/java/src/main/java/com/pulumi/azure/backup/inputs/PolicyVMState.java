@@ -4,6 +4,7 @@
 package com.pulumi.azure.backup.inputs;
 
 import com.pulumi.azure.backup.inputs.PolicyVMBackupArgs;
+import com.pulumi.azure.backup.inputs.PolicyVMInstantRestoreResourceGroupArgs;
 import com.pulumi.azure.backup.inputs.PolicyVMRetentionDailyArgs;
 import com.pulumi.azure.backup.inputs.PolicyVMRetentionMonthlyArgs;
 import com.pulumi.azure.backup.inputs.PolicyVMRetentionWeeklyArgs;
@@ -34,6 +35,13 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<PolicyVMBackupArgs>> backup() {
         return Optional.ofNullable(this.backup);
+    }
+
+    @Import(name="instantRestoreResourceGroup")
+    private @Nullable Output<PolicyVMInstantRestoreResourceGroupArgs> instantRestoreResourceGroup;
+
+    public Optional<Output<PolicyVMInstantRestoreResourceGroupArgs>> instantRestoreResourceGroup() {
+        return Optional.ofNullable(this.instantRestoreResourceGroup);
     }
 
     /**
@@ -190,6 +198,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
 
     private PolicyVMState(PolicyVMState $) {
         this.backup = $.backup;
+        this.instantRestoreResourceGroup = $.instantRestoreResourceGroup;
         this.instantRestoreRetentionDays = $.instantRestoreRetentionDays;
         this.name = $.name;
         this.policyType = $.policyType;
@@ -239,6 +248,15 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder backup(PolicyVMBackupArgs backup) {
             return backup(Output.of(backup));
+        }
+
+        public Builder instantRestoreResourceGroup(@Nullable Output<PolicyVMInstantRestoreResourceGroupArgs> instantRestoreResourceGroup) {
+            $.instantRestoreResourceGroup = instantRestoreResourceGroup;
+            return this;
+        }
+
+        public Builder instantRestoreResourceGroup(PolicyVMInstantRestoreResourceGroupArgs instantRestoreResourceGroup) {
+            return instantRestoreResourceGroup(Output.of(instantRestoreResourceGroup));
         }
 
         /**

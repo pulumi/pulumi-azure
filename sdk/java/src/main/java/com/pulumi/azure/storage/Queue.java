@@ -102,9 +102,17 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The Resource Manager ID of this Storage Queue.
+     * 
+     */
     @Export(name="resourceManagerId", type=String.class, parameters={})
     private Output<String> resourceManagerId;
 
+    /**
+     * @return The Resource Manager ID of this Storage Queue.
+     * 
+     */
     public Output<String> resourceManagerId() {
         return this.resourceManagerId;
     }

@@ -62,14 +62,14 @@ public final class SubscriptionPolicyAssignmentIdentityArgs extends com.pulumi.r
     }
 
     /**
-     * The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+     * The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+     * @return The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -177,7 +177,7 @@ public final class SubscriptionPolicyAssignmentIdentityArgs extends com.pulumi.r
         }
 
         /**
-         * @param type The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+         * @param type The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class SubscriptionPolicyAssignmentIdentityArgs extends com.pulumi.r
         }
 
         /**
-         * @param type The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+         * @param type The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
          * 
          * @return builder
          * 

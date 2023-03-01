@@ -7,6 +7,8 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Front Door (standard/premium) Secret.
+ *
  * ## Example Usage
  *
  * ```typescript

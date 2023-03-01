@@ -16,17 +16,24 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = azure.storage.getAccountOutput({
- *     name: "examplestoracc",
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
  * });
- * const exampleKeyVault = azure.keyvault.getKeyVaultOutput({
- *     name: "example-vault",
+ * const current = azure.core.getClientConfig({});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     softDeleteRetentionDays: 7,
+ *     purgeProtectionEnabled: false,
+ *     skuName: "standard",
  * });
  * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting", {
- *     targetResourceId: exampleKeyVault.apply(exampleKeyVault => exampleKeyVault.id),
- *     storageAccountId: exampleAccount.apply(exampleAccount => exampleAccount.id),
+ *     targetResourceId: exampleKeyVault.id,
+ *     storageAccountId: exampleAccount.id,
  *     enabledLogs: [{
  *         category: "AuditEvent",
  *         retentionPolicy: {
@@ -91,9 +98,9 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly eventhubName!: pulumi.Output<string | undefined>;
     /**
-     * Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      */
-    public readonly logAnalyticsDestinationType!: pulumi.Output<string | undefined>;
+    public readonly logAnalyticsDestinationType!: pulumi.Output<string>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      */
@@ -188,7 +195,7 @@ export interface DiagnosticSettingState {
      */
     eventhubName?: pulumi.Input<string>;
     /**
-     * Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      */
     logAnalyticsDestinationType?: pulumi.Input<string>;
     /**
@@ -240,7 +247,7 @@ export interface DiagnosticSettingArgs {
      */
     eventhubName?: pulumi.Input<string>;
     /**
-     * Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      */
     logAnalyticsDestinationType?: pulumi.Input<string>;
     /**

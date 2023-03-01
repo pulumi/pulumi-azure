@@ -85,7 +85,7 @@ type WindowsFunctionApp struct {
 	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
-	AuthSettings WindowsFunctionAppAuthSettingsOutput `pulumi:"authSettings"`
+	AuthSettings WindowsFunctionAppAuthSettingsPtrOutput `pulumi:"authSettings"`
 	// A `backup` block as defined below.
 	Backup WindowsFunctionAppBackupPtrOutput `pulumi:"backup"`
 	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
@@ -567,8 +567,8 @@ func (o WindowsFunctionAppOutput) AppSettings() pulumi.StringMapOutput {
 }
 
 // A `authSettings` block as defined below.
-func (o WindowsFunctionAppOutput) AuthSettings() WindowsFunctionAppAuthSettingsOutput {
-	return o.ApplyT(func(v *WindowsFunctionApp) WindowsFunctionAppAuthSettingsOutput { return v.AuthSettings }).(WindowsFunctionAppAuthSettingsOutput)
+func (o WindowsFunctionAppOutput) AuthSettings() WindowsFunctionAppAuthSettingsPtrOutput {
+	return o.ApplyT(func(v *WindowsFunctionApp) WindowsFunctionAppAuthSettingsPtrOutput { return v.AuthSettings }).(WindowsFunctionAppAuthSettingsPtrOutput)
 }
 
 // A `backup` block as defined below.

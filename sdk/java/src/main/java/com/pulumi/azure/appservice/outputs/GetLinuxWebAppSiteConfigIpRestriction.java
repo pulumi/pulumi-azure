@@ -26,6 +26,10 @@ public final class GetLinuxWebAppSiteConfigIpRestriction {
     private String name;
     private Integer priority;
     private String serviceTag;
+    /**
+     * @return The subnet id which the Linux Web App is vNet Integrated with.
+     * 
+     */
     private String virtualNetworkSubnetId;
 
     private GetLinuxWebAppSiteConfigIpRestriction() {}
@@ -55,6 +59,10 @@ public final class GetLinuxWebAppSiteConfigIpRestriction {
     public String serviceTag() {
         return this.serviceTag;
     }
+    /**
+     * @return The subnet id which the Linux Web App is vNet Integrated with.
+     * 
+     */
     public String virtualNetworkSubnetId() {
         return this.virtualNetworkSubnetId;
     }

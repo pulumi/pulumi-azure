@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ManagementPolicyRule {
@@ -28,7 +26,7 @@ public final class ManagementPolicyRule {
      * @return A `filters` block as documented below.
      * 
      */
-    private @Nullable ManagementPolicyRuleFilters filters;
+    private ManagementPolicyRuleFilters filters;
     /**
      * @return The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
      * 
@@ -54,8 +52,8 @@ public final class ManagementPolicyRule {
      * @return A `filters` block as documented below.
      * 
      */
-    public Optional<ManagementPolicyRuleFilters> filters() {
-        return Optional.ofNullable(this.filters);
+    public ManagementPolicyRuleFilters filters() {
+        return this.filters;
     }
     /**
      * @return The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
@@ -76,7 +74,7 @@ public final class ManagementPolicyRule {
     public static final class Builder {
         private ManagementPolicyRuleActions actions;
         private Boolean enabled;
-        private @Nullable ManagementPolicyRuleFilters filters;
+        private ManagementPolicyRuleFilters filters;
         private String name;
         public Builder() {}
         public Builder(ManagementPolicyRule defaults) {
@@ -98,8 +96,8 @@ public final class ManagementPolicyRule {
             return this;
         }
         @CustomType.Setter
-        public Builder filters(@Nullable ManagementPolicyRuleFilters filters) {
-            this.filters = filters;
+        public Builder filters(ManagementPolicyRuleFilters filters) {
+            this.filters = Objects.requireNonNull(filters);
             return this;
         }
         @CustomType.Setter

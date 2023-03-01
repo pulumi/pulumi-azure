@@ -8,6 +8,7 @@ import com.pulumi.azure.apimanagement.ServiceArgs;
 import com.pulumi.azure.apimanagement.inputs.ServiceState;
 import com.pulumi.azure.apimanagement.outputs.ServiceAdditionalLocation;
 import com.pulumi.azure.apimanagement.outputs.ServiceCertificate;
+import com.pulumi.azure.apimanagement.outputs.ServiceDelegation;
 import com.pulumi.azure.apimanagement.outputs.ServiceHostnameConfiguration;
 import com.pulumi.azure.apimanagement.outputs.ServiceIdentity;
 import com.pulumi.azure.apimanagement.outputs.ServicePolicy;
@@ -121,6 +122,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> clientCertificateEnabled() {
         return Codegen.optional(this.clientCertificateEnabled);
+    }
+    /**
+     * A `delegation` block as defined below.
+     * 
+     */
+    @Export(name="delegation", type=ServiceDelegation.class, parameters={})
+    private Output<ServiceDelegation> delegation;
+
+    /**
+     * @return A `delegation` block as defined below.
+     * 
+     */
+    public Output<ServiceDelegation> delegation() {
+        return this.delegation;
     }
     /**
      * The URL for the Developer Portal associated with this API Management service.

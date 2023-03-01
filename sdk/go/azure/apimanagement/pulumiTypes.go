@@ -11281,6 +11281,200 @@ func (o ServiceCertificateArrayOutput) Index(i pulumi.IntInput) ServiceCertifica
 	}).(ServiceCertificateOutput)
 }
 
+type ServiceDelegation struct {
+	// Should subscription requests be delegated to an external url? Defaults to `false`.
+	SubscriptionsEnabled *bool `pulumi:"subscriptionsEnabled"`
+	// The delegation URL.
+	Url *string `pulumi:"url"`
+	// Should user registration requests be delegated to an external url? Defaults to `false`.
+	UserRegistrationEnabled *bool `pulumi:"userRegistrationEnabled"`
+	// A base64-encoded validation key to validate, that a request is coming from Azure API Management.
+	ValidationKey *string `pulumi:"validationKey"`
+}
+
+// ServiceDelegationInput is an input type that accepts ServiceDelegationArgs and ServiceDelegationOutput values.
+// You can construct a concrete instance of `ServiceDelegationInput` via:
+//
+//	ServiceDelegationArgs{...}
+type ServiceDelegationInput interface {
+	pulumi.Input
+
+	ToServiceDelegationOutput() ServiceDelegationOutput
+	ToServiceDelegationOutputWithContext(context.Context) ServiceDelegationOutput
+}
+
+type ServiceDelegationArgs struct {
+	// Should subscription requests be delegated to an external url? Defaults to `false`.
+	SubscriptionsEnabled pulumi.BoolPtrInput `pulumi:"subscriptionsEnabled"`
+	// The delegation URL.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+	// Should user registration requests be delegated to an external url? Defaults to `false`.
+	UserRegistrationEnabled pulumi.BoolPtrInput `pulumi:"userRegistrationEnabled"`
+	// A base64-encoded validation key to validate, that a request is coming from Azure API Management.
+	ValidationKey pulumi.StringPtrInput `pulumi:"validationKey"`
+}
+
+func (ServiceDelegationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDelegation)(nil)).Elem()
+}
+
+func (i ServiceDelegationArgs) ToServiceDelegationOutput() ServiceDelegationOutput {
+	return i.ToServiceDelegationOutputWithContext(context.Background())
+}
+
+func (i ServiceDelegationArgs) ToServiceDelegationOutputWithContext(ctx context.Context) ServiceDelegationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDelegationOutput)
+}
+
+func (i ServiceDelegationArgs) ToServiceDelegationPtrOutput() ServiceDelegationPtrOutput {
+	return i.ToServiceDelegationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDelegationArgs) ToServiceDelegationPtrOutputWithContext(ctx context.Context) ServiceDelegationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDelegationOutput).ToServiceDelegationPtrOutputWithContext(ctx)
+}
+
+// ServiceDelegationPtrInput is an input type that accepts ServiceDelegationArgs, ServiceDelegationPtr and ServiceDelegationPtrOutput values.
+// You can construct a concrete instance of `ServiceDelegationPtrInput` via:
+//
+//	        ServiceDelegationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceDelegationPtrInput interface {
+	pulumi.Input
+
+	ToServiceDelegationPtrOutput() ServiceDelegationPtrOutput
+	ToServiceDelegationPtrOutputWithContext(context.Context) ServiceDelegationPtrOutput
+}
+
+type serviceDelegationPtrType ServiceDelegationArgs
+
+func ServiceDelegationPtr(v *ServiceDelegationArgs) ServiceDelegationPtrInput {
+	return (*serviceDelegationPtrType)(v)
+}
+
+func (*serviceDelegationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDelegation)(nil)).Elem()
+}
+
+func (i *serviceDelegationPtrType) ToServiceDelegationPtrOutput() ServiceDelegationPtrOutput {
+	return i.ToServiceDelegationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDelegationPtrType) ToServiceDelegationPtrOutputWithContext(ctx context.Context) ServiceDelegationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDelegationPtrOutput)
+}
+
+type ServiceDelegationOutput struct{ *pulumi.OutputState }
+
+func (ServiceDelegationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDelegation)(nil)).Elem()
+}
+
+func (o ServiceDelegationOutput) ToServiceDelegationOutput() ServiceDelegationOutput {
+	return o
+}
+
+func (o ServiceDelegationOutput) ToServiceDelegationOutputWithContext(ctx context.Context) ServiceDelegationOutput {
+	return o
+}
+
+func (o ServiceDelegationOutput) ToServiceDelegationPtrOutput() ServiceDelegationPtrOutput {
+	return o.ToServiceDelegationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDelegationOutput) ToServiceDelegationPtrOutputWithContext(ctx context.Context) ServiceDelegationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDelegation) *ServiceDelegation {
+		return &v
+	}).(ServiceDelegationPtrOutput)
+}
+
+// Should subscription requests be delegated to an external url? Defaults to `false`.
+func (o ServiceDelegationOutput) SubscriptionsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceDelegation) *bool { return v.SubscriptionsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The delegation URL.
+func (o ServiceDelegationOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDelegation) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// Should user registration requests be delegated to an external url? Defaults to `false`.
+func (o ServiceDelegationOutput) UserRegistrationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceDelegation) *bool { return v.UserRegistrationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A base64-encoded validation key to validate, that a request is coming from Azure API Management.
+func (o ServiceDelegationOutput) ValidationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDelegation) *string { return v.ValidationKey }).(pulumi.StringPtrOutput)
+}
+
+type ServiceDelegationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDelegationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDelegation)(nil)).Elem()
+}
+
+func (o ServiceDelegationPtrOutput) ToServiceDelegationPtrOutput() ServiceDelegationPtrOutput {
+	return o
+}
+
+func (o ServiceDelegationPtrOutput) ToServiceDelegationPtrOutputWithContext(ctx context.Context) ServiceDelegationPtrOutput {
+	return o
+}
+
+func (o ServiceDelegationPtrOutput) Elem() ServiceDelegationOutput {
+	return o.ApplyT(func(v *ServiceDelegation) ServiceDelegation {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDelegation
+		return ret
+	}).(ServiceDelegationOutput)
+}
+
+// Should subscription requests be delegated to an external url? Defaults to `false`.
+func (o ServiceDelegationPtrOutput) SubscriptionsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceDelegation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The delegation URL.
+func (o ServiceDelegationPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDelegation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+// Should user registration requests be delegated to an external url? Defaults to `false`.
+func (o ServiceDelegationPtrOutput) UserRegistrationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceDelegation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UserRegistrationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A base64-encoded validation key to validate, that a request is coming from Azure API Management.
+func (o ServiceDelegationPtrOutput) ValidationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDelegation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationKey
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceHostnameConfiguration struct {
 	// One or more `developerPortal` blocks as documented below.
 	DeveloperPortals []ServiceHostnameConfigurationDeveloperPortal `pulumi:"developerPortals"`
@@ -15667,6 +15861,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAdditionalLocationVirtualNetworkConfigurationPtrInput)(nil)).Elem(), ServiceAdditionalLocationVirtualNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCertificateInput)(nil)).Elem(), ServiceCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCertificateArrayInput)(nil)).Elem(), ServiceCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDelegationInput)(nil)).Elem(), ServiceDelegationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDelegationPtrInput)(nil)).Elem(), ServiceDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHostnameConfigurationInput)(nil)).Elem(), ServiceHostnameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHostnameConfigurationPtrInput)(nil)).Elem(), ServiceHostnameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHostnameConfigurationDeveloperPortalInput)(nil)).Elem(), ServiceHostnameConfigurationDeveloperPortalArgs{})
@@ -15871,6 +16067,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCertificateOutput{})
 	pulumi.RegisterOutputType(ServiceCertificateArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDelegationOutput{})
+	pulumi.RegisterOutputType(ServiceDelegationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceHostnameConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceHostnameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceHostnameConfigurationDeveloperPortalOutput{})

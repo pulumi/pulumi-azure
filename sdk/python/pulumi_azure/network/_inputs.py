@@ -94,6 +94,8 @@ __all__ = [
     'NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs',
     'NetworkConnectionMonitorTestGroupArgs',
     'NetworkInterfaceIpConfigurationArgs',
+    'NetworkManagerAdminRuleDestinationArgs',
+    'NetworkManagerAdminRuleSourceArgs',
     'NetworkManagerConnectivityConfigurationAppliesToGroupArgs',
     'NetworkManagerConnectivityConfigurationHubArgs',
     'NetworkManagerCrossTenantScopeArgs',
@@ -3881,13 +3883,21 @@ class ExpressRouteCircuitSkuArgs:
 class ExpressRouteConnectionRoutingArgs:
     def __init__(__self__, *,
                  associated_route_table_id: Optional[pulumi.Input[str]] = None,
+                 inbound_route_map_id: Optional[pulumi.Input[str]] = None,
+                 outbound_route_map_id: Optional[pulumi.Input[str]] = None,
                  propagated_route_table: Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']] = None):
         """
         :param pulumi.Input[str] associated_route_table_id: The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+        :param pulumi.Input[str] inbound_route_map_id: The ID of the Route Map associated with this Express Route Connection for inbound routes.
+        :param pulumi.Input[str] outbound_route_map_id: The ID of the Route Map associated with this Express Route Connection for outbound routes.
         :param pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs'] propagated_route_table: A `propagated_route_table` block as defined below.
         """
         if associated_route_table_id is not None:
             pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
+        if inbound_route_map_id is not None:
+            pulumi.set(__self__, "inbound_route_map_id", inbound_route_map_id)
+        if outbound_route_map_id is not None:
+            pulumi.set(__self__, "outbound_route_map_id", outbound_route_map_id)
         if propagated_route_table is not None:
             pulumi.set(__self__, "propagated_route_table", propagated_route_table)
 
@@ -3902,6 +3912,30 @@ class ExpressRouteConnectionRoutingArgs:
     @associated_route_table_id.setter
     def associated_route_table_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "associated_route_table_id", value)
+
+    @property
+    @pulumi.getter(name="inboundRouteMapId")
+    def inbound_route_map_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Route Map associated with this Express Route Connection for inbound routes.
+        """
+        return pulumi.get(self, "inbound_route_map_id")
+
+    @inbound_route_map_id.setter
+    def inbound_route_map_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inbound_route_map_id", value)
+
+    @property
+    @pulumi.getter(name="outboundRouteMapId")
+    def outbound_route_map_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Route Map associated with this Express Route Connection for outbound routes.
+        """
+        return pulumi.get(self, "outbound_route_map_id")
+
+    @outbound_route_map_id.setter
+    def outbound_route_map_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_route_map_id", value)
 
     @property
     @pulumi.getter(name="propagatedRouteTable")
@@ -7153,6 +7187,80 @@ class NetworkInterfaceIpConfigurationArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class NetworkManagerAdminRuleDestinationArgs:
+    def __init__(__self__, *,
+                 address_prefix: pulumi.Input[str],
+                 address_prefix_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] address_prefix: Specifies the address prefix.
+        :param pulumi.Input[str] address_prefix_type: Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+        """
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        pulumi.set(__self__, "address_prefix_type", address_prefix_type)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> pulumi.Input[str]:
+        """
+        Specifies the address prefix.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="addressPrefixType")
+    def address_prefix_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+        """
+        return pulumi.get(self, "address_prefix_type")
+
+    @address_prefix_type.setter
+    def address_prefix_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_prefix_type", value)
+
+
+@pulumi.input_type
+class NetworkManagerAdminRuleSourceArgs:
+    def __init__(__self__, *,
+                 address_prefix: pulumi.Input[str],
+                 address_prefix_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] address_prefix: Specifies the address prefix.
+        :param pulumi.Input[str] address_prefix_type: Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+        """
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        pulumi.set(__self__, "address_prefix_type", address_prefix_type)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> pulumi.Input[str]:
+        """
+        Specifies the address prefix.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="addressPrefixType")
+    def address_prefix_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+        """
+        return pulumi.get(self, "address_prefix_type")
+
+    @address_prefix_type.setter
+    def address_prefix_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_prefix_type", value)
 
 
 @pulumi.input_type

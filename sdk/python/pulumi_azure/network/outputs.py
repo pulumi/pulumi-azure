@@ -95,6 +95,8 @@ __all__ = [
     'NetworkConnectionMonitorTestConfigurationTcpConfiguration',
     'NetworkConnectionMonitorTestGroup',
     'NetworkInterfaceIpConfiguration',
+    'NetworkManagerAdminRuleDestination',
+    'NetworkManagerAdminRuleSource',
     'NetworkManagerConnectivityConfigurationAppliesToGroup',
     'NetworkManagerConnectivityConfigurationHub',
     'NetworkManagerCrossTenantScope',
@@ -3848,6 +3850,10 @@ class ExpressRouteConnectionRouting(dict):
         suggest = None
         if key == "associatedRouteTableId":
             suggest = "associated_route_table_id"
+        elif key == "inboundRouteMapId":
+            suggest = "inbound_route_map_id"
+        elif key == "outboundRouteMapId":
+            suggest = "outbound_route_map_id"
         elif key == "propagatedRouteTable":
             suggest = "propagated_route_table"
 
@@ -3864,13 +3870,21 @@ class ExpressRouteConnectionRouting(dict):
 
     def __init__(__self__, *,
                  associated_route_table_id: Optional[str] = None,
+                 inbound_route_map_id: Optional[str] = None,
+                 outbound_route_map_id: Optional[str] = None,
                  propagated_route_table: Optional['outputs.ExpressRouteConnectionRoutingPropagatedRouteTable'] = None):
         """
         :param str associated_route_table_id: The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+        :param str inbound_route_map_id: The ID of the Route Map associated with this Express Route Connection for inbound routes.
+        :param str outbound_route_map_id: The ID of the Route Map associated with this Express Route Connection for outbound routes.
         :param 'ExpressRouteConnectionRoutingPropagatedRouteTableArgs' propagated_route_table: A `propagated_route_table` block as defined below.
         """
         if associated_route_table_id is not None:
             pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
+        if inbound_route_map_id is not None:
+            pulumi.set(__self__, "inbound_route_map_id", inbound_route_map_id)
+        if outbound_route_map_id is not None:
+            pulumi.set(__self__, "outbound_route_map_id", outbound_route_map_id)
         if propagated_route_table is not None:
             pulumi.set(__self__, "propagated_route_table", propagated_route_table)
 
@@ -3881,6 +3895,22 @@ class ExpressRouteConnectionRouting(dict):
         The ID of the Virtual Hub Route Table associated with this Express Route Connection.
         """
         return pulumi.get(self, "associated_route_table_id")
+
+    @property
+    @pulumi.getter(name="inboundRouteMapId")
+    def inbound_route_map_id(self) -> Optional[str]:
+        """
+        The ID of the Route Map associated with this Express Route Connection for inbound routes.
+        """
+        return pulumi.get(self, "inbound_route_map_id")
+
+    @property
+    @pulumi.getter(name="outboundRouteMapId")
+    def outbound_route_map_id(self) -> Optional[str]:
+        """
+        The ID of the Route Map associated with this Express Route Connection for outbound routes.
+        """
+        return pulumi.get(self, "outbound_route_map_id")
 
     @property
     @pulumi.getter(name="propagatedRouteTable")
@@ -7073,6 +7103,102 @@ class NetworkInterfaceIpConfiguration(dict):
         The ID of the Subnet where this Network Interface should be located in.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class NetworkManagerAdminRuleDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "addressPrefixType":
+            suggest = "address_prefix_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagerAdminRuleDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagerAdminRuleDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagerAdminRuleDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_prefix: str,
+                 address_prefix_type: str):
+        """
+        :param str address_prefix: Specifies the address prefix.
+        :param str address_prefix_type: Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+        """
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        pulumi.set(__self__, "address_prefix_type", address_prefix_type)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> str:
+        """
+        Specifies the address prefix.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter(name="addressPrefixType")
+    def address_prefix_type(self) -> str:
+        """
+        Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+        """
+        return pulumi.get(self, "address_prefix_type")
+
+
+@pulumi.output_type
+class NetworkManagerAdminRuleSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "addressPrefixType":
+            suggest = "address_prefix_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagerAdminRuleSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagerAdminRuleSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagerAdminRuleSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_prefix: str,
+                 address_prefix_type: str):
+        """
+        :param str address_prefix: Specifies the address prefix.
+        :param str address_prefix_type: Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+        """
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        pulumi.set(__self__, "address_prefix_type", address_prefix_type)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> str:
+        """
+        Specifies the address prefix.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter(name="addressPrefixType")
+    def address_prefix_type(self) -> str:
+        """
+        Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+        """
+        return pulumi.get(self, "address_prefix_type")
 
 
 @pulumi.output_type

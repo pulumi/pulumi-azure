@@ -83,6 +83,8 @@ type DataConnectorThreatIntelligence struct {
 
 	// The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
+	// The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+	LookbackDate pulumi.StringPtrOutput `pulumi:"lookbackDate"`
 	// The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
@@ -123,6 +125,8 @@ func GetDataConnectorThreatIntelligence(ctx *pulumi.Context,
 type dataConnectorThreatIntelligenceState struct {
 	// The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
+	// The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+	LookbackDate *string `pulumi:"lookbackDate"`
 	// The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
@@ -132,6 +136,8 @@ type dataConnectorThreatIntelligenceState struct {
 type DataConnectorThreatIntelligenceState struct {
 	// The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
+	// The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+	LookbackDate pulumi.StringPtrInput
 	// The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
@@ -145,6 +151,8 @@ func (DataConnectorThreatIntelligenceState) ElementType() reflect.Type {
 type dataConnectorThreatIntelligenceArgs struct {
 	// The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+	// The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+	LookbackDate *string `pulumi:"lookbackDate"`
 	// The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
@@ -155,6 +163,8 @@ type dataConnectorThreatIntelligenceArgs struct {
 type DataConnectorThreatIntelligenceArgs struct {
 	// The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
+	// The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+	LookbackDate pulumi.StringPtrInput
 	// The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
@@ -251,6 +261,11 @@ func (o DataConnectorThreatIntelligenceOutput) ToDataConnectorThreatIntelligence
 // The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
 func (o DataConnectorThreatIntelligenceOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorThreatIntelligence) pulumi.StringOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+// The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+func (o DataConnectorThreatIntelligenceOutput) LookbackDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataConnectorThreatIntelligence) pulumi.StringPtrOutput { return v.LookbackDate }).(pulumi.StringPtrOutput)
 }
 
 // The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.

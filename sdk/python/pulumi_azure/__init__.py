@@ -116,6 +116,8 @@ if typing.TYPE_CHECKING:
     hpc = __hpc
     import pulumi_azure.hsm as __hsm
     hsm = __hsm
+    import pulumi_azure.hybrid as __hybrid
+    hybrid = __hybrid
     import pulumi_azure.iot as __iot
     iot = __iot
     import pulumi_azure.iotcentral as __iotcentral
@@ -292,6 +294,7 @@ else:
     healthcare = _utilities.lazy_import('pulumi_azure.healthcare')
     hpc = _utilities.lazy_import('pulumi_azure.hpc')
     hsm = _utilities.lazy_import('pulumi_azure.hsm')
+    hybrid = _utilities.lazy_import('pulumi_azure.hybrid')
     iot = _utilities.lazy_import('pulumi_azure.iot')
     iotcentral = _utilities.lazy_import('pulumi_azure.iotcentral')
     keyvault = _utilities.lazy_import('pulumi_azure.keyvault')
@@ -5127,6 +5130,38 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mobile/networkService",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/networkService:NetworkService": "NetworkService"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mobile/networkSimGroup",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/networkSimGroup:NetworkSimGroup": "NetworkSimGroup"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mobile/networkSite",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/networkSite:NetworkSite": "NetworkSite"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mobile/networkSlice",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/networkSlice:NetworkSlice": "NetworkSlice"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "monitoring/aadDiagnosticSetting",
   "fqn": "pulumi_azure.monitoring",
   "classes": {
@@ -5903,6 +5938,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/networkManagerAdminRule",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerAdminRule:NetworkManagerAdminRule": "NetworkManagerAdminRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkManagerAdminRuleCollection",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection": "NetworkManagerAdminRuleCollection"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/networkManagerConnectivityConfiguration",
   "fqn": "pulumi_azure.network",
   "classes": {
@@ -5931,6 +5982,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection": "NetworkManagerScopeConnection"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkManagerSecurityAdminConfiguration",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration": "NetworkManagerSecurityAdminConfiguration"
   }
  },
  {
@@ -7243,6 +7302,30 @@ _utilities.register(
   "fqn": "pulumi_azure.siterecovery",
   "classes": {
    "azure:siterecovery/fabric:Fabric": "Fabric"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "siterecovery/hyperVReplicationPolicy",
+  "fqn": "pulumi_azure.siterecovery",
+  "classes": {
+   "azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy": "HyperVReplicationPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "siterecovery/hyperVReplicationPolicyAssociation",
+  "fqn": "pulumi_azure.siterecovery",
+  "classes": {
+   "azure:siterecovery/hyperVReplicationPolicyAssociation:HyperVReplicationPolicyAssociation": "HyperVReplicationPolicyAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "siterecovery/hyperVSite",
+  "fqn": "pulumi_azure.siterecovery",
+  "classes": {
+   "azure:siterecovery/hyperVSite:HyperVSite": "HyperVSite"
   }
  },
  {

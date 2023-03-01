@@ -1360,7 +1360,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> pulumi.Output['outputs.WindowsFunctionAppSlotAuthSettings']:
+    def auth_settings(self) -> pulumi.Output[Optional['outputs.WindowsFunctionAppSlotAuthSettings']]:
         """
         an `auth_settings` block as detailed below.
         """

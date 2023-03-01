@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.backup.PolicyVMArgs;
 import com.pulumi.azure.backup.inputs.PolicyVMState;
 import com.pulumi.azure.backup.outputs.PolicyVMBackup;
+import com.pulumi.azure.backup.outputs.PolicyVMInstantRestoreResourceGroup;
 import com.pulumi.azure.backup.outputs.PolicyVMRetentionDaily;
 import com.pulumi.azure.backup.outputs.PolicyVMRetentionMonthly;
 import com.pulumi.azure.backup.outputs.PolicyVMRetentionWeekly;
@@ -128,6 +129,12 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      */
     public Output<PolicyVMBackup> backup() {
         return this.backup;
+    }
+    @Export(name="instantRestoreResourceGroup", type=PolicyVMInstantRestoreResourceGroup.class, parameters={})
+    private Output</* @Nullable */ PolicyVMInstantRestoreResourceGroup> instantRestoreResourceGroup;
+
+    public Output<Optional<PolicyVMInstantRestoreResourceGroup>> instantRestoreResourceGroup() {
+        return Codegen.optional(this.instantRestoreResourceGroup);
     }
     /**
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.

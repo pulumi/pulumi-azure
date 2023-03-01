@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppAuthSetting;
+import com.pulumi.azure.appservice.outputs.GetWindowsWebAppAuthSettingsV2;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppBackup;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppConnectionString;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppIdentity;
@@ -31,6 +32,11 @@ public final class GetWindowsWebAppResult {
      * 
      */
     private List<GetWindowsWebAppAuthSetting> authSettings;
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    private List<GetWindowsWebAppAuthSettingsV2> authSettingsV2s;
     /**
      * @return A `backup` block as defined below.
      * 
@@ -182,6 +188,13 @@ public final class GetWindowsWebAppResult {
      */
     public List<GetWindowsWebAppAuthSetting> authSettings() {
         return this.authSettings;
+    }
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    public List<GetWindowsWebAppAuthSettingsV2> authSettingsV2s() {
+        return this.authSettingsV2s;
     }
     /**
      * @return A `backup` block as defined below.
@@ -387,6 +400,7 @@ public final class GetWindowsWebAppResult {
     public static final class Builder {
         private Map<String,String> appSettings;
         private List<GetWindowsWebAppAuthSetting> authSettings;
+        private List<GetWindowsWebAppAuthSettingsV2> authSettingsV2s;
         private List<GetWindowsWebAppBackup> backups;
         private Boolean clientAffinityEnabled;
         private Boolean clientCertificateEnabled;
@@ -420,6 +434,7 @@ public final class GetWindowsWebAppResult {
     	      Objects.requireNonNull(defaults);
     	      this.appSettings = defaults.appSettings;
     	      this.authSettings = defaults.authSettings;
+    	      this.authSettingsV2s = defaults.authSettingsV2s;
     	      this.backups = defaults.backups;
     	      this.clientAffinityEnabled = defaults.clientAffinityEnabled;
     	      this.clientCertificateEnabled = defaults.clientCertificateEnabled;
@@ -462,6 +477,14 @@ public final class GetWindowsWebAppResult {
         }
         public Builder authSettings(GetWindowsWebAppAuthSetting... authSettings) {
             return authSettings(List.of(authSettings));
+        }
+        @CustomType.Setter
+        public Builder authSettingsV2s(List<GetWindowsWebAppAuthSettingsV2> authSettingsV2s) {
+            this.authSettingsV2s = Objects.requireNonNull(authSettingsV2s);
+            return this;
+        }
+        public Builder authSettingsV2s(GetWindowsWebAppAuthSettingsV2... authSettingsV2s) {
+            return authSettingsV2s(List.of(authSettingsV2s));
         }
         @CustomType.Setter
         public Builder backups(List<GetWindowsWebAppBackup> backups) {
@@ -637,6 +660,7 @@ public final class GetWindowsWebAppResult {
             final var o = new GetWindowsWebAppResult();
             o.appSettings = appSettings;
             o.authSettings = authSettings;
+            o.authSettingsV2s = authSettingsV2s;
             o.backups = backups;
             o.clientAffinityEnabled = clientAffinityEnabled;
             o.clientCertificateEnabled = clientCertificateEnabled;

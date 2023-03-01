@@ -6697,6 +6697,10 @@ func (o ExpressRouteCircuitSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 type ExpressRouteConnectionRouting struct {
 	// The ID of the Virtual Hub Route Table associated with this Express Route Connection.
 	AssociatedRouteTableId *string `pulumi:"associatedRouteTableId"`
+	// The ID of the Route Map associated with this Express Route Connection for inbound routes.
+	InboundRouteMapId *string `pulumi:"inboundRouteMapId"`
+	// The ID of the Route Map associated with this Express Route Connection for outbound routes.
+	OutboundRouteMapId *string `pulumi:"outboundRouteMapId"`
 	// A `propagatedRouteTable` block as defined below.
 	PropagatedRouteTable *ExpressRouteConnectionRoutingPropagatedRouteTable `pulumi:"propagatedRouteTable"`
 }
@@ -6715,6 +6719,10 @@ type ExpressRouteConnectionRoutingInput interface {
 type ExpressRouteConnectionRoutingArgs struct {
 	// The ID of the Virtual Hub Route Table associated with this Express Route Connection.
 	AssociatedRouteTableId pulumi.StringPtrInput `pulumi:"associatedRouteTableId"`
+	// The ID of the Route Map associated with this Express Route Connection for inbound routes.
+	InboundRouteMapId pulumi.StringPtrInput `pulumi:"inboundRouteMapId"`
+	// The ID of the Route Map associated with this Express Route Connection for outbound routes.
+	OutboundRouteMapId pulumi.StringPtrInput `pulumi:"outboundRouteMapId"`
 	// A `propagatedRouteTable` block as defined below.
 	PropagatedRouteTable ExpressRouteConnectionRoutingPropagatedRouteTablePtrInput `pulumi:"propagatedRouteTable"`
 }
@@ -6801,6 +6809,16 @@ func (o ExpressRouteConnectionRoutingOutput) AssociatedRouteTableId() pulumi.Str
 	return o.ApplyT(func(v ExpressRouteConnectionRouting) *string { return v.AssociatedRouteTableId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Route Map associated with this Express Route Connection for inbound routes.
+func (o ExpressRouteConnectionRoutingOutput) InboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionRouting) *string { return v.InboundRouteMapId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Route Map associated with this Express Route Connection for outbound routes.
+func (o ExpressRouteConnectionRoutingOutput) OutboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionRouting) *string { return v.OutboundRouteMapId }).(pulumi.StringPtrOutput)
+}
+
 // A `propagatedRouteTable` block as defined below.
 func (o ExpressRouteConnectionRoutingOutput) PropagatedRouteTable() ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput {
 	return o.ApplyT(func(v ExpressRouteConnectionRouting) *ExpressRouteConnectionRoutingPropagatedRouteTable {
@@ -6839,6 +6857,26 @@ func (o ExpressRouteConnectionRoutingPtrOutput) AssociatedRouteTableId() pulumi.
 			return nil
 		}
 		return v.AssociatedRouteTableId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Route Map associated with this Express Route Connection for inbound routes.
+func (o ExpressRouteConnectionRoutingPtrOutput) InboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteConnectionRouting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InboundRouteMapId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Route Map associated with this Express Route Connection for outbound routes.
+func (o ExpressRouteConnectionRoutingPtrOutput) OutboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteConnectionRouting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundRouteMapId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13401,6 +13439,218 @@ func (o NetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) Net
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceIpConfiguration {
 		return vs[0].([]NetworkInterfaceIpConfiguration)[vs[1].(int)]
 	}).(NetworkInterfaceIpConfigurationOutput)
+}
+
+type NetworkManagerAdminRuleDestination struct {
+	// Specifies the address prefix.
+	AddressPrefix string `pulumi:"addressPrefix"`
+	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+	AddressPrefixType string `pulumi:"addressPrefixType"`
+}
+
+// NetworkManagerAdminRuleDestinationInput is an input type that accepts NetworkManagerAdminRuleDestinationArgs and NetworkManagerAdminRuleDestinationOutput values.
+// You can construct a concrete instance of `NetworkManagerAdminRuleDestinationInput` via:
+//
+//	NetworkManagerAdminRuleDestinationArgs{...}
+type NetworkManagerAdminRuleDestinationInput interface {
+	pulumi.Input
+
+	ToNetworkManagerAdminRuleDestinationOutput() NetworkManagerAdminRuleDestinationOutput
+	ToNetworkManagerAdminRuleDestinationOutputWithContext(context.Context) NetworkManagerAdminRuleDestinationOutput
+}
+
+type NetworkManagerAdminRuleDestinationArgs struct {
+	// Specifies the address prefix.
+	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
+	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+	AddressPrefixType pulumi.StringInput `pulumi:"addressPrefixType"`
+}
+
+func (NetworkManagerAdminRuleDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerAdminRuleDestination)(nil)).Elem()
+}
+
+func (i NetworkManagerAdminRuleDestinationArgs) ToNetworkManagerAdminRuleDestinationOutput() NetworkManagerAdminRuleDestinationOutput {
+	return i.ToNetworkManagerAdminRuleDestinationOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerAdminRuleDestinationArgs) ToNetworkManagerAdminRuleDestinationOutputWithContext(ctx context.Context) NetworkManagerAdminRuleDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerAdminRuleDestinationOutput)
+}
+
+// NetworkManagerAdminRuleDestinationArrayInput is an input type that accepts NetworkManagerAdminRuleDestinationArray and NetworkManagerAdminRuleDestinationArrayOutput values.
+// You can construct a concrete instance of `NetworkManagerAdminRuleDestinationArrayInput` via:
+//
+//	NetworkManagerAdminRuleDestinationArray{ NetworkManagerAdminRuleDestinationArgs{...} }
+type NetworkManagerAdminRuleDestinationArrayInput interface {
+	pulumi.Input
+
+	ToNetworkManagerAdminRuleDestinationArrayOutput() NetworkManagerAdminRuleDestinationArrayOutput
+	ToNetworkManagerAdminRuleDestinationArrayOutputWithContext(context.Context) NetworkManagerAdminRuleDestinationArrayOutput
+}
+
+type NetworkManagerAdminRuleDestinationArray []NetworkManagerAdminRuleDestinationInput
+
+func (NetworkManagerAdminRuleDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagerAdminRuleDestination)(nil)).Elem()
+}
+
+func (i NetworkManagerAdminRuleDestinationArray) ToNetworkManagerAdminRuleDestinationArrayOutput() NetworkManagerAdminRuleDestinationArrayOutput {
+	return i.ToNetworkManagerAdminRuleDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerAdminRuleDestinationArray) ToNetworkManagerAdminRuleDestinationArrayOutputWithContext(ctx context.Context) NetworkManagerAdminRuleDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerAdminRuleDestinationArrayOutput)
+}
+
+type NetworkManagerAdminRuleDestinationOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerAdminRuleDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerAdminRuleDestination)(nil)).Elem()
+}
+
+func (o NetworkManagerAdminRuleDestinationOutput) ToNetworkManagerAdminRuleDestinationOutput() NetworkManagerAdminRuleDestinationOutput {
+	return o
+}
+
+func (o NetworkManagerAdminRuleDestinationOutput) ToNetworkManagerAdminRuleDestinationOutputWithContext(ctx context.Context) NetworkManagerAdminRuleDestinationOutput {
+	return o
+}
+
+// Specifies the address prefix.
+func (o NetworkManagerAdminRuleDestinationOutput) AddressPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagerAdminRuleDestination) string { return v.AddressPrefix }).(pulumi.StringOutput)
+}
+
+// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+func (o NetworkManagerAdminRuleDestinationOutput) AddressPrefixType() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagerAdminRuleDestination) string { return v.AddressPrefixType }).(pulumi.StringOutput)
+}
+
+type NetworkManagerAdminRuleDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerAdminRuleDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagerAdminRuleDestination)(nil)).Elem()
+}
+
+func (o NetworkManagerAdminRuleDestinationArrayOutput) ToNetworkManagerAdminRuleDestinationArrayOutput() NetworkManagerAdminRuleDestinationArrayOutput {
+	return o
+}
+
+func (o NetworkManagerAdminRuleDestinationArrayOutput) ToNetworkManagerAdminRuleDestinationArrayOutputWithContext(ctx context.Context) NetworkManagerAdminRuleDestinationArrayOutput {
+	return o
+}
+
+func (o NetworkManagerAdminRuleDestinationArrayOutput) Index(i pulumi.IntInput) NetworkManagerAdminRuleDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkManagerAdminRuleDestination {
+		return vs[0].([]NetworkManagerAdminRuleDestination)[vs[1].(int)]
+	}).(NetworkManagerAdminRuleDestinationOutput)
+}
+
+type NetworkManagerAdminRuleSource struct {
+	// Specifies the address prefix.
+	AddressPrefix string `pulumi:"addressPrefix"`
+	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+	AddressPrefixType string `pulumi:"addressPrefixType"`
+}
+
+// NetworkManagerAdminRuleSourceInput is an input type that accepts NetworkManagerAdminRuleSourceArgs and NetworkManagerAdminRuleSourceOutput values.
+// You can construct a concrete instance of `NetworkManagerAdminRuleSourceInput` via:
+//
+//	NetworkManagerAdminRuleSourceArgs{...}
+type NetworkManagerAdminRuleSourceInput interface {
+	pulumi.Input
+
+	ToNetworkManagerAdminRuleSourceOutput() NetworkManagerAdminRuleSourceOutput
+	ToNetworkManagerAdminRuleSourceOutputWithContext(context.Context) NetworkManagerAdminRuleSourceOutput
+}
+
+type NetworkManagerAdminRuleSourceArgs struct {
+	// Specifies the address prefix.
+	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
+	// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+	AddressPrefixType pulumi.StringInput `pulumi:"addressPrefixType"`
+}
+
+func (NetworkManagerAdminRuleSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerAdminRuleSource)(nil)).Elem()
+}
+
+func (i NetworkManagerAdminRuleSourceArgs) ToNetworkManagerAdminRuleSourceOutput() NetworkManagerAdminRuleSourceOutput {
+	return i.ToNetworkManagerAdminRuleSourceOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerAdminRuleSourceArgs) ToNetworkManagerAdminRuleSourceOutputWithContext(ctx context.Context) NetworkManagerAdminRuleSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerAdminRuleSourceOutput)
+}
+
+// NetworkManagerAdminRuleSourceArrayInput is an input type that accepts NetworkManagerAdminRuleSourceArray and NetworkManagerAdminRuleSourceArrayOutput values.
+// You can construct a concrete instance of `NetworkManagerAdminRuleSourceArrayInput` via:
+//
+//	NetworkManagerAdminRuleSourceArray{ NetworkManagerAdminRuleSourceArgs{...} }
+type NetworkManagerAdminRuleSourceArrayInput interface {
+	pulumi.Input
+
+	ToNetworkManagerAdminRuleSourceArrayOutput() NetworkManagerAdminRuleSourceArrayOutput
+	ToNetworkManagerAdminRuleSourceArrayOutputWithContext(context.Context) NetworkManagerAdminRuleSourceArrayOutput
+}
+
+type NetworkManagerAdminRuleSourceArray []NetworkManagerAdminRuleSourceInput
+
+func (NetworkManagerAdminRuleSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagerAdminRuleSource)(nil)).Elem()
+}
+
+func (i NetworkManagerAdminRuleSourceArray) ToNetworkManagerAdminRuleSourceArrayOutput() NetworkManagerAdminRuleSourceArrayOutput {
+	return i.ToNetworkManagerAdminRuleSourceArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerAdminRuleSourceArray) ToNetworkManagerAdminRuleSourceArrayOutputWithContext(ctx context.Context) NetworkManagerAdminRuleSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerAdminRuleSourceArrayOutput)
+}
+
+type NetworkManagerAdminRuleSourceOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerAdminRuleSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerAdminRuleSource)(nil)).Elem()
+}
+
+func (o NetworkManagerAdminRuleSourceOutput) ToNetworkManagerAdminRuleSourceOutput() NetworkManagerAdminRuleSourceOutput {
+	return o
+}
+
+func (o NetworkManagerAdminRuleSourceOutput) ToNetworkManagerAdminRuleSourceOutputWithContext(ctx context.Context) NetworkManagerAdminRuleSourceOutput {
+	return o
+}
+
+// Specifies the address prefix.
+func (o NetworkManagerAdminRuleSourceOutput) AddressPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagerAdminRuleSource) string { return v.AddressPrefix }).(pulumi.StringOutput)
+}
+
+// Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+func (o NetworkManagerAdminRuleSourceOutput) AddressPrefixType() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagerAdminRuleSource) string { return v.AddressPrefixType }).(pulumi.StringOutput)
+}
+
+type NetworkManagerAdminRuleSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerAdminRuleSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagerAdminRuleSource)(nil)).Elem()
+}
+
+func (o NetworkManagerAdminRuleSourceArrayOutput) ToNetworkManagerAdminRuleSourceArrayOutput() NetworkManagerAdminRuleSourceArrayOutput {
+	return o
+}
+
+func (o NetworkManagerAdminRuleSourceArrayOutput) ToNetworkManagerAdminRuleSourceArrayOutputWithContext(ctx context.Context) NetworkManagerAdminRuleSourceArrayOutput {
+	return o
+}
+
+func (o NetworkManagerAdminRuleSourceArrayOutput) Index(i pulumi.IntInput) NetworkManagerAdminRuleSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkManagerAdminRuleSource {
+		return vs[0].([]NetworkManagerAdminRuleSource)[vs[1].(int)]
+	}).(NetworkManagerAdminRuleSourceOutput)
 }
 
 type NetworkManagerConnectivityConfigurationAppliesToGroup struct {
@@ -28850,6 +29100,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorTestGroupArrayInput)(nil)).Elem(), NetworkConnectionMonitorTestGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceIpConfigurationInput)(nil)).Elem(), NetworkInterfaceIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceIpConfigurationArrayInput)(nil)).Elem(), NetworkInterfaceIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerAdminRuleDestinationInput)(nil)).Elem(), NetworkManagerAdminRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerAdminRuleDestinationArrayInput)(nil)).Elem(), NetworkManagerAdminRuleDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerAdminRuleSourceInput)(nil)).Elem(), NetworkManagerAdminRuleSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerAdminRuleSourceArrayInput)(nil)).Elem(), NetworkManagerAdminRuleSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerConnectivityConfigurationAppliesToGroupInput)(nil)).Elem(), NetworkManagerConnectivityConfigurationAppliesToGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerConnectivityConfigurationAppliesToGroupArrayInput)(nil)).Elem(), NetworkManagerConnectivityConfigurationAppliesToGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerConnectivityConfigurationHubInput)(nil)).Elem(), NetworkManagerConnectivityConfigurationHubArgs{})
@@ -29230,6 +29484,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkConnectionMonitorTestGroupArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceIpConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkManagerAdminRuleDestinationOutput{})
+	pulumi.RegisterOutputType(NetworkManagerAdminRuleDestinationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkManagerAdminRuleSourceOutput{})
+	pulumi.RegisterOutputType(NetworkManagerAdminRuleSourceArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagerConnectivityConfigurationAppliesToGroupOutput{})
 	pulumi.RegisterOutputType(NetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagerConnectivityConfigurationHubOutput{})

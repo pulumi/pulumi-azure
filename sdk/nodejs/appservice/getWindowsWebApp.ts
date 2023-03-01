@@ -58,6 +58,10 @@ export interface GetWindowsWebAppResult {
      */
     readonly authSettings: outputs.appservice.GetWindowsWebAppAuthSetting[];
     /**
+     * An `authSettingsV2` block as defined below.
+     */
+    readonly authSettingsV2s: outputs.appservice.GetWindowsWebAppAuthSettingsV2[];
+    /**
      * A `backup` block as defined below.
      */
     readonly backups: outputs.appservice.GetWindowsWebAppBackup[];

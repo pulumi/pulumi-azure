@@ -14,14 +14,14 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
     public static final KubernetesClusterWebAppRoutingArgs Empty = new KubernetesClusterWebAppRoutingArgs();
 
     /**
-     * Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+     * Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `&#34;&#34;`.
      * 
      */
     @Import(name="dnsZoneId", required=true)
     private Output<String> dnsZoneId;
 
     /**
-     * @return Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+     * @return Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `&#34;&#34;`.
      * 
      */
     public Output<String> dnsZoneId() {
@@ -53,7 +53,7 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param dnsZoneId Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+         * @param dnsZoneId Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param dnsZoneId Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+         * @param dnsZoneId Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `&#34;&#34;`.
          * 
          * @return builder
          * 

@@ -134,6 +134,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingResult> AuthSettings;
         /// <summary>
+        /// An `auth_settings_v2` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2Result> AuthSettingsV2s;
+        /// <summary>
         /// A `backup` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppBackupResult> Backups;
@@ -239,6 +243,9 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags assigned to the Linux Web App.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// The subnet id which the Linux Web App is vNet Integrated with.
+        /// </summary>
         public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]
@@ -248,6 +255,8 @@ namespace Pulumi.Azure.AppService
             ImmutableDictionary<string, string> appSettings,
 
             ImmutableArray<Outputs.GetLinuxWebAppAuthSettingResult> authSettings,
+
+            ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2Result> authSettingsV2s,
 
             ImmutableArray<Outputs.GetLinuxWebAppBackupResult> backups,
 
@@ -310,6 +319,7 @@ namespace Pulumi.Azure.AppService
             AppMetadata = appMetadata;
             AppSettings = appSettings;
             AuthSettings = authSettings;
+            AuthSettingsV2s = authSettingsV2s;
             Backups = backups;
             ClientAffinityEnabled = clientAffinityEnabled;
             ClientCertificateEnabled = clientCertificateEnabled;

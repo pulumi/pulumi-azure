@@ -139,8 +139,8 @@ def get_network(name: Optional[str] = None,
     ```
 
 
-    :param str name: Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
-    :param str resource_group_name: Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+    :param str name: Specifies the name which should be used for this Mobile Network.
+    :param str resource_group_name: Specifies the name of the Resource Group where the Mobile Network should exist.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -177,7 +177,7 @@ def get_network_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
-    :param str resource_group_name: Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+    :param str name: Specifies the name which should be used for this Mobile Network.
+    :param str resource_group_name: Specifies the name of the Resource Group where the Mobile Network should exist.
     """
     ...

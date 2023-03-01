@@ -76,7 +76,7 @@ namespace Pulumi.Azure.AppService
         /// A `auth_settings` block as defined below.
         /// </summary>
         [Output("authSettings")]
-        public Output<Outputs.WindowsFunctionAppAuthSettings> AuthSettings { get; private set; } = null!;
+        public Output<Outputs.WindowsFunctionAppAuthSettings?> AuthSettings { get; private set; } = null!;
 
         /// <summary>
         /// A `backup` block as defined below.

@@ -91,18 +91,6 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        [Input("tags")]
-        private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Disk Access.
-        /// </summary>
-        public Dictionary<string, string> Tags
-        {
-            get => _tags ?? (_tags = new Dictionary<string, string>());
-            set => _tags = value;
-        }
-
         public GetDiskAccessArgs()
         {
         }
@@ -123,18 +111,6 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Disk Access.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
         public GetDiskAccessInvokeArgs()
         {
         }
@@ -151,7 +127,7 @@ namespace Pulumi.Azure.Compute
         public readonly string Id;
         public readonly string Name;
         public readonly string ResourceGroupName;
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetDiskAccessResult(
@@ -161,7 +137,7 @@ namespace Pulumi.Azure.Compute
 
             string resourceGroupName,
 
-            ImmutableDictionary<string, string>? tags)
+            ImmutableDictionary<string, string> tags)
         {
             Id = id;
             Name = name;

@@ -81,8 +81,10 @@ type WindowsWebAppSlot struct {
 	AppServiceId pulumi.StringOutput `pulumi:"appServiceId"`
 	// A map of key-value pairs of App Settings.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
-	// A `authSettings` block as defined below.
-	AuthSettings WindowsWebAppSlotAuthSettingsOutput `pulumi:"authSettings"`
+	// An `authSettings` block as defined below.
+	AuthSettings WindowsWebAppSlotAuthSettingsPtrOutput `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 WindowsWebAppSlotAuthSettingsV2PtrOutput `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup WindowsWebAppSlotBackupPtrOutput `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -180,8 +182,10 @@ type windowsWebAppSlotState struct {
 	AppServiceId *string `pulumi:"appServiceId"`
 	// A map of key-value pairs of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
-	// A `authSettings` block as defined below.
+	// An `authSettings` block as defined below.
 	AuthSettings *WindowsWebAppSlotAuthSettings `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 *WindowsWebAppSlotAuthSettingsV2 `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup *WindowsWebAppSlotBackup `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -241,8 +245,10 @@ type WindowsWebAppSlotState struct {
 	AppServiceId pulumi.StringPtrInput
 	// A map of key-value pairs of App Settings.
 	AppSettings pulumi.StringMapInput
-	// A `authSettings` block as defined below.
+	// An `authSettings` block as defined below.
 	AuthSettings WindowsWebAppSlotAuthSettingsPtrInput
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 WindowsWebAppSlotAuthSettingsV2PtrInput
 	// A `backup` block as defined below.
 	Backup WindowsWebAppSlotBackupPtrInput
 	// Should Client Affinity be enabled?
@@ -306,8 +312,10 @@ type windowsWebAppSlotArgs struct {
 	AppServiceId string `pulumi:"appServiceId"`
 	// A map of key-value pairs of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
-	// A `authSettings` block as defined below.
+	// An `authSettings` block as defined below.
 	AuthSettings *WindowsWebAppSlotAuthSettings `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 *WindowsWebAppSlotAuthSettingsV2 `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup *WindowsWebAppSlotBackup `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -352,8 +360,10 @@ type WindowsWebAppSlotArgs struct {
 	AppServiceId pulumi.StringInput
 	// A map of key-value pairs of App Settings.
 	AppSettings pulumi.StringMapInput
-	// A `authSettings` block as defined below.
+	// An `authSettings` block as defined below.
 	AuthSettings WindowsWebAppSlotAuthSettingsPtrInput
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 WindowsWebAppSlotAuthSettingsV2PtrInput
 	// A `backup` block as defined below.
 	Backup WindowsWebAppSlotBackupPtrInput
 	// Should Client Affinity be enabled?
@@ -489,9 +499,14 @@ func (o WindowsWebAppSlotOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }
 
-// A `authSettings` block as defined below.
-func (o WindowsWebAppSlotOutput) AuthSettings() WindowsWebAppSlotAuthSettingsOutput {
-	return o.ApplyT(func(v *WindowsWebAppSlot) WindowsWebAppSlotAuthSettingsOutput { return v.AuthSettings }).(WindowsWebAppSlotAuthSettingsOutput)
+// An `authSettings` block as defined below.
+func (o WindowsWebAppSlotOutput) AuthSettings() WindowsWebAppSlotAuthSettingsPtrOutput {
+	return o.ApplyT(func(v *WindowsWebAppSlot) WindowsWebAppSlotAuthSettingsPtrOutput { return v.AuthSettings }).(WindowsWebAppSlotAuthSettingsPtrOutput)
+}
+
+// An `authSettingsV2` block as defined below.
+func (o WindowsWebAppSlotOutput) AuthSettingsV2() WindowsWebAppSlotAuthSettingsV2PtrOutput {
+	return o.ApplyT(func(v *WindowsWebAppSlot) WindowsWebAppSlotAuthSettingsV2PtrOutput { return v.AuthSettingsV2 }).(WindowsWebAppSlotAuthSettingsV2PtrOutput)
 }
 
 // A `backup` block as defined below.

@@ -132,7 +132,7 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
     /**
      * The version of Key Vault Key.
      */
-    public readonly keyVersion!: pulumi.Output<string>;
+    public readonly keyVersion!: pulumi.Output<string | undefined>;
     /**
      * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
      */
@@ -166,9 +166,6 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
             }
             if ((!args || args.keyVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
-            }
-            if ((!args || args.keyVersion === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyVersion'");
             }
             resourceInputs["clusterId"] = args ? args.clusterId : undefined;
             resourceInputs["keyName"] = args ? args.keyName : undefined;
@@ -226,7 +223,7 @@ export interface ClusterCustomerManagedKeyArgs {
     /**
      * The version of Key Vault Key.
      */
-    keyVersion: pulumi.Input<string>;
+    keyVersion?: pulumi.Input<string>;
     /**
      * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
      */

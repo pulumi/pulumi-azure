@@ -436,7 +436,7 @@ type Workspace struct {
 	HighBusinessImpact pulumi.BoolPtrOutput `pulumi:"highBusinessImpact"`
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityOutput `pulumi:"identity"`
-	// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+	// The compute name for image build of the Machine Learning Workspace.
 	ImageBuildComputeName pulumi.StringPtrOutput `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
@@ -524,7 +524,7 @@ type workspaceState struct {
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
 	// An `identity` block as defined below.
 	Identity *WorkspaceIdentity `pulumi:"identity"`
-	// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+	// The compute name for image build of the Machine Learning Workspace.
 	ImageBuildComputeName *string `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -569,7 +569,7 @@ type WorkspaceState struct {
 	HighBusinessImpact pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityPtrInput
-	// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+	// The compute name for image build of the Machine Learning Workspace.
 	ImageBuildComputeName pulumi.StringPtrInput
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
@@ -616,7 +616,7 @@ type workspaceArgs struct {
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentity `pulumi:"identity"`
-	// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+	// The compute name for image build of the Machine Learning Workspace.
 	ImageBuildComputeName *string `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -660,7 +660,7 @@ type WorkspaceArgs struct {
 	HighBusinessImpact pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityInput
-	// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+	// The compute name for image build of the Machine Learning Workspace.
 	ImageBuildComputeName pulumi.StringPtrInput
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
@@ -815,7 +815,7 @@ func (o WorkspaceOutput) Identity() WorkspaceIdentityOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceIdentityOutput { return v.Identity }).(WorkspaceIdentityOutput)
 }
 
-// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+// The compute name for image build of the Machine Learning Workspace.
 func (o WorkspaceOutput) ImageBuildComputeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ImageBuildComputeName }).(pulumi.StringPtrOutput)
 }

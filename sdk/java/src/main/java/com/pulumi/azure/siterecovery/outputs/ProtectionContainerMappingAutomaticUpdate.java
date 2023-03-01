@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProtectionContainerMappingAutomaticUpdate {
     /**
-     * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+     * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
      */
     private @Nullable String automationAccountId;
@@ -25,7 +25,7 @@ public final class ProtectionContainerMappingAutomaticUpdate {
 
     private ProtectionContainerMappingAutomaticUpdate() {}
     /**
-     * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+     * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
      */
     public Optional<String> automationAccountId() {

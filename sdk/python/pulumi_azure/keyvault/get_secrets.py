@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetSecretsResult',
@@ -21,7 +22,7 @@ class GetSecretsResult:
     """
     A collection of values returned by getSecrets.
     """
-    def __init__(__self__, id=None, key_vault_id=None, names=None):
+    def __init__(__self__, id=None, key_vault_id=None, names=None, secrets=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -31,6 +32,9 @@ class GetSecretsResult:
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         pulumi.set(__self__, "names", names)
+        if secrets and not isinstance(secrets, list):
+            raise TypeError("Expected argument 'secrets' to be a list")
+        pulumi.set(__self__, "secrets", secrets)
 
     @property
     @pulumi.getter
@@ -53,6 +57,14 @@ class GetSecretsResult:
         """
         return pulumi.get(self, "names")
 
+    @property
+    @pulumi.getter
+    def secrets(self) -> Sequence['outputs.GetSecretsSecretResult']:
+        """
+        One or more `secrets` blocks as defined below.
+        """
+        return pulumi.get(self, "secrets")
+
 
 class AwaitableGetSecretsResult(GetSecretsResult):
     # pylint: disable=using-constant-test
@@ -62,7 +74,8 @@ class AwaitableGetSecretsResult(GetSecretsResult):
         return GetSecretsResult(
             id=self.id,
             key_vault_id=self.key_vault_id,
-            names=self.names)
+            names=self.names,
+            secrets=self.secrets)
 
 
 def get_secrets(key_vault_id: Optional[str] = None,
@@ -81,7 +94,8 @@ def get_secrets(key_vault_id: Optional[str] = None,
     return AwaitableGetSecretsResult(
         id=__ret__.id,
         key_vault_id=__ret__.key_vault_id,
-        names=__ret__.names)
+        names=__ret__.names,
+        secrets=__ret__.secrets)
 
 
 @_utilities.lift_output_func(get_secrets)

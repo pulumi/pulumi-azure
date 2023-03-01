@@ -32,12 +32,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     revisionMode: "Single",
  *     template: {
- *         container: {
+ *         containers: [{
  *             name: "examplecontainerapp",
  *             image: "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
  *             cpu: 0.25,
  *             memory: "0.5Gi",
- *         },
+ *         }],
  *     },
  * });
  * ```
@@ -90,6 +90,9 @@ export class App extends pulumi.CustomResource {
      * A `dapr` block as detailed below.
      */
     public readonly dapr!: pulumi.Output<outputs.containerapp.AppDapr | undefined>;
+    /**
+     * An `identity` block as detailed below.
+     */
     public readonly identity!: pulumi.Output<outputs.containerapp.AppIdentity | undefined>;
     /**
      * An `ingress` block as detailed below.
@@ -223,6 +226,9 @@ export interface AppState {
      * A `dapr` block as detailed below.
      */
     dapr?: pulumi.Input<inputs.containerapp.AppDapr>;
+    /**
+     * An `identity` block as detailed below.
+     */
     identity?: pulumi.Input<inputs.containerapp.AppIdentity>;
     /**
      * An `ingress` block as detailed below.
@@ -286,6 +292,9 @@ export interface AppArgs {
      * A `dapr` block as detailed below.
      */
     dapr?: pulumi.Input<inputs.containerapp.AppDapr>;
+    /**
+     * An `identity` block as detailed below.
+     */
     identity?: pulumi.Input<inputs.containerapp.AppIdentity>;
     /**
      * An `ingress` block as detailed below.

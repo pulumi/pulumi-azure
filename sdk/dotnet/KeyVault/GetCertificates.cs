@@ -70,6 +70,10 @@ namespace Pulumi.Azure.KeyVault
     public sealed class GetCertificatesResult
     {
         /// <summary>
+        /// One or more `certificates` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetCertificatesCertificateResult> Certificates;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -85,6 +89,8 @@ namespace Pulumi.Azure.KeyVault
 
         [OutputConstructor]
         private GetCertificatesResult(
+            ImmutableArray<Outputs.GetCertificatesCertificateResult> certificates,
+
             string id,
 
             bool? includePending,
@@ -93,6 +99,7 @@ namespace Pulumi.Azure.KeyVault
 
             ImmutableArray<string> names)
         {
+            Certificates = certificates;
             Id = id;
             IncludePending = includePending;
             KeyVaultId = keyVaultId;

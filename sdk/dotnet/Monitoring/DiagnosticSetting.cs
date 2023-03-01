@@ -26,22 +26,30 @@ namespace Pulumi.Azure.Monitoring
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
     ///     {
-    ///         Name = "examplestoracc",
     ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
     ///     {
-    ///         Name = "example-vault",
+    ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SoftDeleteRetentionDays = 7,
+    ///         PurgeProtectionEnabled = false,
+    ///         SkuName = "standard",
     ///     });
     /// 
     ///     var exampleDiagnosticSetting = new Azure.Monitoring.DiagnosticSetting("exampleDiagnosticSetting", new()
     ///     {
-    ///         TargetResourceId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
-    ///         StorageAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+    ///         TargetResourceId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
     ///         EnabledLogs = new[]
     ///         {
     ///             new Azure.Monitoring.Inputs.DiagnosticSettingEnabledLogArgs
@@ -99,10 +107,10 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> EventhubName { get; private set; } = null!;
 
         /// <summary>
-        /// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        /// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
         /// </summary>
         [Output("logAnalyticsDestinationType")]
-        public Output<string?> LogAnalyticsDestinationType { get; private set; } = null!;
+        public Output<string> LogAnalyticsDestinationType { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
@@ -217,7 +225,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? EventhubName { get; set; }
 
         /// <summary>
-        /// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        /// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
         /// </summary>
         [Input("logAnalyticsDestinationType")]
         public Input<string>? LogAnalyticsDestinationType { get; set; }
@@ -310,7 +318,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? EventhubName { get; set; }
 
         /// <summary>
-        /// Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        /// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
         /// </summary>
         [Input("logAnalyticsDestinationType")]
         public Input<string>? LogAnalyticsDestinationType { get; set; }

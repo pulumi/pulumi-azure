@@ -72,13 +72,13 @@ namespace Pulumi.Azure.Mobile
     public sealed class GetNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
+        /// Specifies the name which should be used for this Mobile Network.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+        /// Specifies the name of the Resource Group where the Mobile Network should exist.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Azure.Mobile
     public sealed class GetNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
+        /// Specifies the name which should be used for this Mobile Network.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+        /// Specifies the name of the Resource Group where the Mobile Network should exist.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

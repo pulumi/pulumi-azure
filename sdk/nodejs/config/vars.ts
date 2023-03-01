@@ -18,6 +18,17 @@ Object.defineProperty(exports, "auxiliaryTenantIds", {
 });
 
 /**
+ * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+ */
+export declare const clientCertificate: string | undefined;
+Object.defineProperty(exports, "clientCertificate", {
+    get() {
+        return __config.get("clientCertificate");
+    },
+    enumerable: true,
+});
+
+/**
  * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
  * Certificate
  */
@@ -238,7 +249,18 @@ Object.defineProperty(exports, "tenantId", {
 });
 
 /**
- * Allowed Managed Service Identity be used for Authentication.
+ * Allow Azure CLI to be used for Authentication.
+ */
+export declare const useCli: boolean | undefined;
+Object.defineProperty(exports, "useCli", {
+    get() {
+        return __config.getObject<boolean>("useCli");
+    },
+    enumerable: true,
+});
+
+/**
+ * Allow Managed Service Identity to be used for Authentication.
  */
 export declare const useMsi: boolean | undefined;
 Object.defineProperty(exports, "useMsi", {

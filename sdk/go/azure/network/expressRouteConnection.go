@@ -128,6 +128,8 @@ type ExpressRouteConnection struct {
 	EnableInternetSecurity pulumi.BoolPtrOutput `pulumi:"enableInternetSecurity"`
 	// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteCircuitPeeringId pulumi.StringOutput `pulumi:"expressRouteCircuitPeeringId"`
+	// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+	ExpressRouteGatewayBypassEnabled pulumi.BoolPtrOutput `pulumi:"expressRouteGatewayBypassEnabled"`
 	// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteGatewayId pulumi.StringOutput `pulumi:"expressRouteGatewayId"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
@@ -179,6 +181,8 @@ type expressRouteConnectionState struct {
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteCircuitPeeringId *string `pulumi:"expressRouteCircuitPeeringId"`
+	// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+	ExpressRouteGatewayBypassEnabled *bool `pulumi:"expressRouteGatewayBypassEnabled"`
 	// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteGatewayId *string `pulumi:"expressRouteGatewayId"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
@@ -196,6 +200,8 @@ type ExpressRouteConnectionState struct {
 	EnableInternetSecurity pulumi.BoolPtrInput
 	// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteCircuitPeeringId pulumi.StringPtrInput
+	// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+	ExpressRouteGatewayBypassEnabled pulumi.BoolPtrInput
 	// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteGatewayId pulumi.StringPtrInput
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
@@ -217,6 +223,8 @@ type expressRouteConnectionArgs struct {
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteCircuitPeeringId string `pulumi:"expressRouteCircuitPeeringId"`
+	// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+	ExpressRouteGatewayBypassEnabled *bool `pulumi:"expressRouteGatewayBypassEnabled"`
 	// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteGatewayId string `pulumi:"expressRouteGatewayId"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
@@ -235,6 +243,8 @@ type ExpressRouteConnectionArgs struct {
 	EnableInternetSecurity pulumi.BoolPtrInput
 	// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteCircuitPeeringId pulumi.StringInput
+	// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+	ExpressRouteGatewayBypassEnabled pulumi.BoolPtrInput
 	// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteGatewayId pulumi.StringInput
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
@@ -345,6 +355,11 @@ func (o ExpressRouteConnectionOutput) EnableInternetSecurity() pulumi.BoolPtrOut
 // The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
 func (o ExpressRouteConnectionOutput) ExpressRouteCircuitPeeringId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.StringOutput { return v.ExpressRouteCircuitPeeringId }).(pulumi.StringOutput)
+}
+
+// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+func (o ExpressRouteConnectionOutput) ExpressRouteGatewayBypassEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.BoolPtrOutput { return v.ExpressRouteGatewayBypassEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.

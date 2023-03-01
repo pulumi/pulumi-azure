@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
@@ -14,18 +16,33 @@ public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
     public static final AppRegistryArgs Empty = new AppRegistryArgs();
 
     /**
-     * The name of the Secret Reference containing the password value for this user on the Container Registry.
+     * Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
      */
-    @Import(name="passwordSecretName", required=true)
-    private Output<String> passwordSecretName;
+    @Import(name="identity")
+    private @Nullable Output<String> identity;
 
     /**
-     * @return The name of the Secret Reference containing the password value for this user on the Container Registry.
+     * @return Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
      */
-    public Output<String> passwordSecretName() {
-        return this.passwordSecretName;
+    public Optional<Output<String>> identity() {
+        return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+     * 
+     */
+    @Import(name="passwordSecretName")
+    private @Nullable Output<String> passwordSecretName;
+
+    /**
+     * @return The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+     * 
+     */
+    public Optional<Output<String>> passwordSecretName() {
+        return Optional.ofNullable(this.passwordSecretName);
     }
 
     /**
@@ -44,23 +61,24 @@ public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The username to use for this Container Registry.
+     * The username to use for this Container Registry, `password_secret_name` must also be supplied..
      * 
      */
-    @Import(name="username", required=true)
-    private Output<String> username;
+    @Import(name="username")
+    private @Nullable Output<String> username;
 
     /**
-     * @return The username to use for this Container Registry.
+     * @return The username to use for this Container Registry, `password_secret_name` must also be supplied..
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    public Optional<Output<String>> username() {
+        return Optional.ofNullable(this.username);
     }
 
     private AppRegistryArgs() {}
 
     private AppRegistryArgs(AppRegistryArgs $) {
+        this.identity = $.identity;
         this.passwordSecretName = $.passwordSecretName;
         this.server = $.server;
         this.username = $.username;
@@ -85,18 +103,39 @@ public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordSecretName The name of the Secret Reference containing the password value for this user on the Container Registry.
+         * @param identity Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
          * 
          * @return builder
          * 
          */
-        public Builder passwordSecretName(Output<String> passwordSecretName) {
+        public Builder identity(@Nullable Output<String> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(String identity) {
+            return identity(Output.of(identity));
+        }
+
+        /**
+         * @param passwordSecretName The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordSecretName(@Nullable Output<String> passwordSecretName) {
             $.passwordSecretName = passwordSecretName;
             return this;
         }
 
         /**
-         * @param passwordSecretName The name of the Secret Reference containing the password value for this user on the Container Registry.
+         * @param passwordSecretName The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
          * 
          * @return builder
          * 
@@ -127,18 +166,18 @@ public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username The username to use for this Container Registry.
+         * @param username The username to use for this Container Registry, `password_secret_name` must also be supplied..
          * 
          * @return builder
          * 
          */
-        public Builder username(Output<String> username) {
+        public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
 
         /**
-         * @param username The username to use for this Container Registry.
+         * @param username The username to use for this Container Registry, `password_secret_name` must also be supplied..
          * 
          * @return builder
          * 
@@ -148,9 +187,7 @@ public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AppRegistryArgs build() {
-            $.passwordSecretName = Objects.requireNonNull($.passwordSecretName, "expected parameter 'passwordSecretName' to be non-null");
             $.server = Objects.requireNonNull($.server, "expected parameter 'server' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
             return $;
         }
     }

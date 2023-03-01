@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.azure.appservice.inputs.WindowsWebAppAuthSettingsArgs;
+import com.pulumi.azure.appservice.inputs.WindowsWebAppAuthSettingsV2Args;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppBackupArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppConnectionStringArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppIdentityArgs;
@@ -55,6 +56,21 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<WindowsWebAppAuthSettingsArgs>> authSettings() {
         return Optional.ofNullable(this.authSettings);
+    }
+
+    /**
+     * An `auth_settings_v2` block as defined below.
+     * 
+     */
+    @Import(name="authSettingsV2")
+    private @Nullable Output<WindowsWebAppAuthSettingsV2Args> authSettingsV2;
+
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    public Optional<Output<WindowsWebAppAuthSettingsV2Args>> authSettingsV2() {
+        return Optional.ofNullable(this.authSettingsV2);
     }
 
     /**
@@ -497,6 +513,7 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
     private WindowsWebAppState(WindowsWebAppState $) {
         this.appSettings = $.appSettings;
         this.authSettings = $.authSettings;
+        this.authSettingsV2 = $.authSettingsV2;
         this.backup = $.backup;
         this.clientAffinityEnabled = $.clientAffinityEnabled;
         this.clientCertificateEnabled = $.clientCertificateEnabled;
@@ -586,6 +603,27 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder authSettings(WindowsWebAppAuthSettingsArgs authSettings) {
             return authSettings(Output.of(authSettings));
+        }
+
+        /**
+         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSettingsV2(@Nullable Output<WindowsWebAppAuthSettingsV2Args> authSettingsV2) {
+            $.authSettingsV2 = authSettingsV2;
+            return this;
+        }
+
+        /**
+         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSettingsV2(WindowsWebAppAuthSettingsV2Args authSettingsV2) {
+            return authSettingsV2(Output.of(authSettingsV2));
         }
 
         /**

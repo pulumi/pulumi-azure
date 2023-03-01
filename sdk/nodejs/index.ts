@@ -67,6 +67,7 @@ import * as hdinsight from "./hdinsight";
 import * as healthcare from "./healthcare";
 import * as hpc from "./hpc";
 import * as hsm from "./hsm";
+import * as hybrid from "./hybrid";
 import * as iot from "./iot";
 import * as iotcentral from "./iotcentral";
 import * as keyvault from "./keyvault";
@@ -184,6 +185,7 @@ export {
     healthcare,
     hpc,
     hsm,
+    hybrid,
     iot,
     iotcentral,
     keyvault,

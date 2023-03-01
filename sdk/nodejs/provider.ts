@@ -28,6 +28,10 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
+     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     */
+    public readonly clientCertificate!: pulumi.Output<string | undefined>;
+    /**
      * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
      * Certificate
      */
@@ -101,6 +105,7 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             resourceInputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
+            resourceInputs["clientCertificate"] = args ? args.clientCertificate : undefined;
             resourceInputs["clientCertificatePassword"] = args ? args.clientCertificatePassword : undefined;
             resourceInputs["clientCertificatePath"] = args ? args.clientCertificatePath : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
@@ -120,6 +125,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["storageUseAzuread"] = pulumi.output((args ? args.storageUseAzuread : undefined) ?? (utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
             resourceInputs["subscriptionId"] = (args ? args.subscriptionId : undefined) ?? (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["useCli"] = pulumi.output(args ? args.useCli : undefined).apply(JSON.stringify);
             resourceInputs["useMsi"] = pulumi.output(args ? args.useMsi : undefined).apply(JSON.stringify);
             resourceInputs["useOidc"] = pulumi.output(args ? args.useOidc : undefined).apply(JSON.stringify);
         }
@@ -133,6 +139,10 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     */
+    clientCertificate?: pulumi.Input<string>;
     /**
      * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
      * Certificate
@@ -213,7 +223,11 @@ export interface ProviderArgs {
      */
     tenantId?: pulumi.Input<string>;
     /**
-     * Allowed Managed Service Identity be used for Authentication.
+     * Allow Azure CLI to be used for Authentication.
+     */
+    useCli?: pulumi.Input<boolean>;
+    /**
+     * Allow Managed Service Identity to be used for Authentication.
      */
     useMsi?: pulumi.Input<boolean>;
     /**

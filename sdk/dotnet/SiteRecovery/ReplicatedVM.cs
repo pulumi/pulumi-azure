@@ -391,6 +391,9 @@ namespace Pulumi.Azure.SiteRecovery
         [Output("targetZone")]
         public Output<string?> TargetZone { get; private set; } = null!;
 
+        /// <summary>
+        /// Network to use when a test failover is done.
+        /// </summary>
         [Output("testNetworkId")]
         public Output<string> TestNetworkId { get; private set; } = null!;
 
@@ -585,6 +588,9 @@ namespace Pulumi.Azure.SiteRecovery
         [Input("targetZone")]
         public Input<string>? TargetZone { get; set; }
 
+        /// <summary>
+        /// Network to use when a test failover is done.
+        /// </summary>
         [Input("testNetworkId")]
         public Input<string>? TestNetworkId { get; set; }
 
@@ -747,6 +753,9 @@ namespace Pulumi.Azure.SiteRecovery
         [Input("targetZone")]
         public Input<string>? TargetZone { get; set; }
 
+        /// <summary>
+        /// Network to use when a test failover is done.
+        /// </summary>
         [Input("testNetworkId")]
         public Input<string>? TestNetworkId { get; set; }
 

@@ -20,6 +20,21 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
     public static final VaultArgs Empty = new VaultArgs();
 
     /**
+     * Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="classicVmwareReplicationEnabled")
+    private @Nullable Output<Boolean> classicVmwareReplicationEnabled;
+
+    /**
+     * @return Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> classicVmwareReplicationEnabled() {
+        return Optional.ofNullable(this.classicVmwareReplicationEnabled);
+    }
+
+    /**
      * Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
      * 
      */
@@ -202,6 +217,7 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
     private VaultArgs() {}
 
     private VaultArgs(VaultArgs $) {
+        this.classicVmwareReplicationEnabled = $.classicVmwareReplicationEnabled;
         this.crossRegionRestoreEnabled = $.crossRegionRestoreEnabled;
         this.encryption = $.encryption;
         this.identity = $.identity;
@@ -232,6 +248,27 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(VaultArgs defaults) {
             $ = new VaultArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param classicVmwareReplicationEnabled Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder classicVmwareReplicationEnabled(@Nullable Output<Boolean> classicVmwareReplicationEnabled) {
+            $.classicVmwareReplicationEnabled = classicVmwareReplicationEnabled;
+            return this;
+        }
+
+        /**
+         * @param classicVmwareReplicationEnabled Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder classicVmwareReplicationEnabled(Boolean classicVmwareReplicationEnabled) {
+            return classicVmwareReplicationEnabled(Output.of(classicVmwareReplicationEnabled));
         }
 
         /**

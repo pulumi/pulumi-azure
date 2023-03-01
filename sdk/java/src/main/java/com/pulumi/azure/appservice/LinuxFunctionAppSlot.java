@@ -126,14 +126,14 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="authSettings", type=LinuxFunctionAppSlotAuthSettings.class, parameters={})
-    private Output<LinuxFunctionAppSlotAuthSettings> authSettings;
+    private Output</* @Nullable */ LinuxFunctionAppSlotAuthSettings> authSettings;
 
     /**
      * @return an `auth_settings` block as detailed below.
      * 
      */
-    public Output<LinuxFunctionAppSlotAuthSettings> authSettings() {
-        return this.authSettings;
+    public Output<Optional<LinuxFunctionAppSlotAuthSettings>> authSettings() {
+        return Codegen.optional(this.authSettings);
     }
     /**
      * a `backup` block as detailed below.

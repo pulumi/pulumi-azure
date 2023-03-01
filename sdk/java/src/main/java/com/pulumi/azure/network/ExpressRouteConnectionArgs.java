@@ -64,6 +64,21 @@ public final class ExpressRouteConnectionArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+     * 
+     */
+    @Import(name="expressRouteGatewayBypassEnabled")
+    private @Nullable Output<Boolean> expressRouteGatewayBypassEnabled;
+
+    /**
+     * @return Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> expressRouteGatewayBypassEnabled() {
+        return Optional.ofNullable(this.expressRouteGatewayBypassEnabled);
+    }
+
+    /**
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      * 
      */
@@ -129,6 +144,7 @@ public final class ExpressRouteConnectionArgs extends com.pulumi.resources.Resou
         this.authorizationKey = $.authorizationKey;
         this.enableInternetSecurity = $.enableInternetSecurity;
         this.expressRouteCircuitPeeringId = $.expressRouteCircuitPeeringId;
+        this.expressRouteGatewayBypassEnabled = $.expressRouteGatewayBypassEnabled;
         this.expressRouteGatewayId = $.expressRouteGatewayId;
         this.name = $.name;
         this.routing = $.routing;
@@ -214,6 +230,27 @@ public final class ExpressRouteConnectionArgs extends com.pulumi.resources.Resou
          */
         public Builder expressRouteCircuitPeeringId(String expressRouteCircuitPeeringId) {
             return expressRouteCircuitPeeringId(Output.of(expressRouteCircuitPeeringId));
+        }
+
+        /**
+         * @param expressRouteGatewayBypassEnabled Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expressRouteGatewayBypassEnabled(@Nullable Output<Boolean> expressRouteGatewayBypassEnabled) {
+            $.expressRouteGatewayBypassEnabled = expressRouteGatewayBypassEnabled;
+            return this;
+        }
+
+        /**
+         * @param expressRouteGatewayBypassEnabled Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expressRouteGatewayBypassEnabled(Boolean expressRouteGatewayBypassEnabled) {
+            return expressRouteGatewayBypassEnabled(Output.of(expressRouteGatewayBypassEnabled));
         }
 
         /**

@@ -25,7 +25,7 @@ class ConfigurationConfigFileArgs:
                  content: pulumi.Input[str],
                  virtual_path: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] content: Specifies the base-64 encoded contents of this config file (Sensitive).
+        :param pulumi.Input[str] content: Specifies the base-64 encoded contents of this config file.
         :param pulumi.Input[str] virtual_path: Specify the path of this config file.
         """
         pulumi.set(__self__, "content", content)
@@ -35,7 +35,7 @@ class ConfigurationConfigFileArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
         """
-        Specifies the base-64 encoded contents of this config file (Sensitive).
+        Specifies the base-64 encoded contents of this config file.
         """
         return pulumi.get(self, "content")
 
@@ -62,7 +62,7 @@ class ConfigurationProtectedFileArgs:
                  content: pulumi.Input[str],
                  virtual_path: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] content: Specifies the base-64 encoded contents of this config file.
+        :param pulumi.Input[str] content: Specifies the base-64 encoded contents of this config file (Sensitive).
         :param pulumi.Input[str] virtual_path: Specify the path of this config file.
         """
         pulumi.set(__self__, "content", content)
@@ -72,7 +72,7 @@ class ConfigurationProtectedFileArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
         """
-        Specifies the base-64 encoded contents of this config file.
+        Specifies the base-64 encoded contents of this config file (Sensitive).
         """
         return pulumi.get(self, "content")
 

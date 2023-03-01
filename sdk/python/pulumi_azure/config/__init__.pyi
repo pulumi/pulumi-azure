@@ -12,6 +12,11 @@ from . import outputs
 
 auxiliaryTenantIds: Optional[str]
 
+clientCertificate: Optional[str]
+"""
+Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+"""
+
 clientCertificatePassword: Optional[str]
 """
 The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
@@ -112,9 +117,14 @@ tenantId: Optional[str]
 The Tenant ID which should be used.
 """
 
+useCli: Optional[bool]
+"""
+Allow Azure CLI to be used for Authentication.
+"""
+
 useMsi: Optional[bool]
 """
-Allowed Managed Service Identity be used for Authentication.
+Allow Managed Service Identity to be used for Authentication.
 """
 
 useOidc: Optional[bool]

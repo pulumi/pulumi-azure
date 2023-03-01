@@ -192,18 +192,32 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.annotations);
     }
     /**
-     * The connection string. Conflicts with `sas_uri` and `service_endpoint`.
+     * The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
      * 
      */
     @Export(name="connectionString", type=String.class, parameters={})
     private Output</* @Nullable */ String> connectionString;
 
     /**
-     * @return The connection string. Conflicts with `sas_uri` and `service_endpoint`.
+     * @return The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
      * 
      */
     public Output<Optional<String>> connectionString() {
         return Codegen.optional(this.connectionString);
+    }
+    /**
+     * The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+     * 
+     */
+    @Export(name="connectionStringInsecure", type=String.class, parameters={})
+    private Output</* @Nullable */ String> connectionStringInsecure;
+
+    /**
+     * @return The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+     * 
+     */
+    public Output<Optional<String>> connectionStringInsecure() {
+        return Codegen.optional(this.connectionStringInsecure);
     }
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -290,28 +304,28 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.parameters);
     }
     /**
-     * The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
+     * The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
      * 
      */
     @Export(name="sasUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> sasUri;
 
     /**
-     * @return The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
+     * @return The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
      * 
      */
     public Output<Optional<String>> sasUri() {
         return Codegen.optional(this.sasUri);
     }
     /**
-     * The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
+     * The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
      * 
      */
     @Export(name="serviceEndpoint", type=String.class, parameters={})
     private Output</* @Nullable */ String> serviceEndpoint;
 
     /**
-     * @return The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
+     * @return The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
      * 
      */
     public Output<Optional<String>> serviceEndpoint() {

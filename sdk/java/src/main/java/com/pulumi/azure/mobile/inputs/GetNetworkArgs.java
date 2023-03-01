@@ -14,14 +14,14 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetNetworkArgs Empty = new GetNetworkArgs();
 
     /**
-     * Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
+     * Specifies the name which should be used for this Mobile Network.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
+     * @return Specifies the name which should be used for this Mobile Network.
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+     * Specifies the name of the Resource Group where the Mobile Network should exist.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+     * @return Specifies the name of the Resource Group where the Mobile Network should exist.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -69,7 +69,7 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
+         * @param name Specifies the name which should be used for this Mobile Network.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
+         * @param name Specifies the name which should be used for this Mobile Network.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+         * @param resourceGroupName Specifies the name of the Resource Group where the Mobile Network should exist.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+         * @param resourceGroupName Specifies the name of the Resource Group where the Mobile Network should exist.
          * 
          * @return builder
          * 

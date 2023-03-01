@@ -22,13 +22,16 @@ class GetWindowsWebAppResult:
     """
     A collection of values returned by getWindowsWebApp.
     """
-    def __init__(__self__, app_settings=None, auth_settings=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_settings=None, auth_settings=None, auth_settings_v2s=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, virtual_network_subnet_id=None):
         if app_settings and not isinstance(app_settings, dict):
             raise TypeError("Expected argument 'app_settings' to be a dict")
         pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings and not isinstance(auth_settings, list):
             raise TypeError("Expected argument 'auth_settings' to be a list")
         pulumi.set(__self__, "auth_settings", auth_settings)
+        if auth_settings_v2s and not isinstance(auth_settings_v2s, list):
+            raise TypeError("Expected argument 'auth_settings_v2s' to be a list")
+        pulumi.set(__self__, "auth_settings_v2s", auth_settings_v2s)
         if backups and not isinstance(backups, list):
             raise TypeError("Expected argument 'backups' to be a list")
         pulumi.set(__self__, "backups", backups)
@@ -129,6 +132,14 @@ class GetWindowsWebAppResult:
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
+
+    @property
+    @pulumi.getter(name="authSettingsV2s")
+    def auth_settings_v2s(self) -> Sequence['outputs.GetWindowsWebAppAuthSettingsV2Result']:
+        """
+        An `auth_settings_v2` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings_v2s")
 
     @property
     @pulumi.getter
@@ -360,6 +371,7 @@ class AwaitableGetWindowsWebAppResult(GetWindowsWebAppResult):
         return GetWindowsWebAppResult(
             app_settings=self.app_settings,
             auth_settings=self.auth_settings,
+            auth_settings_v2s=self.auth_settings_v2s,
             backups=self.backups,
             client_affinity_enabled=self.client_affinity_enabled,
             client_certificate_enabled=self.client_certificate_enabled,
@@ -420,6 +432,7 @@ def get_windows_web_app(name: Optional[str] = None,
     return AwaitableGetWindowsWebAppResult(
         app_settings=__ret__.app_settings,
         auth_settings=__ret__.auth_settings,
+        auth_settings_v2s=__ret__.auth_settings_v2s,
         backups=__ret__.backups,
         client_affinity_enabled=__ret__.client_affinity_enabled,
         client_certificate_enabled=__ret__.client_certificate_enabled,

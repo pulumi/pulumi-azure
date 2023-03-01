@@ -93,11 +93,11 @@ export class FlexibleServer extends pulumi.CustomResource {
     }
 
     /**
-     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
+     * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      */
     public readonly administratorPassword!: pulumi.Output<string | undefined>;
     /**
@@ -109,7 +109,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly backupRetentionDays!: pulumi.Output<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
@@ -274,11 +274,11 @@ export class FlexibleServer extends pulumi.CustomResource {
  */
 export interface FlexibleServerState {
     /**
-     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      */
     administratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
+     * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      */
     administratorPassword?: pulumi.Input<string>;
     /**
@@ -290,7 +290,7 @@ export interface FlexibleServerState {
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -380,11 +380,11 @@ export interface FlexibleServerState {
  */
 export interface FlexibleServerArgs {
     /**
-     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      */
     administratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
+     * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      */
     administratorPassword?: pulumi.Input<string>;
     /**
@@ -396,7 +396,7 @@ export interface FlexibleServerArgs {
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore` and `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     createMode?: pulumi.Input<string>;
     /**

@@ -29,6 +29,11 @@ public final class GetPolicyDefintionResult {
      * 
      */
     private String metadata;
+    /**
+     * @return The Mode of the Policy.
+     * 
+     */
+    private String mode;
     private String name;
     /**
      * @return Any Parameters defined in the Policy.
@@ -84,6 +89,13 @@ public final class GetPolicyDefintionResult {
     public String metadata() {
         return this.metadata;
     }
+    /**
+     * @return The Mode of the Policy.
+     * 
+     */
+    public String mode() {
+        return this.mode;
+    }
     public String name() {
         return this.name;
     }
@@ -137,6 +149,7 @@ public final class GetPolicyDefintionResult {
         private String id;
         private @Nullable String managementGroupName;
         private String metadata;
+        private String mode;
         private String name;
         private String parameters;
         private String policyRule;
@@ -151,6 +164,7 @@ public final class GetPolicyDefintionResult {
     	      this.id = defaults.id;
     	      this.managementGroupName = defaults.managementGroupName;
     	      this.metadata = defaults.metadata;
+    	      this.mode = defaults.mode;
     	      this.name = defaults.name;
     	      this.parameters = defaults.parameters;
     	      this.policyRule = defaults.policyRule;
@@ -182,6 +196,11 @@ public final class GetPolicyDefintionResult {
         @CustomType.Setter
         public Builder metadata(String metadata) {
             this.metadata = Objects.requireNonNull(metadata);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder mode(String mode) {
+            this.mode = Objects.requireNonNull(mode);
             return this;
         }
         @CustomType.Setter
@@ -224,6 +243,7 @@ public final class GetPolicyDefintionResult {
             o.id = id;
             o.managementGroupName = managementGroupName;
             o.metadata = metadata;
+            o.mode = mode;
             o.name = name;
             o.parameters = parameters;
             o.policyRule = policyRule;

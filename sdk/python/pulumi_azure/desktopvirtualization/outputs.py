@@ -15,6 +15,8 @@ __all__ = [
     'HostPoolScheduledAgentUpdatesSchedule',
     'ScalingPlanHostPool',
     'ScalingPlanSchedule',
+    'GetHostPoolScheduledAgentUpdateResult',
+    'GetHostPoolScheduledAgentUpdateScheduleResult',
 ]
 
 @pulumi.output_type
@@ -439,5 +441,85 @@ class ScalingPlanSchedule(dict):
         Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
         """
         return pulumi.get(self, "ramp_up_minimum_hosts_percent")
+
+
+@pulumi.output_type
+class GetHostPoolScheduledAgentUpdateResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 schedules: Sequence['outputs.GetHostPoolScheduledAgentUpdateScheduleResult'],
+                 timezone: str,
+                 use_session_host_timezone: bool):
+        """
+        :param bool enabled: Are scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) enabled on session hosts.
+        :param Sequence['GetHostPoolScheduledAgentUpdateScheduleArgs'] schedules: A `schedule` block as defined below.
+        :param str timezone: The time zone in which the agent update schedule will apply.
+        :param bool use_session_host_timezone: Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "schedules", schedules)
+        pulumi.set(__self__, "timezone", timezone)
+        pulumi.set(__self__, "use_session_host_timezone", use_session_host_timezone)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Are scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) enabled on session hosts.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Sequence['outputs.GetHostPoolScheduledAgentUpdateScheduleResult']:
+        """
+        A `schedule` block as defined below.
+        """
+        return pulumi.get(self, "schedules")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> str:
+        """
+        The time zone in which the agent update schedule will apply.
+        """
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter(name="useSessionHostTimezone")
+    def use_session_host_timezone(self) -> bool:
+        """
+        Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host.
+        """
+        return pulumi.get(self, "use_session_host_timezone")
+
+
+@pulumi.output_type
+class GetHostPoolScheduledAgentUpdateScheduleResult(dict):
+    def __init__(__self__, *,
+                 day_of_week: str,
+                 hour_of_day: int):
+        """
+        :param str day_of_week: The day of the week on which agent updates should be performed.
+        :param int hour_of_day: The hour of day the update window should start.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> str:
+        """
+        The day of the week on which agent updates should be performed.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        """
+        The hour of day the update window should start.
+        """
+        return pulumi.get(self, "hour_of_day")
 
 

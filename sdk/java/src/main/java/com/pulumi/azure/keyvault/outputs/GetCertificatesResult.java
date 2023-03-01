@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.keyvault.outputs;
 
+import com.pulumi.azure.keyvault.outputs.GetCertificatesCertificate;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCertificatesResult {
+    /**
+     * @return One or more `certificates` blocks as defined below.
+     * 
+     */
+    private List<GetCertificatesCertificate> certificates;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -31,6 +37,13 @@ public final class GetCertificatesResult {
     private List<String> names;
 
     private GetCertificatesResult() {}
+    /**
+     * @return One or more `certificates` blocks as defined below.
+     * 
+     */
+    public List<GetCertificatesCertificate> certificates() {
+        return this.certificates;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -65,6 +78,7 @@ public final class GetCertificatesResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetCertificatesCertificate> certificates;
         private String id;
         private @Nullable Boolean includePending;
         private String keyVaultId;
@@ -72,12 +86,21 @@ public final class GetCertificatesResult {
         public Builder() {}
         public Builder(GetCertificatesResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.certificates = defaults.certificates;
     	      this.id = defaults.id;
     	      this.includePending = defaults.includePending;
     	      this.keyVaultId = defaults.keyVaultId;
     	      this.names = defaults.names;
         }
 
+        @CustomType.Setter
+        public Builder certificates(List<GetCertificatesCertificate> certificates) {
+            this.certificates = Objects.requireNonNull(certificates);
+            return this;
+        }
+        public Builder certificates(GetCertificatesCertificate... certificates) {
+            return certificates(List.of(certificates));
+        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
@@ -103,6 +126,7 @@ public final class GetCertificatesResult {
         }
         public GetCertificatesResult build() {
             final var o = new GetCertificatesResult();
+            o.certificates = certificates;
             o.id = id;
             o.includePending = includePending;
             o.keyVaultId = keyVaultId;

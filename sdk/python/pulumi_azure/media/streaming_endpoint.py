@@ -35,7 +35,7 @@ class StreamingEndpointArgs:
         The set of arguments for constructing a StreamingEndpoint resource.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
-        :param pulumi.Input[int] scale_units: The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+        :param pulumi.Input[int] scale_units: The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
         :param pulumi.Input['StreamingEndpointAccessControlArgs'] access_control: A `access_control` block as defined below.
         :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation.
         :param pulumi.Input[bool] cdn_enabled: The CDN enabled flag.
@@ -46,7 +46,7 @@ class StreamingEndpointArgs:
         :param pulumi.Input[str] description: The streaming endpoint description.
         :param pulumi.Input[str] location: The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
         :param pulumi.Input[int] max_cache_age_seconds: Max cache age in seconds.
-        :param pulumi.Input[str] name: The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Streaming Endpoint.
         """
         pulumi.set(__self__, "media_services_account_name", media_services_account_name)
@@ -105,7 +105,7 @@ class StreamingEndpointArgs:
     @pulumi.getter(name="scaleUnits")
     def scale_units(self) -> pulumi.Input[int]:
         """
-        The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+        The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
         """
         return pulumi.get(self, "scale_units")
 
@@ -237,7 +237,7 @@ class StreamingEndpointArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
@@ -276,6 +276,7 @@ class _StreamingEndpointState:
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
+                 skus: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointSkusArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering StreamingEndpoint resources.
@@ -291,9 +292,10 @@ class _StreamingEndpointState:
         :param pulumi.Input[str] location: The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
         :param pulumi.Input[int] max_cache_age_seconds: Max cache age in seconds.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
-        :param pulumi.Input[int] scale_units: The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+        :param pulumi.Input[int] scale_units: The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingEndpointSkusArgs']]] skus: A `sku` block defined as below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Streaming Endpoint.
         """
         if access_control is not None:
@@ -326,6 +328,8 @@ class _StreamingEndpointState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scale_units is not None:
             pulumi.set(__self__, "scale_units", scale_units)
+        if skus is not None:
+            pulumi.set(__self__, "skus", skus)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -477,7 +481,7 @@ class _StreamingEndpointState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
@@ -501,13 +505,25 @@ class _StreamingEndpointState:
     @pulumi.getter(name="scaleUnits")
     def scale_units(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+        The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
         """
         return pulumi.get(self, "scale_units")
 
     @scale_units.setter
     def scale_units(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "scale_units", value)
+
+    @property
+    @pulumi.getter
+    def skus(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointSkusArgs']]]]:
+        """
+        A `sku` block defined as below.
+        """
+        return pulumi.get(self, "skus")
+
+    @skus.setter
+    def skus(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointSkusArgs']]]]):
+        pulumi.set(self, "skus", value)
 
     @property
     @pulumi.getter
@@ -642,9 +658,9 @@ class StreamingEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
         :param pulumi.Input[int] max_cache_age_seconds: Max cache age in seconds.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
-        :param pulumi.Input[int] scale_units: The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+        :param pulumi.Input[int] scale_units: The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Streaming Endpoint.
         """
         ...
@@ -800,6 +816,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             __props__.__dict__["scale_units"] = scale_units
             __props__.__dict__["tags"] = tags
             __props__.__dict__["host_name"] = None
+            __props__.__dict__["skus"] = None
         super(StreamingEndpoint, __self__).__init__(
             'azure:media/streamingEndpoint:StreamingEndpoint',
             resource_name,
@@ -825,6 +842,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             scale_units: Optional[pulumi.Input[int]] = None,
+            skus: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingEndpointSkusArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'StreamingEndpoint':
         """
         Get an existing StreamingEndpoint resource's state with the given name, id, and optional extra
@@ -845,9 +863,10 @@ class StreamingEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
         :param pulumi.Input[int] max_cache_age_seconds: Max cache age in seconds.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
-        :param pulumi.Input[int] scale_units: The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+        :param pulumi.Input[int] scale_units: The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingEndpointSkusArgs']]]] skus: A `sku` block defined as below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Streaming Endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -869,6 +888,7 @@ class StreamingEndpoint(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["scale_units"] = scale_units
+        __props__.__dict__["skus"] = skus
         __props__.__dict__["tags"] = tags
         return StreamingEndpoint(resource_name, opts=opts, __props__=__props__)
 
@@ -972,7 +992,7 @@ class StreamingEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
@@ -988,9 +1008,17 @@ class StreamingEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="scaleUnits")
     def scale_units(self) -> pulumi.Output[int]:
         """
-        The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+        The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
         """
         return pulumi.get(self, "scale_units")
+
+    @property
+    @pulumi.getter
+    def skus(self) -> pulumi.Output[Sequence['outputs.StreamingEndpointSkus']]:
+        """
+        A `sku` block defined as below.
+        """
+        return pulumi.get(self, "skus")
 
     @property
     @pulumi.getter

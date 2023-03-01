@@ -39,6 +39,16 @@ namespace Pulumi.Azure
             set => _auxiliaryTenantIds.Set(value);
         }
 
+        private static readonly __Value<string?> _clientCertificate = new __Value<string?>(() => __config.Get("clientCertificate"));
+        /// <summary>
+        /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        /// </summary>
+        public static string? ClientCertificate
+        {
+            get => _clientCertificate.Get();
+            set => _clientCertificate.Set(value);
+        }
+
         private static readonly __Value<string?> _clientCertificatePassword = new __Value<string?>(() => __config.Get("clientCertificatePassword"));
         /// <summary>
         /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
@@ -239,9 +249,19 @@ namespace Pulumi.Azure
             set => _tenantId.Set(value);
         }
 
+        private static readonly __Value<bool?> _useCli = new __Value<bool?>(() => __config.GetBoolean("useCli"));
+        /// <summary>
+        /// Allow Azure CLI to be used for Authentication.
+        /// </summary>
+        public static bool? UseCli
+        {
+            get => _useCli.Get();
+            set => _useCli.Set(value);
+        }
+
         private static readonly __Value<bool?> _useMsi = new __Value<bool?>(() => __config.GetBoolean("useMsi"));
         /// <summary>
-        /// Allowed Managed Service Identity be used for Authentication.
+        /// Allow Managed Service Identity to be used for Authentication.
         /// </summary>
         public static bool? UseMsi
         {

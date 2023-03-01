@@ -110,6 +110,9 @@ namespace Pulumi.Azure.Backup
         [Output("backup")]
         public Output<Outputs.PolicyVMBackup> Backup { get; private set; } = null!;
 
+        [Output("instantRestoreResourceGroup")]
+        public Output<Outputs.PolicyVMInstantRestoreResourceGroup?> InstantRestoreResourceGroup { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         /// </summary>
@@ -222,6 +225,9 @@ namespace Pulumi.Azure.Backup
         [Input("backup", required: true)]
         public Input<Inputs.PolicyVMBackupArgs> Backup { get; set; } = null!;
 
+        [Input("instantRestoreResourceGroup")]
+        public Input<Inputs.PolicyVMInstantRestoreResourceGroupArgs>? InstantRestoreResourceGroup { get; set; }
+
         /// <summary>
         /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         /// </summary>
@@ -295,6 +301,9 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("backup")]
         public Input<Inputs.PolicyVMBackupGetArgs>? Backup { get; set; }
+
+        [Input("instantRestoreResourceGroup")]
+        public Input<Inputs.PolicyVMInstantRestoreResourceGroupGetArgs>? InstantRestoreResourceGroup { get; set; }
 
         /// <summary>
         /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.

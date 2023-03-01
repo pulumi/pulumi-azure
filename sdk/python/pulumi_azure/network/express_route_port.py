@@ -20,6 +20,7 @@ class ExpressRoutePortArgs:
                  encapsulation: pulumi.Input[str],
                  peering_location: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 billing_type: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ExpressRoutePortIdentityArgs']] = None,
                  link1: Optional[pulumi.Input['ExpressRoutePortLink1Args']] = None,
                  link2: Optional[pulumi.Input['ExpressRoutePortLink2Args']] = None,
@@ -32,6 +33,7 @@ class ExpressRoutePortArgs:
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[str] peering_location: The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
+        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
         :param pulumi.Input['ExpressRoutePortIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ExpressRoutePortLink1Args'] link1: A list of `link` blocks as defined below.
         :param pulumi.Input['ExpressRoutePortLink2Args'] link2: A list of `link` blocks as defined below.
@@ -43,6 +45,8 @@ class ExpressRoutePortArgs:
         pulumi.set(__self__, "encapsulation", encapsulation)
         pulumi.set(__self__, "peering_location", peering_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if billing_type is not None:
+            pulumi.set(__self__, "billing_type", billing_type)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if link1 is not None:
@@ -103,6 +107,18 @@ class ExpressRoutePortArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="billingType")
+    def billing_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        """
+        return pulumi.get(self, "billing_type")
+
+    @billing_type.setter
+    def billing_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_type", value)
 
     @property
     @pulumi.getter
@@ -181,6 +197,7 @@ class ExpressRoutePortArgs:
 class _ExpressRoutePortState:
     def __init__(__self__, *,
                  bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+                 billing_type: Optional[pulumi.Input[str]] = None,
                  encapsulation: Optional[pulumi.Input[str]] = None,
                  ethertype: Optional[pulumi.Input[str]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
@@ -196,6 +213,7 @@ class _ExpressRoutePortState:
         """
         Input properties used for looking up and filtering ExpressRoutePort resources.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
+        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[str] ethertype: The EtherType of the Express Route Port.
         :param pulumi.Input[str] guid: The resource GUID of the Express Route Port.
@@ -211,6 +229,8 @@ class _ExpressRoutePortState:
         """
         if bandwidth_in_gbps is not None:
             pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+        if billing_type is not None:
+            pulumi.set(__self__, "billing_type", billing_type)
         if encapsulation is not None:
             pulumi.set(__self__, "encapsulation", encapsulation)
         if ethertype is not None:
@@ -247,6 +267,18 @@ class _ExpressRoutePortState:
     @bandwidth_in_gbps.setter
     def bandwidth_in_gbps(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "bandwidth_in_gbps", value)
+
+    @property
+    @pulumi.getter(name="billingType")
+    def billing_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        """
+        return pulumi.get(self, "billing_type")
+
+    @billing_type.setter
+    def billing_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_type", value)
 
     @property
     @pulumi.getter
@@ -399,6 +431,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+                 billing_type: Optional[pulumi.Input[str]] = None,
                  encapsulation: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ExpressRoutePortIdentityArgs']]] = None,
                  link1: Optional[pulumi.Input[pulumi.InputType['ExpressRoutePortLink1Args']]] = None,
@@ -438,6 +471,7 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
+        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[pulumi.InputType['ExpressRoutePortIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['ExpressRoutePortLink1Args']] link1: A list of `link` blocks as defined below.
@@ -496,6 +530,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+                 billing_type: Optional[pulumi.Input[str]] = None,
                  encapsulation: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ExpressRoutePortIdentityArgs']]] = None,
                  link1: Optional[pulumi.Input[pulumi.InputType['ExpressRoutePortLink1Args']]] = None,
@@ -517,6 +552,7 @@ class ExpressRoutePort(pulumi.CustomResource):
             if bandwidth_in_gbps is None and not opts.urn:
                 raise TypeError("Missing required property 'bandwidth_in_gbps'")
             __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
+            __props__.__dict__["billing_type"] = billing_type
             if encapsulation is None and not opts.urn:
                 raise TypeError("Missing required property 'encapsulation'")
             __props__.__dict__["encapsulation"] = encapsulation
@@ -546,6 +582,7 @@ class ExpressRoutePort(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+            billing_type: Optional[pulumi.Input[str]] = None,
             encapsulation: Optional[pulumi.Input[str]] = None,
             ethertype: Optional[pulumi.Input[str]] = None,
             guid: Optional[pulumi.Input[str]] = None,
@@ -566,6 +603,7 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
+        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[str] ethertype: The EtherType of the Express Route Port.
         :param pulumi.Input[str] guid: The resource GUID of the Express Route Port.
@@ -584,6 +622,7 @@ class ExpressRoutePort(pulumi.CustomResource):
         __props__ = _ExpressRoutePortState.__new__(_ExpressRoutePortState)
 
         __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
+        __props__.__dict__["billing_type"] = billing_type
         __props__.__dict__["encapsulation"] = encapsulation
         __props__.__dict__["ethertype"] = ethertype
         __props__.__dict__["guid"] = guid
@@ -605,6 +644,14 @@ class ExpressRoutePort(pulumi.CustomResource):
         Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
         """
         return pulumi.get(self, "bandwidth_in_gbps")
+
+    @property
+    @pulumi.getter(name="billingType")
+    def billing_type(self) -> pulumi.Output[str]:
+        """
+        The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        """
+        return pulumi.get(self, "billing_type")
 
     @property
     @pulumi.getter

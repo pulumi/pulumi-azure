@@ -8,6 +8,7 @@ import com.pulumi.azure.media.StreamingEndpointArgs;
 import com.pulumi.azure.media.inputs.StreamingEndpointState;
 import com.pulumi.azure.media.outputs.StreamingEndpointAccessControl;
 import com.pulumi.azure.media.outputs.StreamingEndpointCrossSiteAccessPolicy;
+import com.pulumi.azure.media.outputs.StreamingEndpointSkus;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -345,14 +346,14 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
         return this.mediaServicesAccountName;
     }
     /**
-     * The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+     * The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+     * @return The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
      * 
      */
     public Output<String> name() {
@@ -373,18 +374,32 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+     * The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
      * 
      */
     @Export(name="scaleUnits", type=Integer.class, parameters={})
     private Output<Integer> scaleUnits;
 
     /**
-     * @return The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+     * @return The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
      * 
      */
     public Output<Integer> scaleUnits() {
         return this.scaleUnits;
+    }
+    /**
+     * A `sku` block defined as below.
+     * 
+     */
+    @Export(name="skus", type=List.class, parameters={StreamingEndpointSkus.class})
+    private Output<List<StreamingEndpointSkus>> skus;
+
+    /**
+     * @return A `sku` block defined as below.
+     * 
+     */
+    public Output<List<StreamingEndpointSkus>> skus() {
+        return this.skus;
     }
     /**
      * A mapping of tags which should be assigned to the Streaming Endpoint.

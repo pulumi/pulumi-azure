@@ -61,6 +61,8 @@ import (
 type Vault struct {
 	pulumi.CustomResourceState
 
+	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+	ClassicVmwareReplicationEnabled pulumi.BoolOutput `pulumi:"classicVmwareReplicationEnabled"`
 	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
 	CrossRegionRestoreEnabled pulumi.BoolPtrOutput `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
@@ -122,6 +124,8 @@ func GetVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vault resources.
 type vaultState struct {
+	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+	ClassicVmwareReplicationEnabled *bool `pulumi:"classicVmwareReplicationEnabled"`
 	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
 	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
@@ -149,6 +153,8 @@ type vaultState struct {
 }
 
 type VaultState struct {
+	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+	ClassicVmwareReplicationEnabled pulumi.BoolPtrInput
 	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
 	CrossRegionRestoreEnabled pulumi.BoolPtrInput
 	// An `encryption` block as defined below. Required with `identity`.
@@ -180,6 +186,8 @@ func (VaultState) ElementType() reflect.Type {
 }
 
 type vaultArgs struct {
+	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+	ClassicVmwareReplicationEnabled *bool `pulumi:"classicVmwareReplicationEnabled"`
 	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
 	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
@@ -208,6 +216,8 @@ type vaultArgs struct {
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
+	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+	ClassicVmwareReplicationEnabled pulumi.BoolPtrInput
 	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
 	CrossRegionRestoreEnabled pulumi.BoolPtrInput
 	// An `encryption` block as defined below. Required with `identity`.
@@ -319,6 +329,11 @@ func (o VaultOutput) ToVaultOutput() VaultOutput {
 
 func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return o
+}
+
+// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+func (o VaultOutput) ClassicVmwareReplicationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Vault) pulumi.BoolOutput { return v.ClassicVmwareReplicationEnabled }).(pulumi.BoolOutput)
 }
 
 // Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.

@@ -46,9 +46,17 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The Resource Manager ID of this Storage Queue.
+     * 
+     */
     @Import(name="resourceManagerId")
     private @Nullable Output<String> resourceManagerId;
 
+    /**
+     * @return The Resource Manager ID of this Storage Queue.
+     * 
+     */
     public Optional<Output<String>> resourceManagerId() {
         return Optional.ofNullable(this.resourceManagerId);
     }
@@ -137,11 +145,23 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param resourceManagerId The Resource Manager ID of this Storage Queue.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceManagerId(@Nullable Output<String> resourceManagerId) {
             $.resourceManagerId = resourceManagerId;
             return this;
         }
 
+        /**
+         * @param resourceManagerId The Resource Manager ID of this Storage Queue.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceManagerId(String resourceManagerId) {
             return resourceManagerId(Output.of(resourceManagerId));
         }

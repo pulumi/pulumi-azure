@@ -66,6 +66,10 @@ namespace Pulumi.Azure.KeyVault
         /// List containing names of secrets that exist in this Key Vault.
         /// </summary>
         public readonly ImmutableArray<string> Names;
+        /// <summary>
+        /// One or more `secrets` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetSecretsSecretResult> Secrets;
 
         [OutputConstructor]
         private GetSecretsResult(
@@ -73,11 +77,14 @@ namespace Pulumi.Azure.KeyVault
 
             string keyVaultId,
 
-            ImmutableArray<string> names)
+            ImmutableArray<string> names,
+
+            ImmutableArray<Outputs.GetSecretsSecretResult> secrets)
         {
             Id = id;
             KeyVaultId = keyVaultId;
             Names = names;
+            Secrets = secrets;
         }
     }
 }

@@ -19,6 +19,12 @@ namespace Pulumi.Azure
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
+        /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        /// </summary>
+        [Output("clientCertificate")]
+        public Output<string?> ClientCertificate { get; private set; } = null!;
+
+        /// <summary>
         /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
         /// Certificate
         /// </summary>
@@ -144,6 +150,12 @@ namespace Pulumi.Azure
         }
 
         /// <summary>
+        /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        /// </summary>
+        [Input("clientCertificate")]
+        public Input<string>? ClientCertificate { get; set; }
+
+        /// <summary>
         /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
         /// Certificate
         /// </summary>
@@ -261,7 +273,13 @@ namespace Pulumi.Azure
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Allowed Managed Service Identity be used for Authentication.
+        /// Allow Azure CLI to be used for Authentication.
+        /// </summary>
+        [Input("useCli", json: true)]
+        public Input<bool>? UseCli { get; set; }
+
+        /// <summary>
+        /// Allow Managed Service Identity to be used for Authentication.
         /// </summary>
         [Input("useMsi", json: true)]
         public Input<bool>? UseMsi { get; set; }

@@ -36,14 +36,14 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="configFiles", type=List.class, parameters={ConfigurationConfigFile.class})
-    private Output<List<ConfigurationConfigFile>> configFiles;
+    private Output</* @Nullable */ List<ConfigurationConfigFile>> configFiles;
 
     /**
      * @return One or more `config_file` blocks as defined below.
      * 
      */
-    public Output<List<ConfigurationConfigFile>> configFiles() {
-        return this.configFiles;
+    public Output<Optional<List<ConfigurationConfigFile>>> configFiles() {
+        return Codegen.optional(this.configFiles);
     }
     /**
      * The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
@@ -74,14 +74,14 @@ public class Configuration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.packageData);
     }
     /**
-     * One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+     * One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
      * 
      */
     @Export(name="protectedFiles", type=List.class, parameters={ConfigurationProtectedFile.class})
     private Output</* @Nullable */ List<ConfigurationProtectedFile>> protectedFiles;
 
     /**
-     * @return One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+     * @return One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
      * 
      */
     public Output<Optional<List<ConfigurationProtectedFile>>> protectedFiles() {

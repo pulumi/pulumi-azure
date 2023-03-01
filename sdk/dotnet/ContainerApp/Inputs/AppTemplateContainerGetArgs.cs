@@ -46,7 +46,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppTemplateContainerEnvGetArgs>? _envs;
 
         /// <summary>
-        /// An `env` block as detailed below.
+        /// One or more `env` blocks as detailed below.
         /// </summary>
         public InputList<Inputs.AppTemplateContainerEnvGetArgs> Envs
         {

@@ -12,12 +12,24 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppIdentity {
+    /**
+     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * 
+     */
     private @Nullable List<String> identityIds;
     private @Nullable String principalId;
     private @Nullable String tenantId;
+    /**
+     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * 
+     */
     private String type;
 
     private AppIdentity() {}
+    /**
+     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * 
+     */
     public List<String> identityIds() {
         return this.identityIds == null ? List.of() : this.identityIds;
     }
@@ -27,6 +39,10 @@ public final class AppIdentity {
     public Optional<String> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
+    /**
+     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * 
+     */
     public String type() {
         return this.type;
     }

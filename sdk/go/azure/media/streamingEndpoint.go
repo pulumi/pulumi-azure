@@ -190,12 +190,14 @@ type StreamingEndpoint struct {
 	MaxCacheAgeSeconds pulumi.IntPtrOutput `pulumi:"maxCacheAgeSeconds"`
 	// The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
 	MediaServicesAccountName pulumi.StringOutput `pulumi:"mediaServicesAccountName"`
-	// The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+	// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+	// The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
 	ScaleUnits pulumi.IntOutput `pulumi:"scaleUnits"`
+	// A `sku` block defined as below.
+	Skus StreamingEndpointSkusArrayOutput `pulumi:"skus"`
 	// A mapping of tags which should be assigned to the Streaming Endpoint.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -262,12 +264,14 @@ type streamingEndpointState struct {
 	MaxCacheAgeSeconds *int `pulumi:"maxCacheAgeSeconds"`
 	// The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
 	MediaServicesAccountName *string `pulumi:"mediaServicesAccountName"`
-	// The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+	// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+	// The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
 	ScaleUnits *int `pulumi:"scaleUnits"`
+	// A `sku` block defined as below.
+	Skus []StreamingEndpointSkus `pulumi:"skus"`
 	// A mapping of tags which should be assigned to the Streaming Endpoint.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -297,12 +301,14 @@ type StreamingEndpointState struct {
 	MaxCacheAgeSeconds pulumi.IntPtrInput
 	// The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
 	MediaServicesAccountName pulumi.StringPtrInput
-	// The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+	// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+	// The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
 	ScaleUnits pulumi.IntPtrInput
+	// A `sku` block defined as below.
+	Skus StreamingEndpointSkusArrayInput
 	// A mapping of tags which should be assigned to the Streaming Endpoint.
 	Tags pulumi.StringMapInput
 }
@@ -334,11 +340,11 @@ type streamingEndpointArgs struct {
 	MaxCacheAgeSeconds *int `pulumi:"maxCacheAgeSeconds"`
 	// The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
 	MediaServicesAccountName string `pulumi:"mediaServicesAccountName"`
-	// The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+	// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+	// The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
 	ScaleUnits int `pulumi:"scaleUnits"`
 	// A mapping of tags which should be assigned to the Streaming Endpoint.
 	Tags map[string]string `pulumi:"tags"`
@@ -368,11 +374,11 @@ type StreamingEndpointArgs struct {
 	MaxCacheAgeSeconds pulumi.IntPtrInput
 	// The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
 	MediaServicesAccountName pulumi.StringInput
-	// The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+	// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	ResourceGroupName pulumi.StringInput
-	// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+	// The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
 	ScaleUnits pulumi.IntInput
 	// A mapping of tags which should be assigned to the Streaming Endpoint.
 	Tags pulumi.StringMapInput
@@ -527,7 +533,7 @@ func (o StreamingEndpointOutput) MediaServicesAccountName() pulumi.StringOutput 
 	return o.ApplyT(func(v *StreamingEndpoint) pulumi.StringOutput { return v.MediaServicesAccountName }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
 func (o StreamingEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -537,9 +543,14 @@ func (o StreamingEndpointOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingEndpoint) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+// The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
 func (o StreamingEndpointOutput) ScaleUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v *StreamingEndpoint) pulumi.IntOutput { return v.ScaleUnits }).(pulumi.IntOutput)
+}
+
+// A `sku` block defined as below.
+func (o StreamingEndpointOutput) Skus() StreamingEndpointSkusArrayOutput {
+	return o.ApplyT(func(v *StreamingEndpoint) StreamingEndpointSkusArrayOutput { return v.Skus }).(StreamingEndpointSkusArrayOutput)
 }
 
 // A mapping of tags which should be assigned to the Streaming Endpoint.

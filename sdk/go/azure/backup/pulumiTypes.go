@@ -1041,6 +1041,154 @@ func (o PolicyVMBackupPtrOutput) Weekdays() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type PolicyVMInstantRestoreResourceGroup struct {
+	Prefix string  `pulumi:"prefix"`
+	Suffix *string `pulumi:"suffix"`
+}
+
+// PolicyVMInstantRestoreResourceGroupInput is an input type that accepts PolicyVMInstantRestoreResourceGroupArgs and PolicyVMInstantRestoreResourceGroupOutput values.
+// You can construct a concrete instance of `PolicyVMInstantRestoreResourceGroupInput` via:
+//
+//	PolicyVMInstantRestoreResourceGroupArgs{...}
+type PolicyVMInstantRestoreResourceGroupInput interface {
+	pulumi.Input
+
+	ToPolicyVMInstantRestoreResourceGroupOutput() PolicyVMInstantRestoreResourceGroupOutput
+	ToPolicyVMInstantRestoreResourceGroupOutputWithContext(context.Context) PolicyVMInstantRestoreResourceGroupOutput
+}
+
+type PolicyVMInstantRestoreResourceGroupArgs struct {
+	Prefix pulumi.StringInput    `pulumi:"prefix"`
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+}
+
+func (PolicyVMInstantRestoreResourceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMInstantRestoreResourceGroup)(nil)).Elem()
+}
+
+func (i PolicyVMInstantRestoreResourceGroupArgs) ToPolicyVMInstantRestoreResourceGroupOutput() PolicyVMInstantRestoreResourceGroupOutput {
+	return i.ToPolicyVMInstantRestoreResourceGroupOutputWithContext(context.Background())
+}
+
+func (i PolicyVMInstantRestoreResourceGroupArgs) ToPolicyVMInstantRestoreResourceGroupOutputWithContext(ctx context.Context) PolicyVMInstantRestoreResourceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMInstantRestoreResourceGroupOutput)
+}
+
+func (i PolicyVMInstantRestoreResourceGroupArgs) ToPolicyVMInstantRestoreResourceGroupPtrOutput() PolicyVMInstantRestoreResourceGroupPtrOutput {
+	return i.ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyVMInstantRestoreResourceGroupArgs) ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(ctx context.Context) PolicyVMInstantRestoreResourceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMInstantRestoreResourceGroupOutput).ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(ctx)
+}
+
+// PolicyVMInstantRestoreResourceGroupPtrInput is an input type that accepts PolicyVMInstantRestoreResourceGroupArgs, PolicyVMInstantRestoreResourceGroupPtr and PolicyVMInstantRestoreResourceGroupPtrOutput values.
+// You can construct a concrete instance of `PolicyVMInstantRestoreResourceGroupPtrInput` via:
+//
+//	        PolicyVMInstantRestoreResourceGroupArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyVMInstantRestoreResourceGroupPtrInput interface {
+	pulumi.Input
+
+	ToPolicyVMInstantRestoreResourceGroupPtrOutput() PolicyVMInstantRestoreResourceGroupPtrOutput
+	ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(context.Context) PolicyVMInstantRestoreResourceGroupPtrOutput
+}
+
+type policyVMInstantRestoreResourceGroupPtrType PolicyVMInstantRestoreResourceGroupArgs
+
+func PolicyVMInstantRestoreResourceGroupPtr(v *PolicyVMInstantRestoreResourceGroupArgs) PolicyVMInstantRestoreResourceGroupPtrInput {
+	return (*policyVMInstantRestoreResourceGroupPtrType)(v)
+}
+
+func (*policyVMInstantRestoreResourceGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMInstantRestoreResourceGroup)(nil)).Elem()
+}
+
+func (i *policyVMInstantRestoreResourceGroupPtrType) ToPolicyVMInstantRestoreResourceGroupPtrOutput() PolicyVMInstantRestoreResourceGroupPtrOutput {
+	return i.ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *policyVMInstantRestoreResourceGroupPtrType) ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(ctx context.Context) PolicyVMInstantRestoreResourceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMInstantRestoreResourceGroupPtrOutput)
+}
+
+type PolicyVMInstantRestoreResourceGroupOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMInstantRestoreResourceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMInstantRestoreResourceGroup)(nil)).Elem()
+}
+
+func (o PolicyVMInstantRestoreResourceGroupOutput) ToPolicyVMInstantRestoreResourceGroupOutput() PolicyVMInstantRestoreResourceGroupOutput {
+	return o
+}
+
+func (o PolicyVMInstantRestoreResourceGroupOutput) ToPolicyVMInstantRestoreResourceGroupOutputWithContext(ctx context.Context) PolicyVMInstantRestoreResourceGroupOutput {
+	return o
+}
+
+func (o PolicyVMInstantRestoreResourceGroupOutput) ToPolicyVMInstantRestoreResourceGroupPtrOutput() PolicyVMInstantRestoreResourceGroupPtrOutput {
+	return o.ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyVMInstantRestoreResourceGroupOutput) ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(ctx context.Context) PolicyVMInstantRestoreResourceGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMInstantRestoreResourceGroup) *PolicyVMInstantRestoreResourceGroup {
+		return &v
+	}).(PolicyVMInstantRestoreResourceGroupPtrOutput)
+}
+
+func (o PolicyVMInstantRestoreResourceGroupOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyVMInstantRestoreResourceGroup) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o PolicyVMInstantRestoreResourceGroupOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyVMInstantRestoreResourceGroup) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+}
+
+type PolicyVMInstantRestoreResourceGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMInstantRestoreResourceGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMInstantRestoreResourceGroup)(nil)).Elem()
+}
+
+func (o PolicyVMInstantRestoreResourceGroupPtrOutput) ToPolicyVMInstantRestoreResourceGroupPtrOutput() PolicyVMInstantRestoreResourceGroupPtrOutput {
+	return o
+}
+
+func (o PolicyVMInstantRestoreResourceGroupPtrOutput) ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(ctx context.Context) PolicyVMInstantRestoreResourceGroupPtrOutput {
+	return o
+}
+
+func (o PolicyVMInstantRestoreResourceGroupPtrOutput) Elem() PolicyVMInstantRestoreResourceGroupOutput {
+	return o.ApplyT(func(v *PolicyVMInstantRestoreResourceGroup) PolicyVMInstantRestoreResourceGroup {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMInstantRestoreResourceGroup
+		return ret
+	}).(PolicyVMInstantRestoreResourceGroupOutput)
+}
+
+func (o PolicyVMInstantRestoreResourceGroupPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyVMInstantRestoreResourceGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyVMInstantRestoreResourceGroupPtrOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyVMInstantRestoreResourceGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Suffix
+	}).(pulumi.StringPtrOutput)
+}
+
 type PolicyVMRetentionDaily struct {
 	// The number of daily backups to keep. Must be between `7` and `9999`.
 	Count int `pulumi:"count"`
@@ -2987,6 +3135,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareRetentionYearlyPtrInput)(nil)).Elem(), PolicyFileShareRetentionYearlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMBackupInput)(nil)).Elem(), PolicyVMBackupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMBackupPtrInput)(nil)).Elem(), PolicyVMBackupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMInstantRestoreResourceGroupInput)(nil)).Elem(), PolicyVMInstantRestoreResourceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMInstantRestoreResourceGroupPtrInput)(nil)).Elem(), PolicyVMInstantRestoreResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionDailyInput)(nil)).Elem(), PolicyVMRetentionDailyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionDailyPtrInput)(nil)).Elem(), PolicyVMRetentionDailyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionMonthlyInput)(nil)).Elem(), PolicyVMRetentionMonthlyArgs{})
@@ -3022,6 +3172,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyFileShareRetentionYearlyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyVMBackupOutput{})
 	pulumi.RegisterOutputType(PolicyVMBackupPtrOutput{})
+	pulumi.RegisterOutputType(PolicyVMInstantRestoreResourceGroupOutput{})
+	pulumi.RegisterOutputType(PolicyVMInstantRestoreResourceGroupPtrOutput{})
 	pulumi.RegisterOutputType(PolicyVMRetentionDailyOutput{})
 	pulumi.RegisterOutputType(PolicyVMRetentionDailyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyVMRetentionMonthlyOutput{})

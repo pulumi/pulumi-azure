@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appservice.WindowsWebAppSlotArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotState;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotAuthSettings;
+import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotAuthSettingsV2;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotBackup;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotConnectionString;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotIdentity;
@@ -125,18 +126,32 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appSettings);
     }
     /**
-     * A `auth_settings` block as defined below.
+     * An `auth_settings` block as defined below.
      * 
      */
     @Export(name="authSettings", type=WindowsWebAppSlotAuthSettings.class, parameters={})
-    private Output<WindowsWebAppSlotAuthSettings> authSettings;
+    private Output</* @Nullable */ WindowsWebAppSlotAuthSettings> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return An `auth_settings` block as defined below.
      * 
      */
-    public Output<WindowsWebAppSlotAuthSettings> authSettings() {
-        return this.authSettings;
+    public Output<Optional<WindowsWebAppSlotAuthSettings>> authSettings() {
+        return Codegen.optional(this.authSettings);
+    }
+    /**
+     * An `auth_settings_v2` block as defined below.
+     * 
+     */
+    @Export(name="authSettingsV2", type=WindowsWebAppSlotAuthSettingsV2.class, parameters={})
+    private Output</* @Nullable */ WindowsWebAppSlotAuthSettingsV2> authSettingsV2;
+
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    public Output<Optional<WindowsWebAppSlotAuthSettingsV2>> authSettingsV2() {
+        return Codegen.optional(this.authSettingsV2);
     }
     /**
      * A `backup` block as defined below.

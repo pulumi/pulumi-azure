@@ -54,8 +54,6 @@ type LookupDiskAccessArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the Resource Group where the Disk Access exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags which should be assigned to the Disk Access.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDiskAccess.
@@ -86,8 +84,6 @@ type LookupDiskAccessOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group where the Disk Access exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// A mapping of tags which should be assigned to the Disk Access.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupDiskAccessOutputArgs) ElementType() reflect.Type {

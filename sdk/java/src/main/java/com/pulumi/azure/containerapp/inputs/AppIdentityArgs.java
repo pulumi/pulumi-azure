@@ -16,9 +16,17 @@ public final class AppIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AppIdentityArgs Empty = new AppIdentityArgs();
 
+    /**
+     * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * 
+     */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
+    /**
+     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * 
+     */
     public Optional<Output<List<String>>> identityIds() {
         return Optional.ofNullable(this.identityIds);
     }
@@ -37,9 +45,17 @@ public final class AppIdentityArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tenantId);
     }
 
+    /**
+     * The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -71,15 +87,33 @@ public final class AppIdentityArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AppIdentityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(@Nullable Output<List<String>> identityIds) {
             $.identityIds = identityIds;
             return this;
         }
 
+        /**
+         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(List<String> identityIds) {
             return identityIds(Output.of(identityIds));
         }
 
+        /**
+         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
@@ -102,11 +136,23 @@ public final class AppIdentityArgs extends com.pulumi.resources.ResourceArgs {
             return tenantId(Output.of(tenantId));
         }
 
+        /**
+         * @param type The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

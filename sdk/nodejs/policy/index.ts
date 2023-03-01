@@ -20,6 +20,11 @@ export const getPolicyDefintion: typeof import("./getPolicyDefintion").getPolicy
 export const getPolicyDefintionOutput: typeof import("./getPolicyDefintion").getPolicyDefintionOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicyDefintion","getPolicyDefintionOutput"], () => require("./getPolicyDefintion"));
 
+export { GetPolicyDefintionBuiltInArgs, GetPolicyDefintionBuiltInResult, GetPolicyDefintionBuiltInOutputArgs } from "./getPolicyDefintionBuiltIn";
+export const getPolicyDefintionBuiltIn: typeof import("./getPolicyDefintionBuiltIn").getPolicyDefintionBuiltIn = null as any;
+export const getPolicyDefintionBuiltInOutput: typeof import("./getPolicyDefintionBuiltIn").getPolicyDefintionBuiltInOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyDefintionBuiltIn","getPolicyDefintionBuiltInOutput"], () => require("./getPolicyDefintionBuiltIn"));
+
 export { GetPolicySetDefinitionArgs, GetPolicySetDefinitionResult, GetPolicySetDefinitionOutputArgs } from "./getPolicySetDefinition";
 export const getPolicySetDefinition: typeof import("./getPolicySetDefinition").getPolicySetDefinition = null as any;
 export const getPolicySetDefinitionOutput: typeof import("./getPolicySetDefinition").getPolicySetDefinitionOutput = null as any;

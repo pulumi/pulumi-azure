@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.azure.apimanagement.inputs.ServiceAdditionalLocationArgs;
 import com.pulumi.azure.apimanagement.inputs.ServiceCertificateArgs;
+import com.pulumi.azure.apimanagement.inputs.ServiceDelegationArgs;
 import com.pulumi.azure.apimanagement.inputs.ServiceHostnameConfigurationArgs;
 import com.pulumi.azure.apimanagement.inputs.ServiceIdentityArgs;
 import com.pulumi.azure.apimanagement.inputs.ServicePolicyArgs;
@@ -72,6 +73,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> clientCertificateEnabled() {
         return Optional.ofNullable(this.clientCertificateEnabled);
+    }
+
+    /**
+     * A `delegation` block as defined below.
+     * 
+     */
+    @Import(name="delegation")
+    private @Nullable Output<ServiceDelegationArgs> delegation;
+
+    /**
+     * @return A `delegation` block as defined below.
+     * 
+     */
+    public Optional<Output<ServiceDelegationArgs>> delegation() {
+        return Optional.ofNullable(this.delegation);
     }
 
     /**
@@ -425,6 +441,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         this.additionalLocations = $.additionalLocations;
         this.certificates = $.certificates;
         this.clientCertificateEnabled = $.clientCertificateEnabled;
+        this.delegation = $.delegation;
         this.gatewayDisabled = $.gatewayDisabled;
         this.hostnameConfiguration = $.hostnameConfiguration;
         this.identity = $.identity;
@@ -549,6 +566,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder clientCertificateEnabled(Boolean clientCertificateEnabled) {
             return clientCertificateEnabled(Output.of(clientCertificateEnabled));
+        }
+
+        /**
+         * @param delegation A `delegation` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder delegation(@Nullable Output<ServiceDelegationArgs> delegation) {
+            $.delegation = delegation;
+            return this;
+        }
+
+        /**
+         * @param delegation A `delegation` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder delegation(ServiceDelegationArgs delegation) {
+            return delegation(Output.of(delegation));
         }
 
         /**

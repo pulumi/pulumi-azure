@@ -31,6 +31,21 @@ public final class DataConnectorThreatIntelligenceState extends com.pulumi.resou
     }
 
     /**
+     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     * 
+     */
+    @Import(name="lookbackDate")
+    private @Nullable Output<String> lookbackDate;
+
+    /**
+     * @return The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     * 
+     */
+    public Optional<Output<String>> lookbackDate() {
+        return Optional.ofNullable(this.lookbackDate);
+    }
+
+    /**
      * The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
      * 
      */
@@ -64,6 +79,7 @@ public final class DataConnectorThreatIntelligenceState extends com.pulumi.resou
 
     private DataConnectorThreatIntelligenceState(DataConnectorThreatIntelligenceState $) {
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
+        this.lookbackDate = $.lookbackDate;
         this.name = $.name;
         this.tenantId = $.tenantId;
     }
@@ -105,6 +121,27 @@ public final class DataConnectorThreatIntelligenceState extends com.pulumi.resou
          */
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             return logAnalyticsWorkspaceId(Output.of(logAnalyticsWorkspaceId));
+        }
+
+        /**
+         * @param lookbackDate The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lookbackDate(@Nullable Output<String> lookbackDate) {
+            $.lookbackDate = lookbackDate;
+            return this;
+        }
+
+        /**
+         * @param lookbackDate The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lookbackDate(String lookbackDate) {
+            return lookbackDate(Output.of(lookbackDate));
         }
 
         /**

@@ -43,7 +43,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+        /// The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.LinuxWebAppAuthSettingsMicrosoftGetArgs>? Microsoft { get; set; }
 
         /// <summary>
-        /// The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        /// The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         /// </summary>
         [Input("runtimeVersion")]
         public Input<string>? RuntimeVersion { get; set; }

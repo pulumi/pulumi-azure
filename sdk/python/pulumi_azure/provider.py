@@ -16,6 +16,7 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_certificate: Optional[pulumi.Input[str]] = None,
                  client_certificate_password: Optional[pulumi.Input[str]] = None,
                  client_certificate_path: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -35,10 +36,12 @@ class ProviderArgs:
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_cli: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
                  use_oidc: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
+        :param pulumi.Input[str] client_certificate: Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
         :param pulumi.Input[str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
                Certificate
         :param pulumi.Input[str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
@@ -63,11 +66,14 @@ class ProviderArgs:
         :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
-        :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
+        :param pulumi.Input[bool] use_cli: Allow Azure CLI to be used for Authentication.
+        :param pulumi.Input[bool] use_msi: Allow Managed Service Identity to be used for Authentication.
         :param pulumi.Input[bool] use_oidc: Allow OpenID Connect to be used for authentication
         """
         if auxiliary_tenant_ids is not None:
             pulumi.set(__self__, "auxiliary_tenant_ids", auxiliary_tenant_ids)
+        if client_certificate is not None:
+            pulumi.set(__self__, "client_certificate", client_certificate)
         if client_certificate_password is not None:
             pulumi.set(__self__, "client_certificate_password", client_certificate_password)
         if client_certificate_path is not None:
@@ -116,6 +122,8 @@ class ProviderArgs:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_cli is not None:
+            pulumi.set(__self__, "use_cli", use_cli)
         if use_msi is not None:
             pulumi.set(__self__, "use_msi", use_msi)
         if use_oidc is not None:
@@ -129,6 +137,18 @@ class ProviderArgs:
     @auxiliary_tenant_ids.setter
     def auxiliary_tenant_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "auxiliary_tenant_ids", value)
+
+    @property
+    @pulumi.getter(name="clientCertificate")
+    def client_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        """
+        return pulumi.get(self, "client_certificate")
+
+    @client_certificate.setter
+    def client_certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate", value)
 
     @property
     @pulumi.getter(name="clientCertificatePassword")
@@ -362,10 +382,22 @@ class ProviderArgs:
         pulumi.set(self, "tenant_id", value)
 
     @property
+    @pulumi.getter(name="useCli")
+    def use_cli(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow Azure CLI to be used for Authentication.
+        """
+        return pulumi.get(self, "use_cli")
+
+    @use_cli.setter
+    def use_cli(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_cli", value)
+
+    @property
     @pulumi.getter(name="useMsi")
     def use_msi(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allowed Managed Service Identity be used for Authentication.
+        Allow Managed Service Identity to be used for Authentication.
         """
         return pulumi.get(self, "use_msi")
 
@@ -392,6 +424,7 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_certificate: Optional[pulumi.Input[str]] = None,
                  client_certificate_password: Optional[pulumi.Input[str]] = None,
                  client_certificate_path: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -411,6 +444,7 @@ class Provider(pulumi.ProviderResource):
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_cli: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
                  use_oidc: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -422,6 +456,7 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] client_certificate: Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
         :param pulumi.Input[str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
                Certificate
         :param pulumi.Input[str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
@@ -446,7 +481,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
-        :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
+        :param pulumi.Input[bool] use_cli: Allow Azure CLI to be used for Authentication.
+        :param pulumi.Input[bool] use_msi: Allow Managed Service Identity to be used for Authentication.
         :param pulumi.Input[bool] use_oidc: Allow OpenID Connect to be used for authentication
         """
         ...
@@ -477,6 +513,7 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_certificate: Optional[pulumi.Input[str]] = None,
                  client_certificate_password: Optional[pulumi.Input[str]] = None,
                  client_certificate_path: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -496,6 +533,7 @@ class Provider(pulumi.ProviderResource):
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_cli: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
                  use_oidc: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -508,6 +546,7 @@ class Provider(pulumi.ProviderResource):
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
             __props__.__dict__["auxiliary_tenant_ids"] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
+            __props__.__dict__["client_certificate"] = client_certificate
             __props__.__dict__["client_certificate_password"] = client_certificate_password
             __props__.__dict__["client_certificate_path"] = client_certificate_path
             __props__.__dict__["client_id"] = client_id
@@ -537,6 +576,7 @@ class Provider(pulumi.ProviderResource):
                 subscription_id = (_utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["use_cli"] = pulumi.Output.from_input(use_cli).apply(pulumi.runtime.to_json) if use_cli is not None else None
             __props__.__dict__["use_msi"] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
             __props__.__dict__["use_oidc"] = pulumi.Output.from_input(use_oidc).apply(pulumi.runtime.to_json) if use_oidc is not None else None
         super(Provider, __self__).__init__(
@@ -544,6 +584,14 @@ class Provider(pulumi.ProviderResource):
             resource_name,
             __props__,
             opts)
+
+    @property
+    @pulumi.getter(name="clientCertificate")
+    def client_certificate(self) -> pulumi.Output[Optional[str]]:
+        """
+        Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+        """
+        return pulumi.get(self, "client_certificate")
 
     @property
     @pulumi.getter(name="clientCertificatePassword")

@@ -15,6 +15,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a Front Door (standard/premium) Secret.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
