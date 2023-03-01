@@ -92,8 +92,8 @@ install_nodejs_sdk:
 
 install_plugins:
 	[ -x "$(shell command -v pulumi)" ] || curl -fsSL https://get.pulumi.com | sh
-	pulumi plugin install resource random 4.1.1
-	pulumi plugin install resource azuread 4.0.0
+	pulumi plugin install resource random 4.8.2
+	pulumi plugin install resource azuread 5.33.0
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml
