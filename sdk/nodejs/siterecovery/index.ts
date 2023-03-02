@@ -30,6 +30,21 @@ export const getReplicationRecoveryPlan: typeof import("./getReplicationRecovery
 export const getReplicationRecoveryPlanOutput: typeof import("./getReplicationRecoveryPlan").getReplicationRecoveryPlanOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationRecoveryPlan","getReplicationRecoveryPlanOutput"], () => require("./getReplicationRecoveryPlan"));
 
+export { HyperVReplicationPolicyArgs, HyperVReplicationPolicyState } from "./hyperVReplicationPolicy";
+export type HyperVReplicationPolicy = import("./hyperVReplicationPolicy").HyperVReplicationPolicy;
+export const HyperVReplicationPolicy: typeof import("./hyperVReplicationPolicy").HyperVReplicationPolicy = null as any;
+utilities.lazyLoad(exports, ["HyperVReplicationPolicy"], () => require("./hyperVReplicationPolicy"));
+
+export { HyperVReplicationPolicyAssociationArgs, HyperVReplicationPolicyAssociationState } from "./hyperVReplicationPolicyAssociation";
+export type HyperVReplicationPolicyAssociation = import("./hyperVReplicationPolicyAssociation").HyperVReplicationPolicyAssociation;
+export const HyperVReplicationPolicyAssociation: typeof import("./hyperVReplicationPolicyAssociation").HyperVReplicationPolicyAssociation = null as any;
+utilities.lazyLoad(exports, ["HyperVReplicationPolicyAssociation"], () => require("./hyperVReplicationPolicyAssociation"));
+
+export { HyperVSiteArgs, HyperVSiteState } from "./hyperVSite";
+export type HyperVSite = import("./hyperVSite").HyperVSite;
+export const HyperVSite: typeof import("./hyperVSite").HyperVSite = null as any;
+utilities.lazyLoad(exports, ["HyperVSite"], () => require("./hyperVSite"));
+
 export { NetworkMappingArgs, NetworkMappingState } from "./networkMapping";
 export type NetworkMapping = import("./networkMapping").NetworkMapping;
 export const NetworkMapping: typeof import("./networkMapping").NetworkMapping = null as any;
@@ -67,6 +82,12 @@ const _module = {
         switch (type) {
             case "azure:siterecovery/fabric:Fabric":
                 return new Fabric(name, <any>undefined, { urn })
+            case "azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy":
+                return new HyperVReplicationPolicy(name, <any>undefined, { urn })
+            case "azure:siterecovery/hyperVReplicationPolicyAssociation:HyperVReplicationPolicyAssociation":
+                return new HyperVReplicationPolicyAssociation(name, <any>undefined, { urn })
+            case "azure:siterecovery/hyperVSite:HyperVSite":
+                return new HyperVSite(name, <any>undefined, { urn })
             case "azure:siterecovery/networkMapping:NetworkMapping":
                 return new NetworkMapping(name, <any>undefined, { urn })
             case "azure:siterecovery/protectionContainer:ProtectionContainer":
@@ -85,6 +106,9 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "siterecovery/fabric", _module)
+pulumi.runtime.registerResourceModule("azure", "siterecovery/hyperVReplicationPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "siterecovery/hyperVReplicationPolicyAssociation", _module)
+pulumi.runtime.registerResourceModule("azure", "siterecovery/hyperVSite", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/networkMapping", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/protectionContainer", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/protectionContainerMapping", _module)

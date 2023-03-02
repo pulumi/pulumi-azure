@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class StreamingEndpointCrossSiteAccessPolicy
     {
         /// <summary>
-        /// The content of clientaccesspolicy.xml used by Silverlight.
+        /// The content of `clientaccesspolicy.xml` used by Silverlight.
         /// </summary>
         public readonly string? ClientAccessPolicy;
         /// <summary>
-        /// The content of crossdomain.xml used by Silverlight.
+        /// The content of `crossdomain.xml` used by Silverlight.
         /// </summary>
         public readonly string? CrossDomainPolicy;
 

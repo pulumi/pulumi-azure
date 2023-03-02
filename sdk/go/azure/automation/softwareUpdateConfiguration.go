@@ -13,6 +13,61 @@ import (
 
 // Manages an Automation Software Update Configuraion.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testAccount, err := automation.NewAccount(ctx, "testAccount", &automation.AccountArgs{
+//				Location:          testResourceGroup.Location,
+//				ResourceGroupName: testResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewSoftwareUpdateConfiguration(ctx, "example", &automation.SoftwareUpdateConfigurationArgs{
+//				AutomationAccountId: testAccount.ID(),
+//				OperatingSystem:     pulumi.String("Linux"),
+//				Linuxes: automation.SoftwareUpdateConfigurationLinuxArray{
+//					&automation.SoftwareUpdateConfigurationLinuxArgs{
+//						ClassificationIncluded: pulumi.String("Security"),
+//						ExcludedPackages: pulumi.StringArray{
+//							pulumi.String("apt"),
+//						},
+//						IncludedPackages: pulumi.StringArray{
+//							pulumi.String("vim"),
+//						},
+//						Reboot: pulumi.String("IfRequired"),
+//					},
+//				},
+//				Duration: pulumi.String("PT2H2M2S"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Automations Software Update Configuration can be imported using the `resource id`, e.g.
@@ -32,7 +87,10 @@ type SoftwareUpdateConfiguration struct {
 	// The Error code when failed.
 	ErrorCode pulumi.StringOutput `pulumi:"errorCode"`
 	// The Error message indicating why the operation failed.
+	//
+	// Deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
 	ErrorMeesage pulumi.StringOutput `pulumi:"errorMeesage"`
+	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
 	// One or more `linux` blocks as defined below.
 	Linuxes SoftwareUpdateConfigurationLinuxArrayOutput `pulumi:"linuxes"`
 	// The name which should be used for this Automation. Changing this forces a new Automation to be created.
@@ -97,7 +155,10 @@ type softwareUpdateConfigurationState struct {
 	// The Error code when failed.
 	ErrorCode *string `pulumi:"errorCode"`
 	// The Error message indicating why the operation failed.
+	//
+	// Deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
 	ErrorMeesage *string `pulumi:"errorMeesage"`
+	ErrorMessage *string `pulumi:"errorMessage"`
 	// One or more `linux` blocks as defined below.
 	Linuxes []SoftwareUpdateConfigurationLinux `pulumi:"linuxes"`
 	// The name which should be used for this Automation. Changing this forces a new Automation to be created.
@@ -128,7 +189,10 @@ type SoftwareUpdateConfigurationState struct {
 	// The Error code when failed.
 	ErrorCode pulumi.StringPtrInput
 	// The Error message indicating why the operation failed.
+	//
+	// Deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
 	ErrorMeesage pulumi.StringPtrInput
+	ErrorMessage pulumi.StringPtrInput
 	// One or more `linux` blocks as defined below.
 	Linuxes SoftwareUpdateConfigurationLinuxArrayInput
 	// The name which should be used for this Automation. Changing this forces a new Automation to be created.
@@ -313,8 +377,14 @@ func (o SoftwareUpdateConfigurationOutput) ErrorCode() pulumi.StringOutput {
 }
 
 // The Error message indicating why the operation failed.
+//
+// Deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
 func (o SoftwareUpdateConfigurationOutput) ErrorMeesage() pulumi.StringOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfiguration) pulumi.StringOutput { return v.ErrorMeesage }).(pulumi.StringOutput)
+}
+
+func (o SoftwareUpdateConfigurationOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfiguration) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
 // One or more `linux` blocks as defined below.

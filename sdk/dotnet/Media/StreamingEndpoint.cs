@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Media
         public Output<string> MediaServicesAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        /// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -232,10 +232,16 @@ namespace Pulumi.Azure.Media
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+        /// The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
         /// </summary>
         [Output("scaleUnits")]
         public Output<int> ScaleUnits { get; private set; } = null!;
+
+        /// <summary>
+        /// A `sku` block defined as below.
+        /// </summary>
+        [Output("skus")]
+        public Output<ImmutableArray<Outputs.StreamingEndpointSkus>> Skus { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Streaming Endpoint.
@@ -362,7 +368,7 @@ namespace Pulumi.Azure.Media
         public Input<string> MediaServicesAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        /// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -374,7 +380,7 @@ namespace Pulumi.Azure.Media
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+        /// The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
         /// </summary>
         [Input("scaleUnits", required: true)]
         public Input<int> ScaleUnits { get; set; } = null!;
@@ -478,7 +484,7 @@ namespace Pulumi.Azure.Media
         public Input<string>? MediaServicesAccountName { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        /// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -490,10 +496,22 @@ namespace Pulumi.Azure.Media
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+        /// The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
         /// </summary>
         [Input("scaleUnits")]
         public Input<int>? ScaleUnits { get; set; }
+
+        [Input("skus")]
+        private InputList<Inputs.StreamingEndpointSkusGetArgs>? _skus;
+
+        /// <summary>
+        /// A `sku` block defined as below.
+        /// </summary>
+        public InputList<Inputs.StreamingEndpointSkusGetArgs> Skus
+        {
+            get => _skus ?? (_skus = new InputList<Inputs.StreamingEndpointSkusGetArgs>());
+            set => _skus = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

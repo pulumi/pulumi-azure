@@ -23,6 +23,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:azure")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
+     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     * 
+     */
+    @Export(name="clientCertificate", type=String.class, parameters={})
+    private Output</* @Nullable */ String> clientCertificate;
+
+    /**
+     * @return Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     * 
+     */
+    public Output<Optional<String>> clientCertificate() {
+        return Codegen.optional(this.clientCertificate);
+    }
+    /**
      * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
      * Certificate
      * 

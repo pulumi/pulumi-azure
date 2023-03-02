@@ -324,8 +324,9 @@ type ReplicatedVM struct {
 	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
 	TargetVirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"targetVirtualMachineScaleSetId"`
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
-	TargetZone    pulumi.StringPtrOutput `pulumi:"targetZone"`
-	TestNetworkId pulumi.StringOutput    `pulumi:"testNetworkId"`
+	TargetZone pulumi.StringPtrOutput `pulumi:"targetZone"`
+	// Network to use when a test failover is done.
+	TestNetworkId pulumi.StringOutput `pulumi:"testNetworkId"`
 	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
 	UnmanagedDisks ReplicatedVMUnmanagedDiskArrayOutput `pulumi:"unmanagedDisks"`
 }
@@ -428,7 +429,8 @@ type replicatedVMState struct {
 	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
 	TargetVirtualMachineScaleSetId *string `pulumi:"targetVirtualMachineScaleSetId"`
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
-	TargetZone    *string `pulumi:"targetZone"`
+	TargetZone *string `pulumi:"targetZone"`
+	// Network to use when a test failover is done.
 	TestNetworkId *string `pulumi:"testNetworkId"`
 	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
 	UnmanagedDisks []ReplicatedVMUnmanagedDisk `pulumi:"unmanagedDisks"`
@@ -477,7 +479,8 @@ type ReplicatedVMState struct {
 	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
 	TargetVirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
-	TargetZone    pulumi.StringPtrInput
+	TargetZone pulumi.StringPtrInput
+	// Network to use when a test failover is done.
 	TestNetworkId pulumi.StringPtrInput
 	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
 	UnmanagedDisks ReplicatedVMUnmanagedDiskArrayInput
@@ -530,7 +533,8 @@ type replicatedVMArgs struct {
 	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
 	TargetVirtualMachineScaleSetId *string `pulumi:"targetVirtualMachineScaleSetId"`
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
-	TargetZone    *string `pulumi:"targetZone"`
+	TargetZone *string `pulumi:"targetZone"`
+	// Network to use when a test failover is done.
 	TestNetworkId *string `pulumi:"testNetworkId"`
 	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
 	UnmanagedDisks []ReplicatedVMUnmanagedDisk `pulumi:"unmanagedDisks"`
@@ -580,7 +584,8 @@ type ReplicatedVMArgs struct {
 	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
 	TargetVirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
-	TargetZone    pulumi.StringPtrInput
+	TargetZone pulumi.StringPtrInput
+	// Network to use when a test failover is done.
 	TestNetworkId pulumi.StringPtrInput
 	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
 	UnmanagedDisks ReplicatedVMUnmanagedDiskArrayInput
@@ -779,6 +784,7 @@ func (o ReplicatedVMOutput) TargetZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringPtrOutput { return v.TargetZone }).(pulumi.StringPtrOutput)
 }
 
+// Network to use when a test failover is done.
 func (o ReplicatedVMOutput) TestNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringOutput { return v.TestNetworkId }).(pulumi.StringOutput)
 }

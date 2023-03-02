@@ -971,7 +971,7 @@ class SubscriptionPolicyAssignmentIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+        :param str type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
         :param Sequence[str] identity_ids: A list of User Managed Identity IDs which should be assigned to the Policy Definition.
         :param str principal_id: The Principal ID of the Policy Assignment for this Subscription.
         :param str tenant_id: The Tenant ID of the Policy Assignment for this Subscription.
@@ -988,7 +988,7 @@ class SubscriptionPolicyAssignmentIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+        The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
         """
         return pulumi.get(self, "type")
 

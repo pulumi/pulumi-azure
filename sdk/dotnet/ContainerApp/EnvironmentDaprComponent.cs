@@ -56,7 +56,7 @@ namespace Pulumi.Azure.ContainerApp
     /// A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/daprComponents/mydaprcomponent"
+    ///  $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent"
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent")]
@@ -87,7 +87,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string?> InitTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// A `metadata` block as detailed below.
+        /// One or more `metadata` blocks as detailed below.
         /// </summary>
         [Output("metadatas")]
         public Output<ImmutableArray<Outputs.EnvironmentDaprComponentMetadata>> Metadatas { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.EnvironmentDaprComponentMetadataArgs>? _metadatas;
 
         /// <summary>
-        /// A `metadata` block as detailed below.
+        /// One or more `metadata` blocks as detailed below.
         /// </summary>
         public InputList<Inputs.EnvironmentDaprComponentMetadataArgs> Metadatas
         {
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.EnvironmentDaprComponentMetadataGetArgs>? _metadatas;
 
         /// <summary>
-        /// A `metadata` block as detailed below.
+        /// One or more `metadata` blocks as detailed below.
         /// </summary>
         public InputList<Inputs.EnvironmentDaprComponentMetadataGetArgs> Metadatas
         {

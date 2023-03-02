@@ -77,6 +77,7 @@ class _QueueState:
         Input properties used for looking up and filtering Queue resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
         :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this Storage Queue.
         :param pulumi.Input[str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
         """
         if metadata is not None:
@@ -115,6 +116,9 @@ class _QueueState:
     @property
     @pulumi.getter(name="resourceManagerId")
     def resource_manager_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Resource Manager ID of this Storage Queue.
+        """
         return pulumi.get(self, "resource_manager_id")
 
     @resource_manager_id.setter
@@ -263,6 +267,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
         :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this Storage Queue.
         :param pulumi.Input[str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -294,6 +299,9 @@ class Queue(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceManagerId")
     def resource_manager_id(self) -> pulumi.Output[str]:
+        """
+        The Resource Manager ID of this Storage Queue.
+        """
         return pulumi.get(self, "resource_manager_id")
 
     @property

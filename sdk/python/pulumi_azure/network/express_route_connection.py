@@ -20,6 +20,7 @@ class ExpressRouteConnectionArgs:
                  express_route_gateway_id: pulumi.Input[str],
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
+                 express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None):
@@ -29,6 +30,7 @@ class ExpressRouteConnectionArgs:
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authorization_key: The authorization key to establish the Express Route Connection.
         :param pulumi.Input[bool] enable_internet_security: Is Internet security enabled for this Express Route Connection?
+        :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
         :param pulumi.Input['ExpressRouteConnectionRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
@@ -39,6 +41,8 @@ class ExpressRouteConnectionArgs:
             pulumi.set(__self__, "authorization_key", authorization_key)
         if enable_internet_security is not None:
             pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+        if express_route_gateway_bypass_enabled is not None:
+            pulumi.set(__self__, "express_route_gateway_bypass_enabled", express_route_gateway_bypass_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if routing is not None:
@@ -95,6 +99,18 @@ class ExpressRouteConnectionArgs:
         pulumi.set(self, "enable_internet_security", value)
 
     @property
+    @pulumi.getter(name="expressRouteGatewayBypassEnabled")
+    def express_route_gateway_bypass_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+        """
+        return pulumi.get(self, "express_route_gateway_bypass_enabled")
+
+    @express_route_gateway_bypass_enabled.setter
+    def express_route_gateway_bypass_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "express_route_gateway_bypass_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -137,6 +153,7 @@ class _ExpressRouteConnectionState:
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_peering_id: Optional[pulumi.Input[str]] = None,
+                 express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']] = None,
@@ -146,6 +163,7 @@ class _ExpressRouteConnectionState:
         :param pulumi.Input[str] authorization_key: The authorization key to establish the Express Route Connection.
         :param pulumi.Input[bool] enable_internet_security: Is Internet security enabled for this Express Route Connection?
         :param pulumi.Input[str] express_route_circuit_peering_id: The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
         :param pulumi.Input['ExpressRouteConnectionRoutingArgs'] routing: A `routing` block as defined below.
@@ -157,6 +175,8 @@ class _ExpressRouteConnectionState:
             pulumi.set(__self__, "enable_internet_security", enable_internet_security)
         if express_route_circuit_peering_id is not None:
             pulumi.set(__self__, "express_route_circuit_peering_id", express_route_circuit_peering_id)
+        if express_route_gateway_bypass_enabled is not None:
+            pulumi.set(__self__, "express_route_gateway_bypass_enabled", express_route_gateway_bypass_enabled)
         if express_route_gateway_id is not None:
             pulumi.set(__self__, "express_route_gateway_id", express_route_gateway_id)
         if name is not None:
@@ -201,6 +221,18 @@ class _ExpressRouteConnectionState:
     @express_route_circuit_peering_id.setter
     def express_route_circuit_peering_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "express_route_circuit_peering_id", value)
+
+    @property
+    @pulumi.getter(name="expressRouteGatewayBypassEnabled")
+    def express_route_gateway_bypass_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+        """
+        return pulumi.get(self, "express_route_gateway_bypass_enabled")
+
+    @express_route_gateway_bypass_enabled.setter
+    def express_route_gateway_bypass_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "express_route_gateway_bypass_enabled", value)
 
     @property
     @pulumi.getter(name="expressRouteGatewayId")
@@ -259,6 +291,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_peering_id: Optional[pulumi.Input[str]] = None,
+                 express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
@@ -331,6 +364,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_key: The authorization key to establish the Express Route Connection.
         :param pulumi.Input[bool] enable_internet_security: Is Internet security enabled for this Express Route Connection?
         :param pulumi.Input[str] express_route_circuit_peering_id: The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']] routing: A `routing` block as defined below.
@@ -422,6 +456,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_peering_id: Optional[pulumi.Input[str]] = None,
+                 express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
@@ -440,6 +475,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             if express_route_circuit_peering_id is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_circuit_peering_id'")
             __props__.__dict__["express_route_circuit_peering_id"] = express_route_circuit_peering_id
+            __props__.__dict__["express_route_gateway_bypass_enabled"] = express_route_gateway_bypass_enabled
             if express_route_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_gateway_id'")
             __props__.__dict__["express_route_gateway_id"] = express_route_gateway_id
@@ -459,6 +495,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             authorization_key: Optional[pulumi.Input[str]] = None,
             enable_internet_security: Optional[pulumi.Input[bool]] = None,
             express_route_circuit_peering_id: Optional[pulumi.Input[str]] = None,
+            express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
             express_route_gateway_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
@@ -473,6 +510,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_key: The authorization key to establish the Express Route Connection.
         :param pulumi.Input[bool] enable_internet_security: Is Internet security enabled for this Express Route Connection?
         :param pulumi.Input[str] express_route_circuit_peering_id: The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']] routing: A `routing` block as defined below.
@@ -485,6 +523,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         __props__.__dict__["authorization_key"] = authorization_key
         __props__.__dict__["enable_internet_security"] = enable_internet_security
         __props__.__dict__["express_route_circuit_peering_id"] = express_route_circuit_peering_id
+        __props__.__dict__["express_route_gateway_bypass_enabled"] = express_route_gateway_bypass_enabled
         __props__.__dict__["express_route_gateway_id"] = express_route_gateway_id
         __props__.__dict__["name"] = name
         __props__.__dict__["routing"] = routing
@@ -514,6 +553,14 @@ class ExpressRouteConnection(pulumi.CustomResource):
         The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "express_route_circuit_peering_id")
+
+    @property
+    @pulumi.getter(name="expressRouteGatewayBypassEnabled")
+    def express_route_gateway_bypass_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+        """
+        return pulumi.get(self, "express_route_gateway_bypass_enabled")
 
     @property
     @pulumi.getter(name="expressRouteGatewayId")

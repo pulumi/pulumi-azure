@@ -73,7 +73,9 @@ type LinuxWebApp struct {
 	// A map of key-value pairs of App Settings.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
-	AuthSettings LinuxWebAppAuthSettingsOutput `pulumi:"authSettings"`
+	AuthSettings LinuxWebAppAuthSettingsPtrOutput `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 LinuxWebAppAuthSettingsV2PtrOutput `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup LinuxWebAppBackupPtrOutput `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -180,6 +182,8 @@ type linuxWebAppState struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *LinuxWebAppAuthSettings `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 *LinuxWebAppAuthSettingsV2 `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup *LinuxWebAppBackup `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -245,6 +249,8 @@ type LinuxWebAppState struct {
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings LinuxWebAppAuthSettingsPtrInput
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 LinuxWebAppAuthSettingsV2PtrInput
 	// A `backup` block as defined below.
 	Backup LinuxWebAppBackupPtrInput
 	// Should Client Affinity be enabled?
@@ -314,6 +320,8 @@ type linuxWebAppArgs struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *LinuxWebAppAuthSettings `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 *LinuxWebAppAuthSettingsV2 `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup *LinuxWebAppBackup `pulumi:"backup"`
 	// Should Client Affinity be enabled?
@@ -364,6 +372,8 @@ type LinuxWebAppArgs struct {
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings LinuxWebAppAuthSettingsPtrInput
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 LinuxWebAppAuthSettingsV2PtrInput
 	// A `backup` block as defined below.
 	Backup LinuxWebAppBackupPtrInput
 	// Should Client Affinity be enabled?
@@ -501,8 +511,13 @@ func (o LinuxWebAppOutput) AppSettings() pulumi.StringMapOutput {
 }
 
 // A `authSettings` block as defined below.
-func (o LinuxWebAppOutput) AuthSettings() LinuxWebAppAuthSettingsOutput {
-	return o.ApplyT(func(v *LinuxWebApp) LinuxWebAppAuthSettingsOutput { return v.AuthSettings }).(LinuxWebAppAuthSettingsOutput)
+func (o LinuxWebAppOutput) AuthSettings() LinuxWebAppAuthSettingsPtrOutput {
+	return o.ApplyT(func(v *LinuxWebApp) LinuxWebAppAuthSettingsPtrOutput { return v.AuthSettings }).(LinuxWebAppAuthSettingsPtrOutput)
+}
+
+// An `authSettingsV2` block as defined below.
+func (o LinuxWebAppOutput) AuthSettingsV2() LinuxWebAppAuthSettingsV2PtrOutput {
+	return o.ApplyT(func(v *LinuxWebApp) LinuxWebAppAuthSettingsV2PtrOutput { return v.AuthSettingsV2 }).(LinuxWebAppAuthSettingsV2PtrOutput)
 }
 
 // A `backup` block as defined below.

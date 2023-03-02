@@ -68,9 +68,17 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.dapr);
     }
 
+    /**
+     * An `identity` block as detailed below.
+     * 
+     */
     @Import(name="identity")
     private @Nullable Output<AppIdentityArgs> identity;
 
+    /**
+     * @return An `identity` block as detailed below.
+     * 
+     */
     public Optional<Output<AppIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
     }
@@ -357,11 +365,23 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
             return dapr(Output.of(dapr));
         }
 
+        /**
+         * @param identity An `identity` block as detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(@Nullable Output<AppIdentityArgs> identity) {
             $.identity = identity;
             return this;
         }
 
+        /**
+         * @param identity An `identity` block as detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(AppIdentityArgs identity) {
             return identity(Output.of(identity));
         }

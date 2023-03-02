@@ -12,6 +12,53 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages an Automation Software Update Configuraion.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var testAccount = new Azure.Automation.Account("testAccount", new()
+    ///     {
+    ///         Location = testResourceGroup.Location,
+    ///         ResourceGroupName = testResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var example = new Azure.Automation.SoftwareUpdateConfiguration("example", new()
+    ///     {
+    ///         AutomationAccountId = testAccount.Id,
+    ///         OperatingSystem = "Linux",
+    ///         Linuxes = new[]
+    ///         {
+    ///             new Azure.Automation.Inputs.SoftwareUpdateConfigurationLinuxArgs
+    ///             {
+    ///                 ClassificationIncluded = "Security",
+    ///                 ExcludedPackages = new[]
+    ///                 {
+    ///                     "apt",
+    ///                 },
+    ///                 IncludedPackages = new[]
+    ///                 {
+    ///                     "vim",
+    ///                 },
+    ///                 Reboot = "IfRequired",
+    ///             },
+    ///         },
+    ///         Duration = "PT2H2M2S",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Automations Software Update Configuration can be imported using the `resource id`, e.g.
@@ -46,6 +93,9 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         [Output("errorMeesage")]
         public Output<string> ErrorMeesage { get; private set; } = null!;
+
+        [Output("errorMessage")]
+        public Output<string> ErrorMessage { get; private set; } = null!;
 
         /// <summary>
         /// One or more `linux` blocks as defined below.
@@ -292,6 +342,9 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         [Input("errorMeesage")]
         public Input<string>? ErrorMeesage { get; set; }
+
+        [Input("errorMessage")]
+        public Input<string>? ErrorMessage { get; set; }
 
         [Input("linuxes")]
         private InputList<Inputs.SoftwareUpdateConfigurationLinuxGetArgs>? _linuxes;

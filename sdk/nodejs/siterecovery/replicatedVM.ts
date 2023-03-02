@@ -290,6 +290,9 @@ export class ReplicatedVM extends pulumi.CustomResource {
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */
     public readonly targetZone!: pulumi.Output<string | undefined>;
+    /**
+     * Network to use when a test failover is done.
+     */
     public readonly testNetworkId!: pulumi.Output<string>;
     /**
      * One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
@@ -479,6 +482,9 @@ export interface ReplicatedVMState {
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */
     targetZone?: pulumi.Input<string>;
+    /**
+     * Network to use when a test failover is done.
+     */
     testNetworkId?: pulumi.Input<string>;
     /**
      * One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
@@ -575,6 +581,9 @@ export interface ReplicatedVMArgs {
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */
     targetZone?: pulumi.Input<string>;
+    /**
+     * Network to use when a test failover is done.
+     */
     testNetworkId?: pulumi.Input<string>;
     /**
      * One or more `unmanagedDisk` block. Changing this forces a new resource to be created.

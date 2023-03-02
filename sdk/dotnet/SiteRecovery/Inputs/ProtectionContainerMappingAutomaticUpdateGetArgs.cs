@@ -13,7 +13,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     public sealed class ProtectionContainerMappingAutomaticUpdateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+        /// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
         /// </summary>
         [Input("automationAccountId")]
         public Input<string>? AutomationAccountId { get; set; }

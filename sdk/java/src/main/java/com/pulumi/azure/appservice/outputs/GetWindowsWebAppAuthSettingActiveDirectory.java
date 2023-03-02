@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsWebAppAuthSettingActiveDirectory {
     /**
-     * @return An `allowed_audiences` block as defined below.
+     * @return The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
      * 
      */
     private List<String> allowedAudiences;
@@ -33,7 +33,7 @@ public final class GetWindowsWebAppAuthSettingActiveDirectory {
 
     private GetWindowsWebAppAuthSettingActiveDirectory() {}
     /**
-     * @return An `allowed_audiences` block as defined below.
+     * @return The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
      * 
      */
     public List<String> allowedAudiences() {

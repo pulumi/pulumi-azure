@@ -20,6 +20,7 @@ class LinuxWebAppSlotArgs:
                  site_config: pulumi.Input['LinuxWebAppSlotSiteConfigArgs'],
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsArgs']] = None,
+                 auth_settings_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2Args']] = None,
                  backup: Optional[pulumi.Input['LinuxWebAppSlotBackupArgs']] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -42,7 +43,8 @@ class LinuxWebAppSlotArgs:
         :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input['LinuxWebAppSlotSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input['LinuxWebAppSlotBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
@@ -67,6 +69,8 @@ class LinuxWebAppSlotArgs:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
+        if auth_settings_v2 is not None:
+            pulumi.set(__self__, "auth_settings_v2", auth_settings_v2)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
         if client_affinity_enabled is not None:
@@ -142,13 +146,25 @@ class LinuxWebAppSlotArgs:
     @pulumi.getter(name="authSettings")
     def auth_settings(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsArgs']]:
         """
-        A `auth_settings` block as defined below.
+        An `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
     def auth_settings(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
+
+    @property
+    @pulumi.getter(name="authSettingsV2")
+    def auth_settings_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2Args']]:
+        """
+        An `auth_settings_v2` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings_v2")
+
+    @auth_settings_v2.setter
+    def auth_settings_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2Args']]):
+        pulumi.set(self, "auth_settings_v2", value)
 
     @property
     @pulumi.getter
@@ -362,6 +378,7 @@ class _LinuxWebAppSlotState:
                  app_service_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsArgs']] = None,
+                 auth_settings_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2Args']] = None,
                  backup: Optional[pulumi.Input['LinuxWebAppSlotBackupArgs']] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -393,7 +410,8 @@ class _LinuxWebAppSlotState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_metadata: A `app_metadata` block as defined below.
         :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input['LinuxWebAppSlotBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
@@ -429,6 +447,8 @@ class _LinuxWebAppSlotState:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
+        if auth_settings_v2 is not None:
+            pulumi.set(__self__, "auth_settings_v2", auth_settings_v2)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
         if client_affinity_enabled is not None:
@@ -522,13 +542,25 @@ class _LinuxWebAppSlotState:
     @pulumi.getter(name="authSettings")
     def auth_settings(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsArgs']]:
         """
-        A `auth_settings` block as defined below.
+        An `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
     def auth_settings(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
+
+    @property
+    @pulumi.getter(name="authSettingsV2")
+    def auth_settings_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2Args']]:
+        """
+        An `auth_settings_v2` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings_v2")
+
+    @auth_settings_v2.setter
+    def auth_settings_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2Args']]):
+        pulumi.set(self, "auth_settings_v2", value)
 
     @property
     @pulumi.getter
@@ -851,6 +883,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  app_service_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsArgs']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsV2Args']]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotBackupArgs']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -907,7 +940,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsArgs']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsV2Args']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
@@ -984,6 +1018,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  app_service_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsArgs']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsV2Args']]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotBackupArgs']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1016,6 +1051,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             __props__.__dict__["app_service_id"] = app_service_id
             __props__.__dict__["app_settings"] = app_settings
             __props__.__dict__["auth_settings"] = auth_settings
+            __props__.__dict__["auth_settings_v2"] = auth_settings_v2
             __props__.__dict__["backup"] = backup
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
@@ -1061,6 +1097,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             app_service_id: Optional[pulumi.Input[str]] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             auth_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsArgs']]] = None,
+            auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsV2Args']]] = None,
             backup: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotBackupArgs']]] = None,
             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1097,7 +1134,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_metadata: A `app_metadata` block as defined below.
         :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsArgs']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotAuthSettingsV2Args']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
@@ -1133,6 +1171,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         __props__.__dict__["app_service_id"] = app_service_id
         __props__.__dict__["app_settings"] = app_settings
         __props__.__dict__["auth_settings"] = auth_settings
+        __props__.__dict__["auth_settings_v2"] = auth_settings_v2
         __props__.__dict__["backup"] = backup
         __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
         __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
@@ -1187,11 +1226,19 @@ class LinuxWebAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> pulumi.Output['outputs.LinuxWebAppSlotAuthSettings']:
+    def auth_settings(self) -> pulumi.Output[Optional['outputs.LinuxWebAppSlotAuthSettings']]:
         """
-        A `auth_settings` block as defined below.
+        An `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
+
+    @property
+    @pulumi.getter(name="authSettingsV2")
+    def auth_settings_v2(self) -> pulumi.Output[Optional['outputs.LinuxWebAppSlotAuthSettingsV2']]:
+        """
+        An `auth_settings_v2` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings_v2")
 
     @property
     @pulumi.getter

@@ -51,18 +51,33 @@ public final class LinkedServiceAzureBlobStorageArgs extends com.pulumi.resource
     }
 
     /**
-     * The connection string. Conflicts with `sas_uri` and `service_endpoint`.
+     * The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
      * 
      */
     @Import(name="connectionString")
     private @Nullable Output<String> connectionString;
 
     /**
-     * @return The connection string. Conflicts with `sas_uri` and `service_endpoint`.
+     * @return The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
      * 
      */
     public Optional<Output<String>> connectionString() {
         return Optional.ofNullable(this.connectionString);
+    }
+
+    /**
+     * The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+     * 
+     */
+    @Import(name="connectionStringInsecure")
+    private @Nullable Output<String> connectionStringInsecure;
+
+    /**
+     * @return The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+     * 
+     */
+    public Optional<Output<String>> connectionStringInsecure() {
+        return Optional.ofNullable(this.connectionStringInsecure);
     }
 
     /**
@@ -156,14 +171,14 @@ public final class LinkedServiceAzureBlobStorageArgs extends com.pulumi.resource
     }
 
     /**
-     * The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
+     * The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
      * 
      */
     @Import(name="sasUri")
     private @Nullable Output<String> sasUri;
 
     /**
-     * @return The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
+     * @return The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
      * 
      */
     public Optional<Output<String>> sasUri() {
@@ -171,14 +186,14 @@ public final class LinkedServiceAzureBlobStorageArgs extends com.pulumi.resource
     }
 
     /**
-     * The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
+     * The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
      * 
      */
     @Import(name="serviceEndpoint")
     private @Nullable Output<String> serviceEndpoint;
 
     /**
-     * @return The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
+     * @return The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
      * 
      */
     public Optional<Output<String>> serviceEndpoint() {
@@ -281,6 +296,7 @@ public final class LinkedServiceAzureBlobStorageArgs extends com.pulumi.resource
         this.additionalProperties = $.additionalProperties;
         this.annotations = $.annotations;
         this.connectionString = $.connectionString;
+        this.connectionStringInsecure = $.connectionStringInsecure;
         this.dataFactoryId = $.dataFactoryId;
         this.description = $.description;
         this.integrationRuntimeName = $.integrationRuntimeName;
@@ -368,7 +384,7 @@ public final class LinkedServiceAzureBlobStorageArgs extends com.pulumi.resource
         }
 
         /**
-         * @param connectionString The connection string. Conflicts with `sas_uri` and `service_endpoint`.
+         * @param connectionString The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
          * 
          * @return builder
          * 
@@ -379,13 +395,34 @@ public final class LinkedServiceAzureBlobStorageArgs extends com.pulumi.resource
         }
 
         /**
-         * @param connectionString The connection string. Conflicts with `sas_uri` and `service_endpoint`.
+         * @param connectionString The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
          * 
          * @return builder
          * 
          */
         public Builder connectionString(String connectionString) {
             return connectionString(Output.of(connectionString));
+        }
+
+        /**
+         * @param connectionStringInsecure The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionStringInsecure(@Nullable Output<String> connectionStringInsecure) {
+            $.connectionStringInsecure = connectionStringInsecure;
+            return this;
+        }
+
+        /**
+         * @param connectionStringInsecure The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionStringInsecure(String connectionStringInsecure) {
+            return connectionStringInsecure(Output.of(connectionStringInsecure));
         }
 
         /**
@@ -515,7 +552,7 @@ public final class LinkedServiceAzureBlobStorageArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sasUri The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
+         * @param sasUri The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
          * 
          * @return builder
          * 
@@ -526,7 +563,7 @@ public final class LinkedServiceAzureBlobStorageArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sasUri The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
+         * @param sasUri The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
          * 
          * @return builder
          * 
@@ -536,7 +573,7 @@ public final class LinkedServiceAzureBlobStorageArgs extends com.pulumi.resource
         }
 
         /**
-         * @param serviceEndpoint The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
+         * @param serviceEndpoint The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
          * 
          * @return builder
          * 
@@ -547,7 +584,7 @@ public final class LinkedServiceAzureBlobStorageArgs extends com.pulumi.resource
         }
 
         /**
-         * @param serviceEndpoint The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
+         * @param serviceEndpoint The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
          * 
          * @return builder
          * 

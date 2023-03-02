@@ -123,6 +123,12 @@ namespace Pulumi.Azure.Network
         public Output<string> ExpressRouteCircuitPeeringId { get; private set; } = null!;
 
         /// <summary>
+        /// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+        /// </summary>
+        [Output("expressRouteGatewayBypassEnabled")]
+        public Output<bool?> ExpressRouteGatewayBypassEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         /// </summary>
         [Output("expressRouteGatewayId")]
@@ -211,6 +217,12 @@ namespace Pulumi.Azure.Network
         public Input<string> ExpressRouteCircuitPeeringId { get; set; } = null!;
 
         /// <summary>
+        /// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+        /// </summary>
+        [Input("expressRouteGatewayBypassEnabled")]
+        public Input<bool>? ExpressRouteGatewayBypassEnabled { get; set; }
+
+        /// <summary>
         /// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         /// </summary>
         [Input("expressRouteGatewayId", required: true)]
@@ -259,6 +271,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("expressRouteCircuitPeeringId")]
         public Input<string>? ExpressRouteCircuitPeeringId { get; set; }
+
+        /// <summary>
+        /// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+        /// </summary>
+        [Input("expressRouteGatewayBypassEnabled")]
+        public Input<bool>? ExpressRouteGatewayBypassEnabled { get; set; }
 
         /// <summary>
         /// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.

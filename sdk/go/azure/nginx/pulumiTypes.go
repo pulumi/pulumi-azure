@@ -11,7 +11,7 @@ import (
 )
 
 type ConfigurationConfigFile struct {
-	// Specifies the base-64 encoded contents of this config file (Sensitive).
+	// Specifies the base-64 encoded contents of this config file.
 	Content string `pulumi:"content"`
 	// Specify the path of this config file.
 	VirtualPath string `pulumi:"virtualPath"`
@@ -29,7 +29,7 @@ type ConfigurationConfigFileInput interface {
 }
 
 type ConfigurationConfigFileArgs struct {
-	// Specifies the base-64 encoded contents of this config file (Sensitive).
+	// Specifies the base-64 encoded contents of this config file.
 	Content pulumi.StringInput `pulumi:"content"`
 	// Specify the path of this config file.
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
@@ -86,7 +86,7 @@ func (o ConfigurationConfigFileOutput) ToConfigurationConfigFileOutputWithContex
 	return o
 }
 
-// Specifies the base-64 encoded contents of this config file (Sensitive).
+// Specifies the base-64 encoded contents of this config file.
 func (o ConfigurationConfigFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationConfigFile) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -117,7 +117,7 @@ func (o ConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) Configurati
 }
 
 type ConfigurationProtectedFile struct {
-	// Specifies the base-64 encoded contents of this config file.
+	// Specifies the base-64 encoded contents of this config file (Sensitive).
 	Content string `pulumi:"content"`
 	// Specify the path of this config file.
 	VirtualPath string `pulumi:"virtualPath"`
@@ -135,7 +135,7 @@ type ConfigurationProtectedFileInput interface {
 }
 
 type ConfigurationProtectedFileArgs struct {
-	// Specifies the base-64 encoded contents of this config file.
+	// Specifies the base-64 encoded contents of this config file (Sensitive).
 	Content pulumi.StringInput `pulumi:"content"`
 	// Specify the path of this config file.
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
@@ -192,7 +192,7 @@ func (o ConfigurationProtectedFileOutput) ToConfigurationProtectedFileOutputWith
 	return o
 }
 
-// Specifies the base-64 encoded contents of this config file.
+// Specifies the base-64 encoded contents of this config file (Sensitive).
 func (o ConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
 }

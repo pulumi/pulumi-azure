@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class ConfigurationProtectedFile {
     /**
-     * @return Specifies the base-64 encoded contents of this config file.
+     * @return Specifies the base-64 encoded contents of this config file (Sensitive).
      * 
      */
     private String content;
@@ -22,7 +22,7 @@ public final class ConfigurationProtectedFile {
 
     private ConfigurationProtectedFile() {}
     /**
-     * @return Specifies the base-64 encoded contents of this config file.
+     * @return Specifies the base-64 encoded contents of this config file (Sensitive).
      * 
      */
     public String content() {

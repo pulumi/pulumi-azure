@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/daprComponents/mydaprcomponent&#34;
+ *  $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent&#34;
  * ```
  * 
  */
@@ -144,14 +144,14 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.initTimeout);
     }
     /**
-     * A `metadata` block as detailed below.
+     * One or more `metadata` blocks as detailed below.
      * 
      */
     @Export(name="metadatas", type=List.class, parameters={EnvironmentDaprComponentMetadata.class})
     private Output</* @Nullable */ List<EnvironmentDaprComponentMetadata>> metadatas;
 
     /**
-     * @return A `metadata` block as detailed below.
+     * @return One or more `metadata` blocks as detailed below.
      * 
      */
     public Output<Optional<List<EnvironmentDaprComponentMetadata>>> metadatas() {

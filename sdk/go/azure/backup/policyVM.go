@@ -109,7 +109,8 @@ type PolicyVM struct {
 	pulumi.CustomResourceState
 
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
-	Backup PolicyVMBackupOutput `pulumi:"backup"`
+	Backup                      PolicyVMBackupOutput                         `pulumi:"backup"`
+	InstantRestoreResourceGroup PolicyVMInstantRestoreResourceGroupPtrOutput `pulumi:"instantRestoreResourceGroup"`
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	InstantRestoreRetentionDays pulumi.IntOutput `pulumi:"instantRestoreRetentionDays"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
@@ -171,7 +172,8 @@ func GetPolicyVM(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PolicyVM resources.
 type policyVMState struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
-	Backup *PolicyVMBackup `pulumi:"backup"`
+	Backup                      *PolicyVMBackup                      `pulumi:"backup"`
+	InstantRestoreResourceGroup *PolicyVMInstantRestoreResourceGroup `pulumi:"instantRestoreResourceGroup"`
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	InstantRestoreRetentionDays *int `pulumi:"instantRestoreRetentionDays"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
@@ -196,7 +198,8 @@ type policyVMState struct {
 
 type PolicyVMState struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
-	Backup PolicyVMBackupPtrInput
+	Backup                      PolicyVMBackupPtrInput
+	InstantRestoreResourceGroup PolicyVMInstantRestoreResourceGroupPtrInput
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	InstantRestoreRetentionDays pulumi.IntPtrInput
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
@@ -225,7 +228,8 @@ func (PolicyVMState) ElementType() reflect.Type {
 
 type policyVMArgs struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
-	Backup PolicyVMBackup `pulumi:"backup"`
+	Backup                      PolicyVMBackup                       `pulumi:"backup"`
+	InstantRestoreResourceGroup *PolicyVMInstantRestoreResourceGroup `pulumi:"instantRestoreResourceGroup"`
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	InstantRestoreRetentionDays *int `pulumi:"instantRestoreRetentionDays"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
@@ -251,7 +255,8 @@ type policyVMArgs struct {
 // The set of arguments for constructing a PolicyVM resource.
 type PolicyVMArgs struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
-	Backup PolicyVMBackupInput
+	Backup                      PolicyVMBackupInput
+	InstantRestoreResourceGroup PolicyVMInstantRestoreResourceGroupPtrInput
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
 	InstantRestoreRetentionDays pulumi.IntPtrInput
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
@@ -364,6 +369,10 @@ func (o PolicyVMOutput) ToPolicyVMOutputWithContext(ctx context.Context) PolicyV
 // Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 func (o PolicyVMOutput) Backup() PolicyVMBackupOutput {
 	return o.ApplyT(func(v *PolicyVM) PolicyVMBackupOutput { return v.Backup }).(PolicyVMBackupOutput)
+}
+
+func (o PolicyVMOutput) InstantRestoreResourceGroup() PolicyVMInstantRestoreResourceGroupPtrOutput {
+	return o.ApplyT(func(v *PolicyVM) PolicyVMInstantRestoreResourceGroupPtrOutput { return v.InstantRestoreResourceGroup }).(PolicyVMInstantRestoreResourceGroupPtrOutput)
 }
 
 // Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.

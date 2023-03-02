@@ -34,7 +34,7 @@ public final class AppTemplateContainer {
      */
     private Double cpu;
     /**
-     * @return An `env` block as detailed below.
+     * @return One or more `env` blocks as detailed below.
      * 
      */
     private @Nullable List<AppTemplateContainerEnv> envs;
@@ -102,7 +102,7 @@ public final class AppTemplateContainer {
         return this.cpu;
     }
     /**
-     * @return An `env` block as detailed below.
+     * @return One or more `env` blocks as detailed below.
      * 
      */
     public List<AppTemplateContainerEnv> envs() {

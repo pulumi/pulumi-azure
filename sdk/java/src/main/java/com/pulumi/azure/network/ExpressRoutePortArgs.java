@@ -36,6 +36,21 @@ public final class ExpressRoutePortArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     * 
+     */
+    @Import(name="billingType")
+    private @Nullable Output<String> billingType;
+
+    /**
+     * @return The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     * 
+     */
+    public Optional<Output<String>> billingType() {
+        return Optional.ofNullable(this.billingType);
+    }
+
+    /**
      * The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
      * 
      */
@@ -174,6 +189,7 @@ public final class ExpressRoutePortArgs extends com.pulumi.resources.ResourceArg
 
     private ExpressRoutePortArgs(ExpressRoutePortArgs $) {
         this.bandwidthInGbps = $.bandwidthInGbps;
+        this.billingType = $.billingType;
         this.encapsulation = $.encapsulation;
         this.identity = $.identity;
         this.link1 = $.link1;
@@ -222,6 +238,27 @@ public final class ExpressRoutePortArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder bandwidthInGbps(Integer bandwidthInGbps) {
             return bandwidthInGbps(Output.of(bandwidthInGbps));
+        }
+
+        /**
+         * @param billingType The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingType(@Nullable Output<String> billingType) {
+            $.billingType = billingType;
+            return this;
+        }
+
+        /**
+         * @param billingType The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingType(String billingType) {
+            return billingType(Output.of(billingType));
         }
 
         /**

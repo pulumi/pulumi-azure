@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appservice.LinuxWebAppArgs;
 import com.pulumi.azure.appservice.inputs.LinuxWebAppState;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppAuthSettings;
+import com.pulumi.azure.appservice.outputs.LinuxWebAppAuthSettingsV2;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppBackup;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppConnectionString;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppIdentity;
@@ -108,14 +109,28 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="authSettings", type=LinuxWebAppAuthSettings.class, parameters={})
-    private Output<LinuxWebAppAuthSettings> authSettings;
+    private Output</* @Nullable */ LinuxWebAppAuthSettings> authSettings;
 
     /**
      * @return A `auth_settings` block as defined below.
      * 
      */
-    public Output<LinuxWebAppAuthSettings> authSettings() {
-        return this.authSettings;
+    public Output<Optional<LinuxWebAppAuthSettings>> authSettings() {
+        return Codegen.optional(this.authSettings);
+    }
+    /**
+     * An `auth_settings_v2` block as defined below.
+     * 
+     */
+    @Export(name="authSettingsV2", type=LinuxWebAppAuthSettingsV2.class, parameters={})
+    private Output</* @Nullable */ LinuxWebAppAuthSettingsV2> authSettingsV2;
+
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    public Output<Optional<LinuxWebAppAuthSettingsV2>> authSettingsV2() {
+        return Codegen.optional(this.authSettingsV2);
     }
     /**
      * A `backup` block as defined below.

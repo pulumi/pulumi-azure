@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Media.Inputs
     public sealed class StreamingEndpointCrossSiteAccessPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content of clientaccesspolicy.xml used by Silverlight.
+        /// The content of `clientaccesspolicy.xml` used by Silverlight.
         /// </summary>
         [Input("clientAccessPolicy")]
         public Input<string>? ClientAccessPolicy { get; set; }
 
         /// <summary>
-        /// The content of crossdomain.xml used by Silverlight.
+        /// The content of `crossdomain.xml` used by Silverlight.
         /// </summary>
         [Input("crossDomainPolicy")]
         public Input<string>? CrossDomainPolicy { get; set; }

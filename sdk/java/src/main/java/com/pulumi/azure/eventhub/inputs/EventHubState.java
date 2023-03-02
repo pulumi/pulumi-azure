@@ -79,14 +79,14 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the current number of shards on the Event Hub.
+     * Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
      * 
      */
     @Import(name="partitionCount")
     private @Nullable Output<Integer> partitionCount;
 
     /**
-     * @return Specifies the current number of shards on the Event Hub.
+     * @return Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
      * 
      */
     public Optional<Output<Integer>> partitionCount() {
@@ -254,7 +254,7 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionCount Specifies the current number of shards on the Event Hub.
+         * @param partitionCount Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionCount Specifies the current number of shards on the Event Hub.
+         * @param partitionCount Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
          * 
          * @return builder
          * 

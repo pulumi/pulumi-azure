@@ -33,6 +33,8 @@ type GetSecretsResult struct {
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// List containing names of secrets that exist in this Key Vault.
 	Names []string `pulumi:"names"`
+	// One or more `secrets` blocks as defined below.
+	Secrets []GetSecretsSecret `pulumi:"secrets"`
 }
 
 func GetSecretsOutput(ctx *pulumi.Context, args GetSecretsOutputArgs, opts ...pulumi.InvokeOption) GetSecretsResultOutput {
@@ -85,6 +87,11 @@ func (o GetSecretsResultOutput) KeyVaultId() pulumi.StringOutput {
 // List containing names of secrets that exist in this Key Vault.
 func (o GetSecretsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecretsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+// One or more `secrets` blocks as defined below.
+func (o GetSecretsResultOutput) Secrets() GetSecretsSecretArrayOutput {
+	return o.ApplyT(func(v GetSecretsResult) []GetSecretsSecret { return v.Secrets }).(GetSecretsSecretArrayOutput)
 }
 
 func init() {

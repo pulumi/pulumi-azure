@@ -27,6 +27,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     * 
+     */
+    @Import(name="clientCertificate")
+    private @Nullable Output<String> clientCertificate;
+
+    /**
+     * @return Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+     * 
+     */
+    public Optional<Output<String>> clientCertificate() {
+        return Optional.ofNullable(this.clientCertificate);
+    }
+
+    /**
      * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
      * Certificate
      * 
@@ -316,14 +331,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allowed Managed Service Identity be used for Authentication.
+     * Allow Azure CLI to be used for Authentication.
+     * 
+     */
+    @Import(name="useCli", json=true)
+    private @Nullable Output<Boolean> useCli;
+
+    /**
+     * @return Allow Azure CLI to be used for Authentication.
+     * 
+     */
+    public Optional<Output<Boolean>> useCli() {
+        return Optional.ofNullable(this.useCli);
+    }
+
+    /**
+     * Allow Managed Service Identity to be used for Authentication.
      * 
      */
     @Import(name="useMsi", json=true)
     private @Nullable Output<Boolean> useMsi;
 
     /**
-     * @return Allowed Managed Service Identity be used for Authentication.
+     * @return Allow Managed Service Identity to be used for Authentication.
      * 
      */
     public Optional<Output<Boolean>> useMsi() {
@@ -349,6 +379,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     private ProviderArgs(ProviderArgs $) {
         this.auxiliaryTenantIds = $.auxiliaryTenantIds;
+        this.clientCertificate = $.clientCertificate;
         this.clientCertificatePassword = $.clientCertificatePassword;
         this.clientCertificatePath = $.clientCertificatePath;
         this.clientId = $.clientId;
@@ -368,6 +399,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.storageUseAzuread = $.storageUseAzuread;
         this.subscriptionId = $.subscriptionId;
         this.tenantId = $.tenantId;
+        this.useCli = $.useCli;
         this.useMsi = $.useMsi;
         this.useOidc = $.useOidc;
     }
@@ -401,6 +433,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder auxiliaryTenantIds(String... auxiliaryTenantIds) {
             return auxiliaryTenantIds(List.of(auxiliaryTenantIds));
+        }
+
+        /**
+         * @param clientCertificate Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificate(@Nullable Output<String> clientCertificate) {
+            $.clientCertificate = clientCertificate;
+            return this;
+        }
+
+        /**
+         * @param clientCertificate Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificate(String clientCertificate) {
+            return clientCertificate(Output.of(clientCertificate));
         }
 
         /**
@@ -803,7 +856,28 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useMsi Allowed Managed Service Identity be used for Authentication.
+         * @param useCli Allow Azure CLI to be used for Authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useCli(@Nullable Output<Boolean> useCli) {
+            $.useCli = useCli;
+            return this;
+        }
+
+        /**
+         * @param useCli Allow Azure CLI to be used for Authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useCli(Boolean useCli) {
+            return useCli(Output.of(useCli));
+        }
+
+        /**
+         * @param useMsi Allow Managed Service Identity to be used for Authentication.
          * 
          * @return builder
          * 
@@ -814,7 +888,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useMsi Allowed Managed Service Identity be used for Authentication.
+         * @param useMsi Allow Managed Service Identity to be used for Authentication.
          * 
          * @return builder
          * 

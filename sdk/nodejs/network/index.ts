@@ -300,6 +300,16 @@ export type NetworkManager = import("./networkManager").NetworkManager;
 export const NetworkManager: typeof import("./networkManager").NetworkManager = null as any;
 utilities.lazyLoad(exports, ["NetworkManager"], () => require("./networkManager"));
 
+export { NetworkManagerAdminRuleArgs, NetworkManagerAdminRuleState } from "./networkManagerAdminRule";
+export type NetworkManagerAdminRule = import("./networkManagerAdminRule").NetworkManagerAdminRule;
+export const NetworkManagerAdminRule: typeof import("./networkManagerAdminRule").NetworkManagerAdminRule = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerAdminRule"], () => require("./networkManagerAdminRule"));
+
+export { NetworkManagerAdminRuleCollectionArgs, NetworkManagerAdminRuleCollectionState } from "./networkManagerAdminRuleCollection";
+export type NetworkManagerAdminRuleCollection = import("./networkManagerAdminRuleCollection").NetworkManagerAdminRuleCollection;
+export const NetworkManagerAdminRuleCollection: typeof import("./networkManagerAdminRuleCollection").NetworkManagerAdminRuleCollection = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerAdminRuleCollection"], () => require("./networkManagerAdminRuleCollection"));
+
 export { NetworkManagerConnectivityConfigurationArgs, NetworkManagerConnectivityConfigurationState } from "./networkManagerConnectivityConfiguration";
 export type NetworkManagerConnectivityConfiguration = import("./networkManagerConnectivityConfiguration").NetworkManagerConnectivityConfiguration;
 export const NetworkManagerConnectivityConfiguration: typeof import("./networkManagerConnectivityConfiguration").NetworkManagerConnectivityConfiguration = null as any;
@@ -319,6 +329,11 @@ export { NetworkManagerScopeConnectionArgs, NetworkManagerScopeConnectionState }
 export type NetworkManagerScopeConnection = import("./networkManagerScopeConnection").NetworkManagerScopeConnection;
 export const NetworkManagerScopeConnection: typeof import("./networkManagerScopeConnection").NetworkManagerScopeConnection = null as any;
 utilities.lazyLoad(exports, ["NetworkManagerScopeConnection"], () => require("./networkManagerScopeConnection"));
+
+export { NetworkManagerSecurityAdminConfigurationArgs, NetworkManagerSecurityAdminConfigurationState } from "./networkManagerSecurityAdminConfiguration";
+export type NetworkManagerSecurityAdminConfiguration = import("./networkManagerSecurityAdminConfiguration").NetworkManagerSecurityAdminConfiguration;
+export const NetworkManagerSecurityAdminConfiguration: typeof import("./networkManagerSecurityAdminConfiguration").NetworkManagerSecurityAdminConfiguration = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerSecurityAdminConfiguration"], () => require("./networkManagerSecurityAdminConfiguration"));
 
 export { NetworkManagerStaticMemberArgs, NetworkManagerStaticMemberState } from "./networkManagerStaticMember";
 export type NetworkManagerStaticMember = import("./networkManagerStaticMember").NetworkManagerStaticMember;
@@ -612,6 +627,10 @@ const _module = {
                 return new NetworkInterfaceSecurityGroupAssociation(name, <any>undefined, { urn })
             case "azure:network/networkManager:NetworkManager":
                 return new NetworkManager(name, <any>undefined, { urn })
+            case "azure:network/networkManagerAdminRule:NetworkManagerAdminRule":
+                return new NetworkManagerAdminRule(name, <any>undefined, { urn })
+            case "azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection":
+                return new NetworkManagerAdminRuleCollection(name, <any>undefined, { urn })
             case "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration":
                 return new NetworkManagerConnectivityConfiguration(name, <any>undefined, { urn })
             case "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection":
@@ -620,6 +639,8 @@ const _module = {
                 return new NetworkManagerNetworkGroup(name, <any>undefined, { urn })
             case "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection":
                 return new NetworkManagerScopeConnection(name, <any>undefined, { urn })
+            case "azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration":
+                return new NetworkManagerSecurityAdminConfiguration(name, <any>undefined, { urn })
             case "azure:network/networkManagerStaticMember:NetworkManagerStaticMember":
                 return new NetworkManagerStaticMember(name, <any>undefined, { urn })
             case "azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection":
@@ -746,10 +767,13 @@ pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceBackendA
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceNatRuleAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceSecurityGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManager", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerAdminRule", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerAdminRuleCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerConnectivityConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerManagementGroupConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerNetworkGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerScopeConnection", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerSecurityAdminConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerStaticMember", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerSubscriptionConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkPacketCapture", _module)

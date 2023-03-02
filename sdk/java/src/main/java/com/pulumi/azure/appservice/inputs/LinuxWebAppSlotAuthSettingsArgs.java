@@ -71,14 +71,14 @@ public final class LinuxWebAppSlotAuthSettingsArgs extends com.pulumi.resources.
     }
 
     /**
-     * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+     * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
      * 
      */
     @Import(name="defaultProvider")
     private @Nullable Output<String> defaultProvider;
 
     /**
-     * @return The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+     * @return The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
      * 
      */
     public Optional<Output<String>> defaultProvider() {
@@ -176,14 +176,14 @@ public final class LinuxWebAppSlotAuthSettingsArgs extends com.pulumi.resources.
     }
 
     /**
-     * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+     * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
      * 
      */
     @Import(name="runtimeVersion")
     private @Nullable Output<String> runtimeVersion;
 
     /**
-     * @return The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+     * @return The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
      * 
      */
     public Optional<Output<String>> runtimeVersion() {
@@ -362,7 +362,7 @@ public final class LinuxWebAppSlotAuthSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+         * @param defaultProvider The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class LinuxWebAppSlotAuthSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+         * @param defaultProvider The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class LinuxWebAppSlotAuthSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param runtimeVersion The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         * @param runtimeVersion The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class LinuxWebAppSlotAuthSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param runtimeVersion The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         * @param runtimeVersion The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          * 
          * @return builder
          * 

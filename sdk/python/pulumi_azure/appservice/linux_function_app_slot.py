@@ -1360,7 +1360,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> pulumi.Output['outputs.LinuxFunctionAppSlotAuthSettings']:
+    def auth_settings(self) -> pulumi.Output[Optional['outputs.LinuxFunctionAppSlotAuthSettings']]:
         """
         an `auth_settings` block as detailed below.
         """

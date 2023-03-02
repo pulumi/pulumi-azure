@@ -72,6 +72,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly clientCertificateEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * A `delegation` block as defined below.
+     */
+    public readonly delegation!: pulumi.Output<outputs.apimanagement.ServiceDelegation>;
+    /**
      * The URL for the Developer Portal associated with this API Management service.
      */
     public /*out*/ readonly developerPortalUrl!: pulumi.Output<string>;
@@ -212,6 +216,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["additionalLocations"] = state ? state.additionalLocations : undefined;
             resourceInputs["certificates"] = state ? state.certificates : undefined;
             resourceInputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
+            resourceInputs["delegation"] = state ? state.delegation : undefined;
             resourceInputs["developerPortalUrl"] = state ? state.developerPortalUrl : undefined;
             resourceInputs["gatewayDisabled"] = state ? state.gatewayDisabled : undefined;
             resourceInputs["gatewayRegionalUrl"] = state ? state.gatewayRegionalUrl : undefined;
@@ -260,6 +265,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["additionalLocations"] = args ? args.additionalLocations : undefined;
             resourceInputs["certificates"] = args ? args.certificates : undefined;
             resourceInputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
+            resourceInputs["delegation"] = args ? args.delegation : undefined;
             resourceInputs["gatewayDisabled"] = args ? args.gatewayDisabled : undefined;
             resourceInputs["hostnameConfiguration"] = args ? args.hostnameConfiguration : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -313,6 +319,10 @@ export interface ServiceState {
      * Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
      */
     clientCertificateEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `delegation` block as defined below.
+     */
+    delegation?: pulumi.Input<inputs.apimanagement.ServiceDelegation>;
     /**
      * The URL for the Developer Portal associated with this API Management service.
      */
@@ -455,6 +465,10 @@ export interface ServiceArgs {
      * Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
      */
     clientCertificateEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `delegation` block as defined below.
+     */
+    delegation?: pulumi.Input<inputs.apimanagement.ServiceDelegation>;
     /**
      * Disable the gateway in main region? This is only supported when `additionalLocation` is set.
      */

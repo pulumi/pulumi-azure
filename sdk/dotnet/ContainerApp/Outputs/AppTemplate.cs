@@ -14,9 +14,9 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppTemplate
     {
         /// <summary>
-        /// A `container` block as detailed below.
+        /// One or more `container` blocks as detailed below.
         /// </summary>
-        public readonly Outputs.AppTemplateContainer Container;
+        public readonly ImmutableArray<Outputs.AppTemplateContainer> Containers;
         /// <summary>
         /// The maximum number of replicas for this container.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
         [OutputConstructor]
         private AppTemplate(
-            Outputs.AppTemplateContainer container,
+            ImmutableArray<Outputs.AppTemplateContainer> containers,
 
             int? maxReplicas,
 
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             ImmutableArray<Outputs.AppTemplateVolume> volumes)
         {
-            Container = container;
+            Containers = containers;
             MaxReplicas = maxReplicas;
             MinReplicas = minReplicas;
             RevisionSuffix = revisionSuffix;

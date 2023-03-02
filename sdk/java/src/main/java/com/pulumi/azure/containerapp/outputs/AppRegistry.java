@@ -6,32 +6,46 @@ package com.pulumi.azure.containerapp.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AppRegistry {
     /**
-     * @return The name of the Secret Reference containing the password value for this user on the Container Registry.
+     * @return Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
      */
-    private String passwordSecretName;
+    private @Nullable String identity;
+    /**
+     * @return The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+     * 
+     */
+    private @Nullable String passwordSecretName;
     /**
      * @return The hostname for the Container Registry.
      * 
      */
     private String server;
     /**
-     * @return The username to use for this Container Registry.
+     * @return The username to use for this Container Registry, `password_secret_name` must also be supplied..
      * 
      */
-    private String username;
+    private @Nullable String username;
 
     private AppRegistry() {}
     /**
-     * @return The name of the Secret Reference containing the password value for this user on the Container Registry.
+     * @return Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
      */
-    public String passwordSecretName() {
-        return this.passwordSecretName;
+    public Optional<String> identity() {
+        return Optional.ofNullable(this.identity);
+    }
+    /**
+     * @return The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+     * 
+     */
+    public Optional<String> passwordSecretName() {
+        return Optional.ofNullable(this.passwordSecretName);
     }
     /**
      * @return The hostname for the Container Registry.
@@ -41,11 +55,11 @@ public final class AppRegistry {
         return this.server;
     }
     /**
-     * @return The username to use for this Container Registry.
+     * @return The username to use for this Container Registry, `password_secret_name` must also be supplied..
      * 
      */
-    public String username() {
-        return this.username;
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
     }
 
     public static Builder builder() {
@@ -57,20 +71,27 @@ public final class AppRegistry {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String passwordSecretName;
+        private @Nullable String identity;
+        private @Nullable String passwordSecretName;
         private String server;
-        private String username;
+        private @Nullable String username;
         public Builder() {}
         public Builder(AppRegistry defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identity = defaults.identity;
     	      this.passwordSecretName = defaults.passwordSecretName;
     	      this.server = defaults.server;
     	      this.username = defaults.username;
         }
 
         @CustomType.Setter
-        public Builder passwordSecretName(String passwordSecretName) {
-            this.passwordSecretName = Objects.requireNonNull(passwordSecretName);
+        public Builder identity(@Nullable String identity) {
+            this.identity = identity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder passwordSecretName(@Nullable String passwordSecretName) {
+            this.passwordSecretName = passwordSecretName;
             return this;
         }
         @CustomType.Setter
@@ -79,12 +100,13 @@ public final class AppRegistry {
             return this;
         }
         @CustomType.Setter
-        public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+        public Builder username(@Nullable String username) {
+            this.username = username;
             return this;
         }
         public AppRegistry build() {
             final var o = new AppRegistry();
+            o.identity = identity;
             o.passwordSecretName = passwordSecretName;
             o.server = server;
             o.username = username;

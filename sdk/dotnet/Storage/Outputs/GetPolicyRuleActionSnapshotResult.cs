@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly int DeleteAfterDaysSinceCreationGreaterThan;
         /// <summary>
-        /// The age in days after last tier change to the blobs to skip to be archved.
+        /// The age in days after last tier change to the blobs to skip to be archived.
         /// </summary>
         public readonly int TierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
 

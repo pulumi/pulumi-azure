@@ -30,10 +30,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.storage.StorageFunctions;
- * import com.pulumi.azure.storage.inputs.GetAccountArgs;
- * import com.pulumi.azure.keyvault.KeyvaultFunctions;
- * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
  * import com.pulumi.azure.monitoring.DiagnosticSetting;
  * import com.pulumi.azure.monitoring.DiagnosticSettingArgs;
  * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledLogArgs;
@@ -57,19 +58,27 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;examplestoracc&#34;)
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
- *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
- *             .name(&#34;example-vault&#34;)
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .softDeleteRetentionDays(7)
+ *             .purgeProtectionEnabled(false)
+ *             .skuName(&#34;standard&#34;)
  *             .build());
  * 
  *         var exampleDiagnosticSetting = new DiagnosticSetting(&#34;exampleDiagnosticSetting&#34;, DiagnosticSettingArgs.builder()        
- *             .targetResourceId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult).applyValue(exampleKeyVault -&gt; exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id())))
- *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult).applyValue(exampleAccount -&gt; exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id())))
+ *             .targetResourceId(exampleKeyVault.id())
+ *             .storageAccountId(exampleAccount.id())
  *             .enabledLogs(DiagnosticSettingEnabledLogArgs.builder()
  *                 .category(&#34;AuditEvent&#34;)
  *                 .retentionPolicy(DiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
@@ -142,18 +151,18 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventhubName);
     }
     /**
-     * Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      * 
      */
     @Export(name="logAnalyticsDestinationType", type=String.class, parameters={})
-    private Output</* @Nullable */ String> logAnalyticsDestinationType;
+    private Output<String> logAnalyticsDestinationType;
 
     /**
-     * @return Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * @return Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      * 
      */
-    public Output<Optional<String>> logAnalyticsDestinationType() {
-        return Codegen.optional(this.logAnalyticsDestinationType);
+    public Output<String> logAnalyticsDestinationType() {
+        return this.logAnalyticsDestinationType;
     }
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.

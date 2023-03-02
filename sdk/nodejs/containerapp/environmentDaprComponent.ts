@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/daprComponents/mydaprcomponent"
+ *  $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent"
  * ```
  */
 export class EnvironmentDaprComponent extends pulumi.CustomResource {
@@ -87,7 +87,7 @@ export class EnvironmentDaprComponent extends pulumi.CustomResource {
      */
     public readonly initTimeout!: pulumi.Output<string | undefined>;
     /**
-     * A `metadata` block as detailed below.
+     * One or more `metadata` blocks as detailed below.
      */
     public readonly metadatas!: pulumi.Output<outputs.containerapp.EnvironmentDaprComponentMetadata[] | undefined>;
     /**
@@ -178,7 +178,7 @@ export interface EnvironmentDaprComponentState {
      */
     initTimeout?: pulumi.Input<string>;
     /**
-     * A `metadata` block as detailed below.
+     * One or more `metadata` blocks as detailed below.
      */
     metadatas?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentDaprComponentMetadata>[]>;
     /**
@@ -220,7 +220,7 @@ export interface EnvironmentDaprComponentArgs {
      */
     initTimeout?: pulumi.Input<string>;
     /**
-     * A `metadata` block as detailed below.
+     * One or more `metadata` blocks as detailed below.
      */
     metadatas?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentDaprComponentMetadata>[]>;
     /**

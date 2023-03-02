@@ -133,10 +133,16 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// The connection string. Conflicts with `sas_uri` and `service_endpoint`.
+        /// The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
         /// </summary>
         [Output("connectionString")]
         public Output<string?> ConnectionString { get; private set; } = null!;
+
+        /// <summary>
+        /// The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+        /// </summary>
+        [Output("connectionStringInsecure")]
+        public Output<string?> ConnectionStringInsecure { get; private set; } = null!;
 
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -175,13 +181,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
+        /// The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         /// </summary>
         [Output("sasUri")]
         public Output<string?> SasUri { get; private set; } = null!;
 
         /// <summary>
-        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
+        /// The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
         /// </summary>
         [Output("serviceEndpoint")]
         public Output<string?> ServiceEndpoint { get; private set; } = null!;
@@ -302,7 +308,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The connection string. Conflicts with `sas_uri` and `service_endpoint`.
+        /// The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -313,6 +319,12 @@ namespace Pulumi.Azure.DataFactory
                 _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+        /// </summary>
+        [Input("connectionStringInsecure")]
+        public Input<string>? ConnectionStringInsecure { get; set; }
 
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -360,7 +372,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _sasUri;
 
         /// <summary>
-        /// The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
+        /// The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         /// </summary>
         public Input<string>? SasUri
         {
@@ -376,7 +388,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _serviceEndpoint;
 
         /// <summary>
-        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
+        /// The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
         /// </summary>
         public Input<string>? ServiceEndpoint
         {
@@ -460,7 +472,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The connection string. Conflicts with `sas_uri` and `service_endpoint`.
+        /// The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -471,6 +483,12 @@ namespace Pulumi.Azure.DataFactory
                 _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+        /// </summary>
+        [Input("connectionStringInsecure")]
+        public Input<string>? ConnectionStringInsecure { get; set; }
 
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -518,7 +536,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _sasUri;
 
         /// <summary>
-        /// The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
+        /// The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         /// </summary>
         public Input<string>? SasUri
         {
@@ -534,7 +552,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _serviceEndpoint;
 
         /// <summary>
-        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
+        /// The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
         /// </summary>
         public Input<string>? ServiceEndpoint
         {

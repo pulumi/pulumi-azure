@@ -22,15 +22,15 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
      * One or more `config_file` blocks as defined below.
      * 
      */
-    @Import(name="configFiles", required=true)
-    private Output<List<ConfigurationConfigFileArgs>> configFiles;
+    @Import(name="configFiles")
+    private @Nullable Output<List<ConfigurationConfigFileArgs>> configFiles;
 
     /**
      * @return One or more `config_file` blocks as defined below.
      * 
      */
-    public Output<List<ConfigurationConfigFileArgs>> configFiles() {
-        return this.configFiles;
+    public Optional<Output<List<ConfigurationConfigFileArgs>>> configFiles() {
+        return Optional.ofNullable(this.configFiles);
     }
 
     /**
@@ -64,14 +64,14 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+     * One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
      * 
      */
     @Import(name="protectedFiles")
     private @Nullable Output<List<ConfigurationProtectedFileArgs>> protectedFiles;
 
     /**
-     * @return One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+     * @return One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
      * 
      */
     public Optional<Output<List<ConfigurationProtectedFileArgs>>> protectedFiles() {
@@ -127,7 +127,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder configFiles(Output<List<ConfigurationConfigFileArgs>> configFiles) {
+        public Builder configFiles(@Nullable Output<List<ConfigurationConfigFileArgs>> configFiles) {
             $.configFiles = configFiles;
             return this;
         }
@@ -195,7 +195,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedFiles One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+         * @param protectedFiles One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedFiles One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+         * @param protectedFiles One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedFiles One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+         * @param protectedFiles One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
          * 
          * @return builder
          * 
@@ -247,7 +247,6 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConfigurationArgs build() {
-            $.configFiles = Objects.requireNonNull($.configFiles, "expected parameter 'configFiles' to be non-null");
             $.nginxDeploymentId = Objects.requireNonNull($.nginxDeploymentId, "expected parameter 'nginxDeploymentId' to be non-null");
             $.rootFile = Objects.requireNonNull($.rootFile, "expected parameter 'rootFile' to be non-null");
             return $;

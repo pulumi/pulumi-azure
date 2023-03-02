@@ -62,6 +62,10 @@ export interface GetLinuxWebAppResult {
      */
     readonly authSettings: outputs.appservice.GetLinuxWebAppAuthSetting[];
     /**
+     * An `authSettingsV2` block as defined below.
+     */
+    readonly authSettingsV2s: outputs.appservice.GetLinuxWebAppAuthSettingsV2[];
+    /**
      * A `backup` block as defined below.
      */
     readonly backups: outputs.appservice.GetLinuxWebAppBackup[];
@@ -167,6 +171,9 @@ export interface GetLinuxWebAppResult {
      * A mapping of tags assigned to the Linux Web App.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The subnet id which the Linux Web App is vNet Integrated with.
+     */
     readonly virtualNetworkSubnetId: string;
 }
 /**

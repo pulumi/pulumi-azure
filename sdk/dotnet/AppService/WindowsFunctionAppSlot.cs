@@ -82,7 +82,7 @@ namespace Pulumi.Azure.AppService
         /// an `auth_settings` block as detailed below.
         /// </summary>
         [Output("authSettings")]
-        public Output<Outputs.WindowsFunctionAppSlotAuthSettings> AuthSettings { get; private set; } = null!;
+        public Output<Outputs.WindowsFunctionAppSlotAuthSettings?> AuthSettings { get; private set; } = null!;
 
         /// <summary>
         /// a `backup` block as detailed below.

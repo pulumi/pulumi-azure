@@ -527,14 +527,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.identity;
     }
     /**
-     * The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+     * The compute name for image build of the Machine Learning Workspace.
      * 
      */
     @Export(name="imageBuildComputeName", type=String.class, parameters={})
     private Output</* @Nullable */ String> imageBuildComputeName;
 
     /**
-     * @return The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+     * @return The compute name for image build of the Machine Learning Workspace.
      * 
      */
     public Output<Optional<String>> imageBuildComputeName() {

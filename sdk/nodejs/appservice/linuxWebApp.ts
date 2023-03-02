@@ -73,7 +73,11 @@ export class LinuxWebApp extends pulumi.CustomResource {
     /**
      * A `authSettings` block as defined below.
      */
-    public readonly authSettings!: pulumi.Output<outputs.appservice.LinuxWebAppAuthSettings>;
+    public readonly authSettings!: pulumi.Output<outputs.appservice.LinuxWebAppAuthSettings | undefined>;
+    /**
+     * An `authSettingsV2` block as defined below.
+     */
+    public readonly authSettingsV2!: pulumi.Output<outputs.appservice.LinuxWebAppAuthSettingsV2 | undefined>;
     /**
      * A `backup` block as defined below.
      */
@@ -206,6 +210,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
             const state = argsOrState as LinuxWebAppState | undefined;
             resourceInputs["appSettings"] = state ? state.appSettings : undefined;
             resourceInputs["authSettings"] = state ? state.authSettings : undefined;
+            resourceInputs["authSettingsV2"] = state ? state.authSettingsV2 : undefined;
             resourceInputs["backup"] = state ? state.backup : undefined;
             resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             resourceInputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
@@ -248,6 +253,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
             }
             resourceInputs["appSettings"] = args ? args.appSettings : undefined;
             resourceInputs["authSettings"] = args ? args.authSettings : undefined;
+            resourceInputs["authSettingsV2"] = args ? args.authSettingsV2 : undefined;
             resourceInputs["backup"] = args ? args.backup : undefined;
             resourceInputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             resourceInputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
@@ -297,6 +303,10 @@ export interface LinuxWebAppState {
      * A `authSettings` block as defined below.
      */
     authSettings?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettings>;
+    /**
+     * An `authSettingsV2` block as defined below.
+     */
+    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsV2>;
     /**
      * A `backup` block as defined below.
      */
@@ -427,6 +437,10 @@ export interface LinuxWebAppArgs {
      * A `authSettings` block as defined below.
      */
     authSettings?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettings>;
+    /**
+     * An `authSettingsV2` block as defined below.
+     */
+    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsV2>;
     /**
      * A `backup` block as defined below.
      */

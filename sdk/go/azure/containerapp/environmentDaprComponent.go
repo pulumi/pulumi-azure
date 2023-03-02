@@ -72,7 +72,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/daprComponents/mydaprcomponent"
+//	$ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent"
 //
 // ```
 type EnvironmentDaprComponent struct {
@@ -86,7 +86,7 @@ type EnvironmentDaprComponent struct {
 	IgnoreErrors pulumi.BoolPtrOutput `pulumi:"ignoreErrors"`
 	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
 	InitTimeout pulumi.StringPtrOutput `pulumi:"initTimeout"`
-	// A `metadata` block as detailed below.
+	// One or more `metadata` blocks as detailed below.
 	Metadatas EnvironmentDaprComponentMetadataArrayOutput `pulumi:"metadatas"`
 	// The name for this Dapr component. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -151,7 +151,7 @@ type environmentDaprComponentState struct {
 	IgnoreErrors *bool `pulumi:"ignoreErrors"`
 	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
 	InitTimeout *string `pulumi:"initTimeout"`
-	// A `metadata` block as detailed below.
+	// One or more `metadata` blocks as detailed below.
 	Metadatas []EnvironmentDaprComponentMetadata `pulumi:"metadatas"`
 	// The name for this Dapr component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -172,7 +172,7 @@ type EnvironmentDaprComponentState struct {
 	IgnoreErrors pulumi.BoolPtrInput
 	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
 	InitTimeout pulumi.StringPtrInput
-	// A `metadata` block as detailed below.
+	// One or more `metadata` blocks as detailed below.
 	Metadatas EnvironmentDaprComponentMetadataArrayInput
 	// The name for this Dapr component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -197,7 +197,7 @@ type environmentDaprComponentArgs struct {
 	IgnoreErrors *bool `pulumi:"ignoreErrors"`
 	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
 	InitTimeout *string `pulumi:"initTimeout"`
-	// A `metadata` block as detailed below.
+	// One or more `metadata` blocks as detailed below.
 	Metadatas []EnvironmentDaprComponentMetadata `pulumi:"metadatas"`
 	// The name for this Dapr component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -219,7 +219,7 @@ type EnvironmentDaprComponentArgs struct {
 	IgnoreErrors pulumi.BoolPtrInput
 	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
 	InitTimeout pulumi.StringPtrInput
-	// A `metadata` block as detailed below.
+	// One or more `metadata` blocks as detailed below.
 	Metadatas EnvironmentDaprComponentMetadataArrayInput
 	// The name for this Dapr component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -338,7 +338,7 @@ func (o EnvironmentDaprComponentOutput) InitTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentDaprComponent) pulumi.StringPtrOutput { return v.InitTimeout }).(pulumi.StringPtrOutput)
 }
 
-// A `metadata` block as detailed below.
+// One or more `metadata` blocks as detailed below.
 func (o EnvironmentDaprComponentOutput) Metadatas() EnvironmentDaprComponentMetadataArrayOutput {
 	return o.ApplyT(func(v *EnvironmentDaprComponent) EnvironmentDaprComponentMetadataArrayOutput { return v.Metadatas }).(EnvironmentDaprComponentMetadataArrayOutput)
 }

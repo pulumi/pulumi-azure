@@ -42,7 +42,7 @@ class ConfigurationConfigFile(dict):
                  content: str,
                  virtual_path: str):
         """
-        :param str content: Specifies the base-64 encoded contents of this config file (Sensitive).
+        :param str content: Specifies the base-64 encoded contents of this config file.
         :param str virtual_path: Specify the path of this config file.
         """
         pulumi.set(__self__, "content", content)
@@ -52,7 +52,7 @@ class ConfigurationConfigFile(dict):
     @pulumi.getter
     def content(self) -> str:
         """
-        Specifies the base-64 encoded contents of this config file (Sensitive).
+        Specifies the base-64 encoded contents of this config file.
         """
         return pulumi.get(self, "content")
 
@@ -88,7 +88,7 @@ class ConfigurationProtectedFile(dict):
                  content: str,
                  virtual_path: str):
         """
-        :param str content: Specifies the base-64 encoded contents of this config file.
+        :param str content: Specifies the base-64 encoded contents of this config file (Sensitive).
         :param str virtual_path: Specify the path of this config file.
         """
         pulumi.set(__self__, "content", content)
@@ -98,7 +98,7 @@ class ConfigurationProtectedFile(dict):
     @pulumi.getter
     def content(self) -> str:
         """
-        Specifies the base-64 encoded contents of this config file.
+        Specifies the base-64 encoded contents of this config file (Sensitive).
         """
         return pulumi.get(self, "content")
 

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerApp.Inputs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -26,6 +30,9 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

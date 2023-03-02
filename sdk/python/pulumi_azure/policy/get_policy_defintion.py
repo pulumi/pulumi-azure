@@ -21,7 +21,7 @@ class GetPolicyDefintionResult:
     """
     A collection of values returned by getPolicyDefintion.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_rule=None, policy_type=None, role_definition_ids=None, type=None):
+    def __init__(__self__, description=None, display_name=None, id=None, management_group_name=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, role_definition_ids=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -37,6 +37,9 @@ class GetPolicyDefintionResult:
         if metadata and not isinstance(metadata, str):
             raise TypeError("Expected argument 'metadata' to be a str")
         pulumi.set(__self__, "metadata", metadata)
+        if mode and not isinstance(mode, str):
+            raise TypeError("Expected argument 'mode' to be a str")
+        pulumi.set(__self__, "mode", mode)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -89,6 +92,14 @@ class GetPolicyDefintionResult:
         Any Metadata defined in the Policy.
         """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The Mode of the Policy.
+        """
+        return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter
@@ -147,6 +158,7 @@ class AwaitableGetPolicyDefintionResult(GetPolicyDefintionResult):
             id=self.id,
             management_group_name=self.management_group_name,
             metadata=self.metadata,
+            mode=self.mode,
             name=self.name,
             parameters=self.parameters,
             policy_rule=self.policy_rule,
@@ -190,6 +202,7 @@ def get_policy_defintion(display_name: Optional[str] = None,
         id=__ret__.id,
         management_group_name=__ret__.management_group_name,
         metadata=__ret__.metadata,
+        mode=__ret__.mode,
         name=__ret__.name,
         parameters=__ret__.parameters,
         policy_rule=__ret__.policy_rule,

@@ -83,6 +83,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkInterfaceSecurityGroupAssociation{}
 	case "azure:network/networkManager:NetworkManager":
 		r = &NetworkManager{}
+	case "azure:network/networkManagerAdminRule:NetworkManagerAdminRule":
+		r = &NetworkManagerAdminRule{}
+	case "azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection":
+		r = &NetworkManagerAdminRuleCollection{}
 	case "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration":
 		r = &NetworkManagerConnectivityConfiguration{}
 	case "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection":
@@ -91,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkManagerNetworkGroup{}
 	case "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection":
 		r = &NetworkManagerScopeConnection{}
+	case "azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration":
+		r = &NetworkManagerSecurityAdminConfiguration{}
 	case "azure:network/networkManagerStaticMember:NetworkManagerStaticMember":
 		r = &NetworkManagerStaticMember{}
 	case "azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection":
@@ -351,6 +357,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"network/networkManagerAdminRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkManagerAdminRuleCollection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"network/networkManagerConnectivityConfiguration",
 		&module{version},
 	)
@@ -367,6 +383,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/networkManagerScopeConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkManagerSecurityAdminConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

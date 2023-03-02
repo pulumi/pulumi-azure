@@ -21,6 +21,7 @@ class WindowsWebAppArgs:
                  site_config: pulumi.Input['WindowsWebAppSiteConfigArgs'],
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['WindowsWebAppAuthSettingsArgs']] = None,
+                 auth_settings_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2Args']] = None,
                  backup: Optional[pulumi.Input['WindowsWebAppBackupArgs']] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -46,6 +47,7 @@ class WindowsWebAppArgs:
         :param pulumi.Input['WindowsWebAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
         :param pulumi.Input['WindowsWebAppAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input['WindowsWebAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
@@ -72,6 +74,8 @@ class WindowsWebAppArgs:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
+        if auth_settings_v2 is not None:
+            pulumi.set(__self__, "auth_settings_v2", auth_settings_v2)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
         if client_affinity_enabled is not None:
@@ -168,6 +172,18 @@ class WindowsWebAppArgs:
     @auth_settings.setter
     def auth_settings(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
+
+    @property
+    @pulumi.getter(name="authSettingsV2")
+    def auth_settings_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2Args']]:
+        """
+        An `auth_settings_v2` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings_v2")
+
+    @auth_settings_v2.setter
+    def auth_settings_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2Args']]):
+        pulumi.set(self, "auth_settings_v2", value)
 
     @property
     @pulumi.getter
@@ -391,6 +407,7 @@ class _WindowsWebAppState:
     def __init__(__self__, *,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['WindowsWebAppAuthSettingsArgs']] = None,
+                 auth_settings_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2Args']] = None,
                  backup: Optional[pulumi.Input['WindowsWebAppBackupArgs']] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -424,6 +441,7 @@ class _WindowsWebAppState:
         Input properties used for looking up and filtering WindowsWebApp resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
         :param pulumi.Input['WindowsWebAppAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input['WindowsWebAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
@@ -458,6 +476,8 @@ class _WindowsWebAppState:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
+        if auth_settings_v2 is not None:
+            pulumi.set(__self__, "auth_settings_v2", auth_settings_v2)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
         if client_affinity_enabled is not None:
@@ -540,6 +560,18 @@ class _WindowsWebAppState:
     @auth_settings.setter
     def auth_settings(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
+
+    @property
+    @pulumi.getter(name="authSettingsV2")
+    def auth_settings_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2Args']]:
+        """
+        An `auth_settings_v2` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings_v2")
+
+    @auth_settings_v2.setter
+    def auth_settings_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2Args']]):
+        pulumi.set(self, "auth_settings_v2", value)
 
     @property
     @pulumi.getter
@@ -897,6 +929,7 @@ class WindowsWebApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsArgs']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsV2Args']]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -953,6 +986,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsArgs']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsV2Args']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
@@ -1028,6 +1062,7 @@ class WindowsWebApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsArgs']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsV2Args']]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1060,6 +1095,7 @@ class WindowsWebApp(pulumi.CustomResource):
 
             __props__.__dict__["app_settings"] = app_settings
             __props__.__dict__["auth_settings"] = auth_settings
+            __props__.__dict__["auth_settings_v2"] = auth_settings_v2
             __props__.__dict__["backup"] = backup
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
@@ -1109,6 +1145,7 @@ class WindowsWebApp(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsArgs']]] = None,
+            auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsV2Args']]] = None,
             backup: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']]] = None,
             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1147,6 +1184,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsArgs']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsWebAppAuthSettingsV2Args']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
@@ -1183,6 +1221,7 @@ class WindowsWebApp(pulumi.CustomResource):
 
         __props__.__dict__["app_settings"] = app_settings
         __props__.__dict__["auth_settings"] = auth_settings
+        __props__.__dict__["auth_settings_v2"] = auth_settings_v2
         __props__.__dict__["backup"] = backup
         __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
         __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
@@ -1224,11 +1263,19 @@ class WindowsWebApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> pulumi.Output['outputs.WindowsWebAppAuthSettings']:
+    def auth_settings(self) -> pulumi.Output[Optional['outputs.WindowsWebAppAuthSettings']]:
         """
         An `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
+
+    @property
+    @pulumi.getter(name="authSettingsV2")
+    def auth_settings_v2(self) -> pulumi.Output[Optional['outputs.WindowsWebAppAuthSettingsV2']]:
+        """
+        An `auth_settings_v2` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings_v2")
 
     @property
     @pulumi.getter

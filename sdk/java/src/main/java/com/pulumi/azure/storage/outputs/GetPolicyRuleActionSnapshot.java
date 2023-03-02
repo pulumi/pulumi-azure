@@ -25,7 +25,7 @@ public final class GetPolicyRuleActionSnapshot {
      */
     private Integer deleteAfterDaysSinceCreationGreaterThan;
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved.
+     * @return The age in days after last tier change to the blobs to skip to be archived.
      * 
      */
     private Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
@@ -53,7 +53,7 @@ public final class GetPolicyRuleActionSnapshot {
         return this.deleteAfterDaysSinceCreationGreaterThan;
     }
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved.
+     * @return The age in days after last tier change to the blobs to skip to be archived.
      * 
      */
     public Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan() {

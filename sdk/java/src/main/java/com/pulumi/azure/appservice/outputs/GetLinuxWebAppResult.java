@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppAuthSetting;
+import com.pulumi.azure.appservice.outputs.GetLinuxWebAppAuthSettingsV2;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppBackup;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppConnectionString;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppIdentity;
@@ -36,6 +37,11 @@ public final class GetLinuxWebAppResult {
      * 
      */
     private List<GetLinuxWebAppAuthSetting> authSettings;
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    private List<GetLinuxWebAppAuthSettingsV2> authSettingsV2s;
     /**
      * @return A `backup` block as defined below.
      * 
@@ -168,6 +174,10 @@ public final class GetLinuxWebAppResult {
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return The subnet id which the Linux Web App is vNet Integrated with.
+     * 
+     */
     private String virtualNetworkSubnetId;
 
     private GetLinuxWebAppResult() {}
@@ -191,6 +201,13 @@ public final class GetLinuxWebAppResult {
      */
     public List<GetLinuxWebAppAuthSetting> authSettings() {
         return this.authSettings;
+    }
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    public List<GetLinuxWebAppAuthSettingsV2> authSettingsV2s() {
+        return this.authSettingsV2s;
     }
     /**
      * @return A `backup` block as defined below.
@@ -380,6 +397,10 @@ public final class GetLinuxWebAppResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return The subnet id which the Linux Web App is vNet Integrated with.
+     * 
+     */
     public String virtualNetworkSubnetId() {
         return this.virtualNetworkSubnetId;
     }
@@ -396,6 +417,7 @@ public final class GetLinuxWebAppResult {
         private Map<String,String> appMetadata;
         private Map<String,String> appSettings;
         private List<GetLinuxWebAppAuthSetting> authSettings;
+        private List<GetLinuxWebAppAuthSettingsV2> authSettingsV2s;
         private List<GetLinuxWebAppBackup> backups;
         private Boolean clientAffinityEnabled;
         private Boolean clientCertificateEnabled;
@@ -431,6 +453,7 @@ public final class GetLinuxWebAppResult {
     	      this.appMetadata = defaults.appMetadata;
     	      this.appSettings = defaults.appSettings;
     	      this.authSettings = defaults.authSettings;
+    	      this.authSettingsV2s = defaults.authSettingsV2s;
     	      this.backups = defaults.backups;
     	      this.clientAffinityEnabled = defaults.clientAffinityEnabled;
     	      this.clientCertificateEnabled = defaults.clientCertificateEnabled;
@@ -479,6 +502,14 @@ public final class GetLinuxWebAppResult {
         }
         public Builder authSettings(GetLinuxWebAppAuthSetting... authSettings) {
             return authSettings(List.of(authSettings));
+        }
+        @CustomType.Setter
+        public Builder authSettingsV2s(List<GetLinuxWebAppAuthSettingsV2> authSettingsV2s) {
+            this.authSettingsV2s = Objects.requireNonNull(authSettingsV2s);
+            return this;
+        }
+        public Builder authSettingsV2s(GetLinuxWebAppAuthSettingsV2... authSettingsV2s) {
+            return authSettingsV2s(List.of(authSettingsV2s));
         }
         @CustomType.Setter
         public Builder backups(List<GetLinuxWebAppBackup> backups) {
@@ -660,6 +691,7 @@ public final class GetLinuxWebAppResult {
             o.appMetadata = appMetadata;
             o.appSettings = appSettings;
             o.authSettings = authSettings;
+            o.authSettingsV2s = authSettingsV2s;
             o.backups = backups;
             o.clientAffinityEnabled = clientAffinityEnabled;
             o.clientCertificateEnabled = clientCertificateEnabled;

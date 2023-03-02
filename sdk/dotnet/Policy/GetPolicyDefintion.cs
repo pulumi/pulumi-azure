@@ -145,6 +145,10 @@ namespace Pulumi.Azure.Policy
         /// Any Metadata defined in the Policy.
         /// </summary>
         public readonly string Metadata;
+        /// <summary>
+        /// The Mode of the Policy.
+        /// </summary>
+        public readonly string Mode;
         public readonly string Name;
         /// <summary>
         /// Any Parameters defined in the Policy.
@@ -179,6 +183,8 @@ namespace Pulumi.Azure.Policy
 
             string metadata,
 
+            string mode,
+
             string name,
 
             string parameters,
@@ -196,6 +202,7 @@ namespace Pulumi.Azure.Policy
             Id = id;
             ManagementGroupName = managementGroupName;
             Metadata = metadata;
+            Mode = mode;
             Name = name;
             Parameters = parameters;
             PolicyRule = policyRule;

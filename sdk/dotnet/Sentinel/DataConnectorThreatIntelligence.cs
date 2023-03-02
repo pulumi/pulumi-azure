@@ -73,6 +73,12 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> LogAnalyticsWorkspaceId { get; private set; } = null!;
 
         /// <summary>
+        /// The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+        /// </summary>
+        [Output("lookbackDate")]
+        public Output<string?> LookbackDate { get; private set; } = null!;
+
+        /// <summary>
         /// The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         /// </summary>
         [Output("name")]
@@ -137,6 +143,12 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> LogAnalyticsWorkspaceId { get; set; } = null!;
 
         /// <summary>
+        /// The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+        /// </summary>
+        [Input("lookbackDate")]
+        public Input<string>? LookbackDate { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         /// </summary>
         [Input("name")]
@@ -161,6 +173,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
+
+        /// <summary>
+        /// The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+        /// </summary>
+        [Input("lookbackDate")]
+        public Input<string>? LookbackDate { get; set; }
 
         /// <summary>
         /// The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.

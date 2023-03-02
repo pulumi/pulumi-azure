@@ -64,6 +64,8 @@ type LookupLinuxWebAppResult struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// An `authSettings` block as defined below.
 	AuthSettings []GetLinuxWebAppAuthSetting `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2s []GetLinuxWebAppAuthSettingsV2 `pulumi:"authSettingsV2s"`
 	// A `backup` block as defined below.
 	Backups []GetLinuxWebAppBackup `pulumi:"backups"`
 	// Is Client Affinity enabled?
@@ -117,8 +119,9 @@ type LookupLinuxWebAppResult struct {
 	// A `storageAccount` block as defined below.
 	StorageAccounts []GetLinuxWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags assigned to the Linux Web App.
-	Tags                   map[string]string `pulumi:"tags"`
-	VirtualNetworkSubnetId string            `pulumi:"virtualNetworkSubnetId"`
+	Tags map[string]string `pulumi:"tags"`
+	// The subnet id which the Linux Web App is vNet Integrated with.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
 
 func LookupLinuxWebAppOutput(ctx *pulumi.Context, args LookupLinuxWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupLinuxWebAppResultOutput {
@@ -174,6 +177,11 @@ func (o LookupLinuxWebAppResultOutput) AppSettings() pulumi.StringMapOutput {
 // An `authSettings` block as defined below.
 func (o LookupLinuxWebAppResultOutput) AuthSettings() GetLinuxWebAppAuthSettingArrayOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) []GetLinuxWebAppAuthSetting { return v.AuthSettings }).(GetLinuxWebAppAuthSettingArrayOutput)
+}
+
+// An `authSettingsV2` block as defined below.
+func (o LookupLinuxWebAppResultOutput) AuthSettingsV2s() GetLinuxWebAppAuthSettingsV2ArrayOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) []GetLinuxWebAppAuthSettingsV2 { return v.AuthSettingsV2s }).(GetLinuxWebAppAuthSettingsV2ArrayOutput)
 }
 
 // A `backup` block as defined below.
@@ -314,6 +322,7 @@ func (o LookupLinuxWebAppResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The subnet id which the Linux Web App is vNet Integrated with.
 func (o LookupLinuxWebAppResultOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
 }

@@ -86,6 +86,7 @@ __all__ = [
     'ServiceAdditionalLocationArgs',
     'ServiceAdditionalLocationVirtualNetworkConfigurationArgs',
     'ServiceCertificateArgs',
+    'ServiceDelegationArgs',
     'ServiceHostnameConfigurationArgs',
     'ServiceHostnameConfigurationDeveloperPortalArgs',
     'ServiceHostnameConfigurationManagementArgs',
@@ -5274,6 +5275,77 @@ class ServiceCertificateArgs:
     @thumbprint.setter
     def thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thumbprint", value)
+
+
+@pulumi.input_type
+class ServiceDelegationArgs:
+    def __init__(__self__, *,
+                 subscriptions_enabled: Optional[pulumi.Input[bool]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 user_registration_enabled: Optional[pulumi.Input[bool]] = None,
+                 validation_key: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] subscriptions_enabled: Should subscription requests be delegated to an external url? Defaults to `false`.
+        :param pulumi.Input[str] url: The delegation URL.
+        :param pulumi.Input[bool] user_registration_enabled: Should user registration requests be delegated to an external url? Defaults to `false`.
+        :param pulumi.Input[str] validation_key: A base64-encoded validation key to validate, that a request is coming from Azure API Management.
+        """
+        if subscriptions_enabled is not None:
+            pulumi.set(__self__, "subscriptions_enabled", subscriptions_enabled)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if user_registration_enabled is not None:
+            pulumi.set(__self__, "user_registration_enabled", user_registration_enabled)
+        if validation_key is not None:
+            pulumi.set(__self__, "validation_key", validation_key)
+
+    @property
+    @pulumi.getter(name="subscriptionsEnabled")
+    def subscriptions_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should subscription requests be delegated to an external url? Defaults to `false`.
+        """
+        return pulumi.get(self, "subscriptions_enabled")
+
+    @subscriptions_enabled.setter
+    def subscriptions_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "subscriptions_enabled", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The delegation URL.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="userRegistrationEnabled")
+    def user_registration_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should user registration requests be delegated to an external url? Defaults to `false`.
+        """
+        return pulumi.get(self, "user_registration_enabled")
+
+    @user_registration_enabled.setter
+    def user_registration_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "user_registration_enabled", value)
+
+    @property
+    @pulumi.getter(name="validationKey")
+    def validation_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        A base64-encoded validation key to validate, that a request is coming from Azure API Management.
+        """
+        return pulumi.get(self, "validation_key")
+
+    @validation_key.setter
+    def validation_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "validation_key", value)
 
 
 @pulumi.input_type

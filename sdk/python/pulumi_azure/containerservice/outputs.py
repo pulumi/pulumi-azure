@@ -6034,7 +6034,7 @@ class KubernetesClusterWebAppRouting(dict):
     def __init__(__self__, *,
                  dns_zone_id: str):
         """
-        :param str dns_zone_id: Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+        :param str dns_zone_id: Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
         """
         pulumi.set(__self__, "dns_zone_id", dns_zone_id)
 
@@ -6042,7 +6042,7 @@ class KubernetesClusterWebAppRouting(dict):
     @pulumi.getter(name="dnsZoneId")
     def dns_zone_id(self) -> str:
         """
-        Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+        Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
         """
         return pulumi.get(self, "dns_zone_id")
 

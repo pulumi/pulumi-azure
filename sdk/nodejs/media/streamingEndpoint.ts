@@ -175,7 +175,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      */
     public readonly mediaServicesAccountName!: pulumi.Output<string>;
     /**
-     * The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+     * The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -183,9 +183,13 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+     * The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
      */
     public readonly scaleUnits!: pulumi.Output<number>;
+    /**
+     * A `sku` block defined as below.
+     */
+    public /*out*/ readonly skus!: pulumi.Output<outputs.media.StreamingEndpointSkus[]>;
     /**
      * A mapping of tags which should be assigned to the Streaming Endpoint.
      */
@@ -219,6 +223,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["scaleUnits"] = state ? state.scaleUnits : undefined;
+            resourceInputs["skus"] = state ? state.skus : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as StreamingEndpointArgs | undefined;
@@ -247,6 +252,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["skus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StreamingEndpoint.__pulumiType, name, resourceInputs, opts);
@@ -306,7 +312,7 @@ export interface StreamingEndpointState {
      */
     mediaServicesAccountName?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+     * The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -314,9 +320,13 @@ export interface StreamingEndpointState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+     * The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
      */
     scaleUnits?: pulumi.Input<number>;
+    /**
+     * A `sku` block defined as below.
+     */
+    skus?: pulumi.Input<pulumi.Input<inputs.media.StreamingEndpointSkus>[]>;
     /**
      * A mapping of tags which should be assigned to the Streaming Endpoint.
      */
@@ -372,7 +382,7 @@ export interface StreamingEndpointArgs {
      */
     mediaServicesAccountName: pulumi.Input<string>;
     /**
-     * The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+     * The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -380,7 +390,7 @@ export interface StreamingEndpointArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
+     * The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
      */
     scaleUnits: pulumi.Input<number>;
     /**

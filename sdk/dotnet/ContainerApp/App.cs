@@ -48,12 +48,15 @@ namespace Pulumi.Azure.ContainerApp
     ///         RevisionMode = "Single",
     ///         Template = new Azure.ContainerApp.Inputs.AppTemplateArgs
     ///         {
-    ///             Container = new Azure.ContainerApp.Inputs.AppTemplateContainerArgs
+    ///             Containers = new[]
     ///             {
-    ///                 Name = "examplecontainerapp",
-    ///                 Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
-    ///                 Cpu = 0.25,
-    ///                 Memory = "0.5Gi",
+    ///                 new Azure.ContainerApp.Inputs.AppTemplateContainerArgs
+    ///                 {
+    ///                     Name = "examplecontainerapp",
+    ///                     Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
+    ///                     Cpu = 0.25,
+    ///                     Memory = "0.5Gi",
+    ///                 },
     ///             },
     ///         },
     ///     });
@@ -90,6 +93,9 @@ namespace Pulumi.Azure.ContainerApp
         [Output("dapr")]
         public Output<Outputs.AppDapr?> Dapr { get; private set; } = null!;
 
+        /// <summary>
+        /// An `identity` block as detailed below.
+        /// </summary>
         [Output("identity")]
         public Output<Outputs.AppIdentity?> Identity { get; private set; } = null!;
 
@@ -228,6 +234,9 @@ namespace Pulumi.Azure.ContainerApp
         [Input("dapr")]
         public Input<Inputs.AppDaprArgs>? Dapr { get; set; }
 
+        /// <summary>
+        /// An `identity` block as detailed below.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.AppIdentityArgs>? Identity { get; set; }
 
@@ -337,6 +346,9 @@ namespace Pulumi.Azure.ContainerApp
         [Input("dapr")]
         public Input<Inputs.AppDaprGetArgs>? Dapr { get; set; }
 
+        /// <summary>
+        /// An `identity` block as detailed below.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.AppIdentityGetArgs>? Identity { get; set; }
 

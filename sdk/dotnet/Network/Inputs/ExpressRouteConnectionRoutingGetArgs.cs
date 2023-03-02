@@ -19,6 +19,18 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? AssociatedRouteTableId { get; set; }
 
         /// <summary>
+        /// The ID of the Route Map associated with this Express Route Connection for inbound routes.
+        /// </summary>
+        [Input("inboundRouteMapId")]
+        public Input<string>? InboundRouteMapId { get; set; }
+
+        /// <summary>
+        /// The ID of the Route Map associated with this Express Route Connection for outbound routes.
+        /// </summary>
+        [Input("outboundRouteMapId")]
+        public Input<string>? OutboundRouteMapId { get; set; }
+
+        /// <summary>
         /// A `propagated_route_table` block as defined below.
         /// </summary>
         [Input("propagatedRouteTable")]

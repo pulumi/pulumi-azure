@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
 /**
  * Manages an Automation Software Update Configuraion.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "East US"});
+ * const testAccount = new azure.automation.Account("testAccount", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ *     skuName: "Basic",
+ * });
+ * const example = new azure.automation.SoftwareUpdateConfiguration("example", {
+ *     automationAccountId: testAccount.id,
+ *     operatingSystem: "Linux",
+ *     linuxes: [{
+ *         classificationIncluded: "Security",
+ *         excludedPackages: ["apt"],
+ *         includedPackages: ["vim"],
+ *         reboot: "IfRequired",
+ *     }],
+ *     duration: "PT2H2M2S",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Automations Software Update Configuration can be imported using the `resource id`, e.g.
@@ -59,8 +84,11 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
     public /*out*/ readonly errorCode!: pulumi.Output<string>;
     /**
      * The Error message indicating why the operation failed.
+     *
+     * @deprecated `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
      */
     public /*out*/ readonly errorMeesage!: pulumi.Output<string>;
+    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
     /**
      * One or more `linux` blocks as defined below.
      */
@@ -119,6 +147,7 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
             resourceInputs["duration"] = state ? state.duration : undefined;
             resourceInputs["errorCode"] = state ? state.errorCode : undefined;
             resourceInputs["errorMeesage"] = state ? state.errorMeesage : undefined;
+            resourceInputs["errorMessage"] = state ? state.errorMessage : undefined;
             resourceInputs["linuxes"] = state ? state.linuxes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nonAzureComputerNames"] = state ? state.nonAzureComputerNames : undefined;
@@ -151,6 +180,7 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
             resourceInputs["windows"] = args ? args.windows : undefined;
             resourceInputs["errorCode"] = undefined /*out*/;
             resourceInputs["errorMeesage"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SoftwareUpdateConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -175,8 +205,11 @@ export interface SoftwareUpdateConfigurationState {
     errorCode?: pulumi.Input<string>;
     /**
      * The Error message indicating why the operation failed.
+     *
+     * @deprecated `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
      */
     errorMeesage?: pulumi.Input<string>;
+    errorMessage?: pulumi.Input<string>;
     /**
      * One or more `linux` blocks as defined below.
      */

@@ -65,14 +65,14 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      * 
      */
     @Import(name="logAnalyticsDestinationType")
     private @Nullable Output<String> logAnalyticsDestinationType;
 
     /**
-     * @return Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     * @return Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      * 
      */
     public Optional<Output<String>> logAnalyticsDestinationType() {
@@ -300,7 +300,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logAnalyticsDestinationType Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+         * @param logAnalyticsDestinationType Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logAnalyticsDestinationType Possible values are `AzureDiagnostics` and `Dedicated`, default to `AzureDiagnostics`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+         * @param logAnalyticsDestinationType Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
          * 
          * @return builder
          * 

@@ -16,38 +16,27 @@ __all__ = ['ConfigurationArgs', 'Configuration']
 @pulumi.input_type
 class ConfigurationArgs:
     def __init__(__self__, *,
-                 config_files: pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]],
                  nginx_deployment_id: pulumi.Input[str],
                  root_file: pulumi.Input[str],
+                 config_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]]] = None,
                  package_data: Optional[pulumi.Input[str]] = None,
                  protected_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]]] = None):
         """
         The set of arguments for constructing a Configuration resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]] config_files: One or more `config_file` blocks as defined below.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
         :param pulumi.Input[str] root_file: Specify the root file path of this Nginx Configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]] config_files: One or more `config_file` blocks as defined below.
         :param pulumi.Input[str] package_data: Specify the package data for this configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]] protected_files: One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]] protected_files: One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         """
-        pulumi.set(__self__, "config_files", config_files)
         pulumi.set(__self__, "nginx_deployment_id", nginx_deployment_id)
         pulumi.set(__self__, "root_file", root_file)
+        if config_files is not None:
+            pulumi.set(__self__, "config_files", config_files)
         if package_data is not None:
             pulumi.set(__self__, "package_data", package_data)
         if protected_files is not None:
             pulumi.set(__self__, "protected_files", protected_files)
-
-    @property
-    @pulumi.getter(name="configFiles")
-    def config_files(self) -> pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]]:
-        """
-        One or more `config_file` blocks as defined below.
-        """
-        return pulumi.get(self, "config_files")
-
-    @config_files.setter
-    def config_files(self, value: pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]]):
-        pulumi.set(self, "config_files", value)
 
     @property
     @pulumi.getter(name="nginxDeploymentId")
@@ -74,6 +63,18 @@ class ConfigurationArgs:
         pulumi.set(self, "root_file", value)
 
     @property
+    @pulumi.getter(name="configFiles")
+    def config_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]]]:
+        """
+        One or more `config_file` blocks as defined below.
+        """
+        return pulumi.get(self, "config_files")
+
+    @config_files.setter
+    def config_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]]]):
+        pulumi.set(self, "config_files", value)
+
+    @property
     @pulumi.getter(name="packageData")
     def package_data(self) -> Optional[pulumi.Input[str]]:
         """
@@ -89,7 +90,7 @@ class ConfigurationArgs:
     @pulumi.getter(name="protectedFiles")
     def protected_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]]]:
         """
-        One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+        One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         """
         return pulumi.get(self, "protected_files")
 
@@ -111,7 +112,7 @@ class _ConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]] config_files: One or more `config_file` blocks as defined below.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
         :param pulumi.Input[str] package_data: Specify the package data for this configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]] protected_files: One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]] protected_files: One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         :param pulumi.Input[str] root_file: Specify the root file path of this Nginx Configuration.
         """
         if config_files is not None:
@@ -165,7 +166,7 @@ class _ConfigurationState:
     @pulumi.getter(name="protectedFiles")
     def protected_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]]]:
         """
-        One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+        One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         """
         return pulumi.get(self, "protected_files")
 
@@ -213,7 +214,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationConfigFileArgs']]]] config_files: One or more `config_file` blocks as defined below.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
         :param pulumi.Input[str] package_data: Specify the package data for this configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProtectedFileArgs']]]] protected_files: One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProtectedFileArgs']]]] protected_files: One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         :param pulumi.Input[str] root_file: Specify the root file path of this Nginx Configuration.
         """
         ...
@@ -262,8 +263,6 @@ class Configuration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
-            if config_files is None and not opts.urn:
-                raise TypeError("Missing required property 'config_files'")
             __props__.__dict__["config_files"] = config_files
             if nginx_deployment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'nginx_deployment_id'")
@@ -298,7 +297,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationConfigFileArgs']]]] config_files: One or more `config_file` blocks as defined below.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
         :param pulumi.Input[str] package_data: Specify the package data for this configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProtectedFileArgs']]]] protected_files: One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProtectedFileArgs']]]] protected_files: One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         :param pulumi.Input[str] root_file: Specify the root file path of this Nginx Configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -314,7 +313,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configFiles")
-    def config_files(self) -> pulumi.Output[Sequence['outputs.ConfigurationConfigFile']]:
+    def config_files(self) -> pulumi.Output[Optional[Sequence['outputs.ConfigurationConfigFile']]]:
         """
         One or more `config_file` blocks as defined below.
         """
@@ -340,7 +339,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="protectedFiles")
     def protected_files(self) -> pulumi.Output[Optional[Sequence['outputs.ConfigurationProtectedFile']]]:
         """
-        One or more `config_file` (Protected File) blocks with sensitive information as defined below.
+        One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         """
         return pulumi.get(self, "protected_files")
 

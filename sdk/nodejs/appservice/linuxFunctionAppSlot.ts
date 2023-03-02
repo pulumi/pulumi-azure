@@ -85,7 +85,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
     /**
      * an `authSettings` block as detailed below.
      */
-    public readonly authSettings!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotAuthSettings>;
+    public readonly authSettings!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotAuthSettings | undefined>;
     /**
      * a `backup` block as detailed below.
      */

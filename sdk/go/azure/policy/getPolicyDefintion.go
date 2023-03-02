@@ -67,7 +67,9 @@ type GetPolicyDefintionResult struct {
 	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// Any Metadata defined in the Policy.
 	Metadata string `pulumi:"metadata"`
-	Name     string `pulumi:"name"`
+	// The Mode of the Policy.
+	Mode string `pulumi:"mode"`
+	Name string `pulumi:"name"`
 	// Any Parameters defined in the Policy.
 	Parameters string `pulumi:"parameters"`
 	// The Rule as defined (in JSON) in the Policy.
@@ -143,6 +145,11 @@ func (o GetPolicyDefintionResultOutput) ManagementGroupName() pulumi.StringPtrOu
 // Any Metadata defined in the Policy.
 func (o GetPolicyDefintionResultOutput) Metadata() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDefintionResult) string { return v.Metadata }).(pulumi.StringOutput)
+}
+
+// The Mode of the Policy.
+func (o GetPolicyDefintionResultOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyDefintionResult) string { return v.Mode }).(pulumi.StringOutput)
 }
 
 func (o GetPolicyDefintionResultOutput) Name() pulumi.StringOutput {

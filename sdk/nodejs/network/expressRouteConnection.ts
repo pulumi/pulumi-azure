@@ -116,6 +116,10 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      */
     public readonly expressRouteCircuitPeeringId!: pulumi.Output<string>;
     /**
+     * Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+     */
+    public readonly expressRouteGatewayBypassEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
     public readonly expressRouteGatewayId!: pulumi.Output<string>;
@@ -148,6 +152,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             resourceInputs["authorizationKey"] = state ? state.authorizationKey : undefined;
             resourceInputs["enableInternetSecurity"] = state ? state.enableInternetSecurity : undefined;
             resourceInputs["expressRouteCircuitPeeringId"] = state ? state.expressRouteCircuitPeeringId : undefined;
+            resourceInputs["expressRouteGatewayBypassEnabled"] = state ? state.expressRouteGatewayBypassEnabled : undefined;
             resourceInputs["expressRouteGatewayId"] = state ? state.expressRouteGatewayId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["routing"] = state ? state.routing : undefined;
@@ -163,6 +168,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
             resourceInputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
             resourceInputs["expressRouteCircuitPeeringId"] = args ? args.expressRouteCircuitPeeringId : undefined;
+            resourceInputs["expressRouteGatewayBypassEnabled"] = args ? args.expressRouteGatewayBypassEnabled : undefined;
             resourceInputs["expressRouteGatewayId"] = args ? args.expressRouteGatewayId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["routing"] = args ? args.routing : undefined;
@@ -189,6 +195,10 @@ export interface ExpressRouteConnectionState {
      * The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
     expressRouteCircuitPeeringId?: pulumi.Input<string>;
+    /**
+     * Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+     */
+    expressRouteGatewayBypassEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
@@ -223,6 +233,10 @@ export interface ExpressRouteConnectionArgs {
      * The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
     expressRouteCircuitPeeringId: pulumi.Input<string>;
+    /**
+     * Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+     */
+    expressRouteGatewayBypassEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */

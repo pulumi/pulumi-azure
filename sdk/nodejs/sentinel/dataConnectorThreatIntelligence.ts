@@ -74,6 +74,10 @@ export class DataConnectorThreatIntelligence extends pulumi.CustomResource {
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
     /**
+     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     */
+    public readonly lookbackDate!: pulumi.Output<string | undefined>;
+    /**
      * The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class DataConnectorThreatIntelligence extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DataConnectorThreatIntelligenceState | undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["lookbackDate"] = state ? state.lookbackDate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
@@ -104,6 +109,7 @@ export class DataConnectorThreatIntelligence extends pulumi.CustomResource {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["lookbackDate"] = args ? args.lookbackDate : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
@@ -120,6 +126,10 @@ export interface DataConnectorThreatIntelligenceState {
      * The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    /**
+     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     */
+    lookbackDate?: pulumi.Input<string>;
     /**
      * The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
      */
@@ -138,6 +148,10 @@ export interface DataConnectorThreatIntelligenceArgs {
      * The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
      */
     logAnalyticsWorkspaceId: pulumi.Input<string>;
+    /**
+     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     */
+    lookbackDate?: pulumi.Input<string>;
     /**
      * The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
      */

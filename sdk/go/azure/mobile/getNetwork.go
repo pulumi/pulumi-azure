@@ -49,9 +49,9 @@ func LookupNetwork(ctx *pulumi.Context, args *LookupNetworkArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getNetwork.
 type LookupNetworkArgs struct {
-	// Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
+	// Specifies the name which should be used for this Mobile Network.
 	Name string `pulumi:"name"`
-	// Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+	// Specifies the name of the Resource Group where the Mobile Network should exist.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -88,9 +88,9 @@ func LookupNetworkOutput(ctx *pulumi.Context, args LookupNetworkOutputArgs, opts
 
 // A collection of arguments for invoking getNetwork.
 type LookupNetworkOutputArgs struct {
-	// Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
+	// Specifies the name which should be used for this Mobile Network.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
+	// Specifies the name of the Resource Group where the Mobile Network should exist.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 

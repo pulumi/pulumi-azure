@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetLinuxWebAppAuthSettingActiveDirectoryResult
     {
         /// <summary>
-        /// An `allowed_audiences` block as defined below.
+        /// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
         /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
         /// <summary>

@@ -46,6 +46,7 @@ __all__ = [
     'StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey',
     'StreamingEndpointAccessControlIpAllow',
     'StreamingEndpointCrossSiteAccessPolicy',
+    'StreamingEndpointSkus',
     'StreamingLocatorContentKey',
     'StreamingPolicyCommonEncryptionCbcs',
     'StreamingPolicyCommonEncryptionCbcsDefaultContentKey',
@@ -2471,8 +2472,8 @@ class StreamingEndpointCrossSiteAccessPolicy(dict):
                  client_access_policy: Optional[str] = None,
                  cross_domain_policy: Optional[str] = None):
         """
-        :param str client_access_policy: The content of clientaccesspolicy.xml used by Silverlight.
-        :param str cross_domain_policy: The content of crossdomain.xml used by Silverlight.
+        :param str client_access_policy: The content of `clientaccesspolicy.xml` used by Silverlight.
+        :param str cross_domain_policy: The content of `crossdomain.xml` used by Silverlight.
         """
         if client_access_policy is not None:
             pulumi.set(__self__, "client_access_policy", client_access_policy)
@@ -2483,7 +2484,7 @@ class StreamingEndpointCrossSiteAccessPolicy(dict):
     @pulumi.getter(name="clientAccessPolicy")
     def client_access_policy(self) -> Optional[str]:
         """
-        The content of clientaccesspolicy.xml used by Silverlight.
+        The content of `clientaccesspolicy.xml` used by Silverlight.
         """
         return pulumi.get(self, "client_access_policy")
 
@@ -2491,9 +2492,40 @@ class StreamingEndpointCrossSiteAccessPolicy(dict):
     @pulumi.getter(name="crossDomainPolicy")
     def cross_domain_policy(self) -> Optional[str]:
         """
-        The content of crossdomain.xml used by Silverlight.
+        The content of `crossdomain.xml` used by Silverlight.
         """
         return pulumi.get(self, "cross_domain_policy")
+
+
+@pulumi.output_type
+class StreamingEndpointSkus(dict):
+    def __init__(__self__, *,
+                 capacity: Optional[int] = None,
+                 name: Optional[str] = None):
+        """
+        :param int capacity: The sku capacity of Streaming Endpoint.
+        :param str name: The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The sku capacity of Streaming Endpoint.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

@@ -126,14 +126,14 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="authSettings", type=WindowsFunctionAppSlotAuthSettings.class, parameters={})
-    private Output<WindowsFunctionAppSlotAuthSettings> authSettings;
+    private Output</* @Nullable */ WindowsFunctionAppSlotAuthSettings> authSettings;
 
     /**
      * @return an `auth_settings` block as detailed below.
      * 
      */
-    public Output<WindowsFunctionAppSlotAuthSettings> authSettings() {
-        return this.authSettings;
+    public Output<Optional<WindowsFunctionAppSlotAuthSettings>> authSettings() {
+        return Codegen.optional(this.authSettings);
     }
     /**
      * a `backup` block as detailed below.

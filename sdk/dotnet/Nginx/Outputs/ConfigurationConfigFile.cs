@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Nginx.Outputs
     public sealed class ConfigurationConfigFile
     {
         /// <summary>
-        /// Specifies the base-64 encoded contents of this config file (Sensitive).
+        /// Specifies the base-64 encoded contents of this config file.
         /// </summary>
         public readonly string Content;
         /// <summary>

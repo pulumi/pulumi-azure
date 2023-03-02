@@ -5599,9 +5599,9 @@ func (o StreamingEndpointAccessControlIpAllowArrayOutput) Index(i pulumi.IntInpu
 }
 
 type StreamingEndpointCrossSiteAccessPolicy struct {
-	// The content of clientaccesspolicy.xml used by Silverlight.
+	// The content of `clientaccesspolicy.xml` used by Silverlight.
 	ClientAccessPolicy *string `pulumi:"clientAccessPolicy"`
-	// The content of crossdomain.xml used by Silverlight.
+	// The content of `crossdomain.xml` used by Silverlight.
 	CrossDomainPolicy *string `pulumi:"crossDomainPolicy"`
 }
 
@@ -5617,9 +5617,9 @@ type StreamingEndpointCrossSiteAccessPolicyInput interface {
 }
 
 type StreamingEndpointCrossSiteAccessPolicyArgs struct {
-	// The content of clientaccesspolicy.xml used by Silverlight.
+	// The content of `clientaccesspolicy.xml` used by Silverlight.
 	ClientAccessPolicy pulumi.StringPtrInput `pulumi:"clientAccessPolicy"`
-	// The content of crossdomain.xml used by Silverlight.
+	// The content of `crossdomain.xml` used by Silverlight.
 	CrossDomainPolicy pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
 }
 
@@ -5700,12 +5700,12 @@ func (o StreamingEndpointCrossSiteAccessPolicyOutput) ToStreamingEndpointCrossSi
 	}).(StreamingEndpointCrossSiteAccessPolicyPtrOutput)
 }
 
-// The content of clientaccesspolicy.xml used by Silverlight.
+// The content of `clientaccesspolicy.xml` used by Silverlight.
 func (o StreamingEndpointCrossSiteAccessPolicyOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingEndpointCrossSiteAccessPolicy) *string { return v.ClientAccessPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The content of crossdomain.xml used by Silverlight.
+// The content of `crossdomain.xml` used by Silverlight.
 func (o StreamingEndpointCrossSiteAccessPolicyOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingEndpointCrossSiteAccessPolicy) *string { return v.CrossDomainPolicy }).(pulumi.StringPtrOutput)
 }
@@ -5734,7 +5734,7 @@ func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) Elem() StreamingEndpoin
 	}).(StreamingEndpointCrossSiteAccessPolicyOutput)
 }
 
-// The content of clientaccesspolicy.xml used by Silverlight.
+// The content of `clientaccesspolicy.xml` used by Silverlight.
 func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointCrossSiteAccessPolicy) *string {
 		if v == nil {
@@ -5744,7 +5744,7 @@ func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) ClientAccessPolicy() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content of crossdomain.xml used by Silverlight.
+// The content of `crossdomain.xml` used by Silverlight.
 func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingEndpointCrossSiteAccessPolicy) *string {
 		if v == nil {
@@ -5752,6 +5752,112 @@ func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) CrossDomainPolicy() pul
 		}
 		return v.CrossDomainPolicy
 	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingEndpointSkus struct {
+	// The sku capacity of Streaming Endpoint.
+	Capacity *int `pulumi:"capacity"`
+	// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
+	Name *string `pulumi:"name"`
+}
+
+// StreamingEndpointSkusInput is an input type that accepts StreamingEndpointSkusArgs and StreamingEndpointSkusOutput values.
+// You can construct a concrete instance of `StreamingEndpointSkusInput` via:
+//
+//	StreamingEndpointSkusArgs{...}
+type StreamingEndpointSkusInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointSkusOutput() StreamingEndpointSkusOutput
+	ToStreamingEndpointSkusOutputWithContext(context.Context) StreamingEndpointSkusOutput
+}
+
+type StreamingEndpointSkusArgs struct {
+	// The sku capacity of Streaming Endpoint.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (StreamingEndpointSkusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointSkus)(nil)).Elem()
+}
+
+func (i StreamingEndpointSkusArgs) ToStreamingEndpointSkusOutput() StreamingEndpointSkusOutput {
+	return i.ToStreamingEndpointSkusOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointSkusArgs) ToStreamingEndpointSkusOutputWithContext(ctx context.Context) StreamingEndpointSkusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointSkusOutput)
+}
+
+// StreamingEndpointSkusArrayInput is an input type that accepts StreamingEndpointSkusArray and StreamingEndpointSkusArrayOutput values.
+// You can construct a concrete instance of `StreamingEndpointSkusArrayInput` via:
+//
+//	StreamingEndpointSkusArray{ StreamingEndpointSkusArgs{...} }
+type StreamingEndpointSkusArrayInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointSkusArrayOutput() StreamingEndpointSkusArrayOutput
+	ToStreamingEndpointSkusArrayOutputWithContext(context.Context) StreamingEndpointSkusArrayOutput
+}
+
+type StreamingEndpointSkusArray []StreamingEndpointSkusInput
+
+func (StreamingEndpointSkusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingEndpointSkus)(nil)).Elem()
+}
+
+func (i StreamingEndpointSkusArray) ToStreamingEndpointSkusArrayOutput() StreamingEndpointSkusArrayOutput {
+	return i.ToStreamingEndpointSkusArrayOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointSkusArray) ToStreamingEndpointSkusArrayOutputWithContext(ctx context.Context) StreamingEndpointSkusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointSkusArrayOutput)
+}
+
+type StreamingEndpointSkusOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointSkusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointSkus)(nil)).Elem()
+}
+
+func (o StreamingEndpointSkusOutput) ToStreamingEndpointSkusOutput() StreamingEndpointSkusOutput {
+	return o
+}
+
+func (o StreamingEndpointSkusOutput) ToStreamingEndpointSkusOutputWithContext(ctx context.Context) StreamingEndpointSkusOutput {
+	return o
+}
+
+// The sku capacity of Streaming Endpoint.
+func (o StreamingEndpointSkusOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointSkus) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
+func (o StreamingEndpointSkusOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointSkus) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type StreamingEndpointSkusArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointSkusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingEndpointSkus)(nil)).Elem()
+}
+
+func (o StreamingEndpointSkusArrayOutput) ToStreamingEndpointSkusArrayOutput() StreamingEndpointSkusArrayOutput {
+	return o
+}
+
+func (o StreamingEndpointSkusArrayOutput) ToStreamingEndpointSkusArrayOutputWithContext(ctx context.Context) StreamingEndpointSkusArrayOutput {
+	return o
+}
+
+func (o StreamingEndpointSkusArrayOutput) Index(i pulumi.IntInput) StreamingEndpointSkusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingEndpointSkus {
+		return vs[0].([]StreamingEndpointSkus)[vs[1].(int)]
+	}).(StreamingEndpointSkusOutput)
 }
 
 type StreamingLocatorContentKey struct {
@@ -8298,6 +8404,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointAccessControlIpAllowArrayInput)(nil)).Elem(), StreamingEndpointAccessControlIpAllowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointCrossSiteAccessPolicyInput)(nil)).Elem(), StreamingEndpointCrossSiteAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointCrossSiteAccessPolicyPtrInput)(nil)).Elem(), StreamingEndpointCrossSiteAccessPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointSkusInput)(nil)).Elem(), StreamingEndpointSkusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointSkusArrayInput)(nil)).Elem(), StreamingEndpointSkusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingLocatorContentKeyInput)(nil)).Elem(), StreamingLocatorContentKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingLocatorContentKeyArrayInput)(nil)).Elem(), StreamingLocatorContentKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingPolicyCommonEncryptionCbcsInput)(nil)).Elem(), StreamingPolicyCommonEncryptionCbcsArgs{})
@@ -8398,6 +8506,8 @@ func init() {
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlIpAllowArrayOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointCrossSiteAccessPolicyOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointCrossSiteAccessPolicyPtrOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointSkusOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointSkusArrayOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCbcsOutput{})

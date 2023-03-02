@@ -66,6 +66,10 @@ export class ExpressRoutePort extends pulumi.CustomResource {
      */
     public readonly bandwidthInGbps!: pulumi.Output<number>;
     /**
+     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     */
+    public readonly billingType!: pulumi.Output<string>;
+    /**
      * The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
      */
     public readonly encapsulation!: pulumi.Output<string>;
@@ -128,6 +132,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ExpressRoutePortState | undefined;
             resourceInputs["bandwidthInGbps"] = state ? state.bandwidthInGbps : undefined;
+            resourceInputs["billingType"] = state ? state.billingType : undefined;
             resourceInputs["encapsulation"] = state ? state.encapsulation : undefined;
             resourceInputs["ethertype"] = state ? state.ethertype : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
@@ -155,6 +160,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
+            resourceInputs["billingType"] = args ? args.billingType : undefined;
             resourceInputs["encapsulation"] = args ? args.encapsulation : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["link1"] = args ? args.link1 : undefined;
@@ -181,6 +187,10 @@ export interface ExpressRoutePortState {
      * Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
      */
     bandwidthInGbps?: pulumi.Input<number>;
+    /**
+     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     */
+    billingType?: pulumi.Input<string>;
     /**
      * The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
      */
@@ -239,6 +249,10 @@ export interface ExpressRoutePortArgs {
      * Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
      */
     bandwidthInGbps: pulumi.Input<number>;
+    /**
+     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     */
+    billingType?: pulumi.Input<string>;
     /**
      * The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
      */

@@ -18,6 +18,16 @@ public final class ExpressRouteConnectionRouting {
      */
     private @Nullable String associatedRouteTableId;
     /**
+     * @return The ID of the Route Map associated with this Express Route Connection for inbound routes.
+     * 
+     */
+    private @Nullable String inboundRouteMapId;
+    /**
+     * @return The ID of the Route Map associated with this Express Route Connection for outbound routes.
+     * 
+     */
+    private @Nullable String outboundRouteMapId;
+    /**
      * @return A `propagated_route_table` block as defined below.
      * 
      */
@@ -30,6 +40,20 @@ public final class ExpressRouteConnectionRouting {
      */
     public Optional<String> associatedRouteTableId() {
         return Optional.ofNullable(this.associatedRouteTableId);
+    }
+    /**
+     * @return The ID of the Route Map associated with this Express Route Connection for inbound routes.
+     * 
+     */
+    public Optional<String> inboundRouteMapId() {
+        return Optional.ofNullable(this.inboundRouteMapId);
+    }
+    /**
+     * @return The ID of the Route Map associated with this Express Route Connection for outbound routes.
+     * 
+     */
+    public Optional<String> outboundRouteMapId() {
+        return Optional.ofNullable(this.outboundRouteMapId);
     }
     /**
      * @return A `propagated_route_table` block as defined below.
@@ -49,17 +73,31 @@ public final class ExpressRouteConnectionRouting {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String associatedRouteTableId;
+        private @Nullable String inboundRouteMapId;
+        private @Nullable String outboundRouteMapId;
         private @Nullable ExpressRouteConnectionRoutingPropagatedRouteTable propagatedRouteTable;
         public Builder() {}
         public Builder(ExpressRouteConnectionRouting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associatedRouteTableId = defaults.associatedRouteTableId;
+    	      this.inboundRouteMapId = defaults.inboundRouteMapId;
+    	      this.outboundRouteMapId = defaults.outboundRouteMapId;
     	      this.propagatedRouteTable = defaults.propagatedRouteTable;
         }
 
         @CustomType.Setter
         public Builder associatedRouteTableId(@Nullable String associatedRouteTableId) {
             this.associatedRouteTableId = associatedRouteTableId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inboundRouteMapId(@Nullable String inboundRouteMapId) {
+            this.inboundRouteMapId = inboundRouteMapId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder outboundRouteMapId(@Nullable String outboundRouteMapId) {
+            this.outboundRouteMapId = outboundRouteMapId;
             return this;
         }
         @CustomType.Setter
@@ -70,6 +108,8 @@ public final class ExpressRouteConnectionRouting {
         public ExpressRouteConnectionRouting build() {
             final var o = new ExpressRouteConnectionRouting();
             o.associatedRouteTableId = associatedRouteTableId;
+            o.inboundRouteMapId = inboundRouteMapId;
+            o.outboundRouteMapId = outboundRouteMapId;
             o.propagatedRouteTable = propagatedRouteTable;
             return o;
         }

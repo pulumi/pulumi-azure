@@ -5275,6 +5275,118 @@ func (o GetCertificateIssuerAdminArrayOutput) Index(i pulumi.IntInput) GetCertif
 	}).(GetCertificateIssuerAdminOutput)
 }
 
+type GetCertificatesCertificate struct {
+	// Whether this secret is enabled.
+	Enabled bool   `pulumi:"enabled"`
+	Id      string `pulumi:"id"`
+	// The name of secret.
+	Name string `pulumi:"name"`
+}
+
+// GetCertificatesCertificateInput is an input type that accepts GetCertificatesCertificateArgs and GetCertificatesCertificateOutput values.
+// You can construct a concrete instance of `GetCertificatesCertificateInput` via:
+//
+//	GetCertificatesCertificateArgs{...}
+type GetCertificatesCertificateInput interface {
+	pulumi.Input
+
+	ToGetCertificatesCertificateOutput() GetCertificatesCertificateOutput
+	ToGetCertificatesCertificateOutputWithContext(context.Context) GetCertificatesCertificateOutput
+}
+
+type GetCertificatesCertificateArgs struct {
+	// Whether this secret is enabled.
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Id      pulumi.StringInput `pulumi:"id"`
+	// The name of secret.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetCertificatesCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificatesCertificate)(nil)).Elem()
+}
+
+func (i GetCertificatesCertificateArgs) ToGetCertificatesCertificateOutput() GetCertificatesCertificateOutput {
+	return i.ToGetCertificatesCertificateOutputWithContext(context.Background())
+}
+
+func (i GetCertificatesCertificateArgs) ToGetCertificatesCertificateOutputWithContext(ctx context.Context) GetCertificatesCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificatesCertificateOutput)
+}
+
+// GetCertificatesCertificateArrayInput is an input type that accepts GetCertificatesCertificateArray and GetCertificatesCertificateArrayOutput values.
+// You can construct a concrete instance of `GetCertificatesCertificateArrayInput` via:
+//
+//	GetCertificatesCertificateArray{ GetCertificatesCertificateArgs{...} }
+type GetCertificatesCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificatesCertificateArrayOutput() GetCertificatesCertificateArrayOutput
+	ToGetCertificatesCertificateArrayOutputWithContext(context.Context) GetCertificatesCertificateArrayOutput
+}
+
+type GetCertificatesCertificateArray []GetCertificatesCertificateInput
+
+func (GetCertificatesCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificatesCertificate)(nil)).Elem()
+}
+
+func (i GetCertificatesCertificateArray) ToGetCertificatesCertificateArrayOutput() GetCertificatesCertificateArrayOutput {
+	return i.ToGetCertificatesCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificatesCertificateArray) ToGetCertificatesCertificateArrayOutputWithContext(ctx context.Context) GetCertificatesCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificatesCertificateArrayOutput)
+}
+
+type GetCertificatesCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetCertificatesCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificatesCertificate)(nil)).Elem()
+}
+
+func (o GetCertificatesCertificateOutput) ToGetCertificatesCertificateOutput() GetCertificatesCertificateOutput {
+	return o
+}
+
+func (o GetCertificatesCertificateOutput) ToGetCertificatesCertificateOutputWithContext(ctx context.Context) GetCertificatesCertificateOutput {
+	return o
+}
+
+// Whether this secret is enabled.
+func (o GetCertificatesCertificateOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCertificatesCertificate) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetCertificatesCertificateOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificatesCertificate) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of secret.
+func (o GetCertificatesCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificatesCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetCertificatesCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificatesCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificatesCertificate)(nil)).Elem()
+}
+
+func (o GetCertificatesCertificateArrayOutput) ToGetCertificatesCertificateArrayOutput() GetCertificatesCertificateArrayOutput {
+	return o
+}
+
+func (o GetCertificatesCertificateArrayOutput) ToGetCertificatesCertificateArrayOutputWithContext(ctx context.Context) GetCertificatesCertificateArrayOutput {
+	return o
+}
+
+func (o GetCertificatesCertificateArrayOutput) Index(i pulumi.IntInput) GetCertificatesCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificatesCertificate {
+		return vs[0].([]GetCertificatesCertificate)[vs[1].(int)]
+	}).(GetCertificatesCertificateOutput)
+}
+
 type GetKeyVaultAccessPolicy struct {
 	// The Object ID of a Azure Active Directory Application.
 	ApplicationId string `pulumi:"applicationId"`
@@ -5538,6 +5650,121 @@ func (o GetKeyVaultNetworkAclArrayOutput) Index(i pulumi.IntInput) GetKeyVaultNe
 	}).(GetKeyVaultNetworkAclOutput)
 }
 
+type GetSecretsSecret struct {
+	// Whether this secret is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The ID of this secret.
+	Id string `pulumi:"id"`
+	// The name of secret.
+	Name string `pulumi:"name"`
+}
+
+// GetSecretsSecretInput is an input type that accepts GetSecretsSecretArgs and GetSecretsSecretOutput values.
+// You can construct a concrete instance of `GetSecretsSecretInput` via:
+//
+//	GetSecretsSecretArgs{...}
+type GetSecretsSecretInput interface {
+	pulumi.Input
+
+	ToGetSecretsSecretOutput() GetSecretsSecretOutput
+	ToGetSecretsSecretOutputWithContext(context.Context) GetSecretsSecretOutput
+}
+
+type GetSecretsSecretArgs struct {
+	// Whether this secret is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The ID of this secret.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of secret.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSecretsSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretsSecret)(nil)).Elem()
+}
+
+func (i GetSecretsSecretArgs) ToGetSecretsSecretOutput() GetSecretsSecretOutput {
+	return i.ToGetSecretsSecretOutputWithContext(context.Background())
+}
+
+func (i GetSecretsSecretArgs) ToGetSecretsSecretOutputWithContext(ctx context.Context) GetSecretsSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecretsSecretOutput)
+}
+
+// GetSecretsSecretArrayInput is an input type that accepts GetSecretsSecretArray and GetSecretsSecretArrayOutput values.
+// You can construct a concrete instance of `GetSecretsSecretArrayInput` via:
+//
+//	GetSecretsSecretArray{ GetSecretsSecretArgs{...} }
+type GetSecretsSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetSecretsSecretArrayOutput() GetSecretsSecretArrayOutput
+	ToGetSecretsSecretArrayOutputWithContext(context.Context) GetSecretsSecretArrayOutput
+}
+
+type GetSecretsSecretArray []GetSecretsSecretInput
+
+func (GetSecretsSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecretsSecret)(nil)).Elem()
+}
+
+func (i GetSecretsSecretArray) ToGetSecretsSecretArrayOutput() GetSecretsSecretArrayOutput {
+	return i.ToGetSecretsSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecretsSecretArray) ToGetSecretsSecretArrayOutputWithContext(ctx context.Context) GetSecretsSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecretsSecretArrayOutput)
+}
+
+type GetSecretsSecretOutput struct{ *pulumi.OutputState }
+
+func (GetSecretsSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretsSecret)(nil)).Elem()
+}
+
+func (o GetSecretsSecretOutput) ToGetSecretsSecretOutput() GetSecretsSecretOutput {
+	return o
+}
+
+func (o GetSecretsSecretOutput) ToGetSecretsSecretOutputWithContext(ctx context.Context) GetSecretsSecretOutput {
+	return o
+}
+
+// Whether this secret is enabled.
+func (o GetSecretsSecretOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSecretsSecret) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The ID of this secret.
+func (o GetSecretsSecretOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretsSecret) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of secret.
+func (o GetSecretsSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSecretsSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecretsSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecretsSecret)(nil)).Elem()
+}
+
+func (o GetSecretsSecretArrayOutput) ToGetSecretsSecretArrayOutput() GetSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetSecretsSecretArrayOutput) ToGetSecretsSecretArrayOutputWithContext(ctx context.Context) GetSecretsSecretArrayOutput {
+	return o
+}
+
+func (o GetSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetSecretsSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecretsSecret {
+		return vs[0].([]GetSecretsSecret)[vs[1].(int)]
+	}).(GetSecretsSecretOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertifiateCertificateInput)(nil)).Elem(), CertifiateCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertifiateCertificatePtrInput)(nil)).Elem(), CertifiateCertificateArgs{})
@@ -5611,10 +5838,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayInput)(nil)).Elem(), GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateIssuerAdminInput)(nil)).Elem(), GetCertificateIssuerAdminArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateIssuerAdminArrayInput)(nil)).Elem(), GetCertificateIssuerAdminArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatesCertificateInput)(nil)).Elem(), GetCertificatesCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatesCertificateArrayInput)(nil)).Elem(), GetCertificatesCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyVaultAccessPolicyInput)(nil)).Elem(), GetKeyVaultAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyVaultAccessPolicyArrayInput)(nil)).Elem(), GetKeyVaultAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyVaultNetworkAclInput)(nil)).Elem(), GetKeyVaultNetworkAclArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyVaultNetworkAclArrayInput)(nil)).Elem(), GetKeyVaultNetworkAclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsSecretInput)(nil)).Elem(), GetSecretsSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsSecretArrayInput)(nil)).Elem(), GetSecretsSecretArray{})
 	pulumi.RegisterOutputType(CertifiateCertificateOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePtrOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificateAttributeOutput{})
@@ -5687,8 +5918,12 @@ func init() {
 	pulumi.RegisterOutputType(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificateIssuerAdminOutput{})
 	pulumi.RegisterOutputType(GetCertificateIssuerAdminArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificatesCertificateOutput{})
+	pulumi.RegisterOutputType(GetCertificatesCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultAccessPolicyOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultNetworkAclOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultNetworkAclArrayOutput{})
+	pulumi.RegisterOutputType(GetSecretsSecretOutput{})
+	pulumi.RegisterOutputType(GetSecretsSecretArrayOutput{})
 }

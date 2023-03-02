@@ -65,6 +65,9 @@ namespace Pulumi.Azure.Storage
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Resource Manager ID of this Storage Queue.
+        /// </summary>
         [Output("resourceManagerId")]
         public Output<string> ResourceManagerId { get; private set; } = null!;
 
@@ -170,6 +173,9 @@ namespace Pulumi.Azure.Storage
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Resource Manager ID of this Storage Queue.
+        /// </summary>
         [Input("resourceManagerId")]
         public Input<string>? ResourceManagerId { get; set; }
 

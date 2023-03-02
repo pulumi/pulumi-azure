@@ -30,6 +30,8 @@ type GetCertificatesArgs struct {
 
 // A collection of values returned by getCertificates.
 type GetCertificatesResult struct {
+	// One or more `certificates` blocks as defined below.
+	Certificates []GetCertificatesCertificate `pulumi:"certificates"`
 	// The provider-assigned unique ID for this managed resource.
 	Id             string `pulumi:"id"`
 	IncludePending *bool  `pulumi:"includePending"`
@@ -77,6 +79,11 @@ func (o GetCertificatesResultOutput) ToGetCertificatesResultOutput() GetCertific
 
 func (o GetCertificatesResultOutput) ToGetCertificatesResultOutputWithContext(ctx context.Context) GetCertificatesResultOutput {
 	return o
+}
+
+// One or more `certificates` blocks as defined below.
+func (o GetCertificatesResultOutput) Certificates() GetCertificatesCertificateArrayOutput {
+	return o.ApplyT(func(v GetCertificatesResult) []GetCertificatesCertificate { return v.Certificates }).(GetCertificatesCertificateArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

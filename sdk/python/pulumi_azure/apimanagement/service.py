@@ -23,6 +23,7 @@ class ServiceArgs:
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 delegation: Optional[pulumi.Input['ServiceDelegationArgs']] = None,
                  gateway_disabled: Optional[pulumi.Input[bool]] = None,
                  hostname_configuration: Optional[pulumi.Input['ServiceHostnameConfigurationArgs']] = None,
                  identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
@@ -51,6 +52,7 @@ class ServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
+        :param pulumi.Input['ServiceDelegationArgs'] delegation: A `delegation` block as defined below.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input['ServiceHostnameConfigurationArgs'] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
@@ -81,6 +83,8 @@ class ServiceArgs:
             pulumi.set(__self__, "certificates", certificates)
         if client_certificate_enabled is not None:
             pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+        if delegation is not None:
+            pulumi.set(__self__, "delegation", delegation)
         if gateway_disabled is not None:
             pulumi.set(__self__, "gateway_disabled", gateway_disabled)
         if hostname_configuration is not None:
@@ -203,6 +207,18 @@ class ServiceArgs:
     @client_certificate_enabled.setter
     def client_certificate_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
+
+    @property
+    @pulumi.getter
+    def delegation(self) -> Optional[pulumi.Input['ServiceDelegationArgs']]:
+        """
+        A `delegation` block as defined below.
+        """
+        return pulumi.get(self, "delegation")
+
+    @delegation.setter
+    def delegation(self, value: Optional[pulumi.Input['ServiceDelegationArgs']]):
+        pulumi.set(self, "delegation", value)
 
     @property
     @pulumi.getter(name="gatewayDisabled")
@@ -439,6 +455,7 @@ class _ServiceState:
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 delegation: Optional[pulumi.Input['ServiceDelegationArgs']] = None,
                  developer_portal_url: Optional[pulumi.Input[str]] = None,
                  gateway_disabled: Optional[pulumi.Input[bool]] = None,
                  gateway_regional_url: Optional[pulumi.Input[str]] = None,
@@ -475,6 +492,7 @@ class _ServiceState:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
+        :param pulumi.Input['ServiceDelegationArgs'] delegation: A `delegation` block as defined below.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
@@ -513,6 +531,8 @@ class _ServiceState:
             pulumi.set(__self__, "certificates", certificates)
         if client_certificate_enabled is not None:
             pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+        if delegation is not None:
+            pulumi.set(__self__, "delegation", delegation)
         if developer_portal_url is not None:
             pulumi.set(__self__, "developer_portal_url", developer_portal_url)
         if gateway_disabled is not None:
@@ -611,6 +631,18 @@ class _ServiceState:
     @client_certificate_enabled.setter
     def client_certificate_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
+
+    @property
+    @pulumi.getter
+    def delegation(self) -> Optional[pulumi.Input['ServiceDelegationArgs']]:
+        """
+        A `delegation` block as defined below.
+        """
+        return pulumi.get(self, "delegation")
+
+    @delegation.setter
+    def delegation(self, value: Optional[pulumi.Input['ServiceDelegationArgs']]):
+        pulumi.set(self, "delegation", value)
 
     @property
     @pulumi.getter(name="developerPortalUrl")
@@ -993,6 +1025,7 @@ class Service(pulumi.CustomResource):
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 delegation: Optional[pulumi.Input[pulumi.InputType['ServiceDelegationArgs']]] = None,
                  gateway_disabled: Optional[pulumi.Input[bool]] = None,
                  hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
@@ -1046,6 +1079,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
+        :param pulumi.Input[pulumi.InputType['ServiceDelegationArgs']] delegation: A `delegation` block as defined below.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
@@ -1118,6 +1152,7 @@ class Service(pulumi.CustomResource):
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+                 delegation: Optional[pulumi.Input[pulumi.InputType['ServiceDelegationArgs']]] = None,
                  gateway_disabled: Optional[pulumi.Input[bool]] = None,
                  hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
@@ -1153,6 +1188,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["additional_locations"] = additional_locations
             __props__.__dict__["certificates"] = certificates
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
+            __props__.__dict__["delegation"] = delegation
             __props__.__dict__["gateway_disabled"] = gateway_disabled
             __props__.__dict__["hostname_configuration"] = hostname_configuration
             __props__.__dict__["identity"] = identity
@@ -1205,6 +1241,7 @@ class Service(pulumi.CustomResource):
             additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
             certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+            delegation: Optional[pulumi.Input[pulumi.InputType['ServiceDelegationArgs']]] = None,
             developer_portal_url: Optional[pulumi.Input[str]] = None,
             gateway_disabled: Optional[pulumi.Input[bool]] = None,
             gateway_regional_url: Optional[pulumi.Input[str]] = None,
@@ -1246,6 +1283,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
+        :param pulumi.Input[pulumi.InputType['ServiceDelegationArgs']] delegation: A `delegation` block as defined below.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
@@ -1285,6 +1323,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["additional_locations"] = additional_locations
         __props__.__dict__["certificates"] = certificates
         __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
+        __props__.__dict__["delegation"] = delegation
         __props__.__dict__["developer_portal_url"] = developer_portal_url
         __props__.__dict__["gateway_disabled"] = gateway_disabled
         __props__.__dict__["gateway_regional_url"] = gateway_regional_url
@@ -1341,6 +1380,14 @@ class Service(pulumi.CustomResource):
         Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         """
         return pulumi.get(self, "client_certificate_enabled")
+
+    @property
+    @pulumi.getter
+    def delegation(self) -> pulumi.Output['outputs.ServiceDelegation']:
+        """
+        A `delegation` block as defined below.
+        """
+        return pulumi.get(self, "delegation")
 
     @property
     @pulumi.getter(name="developerPortalUrl")

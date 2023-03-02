@@ -125,14 +125,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+     * The compute name for image build of the Machine Learning Workspace.
      * 
      */
     @Import(name="imageBuildComputeName")
     private @Nullable Output<String> imageBuildComputeName;
 
     /**
-     * @return The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+     * @return The compute name for image build of the Machine Learning Workspace.
      * 
      */
     public Optional<Output<String>> imageBuildComputeName() {
@@ -502,7 +502,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageBuildComputeName The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+         * @param imageBuildComputeName The compute name for image build of the Machine Learning Workspace.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageBuildComputeName The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+         * @param imageBuildComputeName The compute name for image build of the Machine Learning Workspace.
          * 
          * @return builder
          * 

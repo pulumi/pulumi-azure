@@ -49,6 +49,12 @@ namespace Pulumi.Azure.RecoveryServices
     public partial class Vault : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("classicVmwareReplicationEnabled")]
+        public Output<bool> ClassicVmwareReplicationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         /// </summary>
         [Output("crossRegionRestoreEnabled")]
@@ -167,6 +173,12 @@ namespace Pulumi.Azure.RecoveryServices
     public sealed class VaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("classicVmwareReplicationEnabled")]
+        public Input<bool>? ClassicVmwareReplicationEnabled { get; set; }
+
+        /// <summary>
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         /// </summary>
         [Input("crossRegionRestoreEnabled")]
@@ -252,6 +264,12 @@ namespace Pulumi.Azure.RecoveryServices
 
     public sealed class VaultState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("classicVmwareReplicationEnabled")]
+        public Input<bool>? ClassicVmwareReplicationEnabled { get; set; }
+
         /// <summary>
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         /// </summary>

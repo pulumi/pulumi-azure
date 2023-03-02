@@ -119,14 +119,14 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="authSettings", type=LinuxFunctionAppAuthSettings.class, parameters={})
-    private Output<LinuxFunctionAppAuthSettings> authSettings;
+    private Output</* @Nullable */ LinuxFunctionAppAuthSettings> authSettings;
 
     /**
      * @return A `auth_settings` block as defined below.
      * 
      */
-    public Output<LinuxFunctionAppAuthSettings> authSettings() {
-        return this.authSettings;
+    public Output<Optional<LinuxFunctionAppAuthSettings>> authSettings() {
+        return Codegen.optional(this.authSettings);
     }
     /**
      * A `backup` block as defined below.

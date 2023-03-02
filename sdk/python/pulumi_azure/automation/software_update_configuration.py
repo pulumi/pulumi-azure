@@ -218,6 +218,7 @@ class _SoftwareUpdateConfigurationState:
                  duration: Optional[pulumi.Input[str]] = None,
                  error_code: Optional[pulumi.Input[str]] = None,
                  error_meesage: Optional[pulumi.Input[str]] = None,
+                 error_message: Optional[pulumi.Input[str]] = None,
                  linuxes: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationLinuxArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  non_azure_computer_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -252,7 +253,12 @@ class _SoftwareUpdateConfigurationState:
         if error_code is not None:
             pulumi.set(__self__, "error_code", error_code)
         if error_meesage is not None:
+            warnings.warn("""`error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""error_meesage is deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider""")
+        if error_meesage is not None:
             pulumi.set(__self__, "error_meesage", error_meesage)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
         if linuxes is not None:
             pulumi.set(__self__, "linuxes", linuxes)
         if name is not None:
@@ -321,6 +327,15 @@ class _SoftwareUpdateConfigurationState:
     @error_meesage.setter
     def error_meesage(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "error_meesage", value)
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error_message")
+
+    @error_message.setter
+    def error_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_message", value)
 
     @property
     @pulumi.getter
@@ -464,6 +479,29 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         """
         Manages an Automation Software Update Configuraion.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="East US")
+        test_account = azure.automation.Account("testAccount",
+            location=test_resource_group.location,
+            resource_group_name=test_resource_group.name,
+            sku_name="Basic")
+        example = azure.automation.SoftwareUpdateConfiguration("example",
+            automation_account_id=test_account.id,
+            operating_system="Linux",
+            linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(
+                classification_included="Security",
+                excluded_packages=["apt"],
+                included_packages=["vim"],
+                reboot="IfRequired",
+            )],
+            duration="PT2H2M2S")
+        ```
+
         ## Import
 
         Automations Software Update Configuration can be imported using the `resource id`, e.g.
@@ -495,6 +533,29 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Software Update Configuraion.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="East US")
+        test_account = azure.automation.Account("testAccount",
+            location=test_resource_group.location,
+            resource_group_name=test_resource_group.name,
+            sku_name="Basic")
+        example = azure.automation.SoftwareUpdateConfiguration("example",
+            automation_account_id=test_account.id,
+            operating_system="Linux",
+            linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(
+                classification_included="Security",
+                excluded_packages=["apt"],
+                included_packages=["vim"],
+                reboot="IfRequired",
+            )],
+            duration="PT2H2M2S")
+        ```
 
         ## Import
 
@@ -558,6 +619,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             __props__.__dict__["windows"] = windows
             __props__.__dict__["error_code"] = None
             __props__.__dict__["error_meesage"] = None
+            __props__.__dict__["error_message"] = None
         super(SoftwareUpdateConfiguration, __self__).__init__(
             'azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration',
             resource_name,
@@ -572,6 +634,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             duration: Optional[pulumi.Input[str]] = None,
             error_code: Optional[pulumi.Input[str]] = None,
             error_meesage: Optional[pulumi.Input[str]] = None,
+            error_message: Optional[pulumi.Input[str]] = None,
             linuxes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationLinuxArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             non_azure_computer_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -612,6 +675,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         __props__.__dict__["duration"] = duration
         __props__.__dict__["error_code"] = error_code
         __props__.__dict__["error_meesage"] = error_meesage
+        __props__.__dict__["error_message"] = error_message
         __props__.__dict__["linuxes"] = linuxes
         __props__.__dict__["name"] = name
         __props__.__dict__["non_azure_computer_names"] = non_azure_computer_names
@@ -655,6 +719,11 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         The Error message indicating why the operation failed.
         """
         return pulumi.get(self, "error_meesage")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "error_message")
 
     @property
     @pulumi.getter

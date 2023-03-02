@@ -16,6 +16,7 @@ __all__ = [
     'PolicyFileShareRetentionWeeklyArgs',
     'PolicyFileShareRetentionYearlyArgs',
     'PolicyVMBackupArgs',
+    'PolicyVMInstantRestoreResourceGroupArgs',
     'PolicyVMRetentionDailyArgs',
     'PolicyVMRetentionMonthlyArgs',
     'PolicyVMRetentionWeeklyArgs',
@@ -328,6 +329,34 @@ class PolicyVMBackupArgs:
     @weekdays.setter
     def weekdays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "weekdays", value)
+
+
+@pulumi.input_type
+class PolicyVMInstantRestoreResourceGroupArgs:
+    def __init__(__self__, *,
+                 prefix: pulumi.Input[str],
+                 suffix: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "prefix", prefix)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "suffix")
+
+    @suffix.setter
+    def suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "suffix", value)
 
 
 @pulumi.input_type

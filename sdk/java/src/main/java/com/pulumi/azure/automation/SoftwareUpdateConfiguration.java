@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
  * Manages an Automation Software Update Configuraion.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -66,7 +65,7 @@ import javax.annotation.Nullable;
  *             .automationAccountId(testAccount.id())
  *             .operatingSystem(&#34;Linux&#34;)
  *             .linuxes(SoftwareUpdateConfigurationLinuxArgs.builder()
- *                 .classification(&#34;Security&#34;)
+ *                 .classificationIncluded(&#34;Security&#34;)
  *                 .excludedPackages(&#34;apt&#34;)
  *                 .includedPackages(&#34;vim&#34;)
  *                 .reboot(&#34;IfRequired&#34;)
@@ -134,7 +133,11 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
     /**
      * The Error message indicating why the operation failed.
      * 
+     * @deprecated
+     * `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
+     * 
      */
+    @Deprecated /* `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider */
     @Export(name="errorMeesage", type=String.class, parameters={})
     private Output<String> errorMeesage;
 
@@ -144,6 +147,12 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      */
     public Output<String> errorMeesage() {
         return this.errorMeesage;
+    }
+    @Export(name="errorMessage", type=String.class, parameters={})
+    private Output<String> errorMessage;
+
+    public Output<String> errorMessage() {
+        return this.errorMessage;
     }
     /**
      * One or more `linux` blocks as defined below.

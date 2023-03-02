@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class KubernetesClusterWebAppRouting {
     /**
-     * @return Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+     * @return Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `&#34;&#34;`.
      * 
      */
     private String dnsZoneId;
 
     private KubernetesClusterWebAppRouting() {}
     /**
-     * @return Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
+     * @return Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `&#34;&#34;`.
      * 
      */
     public String dnsZoneId() {

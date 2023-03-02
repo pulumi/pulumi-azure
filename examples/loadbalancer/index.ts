@@ -102,6 +102,8 @@ const vm = new azure.compute.VirtualMachine("vm", {
     availabilitySetId: avset.id,
     vmSize: "Standard_D1_v2",
     networkInterfaceIds: [networkinterface.id],
+    deleteDataDisksOnTermination: true,
+    deleteOsDiskOnTermination: true,
     storageImageReference: {
         publisher: "MicrosoftWindowsServer",
         offer: "WindowsServer",

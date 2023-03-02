@@ -14,7 +14,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     public sealed class ProtectionContainerMappingAutomaticUpdate
     {
         /// <summary>
-        /// The automation account ID which holds the automatic update runbook and authenticates to Azure resources. Changing this forces a new resource to be created.
+        /// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
         /// </summary>
         public readonly string? AutomationAccountId;
         /// <summary>

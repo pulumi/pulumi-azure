@@ -14,14 +14,14 @@ public final class ConfigurationConfigFileArgs extends com.pulumi.resources.Reso
     public static final ConfigurationConfigFileArgs Empty = new ConfigurationConfigFileArgs();
 
     /**
-     * Specifies the base-64 encoded contents of this config file (Sensitive).
+     * Specifies the base-64 encoded contents of this config file.
      * 
      */
     @Import(name="content", required=true)
     private Output<String> content;
 
     /**
-     * @return Specifies the base-64 encoded contents of this config file (Sensitive).
+     * @return Specifies the base-64 encoded contents of this config file.
      * 
      */
     public Output<String> content() {
@@ -69,7 +69,7 @@ public final class ConfigurationConfigFileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param content Specifies the base-64 encoded contents of this config file (Sensitive).
+         * @param content Specifies the base-64 encoded contents of this config file.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class ConfigurationConfigFileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param content Specifies the base-64 encoded contents of this config file (Sensitive).
+         * @param content Specifies the base-64 encoded contents of this config file.
          * 
          * @return builder
          * 

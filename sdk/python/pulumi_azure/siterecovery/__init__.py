@@ -10,6 +10,9 @@ from .get_fabric import *
 from .get_protection_container import *
 from .get_replication_policy import *
 from .get_replication_recovery_plan import *
+from .hyper_v_replication_policy import *
+from .hyper_v_replication_policy_association import *
+from .hyper_v_site import *
 from .network_mapping import *
 from .protection_container import *
 from .protection_container_mapping import *

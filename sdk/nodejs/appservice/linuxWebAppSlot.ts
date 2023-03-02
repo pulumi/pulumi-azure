@@ -83,9 +83,13 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A `authSettings` block as defined below.
+     * An `authSettings` block as defined below.
      */
-    public readonly authSettings!: pulumi.Output<outputs.appservice.LinuxWebAppSlotAuthSettings>;
+    public readonly authSettings!: pulumi.Output<outputs.appservice.LinuxWebAppSlotAuthSettings | undefined>;
+    /**
+     * An `authSettingsV2` block as defined below.
+     */
+    public readonly authSettingsV2!: pulumi.Output<outputs.appservice.LinuxWebAppSlotAuthSettingsV2 | undefined>;
     /**
      * A `backup` block as defined below.
      */
@@ -208,6 +212,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["appServiceId"] = state ? state.appServiceId : undefined;
             resourceInputs["appSettings"] = state ? state.appSettings : undefined;
             resourceInputs["authSettings"] = state ? state.authSettings : undefined;
+            resourceInputs["authSettingsV2"] = state ? state.authSettingsV2 : undefined;
             resourceInputs["backup"] = state ? state.backup : undefined;
             resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             resourceInputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
@@ -245,6 +250,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["appServiceId"] = args ? args.appServiceId : undefined;
             resourceInputs["appSettings"] = args ? args.appSettings : undefined;
             resourceInputs["authSettings"] = args ? args.authSettings : undefined;
+            resourceInputs["authSettingsV2"] = args ? args.authSettingsV2 : undefined;
             resourceInputs["backup"] = args ? args.backup : undefined;
             resourceInputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             resourceInputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
@@ -297,9 +303,13 @@ export interface LinuxWebAppSlotState {
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `authSettings` block as defined below.
+     * An `authSettings` block as defined below.
      */
     authSettings?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettings>;
+    /**
+     * An `authSettingsV2` block as defined below.
+     */
+    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsV2>;
     /**
      * A `backup` block as defined below.
      */
@@ -419,9 +429,13 @@ export interface LinuxWebAppSlotArgs {
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `authSettings` block as defined below.
+     * An `authSettings` block as defined below.
      */
     authSettings?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettings>;
+    /**
+     * An `authSettingsV2` block as defined below.
+     */
+    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsV2>;
     /**
      * A `backup` block as defined below.
      */

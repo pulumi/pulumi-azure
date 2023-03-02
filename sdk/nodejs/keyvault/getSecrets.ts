@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -38,6 +40,10 @@ export interface GetSecretsResult {
      * List containing names of secrets that exist in this Key Vault.
      */
     readonly names: string[];
+    /**
+     * One or more `secrets` blocks as defined below.
+     */
+    readonly secrets: outputs.keyvault.GetSecretsSecret[];
 }
 /**
  * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.

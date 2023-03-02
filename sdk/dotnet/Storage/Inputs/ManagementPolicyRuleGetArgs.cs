@@ -27,8 +27,8 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// A `filters` block as documented below.
         /// </summary>
-        [Input("filters")]
-        public Input<Inputs.ManagementPolicyRuleFiltersGetArgs>? Filters { get; set; }
+        [Input("filters", required: true)]
+        public Input<Inputs.ManagementPolicyRuleFiltersGetArgs> Filters { get; set; } = null!;
 
         /// <summary>
         /// The name of the rule. Rule name is case-sensitive. It must be unique within a policy.

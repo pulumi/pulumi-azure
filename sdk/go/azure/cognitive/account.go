@@ -108,7 +108,7 @@ type Account struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The secondary access key which can be used to connect to the Cognitive Service Account.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
-	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2` and `E0`.
+	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A `storage` block as defined below.
 	Storages AccountStorageArrayOutput `pulumi:"storages"`
@@ -205,7 +205,7 @@ type accountState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The secondary access key which can be used to connect to the Cognitive Service Account.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
-	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2` and `E0`.
+	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 	SkuName *string `pulumi:"skuName"`
 	// A `storage` block as defined below.
 	Storages []AccountStorage `pulumi:"storages"`
@@ -260,7 +260,7 @@ type AccountState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The secondary access key which can be used to connect to the Cognitive Service Account.
 	SecondaryAccessKey pulumi.StringPtrInput
-	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2` and `E0`.
+	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 	SkuName pulumi.StringPtrInput
 	// A `storage` block as defined below.
 	Storages AccountStorageArrayInput
@@ -313,7 +313,7 @@ type accountArgs struct {
 	QnaRuntimeEndpoint *string `pulumi:"qnaRuntimeEndpoint"`
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2` and `E0`.
+	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 	SkuName string `pulumi:"skuName"`
 	// A `storage` block as defined below.
 	Storages []AccountStorage `pulumi:"storages"`
@@ -363,7 +363,7 @@ type AccountArgs struct {
 	QnaRuntimeEndpoint pulumi.StringPtrInput
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2` and `E0`.
+	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 	SkuName pulumi.StringInput
 	// A `storage` block as defined below.
 	Storages AccountStorageArrayInput
@@ -573,7 +573,7 @@ func (o AccountOutput) SecondaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryAccessKey }).(pulumi.StringOutput)
 }
 
-// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2` and `E0`.
+// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 func (o AccountOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

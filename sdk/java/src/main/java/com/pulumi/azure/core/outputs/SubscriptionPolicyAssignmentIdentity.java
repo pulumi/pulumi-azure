@@ -28,7 +28,7 @@ public final class SubscriptionPolicyAssignmentIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+     * @return The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
      * 
      */
     private String type;
@@ -56,7 +56,7 @@ public final class SubscriptionPolicyAssignmentIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+     * @return The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
      * 
      */
     public String type() {

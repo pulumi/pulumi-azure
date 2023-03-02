@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly double Cpu;
         /// <summary>
-        /// An `env` block as detailed below.
+        /// One or more `env` blocks as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateContainerEnv> Envs;
         /// <summary>

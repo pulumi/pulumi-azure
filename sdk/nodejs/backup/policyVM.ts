@@ -101,6 +101,7 @@ export class PolicyVM extends pulumi.CustomResource {
      * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
     public readonly backup!: pulumi.Output<outputs.backup.PolicyVMBackup>;
+    public readonly instantRestoreResourceGroup!: pulumi.Output<outputs.backup.PolicyVMInstantRestoreResourceGroup | undefined>;
     /**
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      */
@@ -156,6 +157,7 @@ export class PolicyVM extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PolicyVMState | undefined;
             resourceInputs["backup"] = state ? state.backup : undefined;
+            resourceInputs["instantRestoreResourceGroup"] = state ? state.instantRestoreResourceGroup : undefined;
             resourceInputs["instantRestoreRetentionDays"] = state ? state.instantRestoreRetentionDays : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyType"] = state ? state.policyType : undefined;
@@ -178,6 +180,7 @@ export class PolicyVM extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["backup"] = args ? args.backup : undefined;
+            resourceInputs["instantRestoreResourceGroup"] = args ? args.instantRestoreResourceGroup : undefined;
             resourceInputs["instantRestoreRetentionDays"] = args ? args.instantRestoreRetentionDays : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
@@ -202,6 +205,7 @@ export interface PolicyVMState {
      * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
     backup?: pulumi.Input<inputs.backup.PolicyVMBackup>;
+    instantRestoreResourceGroup?: pulumi.Input<inputs.backup.PolicyVMInstantRestoreResourceGroup>;
     /**
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      */
@@ -252,6 +256,7 @@ export interface PolicyVMArgs {
      * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
     backup: pulumi.Input<inputs.backup.PolicyVMBackup>;
+    instantRestoreResourceGroup?: pulumi.Input<inputs.backup.PolicyVMInstantRestoreResourceGroup>;
     /**
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      */

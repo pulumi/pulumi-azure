@@ -26,7 +26,6 @@ export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptio
     return pulumi.runtime.invoke("azure:compute/getDiskAccess:getDiskAccess", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "tags": args.tags,
     }, opts);
 }
 
@@ -42,10 +41,6 @@ export interface GetDiskAccessArgs {
      * The name of the Resource Group where the Disk Access exists.
      */
     resourceGroupName: string;
-    /**
-     * A mapping of tags which should be assigned to the Disk Access.
-     */
-    tags?: {[key: string]: string};
 }
 
 /**
@@ -58,7 +53,7 @@ export interface GetDiskAccessResult {
     readonly id: string;
     readonly name: string;
     readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
 }
 /**
  * Use this data source to access information about an existing Disk Access.
@@ -92,8 +87,4 @@ export interface GetDiskAccessOutputArgs {
      * The name of the Resource Group where the Disk Access exists.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * A mapping of tags which should be assigned to the Disk Access.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

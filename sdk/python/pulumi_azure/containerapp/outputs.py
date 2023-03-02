@@ -123,6 +123,10 @@ class AppIdentity(dict):
                  identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
+        """
+        :param str type: The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        :param Sequence[str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
             pulumi.set(__self__, "identity_ids", identity_ids)
@@ -134,11 +138,17 @@ class AppIdentity(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        """
         return pulumi.get(self, "identity_ids")
 
     @property
@@ -411,25 +421,23 @@ class AppRegistry(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 password_secret_name: str,
                  server: str,
-                 username: str):
+                 identity: Optional[str] = None,
+                 password_secret_name: Optional[str] = None,
+                 username: Optional[str] = None):
         """
-        :param str password_secret_name: The name of the Secret Reference containing the password value for this user on the Container Registry.
         :param str server: The hostname for the Container Registry.
-        :param str username: The username to use for this Container Registry.
+        :param str identity: Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        :param str password_secret_name: The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+        :param str username: The username to use for this Container Registry, `password_secret_name` must also be supplied..
         """
-        pulumi.set(__self__, "password_secret_name", password_secret_name)
         pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter(name="passwordSecretName")
-    def password_secret_name(self) -> str:
-        """
-        The name of the Secret Reference containing the password value for this user on the Container Registry.
-        """
-        return pulumi.get(self, "password_secret_name")
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if password_secret_name is not None:
+            pulumi.set(__self__, "password_secret_name", password_secret_name)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -441,9 +449,25 @@ class AppRegistry(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def identity(self) -> Optional[str]:
         """
-        The username to use for this Container Registry.
+        Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="passwordSecretName")
+    def password_secret_name(self) -> Optional[str]:
+        """
+        The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+        """
+        return pulumi.get(self, "password_secret_name")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The username to use for this Container Registry, `password_secret_name` must also be supplied..
         """
         return pulumi.get(self, "username")
 
@@ -501,19 +525,19 @@ class AppTemplate(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 container: 'outputs.AppTemplateContainer',
+                 containers: Sequence['outputs.AppTemplateContainer'],
                  max_replicas: Optional[int] = None,
                  min_replicas: Optional[int] = None,
                  revision_suffix: Optional[str] = None,
                  volumes: Optional[Sequence['outputs.AppTemplateVolume']] = None):
         """
-        :param 'AppTemplateContainerArgs' container: A `container` block as detailed below.
+        :param Sequence['AppTemplateContainerArgs'] containers: One or more `container` blocks as detailed below.
         :param int max_replicas: The maximum number of replicas for this container.
         :param int min_replicas: The minimum number of replicas for this container.
         :param str revision_suffix: The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
         :param Sequence['AppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
         """
-        pulumi.set(__self__, "container", container)
+        pulumi.set(__self__, "containers", containers)
         if max_replicas is not None:
             pulumi.set(__self__, "max_replicas", max_replicas)
         if min_replicas is not None:
@@ -525,11 +549,11 @@ class AppTemplate(dict):
 
     @property
     @pulumi.getter
-    def container(self) -> 'outputs.AppTemplateContainer':
+    def containers(self) -> Sequence['outputs.AppTemplateContainer']:
         """
-        A `container` block as detailed below.
+        One or more `container` blocks as detailed below.
         """
-        return pulumi.get(self, "container")
+        return pulumi.get(self, "containers")
 
     @property
     @pulumi.getter(name="maxReplicas")
@@ -611,7 +635,7 @@ class AppTemplateContainer(dict):
         :param str name: The name of the container
         :param Sequence[str] args: A list of extra arguments to pass to the container.
         :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
-        :param Sequence['AppTemplateContainerEnvArgs'] envs: An `env` block as detailed below.
+        :param Sequence['AppTemplateContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
         :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
         :param Sequence['AppTemplateContainerLivenessProbeArgs'] liveness_probes: A `liveness_probe` block as detailed below.
         :param Sequence['AppTemplateContainerReadinessProbeArgs'] readiness_probes: A `readiness_probe` block as detailed below.
@@ -691,7 +715,7 @@ class AppTemplateContainer(dict):
     @pulumi.getter
     def envs(self) -> Optional[Sequence['outputs.AppTemplateContainerEnv']]:
         """
-        An `env` block as detailed below.
+        One or more `env` blocks as detailed below.
         """
         return pulumi.get(self, "envs")
 

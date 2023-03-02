@@ -81,10 +81,16 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> AppSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// An `auth_settings` block as defined below.
         /// </summary>
         [Output("authSettings")]
-        public Output<Outputs.LinuxWebAppSlotAuthSettings> AuthSettings { get; private set; } = null!;
+        public Output<Outputs.LinuxWebAppSlotAuthSettings?> AuthSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// An `auth_settings_v2` block as defined below.
+        /// </summary>
+        [Output("authSettingsV2")]
+        public Output<Outputs.LinuxWebAppSlotAuthSettingsV2?> AuthSettingsV2 { get; private set; } = null!;
 
         /// <summary>
         /// A `backup` block as defined below.
@@ -311,10 +317,16 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// An `auth_settings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.LinuxWebAppSlotAuthSettingsArgs>? AuthSettings { get; set; }
+
+        /// <summary>
+        /// An `auth_settings_v2` block as defined below.
+        /// </summary>
+        [Input("authSettingsV2")]
+        public Input<Inputs.LinuxWebAppSlotAuthSettingsV2Args>? AuthSettingsV2 { get; set; }
 
         /// <summary>
         /// A `backup` block as defined below.
@@ -481,10 +493,16 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// An `auth_settings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.LinuxWebAppSlotAuthSettingsGetArgs>? AuthSettings { get; set; }
+
+        /// <summary>
+        /// An `auth_settings_v2` block as defined below.
+        /// </summary>
+        [Input("authSettingsV2")]
+        public Input<Inputs.LinuxWebAppSlotAuthSettingsV2GetArgs>? AuthSettingsV2 { get; set; }
 
         /// <summary>
         /// A `backup` block as defined below.

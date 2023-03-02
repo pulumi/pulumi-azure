@@ -47,7 +47,7 @@ class WorkspaceArgs:
         :param pulumi.Input['WorkspaceEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
-        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
@@ -218,7 +218,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="imageBuildComputeName")
     def image_build_compute_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        The compute name for image build of the Machine Learning Workspace.
         """
         return pulumi.get(self, "image_build_compute_name")
 
@@ -356,7 +356,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -513,7 +513,7 @@ class _WorkspaceState:
     @pulumi.getter(name="imageBuildComputeName")
     def image_build_compute_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        The compute name for image build of the Machine Learning Workspace.
         """
         return pulumi.get(self, "image_build_compute_name")
 
@@ -926,7 +926,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -1304,7 +1304,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -1411,7 +1411,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="imageBuildComputeName")
     def image_build_compute_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        The compute name for image build of the Machine Learning Workspace.
         """
         return pulumi.get(self, "image_build_compute_name")
 

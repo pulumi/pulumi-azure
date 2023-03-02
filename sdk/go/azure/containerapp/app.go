@@ -57,11 +57,13 @@ import (
 //				ResourceGroupName:         exampleResourceGroup.Name,
 //				RevisionMode:              pulumi.String("Single"),
 //				Template: &containerapp.AppTemplateArgs{
-//					Container: &containerapp.AppTemplateContainerArgs{
-//						Name:   pulumi.String("examplecontainerapp"),
-//						Image:  pulumi.String("mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"),
-//						Cpu:    pulumi.Float64(0.25),
-//						Memory: pulumi.String("0.5Gi"),
+//					Containers: containerapp.AppTemplateContainerArray{
+//						&containerapp.AppTemplateContainerArgs{
+//							Name:   pulumi.String("examplecontainerapp"),
+//							Image:  pulumi.String("mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"),
+//							Cpu:    pulumi.Float64(0.25),
+//							Memory: pulumi.String("0.5Gi"),
+//						},
 //					},
 //				},
 //			})
@@ -91,7 +93,8 @@ type App struct {
 	// The ID of the Custom Domain Verification for this Container App.
 	CustomDomainVerificationId pulumi.StringOutput `pulumi:"customDomainVerificationId"`
 	// A `dapr` block as detailed below.
-	Dapr     AppDaprPtrOutput     `pulumi:"dapr"`
+	Dapr AppDaprPtrOutput `pulumi:"dapr"`
+	// An `identity` block as detailed below.
 	Identity AppIdentityPtrOutput `pulumi:"identity"`
 	// An `ingress` block as detailed below.
 	Ingress AppIngressPtrOutput `pulumi:"ingress"`
@@ -173,7 +176,8 @@ type appState struct {
 	// The ID of the Custom Domain Verification for this Container App.
 	CustomDomainVerificationId *string `pulumi:"customDomainVerificationId"`
 	// A `dapr` block as detailed below.
-	Dapr     *AppDapr     `pulumi:"dapr"`
+	Dapr *AppDapr `pulumi:"dapr"`
+	// An `identity` block as detailed below.
 	Identity *AppIdentity `pulumi:"identity"`
 	// An `ingress` block as detailed below.
 	Ingress *AppIngress `pulumi:"ingress"`
@@ -207,7 +211,8 @@ type AppState struct {
 	// The ID of the Custom Domain Verification for this Container App.
 	CustomDomainVerificationId pulumi.StringPtrInput
 	// A `dapr` block as detailed below.
-	Dapr     AppDaprPtrInput
+	Dapr AppDaprPtrInput
+	// An `identity` block as detailed below.
 	Identity AppIdentityPtrInput
 	// An `ingress` block as detailed below.
 	Ingress AppIngressPtrInput
@@ -243,7 +248,8 @@ type appArgs struct {
 	// The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId string `pulumi:"containerAppEnvironmentId"`
 	// A `dapr` block as detailed below.
-	Dapr     *AppDapr     `pulumi:"dapr"`
+	Dapr *AppDapr `pulumi:"dapr"`
+	// An `identity` block as detailed below.
 	Identity *AppIdentity `pulumi:"identity"`
 	// An `ingress` block as detailed below.
 	Ingress *AppIngress `pulumi:"ingress"`
@@ -268,7 +274,8 @@ type AppArgs struct {
 	// The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId pulumi.StringInput
 	// A `dapr` block as detailed below.
-	Dapr     AppDaprPtrInput
+	Dapr AppDaprPtrInput
+	// An `identity` block as detailed below.
 	Identity AppIdentityPtrInput
 	// An `ingress` block as detailed below.
 	Ingress AppIngressPtrInput
@@ -390,6 +397,7 @@ func (o AppOutput) Dapr() AppDaprPtrOutput {
 	return o.ApplyT(func(v *App) AppDaprPtrOutput { return v.Dapr }).(AppDaprPtrOutput)
 }
 
+// An `identity` block as detailed below.
 func (o AppOutput) Identity() AppIdentityPtrOutput {
 	return o.ApplyT(func(v *App) AppIdentityPtrOutput { return v.Identity }).(AppIdentityPtrOutput)
 }

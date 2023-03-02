@@ -14,26 +14,33 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppRegistry
     {
         /// <summary>
-        /// The name of the Secret Reference containing the password value for this user on the Container Registry.
+        /// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         /// </summary>
-        public readonly string PasswordSecretName;
+        public readonly string? Identity;
+        /// <summary>
+        /// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+        /// </summary>
+        public readonly string? PasswordSecretName;
         /// <summary>
         /// The hostname for the Container Registry.
         /// </summary>
         public readonly string Server;
         /// <summary>
-        /// The username to use for this Container Registry.
+        /// The username to use for this Container Registry, `password_secret_name` must also be supplied..
         /// </summary>
-        public readonly string Username;
+        public readonly string? Username;
 
         [OutputConstructor]
         private AppRegistry(
-            string passwordSecretName,
+            string? identity,
+
+            string? passwordSecretName,
 
             string server,
 
-            string username)
+            string? username)
         {
+            Identity = identity;
             PasswordSecretName = passwordSecretName;
             Server = server;
             Username = username;

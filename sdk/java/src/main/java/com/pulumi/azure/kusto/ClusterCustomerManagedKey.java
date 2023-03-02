@@ -187,14 +187,14 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="keyVersion", type=String.class, parameters={})
-    private Output<String> keyVersion;
+    private Output</* @Nullable */ String> keyVersion;
 
     /**
      * @return The version of Key Vault Key.
      * 
      */
-    public Output<String> keyVersion() {
-        return this.keyVersion;
+    public Output<Optional<String>> keyVersion() {
+        return Codegen.optional(this.keyVersion);
     }
     /**
      * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.

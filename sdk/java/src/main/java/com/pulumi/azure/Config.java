@@ -18,6 +18,13 @@ public final class Config {
         return Codegen.objectProp("auxiliaryTenantIds", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
 /**
+ * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
+ * 
+ */
+    public Optional<String> clientCertificate() {
+        return Codegen.stringProp("clientCertificate").config(config).get();
+    }
+/**
  * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
  * Certificate
  * 
@@ -156,7 +163,14 @@ public final class Config {
         return Codegen.stringProp("tenantId").config(config).get();
     }
 /**
- * Allowed Managed Service Identity be used for Authentication.
+ * Allow Azure CLI to be used for Authentication.
+ * 
+ */
+    public Optional<Boolean> useCli() {
+        return Codegen.booleanProp("useCli").config(config).get();
+    }
+/**
+ * Allow Managed Service Identity to be used for Authentication.
  * 
  */
     public Optional<Boolean> useMsi() {

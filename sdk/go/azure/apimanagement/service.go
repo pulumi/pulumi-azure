@@ -66,6 +66,8 @@ type Service struct {
 	Certificates ServiceCertificateArrayOutput `pulumi:"certificates"`
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
+	// A `delegation` block as defined below.
+	Delegation ServiceDelegationOutput `pulumi:"delegation"`
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl pulumi.StringOutput `pulumi:"developerPortalUrl"`
 	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
@@ -177,6 +179,8 @@ type serviceState struct {
 	Certificates []ServiceCertificate `pulumi:"certificates"`
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
+	// A `delegation` block as defined below.
+	Delegation *ServiceDelegation `pulumi:"delegation"`
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl *string `pulumi:"developerPortalUrl"`
 	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
@@ -248,6 +252,8 @@ type ServiceState struct {
 	Certificates ServiceCertificateArrayInput
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrInput
+	// A `delegation` block as defined below.
+	Delegation ServiceDelegationPtrInput
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl pulumi.StringPtrInput
 	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
@@ -323,6 +329,8 @@ type serviceArgs struct {
 	Certificates []ServiceCertificate `pulumi:"certificates"`
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
+	// A `delegation` block as defined below.
+	Delegation *ServiceDelegation `pulumi:"delegation"`
 	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
 	GatewayDisabled *bool `pulumi:"gatewayDisabled"`
 	// A `hostnameConfiguration` block as defined below.
@@ -379,6 +387,8 @@ type ServiceArgs struct {
 	Certificates ServiceCertificateArrayInput
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrInput
+	// A `delegation` block as defined below.
+	Delegation ServiceDelegationPtrInput
 	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
 	GatewayDisabled pulumi.BoolPtrInput
 	// A `hostnameConfiguration` block as defined below.
@@ -527,6 +537,11 @@ func (o ServiceOutput) Certificates() ServiceCertificateArrayOutput {
 // Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 func (o ServiceOutput) ClientCertificateEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.ClientCertificateEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `delegation` block as defined below.
+func (o ServiceOutput) Delegation() ServiceDelegationOutput {
+	return o.ApplyT(func(v *Service) ServiceDelegationOutput { return v.Delegation }).(ServiceDelegationOutput)
 }
 
 // The URL for the Developer Portal associated with this API Management service.

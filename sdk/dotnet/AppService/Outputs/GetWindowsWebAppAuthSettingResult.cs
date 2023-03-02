@@ -22,11 +22,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> AdditionalLoginParameters;
         /// <summary>
-        /// A `allowed_external_redirect_urls` block as defined above.
+        /// External URLs that can be redirected to as part of logging in or logging out of the app.
         /// </summary>
         public readonly ImmutableArray<string> AllowedExternalRedirectUrls;
         /// <summary>
-        /// The default authentication provider in use when multiple providers are configured.
+        /// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         /// </summary>
         public readonly string DefaultProvider;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppAuthSettingMicrosoftResult> Microsofts;
         /// <summary>
-        /// The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
+        /// The Runtime Version of the Authentication and Authorisation feature of this App.
         /// </summary>
         public readonly string RuntimeVersion;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly double TokenRefreshExtensionHours;
         /// <summary>
-        /// Does Windows Web App durably store platform-specific security tokens that are obtained during login flows enabled?
+        /// Is the Token Store configuration Enabled.
         /// </summary>
         public readonly bool TokenStoreEnabled;
         /// <summary>

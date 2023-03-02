@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
+    /// Manages a Front Door (standard/premium) Secret.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

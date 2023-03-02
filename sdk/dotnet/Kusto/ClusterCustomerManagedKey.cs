@@ -147,7 +147,7 @@ namespace Pulumi.Azure.Kusto
         /// The version of Key Vault Key.
         /// </summary>
         [Output("keyVersion")]
-        public Output<string> KeyVersion { get; private set; } = null!;
+        public Output<string?> KeyVersion { get; private set; } = null!;
 
         /// <summary>
         /// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
@@ -222,8 +222,8 @@ namespace Pulumi.Azure.Kusto
         /// <summary>
         /// The version of Key Vault Key.
         /// </summary>
-        [Input("keyVersion", required: true)]
-        public Input<string> KeyVersion { get; set; } = null!;
+        [Input("keyVersion")]
+        public Input<string>? KeyVersion { get; set; }
 
         /// <summary>
         /// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.

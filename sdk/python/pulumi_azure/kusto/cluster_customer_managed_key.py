@@ -17,7 +17,7 @@ class ClusterCustomerManagedKeyArgs:
                  cluster_id: pulumi.Input[str],
                  key_name: pulumi.Input[str],
                  key_vault_id: pulumi.Input[str],
-                 key_version: pulumi.Input[str],
+                 key_version: Optional[pulumi.Input[str]] = None,
                  user_identity: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ClusterCustomerManagedKey resource.
@@ -30,7 +30,8 @@ class ClusterCustomerManagedKeyArgs:
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "key_version", key_version)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
         if user_identity is not None:
             pulumi.set(__self__, "user_identity", user_identity)
 
@@ -72,14 +73,14 @@ class ClusterCustomerManagedKeyArgs:
 
     @property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> pulumi.Input[str]:
+    def key_version(self) -> Optional[pulumi.Input[str]]:
         """
         The version of Key Vault Key.
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: pulumi.Input[str]):
+    def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
 
     @property
@@ -402,8 +403,6 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__.__dict__["key_vault_id"] = key_vault_id
-            if key_version is None and not opts.urn:
-                raise TypeError("Missing required property 'key_version'")
             __props__.__dict__["key_version"] = key_version
             __props__.__dict__["user_identity"] = user_identity
         super(ClusterCustomerManagedKey, __self__).__init__(
@@ -471,7 +470,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> pulumi.Output[str]:
+    def key_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of Key Vault Key.
         """

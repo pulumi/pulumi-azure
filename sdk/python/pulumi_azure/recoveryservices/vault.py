@@ -18,6 +18,7 @@ class VaultArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input[str],
+                 classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
@@ -32,6 +33,7 @@ class VaultArgs:
         The set of arguments for constructing a Vault resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
+        :param pulumi.Input[bool] classic_vmware_replication_enabled: Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
@@ -45,6 +47,8 @@ class VaultArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if classic_vmware_replication_enabled is not None:
+            pulumi.set(__self__, "classic_vmware_replication_enabled", classic_vmware_replication_enabled)
         if cross_region_restore_enabled is not None:
             pulumi.set(__self__, "cross_region_restore_enabled", cross_region_restore_enabled)
         if encryption is not None:
@@ -89,6 +93,18 @@ class VaultArgs:
     @sku.setter
     def sku(self, value: pulumi.Input[str]):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="classicVmwareReplicationEnabled")
+    def classic_vmware_replication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "classic_vmware_replication_enabled")
+
+    @classic_vmware_replication_enabled.setter
+    def classic_vmware_replication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "classic_vmware_replication_enabled", value)
 
     @property
     @pulumi.getter(name="crossRegionRestoreEnabled")
@@ -214,6 +230,7 @@ class VaultArgs:
 @pulumi.input_type
 class _VaultState:
     def __init__(__self__, *,
+                 classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
@@ -228,6 +245,7 @@ class _VaultState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Vault resources.
+        :param pulumi.Input[bool] classic_vmware_replication_enabled: Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
@@ -241,6 +259,8 @@ class _VaultState:
         :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        if classic_vmware_replication_enabled is not None:
+            pulumi.set(__self__, "classic_vmware_replication_enabled", classic_vmware_replication_enabled)
         if cross_region_restore_enabled is not None:
             pulumi.set(__self__, "cross_region_restore_enabled", cross_region_restore_enabled)
         if encryption is not None:
@@ -265,6 +285,18 @@ class _VaultState:
             pulumi.set(__self__, "storage_mode_type", storage_mode_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="classicVmwareReplicationEnabled")
+    def classic_vmware_replication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "classic_vmware_replication_enabled")
+
+    @classic_vmware_replication_enabled.setter
+    def classic_vmware_replication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "classic_vmware_replication_enabled", value)
 
     @property
     @pulumi.getter(name="crossRegionRestoreEnabled")
@@ -416,6 +448,7 @@ class Vault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
@@ -456,6 +489,7 @@ class Vault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] classic_vmware_replication_enabled: Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VaultEncryptionArgs']] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
@@ -515,6 +549,7 @@ class Vault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
@@ -536,6 +571,7 @@ class Vault(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VaultArgs.__new__(VaultArgs)
 
+            __props__.__dict__["classic_vmware_replication_enabled"] = classic_vmware_replication_enabled
             __props__.__dict__["cross_region_restore_enabled"] = cross_region_restore_enabled
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
@@ -562,6 +598,7 @@ class Vault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
             cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
             encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
@@ -581,6 +618,7 @@ class Vault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] classic_vmware_replication_enabled: Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VaultEncryptionArgs']] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
@@ -598,6 +636,7 @@ class Vault(pulumi.CustomResource):
 
         __props__ = _VaultState.__new__(_VaultState)
 
+        __props__.__dict__["classic_vmware_replication_enabled"] = classic_vmware_replication_enabled
         __props__.__dict__["cross_region_restore_enabled"] = cross_region_restore_enabled
         __props__.__dict__["encryption"] = encryption
         __props__.__dict__["identity"] = identity
@@ -611,6 +650,14 @@ class Vault(pulumi.CustomResource):
         __props__.__dict__["storage_mode_type"] = storage_mode_type
         __props__.__dict__["tags"] = tags
         return Vault(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="classicVmwareReplicationEnabled")
+    def classic_vmware_replication_enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "classic_vmware_replication_enabled")
 
     @property
     @pulumi.getter(name="crossRegionRestoreEnabled")

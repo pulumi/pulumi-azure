@@ -146,7 +146,7 @@ type ClusterCustomerManagedKey struct {
 	// The ID of the Key Vault.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
 	// The version of Key Vault Key.
-	KeyVersion pulumi.StringOutput `pulumi:"keyVersion"`
+	KeyVersion pulumi.StringPtrOutput `pulumi:"keyVersion"`
 	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
 	UserIdentity pulumi.StringPtrOutput `pulumi:"userIdentity"`
 }
@@ -166,9 +166,6 @@ func NewClusterCustomerManagedKey(ctx *pulumi.Context,
 	}
 	if args.KeyVaultId == nil {
 		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
-	}
-	if args.KeyVersion == nil {
-		return nil, errors.New("invalid value for required argument 'KeyVersion'")
 	}
 	var resource ClusterCustomerManagedKey
 	err := ctx.RegisterResource("azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey", name, args, &resource, opts...)
@@ -229,7 +226,7 @@ type clusterCustomerManagedKeyArgs struct {
 	// The ID of the Key Vault.
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// The version of Key Vault Key.
-	KeyVersion string `pulumi:"keyVersion"`
+	KeyVersion *string `pulumi:"keyVersion"`
 	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
 	UserIdentity *string `pulumi:"userIdentity"`
 }
@@ -243,7 +240,7 @@ type ClusterCustomerManagedKeyArgs struct {
 	// The ID of the Key Vault.
 	KeyVaultId pulumi.StringInput
 	// The version of Key Vault Key.
-	KeyVersion pulumi.StringInput
+	KeyVersion pulumi.StringPtrInput
 	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
 	UserIdentity pulumi.StringPtrInput
 }
@@ -351,8 +348,8 @@ func (o ClusterCustomerManagedKeyOutput) KeyVaultId() pulumi.StringOutput {
 }
 
 // The version of Key Vault Key.
-func (o ClusterCustomerManagedKeyOutput) KeyVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ClusterCustomerManagedKey) pulumi.StringOutput { return v.KeyVersion }).(pulumi.StringOutput)
+func (o ClusterCustomerManagedKeyOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCustomerManagedKey) pulumi.StringPtrOutput { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
 // The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.

@@ -48,7 +48,7 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * One or more `configFile` blocks as defined below.
      */
-    public readonly configFiles!: pulumi.Output<outputs.nginx.ConfigurationConfigFile[]>;
+    public readonly configFiles!: pulumi.Output<outputs.nginx.ConfigurationConfigFile[] | undefined>;
     /**
      * The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
      */
@@ -58,7 +58,7 @@ export class Configuration extends pulumi.CustomResource {
      */
     public readonly packageData!: pulumi.Output<string | undefined>;
     /**
-     * One or more `configFile` (Protected File) blocks with sensitive information as defined below.
+     * One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      */
     public readonly protectedFiles!: pulumi.Output<outputs.nginx.ConfigurationProtectedFile[] | undefined>;
     /**
@@ -86,9 +86,6 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["rootFile"] = state ? state.rootFile : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
-            if ((!args || args.configFiles === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'configFiles'");
-            }
             if ((!args || args.nginxDeploymentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nginxDeploymentId'");
             }
@@ -123,7 +120,7 @@ export interface ConfigurationState {
      */
     packageData?: pulumi.Input<string>;
     /**
-     * One or more `configFile` (Protected File) blocks with sensitive information as defined below.
+     * One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      */
     protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[]>;
     /**
@@ -139,7 +136,7 @@ export interface ConfigurationArgs {
     /**
      * One or more `configFile` blocks as defined below.
      */
-    configFiles: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationConfigFile>[]>;
+    configFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationConfigFile>[]>;
     /**
      * The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
      */
@@ -149,7 +146,7 @@ export interface ConfigurationArgs {
      */
     packageData?: pulumi.Input<string>;
     /**
-     * One or more `configFile` (Protected File) blocks with sensitive information as defined below.
+     * One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      */
     protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[]>;
     /**

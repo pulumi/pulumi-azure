@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appservice.WindowsWebAppArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppState;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppAuthSettings;
+import com.pulumi.azure.appservice.outputs.WindowsWebAppAuthSettingsV2;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppBackup;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppConnectionString;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppIdentity;
@@ -108,14 +109,28 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="authSettings", type=WindowsWebAppAuthSettings.class, parameters={})
-    private Output<WindowsWebAppAuthSettings> authSettings;
+    private Output</* @Nullable */ WindowsWebAppAuthSettings> authSettings;
 
     /**
      * @return An `auth_settings` block as defined below.
      * 
      */
-    public Output<WindowsWebAppAuthSettings> authSettings() {
-        return this.authSettings;
+    public Output<Optional<WindowsWebAppAuthSettings>> authSettings() {
+        return Codegen.optional(this.authSettings);
+    }
+    /**
+     * An `auth_settings_v2` block as defined below.
+     * 
+     */
+    @Export(name="authSettingsV2", type=WindowsWebAppAuthSettingsV2.class, parameters={})
+    private Output</* @Nullable */ WindowsWebAppAuthSettingsV2> authSettingsV2;
+
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    public Output<Optional<WindowsWebAppAuthSettingsV2>> authSettingsV2() {
+        return Codegen.optional(this.authSettingsV2);
     }
     /**
      * A `backup` block as defined below.

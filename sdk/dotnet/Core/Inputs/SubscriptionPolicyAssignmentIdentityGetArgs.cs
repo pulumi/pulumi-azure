@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Core.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+        /// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

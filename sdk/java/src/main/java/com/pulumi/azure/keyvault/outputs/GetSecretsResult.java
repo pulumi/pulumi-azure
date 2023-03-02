@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.keyvault.outputs;
 
+import com.pulumi.azure.keyvault.outputs.GetSecretsSecret;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -21,6 +22,11 @@ public final class GetSecretsResult {
      * 
      */
     private List<String> names;
+    /**
+     * @return One or more `secrets` blocks as defined below.
+     * 
+     */
+    private List<GetSecretsSecret> secrets;
 
     private GetSecretsResult() {}
     /**
@@ -40,6 +46,13 @@ public final class GetSecretsResult {
     public List<String> names() {
         return this.names;
     }
+    /**
+     * @return One or more `secrets` blocks as defined below.
+     * 
+     */
+    public List<GetSecretsSecret> secrets() {
+        return this.secrets;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -53,12 +66,14 @@ public final class GetSecretsResult {
         private String id;
         private String keyVaultId;
         private List<String> names;
+        private List<GetSecretsSecret> secrets;
         public Builder() {}
         public Builder(GetSecretsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.keyVaultId = defaults.keyVaultId;
     	      this.names = defaults.names;
+    	      this.secrets = defaults.secrets;
         }
 
         @CustomType.Setter
@@ -79,11 +94,20 @@ public final class GetSecretsResult {
         public Builder names(String... names) {
             return names(List.of(names));
         }
+        @CustomType.Setter
+        public Builder secrets(List<GetSecretsSecret> secrets) {
+            this.secrets = Objects.requireNonNull(secrets);
+            return this;
+        }
+        public Builder secrets(GetSecretsSecret... secrets) {
+            return secrets(List.of(secrets));
+        }
         public GetSecretsResult build() {
             final var o = new GetSecretsResult();
             o.id = id;
             o.keyVaultId = keyVaultId;
             o.names = names;
+            o.secrets = secrets;
             return o;
         }
     }

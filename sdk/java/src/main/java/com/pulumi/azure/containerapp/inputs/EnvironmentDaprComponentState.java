@@ -80,14 +80,14 @@ public final class EnvironmentDaprComponentState extends com.pulumi.resources.Re
     }
 
     /**
-     * A `metadata` block as detailed below.
+     * One or more `metadata` blocks as detailed below.
      * 
      */
     @Import(name="metadatas")
     private @Nullable Output<List<EnvironmentDaprComponentMetadataArgs>> metadatas;
 
     /**
-     * @return A `metadata` block as detailed below.
+     * @return One or more `metadata` blocks as detailed below.
      * 
      */
     public Optional<Output<List<EnvironmentDaprComponentMetadataArgs>>> metadatas() {
@@ -271,7 +271,7 @@ public final class EnvironmentDaprComponentState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param metadatas A `metadata` block as detailed below.
+         * @param metadatas One or more `metadata` blocks as detailed below.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class EnvironmentDaprComponentState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param metadatas A `metadata` block as detailed below.
+         * @param metadatas One or more `metadata` blocks as detailed below.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class EnvironmentDaprComponentState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param metadatas A `metadata` block as detailed below.
+         * @param metadatas One or more `metadata` blocks as detailed below.
          * 
          * @return builder
          * 

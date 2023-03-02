@@ -17,6 +17,7 @@ __all__ = [
     'PolicyFileShareRetentionWeekly',
     'PolicyFileShareRetentionYearly',
     'PolicyVMBackup',
+    'PolicyVMInstantRestoreResourceGroup',
     'PolicyVMRetentionDaily',
     'PolicyVMRetentionMonthly',
     'PolicyVMRetentionWeekly',
@@ -280,6 +281,26 @@ class PolicyVMBackup(dict):
         The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
         """
         return pulumi.get(self, "weekdays")
+
+
+@pulumi.output_type
+class PolicyVMInstantRestoreResourceGroup(dict):
+    def __init__(__self__, *,
+                 prefix: str,
+                 suffix: Optional[str] = None):
+        pulumi.set(__self__, "prefix", prefix)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> Optional[str]:
+        return pulumi.get(self, "suffix")
 
 
 @pulumi.output_type

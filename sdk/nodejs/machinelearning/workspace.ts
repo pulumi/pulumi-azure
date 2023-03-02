@@ -334,7 +334,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.machinelearning.WorkspaceIdentity>;
     /**
-     * The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+     * The compute name for image build of the Machine Learning Workspace.
      */
     public readonly imageBuildComputeName!: pulumi.Output<string | undefined>;
     /**
@@ -497,7 +497,7 @@ export interface WorkspaceState {
      */
     identity?: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
     /**
-     * The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+     * The compute name for image build of the Machine Learning Workspace.
      */
     imageBuildComputeName?: pulumi.Input<string>;
     /**
@@ -581,7 +581,7 @@ export interface WorkspaceArgs {
      */
     identity: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
     /**
-     * The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
+     * The compute name for image build of the Machine Learning Workspace.
      */
     imageBuildComputeName?: pulumi.Input<string>;
     /**

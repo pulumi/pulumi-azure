@@ -66,7 +66,13 @@ namespace Pulumi.Azure.AppService
         /// A `auth_settings` block as defined below.
         /// </summary>
         [Output("authSettings")]
-        public Output<Outputs.LinuxWebAppAuthSettings> AuthSettings { get; private set; } = null!;
+        public Output<Outputs.LinuxWebAppAuthSettings?> AuthSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// An `auth_settings_v2` block as defined below.
+        /// </summary>
+        [Output("authSettingsV2")]
+        public Output<Outputs.LinuxWebAppAuthSettingsV2?> AuthSettingsV2 { get; private set; } = null!;
 
         /// <summary>
         /// A `backup` block as defined below.
@@ -311,6 +317,12 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.LinuxWebAppAuthSettingsArgs>? AuthSettings { get; set; }
 
         /// <summary>
+        /// An `auth_settings_v2` block as defined below.
+        /// </summary>
+        [Input("authSettingsV2")]
+        public Input<Inputs.LinuxWebAppAuthSettingsV2Args>? AuthSettingsV2 { get; set; }
+
+        /// <summary>
         /// A `backup` block as defined below.
         /// </summary>
         [Input("backup")]
@@ -479,6 +491,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.LinuxWebAppAuthSettingsGetArgs>? AuthSettings { get; set; }
+
+        /// <summary>
+        /// An `auth_settings_v2` block as defined below.
+        /// </summary>
+        [Input("authSettingsV2")]
+        public Input<Inputs.LinuxWebAppAuthSettingsV2GetArgs>? AuthSettingsV2 { get; set; }
 
         /// <summary>
         /// A `backup` block as defined below.

@@ -336,9 +336,17 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.targetZone);
     }
 
+    /**
+     * Network to use when a test failover is done.
+     * 
+     */
     @Import(name="testNetworkId")
     private @Nullable Output<String> testNetworkId;
 
+    /**
+     * @return Network to use when a test failover is done.
+     * 
+     */
     public Optional<Output<String>> testNetworkId() {
         return Optional.ofNullable(this.testNetworkId);
     }
@@ -868,11 +876,23 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
             return targetZone(Output.of(targetZone));
         }
 
+        /**
+         * @param testNetworkId Network to use when a test failover is done.
+         * 
+         * @return builder
+         * 
+         */
         public Builder testNetworkId(@Nullable Output<String> testNetworkId) {
             $.testNetworkId = testNetworkId;
             return this;
         }
 
+        /**
+         * @param testNetworkId Network to use when a test failover is done.
+         * 
+         * @return builder
+         * 
+         */
         public Builder testNetworkId(String testNetworkId) {
             return testNetworkId(Output.of(testNetworkId));
         }

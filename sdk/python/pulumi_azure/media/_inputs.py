@@ -45,6 +45,7 @@ __all__ = [
     'StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs',
     'StreamingEndpointAccessControlIpAllowArgs',
     'StreamingEndpointCrossSiteAccessPolicyArgs',
+    'StreamingEndpointSkusArgs',
     'StreamingLocatorContentKeyArgs',
     'StreamingPolicyCommonEncryptionCbcsArgs',
     'StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs',
@@ -2418,8 +2419,8 @@ class StreamingEndpointCrossSiteAccessPolicyArgs:
                  client_access_policy: Optional[pulumi.Input[str]] = None,
                  cross_domain_policy: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_access_policy: The content of clientaccesspolicy.xml used by Silverlight.
-        :param pulumi.Input[str] cross_domain_policy: The content of crossdomain.xml used by Silverlight.
+        :param pulumi.Input[str] client_access_policy: The content of `clientaccesspolicy.xml` used by Silverlight.
+        :param pulumi.Input[str] cross_domain_policy: The content of `crossdomain.xml` used by Silverlight.
         """
         if client_access_policy is not None:
             pulumi.set(__self__, "client_access_policy", client_access_policy)
@@ -2430,7 +2431,7 @@ class StreamingEndpointCrossSiteAccessPolicyArgs:
     @pulumi.getter(name="clientAccessPolicy")
     def client_access_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The content of clientaccesspolicy.xml used by Silverlight.
+        The content of `clientaccesspolicy.xml` used by Silverlight.
         """
         return pulumi.get(self, "client_access_policy")
 
@@ -2442,13 +2443,52 @@ class StreamingEndpointCrossSiteAccessPolicyArgs:
     @pulumi.getter(name="crossDomainPolicy")
     def cross_domain_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The content of crossdomain.xml used by Silverlight.
+        The content of `crossdomain.xml` used by Silverlight.
         """
         return pulumi.get(self, "cross_domain_policy")
 
     @cross_domain_policy.setter
     def cross_domain_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cross_domain_policy", value)
+
+
+@pulumi.input_type
+class StreamingEndpointSkusArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] capacity: The sku capacity of Streaming Endpoint.
+        :param pulumi.Input[str] name: The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sku capacity of Streaming Endpoint.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

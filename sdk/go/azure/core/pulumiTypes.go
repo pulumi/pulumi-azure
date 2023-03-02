@@ -2795,7 +2795,7 @@ type SubscriptionPolicyAssignmentIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID of the Policy Assignment for this Subscription.
 	TenantId *string `pulumi:"tenantId"`
-	// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+	// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -2817,7 +2817,7 @@ type SubscriptionPolicyAssignmentIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID of the Policy Assignment for this Subscription.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+	// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2913,7 +2913,7 @@ func (o SubscriptionPolicyAssignmentIdentityOutput) TenantId() pulumi.StringPtrO
 	return o.ApplyT(func(v SubscriptionPolicyAssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
 func (o SubscriptionPolicyAssignmentIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionPolicyAssignmentIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2972,7 +2972,7 @@ func (o SubscriptionPolicyAssignmentIdentityPtrOutput) TenantId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
 func (o SubscriptionPolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyAssignmentIdentity) *string {
 		if v == nil {

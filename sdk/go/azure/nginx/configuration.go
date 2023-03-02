@@ -31,7 +31,7 @@ type Configuration struct {
 	NginxDeploymentId pulumi.StringOutput `pulumi:"nginxDeploymentId"`
 	// Specify the package data for this configuration.
 	PackageData pulumi.StringPtrOutput `pulumi:"packageData"`
-	// One or more `configFile` (Protected File) blocks with sensitive information as defined below.
+	// One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 	ProtectedFiles ConfigurationProtectedFileArrayOutput `pulumi:"protectedFiles"`
 	// Specify the root file path of this Nginx Configuration.
 	RootFile pulumi.StringOutput `pulumi:"rootFile"`
@@ -44,9 +44,6 @@ func NewConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConfigFiles == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigFiles'")
-	}
 	if args.NginxDeploymentId == nil {
 		return nil, errors.New("invalid value for required argument 'NginxDeploymentId'")
 	}
@@ -81,7 +78,7 @@ type configurationState struct {
 	NginxDeploymentId *string `pulumi:"nginxDeploymentId"`
 	// Specify the package data for this configuration.
 	PackageData *string `pulumi:"packageData"`
-	// One or more `configFile` (Protected File) blocks with sensitive information as defined below.
+	// One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 	ProtectedFiles []ConfigurationProtectedFile `pulumi:"protectedFiles"`
 	// Specify the root file path of this Nginx Configuration.
 	RootFile *string `pulumi:"rootFile"`
@@ -94,7 +91,7 @@ type ConfigurationState struct {
 	NginxDeploymentId pulumi.StringPtrInput
 	// Specify the package data for this configuration.
 	PackageData pulumi.StringPtrInput
-	// One or more `configFile` (Protected File) blocks with sensitive information as defined below.
+	// One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 	ProtectedFiles ConfigurationProtectedFileArrayInput
 	// Specify the root file path of this Nginx Configuration.
 	RootFile pulumi.StringPtrInput
@@ -111,7 +108,7 @@ type configurationArgs struct {
 	NginxDeploymentId string `pulumi:"nginxDeploymentId"`
 	// Specify the package data for this configuration.
 	PackageData *string `pulumi:"packageData"`
-	// One or more `configFile` (Protected File) blocks with sensitive information as defined below.
+	// One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 	ProtectedFiles []ConfigurationProtectedFile `pulumi:"protectedFiles"`
 	// Specify the root file path of this Nginx Configuration.
 	RootFile string `pulumi:"rootFile"`
@@ -125,7 +122,7 @@ type ConfigurationArgs struct {
 	NginxDeploymentId pulumi.StringInput
 	// Specify the package data for this configuration.
 	PackageData pulumi.StringPtrInput
-	// One or more `configFile` (Protected File) blocks with sensitive information as defined below.
+	// One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 	ProtectedFiles ConfigurationProtectedFileArrayInput
 	// Specify the root file path of this Nginx Configuration.
 	RootFile pulumi.StringInput
@@ -233,7 +230,7 @@ func (o ConfigurationOutput) PackageData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.PackageData }).(pulumi.StringPtrOutput)
 }
 
-// One or more `configFile` (Protected File) blocks with sensitive information as defined below.
+// One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 func (o ConfigurationOutput) ProtectedFiles() ConfigurationProtectedFileArrayOutput {
 	return o.ApplyT(func(v *Configuration) ConfigurationProtectedFileArrayOutput { return v.ProtectedFiles }).(ConfigurationProtectedFileArrayOutput)
 }

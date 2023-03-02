@@ -55,7 +55,7 @@ class GetDiskAccessResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> Mapping[str, str]:
         return pulumi.get(self, "tags")
 
 
@@ -73,7 +73,6 @@ class AwaitableGetDiskAccessResult(GetDiskAccessResult):
 
 def get_disk_access(name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
-                    tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskAccessResult:
     """
     Use this data source to access information about an existing Disk Access.
@@ -92,12 +91,10 @@ def get_disk_access(name: Optional[str] = None,
 
     :param str name: The name of this Disk Access.
     :param str resource_group_name: The name of the Resource Group where the Disk Access exists.
-    :param Mapping[str, str] tags: A mapping of tags which should be assigned to the Disk Access.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:compute/getDiskAccess:getDiskAccess', __args__, opts=opts, typ=GetDiskAccessResult).value
 
@@ -111,7 +108,6 @@ def get_disk_access(name: Optional[str] = None,
 @_utilities.lift_output_func(get_disk_access)
 def get_disk_access_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskAccessResult]:
     """
     Use this data source to access information about an existing Disk Access.
@@ -130,6 +126,5 @@ def get_disk_access_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of this Disk Access.
     :param str resource_group_name: The name of the Resource Group where the Disk Access exists.
-    :param Mapping[str, str] tags: A mapping of tags which should be assigned to the Disk Access.
     """
     ...

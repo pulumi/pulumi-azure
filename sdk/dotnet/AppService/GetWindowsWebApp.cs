@@ -130,6 +130,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppAuthSettingResult> AuthSettings;
         /// <summary>
+        /// An `auth_settings_v2` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWindowsWebAppAuthSettingsV2Result> AuthSettingsV2s;
+        /// <summary>
         /// A `backup` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppBackupResult> Backups;
@@ -245,6 +249,8 @@ namespace Pulumi.Azure.AppService
 
             ImmutableArray<Outputs.GetWindowsWebAppAuthSettingResult> authSettings,
 
+            ImmutableArray<Outputs.GetWindowsWebAppAuthSettingsV2Result> authSettingsV2s,
+
             ImmutableArray<Outputs.GetWindowsWebAppBackupResult> backups,
 
             bool clientAffinityEnabled,
@@ -303,6 +309,7 @@ namespace Pulumi.Azure.AppService
         {
             AppSettings = appSettings;
             AuthSettings = authSettings;
+            AuthSettingsV2s = authSettingsV2s;
             Backups = backups;
             ClientAffinityEnabled = clientAffinityEnabled;
             ClientCertificateEnabled = clientCertificateEnabled;

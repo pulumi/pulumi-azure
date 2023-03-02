@@ -30,12 +30,12 @@ public final class GetWindowsWebAppAuthSetting {
      */
     private Map<String,String> additionalLoginParameters;
     /**
-     * @return A `allowed_external_redirect_urls` block as defined above.
+     * @return External URLs that can be redirected to as part of logging in or logging out of the app.
      * 
      */
     private List<String> allowedExternalRedirectUrls;
     /**
-     * @return The default authentication provider in use when multiple providers are configured.
+     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
      * 
      */
     private String defaultProvider;
@@ -70,7 +70,7 @@ public final class GetWindowsWebAppAuthSetting {
      */
     private List<GetWindowsWebAppAuthSettingMicrosoft> microsofts;
     /**
-     * @return The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
+     * @return The Runtime Version of the Authentication and Authorisation feature of this App.
      * 
      */
     private String runtimeVersion;
@@ -80,7 +80,7 @@ public final class GetWindowsWebAppAuthSetting {
      */
     private Double tokenRefreshExtensionHours;
     /**
-     * @return Does Windows Web App durably store platform-specific security tokens that are obtained during login flows enabled?
+     * @return Is the Token Store configuration Enabled.
      * 
      */
     private Boolean tokenStoreEnabled;
@@ -111,14 +111,14 @@ public final class GetWindowsWebAppAuthSetting {
         return this.additionalLoginParameters;
     }
     /**
-     * @return A `allowed_external_redirect_urls` block as defined above.
+     * @return External URLs that can be redirected to as part of logging in or logging out of the app.
      * 
      */
     public List<String> allowedExternalRedirectUrls() {
         return this.allowedExternalRedirectUrls;
     }
     /**
-     * @return The default authentication provider in use when multiple providers are configured.
+     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
      * 
      */
     public String defaultProvider() {
@@ -167,7 +167,7 @@ public final class GetWindowsWebAppAuthSetting {
         return this.microsofts;
     }
     /**
-     * @return The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
+     * @return The Runtime Version of the Authentication and Authorisation feature of this App.
      * 
      */
     public String runtimeVersion() {
@@ -181,7 +181,7 @@ public final class GetWindowsWebAppAuthSetting {
         return this.tokenRefreshExtensionHours;
     }
     /**
-     * @return Does Windows Web App durably store platform-specific security tokens that are obtained during login flows enabled?
+     * @return Is the Token Store configuration Enabled.
      * 
      */
     public Boolean tokenStoreEnabled() {

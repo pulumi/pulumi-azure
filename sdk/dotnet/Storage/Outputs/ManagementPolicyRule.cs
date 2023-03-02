@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// <summary>
         /// A `filters` block as documented below.
         /// </summary>
-        public readonly Outputs.ManagementPolicyRuleFilters? Filters;
+        public readonly Outputs.ManagementPolicyRuleFilters Filters;
         /// <summary>
         /// The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Storage.Outputs
 
             bool enabled,
 
-            Outputs.ManagementPolicyRuleFilters? filters,
+            Outputs.ManagementPolicyRuleFilters filters,
 
             string name)
         {

@@ -23,6 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:mobile/network:Network":
 		r = &Network{}
+	case "azure:mobile/networkService:NetworkService":
+		r = &NetworkService{}
+	case "azure:mobile/networkSimGroup:NetworkSimGroup":
+		r = &NetworkSimGroup{}
+	case "azure:mobile/networkSite:NetworkSite":
+		r = &NetworkSite{}
+	case "azure:mobile/networkSlice:NetworkSlice":
+		r = &NetworkSlice{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +47,26 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mobile/network",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mobile/networkService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mobile/networkSimGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mobile/networkSite",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mobile/networkSlice",
 		&module{version},
 	)
 }

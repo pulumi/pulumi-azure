@@ -149,6 +149,8 @@ class FrontdoorSecret(pulumi.CustomResource):
                  secret: Optional[pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArgs']]] = None,
                  __props__=None):
         """
+        Manages a Front Door (standard/premium) Secret.
+
         ## Example Usage
 
         ```python
@@ -223,6 +225,8 @@ class FrontdoorSecret(pulumi.CustomResource):
                  args: FrontdoorSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Front Door (standard/premium) Secret.
+
         ## Example Usage
 
         ```python

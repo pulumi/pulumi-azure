@@ -666,6 +666,236 @@ func (o ScalingPlanScheduleArrayOutput) Index(i pulumi.IntInput) ScalingPlanSche
 	}).(ScalingPlanScheduleOutput)
 }
 
+type GetHostPoolScheduledAgentUpdate struct {
+	// Are scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) enabled on session hosts.
+	Enabled bool `pulumi:"enabled"`
+	// A `schedule` block as defined below.
+	Schedules []GetHostPoolScheduledAgentUpdateSchedule `pulumi:"schedules"`
+	// The time zone in which the agent update schedule will apply.
+	Timezone string `pulumi:"timezone"`
+	// Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host.
+	UseSessionHostTimezone bool `pulumi:"useSessionHostTimezone"`
+}
+
+// GetHostPoolScheduledAgentUpdateInput is an input type that accepts GetHostPoolScheduledAgentUpdateArgs and GetHostPoolScheduledAgentUpdateOutput values.
+// You can construct a concrete instance of `GetHostPoolScheduledAgentUpdateInput` via:
+//
+//	GetHostPoolScheduledAgentUpdateArgs{...}
+type GetHostPoolScheduledAgentUpdateInput interface {
+	pulumi.Input
+
+	ToGetHostPoolScheduledAgentUpdateOutput() GetHostPoolScheduledAgentUpdateOutput
+	ToGetHostPoolScheduledAgentUpdateOutputWithContext(context.Context) GetHostPoolScheduledAgentUpdateOutput
+}
+
+type GetHostPoolScheduledAgentUpdateArgs struct {
+	// Are scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) enabled on session hosts.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `schedule` block as defined below.
+	Schedules GetHostPoolScheduledAgentUpdateScheduleArrayInput `pulumi:"schedules"`
+	// The time zone in which the agent update schedule will apply.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+	// Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host.
+	UseSessionHostTimezone pulumi.BoolInput `pulumi:"useSessionHostTimezone"`
+}
+
+func (GetHostPoolScheduledAgentUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHostPoolScheduledAgentUpdate)(nil)).Elem()
+}
+
+func (i GetHostPoolScheduledAgentUpdateArgs) ToGetHostPoolScheduledAgentUpdateOutput() GetHostPoolScheduledAgentUpdateOutput {
+	return i.ToGetHostPoolScheduledAgentUpdateOutputWithContext(context.Background())
+}
+
+func (i GetHostPoolScheduledAgentUpdateArgs) ToGetHostPoolScheduledAgentUpdateOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolScheduledAgentUpdateOutput)
+}
+
+// GetHostPoolScheduledAgentUpdateArrayInput is an input type that accepts GetHostPoolScheduledAgentUpdateArray and GetHostPoolScheduledAgentUpdateArrayOutput values.
+// You can construct a concrete instance of `GetHostPoolScheduledAgentUpdateArrayInput` via:
+//
+//	GetHostPoolScheduledAgentUpdateArray{ GetHostPoolScheduledAgentUpdateArgs{...} }
+type GetHostPoolScheduledAgentUpdateArrayInput interface {
+	pulumi.Input
+
+	ToGetHostPoolScheduledAgentUpdateArrayOutput() GetHostPoolScheduledAgentUpdateArrayOutput
+	ToGetHostPoolScheduledAgentUpdateArrayOutputWithContext(context.Context) GetHostPoolScheduledAgentUpdateArrayOutput
+}
+
+type GetHostPoolScheduledAgentUpdateArray []GetHostPoolScheduledAgentUpdateInput
+
+func (GetHostPoolScheduledAgentUpdateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHostPoolScheduledAgentUpdate)(nil)).Elem()
+}
+
+func (i GetHostPoolScheduledAgentUpdateArray) ToGetHostPoolScheduledAgentUpdateArrayOutput() GetHostPoolScheduledAgentUpdateArrayOutput {
+	return i.ToGetHostPoolScheduledAgentUpdateArrayOutputWithContext(context.Background())
+}
+
+func (i GetHostPoolScheduledAgentUpdateArray) ToGetHostPoolScheduledAgentUpdateArrayOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolScheduledAgentUpdateArrayOutput)
+}
+
+type GetHostPoolScheduledAgentUpdateOutput struct{ *pulumi.OutputState }
+
+func (GetHostPoolScheduledAgentUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHostPoolScheduledAgentUpdate)(nil)).Elem()
+}
+
+func (o GetHostPoolScheduledAgentUpdateOutput) ToGetHostPoolScheduledAgentUpdateOutput() GetHostPoolScheduledAgentUpdateOutput {
+	return o
+}
+
+func (o GetHostPoolScheduledAgentUpdateOutput) ToGetHostPoolScheduledAgentUpdateOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateOutput {
+	return o
+}
+
+// Are scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) enabled on session hosts.
+func (o GetHostPoolScheduledAgentUpdateOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetHostPoolScheduledAgentUpdate) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A `schedule` block as defined below.
+func (o GetHostPoolScheduledAgentUpdateOutput) Schedules() GetHostPoolScheduledAgentUpdateScheduleArrayOutput {
+	return o.ApplyT(func(v GetHostPoolScheduledAgentUpdate) []GetHostPoolScheduledAgentUpdateSchedule { return v.Schedules }).(GetHostPoolScheduledAgentUpdateScheduleArrayOutput)
+}
+
+// The time zone in which the agent update schedule will apply.
+func (o GetHostPoolScheduledAgentUpdateOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostPoolScheduledAgentUpdate) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+// Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host.
+func (o GetHostPoolScheduledAgentUpdateOutput) UseSessionHostTimezone() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetHostPoolScheduledAgentUpdate) bool { return v.UseSessionHostTimezone }).(pulumi.BoolOutput)
+}
+
+type GetHostPoolScheduledAgentUpdateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHostPoolScheduledAgentUpdateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHostPoolScheduledAgentUpdate)(nil)).Elem()
+}
+
+func (o GetHostPoolScheduledAgentUpdateArrayOutput) ToGetHostPoolScheduledAgentUpdateArrayOutput() GetHostPoolScheduledAgentUpdateArrayOutput {
+	return o
+}
+
+func (o GetHostPoolScheduledAgentUpdateArrayOutput) ToGetHostPoolScheduledAgentUpdateArrayOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateArrayOutput {
+	return o
+}
+
+func (o GetHostPoolScheduledAgentUpdateArrayOutput) Index(i pulumi.IntInput) GetHostPoolScheduledAgentUpdateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHostPoolScheduledAgentUpdate {
+		return vs[0].([]GetHostPoolScheduledAgentUpdate)[vs[1].(int)]
+	}).(GetHostPoolScheduledAgentUpdateOutput)
+}
+
+type GetHostPoolScheduledAgentUpdateSchedule struct {
+	// The day of the week on which agent updates should be performed.
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	// The hour of day the update window should start.
+	HourOfDay int `pulumi:"hourOfDay"`
+}
+
+// GetHostPoolScheduledAgentUpdateScheduleInput is an input type that accepts GetHostPoolScheduledAgentUpdateScheduleArgs and GetHostPoolScheduledAgentUpdateScheduleOutput values.
+// You can construct a concrete instance of `GetHostPoolScheduledAgentUpdateScheduleInput` via:
+//
+//	GetHostPoolScheduledAgentUpdateScheduleArgs{...}
+type GetHostPoolScheduledAgentUpdateScheduleInput interface {
+	pulumi.Input
+
+	ToGetHostPoolScheduledAgentUpdateScheduleOutput() GetHostPoolScheduledAgentUpdateScheduleOutput
+	ToGetHostPoolScheduledAgentUpdateScheduleOutputWithContext(context.Context) GetHostPoolScheduledAgentUpdateScheduleOutput
+}
+
+type GetHostPoolScheduledAgentUpdateScheduleArgs struct {
+	// The day of the week on which agent updates should be performed.
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	// The hour of day the update window should start.
+	HourOfDay pulumi.IntInput `pulumi:"hourOfDay"`
+}
+
+func (GetHostPoolScheduledAgentUpdateScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHostPoolScheduledAgentUpdateSchedule)(nil)).Elem()
+}
+
+func (i GetHostPoolScheduledAgentUpdateScheduleArgs) ToGetHostPoolScheduledAgentUpdateScheduleOutput() GetHostPoolScheduledAgentUpdateScheduleOutput {
+	return i.ToGetHostPoolScheduledAgentUpdateScheduleOutputWithContext(context.Background())
+}
+
+func (i GetHostPoolScheduledAgentUpdateScheduleArgs) ToGetHostPoolScheduledAgentUpdateScheduleOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolScheduledAgentUpdateScheduleOutput)
+}
+
+// GetHostPoolScheduledAgentUpdateScheduleArrayInput is an input type that accepts GetHostPoolScheduledAgentUpdateScheduleArray and GetHostPoolScheduledAgentUpdateScheduleArrayOutput values.
+// You can construct a concrete instance of `GetHostPoolScheduledAgentUpdateScheduleArrayInput` via:
+//
+//	GetHostPoolScheduledAgentUpdateScheduleArray{ GetHostPoolScheduledAgentUpdateScheduleArgs{...} }
+type GetHostPoolScheduledAgentUpdateScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetHostPoolScheduledAgentUpdateScheduleArrayOutput() GetHostPoolScheduledAgentUpdateScheduleArrayOutput
+	ToGetHostPoolScheduledAgentUpdateScheduleArrayOutputWithContext(context.Context) GetHostPoolScheduledAgentUpdateScheduleArrayOutput
+}
+
+type GetHostPoolScheduledAgentUpdateScheduleArray []GetHostPoolScheduledAgentUpdateScheduleInput
+
+func (GetHostPoolScheduledAgentUpdateScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHostPoolScheduledAgentUpdateSchedule)(nil)).Elem()
+}
+
+func (i GetHostPoolScheduledAgentUpdateScheduleArray) ToGetHostPoolScheduledAgentUpdateScheduleArrayOutput() GetHostPoolScheduledAgentUpdateScheduleArrayOutput {
+	return i.ToGetHostPoolScheduledAgentUpdateScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetHostPoolScheduledAgentUpdateScheduleArray) ToGetHostPoolScheduledAgentUpdateScheduleArrayOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolScheduledAgentUpdateScheduleArrayOutput)
+}
+
+type GetHostPoolScheduledAgentUpdateScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetHostPoolScheduledAgentUpdateScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHostPoolScheduledAgentUpdateSchedule)(nil)).Elem()
+}
+
+func (o GetHostPoolScheduledAgentUpdateScheduleOutput) ToGetHostPoolScheduledAgentUpdateScheduleOutput() GetHostPoolScheduledAgentUpdateScheduleOutput {
+	return o
+}
+
+func (o GetHostPoolScheduledAgentUpdateScheduleOutput) ToGetHostPoolScheduledAgentUpdateScheduleOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateScheduleOutput {
+	return o
+}
+
+// The day of the week on which agent updates should be performed.
+func (o GetHostPoolScheduledAgentUpdateScheduleOutput) DayOfWeek() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostPoolScheduledAgentUpdateSchedule) string { return v.DayOfWeek }).(pulumi.StringOutput)
+}
+
+// The hour of day the update window should start.
+func (o GetHostPoolScheduledAgentUpdateScheduleOutput) HourOfDay() pulumi.IntOutput {
+	return o.ApplyT(func(v GetHostPoolScheduledAgentUpdateSchedule) int { return v.HourOfDay }).(pulumi.IntOutput)
+}
+
+type GetHostPoolScheduledAgentUpdateScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHostPoolScheduledAgentUpdateScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHostPoolScheduledAgentUpdateSchedule)(nil)).Elem()
+}
+
+func (o GetHostPoolScheduledAgentUpdateScheduleArrayOutput) ToGetHostPoolScheduledAgentUpdateScheduleArrayOutput() GetHostPoolScheduledAgentUpdateScheduleArrayOutput {
+	return o
+}
+
+func (o GetHostPoolScheduledAgentUpdateScheduleArrayOutput) ToGetHostPoolScheduledAgentUpdateScheduleArrayOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateScheduleArrayOutput {
+	return o
+}
+
+func (o GetHostPoolScheduledAgentUpdateScheduleArrayOutput) Index(i pulumi.IntInput) GetHostPoolScheduledAgentUpdateScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHostPoolScheduledAgentUpdateSchedule {
+		return vs[0].([]GetHostPoolScheduledAgentUpdateSchedule)[vs[1].(int)]
+	}).(GetHostPoolScheduledAgentUpdateScheduleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolScheduledAgentUpdatesInput)(nil)).Elem(), HostPoolScheduledAgentUpdatesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolScheduledAgentUpdatesPtrInput)(nil)).Elem(), HostPoolScheduledAgentUpdatesArgs{})
@@ -675,6 +905,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanHostPoolArrayInput)(nil)).Elem(), ScalingPlanHostPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScheduleInput)(nil)).Elem(), ScalingPlanScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScheduleArrayInput)(nil)).Elem(), ScalingPlanScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHostPoolScheduledAgentUpdateInput)(nil)).Elem(), GetHostPoolScheduledAgentUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHostPoolScheduledAgentUpdateArrayInput)(nil)).Elem(), GetHostPoolScheduledAgentUpdateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHostPoolScheduledAgentUpdateScheduleInput)(nil)).Elem(), GetHostPoolScheduledAgentUpdateScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHostPoolScheduledAgentUpdateScheduleArrayInput)(nil)).Elem(), GetHostPoolScheduledAgentUpdateScheduleArray{})
 	pulumi.RegisterOutputType(HostPoolScheduledAgentUpdatesOutput{})
 	pulumi.RegisterOutputType(HostPoolScheduledAgentUpdatesPtrOutput{})
 	pulumi.RegisterOutputType(HostPoolScheduledAgentUpdatesScheduleOutput{})
@@ -683,4 +917,8 @@ func init() {
 	pulumi.RegisterOutputType(ScalingPlanHostPoolArrayOutput{})
 	pulumi.RegisterOutputType(ScalingPlanScheduleOutput{})
 	pulumi.RegisterOutputType(ScalingPlanScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetHostPoolScheduledAgentUpdateOutput{})
+	pulumi.RegisterOutputType(GetHostPoolScheduledAgentUpdateArrayOutput{})
+	pulumi.RegisterOutputType(GetHostPoolScheduledAgentUpdateScheduleOutput{})
+	pulumi.RegisterOutputType(GetHostPoolScheduledAgentUpdateScheduleArrayOutput{})
 }

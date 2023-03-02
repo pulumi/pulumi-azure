@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Nginx.Inputs
         private Input<string>? _content;
 
         /// <summary>
-        /// Specifies the base-64 encoded contents of this config file.
+        /// Specifies the base-64 encoded contents of this config file (Sensitive).
         /// </summary>
         public Input<string>? Content
         {

@@ -563,9 +563,17 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> targetZone() {
         return Codegen.optional(this.targetZone);
     }
+    /**
+     * Network to use when a test failover is done.
+     * 
+     */
     @Export(name="testNetworkId", type=String.class, parameters={})
     private Output<String> testNetworkId;
 
+    /**
+     * @return Network to use when a test failover is done.
+     * 
+     */
     public Output<String> testNetworkId() {
         return this.testNetworkId;
     }

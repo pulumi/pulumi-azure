@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice;
 
 import com.pulumi.azure.appservice.inputs.LinuxWebAppAuthSettingsArgs;
+import com.pulumi.azure.appservice.inputs.LinuxWebAppAuthSettingsV2Args;
 import com.pulumi.azure.appservice.inputs.LinuxWebAppBackupArgs;
 import com.pulumi.azure.appservice.inputs.LinuxWebAppConnectionStringArgs;
 import com.pulumi.azure.appservice.inputs.LinuxWebAppIdentityArgs;
@@ -54,6 +55,21 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<LinuxWebAppAuthSettingsArgs>> authSettings() {
         return Optional.ofNullable(this.authSettings);
+    }
+
+    /**
+     * An `auth_settings_v2` block as defined below.
+     * 
+     */
+    @Import(name="authSettingsV2")
+    private @Nullable Output<LinuxWebAppAuthSettingsV2Args> authSettingsV2;
+
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    public Optional<Output<LinuxWebAppAuthSettingsV2Args>> authSettingsV2() {
+        return Optional.ofNullable(this.authSettingsV2);
     }
 
     /**
@@ -376,6 +392,7 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
     private LinuxWebAppArgs(LinuxWebAppArgs $) {
         this.appSettings = $.appSettings;
         this.authSettings = $.authSettings;
+        this.authSettingsV2 = $.authSettingsV2;
         this.backup = $.backup;
         this.clientAffinityEnabled = $.clientAffinityEnabled;
         this.clientCertificateEnabled = $.clientCertificateEnabled;
@@ -457,6 +474,27 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder authSettings(LinuxWebAppAuthSettingsArgs authSettings) {
             return authSettings(Output.of(authSettings));
+        }
+
+        /**
+         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSettingsV2(@Nullable Output<LinuxWebAppAuthSettingsV2Args> authSettingsV2) {
+            $.authSettingsV2 = authSettingsV2;
+            return this;
+        }
+
+        /**
+         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSettingsV2(LinuxWebAppAuthSettingsV2Args authSettingsV2) {
+            return authSettingsV2(Output.of(authSettingsV2));
         }
 
         /**

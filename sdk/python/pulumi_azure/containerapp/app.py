@@ -34,6 +34,7 @@ class AppArgs:
         :param pulumi.Input[str] revision_mode: The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
         :param pulumi.Input['AppTemplateArgs'] template: A `template` block as detailed below.
         :param pulumi.Input['AppDaprArgs'] dapr: A `dapr` block as detailed below.
+        :param pulumi.Input['AppIdentityArgs'] identity: An `identity` block as detailed below.
         :param pulumi.Input['AppIngressArgs'] ingress: An `ingress` block as detailed below.
         :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]] registries: A `registry` block as detailed below.
@@ -122,6 +123,9 @@ class AppArgs:
     @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AppIdentityArgs']]:
+        """
+        An `identity` block as detailed below.
+        """
         return pulumi.get(self, "identity")
 
     @identity.setter
@@ -213,6 +217,7 @@ class _AppState:
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_domain_verification_id: The ID of the Custom Domain Verification for this Container App.
         :param pulumi.Input['AppDaprArgs'] dapr: A `dapr` block as detailed below.
+        :param pulumi.Input['AppIdentityArgs'] identity: An `identity` block as detailed below.
         :param pulumi.Input['AppIngressArgs'] ingress: An `ingress` block as detailed below.
         :param pulumi.Input[str] latest_revision_fqdn: The FQDN of the Latest Revision of the Container App.
         :param pulumi.Input[str] latest_revision_name: The name of the latest Container Revision.
@@ -298,6 +303,9 @@ class _AppState:
     @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AppIdentityArgs']]:
+        """
+        An `identity` block as detailed below.
+        """
         return pulumi.get(self, "identity")
 
     @identity.setter
@@ -490,12 +498,12 @@ class App(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             revision_mode="Single",
             template=azure.containerapp.AppTemplateArgs(
-                container=azure.containerapp.AppTemplateContainerArgs(
+                containers=[azure.containerapp.AppTemplateContainerArgs(
                     name="examplecontainerapp",
                     image="mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
                     cpu=0.25,
                     memory="0.5Gi",
-                ),
+                )],
             ))
         ```
 
@@ -511,6 +519,7 @@ class App(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppDaprArgs']] dapr: A `dapr` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppIdentityArgs']] identity: An `identity` block as detailed below.
         :param pulumi.Input[pulumi.InputType['AppIngressArgs']] ingress: An `ingress` block as detailed below.
         :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArgs']]]] registries: A `registry` block as detailed below.
@@ -550,12 +559,12 @@ class App(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             revision_mode="Single",
             template=azure.containerapp.AppTemplateArgs(
-                container=azure.containerapp.AppTemplateContainerArgs(
+                containers=[azure.containerapp.AppTemplateContainerArgs(
                     name="examplecontainerapp",
                     image="mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
                     cpu=0.25,
                     memory="0.5Gi",
-                ),
+                )],
             ))
         ```
 
@@ -664,6 +673,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_domain_verification_id: The ID of the Custom Domain Verification for this Container App.
         :param pulumi.Input[pulumi.InputType['AppDaprArgs']] dapr: A `dapr` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppIdentityArgs']] identity: An `identity` block as detailed below.
         :param pulumi.Input[pulumi.InputType['AppIngressArgs']] ingress: An `ingress` block as detailed below.
         :param pulumi.Input[str] latest_revision_fqdn: The FQDN of the Latest Revision of the Container App.
         :param pulumi.Input[str] latest_revision_name: The name of the latest Container Revision.
@@ -726,6 +736,9 @@ class App(pulumi.CustomResource):
     @property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.AppIdentity']]:
+        """
+        An `identity` block as detailed below.
+        """
         return pulumi.get(self, "identity")
 
     @property

@@ -64,15 +64,15 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
      * The version of Key Vault Key.
      * 
      */
-    @Import(name="keyVersion", required=true)
-    private Output<String> keyVersion;
+    @Import(name="keyVersion")
+    private @Nullable Output<String> keyVersion;
 
     /**
      * @return The version of Key Vault Key.
      * 
      */
-    public Output<String> keyVersion() {
-        return this.keyVersion;
+    public Optional<Output<String>> keyVersion() {
+        return Optional.ofNullable(this.keyVersion);
     }
 
     /**
@@ -187,7 +187,7 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder keyVersion(Output<String> keyVersion) {
+        public Builder keyVersion(@Nullable Output<String> keyVersion) {
             $.keyVersion = keyVersion;
             return this;
         }
@@ -227,7 +227,6 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
             $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
             $.keyName = Objects.requireNonNull($.keyName, "expected parameter 'keyName' to be non-null");
             $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
-            $.keyVersion = Objects.requireNonNull($.keyVersion, "expected parameter 'keyVersion' to be non-null");
             return $;
         }
     }
