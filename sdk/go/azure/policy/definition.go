@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +22,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -33,36 +31,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := policy.NewDefinition(ctx, "policy", &policy.DefinitionArgs{
 //				DisplayName: pulumi.String("acceptance test policy definition"),
-//				Metadata:    pulumi.String(fmt.Sprintf("    {\n    \"category\": \"General\"\n    }\n\n\n")),
+//				Metadata:    pulumi.String("    {\n    \"category\": \"General\"\n    }\n\n\n"),
 //				Mode:        pulumi.String("Indexed"),
-//				Parameters: pulumi.String(fmt.Sprintf(` {
-//	    "allowedLocations": {
-//	      "type": "Array",
-//	      "metadata": {
-//	        "description": "The list of allowed locations for resources.",
-//	        "displayName": "Allowed locations",
-//	        "strongType": "location"
-//	      }
-//	    }
-//	  }
-//
-// `)),
-//
-//				PolicyRule: pulumi.String(fmt.Sprintf(` {
-//	    "if": {
-//	      "not": {
-//	        "field": "location",
-//	        "in": "[parameters('allowedLocations')]"
-//	      }
-//	    },
-//	    "then": {
-//	      "effect": "audit"
-//	    }
-//	  }
-//
-// `)),
-//
-//				PolicyType: pulumi.String("Custom"),
+//				Parameters:  pulumi.String(" {\n    \"allowedLocations\": {\n      \"type\": \"Array\",\n      \"metadata\": {\n        \"description\": \"The list of allowed locations for resources.\",\n        \"displayName\": \"Allowed locations\",\n        \"strongType\": \"location\"\n      }\n    }\n  }\n\n"),
+//				PolicyRule:  pulumi.String(" {\n    \"if\": {\n      \"not\": {\n        \"field\": \"location\",\n        \"in\": \"[parameters('allowedLocations')]\"\n      }\n    },\n    \"then\": {\n      \"effect\": \"audit\"\n    }\n  }\n\n"),
+//				PolicyType:  pulumi.String("Custom"),
 //			})
 //			if err != nil {
 //				return err

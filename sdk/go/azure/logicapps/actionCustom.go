@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
@@ -45,23 +43,7 @@ import (
 //			}
 //			_, err = logicapps.NewActionCustom(ctx, "exampleActionCustom", &logicapps.ActionCustomArgs{
 //				LogicAppId: exampleWorkflow.ID(),
-//				Body: pulumi.String(fmt.Sprintf(`{
-//	    "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
-//	    "inputs": {
-//	        "variables": [
-//	            {
-//	                "name": "ExpirationAgeInDays",
-//	                "type": "Integer",
-//	                "value": -30
-//	            }
-//	        ]
-//	    },
-//	    "runAfter": {},
-//	    "type": "InitializeVariable"
-//	}
-//
-// `)),
-//
+//				Body:       pulumi.String("{\n    \"description\": \"A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).\",\n    \"inputs\": {\n        \"variables\": [\n            {\n                \"name\": \"ExpirationAgeInDays\",\n                \"type\": \"Integer\",\n                \"value\": -30\n            }\n        ]\n    },\n    \"runAfter\": {},\n    \"type\": \"InitializeVariable\"\n}\n"),
 //			})
 //			if err != nil {
 //				return err

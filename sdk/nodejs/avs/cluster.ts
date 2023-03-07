@@ -23,8 +23,8 @@ import * as utilities from "../utilities";
  *     },
  *     networkSubnetCidr: "192.168.48.0/22",
  *     internetConnectionEnabled: false,
- *     nsxtPassword: `QazWsx13$Edc`,
- *     vcenterPassword: `WsxEdc23$Rfv`,
+ *     nsxtPassword: "QazWsx13$Edc",
+ *     vcenterPassword: "WsxEdc23$Rfv",
  * });
  * const exampleCluster = new azure.avs.Cluster("exampleCluster", {
  *     vmwareCloudId: examplePrivateCloud.id,

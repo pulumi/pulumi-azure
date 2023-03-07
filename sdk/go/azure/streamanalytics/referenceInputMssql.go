@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
@@ -70,7 +68,7 @@ import (
 //				Password:                pulumi.String("examplepassword"),
 //				RefreshType:             pulumi.String("RefreshPeriodicallyWithFull"),
 //				RefreshIntervalDuration: pulumi.String("00:20:00"),
-//				FullSnapshotQuery:       pulumi.String(fmt.Sprintf("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n")),
+//				FullSnapshotQuery:       pulumi.String("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n"),
 //			})
 //			if err != nil {
 //				return err

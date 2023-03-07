@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -139,7 +139,7 @@ import (
 //				Publisher:          pulumi.String("Microsoft.Azure.Extensions"),
 //				Type:               pulumi.String("CustomScript"),
 //				TypeHandlerVersion: pulumi.String("2.0"),
-//				Settings:           pulumi.String(fmt.Sprintf(" {\n  \"commandToExecute\": \"hostname && uptime\"\n }\n")),
+//				Settings:           pulumi.String(" {\n  \"commandToExecute\": \"hostname && uptime\"\n }\n"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

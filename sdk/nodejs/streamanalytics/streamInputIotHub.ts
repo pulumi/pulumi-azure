@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
  *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
  *     endpoint: "messages/events",
- *     eventhubConsumerGroupName: `$Default`,
+ *     eventhubConsumerGroupName: "$Default",
  *     iothubNamespace: exampleIoTHub.name,
  *     sharedAccessPolicyKey: exampleIoTHub.sharedAccessPolicies.apply(sharedAccessPolicies => sharedAccessPolicies[0].primaryKey),
  *     sharedAccessPolicyName: "iothubowner",

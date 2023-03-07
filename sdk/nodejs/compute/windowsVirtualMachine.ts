@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     size: "Standard_F2",
  *     adminUsername: "adminuser",
- *     adminPassword: `P@$$w0rd1234!`,
+ *     adminPassword: "P@$$w0rd1234!",
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     osDisk: {
  *         caching: "ReadWrite",

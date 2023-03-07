@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
@@ -45,16 +43,7 @@ import (
 //			}
 //			_, err = logicapps.NewTriggerCustom(ctx, "exampleTriggerCustom", &logicapps.TriggerCustomArgs{
 //				LogicAppId: exampleWorkflow.ID(),
-//				Body: pulumi.String(fmt.Sprintf(`{
-//	  "recurrence": {
-//	    "frequency": "Day",
-//	    "interval": 1
-//	  },
-//	  "type": "Recurrence"
-//	}
-//
-// `)),
-//
+//				Body:       pulumi.String("{\n  \"recurrence\": {\n    \"frequency\": \"Day\",\n    \"interval\": 1\n  },\n  \"type\": \"Recurrence\"\n}\n"),
 //			})
 //			if err != nil {
 //				return err

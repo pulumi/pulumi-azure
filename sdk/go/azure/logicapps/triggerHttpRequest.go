@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
@@ -45,17 +43,7 @@ import (
 //			}
 //			_, err = logicapps.NewTriggerHttpRequest(ctx, "exampleTriggerHttpRequest", &logicapps.TriggerHttpRequestArgs{
 //				LogicAppId: exampleWorkflow.ID(),
-//				Schema: pulumi.String(fmt.Sprintf(`{
-//	    "type": "object",
-//	    "properties": {
-//	        "hello": {
-//	            "type": "string"
-//	        }
-//	    }
-//	}
-//
-// `)),
-//
+//				Schema:     pulumi.String("{\n    \"type\": \"object\",\n    \"properties\": {\n        \"hello\": {\n            \"type\": \"string\"\n        }\n    }\n}\n"),
 //			})
 //			if err != nil {
 //				return err

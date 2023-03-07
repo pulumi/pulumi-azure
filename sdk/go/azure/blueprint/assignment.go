@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/blueprint"
@@ -104,8 +102,8 @@ import (
 //						exampleUserAssignedIdentity.ID(),
 //					},
 //				},
-//				ResourceGroups:  pulumi.String(fmt.Sprintf("    {\n      \"ResourceGroup\": {\n        \"name\": \"exampleRG-bp\"\n      }\n    }\n")),
-//				ParameterValues: pulumi.String(fmt.Sprintf("    {\n      \"allowedlocationsforresourcegroups_listOfAllowedLocations\": {\n        \"value\": [\"westus\", \"westus2\", \"eastus\", \"centralus\", \"centraluseuap\", \"southcentralus\", \"northcentralus\", \"westcentralus\", \"eastus2\", \"eastus2euap\", \"brazilsouth\", \"brazilus\", \"northeurope\", \"westeurope\", \"eastasia\", \"southeastasia\", \"japanwest\", \"japaneast\", \"koreacentral\", \"koreasouth\", \"indiasouth\", \"indiawest\", \"indiacentral\", \"australiaeast\", \"australiasoutheast\", \"canadacentral\", \"canadaeast\", \"uknorth\", \"uksouth2\", \"uksouth\", \"ukwest\", \"francecentral\", \"francesouth\", \"australiacentral\", \"australiacentral2\", \"uaecentral\", \"uaenorth\", \"southafricanorth\", \"southafricawest\", \"switzerlandnorth\", \"switzerlandwest\", \"germanynorth\", \"germanywestcentral\", \"norwayeast\", \"norwaywest\"]\n      }\n    }\n")),
+//				ResourceGroups:  pulumi.String("    {\n      \"ResourceGroup\": {\n        \"name\": \"exampleRG-bp\"\n      }\n    }\n"),
+//				ParameterValues: pulumi.String("    {\n      \"allowedlocationsforresourcegroups_listOfAllowedLocations\": {\n        \"value\": [\"westus\", \"westus2\", \"eastus\", \"centralus\", \"centraluseuap\", \"southcentralus\", \"northcentralus\", \"westcentralus\", \"eastus2\", \"eastus2euap\", \"brazilsouth\", \"brazilus\", \"northeurope\", \"westeurope\", \"eastasia\", \"southeastasia\", \"japanwest\", \"japaneast\", \"koreacentral\", \"koreasouth\", \"indiasouth\", \"indiawest\", \"indiacentral\", \"australiaeast\", \"australiasoutheast\", \"canadacentral\", \"canadaeast\", \"uknorth\", \"uksouth2\", \"uksouth\", \"ukwest\", \"francecentral\", \"francesouth\", \"australiacentral\", \"australiacentral2\", \"uaecentral\", \"uaenorth\", \"southafricanorth\", \"southafricawest\", \"switzerlandnorth\", \"switzerlandwest\", \"germanynorth\", \"germanywestcentral\", \"norwayeast\", \"norwaywest\"]\n      }\n    }\n"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				operator,
 //				owner,

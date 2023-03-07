@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -112,28 +112,7 @@ import (
 //					"foo": pulumi.String("test1"),
 //					"bar": pulumi.String("test2"),
 //				},
-//				SchemaJson: pulumi.String(fmt.Sprintf(`{
-//	  "type": "object",
-//	  "properties": {
-//	    "name": {
-//	      "type": "object",
-//	      "properties": {
-//	        "firstName": {
-//	          "type": "string"
-//	        },
-//	        "lastName": {
-//	          "type": "string"
-//	        }
-//	      }
-//	    },
-//	    "age": {
-//	      "type": "integer"
-//	    }
-//	  }
-//	}
-//
-// `)),
-//
+//				SchemaJson: pulumi.String("{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"firstName\": {\n          \"type\": \"string\"\n        },\n        \"lastName\": {\n          \"type\": \"string\"\n        }\n      }\n    },\n    \"age\": {\n      \"type\": \"integer\"\n    }\n  }\n}\n"),
 //			})
 //			if err != nil {
 //				return err

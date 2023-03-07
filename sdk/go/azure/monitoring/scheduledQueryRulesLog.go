@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
@@ -64,7 +62,7 @@ import (
 //				Scopes: pulumi.StringArray{
 //					exampleAnalyticsWorkspace.ID(),
 //				},
-//				Description: pulumi.String(fmt.Sprintf("Action will be triggered when Average_%v Idle Time metric is less than 10.", "%")),
+//				Description: pulumi.String("Action will be triggered when Average_% Idle Time metric is less than 10."),
 //				Frequency:   pulumi.String("PT1M"),
 //				WindowSize:  pulumi.String("PT5M"),
 //				Criterias: monitoring.MetricAlertCriteriaArray{
@@ -89,7 +87,7 @@ import (
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Criteria: &monitoring.ScheduledQueryRulesLogCriteriaArgs{
-//					MetricName: pulumi.String(fmt.Sprintf("Average_%v Idle Time", "%")),
+//					MetricName: pulumi.String("Average_% Idle Time"),
 //					Dimensions: monitoring.ScheduledQueryRulesLogCriteriaDimensionArray{
 //						&monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs{
 //							Name:     pulumi.String("Computer"),

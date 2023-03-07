@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     templateName: "ConfirmSignUpIdentityDefault",
  *     resourceGroupName: exampleResourceGroup.name,
  *     apiManagementName: exampleService.name,
- *     subject: `Customized confirmation email for your new $OrganizationName API account`,
+ *     subject: "Customized confirmation email for your new $OrganizationName API account",
  *     body: `<!DOCTYPE html >
  * <html>
  * <head>

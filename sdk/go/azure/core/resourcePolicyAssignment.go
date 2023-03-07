@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
@@ -41,20 +39,7 @@ import (
 //			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
 //				PolicyType: pulumi.String("Custom"),
 //				Mode:       pulumi.String("All"),
-//				PolicyRule: pulumi.String(fmt.Sprintf(` {
-//	    "if": {
-//	      "not": {
-//	        "field": "location",
-//	        "equals": "westeurope"
-//	      }
-//	    },
-//	    "then": {
-//	      "effect": "Deny"
-//	    }
-//	  }
-//
-// `)),
-//
+//				PolicyRule: pulumi.String(" {\n    \"if\": {\n      \"not\": {\n        \"field\": \"location\",\n        \"equals\": \"westeurope\"\n      }\n    },\n    \"then\": {\n      \"effect\": \"Deny\"\n    }\n  }\n"),
 //			})
 //			if err != nil {
 //				return err

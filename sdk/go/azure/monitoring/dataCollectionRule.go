@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,6 @@ import (
 // import (
 //
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
@@ -121,7 +120,7 @@ import (
 //							},
 //							SamplingFrequencyInSeconds: pulumi.Int(10),
 //							CounterSpecifiers: pulumi.StringArray{
-//								pulumi.String(fmt.Sprintf("Processor(*)\\%v Processor Time", "%")),
+//								pulumi.String("Processor(*)\\% Processor Time"),
 //							},
 //							Name: pulumi.String("test-datasource-perfcounter"),
 //						},

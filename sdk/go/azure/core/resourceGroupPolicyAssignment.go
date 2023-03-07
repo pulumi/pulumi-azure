@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
@@ -40,20 +38,7 @@ import (
 //				PolicyType:  pulumi.String("Custom"),
 //				Mode:        pulumi.String("All"),
 //				DisplayName: pulumi.String("my-policy-definition"),
-//				PolicyRule: pulumi.String(fmt.Sprintf(` {
-//	    "if": {
-//	      "not": {
-//	        "field": "location",
-//	        "equals": "westeurope"
-//	      }
-//	    },
-//	    "then": {
-//	      "effect": "Deny"
-//	    }
-//	  }
-//
-// `)),
-//
+//				PolicyRule:  pulumi.String(" {\n    \"if\": {\n      \"not\": {\n        \"field\": \"location\",\n        \"equals\": \"westeurope\"\n      }\n    },\n    \"then\": {\n      \"effect\": \"Deny\"\n    }\n  }\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -61,17 +46,7 @@ import (
 //			_, err = core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
 //				ResourceGroupId:    exampleResourceGroup.ID(),
 //				PolicyDefinitionId: exampleDefinition.ID(),
-//				Parameters: pulumi.String(fmt.Sprintf(`    {
-//	      "tagName": {
-//	        "value": "Business Unit"
-//	      },
-//	      "tagValue": {
-//	        "value": "BU"
-//	      }
-//	    }
-//
-// `)),
-//
+//				Parameters:         pulumi.String("    {\n      \"tagName\": {\n        \"value\": \"Business Unit\"\n      },\n      \"tagValue\": {\n        \"value\": \"BU\"\n      }\n    }\n"),
 //			})
 //			if err != nil {
 //				return err

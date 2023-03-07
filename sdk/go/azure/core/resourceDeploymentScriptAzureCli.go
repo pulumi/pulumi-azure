@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
@@ -52,7 +50,7 @@ import (
 //				CleanupPreference: pulumi.String("OnSuccess"),
 //				ForceUpdateTag:    pulumi.String("1"),
 //				Timeout:           pulumi.String("PT30M"),
-//				ScriptContent:     pulumi.String(fmt.Sprintf("            echo \"{\\\"name\\\":{\\\"displayName\\\":\\\"$1 $2\\\"}}\" > $AZ_SCRIPTS_OUTPUT_PATH\n")),
+//				ScriptContent:     pulumi.String("            echo \"{\\\"name\\\":{\\\"displayName\\\":\\\"$1 $2\\\"}}\" > $AZ_SCRIPTS_OUTPUT_PATH\n"),
 //				Identity: &core.ResourceDeploymentScriptAzureCliIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{

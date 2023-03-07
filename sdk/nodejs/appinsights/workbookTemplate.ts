@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *             name: "text - 2",
  *         }],
  *         styleSettings: {},
- *         `$schema`: "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+ *         $schema: "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
  *     }),
  *     localized: JSON.stringify({
  *         ar: [{
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *                     name: "text - 2",
  *                 }],
  *                 styleSettings: {},
- *                 `$schema`: "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+ *                 $schema: "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
  *             },
  *         }],
  *     }),

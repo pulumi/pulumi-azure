@@ -93,7 +93,7 @@ import * as utilities from "../utilities";
  *     ],
  *     enrichments: [{
  *         key: "tenant",
- *         value: `$twin.tags.Tenant`,
+ *         value: "$twin.tags.Tenant",
  *         endpointNames: [
  *             "export",
  *             "export2",

@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * const exampleMetricAlert = new azure.monitoring.MetricAlert("exampleMetricAlert", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     scopes: [exampleAnalyticsWorkspace.id],
- *     description: `Action will be triggered when Average_% Idle Time metric is less than 10.`,
+ *     description: "Action will be triggered when Average_% Idle Time metric is less than 10.",
  *     frequency: "PT1M",
  *     windowSize: "PT5M",
  *     criterias: [{
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     criteria: {
- *         metricName: `Average_% Idle Time`,
+ *         metricName: "Average_% Idle Time",
  *         dimensions: [{
  *             name: "Computer",
  *             operator: "Include",
