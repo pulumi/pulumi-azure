@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/avs"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
@@ -45,8 +43,8 @@ import (
 //				},
 //				NetworkSubnetCidr:         pulumi.String("192.168.48.0/22"),
 //				InternetConnectionEnabled: pulumi.Bool(false),
-//				NsxtPassword:              pulumi.String(fmt.Sprintf("QazWsx13$Edc")),
-//				VcenterPassword:           pulumi.String(fmt.Sprintf("WsxEdc23$Rfv")),
+//				NsxtPassword:              pulumi.String("QazWsx13$Edc"),
+//				VcenterPassword:           pulumi.String("WsxEdc23$Rfv"),
 //			})
 //			if err != nil {
 //				return err

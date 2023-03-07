@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,8 +26,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -43,64 +41,7 @@ import (
 //			}
 //			exampleTemplateDeployment, err := core.NewTemplateDeployment(ctx, "exampleTemplateDeployment", &core.TemplateDeploymentArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TemplateBody: pulumi.String(fmt.Sprintf(`{
-//	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-//	  "contentVersion": "1.0.0.0",
-//	  "parameters": {
-//	    "storageAccountType": {
-//	      "type": "string",
-//	      "defaultValue": "Standard_LRS",
-//	      "allowedValues": [
-//	        "Standard_LRS",
-//	        "Standard_GRS",
-//	        "Standard_ZRS"
-//	      ],
-//	      "metadata": {
-//	        "description": "Storage Account type"
-//	      }
-//	    }
-//	  },
-//	  "variables": {
-//	    "location": "[resourceGroup().location]",
-//	    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'storage')]",
-//	    "publicIPAddressName": "[concat('myPublicIp', uniquestring(resourceGroup().id))]",
-//	    "publicIPAddressType": "Dynamic",
-//	    "apiVersion": "2015-06-15",
-//	    "dnsLabelPrefix": "example-acctest"
-//	  },
-//	  "resources": [
-//	    {
-//	      "type": "Microsoft.Storage/storageAccounts",
-//	      "name": "[variables('storageAccountName')]",
-//	      "apiVersion": "[variables('apiVersion')]",
-//	      "location": "[variables('location')]",
-//	      "properties": {
-//	        "accountType": "[parameters('storageAccountType')]"
-//	      }
-//	    },
-//	    {
-//	      "type": "Microsoft.Network/publicIPAddresses",
-//	      "apiVersion": "[variables('apiVersion')]",
-//	      "name": "[variables('publicIPAddressName')]",
-//	      "location": "[variables('location')]",
-//	      "properties": {
-//	        "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-//	        "dnsSettings": {
-//	          "domainNameLabel": "[variables('dnsLabelPrefix')]"
-//	        }
-//	      }
-//	    }
-//	  ],
-//	  "outputs": {
-//	    "storageAccountName": {
-//	      "type": "string",
-//	      "value": "[variables('storageAccountName')]"
-//	    }
-//	  }
-//	}
-//
-// `)),
-//
+//				TemplateBody:      pulumi.String("{\n  \"$schema\": \"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",\n  \"contentVersion\": \"1.0.0.0\",\n  \"parameters\": {\n    \"storageAccountType\": {\n      \"type\": \"string\",\n      \"defaultValue\": \"Standard_LRS\",\n      \"allowedValues\": [\n        \"Standard_LRS\",\n        \"Standard_GRS\",\n        \"Standard_ZRS\"\n      ],\n      \"metadata\": {\n        \"description\": \"Storage Account type\"\n      }\n    }\n  },\n  \"variables\": {\n    \"location\": \"[resourceGroup().location]\",\n    \"storageAccountName\": \"[concat(uniquestring(resourceGroup().id), 'storage')]\",\n    \"publicIPAddressName\": \"[concat('myPublicIp', uniquestring(resourceGroup().id))]\",\n    \"publicIPAddressType\": \"Dynamic\",\n    \"apiVersion\": \"2015-06-15\",\n    \"dnsLabelPrefix\": \"example-acctest\"\n  },\n  \"resources\": [\n    {\n      \"type\": \"Microsoft.Storage/storageAccounts\",\n      \"name\": \"[variables('storageAccountName')]\",\n      \"apiVersion\": \"[variables('apiVersion')]\",\n      \"location\": \"[variables('location')]\",\n      \"properties\": {\n        \"accountType\": \"[parameters('storageAccountType')]\"\n      }\n    },\n    {\n      \"type\": \"Microsoft.Network/publicIPAddresses\",\n      \"apiVersion\": \"[variables('apiVersion')]\",\n      \"name\": \"[variables('publicIPAddressName')]\",\n      \"location\": \"[variables('location')]\",\n      \"properties\": {\n        \"publicIPAllocationMethod\": \"[variables('publicIPAddressType')]\",\n        \"dnsSettings\": {\n          \"domainNameLabel\": \"[variables('dnsLabelPrefix')]\"\n        }\n      }\n    }\n  ],\n  \"outputs\": {\n    \"storageAccountName\": {\n      \"type\": \"string\",\n      \"value\": \"[variables('storageAccountName')]\"\n    }\n  }\n}\n"),
 //				Parameters: pulumi.StringMap{
 //					"storageAccountType": pulumi.String("Standard_GRS"),
 //				},

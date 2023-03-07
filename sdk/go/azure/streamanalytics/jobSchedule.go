@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
@@ -75,7 +73,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Example"),
 //				},
-//				TransformationQuery: pulumi.String(fmt.Sprintf("    SELECT *\n    INTO [exampleoutput]\n    FROM [exampleinput]\n")),
+//				TransformationQuery: pulumi.String("    SELECT *\n    INTO [exampleoutput]\n    FROM [exampleinput]\n"),
 //			})
 //			if err != nil {
 //				return err

@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     size: "Standard_DS2",
  *     username: "exampleuser99",
- *     password: `Pa$w0rd1234!`,
+ *     password: "Pa$w0rd1234!",
  *     labVirtualNetworkId: exampleVirtualNetwork.id,
  *     labSubnetName: exampleVirtualNetwork.subnet.apply(subnet => subnet.name),
  *     storageType: "Premium",

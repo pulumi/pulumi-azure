@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     type: "CustomScript",
  *     typeHandlerVersion: "2.0",
  *     settings: JSON.stringify({
- *         commandToExecute: `echo $HOSTNAME`,
+ *         commandToExecute: "echo $HOSTNAME",
  *     }),
  * });
  * ```

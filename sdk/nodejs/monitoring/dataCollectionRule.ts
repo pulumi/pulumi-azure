@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *                 "Microsoft-InsightsMetrics",
  *             ],
  *             samplingFrequencyInSeconds: 10,
- *             counterSpecifiers: [`Processor(*)\% Processor Time`],
+ *             counterSpecifiers: ["Processor(*)\\% Processor Time"],
  *             name: "test-datasource-perfcounter",
  *         }],
  *         windowsEventLogs: [{

@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *             },
  *             {
  *                 direction: "out",
- *                 name: `$return`,
+ *                 name: "$return",
  *                 type: "http",
  *             },
  *         ],
@@ -124,7 +124,7 @@ import * as utilities from "../utilities";
  *             },
  *             {
  *                 direction: "out",
- *                 name: `$return`,
+ *                 name: "$return",
  *                 type: "http",
  *             },
  *         ],

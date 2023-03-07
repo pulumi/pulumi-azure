@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,8 +18,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -28,34 +26,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := healthcare.NewMedtechServiceFhirDestination(ctx, "test", &healthcare.MedtechServiceFhirDestinationArgs{
-//				DestinationFhirMappingJson: pulumi.String(fmt.Sprintf(`  {
-//	            "templateType": "CollectionFhirTemplate",
-//	            "template": [
-//	              {
-//	                "templateType": "CodeValueFhir",
-//	                "template": {
-//	                  "codes": [
-//	                    {
-//	                      "code": "8867-4",
-//	                      "system": "http://loinc.org",
-//	                      "display": "Heart rate"
-//	                    }
-//	                  ],
-//	                  "periodInterval": 60,
-//	                  "typeName": "heartrate",
-//	                  "value": {
-//	                    "defaultPeriod": 5000,
-//	                    "unit": "count/min",
-//	                    "valueName": "hr",
-//	                    "valueType": "SampledData"
-//	                  }
-//	                }
-//	              }
-//	            ]
-//	  }
-//
-// `)),
-//
+//				DestinationFhirMappingJson:        pulumi.String("  {\n            \"templateType\": \"CollectionFhirTemplate\",\n            \"template\": [\n              {\n                \"templateType\": \"CodeValueFhir\",\n                \"template\": {\n                  \"codes\": [\n                    {\n                      \"code\": \"8867-4\",\n                      \"system\": \"http://loinc.org\",\n                      \"display\": \"Heart rate\"\n                    }\n                  ],\n                  \"periodInterval\": 60,\n                  \"typeName\": \"heartrate\",\n                  \"value\": {\n                    \"defaultPeriod\": 5000,\n                    \"unit\": \"count/min\",\n                    \"valueName\": \"hr\",\n                    \"valueType\": \"SampledData\"\n                  }\n                }\n              }\n            ]\n  }\n  \n"),
 //				DestinationFhirServiceId:          pulumi.String("fhir_service_id"),
 //				DestinationIdentityResolutionType: pulumi.String("Create"),
 //				Location:                          pulumi.String("east us"),

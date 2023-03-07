@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     startTask: {
- *         commandLine: `echo 'Hello World from $env'`,
+ *         commandLine: "echo 'Hello World from $env'",
  *         taskRetryMaximum: 1,
  *         waitForSuccess: true,
  *         commonEnvironmentProperties: {

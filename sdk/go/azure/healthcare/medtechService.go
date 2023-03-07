@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -30,30 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := healthcare.NewMedtechService(ctx, "test", &healthcare.MedtechServiceArgs{
-//				DeviceMappingJson: pulumi.String(fmt.Sprintf(`{
-//	    "templateType": "CollectionContent",
-//	    "template": [
-//	                {
-//	                  "templateType": "JsonPathContent",
-//	                  "template": {
-//	                    "typeName": "heartrate",
-//	                    "typeMatchExpression": "$..[?(@heartrate)]",
-//	                    "deviceIdExpression": "$.deviceid",
-//	                    "timestampExpression": "$.measurementdatetime",
-//	                    "values": [
-//	                      {
-//	                        "required": "true",
-//	                        "valueExpression": "$.heartrate",
-//	                        "valueName": "hr"
-//	                      }
-//	                    ]
-//	                  }
-//	                }
-//	              ]
-//	}
-//
-// `)),
-//
+//				DeviceMappingJson:         pulumi.String("{\n    \"templateType\": \"CollectionContent\",\n    \"template\": [\n                {\n                  \"templateType\": \"JsonPathContent\",\n                  \"template\": {\n                    \"typeName\": \"heartrate\",\n                    \"typeMatchExpression\": \"$..[?(@heartrate)]\",\n                    \"deviceIdExpression\": \"$.deviceid\",\n                    \"timestampExpression\": \"$.measurementdatetime\",\n                    \"values\": [\n                      {\n                        \"required\": \"true\",\n                        \"valueExpression\": \"$.heartrate\",\n                        \"valueName\": \"hr\"\n                      }\n                    ]\n                  }\n                }\n              ]\n}\n\n"),
 //				EventhubConsumerGroupName: pulumi.String("tfex-eventhub-consumer-group.name"),
 //				EventhubName:              pulumi.String("tfex-eventhub.name"),
 //				EventhubNamespaceName:     pulumi.String("tfex-eventhub-namespace.name"),

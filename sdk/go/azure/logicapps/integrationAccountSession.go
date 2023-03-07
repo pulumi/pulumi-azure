@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
@@ -47,7 +45,7 @@ import (
 //			_, err = logicapps.NewIntegrationAccountSession(ctx, "exampleIntegrationAccountSession", &logicapps.IntegrationAccountSessionArgs{
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
-//				Content:                pulumi.String(fmt.Sprintf(" {\n       \"controlNumber\": \"1234\"\n    }\n")),
+//				Content:                pulumi.String(" {\n       \"controlNumber\": \"1234\"\n    }\n"),
 //			})
 //			if err != nil {
 //				return err

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         purpose: "AcceptanceTests",
  *     },
  *     authenticationConfiguration: {
- *         authority: `https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D`,
+ *         authority: "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
  *         audience: "https://azurehealthcareapis.com/",
  *         smartProxyEnabled: true,
  *     },

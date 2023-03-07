@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,8 +17,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
@@ -39,7 +37,7 @@ import (
 //				Location:                   exampleResourceGroup.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("sqladmin"),
-//				AdministratorLoginPassword: pulumi.String(fmt.Sprintf("pa$$w0rd")),
+//				AdministratorLoginPassword: pulumi.String("pa$$w0rd"),
 //			})
 //			if err != nil {
 //				return err
@@ -49,7 +47,7 @@ import (
 //				Location:                   exampleResourceGroup.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("sqladmin"),
-//				AdministratorLoginPassword: pulumi.String(fmt.Sprintf("pa$$w0rd")),
+//				AdministratorLoginPassword: pulumi.String("pa$$w0rd"),
 //			})
 //			if err != nil {
 //				return err

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,6 @@ import (
 // import (
 //
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
@@ -64,7 +63,7 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"commandToExecute": fmt.Sprintf("echo $HOSTNAME"),
+//				"commandToExecute": "echo $HOSTNAME",
 //			})
 //			if err != nil {
 //				return err

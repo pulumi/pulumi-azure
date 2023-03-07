@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * const test = new azure.appconfiguration.ConfigurationFeature("test", {
  *     configurationStoreId: appconf.id,
  *     description: "test description",
- *     label: `acctest-ackeylabel-%d`,
+ *     label: "acctest-ackeylabel-%d",
  *     enabled: true,
  * });
  * ```

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
@@ -71,7 +69,7 @@ import (
 //				ApiManagementName: exampleApiOperation.ApiManagementName,
 //				ResourceGroupName: exampleApiOperation.ResourceGroupName,
 //				OperationId:       exampleApiOperation.OperationId,
-//				XmlContent:        pulumi.String(fmt.Sprintf("<policies>\n  <inbound>\n    <find-and-replace from=\"xyz\" to=\"abc\" />\n  </inbound>\n</policies>\n")),
+//				XmlContent:        pulumi.String("<policies>\n  <inbound>\n    <find-and-replace from=\"xyz\" to=\"abc\" />\n  </inbound>\n</policies>\n"),
 //			})
 //			if err != nil {
 //				return err

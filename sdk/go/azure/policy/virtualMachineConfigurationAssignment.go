@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
@@ -79,7 +77,7 @@ import (
 //				Location:          exampleResourceGroup.Location,
 //				Size:              pulumi.String("Standard_F2"),
 //				AdminUsername:     pulumi.String("adminuser"),
-//				AdminPassword:     pulumi.String(fmt.Sprintf("P@$$w0rd1234!")),
+//				AdminPassword:     pulumi.String("P@$$w0rd1234!"),
 //				NetworkInterfaceIds: pulumi.StringArray{
 //					exampleNetworkInterface.ID(),
 //				},

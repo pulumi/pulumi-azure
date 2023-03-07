@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
@@ -46,7 +44,7 @@ import (
 //			_, err = appconfiguration.NewConfigurationFeature(ctx, "test", &appconfiguration.ConfigurationFeatureArgs{
 //				ConfigurationStoreId: appconf.ID(),
 //				Description:          pulumi.String("test description"),
-//				Label:                pulumi.String(fmt.Sprintf("acctest-ackeylabel-%vd", "%")),
+//				Label:                pulumi.String("acctest-ackeylabel-%d"),
 //				Enabled:              pulumi.Bool(true),
 //			})
 //			if err != nil {

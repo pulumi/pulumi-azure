@@ -19,14 +19,14 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     version: "12.0",
  *     administratorLogin: "sqladmin",
- *     administratorLoginPassword: `pa$$w0rd`,
+ *     administratorLoginPassword: "pa$$w0rd",
  * });
  * const secondary = new azure.sql.SqlServer("secondary", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     version: "12.0",
  *     administratorLogin: "sqladmin",
- *     administratorLoginPassword: `pa$$w0rd`,
+ *     administratorLoginPassword: "pa$$w0rd",
  * });
  * const db1 = new azure.sql.Database("db1", {
  *     resourceGroupName: primary.resourceGroupName,

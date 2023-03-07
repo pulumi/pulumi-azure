@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,8 +59,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -73,21 +71,7 @@ import (
 //				Variables: pulumi.StringMap{
 //					"bob": pulumi.String("item1"),
 //				},
-//				ActivitiesJson: pulumi.String(fmt.Sprintf(`[
-//	    {
-//	        "name": "Append variable1",
-//	        "type": "AppendVariable",
-//	        "dependsOn": [],
-//	        "userProperties": [],
-//	        "typeProperties": {
-//	          "variableName": "bob",
-//	          "value": "something"
-//	        }
-//	    }
-//
-// ]
-// `)),
-//
+//				ActivitiesJson: pulumi.String("[\n    {\n        \"name\": \"Append variable1\",\n        \"type\": \"AppendVariable\",\n        \"dependsOn\": [],\n        \"userProperties\": [],\n        \"typeProperties\": {\n          \"variableName\": \"bob\",\n          \"value\": \"something\"\n        }\n    }\n]\n"),
 //			})
 //			if err != nil {
 //				return err

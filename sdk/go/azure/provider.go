@@ -61,19 +61,19 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
-	if isZero(args.Environment) {
+	if args.Environment == nil {
 		args.Environment = pulumi.StringPtr(getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").(string))
 	}
-	if isZero(args.MetadataHost) {
+	if args.MetadataHost == nil {
 		args.MetadataHost = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_METADATA_HOSTNAME").(string))
 	}
-	if isZero(args.SkipProviderRegistration) {
+	if args.SkipProviderRegistration == nil {
 		args.SkipProviderRegistration = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION").(bool))
 	}
-	if isZero(args.StorageUseAzuread) {
+	if args.StorageUseAzuread == nil {
 		args.StorageUseAzuread = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_STORAGE_USE_AZUREAD").(bool))
 	}
-	if isZero(args.SubscriptionId) {
+	if args.SubscriptionId == nil {
 		args.SubscriptionId = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID").(string))
 	}
 	var resource Provider

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
@@ -135,7 +133,7 @@ import (
 //				Enrichments: iot.IoTHubEnrichmentArray{
 //					&iot.IoTHubEnrichmentArgs{
 //						Key:   pulumi.String("tenant"),
-//						Value: pulumi.String(fmt.Sprintf("$twin.tags.Tenant")),
+//						Value: pulumi.String("$twin.tags.Tenant"),
 //						EndpointNames: pulumi.StringArray{
 //							pulumi.String("export"),
 //							pulumi.String("export2"),

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,6 @@ import (
 // import (
 //
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
@@ -37,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]string{
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"version": "Notebook/1.0",
 //				"items": []map[string]interface{}{
 //					map[string]interface{}{
@@ -48,8 +47,8 @@ import (
 //						"name": "text - 2",
 //					},
 //				},
-//				"styleSettings":        nil,
-//				fmt.Sprintf("$schema"): "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+//				"styleSettings": nil,
+//				"$schema":       "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
 //			})
 //			if err != nil {
 //				return err
@@ -67,7 +66,7 @@ import (
 //								"order":        100,
 //							},
 //						},
-//						"templateData": map[string]string{
+//						"templateData": map[string]interface{}{
 //							"version": "Notebook/1.0",
 //							"items": []map[string]interface{}{
 //								map[string]interface{}{
@@ -78,8 +77,8 @@ import (
 //									"name": "text - 2",
 //								},
 //							},
-//							"styleSettings":        nil,
-//							fmt.Sprintf("$schema"): "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+//							"styleSettings": nil,
+//							"$schema":       "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
 //						},
 //					},
 //				},

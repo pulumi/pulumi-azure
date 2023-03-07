@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
@@ -60,7 +58,7 @@ import (
 //					return &exampleJob.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput),
 //				Endpoint:                  pulumi.String("messages/events"),
-//				EventhubConsumerGroupName: pulumi.String(fmt.Sprintf("$Default")),
+//				EventhubConsumerGroupName: pulumi.String("$Default"),
 //				IothubNamespace:           exampleIoTHub.Name,
 //				SharedAccessPolicyKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {
 //					return &sharedAccessPolicies[0].PrimaryKey, nil

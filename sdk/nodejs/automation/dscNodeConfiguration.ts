@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *   ResourceID = "[File]bla";
  *   Ensure = "Present";
  *   Contents = "bogus Content";
- *   DestinationPath = "c:\\bogus.txt";
+ *   DestinationPath = "c:\\\\bogus.txt";
  *   ModuleName = "PSDesiredStateConfiguration";
  *   SourceInfo = "::3::9::file";
  *   ModuleVersion = "1.0";
