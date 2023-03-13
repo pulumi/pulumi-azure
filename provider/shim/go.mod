@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 )
 
-replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230302145113-018eb688c317
+replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230314110926-3d31c241e34d
 
 require (
 	github.com/Azure/azure-sdk-for-go v66.0.0+incompatible // indirect
@@ -23,14 +23,14 @@ require (
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/btubbs/datetime v0.1.0 // indirect
 	github.com/fatih/color v1.13.0 // indirect
-	github.com/gofrs/uuid v4.0.0+incompatible // indirect
+	github.com/gofrs/uuid v4.4.0+incompatible // indirect
 	github.com/golang-jwt/jwt/v4 v4.4.3 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-azure-helpers v0.52.0 // indirect
-	github.com/hashicorp/go-azure-sdk v0.20230222.1094703 // indirect
+	github.com/hashicorp/go-azure-helpers v0.55.0 // indirect
+	github.com/hashicorp/go-azure-sdk v0.20230309.1123256 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
@@ -62,7 +62,7 @@ require (
 	github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 // indirect
 	github.com/rickb777/plural v1.2.0 // indirect
 	github.com/tombuildsstuff/giovanni v0.20.0 // indirect
-	github.com/tombuildsstuff/kermit v0.20230208.1135849 // indirect
+	github.com/tombuildsstuff/kermit v0.20230307.1105329 // indirect
 	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 	github.com/vmihailenco/msgpack/v4 v4.3.12 // indirect
 	github.com/vmihailenco/tagparser v0.1.1 // indirect
