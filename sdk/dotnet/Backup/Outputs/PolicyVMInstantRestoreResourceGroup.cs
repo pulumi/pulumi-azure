@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Backup.Outputs
     [OutputType]
     public sealed class PolicyVMInstantRestoreResourceGroup
     {
+        /// <summary>
+        /// The prefix for the `instant_restore_resource_group` name.
+        /// </summary>
         public readonly string Prefix;
+        /// <summary>
+        /// The suffix for the `instant_restore_resource_group` name.
+        /// </summary>
         public readonly string? Suffix;
 
         [OutputConstructor]

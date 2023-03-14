@@ -2819,6 +2819,13 @@ export namespace appplatform {
         type: string;
     }
 
+    export interface SpringCloudConnectionSecretStore {
+        /**
+         * The key vault id to store secret.
+         */
+        keyVaultId: string;
+    }
+
     export interface SpringCloudContainerDeploymentQuota {
         /**
          * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -3856,6 +3863,13 @@ export namespace appservice {
          * The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
          */
         type: string;
+    }
+
+    export interface ConnectionSecretStore {
+        /**
+         * The key vault id to store secret.
+         */
+        keyVaultId: string;
     }
 
     export interface EnvironmentClusterSetting {
@@ -5224,11 +5238,11 @@ export namespace appservice {
          */
         additionalLoginParameters: {[key: string]: string};
         /**
-         * A list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+         * External URLs that can be redirected to as part of logging in or logging out of the app.
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The default authentication provider used when multiple providers are configured.
+         * The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
          */
         defaultProvider: string;
         /**
@@ -5256,7 +5270,7 @@ export namespace appservice {
          */
         microsofts: outputs.appservice.GetLinuxFunctionAppAuthSettingMicrosoft[];
         /**
-         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         * The Runtime Version of the Authentication and Authorisation feature of this App.
          */
         runtimeVersion: string;
         /**
@@ -5264,7 +5278,7 @@ export namespace appservice {
          */
         tokenRefreshExtensionHours: number;
         /**
-         * Does the Linux Web App durably store platform-specific security tokens that are obtained during login flows?
+         * Is the Token Store configuration Enabled.
          */
         tokenStoreEnabled: boolean;
         /**
@@ -5279,7 +5293,7 @@ export namespace appservice {
 
     export interface GetLinuxFunctionAppAuthSettingActiveDirectory {
         /**
-         * A list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         * The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences: string[];
         /**
@@ -5381,6 +5395,343 @@ export namespace appservice {
          * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          */
         consumerSecret: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: string;
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingsV2 {
+        /**
+         * An `activeDirectoryV2` block as defined below.
+         */
+        activeDirectoryV2s: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2[];
+        /**
+         * An `appleV2` block as defined below.
+         */
+        appleV2s: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2AppleV2[];
+        /**
+         * Are the AuthV2 Settings enabled.
+         */
+        authEnabled: boolean;
+        /**
+         * An `azureStaticWebAppV2` block as defined below.
+         */
+        azureStaticWebAppV2s: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2[];
+        /**
+         * The path to the App Auth settings.
+         */
+        configFilePath: string;
+        /**
+         * Zero or more `customOidcV2` blocks as defined below.
+         */
+        customOidcV2s: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2CustomOidcV2[];
+        /**
+         * The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         */
+        defaultProvider: string;
+        /**
+         * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         */
+        excludedPaths: string[];
+        /**
+         * A `facebookV2` block as defined below.
+         */
+        facebookV2s: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2FacebookV2[];
+        /**
+         * The convention used to determine the url of the request made.
+         */
+        forwardProxyConvention: string;
+        /**
+         * The name of the custom header containing the host of the request.
+         */
+        forwardProxyCustomHostHeaderName: string;
+        /**
+         * The name of the custom header containing the scheme of the request.
+         */
+        forwardProxyCustomSchemeHeaderName: string;
+        /**
+         * A `githubV2` block as defined below.
+         */
+        githubV2s: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2GithubV2[];
+        /**
+         * A `googleV2` block as defined below.
+         */
+        googleV2s: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2GoogleV2[];
+        /**
+         * The prefix that should precede all the authentication and authorisation paths.
+         */
+        httpRouteApiPrefix: string;
+        /**
+         * A `login` block as defined below.
+         */
+        logins: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2Login[];
+        /**
+         * A `microsoftV2` block as defined below.
+         */
+        microsoftV2s: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2MicrosoftV2[];
+        /**
+         * Is the authentication flow used for all requests.
+         */
+        requireAuthentication: boolean;
+        /**
+         * Is HTTPS required on connections?
+         */
+        requireHttps: boolean;
+        /**
+         * The Runtime Version of the Authentication and Authorisation feature of this App.
+         */
+        runtimeVersion: string;
+        /**
+         * A `twitterV2` block as defined below.
+         */
+        twitterV2s: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2TwitterV2[];
+        /**
+         * The action to take for requests made without authentication.
+         */
+        unauthenticatedAction: string;
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 {
+        /**
+         * The list of allowed Applications for the Default Authorisation Policy.
+         */
+        allowedApplications: string[];
+        /**
+         * The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+         */
+        allowedAudiences: string[];
+        /**
+         * The list of allowed Group Names for the Default Authorisation Policy.
+         */
+        allowedGroups: string[];
+        /**
+         * The list of allowed Identities for the Default Authorisation Policy.
+         */
+        allowedIdentities: string[];
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
+        clientSecretCertificateThumbprint: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of Allowed Client Applications in the JWT Claim.
+         */
+        jwtAllowedClientApplications: string[];
+        /**
+         * The list of Allowed Groups in the JWT Claim.
+         */
+        jwtAllowedGroups: string[];
+        /**
+         * A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
+         */
+        loginParameters: {[key: string]: string};
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Function App.
+         */
+        tenantId: string;
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingsV2AppleV2 {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of Login scopes that are requested as part of Microsoft Account authentication.
+         */
+        loginScopes: string[];
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingsV2CustomOidcV2 {
+        /**
+         * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+         */
+        authorisationEndpoint: string;
+        /**
+         * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+         */
+        certificationUri: string;
+        /**
+         * The Client Credential Method used.
+         */
+        clientCredentialMethod: string;
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        issuerEndpoint: string;
+        /**
+         * The name which should be used for this Linux Function App.
+         */
+        name: string;
+        /**
+         * The name of the claim that contains the users name.
+         */
+        nameClaimType: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         */
+        openidConfigurationEndpoint: string;
+        /**
+         * The list of the scopes that are requested while authenticating.
+         */
+        scopes: string[];
+        /**
+         * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        tokenEndpoint: string;
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingsV2FacebookV2 {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook login.
+         */
+        appSecretSettingName: string;
+        /**
+         * The version of the Facebook API to be used while logging in.
+         */
+        graphApiVersion: string;
+        /**
+         * The list of Login scopes that are requested as part of Microsoft Account authentication.
+         */
+        loginScopes: string[];
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingsV2GithubV2 {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of Login scopes that are requested as part of Microsoft Account authentication.
+         */
+        loginScopes: string[];
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingsV2GoogleV2 {
+        /**
+         * The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+         */
+        allowedAudiences: string[];
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of Login scopes that are requested as part of Microsoft Account authentication.
+         */
+        loginScopes: string[];
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingsV2Login {
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The method by which cookies expire.
+         */
+        cookieExpirationConvention: string;
+        /**
+         * The time after the request is made when the session cookie should expire.
+         */
+        cookieExpirationTime: string;
+        /**
+         * The endpoint to which logout requests are made.
+         */
+        logoutEndpoint: string;
+        /**
+         * The time after the request is made when the nonce should expire.
+         */
+        nonceExpirationTime: string;
+        /**
+         * Are the fragments from the request preserved after the login request is made.
+         */
+        preserveUrlFragmentsForLogins: boolean;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API.
+         */
+        tokenRefreshExtensionTime: number;
+        /**
+         * Is the Token Store configuration Enabled.
+         */
+        tokenStoreEnabled: boolean;
+        /**
+         * The directory path in the App Filesystem in which the tokens are stored.
+         */
+        tokenStorePath: string;
+        /**
+         * The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+         */
+        tokenStoreSasSettingName: string;
+        /**
+         * Is the nonce validated while completing the login flow.
+         */
+        validateNonce: boolean;
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingsV2MicrosoftV2 {
+        /**
+         * The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+         */
+        allowedAudiences: string[];
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of Login scopes that are requested as part of Microsoft Account authentication.
+         */
+        loginScopes: string[];
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingsV2TwitterV2 {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
         /**
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          */
@@ -6860,11 +7211,11 @@ export namespace appservice {
          */
         additionalLoginParameters: {[key: string]: string};
         /**
-         * A list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
+         * External URLs that can be redirected to as part of logging in or logging out of the app.
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The default authentication provider to use when multiple providers are configured.
+         * The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
          */
         defaultProvider: string;
         /**
@@ -6892,7 +7243,7 @@ export namespace appservice {
          */
         microsofts: outputs.appservice.GetWindowsFunctionAppAuthSettingMicrosoft[];
         /**
-         * The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+         * The Runtime Version of the Authentication and Authorisation feature of this App.
          */
         runtimeVersion: string;
         /**
@@ -6900,7 +7251,7 @@ export namespace appservice {
          */
         tokenRefreshExtensionHours: number;
         /**
-         * Is the durable storing of platform-specific security token that are obtained during login flows enabled?
+         * Is the Token Store configuration Enabled.
          */
         tokenStoreEnabled: boolean;
         /**
@@ -6915,7 +7266,7 @@ export namespace appservice {
 
     export interface GetWindowsFunctionAppAuthSettingActiveDirectory {
         /**
-         * A list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         * The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences: string[];
         /**
@@ -7017,6 +7368,343 @@ export namespace appservice {
          * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          */
         consumerSecret: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: string;
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingsV2 {
+        /**
+         * An `activeDirectoryV2` block as defined below.
+         */
+        activeDirectoryV2s: outputs.appservice.GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2[];
+        /**
+         * An `appleV2` block as defined below.
+         */
+        appleV2s: outputs.appservice.GetWindowsFunctionAppAuthSettingsV2AppleV2[];
+        /**
+         * Are the AuthV2 Settings enabled.
+         */
+        authEnabled: boolean;
+        /**
+         * An `azureStaticWebAppV2` block as defined below.
+         */
+        azureStaticWebAppV2s: outputs.appservice.GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2[];
+        /**
+         * The path to the App Auth settings.
+         */
+        configFilePath: string;
+        /**
+         * Zero or more `customOidcV2` blocks as defined below.
+         */
+        customOidcV2s: outputs.appservice.GetWindowsFunctionAppAuthSettingsV2CustomOidcV2[];
+        /**
+         * The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+         */
+        defaultProvider: string;
+        /**
+         * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         */
+        excludedPaths: string[];
+        /**
+         * A `facebookV2` block as defined below.
+         */
+        facebookV2s: outputs.appservice.GetWindowsFunctionAppAuthSettingsV2FacebookV2[];
+        /**
+         * The convention used to determine the url of the request made.
+         */
+        forwardProxyConvention: string;
+        /**
+         * The name of the custom header containing the host of the request.
+         */
+        forwardProxyCustomHostHeaderName: string;
+        /**
+         * The name of the custom header containing the scheme of the request.
+         */
+        forwardProxyCustomSchemeHeaderName: string;
+        /**
+         * A `githubV2` block as defined below.
+         */
+        githubV2s: outputs.appservice.GetWindowsFunctionAppAuthSettingsV2GithubV2[];
+        /**
+         * A `googleV2` block as defined below.
+         */
+        googleV2s: outputs.appservice.GetWindowsFunctionAppAuthSettingsV2GoogleV2[];
+        /**
+         * The prefix that should precede all the authentication and authorisation paths.
+         */
+        httpRouteApiPrefix: string;
+        /**
+         * A `login` block as defined below.
+         */
+        logins: outputs.appservice.GetWindowsFunctionAppAuthSettingsV2Login[];
+        /**
+         * A `microsoftV2` block as defined below.
+         */
+        microsoftV2s: outputs.appservice.GetWindowsFunctionAppAuthSettingsV2MicrosoftV2[];
+        /**
+         * Is the authentication flow used for all requests.
+         */
+        requireAuthentication: boolean;
+        /**
+         * Is HTTPS required on connections?
+         */
+        requireHttps: boolean;
+        /**
+         * The Runtime Version of the Authentication and Authorisation feature of this App.
+         */
+        runtimeVersion: string;
+        /**
+         * A `twitterV2` block as defined below.
+         */
+        twitterV2s: outputs.appservice.GetWindowsFunctionAppAuthSettingsV2TwitterV2[];
+        /**
+         * The action to take for requests made without authentication.
+         */
+        unauthenticatedAction: string;
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 {
+        /**
+         * The list of allowed Applications for the Default Authorisation Policy.
+         */
+        allowedApplications: string[];
+        /**
+         * The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+         */
+        allowedAudiences: string[];
+        /**
+         * The list of allowed Group Names for the Default Authorisation Policy.
+         */
+        allowedGroups: string[];
+        /**
+         * The list of allowed Identities for the Default Authorisation Policy.
+         */
+        allowedIdentities: string[];
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
+        clientSecretCertificateThumbprint: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of Allowed Client Applications in the JWT Claim.
+         */
+        jwtAllowedClientApplications: string[];
+        /**
+         * The list of Allowed Groups in the JWT Claim.
+         */
+        jwtAllowedGroups: string[];
+        /**
+         * A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
+         */
+        loginParameters: {[key: string]: string};
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+         */
+        tenantId: string;
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingsV2AppleV2 {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of Login scopes that are requested as part of Microsoft Account authentication.
+         */
+        loginScopes: string[];
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 {
+        /**
+         * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+         */
+        authorisationEndpoint: string;
+        /**
+         * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+         */
+        certificationUri: string;
+        /**
+         * The Client Credential Method used.
+         */
+        clientCredentialMethod: string;
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        issuerEndpoint: string;
+        /**
+         * The name of this Windows Function App.
+         */
+        name: string;
+        /**
+         * The name of the claim that contains the users name.
+         */
+        nameClaimType: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         */
+        openidConfigurationEndpoint: string;
+        /**
+         * The list of the scopes that are requested while authenticating.
+         */
+        scopes: string[];
+        /**
+         * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        tokenEndpoint: string;
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingsV2FacebookV2 {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: string;
+        /**
+         * The version of the Facebook API to be used while logging in.
+         */
+        graphApiVersion: string;
+        /**
+         * The list of Login scopes that are requested as part of Microsoft Account authentication.
+         */
+        loginScopes: string[];
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingsV2GithubV2 {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of Login scopes that are requested as part of Microsoft Account authentication.
+         */
+        loginScopes: string[];
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingsV2GoogleV2 {
+        /**
+         * The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+         */
+        allowedAudiences: string[];
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of Login scopes that are requested as part of Microsoft Account authentication.
+         */
+        loginScopes: string[];
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingsV2Login {
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The method by which cookies expire.
+         */
+        cookieExpirationConvention: string;
+        /**
+         * The time after the request is made when the session cookie should expire.
+         */
+        cookieExpirationTime: string;
+        /**
+         * The endpoint to which logout requests are made.
+         */
+        logoutEndpoint: string;
+        /**
+         * The time after the request is made when the nonce should expire.
+         */
+        nonceExpirationTime: string;
+        /**
+         * Are the fragments from the request preserved after the login request is made.
+         */
+        preserveUrlFragmentsForLogins: boolean;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API.
+         */
+        tokenRefreshExtensionTime: number;
+        /**
+         * Is the Token Store configuration Enabled.
+         */
+        tokenStoreEnabled: boolean;
+        /**
+         * The directory path in the App Filesystem in which the tokens are stored.
+         */
+        tokenStorePath: string;
+        /**
+         * The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+         */
+        tokenStoreSasSettingName: string;
+        /**
+         * Is the nonce validated while completing the login flow.
+         */
+        validateNonce: boolean;
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingsV2MicrosoftV2 {
+        /**
+         * The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+         */
+        allowedAudiences: string[];
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of Login scopes that are requested as part of Microsoft Account authentication.
+         */
+        loginScopes: string[];
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingsV2TwitterV2 {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
         /**
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          */
@@ -8473,7 +9161,7 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
          */
         defaultProvider: string;
         /**
@@ -8501,7 +9189,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.LinuxFunctionAppAuthSettingsMicrosoft;
         /**
-         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          */
         runtimeVersion: string;
         /**
@@ -8630,6 +9318,347 @@ export namespace appservice {
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
          */
         consumerSecretSettingName?: string;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2 {
+        /**
+         * An `activeDirectoryV2` block as defined below.
+         */
+        activeDirectoryV2?: outputs.appservice.LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2;
+        /**
+         * An `appleV2` block as defined below.
+         */
+        appleV2?: outputs.appservice.LinuxFunctionAppAuthSettingsV2AppleV2;
+        /**
+         * Should the AuthV2 Settings be enabled. Defaults to `false`.
+         */
+        authEnabled?: boolean;
+        /**
+         * An `azureStaticWebAppV2` block as defined below.
+         */
+        azureStaticWebAppV2?: outputs.appservice.LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2;
+        /**
+         * The path to the App Auth settings.
+         */
+        configFilePath?: string;
+        /**
+         * Zero or more `customOidcV2` blocks as defined below.
+         */
+        customOidcV2s?: outputs.appservice.LinuxFunctionAppAuthSettingsV2CustomOidcV2[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         */
+        defaultProvider?: string;
+        /**
+         * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         */
+        excludedPaths?: string[];
+        /**
+         * A `facebookV2` block as defined below.
+         */
+        facebookV2?: outputs.appservice.LinuxFunctionAppAuthSettingsV2FacebookV2;
+        /**
+         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         */
+        forwardProxyConvention?: string;
+        /**
+         * The name of the custom header containing the host of the request.
+         */
+        forwardProxyCustomHostHeaderName?: string;
+        /**
+         * The name of the custom header containing the scheme of the request.
+         */
+        forwardProxyCustomSchemeHeaderName?: string;
+        /**
+         * A `githubV2` block as defined below.
+         */
+        githubV2?: outputs.appservice.LinuxFunctionAppAuthSettingsV2GithubV2;
+        /**
+         * A `googleV2` block as defined below.
+         */
+        googleV2?: outputs.appservice.LinuxFunctionAppAuthSettingsV2GoogleV2;
+        /**
+         * The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+         */
+        httpRouteApiPrefix?: string;
+        /**
+         * A `login` block as defined below.
+         */
+        login: outputs.appservice.LinuxFunctionAppAuthSettingsV2Login;
+        /**
+         * A `microsoftV2` block as defined below.
+         */
+        microsoftV2?: outputs.appservice.LinuxFunctionAppAuthSettingsV2MicrosoftV2;
+        /**
+         * Should the authentication flow be used for all requests.
+         */
+        requireAuthentication?: boolean;
+        /**
+         * Should HTTPS be required on connections? Defaults to `true`.
+         */
+        requireHttps?: boolean;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         */
+        runtimeVersion?: string;
+        /**
+         * A `twitterV2` block as defined below.
+         */
+        twitterV2?: outputs.appservice.LinuxFunctionAppAuthSettingsV2TwitterV2;
+        /**
+         * The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+         */
+        unauthenticatedAction?: string;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 {
+        /**
+         * The list of allowed Applications for the Default Authorisation Policy.
+         */
+        allowedApplications?: string[];
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The list of allowed Group Names for the Default Authorisation Policy.
+         */
+        allowedGroups?: string[];
+        /**
+         * The list of allowed Identities for the Default Authorisation Policy.
+         */
+        allowedIdentities?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
+        clientSecretCertificateThumbprint?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * A list of Allowed Client Applications in the JWT Claim.
+         */
+        jwtAllowedClientApplications?: string[];
+        /**
+         * A list of Allowed Groups in the JWT Claim.
+         */
+        jwtAllowedGroups?: string[];
+        /**
+         * A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+         */
+        loginParameters?: {[key: string]: string};
+        /**
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         */
+        tenantAuthEndpoint: string;
+        /**
+         * Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         */
+        wwwAuthenticationDisabled?: boolean;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2AppleV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes: string[];
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2CustomOidcV2 {
+        /**
+         * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+         */
+        authorisationEndpoint: string;
+        /**
+         * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+         */
+        certificationUri: string;
+        /**
+         * The Client Credential Method used.
+         */
+        clientCredentialMethod: string;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        issuerEndpoint: string;
+        /**
+         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         */
+        name: string;
+        /**
+         * The name of the claim that contains the users name.
+         */
+        nameClaimType?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         */
+        openidConfigurationEndpoint: string;
+        /**
+         * The list of the scopes that should be requested while authenticating.
+         */
+        scopes?: string[];
+        /**
+         * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        tokenEndpoint: string;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2FacebookV2 {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: string;
+        /**
+         * The version of the Facebook API to be used while logging in.
+         */
+        graphApiVersion: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2GithubV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2GoogleV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2Login {
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+         */
+        allowedExternalRedirectUrls?: string[];
+        /**
+         * The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+         */
+        cookieExpirationConvention?: string;
+        /**
+         * The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+         */
+        cookieExpirationTime?: string;
+        /**
+         * The endpoint to which logout requests should be made.
+         */
+        logoutEndpoint?: string;
+        /**
+         * The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+         */
+        nonceExpirationTime?: string;
+        /**
+         * Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+         */
+        preserveUrlFragmentsForLogins?: boolean;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionTime?: number;
+        /**
+         * Should the Token Store configuration Enabled. Defaults to `false`
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * The directory path in the App Filesystem in which the tokens will be stored.
+         */
+        tokenStorePath?: string;
+        /**
+         * The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+         */
+        tokenStoreSasSettingName?: string;
+        /**
+         * Should the nonce be validated while completing the login flow. Defaults to `true`.
+         */
+        validateNonce?: boolean;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2MicrosoftV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2TwitterV2 {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: string;
     }
 
     export interface LinuxFunctionAppBackup {
@@ -8868,7 +9897,7 @@ export namespace appservice {
          */
         dotnetVersion?: string;
         /**
-         * The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
+         * The Version of Java to use. Supported versions include `8`, `11` & `17`.
          */
         javaVersion?: string;
         /**
@@ -9052,7 +10081,7 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
          */
         defaultProvider: string;
         /**
@@ -9080,7 +10109,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsMicrosoft;
         /**
-         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          */
         runtimeVersion: string;
         /**
@@ -9209,6 +10238,347 @@ export namespace appservice {
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
          */
         consumerSecretSettingName?: string;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2 {
+        /**
+         * An `activeDirectoryV2` block as defined below.
+         */
+        activeDirectoryV2?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2;
+        /**
+         * An `appleV2` block as defined below.
+         */
+        appleV2?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2AppleV2;
+        /**
+         * Should the AuthV2 Settings be enabled. Defaults to `false`.
+         */
+        authEnabled?: boolean;
+        /**
+         * An `azureStaticWebAppV2` block as defined below.
+         */
+        azureStaticWebAppV2?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2;
+        /**
+         * The path to the App Auth settings.
+         */
+        configFilePath?: string;
+        /**
+         * Zero or more `customOidcV2` blocks as defined below.
+         */
+        customOidcV2s?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         */
+        defaultProvider?: string;
+        /**
+         * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         */
+        excludedPaths?: string[];
+        /**
+         * A `facebookV2` block as defined below.
+         */
+        facebookV2?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2FacebookV2;
+        /**
+         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         */
+        forwardProxyConvention?: string;
+        /**
+         * The name of the custom header containing the host of the request.
+         */
+        forwardProxyCustomHostHeaderName?: string;
+        /**
+         * The name of the custom header containing the scheme of the request.
+         */
+        forwardProxyCustomSchemeHeaderName?: string;
+        /**
+         * A `githubV2` block as defined below.
+         */
+        githubV2?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2GithubV2;
+        /**
+         * A `googleV2` block as defined below.
+         */
+        googleV2?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2GoogleV2;
+        /**
+         * The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+         */
+        httpRouteApiPrefix?: string;
+        /**
+         * A `login` block as defined below.
+         */
+        login: outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2Login;
+        /**
+         * A `microsoftV2` block as defined below.
+         */
+        microsoftV2?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2;
+        /**
+         * Should the authentication flow be used for all requests.
+         */
+        requireAuthentication?: boolean;
+        /**
+         * Should HTTPS be required on connections? Defaults to `true`.
+         */
+        requireHttps?: boolean;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         */
+        runtimeVersion?: string;
+        /**
+         * A `twitterV2` block as defined below.
+         */
+        twitterV2?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2TwitterV2;
+        /**
+         * The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+         */
+        unauthenticatedAction?: string;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
+        /**
+         * The list of allowed Applications for the Default Authorisation Policy.
+         */
+        allowedApplications?: string[];
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The list of allowed Group Names for the Default Authorisation Policy.
+         */
+        allowedGroups?: string[];
+        /**
+         * The list of allowed Identities for the Default Authorisation Policy.
+         */
+        allowedIdentities?: string[];
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
+        clientSecretCertificateThumbprint?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * A list of Allowed Client Applications in the JWT Claim.
+         */
+        jwtAllowedClientApplications?: string[];
+        /**
+         * A list of Allowed Groups in the JWT Claim.
+         */
+        jwtAllowedGroups?: string[];
+        /**
+         * A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+         */
+        loginParameters?: {[key: string]: string};
+        /**
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         */
+        tenantAuthEndpoint: string;
+        /**
+         * Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         */
+        wwwAuthenticationDisabled?: boolean;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2AppleV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes: string[];
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2 {
+        /**
+         * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+         */
+        authorisationEndpoint: string;
+        /**
+         * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+         */
+        certificationUri: string;
+        /**
+         * The Client Credential Method used.
+         */
+        clientCredentialMethod: string;
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        issuerEndpoint: string;
+        /**
+         * Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * The name of the claim that contains the users name.
+         */
+        nameClaimType?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         */
+        openidConfigurationEndpoint: string;
+        /**
+         * The list of the scopes that should be requested while authenticating.
+         */
+        scopes?: string[];
+        /**
+         * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        tokenEndpoint: string;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2FacebookV2 {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: string;
+        /**
+         * The version of the Facebook API to be used while logging in.
+         */
+        graphApiVersion: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2GithubV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2GoogleV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2Login {
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+         */
+        allowedExternalRedirectUrls?: string[];
+        /**
+         * The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+         */
+        cookieExpirationConvention?: string;
+        /**
+         * The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+         */
+        cookieExpirationTime?: string;
+        /**
+         * The endpoint to which logout requests should be made.
+         */
+        logoutEndpoint?: string;
+        /**
+         * The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+         */
+        nonceExpirationTime?: string;
+        /**
+         * Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+         */
+        preserveUrlFragmentsForLogins?: boolean;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionTime?: number;
+        /**
+         * Should the Token Store configuration Enabled. Defaults to `false`
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * The directory path in the App Filesystem in which the tokens will be stored.
+         */
+        tokenStorePath?: string;
+        /**
+         * The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+         */
+        tokenStoreSasSettingName?: string;
+        /**
+         * Should the nonce be validated while completing the login flow. Defaults to `true`.
+         */
+        validateNonce?: boolean;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2TwitterV2 {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: string;
     }
 
     export interface LinuxFunctionAppSlotBackup {
@@ -9363,7 +10733,7 @@ export namespace appservice {
         /**
          * The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `healthCheckPath`
          */
-        healthCheckEvictionTimeInMin: number;
+        healthCheckEvictionTimeInMin?: number;
         /**
          * The path to be checked for this function app health.
          */
@@ -12533,7 +13903,7 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
          */
         defaultProvider: string;
         /**
@@ -12561,7 +13931,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.WindowsFunctionAppAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          */
         runtimeVersion: string;
         /**
@@ -12690,6 +14060,347 @@ export namespace appservice {
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
          */
         consumerSecretSettingName?: string;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2 {
+        /**
+         * An `activeDirectoryV2` block as defined below.
+         */
+        activeDirectoryV2?: outputs.appservice.WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2;
+        /**
+         * An `appleV2` block as defined below.
+         */
+        appleV2?: outputs.appservice.WindowsFunctionAppAuthSettingsV2AppleV2;
+        /**
+         * Should the AuthV2 Settings be enabled. Defaults to `false`.
+         */
+        authEnabled?: boolean;
+        /**
+         * An `azureStaticWebAppV2` block as defined below.
+         */
+        azureStaticWebAppV2?: outputs.appservice.WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2;
+        /**
+         * The path to the App Auth settings.
+         */
+        configFilePath?: string;
+        /**
+         * Zero or more `customOidcV2` blocks as defined below.
+         */
+        customOidcV2s?: outputs.appservice.WindowsFunctionAppAuthSettingsV2CustomOidcV2[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         */
+        defaultProvider?: string;
+        /**
+         * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         */
+        excludedPaths?: string[];
+        /**
+         * A `facebookV2` block as defined below.
+         */
+        facebookV2?: outputs.appservice.WindowsFunctionAppAuthSettingsV2FacebookV2;
+        /**
+         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         */
+        forwardProxyConvention?: string;
+        /**
+         * The name of the custom header containing the host of the request.
+         */
+        forwardProxyCustomHostHeaderName?: string;
+        /**
+         * The name of the custom header containing the scheme of the request.
+         */
+        forwardProxyCustomSchemeHeaderName?: string;
+        /**
+         * A `githubV2` block as defined below.
+         */
+        githubV2?: outputs.appservice.WindowsFunctionAppAuthSettingsV2GithubV2;
+        /**
+         * A `googleV2` block as defined below.
+         */
+        googleV2?: outputs.appservice.WindowsFunctionAppAuthSettingsV2GoogleV2;
+        /**
+         * The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+         */
+        httpRouteApiPrefix?: string;
+        /**
+         * A `login` block as defined below.
+         */
+        login: outputs.appservice.WindowsFunctionAppAuthSettingsV2Login;
+        /**
+         * A `microsoftV2` block as defined below.
+         */
+        microsoftV2?: outputs.appservice.WindowsFunctionAppAuthSettingsV2MicrosoftV2;
+        /**
+         * Should the authentication flow be used for all requests.
+         */
+        requireAuthentication?: boolean;
+        /**
+         * Should HTTPS be required on connections? Defaults to `true`.
+         */
+        requireHttps?: boolean;
+        /**
+         * The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+         */
+        runtimeVersion?: string;
+        /**
+         * A `twitterV2` block as defined below.
+         */
+        twitterV2?: outputs.appservice.WindowsFunctionAppAuthSettingsV2TwitterV2;
+        /**
+         * The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+         */
+        unauthenticatedAction?: string;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 {
+        /**
+         * The list of allowed Applications for the Default Authorisation Policy.
+         */
+        allowedApplications?: string[];
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The list of allowed Group Names for the Default Authorisation Policy.
+         */
+        allowedGroups?: string[];
+        /**
+         * The list of allowed Identities for the Default Authorisation Policy.
+         */
+        allowedIdentities?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
+        clientSecretCertificateThumbprint?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * A list of Allowed Client Applications in the JWT Claim.
+         */
+        jwtAllowedClientApplications?: string[];
+        /**
+         * A list of Allowed Groups in the JWT Claim.
+         */
+        jwtAllowedGroups?: string[];
+        /**
+         * A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+         */
+        loginParameters?: {[key: string]: string};
+        /**
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         */
+        tenantAuthEndpoint: string;
+        /**
+         * Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         */
+        wwwAuthenticationDisabled?: boolean;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2AppleV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes: string[];
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2CustomOidcV2 {
+        /**
+         * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+         */
+        authorisationEndpoint: string;
+        /**
+         * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+         */
+        certificationUri: string;
+        /**
+         * The Client Credential Method used.
+         */
+        clientCredentialMethod: string;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        issuerEndpoint: string;
+        /**
+         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         */
+        name: string;
+        /**
+         * The name of the claim that contains the users name.
+         */
+        nameClaimType?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         */
+        openidConfigurationEndpoint: string;
+        /**
+         * The list of the scopes that should be requested while authenticating.
+         */
+        scopes?: string[];
+        /**
+         * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        tokenEndpoint: string;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2FacebookV2 {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: string;
+        /**
+         * The version of the Facebook API to be used while logging in.
+         */
+        graphApiVersion: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2GithubV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2GoogleV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2Login {
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+         */
+        allowedExternalRedirectUrls?: string[];
+        /**
+         * The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+         */
+        cookieExpirationConvention?: string;
+        /**
+         * The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+         */
+        cookieExpirationTime?: string;
+        /**
+         * The endpoint to which logout requests should be made.
+         */
+        logoutEndpoint?: string;
+        /**
+         * The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+         */
+        nonceExpirationTime?: string;
+        /**
+         * Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+         */
+        preserveUrlFragmentsForLogins?: boolean;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionTime?: number;
+        /**
+         * Should the Token Store configuration Enabled. Defaults to `false`
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * The directory path in the App Filesystem in which the tokens will be stored.
+         */
+        tokenStorePath?: string;
+        /**
+         * The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+         */
+        tokenStoreSasSettingName?: string;
+        /**
+         * Should the nonce be validated while completing the login flow. Defaults to `true`.
+         */
+        validateNonce?: boolean;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2MicrosoftV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2TwitterV2 {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: string;
     }
 
     export interface WindowsFunctionAppBackup {
@@ -13073,7 +14784,7 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
          */
         defaultProvider: string;
         /**
@@ -13101,7 +14812,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsMicrosoft;
         /**
-         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          */
         runtimeVersion: string;
         /**
@@ -13230,6 +14941,347 @@ export namespace appservice {
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
          */
         consumerSecretSettingName?: string;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2 {
+        /**
+         * An `activeDirectoryV2` block as defined below.
+         */
+        activeDirectoryV2?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2;
+        /**
+         * An `appleV2` block as defined below.
+         */
+        appleV2?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsV2AppleV2;
+        /**
+         * Should the AuthV2 Settings be enabled. Defaults to `false`.
+         */
+        authEnabled?: boolean;
+        /**
+         * An `azureStaticWebAppV2` block as defined below.
+         */
+        azureStaticWebAppV2?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2;
+        /**
+         * The path to the App Auth settings.
+         */
+        configFilePath?: string;
+        /**
+         * Zero or more `customOidcV2` blocks as defined below.
+         */
+        customOidcV2s?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         */
+        defaultProvider?: string;
+        /**
+         * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         */
+        excludedPaths?: string[];
+        /**
+         * A `facebookV2` block as defined below.
+         */
+        facebookV2?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsV2FacebookV2;
+        /**
+         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         */
+        forwardProxyConvention?: string;
+        /**
+         * The name of the custom header containing the host of the request.
+         */
+        forwardProxyCustomHostHeaderName?: string;
+        /**
+         * The name of the custom header containing the scheme of the request.
+         */
+        forwardProxyCustomSchemeHeaderName?: string;
+        /**
+         * A `githubV2` block as defined below.
+         */
+        githubV2?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsV2GithubV2;
+        /**
+         * A `googleV2` block as defined below.
+         */
+        googleV2?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsV2GoogleV2;
+        /**
+         * The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+         */
+        httpRouteApiPrefix?: string;
+        /**
+         * A `login` block as defined below.
+         */
+        login: outputs.appservice.WindowsFunctionAppSlotAuthSettingsV2Login;
+        /**
+         * A `microsoftV2` block as defined below.
+         */
+        microsoftV2?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2;
+        /**
+         * Should the authentication flow be used for all requests.
+         */
+        requireAuthentication?: boolean;
+        /**
+         * Should HTTPS be required on connections? Defaults to `true`.
+         */
+        requireHttps?: boolean;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         */
+        runtimeVersion?: string;
+        /**
+         * A `twitterV2` block as defined below.
+         */
+        twitterV2?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsV2TwitterV2;
+        /**
+         * The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+         */
+        unauthenticatedAction?: string;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
+        /**
+         * The list of allowed Applications for the Default Authorisation Policy.
+         */
+        allowedApplications?: string[];
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The list of allowed Group Names for the Default Authorisation Policy.
+         */
+        allowedGroups?: string[];
+        /**
+         * The list of allowed Identities for the Default Authorisation Policy.
+         */
+        allowedIdentities?: string[];
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
+        clientSecretCertificateThumbprint?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * A list of Allowed Client Applications in the JWT Claim.
+         */
+        jwtAllowedClientApplications?: string[];
+        /**
+         * A list of Allowed Groups in the JWT Claim.
+         */
+        jwtAllowedGroups?: string[];
+        /**
+         * A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+         */
+        loginParameters?: {[key: string]: string};
+        /**
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         */
+        tenantAuthEndpoint: string;
+        /**
+         * Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         */
+        wwwAuthenticationDisabled?: boolean;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2AppleV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes: string[];
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2 {
+        /**
+         * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+         */
+        authorisationEndpoint: string;
+        /**
+         * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+         */
+        certificationUri: string;
+        /**
+         * The Client Credential Method used.
+         */
+        clientCredentialMethod: string;
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        issuerEndpoint: string;
+        /**
+         * Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * The name of the claim that contains the users name.
+         */
+        nameClaimType?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         */
+        openidConfigurationEndpoint: string;
+        /**
+         * The list of the scopes that should be requested while authenticating.
+         */
+        scopes?: string[];
+        /**
+         * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        tokenEndpoint: string;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2FacebookV2 {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: string;
+        /**
+         * The version of the Facebook API to be used while logging in.
+         */
+        graphApiVersion: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2GithubV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2GoogleV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2Login {
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+         */
+        allowedExternalRedirectUrls?: string[];
+        /**
+         * The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+         */
+        cookieExpirationConvention?: string;
+        /**
+         * The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+         */
+        cookieExpirationTime?: string;
+        /**
+         * The endpoint to which logout requests should be made.
+         */
+        logoutEndpoint?: string;
+        /**
+         * The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+         */
+        nonceExpirationTime?: string;
+        /**
+         * Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+         */
+        preserveUrlFragmentsForLogins?: boolean;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionTime?: number;
+        /**
+         * Should the Token Store configuration Enabled. Defaults to `false`
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * The directory path in the App Filesystem in which the tokens will be stored.
+         */
+        tokenStorePath?: string;
+        /**
+         * The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+         */
+        tokenStoreSasSettingName?: string;
+        /**
+         * Should the nonce be validated while completing the login flow. Defaults to `true`.
+         */
+        validateNonce?: boolean;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2TwitterV2 {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: string;
     }
 
     export interface WindowsFunctionAppSlotBackup {
@@ -13376,7 +15428,7 @@ export namespace appservice {
         /**
          * The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `healthCheckPath`
          */
-        healthCheckEvictionTimeInMin: number;
+        healthCheckEvictionTimeInMin?: number;
         /**
          * The path to be checked for this function app health.
          */
@@ -16621,7 +18673,13 @@ export namespace backup {
     }
 
     export interface PolicyVMInstantRestoreResourceGroup {
+        /**
+         * The prefix for the `instantRestoreResourceGroup` name.
+         */
         prefix: string;
+        /**
+         * The suffix for the `instantRestoreResourceGroup` name.
+         */
         suffix?: string;
     }
 
@@ -21448,6 +23506,17 @@ export namespace compute {
         publisher: string;
     }
 
+    export interface OrchestratedVirtualMachineScaleSetPriorityMix {
+        /**
+         * Specifies the base number of VMs of `Regular` priority that will be created before any VMs of priority `Spot` are created. Possible values are integers between `0` and `1000`. Defaults to `0`.
+         */
+        baseRegularCount?: number;
+        /**
+         * Specifies the desired percentage of VM instances that are of `Regular` priority after the base count has been reached. Possible values are integers between `0` and `100`. Defaults to `0`.
+         */
+        regularPercentageAboveBase?: number;
+    }
+
     export interface OrchestratedVirtualMachineScaleSetSourceImageReference {
         /**
          * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
@@ -23790,10 +25859,16 @@ export namespace containerapp {
     }
 
     export interface AppIngressCustomDomain {
+        /**
+         * The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+         */
         certificateBindingType?: string;
+        /**
+         * The ID of the Container App Environment Certificate.
+         */
         certificateId: string;
         /**
-         * The name for this Container App. Changing this forces a new resource to be created.
+         * The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
          */
         name: string;
     }
@@ -25277,6 +27352,10 @@ export namespace containerservice {
          */
         tags?: {[key: string]: string};
         /**
+         * Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+         */
+        temporaryNameForRotation?: string;
+        /**
          * The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
          */
         type?: string;
@@ -25289,7 +27368,7 @@ export namespace containerservice {
          */
         upgradeSettings?: outputs.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettings;
         /**
-         * The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+         * The size of the Virtual Machine, such as `Standard_DS2_v2`.
          */
         vmSize: string;
         /**
@@ -25598,7 +27677,7 @@ export namespace containerservice {
          */
         secretIdentities: outputs.containerservice.KubernetesClusterKeyVaultSecretsProviderSecretIdentity[];
         /**
-         * Is secret rotation enabled?
+         * Should the secret store CSI driver on the AKS cluster be enabled?
          */
         secretRotationEnabled?: boolean;
         /**
@@ -26081,6 +28160,10 @@ export namespace containerservice {
          */
         logAnalyticsWorkspaceId: string;
         /**
+         * Is managed identity authentication for monitoring enabled?
+         */
+        msiAuthForMonitoringEnabled?: boolean;
+        /**
          * An `omsAgentIdentity` block is exported. The exported attributes are defined below.
          */
         omsAgentIdentities: outputs.containerservice.KubernetesClusterOmsAgentOmsAgentIdentity[];
@@ -26177,6 +28260,18 @@ export namespace containerservice {
          * Specifies whether KEDA Autoscaler can be used for workloads.
          */
         kedaEnabled?: boolean;
+        /**
+         * Which resources values should be controlled.
+         */
+        verticalPodAutoscalerControlledValues: string;
+        /**
+         * Specifies whether Vertical Pod Autoscaler should be enabled.
+         */
+        verticalPodAutoscalerEnabled?: boolean;
+        /**
+         * How the autoscaler applies changes to pod resources.
+         */
+        verticalPodAutoscalerUpdateMode: string;
     }
 
     export interface KubernetesFleetManagerHubProfile {
@@ -36993,6 +39088,32 @@ export namespace keyvault {
         name: string;
     }
 
+    export interface KeyRotationPolicy {
+        /**
+         * An `automatic` block as defined below.
+         */
+        automatic?: outputs.keyvault.KeyRotationPolicyAutomatic;
+        /**
+         * Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+         */
+        expireAfter?: string;
+        /**
+         * Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+         */
+        notifyBeforeExpiry?: string;
+    }
+
+    export interface KeyRotationPolicyAutomatic {
+        /**
+         * Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+         */
+        timeAfterCreation?: string;
+        /**
+         * Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+         */
+        timeBeforeExpiry?: string;
+    }
+
     export interface KeyVaultAccessPolicy {
         /**
          * The object ID of an Application in Azure Active Directory.
@@ -39461,6 +41582,10 @@ export namespace media {
 
     export interface StreamingPolicyCommonEncryptionCbcs {
         /**
+         * A `clearKeyEncryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        clearKeyEncryption?: outputs.media.StreamingPolicyCommonEncryptionCbcsClearKeyEncryption;
+        /**
          * A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
          */
         defaultContentKey?: outputs.media.StreamingPolicyCommonEncryptionCbcsDefaultContentKey;
@@ -39472,6 +41597,13 @@ export namespace media {
          * A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
          */
         enabledProtocols?: outputs.media.StreamingPolicyCommonEncryptionCbcsEnabledProtocols;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCbcsClearKeyEncryption {
+        /**
+         * The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+         */
+        customKeysAcquisitionUrlTemplate: string;
     }
 
     export interface StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
@@ -39491,7 +41623,7 @@ export namespace media {
          */
         allowPersistentLicense?: boolean;
         /**
-         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         * The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
          */
         customLicenseAcquisitionUrlTemplate?: string;
     }
@@ -39517,6 +41649,18 @@ export namespace media {
 
     export interface StreamingPolicyCommonEncryptionCenc {
         /**
+         * A `clearKeyEncryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        clearKeyEncryption?: outputs.media.StreamingPolicyCommonEncryptionCencClearKeyEncryption;
+        /**
+         * One or more `clearTrack` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        clearTracks?: outputs.media.StreamingPolicyCommonEncryptionCencClearTrack[];
+        /**
+         * One or more `contentKeyToTrackMapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        contentKeyToTrackMappings?: outputs.media.StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping[];
+        /**
          * A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
          */
         defaultContentKey?: outputs.media.StreamingPolicyCommonEncryptionCencDefaultContentKey;
@@ -39525,13 +41669,79 @@ export namespace media {
          */
         drmPlayready?: outputs.media.StreamingPolicyCommonEncryptionCencDrmPlayready;
         /**
-         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         * The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
          */
         drmWidevineCustomLicenseAcquisitionUrlTemplate?: string;
         /**
          * A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
          */
         enabledProtocols?: outputs.media.StreamingPolicyCommonEncryptionCencEnabledProtocols;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencClearKeyEncryption {
+        /**
+         * The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+         */
+        customKeysAcquisitionUrlTemplate: string;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencClearTrack {
+        /**
+         * One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        conditions: outputs.media.StreamingPolicyCommonEncryptionCencClearTrackCondition[];
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencClearTrackCondition {
+        /**
+         * The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
+         */
+        operation: string;
+        /**
+         * The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
+         */
+        property: string;
+        /**
+         * The track property value. Changing this forces a new Streaming Policy to be created.
+         */
+        value: string;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping {
+        /**
+         * Specifies the content key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+         */
+        label?: string;
+        /**
+         * The policy used by the default key. Changing this forces a new Streaming Policy to be created.
+         */
+        policyName?: string;
+        /**
+         * One or more `track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        tracks: outputs.media.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack[];
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack {
+        /**
+         * One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        conditions: outputs.media.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition[];
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition {
+        /**
+         * The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
+         */
+        operation: string;
+        /**
+         * The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
+         */
+        property: string;
+        /**
+         * The track property value. Changing this forces a new Streaming Policy to be created.
+         */
+        value: string;
     }
 
     export interface StreamingPolicyCommonEncryptionCencDefaultContentKey {
@@ -39551,12 +41761,57 @@ export namespace media {
          */
         customAttributes?: string;
         /**
-         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         * The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
          */
         customLicenseAcquisitionUrlTemplate?: string;
     }
 
     export interface StreamingPolicyCommonEncryptionCencEnabledProtocols {
+        /**
+         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        dash?: boolean;
+        /**
+         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        download?: boolean;
+        /**
+         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        hls?: boolean;
+        /**
+         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        smoothStreaming?: boolean;
+    }
+
+    export interface StreamingPolicyEnvelopeEncryption {
+        /**
+         * The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+         */
+        customKeysAcquisitionUrlTemplate?: string;
+        /**
+         * A `defaultContentKey` block as defined above. Changing this forces a new Streaming Policy to be created.
+         */
+        defaultContentKey?: outputs.media.StreamingPolicyEnvelopeEncryptionDefaultContentKey;
+        /**
+         * A `enabledProtocols` block as defined above. Changing this forces a new Streaming Policy to be created.
+         */
+        enabledProtocols?: outputs.media.StreamingPolicyEnvelopeEncryptionEnabledProtocols;
+    }
+
+    export interface StreamingPolicyEnvelopeEncryptionDefaultContentKey {
+        /**
+         * Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+         */
+        label?: string;
+        /**
+         * Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+         */
+        policyName?: string;
+    }
+
+    export interface StreamingPolicyEnvelopeEncryptionEnabledProtocols {
         /**
          * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
          */
@@ -42638,6 +44893,25 @@ export namespace mssql {
         type: string;
     }
 
+    export interface ManagedDatabaseLongTermRetentionPolicy {
+        /**
+         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+         */
+        monthlyRetention: string;
+        /**
+         * The week of year to take the yearly backup. Value has to be between `1` and `52`.
+         */
+        weekOfYear: number;
+        /**
+         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+         */
+        weeklyRetention: string;
+        /**
+         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+         */
+        yearlyRetention: string;
+    }
+
     export interface ManagedInstanceFailoverGroupPartnerRegion {
         /**
          * The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
@@ -43972,7 +46246,7 @@ export namespace network {
          */
         ruleSequence: number;
         /**
-         * One `url` block as defined above
+         * One `url` block as defined below
          */
         url?: outputs.network.ApplicationGatewayRewriteRuleSetRewriteRuleUrl;
     }
@@ -44367,6 +46641,10 @@ export namespace network {
 
     export interface ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
         /**
+         * The communities of Bgp Peering specified for microsoft peering.
+         */
+        advertisedCommunities?: string[];
+        /**
          * A list of Advertised Public Prefixes.
          */
         advertisedPublicPrefixes?: string[];
@@ -44381,6 +46659,10 @@ export namespace network {
     }
 
     export interface ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
+        /**
+         * The communities of Bgp Peering specified for microsoft peering.
+         */
+        advertisedCommunities?: string[];
         /**
          * A list of Advertised Public Prefixes.
          */
@@ -47745,7 +50027,7 @@ export namespace postgresql {
 
     export interface FlexibleServerIdentity {
         /**
-         * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+         * A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
          */
         identityIds?: string[];
         principalId: string;
@@ -47754,7 +50036,7 @@ export namespace postgresql {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -48657,6 +50939,97 @@ export namespace securitycenter {
 }
 
 export namespace sentinel {
+    export interface AlertRuleAnomalyBuiltInMultiSelectObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description: string;
+        /**
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+         */
+        name: string;
+        /**
+         * A list of supported values of the single select observation.
+         */
+        supportedValues: string[];
+        /**
+         * A list of values of the single select observation.
+         */
+        values: string[];
+    }
+
+    export interface AlertRuleAnomalyBuiltInPrioritizedExcludeObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description: string;
+        /**
+         * The excluded value per `description`.
+         */
+        exclude: string;
+        /**
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+         */
+        name: string;
+        /**
+         * The prioritized value per `description`.
+         */
+        prioritize: string;
+    }
+
+    export interface AlertRuleAnomalyBuiltInRequiredDataConnector {
+        /**
+         * The ID of the required Data Connector.
+         */
+        connectorId: string;
+        /**
+         * A list of data types of the required Data Connector.
+         */
+        dataTypes: string[];
+    }
+
+    export interface AlertRuleAnomalyBuiltInSingleSelectObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description: string;
+        /**
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+         */
+        name: string;
+        /**
+         * A list of supported values of the single select observation.
+         */
+        supportedValues: string[];
+        /**
+         * The value of the threshold observation.
+         */
+        value: string;
+    }
+
+    export interface AlertRuleAnomalyBuiltInThresholdObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description: string;
+        /**
+         * The max value of the threshold observation.
+         */
+        max: string;
+        /**
+         * The min value of the threshold observation.
+         */
+        min: string;
+        /**
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+         */
+        name: string;
+        /**
+         * The value of the threshold observation.
+         */
+        value: string;
+    }
+
     export interface AlertRuleFusionSource {
         /**
          * Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
@@ -49033,6 +51406,97 @@ export namespace sentinel {
         values: string[];
     }
 
+    export interface GetAlertRuleAnomalyMultiSelectObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description: string;
+        /**
+         * The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+         */
+        name: string;
+        /**
+         * A list of supported values of the single select observation.
+         */
+        supportedValues: string[];
+        /**
+         * A list of values of the single select observation.
+         */
+        values: string[];
+    }
+
+    export interface GetAlertRuleAnomalyPrioritizedExcludeObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description: string;
+        /**
+         * The excluded value per `description`.
+         */
+        exclude: string;
+        /**
+         * The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+         */
+        name: string;
+        /**
+         * The prioritized value per `description`.
+         */
+        prioritize: string;
+    }
+
+    export interface GetAlertRuleAnomalyRequiredDataConnector {
+        /**
+         * The ID of the required Data Connector.
+         */
+        connectorId: string;
+        /**
+         * A list of data types of the required Data Connector.
+         */
+        dataTypes: string[];
+    }
+
+    export interface GetAlertRuleAnomalySingleSelectObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description: string;
+        /**
+         * The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+         */
+        name: string;
+        /**
+         * A list of supported values of the single select observation.
+         */
+        supportedValues: string[];
+        /**
+         * The value of the threshold observation.
+         */
+        value: string;
+    }
+
+    export interface GetAlertRuleAnomalyThresholdObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description: string;
+        /**
+         * The max value of the threshold observation.
+         */
+        max: string;
+        /**
+         * The min value of the threshold observation.
+         */
+        min: string;
+        /**
+         * The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+         */
+        name: string;
+        /**
+         * The value of the threshold observation.
+         */
+        value: string;
+    }
+
     export interface GetAlertRuleTemplateNrtTemplate {
         /**
          * The description of this Sentinel Scheduled Alert Rule Template.
@@ -49096,6 +51560,66 @@ export namespace sentinel {
          * The Microsoft Security Service from where the alert will be generated.
          */
         productFilter: string;
+    }
+
+    export interface MetadataAuthor {
+        /**
+         * The email address of the author contact.
+         */
+        email?: string;
+        /**
+         * The link for author/vendor page.
+         */
+        link?: string;
+        /**
+         * The name of the author, company or person.
+         */
+        name?: string;
+    }
+
+    export interface MetadataCategory {
+        /**
+         * Specifies a list of domains for the solution content item.
+         */
+        domains?: string[];
+        /**
+         * Specifies a list of industry verticals for the solution content item.
+         */
+        verticals?: string[];
+    }
+
+    export interface MetadataSource {
+        /**
+         * The id of the content source, the solution ID, Log Analytics Workspace name etc.
+         */
+        id?: string;
+        /**
+         * The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+         */
+        kind: string;
+        /**
+         * The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
+         */
+        name?: string;
+    }
+
+    export interface MetadataSupport {
+        /**
+         * The email address of the support contact.
+         */
+        email?: string;
+        /**
+         * The link for support help.
+         */
+        link?: string;
+        /**
+         * The name of the support contact.
+         */
+        name?: string;
+        /**
+         * The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
+         */
+        tier: string;
     }
 
 }
@@ -50460,7 +52984,7 @@ export namespace storage {
          */
         defaultAction: string;
         /**
-         * List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+         * List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
          */
         ipRules: string[];
         /**
@@ -51212,6 +53736,10 @@ export namespace storage {
     }
 
     export interface ManagementPolicyRuleActionsBaseBlob {
+        /**
+         * Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+         */
+        autoTierToHotFromCoolEnabled?: boolean;
         /**
          * The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
          */

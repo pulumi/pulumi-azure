@@ -58,6 +58,10 @@ export interface GetLinuxFunctionAppResult {
      */
     readonly authSettings: outputs.appservice.GetLinuxFunctionAppAuthSetting[];
     /**
+     * A `authSettingsV2` block as defined below.
+     */
+    readonly authSettingsV2s: outputs.appservice.GetLinuxFunctionAppAuthSettingsV2[];
+    /**
      * A `backup` block as defined below.
      */
     readonly backups: outputs.appservice.GetLinuxFunctionAppBackup[];

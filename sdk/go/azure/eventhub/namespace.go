@@ -77,6 +77,8 @@ type Namespace struct {
 	DefaultSecondaryConnectionString pulumi.StringOutput `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
+	// The URL to access the ServiceBus Namespace.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// An `identity` block as defined below.
 	Identity NamespaceIdentityPtrOutput `pulumi:"identity"`
 	// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
@@ -154,6 +156,8 @@ type namespaceState struct {
 	DefaultSecondaryConnectionString *string `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey *string `pulumi:"defaultSecondaryKey"`
+	// The URL to access the ServiceBus Namespace.
+	Endpoint *string `pulumi:"endpoint"`
 	// An `identity` block as defined below.
 	Identity *NamespaceIdentity `pulumi:"identity"`
 	// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
@@ -190,6 +194,8 @@ type NamespaceState struct {
 	DefaultSecondaryConnectionString pulumi.StringPtrInput
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringPtrInput
+	// The URL to access the ServiceBus Namespace.
+	Endpoint pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity NamespaceIdentityPtrInput
 	// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
@@ -389,6 +395,11 @@ func (o NamespaceOutput) DefaultSecondaryConnectionString() pulumi.StringOutput 
 // The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 func (o NamespaceOutput) DefaultSecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.DefaultSecondaryKey }).(pulumi.StringOutput)
+}
+
+// The URL to access the ServiceBus Namespace.
+func (o NamespaceOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
 // An `identity` block as defined below.

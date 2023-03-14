@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.media.inputs;
 
+import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs;
 import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs;
 import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs;
 import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class StreamingPolicyCommonEncryptionCbcsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final StreamingPolicyCommonEncryptionCbcsArgs Empty = new StreamingPolicyCommonEncryptionCbcsArgs();
+
+    /**
+     * A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    @Import(name="clearKeyEncryption")
+    private @Nullable Output<StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs> clearKeyEncryption;
+
+    /**
+     * @return A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    public Optional<Output<StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs>> clearKeyEncryption() {
+        return Optional.ofNullable(this.clearKeyEncryption);
+    }
 
     /**
      * A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -65,6 +81,7 @@ public final class StreamingPolicyCommonEncryptionCbcsArgs extends com.pulumi.re
     private StreamingPolicyCommonEncryptionCbcsArgs() {}
 
     private StreamingPolicyCommonEncryptionCbcsArgs(StreamingPolicyCommonEncryptionCbcsArgs $) {
+        this.clearKeyEncryption = $.clearKeyEncryption;
         this.defaultContentKey = $.defaultContentKey;
         this.drmFairplay = $.drmFairplay;
         this.enabledProtocols = $.enabledProtocols;
@@ -86,6 +103,27 @@ public final class StreamingPolicyCommonEncryptionCbcsArgs extends com.pulumi.re
 
         public Builder(StreamingPolicyCommonEncryptionCbcsArgs defaults) {
             $ = new StreamingPolicyCommonEncryptionCbcsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param clearKeyEncryption A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clearKeyEncryption(@Nullable Output<StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs> clearKeyEncryption) {
+            $.clearKeyEncryption = clearKeyEncryption;
+            return this;
+        }
+
+        /**
+         * @param clearKeyEncryption A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clearKeyEncryption(StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs clearKeyEncryption) {
+            return clearKeyEncryption(Output.of(clearKeyEncryption));
         }
 
         /**

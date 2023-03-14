@@ -62,6 +62,8 @@ type LookupLinuxFunctionAppResult struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings []GetLinuxFunctionAppAuthSetting `pulumi:"authSettings"`
+	// A `authSettingsV2` block as defined below.
+	AuthSettingsV2s []GetLinuxFunctionAppAuthSettingsV2 `pulumi:"authSettingsV2s"`
 	// A `backup` block as defined below.
 	Backups []GetLinuxFunctionAppBackup `pulumi:"backups"`
 	// Is built in logging enabled?
@@ -177,6 +179,11 @@ func (o LookupLinuxFunctionAppResultOutput) AppSettings() pulumi.StringMapOutput
 // A `authSettings` block as defined below.
 func (o LookupLinuxFunctionAppResultOutput) AuthSettings() GetLinuxFunctionAppAuthSettingArrayOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) []GetLinuxFunctionAppAuthSetting { return v.AuthSettings }).(GetLinuxFunctionAppAuthSettingArrayOutput)
+}
+
+// A `authSettingsV2` block as defined below.
+func (o LookupLinuxFunctionAppResultOutput) AuthSettingsV2s() GetLinuxFunctionAppAuthSettingsV2ArrayOutput {
+	return o.ApplyT(func(v LookupLinuxFunctionAppResult) []GetLinuxFunctionAppAuthSettingsV2 { return v.AuthSettingsV2s }).(GetLinuxFunctionAppAuthSettingsV2ArrayOutput)
 }
 
 // A `backup` block as defined below.

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.keyvault;
 
+import com.pulumi.azure.keyvault.inputs.KeyRotationPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -139,6 +140,21 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `rotation_policy` block as defined below.
+     * 
+     */
+    @Import(name="rotationPolicy")
+    private @Nullable Output<KeyRotationPolicyArgs> rotationPolicy;
+
+    /**
+     * @return A `rotation_policy` block as defined below.
+     * 
+     */
+    public Optional<Output<KeyRotationPolicyArgs>> rotationPolicy() {
+        return Optional.ofNullable(this.rotationPolicy);
+    }
+
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -164,6 +180,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         this.keyVaultId = $.keyVaultId;
         this.name = $.name;
         this.notBeforeDate = $.notBeforeDate;
+        this.rotationPolicy = $.rotationPolicy;
         this.tags = $.tags;
     }
 
@@ -361,6 +378,27 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder notBeforeDate(String notBeforeDate) {
             return notBeforeDate(Output.of(notBeforeDate));
+        }
+
+        /**
+         * @param rotationPolicy A `rotation_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotationPolicy(@Nullable Output<KeyRotationPolicyArgs> rotationPolicy) {
+            $.rotationPolicy = rotationPolicy;
+            return this;
+        }
+
+        /**
+         * @param rotationPolicy A `rotation_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotationPolicy(KeyRotationPolicyArgs rotationPolicy) {
+            return rotationPolicy(Output.of(rotationPolicy));
         }
 
         /**

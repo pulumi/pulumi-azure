@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetWindowsFunctionAppAuthSettingActiveDirectoryResult
     {
         /// <summary>
-        /// A list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        /// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
         /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
         /// <summary>

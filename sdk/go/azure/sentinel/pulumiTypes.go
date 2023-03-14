@@ -10,6 +10,617 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AlertRuleAnomalyBuiltInMultiSelectObservation struct {
+	// The description of the threshold observation.
+	Description *string `pulumi:"description"`
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	Name *string `pulumi:"name"`
+	// A list of supported values of the single select observation.
+	SupportedValues []string `pulumi:"supportedValues"`
+	// A list of values of the single select observation.
+	Values []string `pulumi:"values"`
+}
+
+// AlertRuleAnomalyBuiltInMultiSelectObservationInput is an input type that accepts AlertRuleAnomalyBuiltInMultiSelectObservationArgs and AlertRuleAnomalyBuiltInMultiSelectObservationOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyBuiltInMultiSelectObservationInput` via:
+//
+//	AlertRuleAnomalyBuiltInMultiSelectObservationArgs{...}
+type AlertRuleAnomalyBuiltInMultiSelectObservationInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyBuiltInMultiSelectObservationOutput() AlertRuleAnomalyBuiltInMultiSelectObservationOutput
+	ToAlertRuleAnomalyBuiltInMultiSelectObservationOutputWithContext(context.Context) AlertRuleAnomalyBuiltInMultiSelectObservationOutput
+}
+
+type AlertRuleAnomalyBuiltInMultiSelectObservationArgs struct {
+	// The description of the threshold observation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A list of supported values of the single select observation.
+	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
+	// A list of values of the single select observation.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertRuleAnomalyBuiltInMultiSelectObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyBuiltInMultiSelectObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyBuiltInMultiSelectObservationArgs) ToAlertRuleAnomalyBuiltInMultiSelectObservationOutput() AlertRuleAnomalyBuiltInMultiSelectObservationOutput {
+	return i.ToAlertRuleAnomalyBuiltInMultiSelectObservationOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyBuiltInMultiSelectObservationArgs) ToAlertRuleAnomalyBuiltInMultiSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInMultiSelectObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInMultiSelectObservationOutput)
+}
+
+// AlertRuleAnomalyBuiltInMultiSelectObservationArrayInput is an input type that accepts AlertRuleAnomalyBuiltInMultiSelectObservationArray and AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyBuiltInMultiSelectObservationArrayInput` via:
+//
+//	AlertRuleAnomalyBuiltInMultiSelectObservationArray{ AlertRuleAnomalyBuiltInMultiSelectObservationArgs{...} }
+type AlertRuleAnomalyBuiltInMultiSelectObservationArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput() AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput
+	ToAlertRuleAnomalyBuiltInMultiSelectObservationArrayOutputWithContext(context.Context) AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput
+}
+
+type AlertRuleAnomalyBuiltInMultiSelectObservationArray []AlertRuleAnomalyBuiltInMultiSelectObservationInput
+
+func (AlertRuleAnomalyBuiltInMultiSelectObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyBuiltInMultiSelectObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyBuiltInMultiSelectObservationArray) ToAlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput() AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput {
+	return i.ToAlertRuleAnomalyBuiltInMultiSelectObservationArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyBuiltInMultiSelectObservationArray) ToAlertRuleAnomalyBuiltInMultiSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput)
+}
+
+type AlertRuleAnomalyBuiltInMultiSelectObservationOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyBuiltInMultiSelectObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyBuiltInMultiSelectObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) ToAlertRuleAnomalyBuiltInMultiSelectObservationOutput() AlertRuleAnomalyBuiltInMultiSelectObservationOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) ToAlertRuleAnomalyBuiltInMultiSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInMultiSelectObservationOutput {
+	return o
+}
+
+// The description of the threshold observation.
+func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInMultiSelectObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInMultiSelectObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of supported values of the single select observation.
+func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) SupportedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInMultiSelectObservation) []string { return v.SupportedValues }).(pulumi.StringArrayOutput)
+}
+
+// A list of values of the single select observation.
+func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInMultiSelectObservation) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyBuiltInMultiSelectObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput) ToAlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput() AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput) ToAlertRuleAnomalyBuiltInMultiSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyBuiltInMultiSelectObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnomalyBuiltInMultiSelectObservation {
+		return vs[0].([]AlertRuleAnomalyBuiltInMultiSelectObservation)[vs[1].(int)]
+	}).(AlertRuleAnomalyBuiltInMultiSelectObservationOutput)
+}
+
+type AlertRuleAnomalyBuiltInPrioritizedExcludeObservation struct {
+	// The description of the threshold observation.
+	Description *string `pulumi:"description"`
+	// The excluded value per `description`.
+	Exclude *string `pulumi:"exclude"`
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	Name *string `pulumi:"name"`
+	// The prioritized value per `description`.
+	Prioritize *string `pulumi:"prioritize"`
+}
+
+// AlertRuleAnomalyBuiltInPrioritizedExcludeObservationInput is an input type that accepts AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs and AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyBuiltInPrioritizedExcludeObservationInput` via:
+//
+//	AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs{...}
+type AlertRuleAnomalyBuiltInPrioritizedExcludeObservationInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput() AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput
+	ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutputWithContext(context.Context) AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput
+}
+
+type AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs struct {
+	// The description of the threshold observation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The excluded value per `description`.
+	Exclude pulumi.StringPtrInput `pulumi:"exclude"`
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The prioritized value per `description`.
+	Prioritize pulumi.StringPtrInput `pulumi:"prioritize"`
+}
+
+func (AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyBuiltInPrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs) ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput() AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput {
+	return i.ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs) ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput)
+}
+
+// AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayInput is an input type that accepts AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArray and AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayInput` via:
+//
+//	AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArray{ AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs{...} }
+type AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput() AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput
+	ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutputWithContext(context.Context) AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput
+}
+
+type AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArray []AlertRuleAnomalyBuiltInPrioritizedExcludeObservationInput
+
+func (AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyBuiltInPrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArray) ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput() AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput {
+	return i.ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArray) ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput)
+}
+
+type AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyBuiltInPrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput() AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput {
+	return o
+}
+
+// The description of the threshold observation.
+func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInPrioritizedExcludeObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The excluded value per `description`.
+func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) Exclude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInPrioritizedExcludeObservation) *string { return v.Exclude }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInPrioritizedExcludeObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The prioritized value per `description`.
+func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) Prioritize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInPrioritizedExcludeObservation) *string { return v.Prioritize }).(pulumi.StringPtrOutput)
+}
+
+type AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyBuiltInPrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput) ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput() AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput) ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnomalyBuiltInPrioritizedExcludeObservation {
+		return vs[0].([]AlertRuleAnomalyBuiltInPrioritizedExcludeObservation)[vs[1].(int)]
+	}).(AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput)
+}
+
+type AlertRuleAnomalyBuiltInRequiredDataConnector struct {
+	// The ID of the required Data Connector.
+	ConnectorId *string `pulumi:"connectorId"`
+	// A list of data types of the required Data Connector.
+	DataTypes []string `pulumi:"dataTypes"`
+}
+
+// AlertRuleAnomalyBuiltInRequiredDataConnectorInput is an input type that accepts AlertRuleAnomalyBuiltInRequiredDataConnectorArgs and AlertRuleAnomalyBuiltInRequiredDataConnectorOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyBuiltInRequiredDataConnectorInput` via:
+//
+//	AlertRuleAnomalyBuiltInRequiredDataConnectorArgs{...}
+type AlertRuleAnomalyBuiltInRequiredDataConnectorInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyBuiltInRequiredDataConnectorOutput() AlertRuleAnomalyBuiltInRequiredDataConnectorOutput
+	ToAlertRuleAnomalyBuiltInRequiredDataConnectorOutputWithContext(context.Context) AlertRuleAnomalyBuiltInRequiredDataConnectorOutput
+}
+
+type AlertRuleAnomalyBuiltInRequiredDataConnectorArgs struct {
+	// The ID of the required Data Connector.
+	ConnectorId pulumi.StringPtrInput `pulumi:"connectorId"`
+	// A list of data types of the required Data Connector.
+	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
+}
+
+func (AlertRuleAnomalyBuiltInRequiredDataConnectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyBuiltInRequiredDataConnector)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyBuiltInRequiredDataConnectorArgs) ToAlertRuleAnomalyBuiltInRequiredDataConnectorOutput() AlertRuleAnomalyBuiltInRequiredDataConnectorOutput {
+	return i.ToAlertRuleAnomalyBuiltInRequiredDataConnectorOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyBuiltInRequiredDataConnectorArgs) ToAlertRuleAnomalyBuiltInRequiredDataConnectorOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInRequiredDataConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInRequiredDataConnectorOutput)
+}
+
+// AlertRuleAnomalyBuiltInRequiredDataConnectorArrayInput is an input type that accepts AlertRuleAnomalyBuiltInRequiredDataConnectorArray and AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyBuiltInRequiredDataConnectorArrayInput` via:
+//
+//	AlertRuleAnomalyBuiltInRequiredDataConnectorArray{ AlertRuleAnomalyBuiltInRequiredDataConnectorArgs{...} }
+type AlertRuleAnomalyBuiltInRequiredDataConnectorArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput() AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput
+	ToAlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutputWithContext(context.Context) AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput
+}
+
+type AlertRuleAnomalyBuiltInRequiredDataConnectorArray []AlertRuleAnomalyBuiltInRequiredDataConnectorInput
+
+func (AlertRuleAnomalyBuiltInRequiredDataConnectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyBuiltInRequiredDataConnector)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyBuiltInRequiredDataConnectorArray) ToAlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput() AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput {
+	return i.ToAlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyBuiltInRequiredDataConnectorArray) ToAlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput)
+}
+
+type AlertRuleAnomalyBuiltInRequiredDataConnectorOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyBuiltInRequiredDataConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyBuiltInRequiredDataConnector)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyBuiltInRequiredDataConnectorOutput) ToAlertRuleAnomalyBuiltInRequiredDataConnectorOutput() AlertRuleAnomalyBuiltInRequiredDataConnectorOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInRequiredDataConnectorOutput) ToAlertRuleAnomalyBuiltInRequiredDataConnectorOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInRequiredDataConnectorOutput {
+	return o
+}
+
+// The ID of the required Data Connector.
+func (o AlertRuleAnomalyBuiltInRequiredDataConnectorOutput) ConnectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInRequiredDataConnector) *string { return v.ConnectorId }).(pulumi.StringPtrOutput)
+}
+
+// A list of data types of the required Data Connector.
+func (o AlertRuleAnomalyBuiltInRequiredDataConnectorOutput) DataTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInRequiredDataConnector) []string { return v.DataTypes }).(pulumi.StringArrayOutput)
+}
+
+type AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyBuiltInRequiredDataConnector)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput) ToAlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput() AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput) ToAlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyBuiltInRequiredDataConnectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnomalyBuiltInRequiredDataConnector {
+		return vs[0].([]AlertRuleAnomalyBuiltInRequiredDataConnector)[vs[1].(int)]
+	}).(AlertRuleAnomalyBuiltInRequiredDataConnectorOutput)
+}
+
+type AlertRuleAnomalyBuiltInSingleSelectObservation struct {
+	// The description of the threshold observation.
+	Description *string `pulumi:"description"`
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	Name *string `pulumi:"name"`
+	// A list of supported values of the single select observation.
+	SupportedValues []string `pulumi:"supportedValues"`
+	// The value of the threshold observation.
+	Value *string `pulumi:"value"`
+}
+
+// AlertRuleAnomalyBuiltInSingleSelectObservationInput is an input type that accepts AlertRuleAnomalyBuiltInSingleSelectObservationArgs and AlertRuleAnomalyBuiltInSingleSelectObservationOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyBuiltInSingleSelectObservationInput` via:
+//
+//	AlertRuleAnomalyBuiltInSingleSelectObservationArgs{...}
+type AlertRuleAnomalyBuiltInSingleSelectObservationInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyBuiltInSingleSelectObservationOutput() AlertRuleAnomalyBuiltInSingleSelectObservationOutput
+	ToAlertRuleAnomalyBuiltInSingleSelectObservationOutputWithContext(context.Context) AlertRuleAnomalyBuiltInSingleSelectObservationOutput
+}
+
+type AlertRuleAnomalyBuiltInSingleSelectObservationArgs struct {
+	// The description of the threshold observation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A list of supported values of the single select observation.
+	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
+	// The value of the threshold observation.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (AlertRuleAnomalyBuiltInSingleSelectObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyBuiltInSingleSelectObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyBuiltInSingleSelectObservationArgs) ToAlertRuleAnomalyBuiltInSingleSelectObservationOutput() AlertRuleAnomalyBuiltInSingleSelectObservationOutput {
+	return i.ToAlertRuleAnomalyBuiltInSingleSelectObservationOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyBuiltInSingleSelectObservationArgs) ToAlertRuleAnomalyBuiltInSingleSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInSingleSelectObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInSingleSelectObservationOutput)
+}
+
+// AlertRuleAnomalyBuiltInSingleSelectObservationArrayInput is an input type that accepts AlertRuleAnomalyBuiltInSingleSelectObservationArray and AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyBuiltInSingleSelectObservationArrayInput` via:
+//
+//	AlertRuleAnomalyBuiltInSingleSelectObservationArray{ AlertRuleAnomalyBuiltInSingleSelectObservationArgs{...} }
+type AlertRuleAnomalyBuiltInSingleSelectObservationArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput() AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput
+	ToAlertRuleAnomalyBuiltInSingleSelectObservationArrayOutputWithContext(context.Context) AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput
+}
+
+type AlertRuleAnomalyBuiltInSingleSelectObservationArray []AlertRuleAnomalyBuiltInSingleSelectObservationInput
+
+func (AlertRuleAnomalyBuiltInSingleSelectObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyBuiltInSingleSelectObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyBuiltInSingleSelectObservationArray) ToAlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput() AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput {
+	return i.ToAlertRuleAnomalyBuiltInSingleSelectObservationArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyBuiltInSingleSelectObservationArray) ToAlertRuleAnomalyBuiltInSingleSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput)
+}
+
+type AlertRuleAnomalyBuiltInSingleSelectObservationOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyBuiltInSingleSelectObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyBuiltInSingleSelectObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) ToAlertRuleAnomalyBuiltInSingleSelectObservationOutput() AlertRuleAnomalyBuiltInSingleSelectObservationOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) ToAlertRuleAnomalyBuiltInSingleSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInSingleSelectObservationOutput {
+	return o
+}
+
+// The description of the threshold observation.
+func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInSingleSelectObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInSingleSelectObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of supported values of the single select observation.
+func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) SupportedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInSingleSelectObservation) []string { return v.SupportedValues }).(pulumi.StringArrayOutput)
+}
+
+// The value of the threshold observation.
+func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInSingleSelectObservation) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyBuiltInSingleSelectObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput) ToAlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput() AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput) ToAlertRuleAnomalyBuiltInSingleSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyBuiltInSingleSelectObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnomalyBuiltInSingleSelectObservation {
+		return vs[0].([]AlertRuleAnomalyBuiltInSingleSelectObservation)[vs[1].(int)]
+	}).(AlertRuleAnomalyBuiltInSingleSelectObservationOutput)
+}
+
+type AlertRuleAnomalyBuiltInThresholdObservation struct {
+	// The description of the threshold observation.
+	Description *string `pulumi:"description"`
+	// The max value of the threshold observation.
+	Max *string `pulumi:"max"`
+	// The min value of the threshold observation.
+	Min *string `pulumi:"min"`
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	Name *string `pulumi:"name"`
+	// The value of the threshold observation.
+	Value *string `pulumi:"value"`
+}
+
+// AlertRuleAnomalyBuiltInThresholdObservationInput is an input type that accepts AlertRuleAnomalyBuiltInThresholdObservationArgs and AlertRuleAnomalyBuiltInThresholdObservationOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyBuiltInThresholdObservationInput` via:
+//
+//	AlertRuleAnomalyBuiltInThresholdObservationArgs{...}
+type AlertRuleAnomalyBuiltInThresholdObservationInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyBuiltInThresholdObservationOutput() AlertRuleAnomalyBuiltInThresholdObservationOutput
+	ToAlertRuleAnomalyBuiltInThresholdObservationOutputWithContext(context.Context) AlertRuleAnomalyBuiltInThresholdObservationOutput
+}
+
+type AlertRuleAnomalyBuiltInThresholdObservationArgs struct {
+	// The description of the threshold observation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The max value of the threshold observation.
+	Max pulumi.StringPtrInput `pulumi:"max"`
+	// The min value of the threshold observation.
+	Min pulumi.StringPtrInput `pulumi:"min"`
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the threshold observation.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (AlertRuleAnomalyBuiltInThresholdObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyBuiltInThresholdObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyBuiltInThresholdObservationArgs) ToAlertRuleAnomalyBuiltInThresholdObservationOutput() AlertRuleAnomalyBuiltInThresholdObservationOutput {
+	return i.ToAlertRuleAnomalyBuiltInThresholdObservationOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyBuiltInThresholdObservationArgs) ToAlertRuleAnomalyBuiltInThresholdObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInThresholdObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInThresholdObservationOutput)
+}
+
+// AlertRuleAnomalyBuiltInThresholdObservationArrayInput is an input type that accepts AlertRuleAnomalyBuiltInThresholdObservationArray and AlertRuleAnomalyBuiltInThresholdObservationArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyBuiltInThresholdObservationArrayInput` via:
+//
+//	AlertRuleAnomalyBuiltInThresholdObservationArray{ AlertRuleAnomalyBuiltInThresholdObservationArgs{...} }
+type AlertRuleAnomalyBuiltInThresholdObservationArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyBuiltInThresholdObservationArrayOutput() AlertRuleAnomalyBuiltInThresholdObservationArrayOutput
+	ToAlertRuleAnomalyBuiltInThresholdObservationArrayOutputWithContext(context.Context) AlertRuleAnomalyBuiltInThresholdObservationArrayOutput
+}
+
+type AlertRuleAnomalyBuiltInThresholdObservationArray []AlertRuleAnomalyBuiltInThresholdObservationInput
+
+func (AlertRuleAnomalyBuiltInThresholdObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyBuiltInThresholdObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyBuiltInThresholdObservationArray) ToAlertRuleAnomalyBuiltInThresholdObservationArrayOutput() AlertRuleAnomalyBuiltInThresholdObservationArrayOutput {
+	return i.ToAlertRuleAnomalyBuiltInThresholdObservationArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyBuiltInThresholdObservationArray) ToAlertRuleAnomalyBuiltInThresholdObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInThresholdObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInThresholdObservationArrayOutput)
+}
+
+type AlertRuleAnomalyBuiltInThresholdObservationOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyBuiltInThresholdObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyBuiltInThresholdObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) ToAlertRuleAnomalyBuiltInThresholdObservationOutput() AlertRuleAnomalyBuiltInThresholdObservationOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) ToAlertRuleAnomalyBuiltInThresholdObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInThresholdObservationOutput {
+	return o
+}
+
+// The description of the threshold observation.
+func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInThresholdObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The max value of the threshold observation.
+func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) Max() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInThresholdObservation) *string { return v.Max }).(pulumi.StringPtrOutput)
+}
+
+// The min value of the threshold observation.
+func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) Min() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInThresholdObservation) *string { return v.Min }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInThresholdObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of the threshold observation.
+func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyBuiltInThresholdObservation) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type AlertRuleAnomalyBuiltInThresholdObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyBuiltInThresholdObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyBuiltInThresholdObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyBuiltInThresholdObservationArrayOutput) ToAlertRuleAnomalyBuiltInThresholdObservationArrayOutput() AlertRuleAnomalyBuiltInThresholdObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInThresholdObservationArrayOutput) ToAlertRuleAnomalyBuiltInThresholdObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInThresholdObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyBuiltInThresholdObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyBuiltInThresholdObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnomalyBuiltInThresholdObservation {
+		return vs[0].([]AlertRuleAnomalyBuiltInThresholdObservation)[vs[1].(int)]
+	}).(AlertRuleAnomalyBuiltInThresholdObservationOutput)
+}
+
 type AlertRuleFusionSource struct {
 	// Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -3194,6 +3805,1317 @@ func (o AutomationRuleConditionArrayOutput) Index(i pulumi.IntInput) AutomationR
 	}).(AutomationRuleConditionOutput)
 }
 
+type MetadataAuthor struct {
+	// The email address of the author contact.
+	Email *string `pulumi:"email"`
+	// The link for author/vendor page.
+	Link *string `pulumi:"link"`
+	// The name of the author, company or person.
+	Name *string `pulumi:"name"`
+}
+
+// MetadataAuthorInput is an input type that accepts MetadataAuthorArgs and MetadataAuthorOutput values.
+// You can construct a concrete instance of `MetadataAuthorInput` via:
+//
+//	MetadataAuthorArgs{...}
+type MetadataAuthorInput interface {
+	pulumi.Input
+
+	ToMetadataAuthorOutput() MetadataAuthorOutput
+	ToMetadataAuthorOutputWithContext(context.Context) MetadataAuthorOutput
+}
+
+type MetadataAuthorArgs struct {
+	// The email address of the author contact.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The link for author/vendor page.
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// The name of the author, company or person.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (MetadataAuthorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataAuthor)(nil)).Elem()
+}
+
+func (i MetadataAuthorArgs) ToMetadataAuthorOutput() MetadataAuthorOutput {
+	return i.ToMetadataAuthorOutputWithContext(context.Background())
+}
+
+func (i MetadataAuthorArgs) ToMetadataAuthorOutputWithContext(ctx context.Context) MetadataAuthorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorOutput)
+}
+
+func (i MetadataAuthorArgs) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutput {
+	return i.ToMetadataAuthorPtrOutputWithContext(context.Background())
+}
+
+func (i MetadataAuthorArgs) ToMetadataAuthorPtrOutputWithContext(ctx context.Context) MetadataAuthorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorOutput).ToMetadataAuthorPtrOutputWithContext(ctx)
+}
+
+// MetadataAuthorPtrInput is an input type that accepts MetadataAuthorArgs, MetadataAuthorPtr and MetadataAuthorPtrOutput values.
+// You can construct a concrete instance of `MetadataAuthorPtrInput` via:
+//
+//	        MetadataAuthorArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetadataAuthorPtrInput interface {
+	pulumi.Input
+
+	ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutput
+	ToMetadataAuthorPtrOutputWithContext(context.Context) MetadataAuthorPtrOutput
+}
+
+type metadataAuthorPtrType MetadataAuthorArgs
+
+func MetadataAuthorPtr(v *MetadataAuthorArgs) MetadataAuthorPtrInput {
+	return (*metadataAuthorPtrType)(v)
+}
+
+func (*metadataAuthorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataAuthor)(nil)).Elem()
+}
+
+func (i *metadataAuthorPtrType) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutput {
+	return i.ToMetadataAuthorPtrOutputWithContext(context.Background())
+}
+
+func (i *metadataAuthorPtrType) ToMetadataAuthorPtrOutputWithContext(ctx context.Context) MetadataAuthorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorPtrOutput)
+}
+
+type MetadataAuthorOutput struct{ *pulumi.OutputState }
+
+func (MetadataAuthorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataAuthor)(nil)).Elem()
+}
+
+func (o MetadataAuthorOutput) ToMetadataAuthorOutput() MetadataAuthorOutput {
+	return o
+}
+
+func (o MetadataAuthorOutput) ToMetadataAuthorOutputWithContext(ctx context.Context) MetadataAuthorOutput {
+	return o
+}
+
+func (o MetadataAuthorOutput) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutput {
+	return o.ToMetadataAuthorPtrOutputWithContext(context.Background())
+}
+
+func (o MetadataAuthorOutput) ToMetadataAuthorPtrOutputWithContext(ctx context.Context) MetadataAuthorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataAuthor) *MetadataAuthor {
+		return &v
+	}).(MetadataAuthorPtrOutput)
+}
+
+// The email address of the author contact.
+func (o MetadataAuthorOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataAuthor) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The link for author/vendor page.
+func (o MetadataAuthorOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataAuthor) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// The name of the author, company or person.
+func (o MetadataAuthorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataAuthor) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type MetadataAuthorPtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataAuthorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataAuthor)(nil)).Elem()
+}
+
+func (o MetadataAuthorPtrOutput) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutput {
+	return o
+}
+
+func (o MetadataAuthorPtrOutput) ToMetadataAuthorPtrOutputWithContext(ctx context.Context) MetadataAuthorPtrOutput {
+	return o
+}
+
+func (o MetadataAuthorPtrOutput) Elem() MetadataAuthorOutput {
+	return o.ApplyT(func(v *MetadataAuthor) MetadataAuthor {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataAuthor
+		return ret
+	}).(MetadataAuthorOutput)
+}
+
+// The email address of the author contact.
+func (o MetadataAuthorPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataAuthor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The link for author/vendor page.
+func (o MetadataAuthorPtrOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataAuthor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Link
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the author, company or person.
+func (o MetadataAuthorPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataAuthor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type MetadataCategory struct {
+	// Specifies a list of domains for the solution content item.
+	Domains []string `pulumi:"domains"`
+	// Specifies a list of industry verticals for the solution content item.
+	Verticals []string `pulumi:"verticals"`
+}
+
+// MetadataCategoryInput is an input type that accepts MetadataCategoryArgs and MetadataCategoryOutput values.
+// You can construct a concrete instance of `MetadataCategoryInput` via:
+//
+//	MetadataCategoryArgs{...}
+type MetadataCategoryInput interface {
+	pulumi.Input
+
+	ToMetadataCategoryOutput() MetadataCategoryOutput
+	ToMetadataCategoryOutputWithContext(context.Context) MetadataCategoryOutput
+}
+
+type MetadataCategoryArgs struct {
+	// Specifies a list of domains for the solution content item.
+	Domains pulumi.StringArrayInput `pulumi:"domains"`
+	// Specifies a list of industry verticals for the solution content item.
+	Verticals pulumi.StringArrayInput `pulumi:"verticals"`
+}
+
+func (MetadataCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataCategory)(nil)).Elem()
+}
+
+func (i MetadataCategoryArgs) ToMetadataCategoryOutput() MetadataCategoryOutput {
+	return i.ToMetadataCategoryOutputWithContext(context.Background())
+}
+
+func (i MetadataCategoryArgs) ToMetadataCategoryOutputWithContext(ctx context.Context) MetadataCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataCategoryOutput)
+}
+
+func (i MetadataCategoryArgs) ToMetadataCategoryPtrOutput() MetadataCategoryPtrOutput {
+	return i.ToMetadataCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i MetadataCategoryArgs) ToMetadataCategoryPtrOutputWithContext(ctx context.Context) MetadataCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataCategoryOutput).ToMetadataCategoryPtrOutputWithContext(ctx)
+}
+
+// MetadataCategoryPtrInput is an input type that accepts MetadataCategoryArgs, MetadataCategoryPtr and MetadataCategoryPtrOutput values.
+// You can construct a concrete instance of `MetadataCategoryPtrInput` via:
+//
+//	        MetadataCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetadataCategoryPtrInput interface {
+	pulumi.Input
+
+	ToMetadataCategoryPtrOutput() MetadataCategoryPtrOutput
+	ToMetadataCategoryPtrOutputWithContext(context.Context) MetadataCategoryPtrOutput
+}
+
+type metadataCategoryPtrType MetadataCategoryArgs
+
+func MetadataCategoryPtr(v *MetadataCategoryArgs) MetadataCategoryPtrInput {
+	return (*metadataCategoryPtrType)(v)
+}
+
+func (*metadataCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataCategory)(nil)).Elem()
+}
+
+func (i *metadataCategoryPtrType) ToMetadataCategoryPtrOutput() MetadataCategoryPtrOutput {
+	return i.ToMetadataCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *metadataCategoryPtrType) ToMetadataCategoryPtrOutputWithContext(ctx context.Context) MetadataCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataCategoryPtrOutput)
+}
+
+type MetadataCategoryOutput struct{ *pulumi.OutputState }
+
+func (MetadataCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataCategory)(nil)).Elem()
+}
+
+func (o MetadataCategoryOutput) ToMetadataCategoryOutput() MetadataCategoryOutput {
+	return o
+}
+
+func (o MetadataCategoryOutput) ToMetadataCategoryOutputWithContext(ctx context.Context) MetadataCategoryOutput {
+	return o
+}
+
+func (o MetadataCategoryOutput) ToMetadataCategoryPtrOutput() MetadataCategoryPtrOutput {
+	return o.ToMetadataCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o MetadataCategoryOutput) ToMetadataCategoryPtrOutputWithContext(ctx context.Context) MetadataCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataCategory) *MetadataCategory {
+		return &v
+	}).(MetadataCategoryPtrOutput)
+}
+
+// Specifies a list of domains for the solution content item.
+func (o MetadataCategoryOutput) Domains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetadataCategory) []string { return v.Domains }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of industry verticals for the solution content item.
+func (o MetadataCategoryOutput) Verticals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetadataCategory) []string { return v.Verticals }).(pulumi.StringArrayOutput)
+}
+
+type MetadataCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataCategory)(nil)).Elem()
+}
+
+func (o MetadataCategoryPtrOutput) ToMetadataCategoryPtrOutput() MetadataCategoryPtrOutput {
+	return o
+}
+
+func (o MetadataCategoryPtrOutput) ToMetadataCategoryPtrOutputWithContext(ctx context.Context) MetadataCategoryPtrOutput {
+	return o
+}
+
+func (o MetadataCategoryPtrOutput) Elem() MetadataCategoryOutput {
+	return o.ApplyT(func(v *MetadataCategory) MetadataCategory {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataCategory
+		return ret
+	}).(MetadataCategoryOutput)
+}
+
+// Specifies a list of domains for the solution content item.
+func (o MetadataCategoryPtrOutput) Domains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MetadataCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Domains
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of industry verticals for the solution content item.
+func (o MetadataCategoryPtrOutput) Verticals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MetadataCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Verticals
+	}).(pulumi.StringArrayOutput)
+}
+
+type MetadataSource struct {
+	// The id of the content source, the solution ID, Log Analytics Workspace name etc.
+	Id *string `pulumi:"id"`
+	// The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+	Kind string `pulumi:"kind"`
+	// The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
+	Name *string `pulumi:"name"`
+}
+
+// MetadataSourceInput is an input type that accepts MetadataSourceArgs and MetadataSourceOutput values.
+// You can construct a concrete instance of `MetadataSourceInput` via:
+//
+//	MetadataSourceArgs{...}
+type MetadataSourceInput interface {
+	pulumi.Input
+
+	ToMetadataSourceOutput() MetadataSourceOutput
+	ToMetadataSourceOutputWithContext(context.Context) MetadataSourceOutput
+}
+
+type MetadataSourceArgs struct {
+	// The id of the content source, the solution ID, Log Analytics Workspace name etc.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (MetadataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSource)(nil)).Elem()
+}
+
+func (i MetadataSourceArgs) ToMetadataSourceOutput() MetadataSourceOutput {
+	return i.ToMetadataSourceOutputWithContext(context.Background())
+}
+
+func (i MetadataSourceArgs) ToMetadataSourceOutputWithContext(ctx context.Context) MetadataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourceOutput)
+}
+
+func (i MetadataSourceArgs) ToMetadataSourcePtrOutput() MetadataSourcePtrOutput {
+	return i.ToMetadataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i MetadataSourceArgs) ToMetadataSourcePtrOutputWithContext(ctx context.Context) MetadataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourceOutput).ToMetadataSourcePtrOutputWithContext(ctx)
+}
+
+// MetadataSourcePtrInput is an input type that accepts MetadataSourceArgs, MetadataSourcePtr and MetadataSourcePtrOutput values.
+// You can construct a concrete instance of `MetadataSourcePtrInput` via:
+//
+//	        MetadataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetadataSourcePtrInput interface {
+	pulumi.Input
+
+	ToMetadataSourcePtrOutput() MetadataSourcePtrOutput
+	ToMetadataSourcePtrOutputWithContext(context.Context) MetadataSourcePtrOutput
+}
+
+type metadataSourcePtrType MetadataSourceArgs
+
+func MetadataSourcePtr(v *MetadataSourceArgs) MetadataSourcePtrInput {
+	return (*metadataSourcePtrType)(v)
+}
+
+func (*metadataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSource)(nil)).Elem()
+}
+
+func (i *metadataSourcePtrType) ToMetadataSourcePtrOutput() MetadataSourcePtrOutput {
+	return i.ToMetadataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *metadataSourcePtrType) ToMetadataSourcePtrOutputWithContext(ctx context.Context) MetadataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourcePtrOutput)
+}
+
+type MetadataSourceOutput struct{ *pulumi.OutputState }
+
+func (MetadataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSource)(nil)).Elem()
+}
+
+func (o MetadataSourceOutput) ToMetadataSourceOutput() MetadataSourceOutput {
+	return o
+}
+
+func (o MetadataSourceOutput) ToMetadataSourceOutputWithContext(ctx context.Context) MetadataSourceOutput {
+	return o
+}
+
+func (o MetadataSourceOutput) ToMetadataSourcePtrOutput() MetadataSourcePtrOutput {
+	return o.ToMetadataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o MetadataSourceOutput) ToMetadataSourcePtrOutputWithContext(ctx context.Context) MetadataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSource) *MetadataSource {
+		return &v
+	}).(MetadataSourcePtrOutput)
+}
+
+// The id of the content source, the solution ID, Log Analytics Workspace name etc.
+func (o MetadataSourceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSource) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+func (o MetadataSourceOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v MetadataSource) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
+func (o MetadataSourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type MetadataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSource)(nil)).Elem()
+}
+
+func (o MetadataSourcePtrOutput) ToMetadataSourcePtrOutput() MetadataSourcePtrOutput {
+	return o
+}
+
+func (o MetadataSourcePtrOutput) ToMetadataSourcePtrOutputWithContext(ctx context.Context) MetadataSourcePtrOutput {
+	return o
+}
+
+func (o MetadataSourcePtrOutput) Elem() MetadataSourceOutput {
+	return o.ApplyT(func(v *MetadataSource) MetadataSource {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataSource
+		return ret
+	}).(MetadataSourceOutput)
+}
+
+// The id of the content source, the solution ID, Log Analytics Workspace name etc.
+func (o MetadataSourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+func (o MetadataSourcePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
+func (o MetadataSourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type MetadataSupport struct {
+	// The email address of the support contact.
+	Email *string `pulumi:"email"`
+	// The link for support help.
+	Link *string `pulumi:"link"`
+	// The name of the support contact.
+	Name *string `pulumi:"name"`
+	// The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
+	Tier string `pulumi:"tier"`
+}
+
+// MetadataSupportInput is an input type that accepts MetadataSupportArgs and MetadataSupportOutput values.
+// You can construct a concrete instance of `MetadataSupportInput` via:
+//
+//	MetadataSupportArgs{...}
+type MetadataSupportInput interface {
+	pulumi.Input
+
+	ToMetadataSupportOutput() MetadataSupportOutput
+	ToMetadataSupportOutputWithContext(context.Context) MetadataSupportOutput
+}
+
+type MetadataSupportArgs struct {
+	// The email address of the support contact.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The link for support help.
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// The name of the support contact.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (MetadataSupportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSupport)(nil)).Elem()
+}
+
+func (i MetadataSupportArgs) ToMetadataSupportOutput() MetadataSupportOutput {
+	return i.ToMetadataSupportOutputWithContext(context.Background())
+}
+
+func (i MetadataSupportArgs) ToMetadataSupportOutputWithContext(ctx context.Context) MetadataSupportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportOutput)
+}
+
+func (i MetadataSupportArgs) ToMetadataSupportPtrOutput() MetadataSupportPtrOutput {
+	return i.ToMetadataSupportPtrOutputWithContext(context.Background())
+}
+
+func (i MetadataSupportArgs) ToMetadataSupportPtrOutputWithContext(ctx context.Context) MetadataSupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportOutput).ToMetadataSupportPtrOutputWithContext(ctx)
+}
+
+// MetadataSupportPtrInput is an input type that accepts MetadataSupportArgs, MetadataSupportPtr and MetadataSupportPtrOutput values.
+// You can construct a concrete instance of `MetadataSupportPtrInput` via:
+//
+//	        MetadataSupportArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetadataSupportPtrInput interface {
+	pulumi.Input
+
+	ToMetadataSupportPtrOutput() MetadataSupportPtrOutput
+	ToMetadataSupportPtrOutputWithContext(context.Context) MetadataSupportPtrOutput
+}
+
+type metadataSupportPtrType MetadataSupportArgs
+
+func MetadataSupportPtr(v *MetadataSupportArgs) MetadataSupportPtrInput {
+	return (*metadataSupportPtrType)(v)
+}
+
+func (*metadataSupportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSupport)(nil)).Elem()
+}
+
+func (i *metadataSupportPtrType) ToMetadataSupportPtrOutput() MetadataSupportPtrOutput {
+	return i.ToMetadataSupportPtrOutputWithContext(context.Background())
+}
+
+func (i *metadataSupportPtrType) ToMetadataSupportPtrOutputWithContext(ctx context.Context) MetadataSupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportPtrOutput)
+}
+
+type MetadataSupportOutput struct{ *pulumi.OutputState }
+
+func (MetadataSupportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSupport)(nil)).Elem()
+}
+
+func (o MetadataSupportOutput) ToMetadataSupportOutput() MetadataSupportOutput {
+	return o
+}
+
+func (o MetadataSupportOutput) ToMetadataSupportOutputWithContext(ctx context.Context) MetadataSupportOutput {
+	return o
+}
+
+func (o MetadataSupportOutput) ToMetadataSupportPtrOutput() MetadataSupportPtrOutput {
+	return o.ToMetadataSupportPtrOutputWithContext(context.Background())
+}
+
+func (o MetadataSupportOutput) ToMetadataSupportPtrOutputWithContext(ctx context.Context) MetadataSupportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSupport) *MetadataSupport {
+		return &v
+	}).(MetadataSupportPtrOutput)
+}
+
+// The email address of the support contact.
+func (o MetadataSupportOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSupport) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The link for support help.
+func (o MetadataSupportOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSupport) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// The name of the support contact.
+func (o MetadataSupportOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSupport) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
+func (o MetadataSupportOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v MetadataSupport) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+type MetadataSupportPtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataSupportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSupport)(nil)).Elem()
+}
+
+func (o MetadataSupportPtrOutput) ToMetadataSupportPtrOutput() MetadataSupportPtrOutput {
+	return o
+}
+
+func (o MetadataSupportPtrOutput) ToMetadataSupportPtrOutputWithContext(ctx context.Context) MetadataSupportPtrOutput {
+	return o
+}
+
+func (o MetadataSupportPtrOutput) Elem() MetadataSupportOutput {
+	return o.ApplyT(func(v *MetadataSupport) MetadataSupport {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataSupport
+		return ret
+	}).(MetadataSupportOutput)
+}
+
+// The email address of the support contact.
+func (o MetadataSupportPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The link for support help.
+func (o MetadataSupportPtrOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Link
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the support contact.
+func (o MetadataSupportPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
+func (o MetadataSupportPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetAlertRuleAnomalyMultiSelectObservation struct {
+	// The description of the threshold observation.
+	Description string `pulumi:"description"`
+	// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+	Name string `pulumi:"name"`
+	// A list of supported values of the single select observation.
+	SupportedValues []string `pulumi:"supportedValues"`
+	// A list of values of the single select observation.
+	Values []string `pulumi:"values"`
+}
+
+// GetAlertRuleAnomalyMultiSelectObservationInput is an input type that accepts GetAlertRuleAnomalyMultiSelectObservationArgs and GetAlertRuleAnomalyMultiSelectObservationOutput values.
+// You can construct a concrete instance of `GetAlertRuleAnomalyMultiSelectObservationInput` via:
+//
+//	GetAlertRuleAnomalyMultiSelectObservationArgs{...}
+type GetAlertRuleAnomalyMultiSelectObservationInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleAnomalyMultiSelectObservationOutput() GetAlertRuleAnomalyMultiSelectObservationOutput
+	ToGetAlertRuleAnomalyMultiSelectObservationOutputWithContext(context.Context) GetAlertRuleAnomalyMultiSelectObservationOutput
+}
+
+type GetAlertRuleAnomalyMultiSelectObservationArgs struct {
+	// The description of the threshold observation.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of supported values of the single select observation.
+	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
+	// A list of values of the single select observation.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetAlertRuleAnomalyMultiSelectObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleAnomalyMultiSelectObservation)(nil)).Elem()
+}
+
+func (i GetAlertRuleAnomalyMultiSelectObservationArgs) ToGetAlertRuleAnomalyMultiSelectObservationOutput() GetAlertRuleAnomalyMultiSelectObservationOutput {
+	return i.ToGetAlertRuleAnomalyMultiSelectObservationOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleAnomalyMultiSelectObservationArgs) ToGetAlertRuleAnomalyMultiSelectObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalyMultiSelectObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyMultiSelectObservationOutput)
+}
+
+// GetAlertRuleAnomalyMultiSelectObservationArrayInput is an input type that accepts GetAlertRuleAnomalyMultiSelectObservationArray and GetAlertRuleAnomalyMultiSelectObservationArrayOutput values.
+// You can construct a concrete instance of `GetAlertRuleAnomalyMultiSelectObservationArrayInput` via:
+//
+//	GetAlertRuleAnomalyMultiSelectObservationArray{ GetAlertRuleAnomalyMultiSelectObservationArgs{...} }
+type GetAlertRuleAnomalyMultiSelectObservationArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleAnomalyMultiSelectObservationArrayOutput() GetAlertRuleAnomalyMultiSelectObservationArrayOutput
+	ToGetAlertRuleAnomalyMultiSelectObservationArrayOutputWithContext(context.Context) GetAlertRuleAnomalyMultiSelectObservationArrayOutput
+}
+
+type GetAlertRuleAnomalyMultiSelectObservationArray []GetAlertRuleAnomalyMultiSelectObservationInput
+
+func (GetAlertRuleAnomalyMultiSelectObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleAnomalyMultiSelectObservation)(nil)).Elem()
+}
+
+func (i GetAlertRuleAnomalyMultiSelectObservationArray) ToGetAlertRuleAnomalyMultiSelectObservationArrayOutput() GetAlertRuleAnomalyMultiSelectObservationArrayOutput {
+	return i.ToGetAlertRuleAnomalyMultiSelectObservationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleAnomalyMultiSelectObservationArray) ToGetAlertRuleAnomalyMultiSelectObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyMultiSelectObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyMultiSelectObservationArrayOutput)
+}
+
+type GetAlertRuleAnomalyMultiSelectObservationOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleAnomalyMultiSelectObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleAnomalyMultiSelectObservation)(nil)).Elem()
+}
+
+func (o GetAlertRuleAnomalyMultiSelectObservationOutput) ToGetAlertRuleAnomalyMultiSelectObservationOutput() GetAlertRuleAnomalyMultiSelectObservationOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyMultiSelectObservationOutput) ToGetAlertRuleAnomalyMultiSelectObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalyMultiSelectObservationOutput {
+	return o
+}
+
+// The description of the threshold observation.
+func (o GetAlertRuleAnomalyMultiSelectObservationOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyMultiSelectObservation) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+func (o GetAlertRuleAnomalyMultiSelectObservationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyMultiSelectObservation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of supported values of the single select observation.
+func (o GetAlertRuleAnomalyMultiSelectObservationOutput) SupportedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyMultiSelectObservation) []string { return v.SupportedValues }).(pulumi.StringArrayOutput)
+}
+
+// A list of values of the single select observation.
+func (o GetAlertRuleAnomalyMultiSelectObservationOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyMultiSelectObservation) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetAlertRuleAnomalyMultiSelectObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleAnomalyMultiSelectObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleAnomalyMultiSelectObservation)(nil)).Elem()
+}
+
+func (o GetAlertRuleAnomalyMultiSelectObservationArrayOutput) ToGetAlertRuleAnomalyMultiSelectObservationArrayOutput() GetAlertRuleAnomalyMultiSelectObservationArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyMultiSelectObservationArrayOutput) ToGetAlertRuleAnomalyMultiSelectObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyMultiSelectObservationArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyMultiSelectObservationArrayOutput) Index(i pulumi.IntInput) GetAlertRuleAnomalyMultiSelectObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertRuleAnomalyMultiSelectObservation {
+		return vs[0].([]GetAlertRuleAnomalyMultiSelectObservation)[vs[1].(int)]
+	}).(GetAlertRuleAnomalyMultiSelectObservationOutput)
+}
+
+type GetAlertRuleAnomalyPrioritizedExcludeObservation struct {
+	// The description of the threshold observation.
+	Description string `pulumi:"description"`
+	// The excluded value per `description`.
+	Exclude string `pulumi:"exclude"`
+	// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+	Name string `pulumi:"name"`
+	// The prioritized value per `description`.
+	Prioritize string `pulumi:"prioritize"`
+}
+
+// GetAlertRuleAnomalyPrioritizedExcludeObservationInput is an input type that accepts GetAlertRuleAnomalyPrioritizedExcludeObservationArgs and GetAlertRuleAnomalyPrioritizedExcludeObservationOutput values.
+// You can construct a concrete instance of `GetAlertRuleAnomalyPrioritizedExcludeObservationInput` via:
+//
+//	GetAlertRuleAnomalyPrioritizedExcludeObservationArgs{...}
+type GetAlertRuleAnomalyPrioritizedExcludeObservationInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleAnomalyPrioritizedExcludeObservationOutput() GetAlertRuleAnomalyPrioritizedExcludeObservationOutput
+	ToGetAlertRuleAnomalyPrioritizedExcludeObservationOutputWithContext(context.Context) GetAlertRuleAnomalyPrioritizedExcludeObservationOutput
+}
+
+type GetAlertRuleAnomalyPrioritizedExcludeObservationArgs struct {
+	// The description of the threshold observation.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The excluded value per `description`.
+	Exclude pulumi.StringInput `pulumi:"exclude"`
+	// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The prioritized value per `description`.
+	Prioritize pulumi.StringInput `pulumi:"prioritize"`
+}
+
+func (GetAlertRuleAnomalyPrioritizedExcludeObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleAnomalyPrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (i GetAlertRuleAnomalyPrioritizedExcludeObservationArgs) ToGetAlertRuleAnomalyPrioritizedExcludeObservationOutput() GetAlertRuleAnomalyPrioritizedExcludeObservationOutput {
+	return i.ToGetAlertRuleAnomalyPrioritizedExcludeObservationOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleAnomalyPrioritizedExcludeObservationArgs) ToGetAlertRuleAnomalyPrioritizedExcludeObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalyPrioritizedExcludeObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyPrioritizedExcludeObservationOutput)
+}
+
+// GetAlertRuleAnomalyPrioritizedExcludeObservationArrayInput is an input type that accepts GetAlertRuleAnomalyPrioritizedExcludeObservationArray and GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput values.
+// You can construct a concrete instance of `GetAlertRuleAnomalyPrioritizedExcludeObservationArrayInput` via:
+//
+//	GetAlertRuleAnomalyPrioritizedExcludeObservationArray{ GetAlertRuleAnomalyPrioritizedExcludeObservationArgs{...} }
+type GetAlertRuleAnomalyPrioritizedExcludeObservationArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput() GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput
+	ToGetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutputWithContext(context.Context) GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput
+}
+
+type GetAlertRuleAnomalyPrioritizedExcludeObservationArray []GetAlertRuleAnomalyPrioritizedExcludeObservationInput
+
+func (GetAlertRuleAnomalyPrioritizedExcludeObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleAnomalyPrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (i GetAlertRuleAnomalyPrioritizedExcludeObservationArray) ToGetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput() GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput {
+	return i.ToGetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleAnomalyPrioritizedExcludeObservationArray) ToGetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput)
+}
+
+type GetAlertRuleAnomalyPrioritizedExcludeObservationOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleAnomalyPrioritizedExcludeObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleAnomalyPrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (o GetAlertRuleAnomalyPrioritizedExcludeObservationOutput) ToGetAlertRuleAnomalyPrioritizedExcludeObservationOutput() GetAlertRuleAnomalyPrioritizedExcludeObservationOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyPrioritizedExcludeObservationOutput) ToGetAlertRuleAnomalyPrioritizedExcludeObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalyPrioritizedExcludeObservationOutput {
+	return o
+}
+
+// The description of the threshold observation.
+func (o GetAlertRuleAnomalyPrioritizedExcludeObservationOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyPrioritizedExcludeObservation) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The excluded value per `description`.
+func (o GetAlertRuleAnomalyPrioritizedExcludeObservationOutput) Exclude() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyPrioritizedExcludeObservation) string { return v.Exclude }).(pulumi.StringOutput)
+}
+
+// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+func (o GetAlertRuleAnomalyPrioritizedExcludeObservationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyPrioritizedExcludeObservation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The prioritized value per `description`.
+func (o GetAlertRuleAnomalyPrioritizedExcludeObservationOutput) Prioritize() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyPrioritizedExcludeObservation) string { return v.Prioritize }).(pulumi.StringOutput)
+}
+
+type GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleAnomalyPrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (o GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput) ToGetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput() GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput) ToGetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput) Index(i pulumi.IntInput) GetAlertRuleAnomalyPrioritizedExcludeObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertRuleAnomalyPrioritizedExcludeObservation {
+		return vs[0].([]GetAlertRuleAnomalyPrioritizedExcludeObservation)[vs[1].(int)]
+	}).(GetAlertRuleAnomalyPrioritizedExcludeObservationOutput)
+}
+
+type GetAlertRuleAnomalyRequiredDataConnector struct {
+	// The ID of the required Data Connector.
+	ConnectorId string `pulumi:"connectorId"`
+	// A list of data types of the required Data Connector.
+	DataTypes []string `pulumi:"dataTypes"`
+}
+
+// GetAlertRuleAnomalyRequiredDataConnectorInput is an input type that accepts GetAlertRuleAnomalyRequiredDataConnectorArgs and GetAlertRuleAnomalyRequiredDataConnectorOutput values.
+// You can construct a concrete instance of `GetAlertRuleAnomalyRequiredDataConnectorInput` via:
+//
+//	GetAlertRuleAnomalyRequiredDataConnectorArgs{...}
+type GetAlertRuleAnomalyRequiredDataConnectorInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleAnomalyRequiredDataConnectorOutput() GetAlertRuleAnomalyRequiredDataConnectorOutput
+	ToGetAlertRuleAnomalyRequiredDataConnectorOutputWithContext(context.Context) GetAlertRuleAnomalyRequiredDataConnectorOutput
+}
+
+type GetAlertRuleAnomalyRequiredDataConnectorArgs struct {
+	// The ID of the required Data Connector.
+	ConnectorId pulumi.StringInput `pulumi:"connectorId"`
+	// A list of data types of the required Data Connector.
+	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
+}
+
+func (GetAlertRuleAnomalyRequiredDataConnectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleAnomalyRequiredDataConnector)(nil)).Elem()
+}
+
+func (i GetAlertRuleAnomalyRequiredDataConnectorArgs) ToGetAlertRuleAnomalyRequiredDataConnectorOutput() GetAlertRuleAnomalyRequiredDataConnectorOutput {
+	return i.ToGetAlertRuleAnomalyRequiredDataConnectorOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleAnomalyRequiredDataConnectorArgs) ToGetAlertRuleAnomalyRequiredDataConnectorOutputWithContext(ctx context.Context) GetAlertRuleAnomalyRequiredDataConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyRequiredDataConnectorOutput)
+}
+
+// GetAlertRuleAnomalyRequiredDataConnectorArrayInput is an input type that accepts GetAlertRuleAnomalyRequiredDataConnectorArray and GetAlertRuleAnomalyRequiredDataConnectorArrayOutput values.
+// You can construct a concrete instance of `GetAlertRuleAnomalyRequiredDataConnectorArrayInput` via:
+//
+//	GetAlertRuleAnomalyRequiredDataConnectorArray{ GetAlertRuleAnomalyRequiredDataConnectorArgs{...} }
+type GetAlertRuleAnomalyRequiredDataConnectorArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleAnomalyRequiredDataConnectorArrayOutput() GetAlertRuleAnomalyRequiredDataConnectorArrayOutput
+	ToGetAlertRuleAnomalyRequiredDataConnectorArrayOutputWithContext(context.Context) GetAlertRuleAnomalyRequiredDataConnectorArrayOutput
+}
+
+type GetAlertRuleAnomalyRequiredDataConnectorArray []GetAlertRuleAnomalyRequiredDataConnectorInput
+
+func (GetAlertRuleAnomalyRequiredDataConnectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleAnomalyRequiredDataConnector)(nil)).Elem()
+}
+
+func (i GetAlertRuleAnomalyRequiredDataConnectorArray) ToGetAlertRuleAnomalyRequiredDataConnectorArrayOutput() GetAlertRuleAnomalyRequiredDataConnectorArrayOutput {
+	return i.ToGetAlertRuleAnomalyRequiredDataConnectorArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleAnomalyRequiredDataConnectorArray) ToGetAlertRuleAnomalyRequiredDataConnectorArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyRequiredDataConnectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyRequiredDataConnectorArrayOutput)
+}
+
+type GetAlertRuleAnomalyRequiredDataConnectorOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleAnomalyRequiredDataConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleAnomalyRequiredDataConnector)(nil)).Elem()
+}
+
+func (o GetAlertRuleAnomalyRequiredDataConnectorOutput) ToGetAlertRuleAnomalyRequiredDataConnectorOutput() GetAlertRuleAnomalyRequiredDataConnectorOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyRequiredDataConnectorOutput) ToGetAlertRuleAnomalyRequiredDataConnectorOutputWithContext(ctx context.Context) GetAlertRuleAnomalyRequiredDataConnectorOutput {
+	return o
+}
+
+// The ID of the required Data Connector.
+func (o GetAlertRuleAnomalyRequiredDataConnectorOutput) ConnectorId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyRequiredDataConnector) string { return v.ConnectorId }).(pulumi.StringOutput)
+}
+
+// A list of data types of the required Data Connector.
+func (o GetAlertRuleAnomalyRequiredDataConnectorOutput) DataTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyRequiredDataConnector) []string { return v.DataTypes }).(pulumi.StringArrayOutput)
+}
+
+type GetAlertRuleAnomalyRequiredDataConnectorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleAnomalyRequiredDataConnectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleAnomalyRequiredDataConnector)(nil)).Elem()
+}
+
+func (o GetAlertRuleAnomalyRequiredDataConnectorArrayOutput) ToGetAlertRuleAnomalyRequiredDataConnectorArrayOutput() GetAlertRuleAnomalyRequiredDataConnectorArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyRequiredDataConnectorArrayOutput) ToGetAlertRuleAnomalyRequiredDataConnectorArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyRequiredDataConnectorArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyRequiredDataConnectorArrayOutput) Index(i pulumi.IntInput) GetAlertRuleAnomalyRequiredDataConnectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertRuleAnomalyRequiredDataConnector {
+		return vs[0].([]GetAlertRuleAnomalyRequiredDataConnector)[vs[1].(int)]
+	}).(GetAlertRuleAnomalyRequiredDataConnectorOutput)
+}
+
+type GetAlertRuleAnomalySingleSelectObservation struct {
+	// The description of the threshold observation.
+	Description string `pulumi:"description"`
+	// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+	Name string `pulumi:"name"`
+	// A list of supported values of the single select observation.
+	SupportedValues []string `pulumi:"supportedValues"`
+	// The value of the threshold observation.
+	Value string `pulumi:"value"`
+}
+
+// GetAlertRuleAnomalySingleSelectObservationInput is an input type that accepts GetAlertRuleAnomalySingleSelectObservationArgs and GetAlertRuleAnomalySingleSelectObservationOutput values.
+// You can construct a concrete instance of `GetAlertRuleAnomalySingleSelectObservationInput` via:
+//
+//	GetAlertRuleAnomalySingleSelectObservationArgs{...}
+type GetAlertRuleAnomalySingleSelectObservationInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleAnomalySingleSelectObservationOutput() GetAlertRuleAnomalySingleSelectObservationOutput
+	ToGetAlertRuleAnomalySingleSelectObservationOutputWithContext(context.Context) GetAlertRuleAnomalySingleSelectObservationOutput
+}
+
+type GetAlertRuleAnomalySingleSelectObservationArgs struct {
+	// The description of the threshold observation.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of supported values of the single select observation.
+	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
+	// The value of the threshold observation.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAlertRuleAnomalySingleSelectObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleAnomalySingleSelectObservation)(nil)).Elem()
+}
+
+func (i GetAlertRuleAnomalySingleSelectObservationArgs) ToGetAlertRuleAnomalySingleSelectObservationOutput() GetAlertRuleAnomalySingleSelectObservationOutput {
+	return i.ToGetAlertRuleAnomalySingleSelectObservationOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleAnomalySingleSelectObservationArgs) ToGetAlertRuleAnomalySingleSelectObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalySingleSelectObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalySingleSelectObservationOutput)
+}
+
+// GetAlertRuleAnomalySingleSelectObservationArrayInput is an input type that accepts GetAlertRuleAnomalySingleSelectObservationArray and GetAlertRuleAnomalySingleSelectObservationArrayOutput values.
+// You can construct a concrete instance of `GetAlertRuleAnomalySingleSelectObservationArrayInput` via:
+//
+//	GetAlertRuleAnomalySingleSelectObservationArray{ GetAlertRuleAnomalySingleSelectObservationArgs{...} }
+type GetAlertRuleAnomalySingleSelectObservationArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleAnomalySingleSelectObservationArrayOutput() GetAlertRuleAnomalySingleSelectObservationArrayOutput
+	ToGetAlertRuleAnomalySingleSelectObservationArrayOutputWithContext(context.Context) GetAlertRuleAnomalySingleSelectObservationArrayOutput
+}
+
+type GetAlertRuleAnomalySingleSelectObservationArray []GetAlertRuleAnomalySingleSelectObservationInput
+
+func (GetAlertRuleAnomalySingleSelectObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleAnomalySingleSelectObservation)(nil)).Elem()
+}
+
+func (i GetAlertRuleAnomalySingleSelectObservationArray) ToGetAlertRuleAnomalySingleSelectObservationArrayOutput() GetAlertRuleAnomalySingleSelectObservationArrayOutput {
+	return i.ToGetAlertRuleAnomalySingleSelectObservationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleAnomalySingleSelectObservationArray) ToGetAlertRuleAnomalySingleSelectObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalySingleSelectObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalySingleSelectObservationArrayOutput)
+}
+
+type GetAlertRuleAnomalySingleSelectObservationOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleAnomalySingleSelectObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleAnomalySingleSelectObservation)(nil)).Elem()
+}
+
+func (o GetAlertRuleAnomalySingleSelectObservationOutput) ToGetAlertRuleAnomalySingleSelectObservationOutput() GetAlertRuleAnomalySingleSelectObservationOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalySingleSelectObservationOutput) ToGetAlertRuleAnomalySingleSelectObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalySingleSelectObservationOutput {
+	return o
+}
+
+// The description of the threshold observation.
+func (o GetAlertRuleAnomalySingleSelectObservationOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalySingleSelectObservation) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+func (o GetAlertRuleAnomalySingleSelectObservationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalySingleSelectObservation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of supported values of the single select observation.
+func (o GetAlertRuleAnomalySingleSelectObservationOutput) SupportedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalySingleSelectObservation) []string { return v.SupportedValues }).(pulumi.StringArrayOutput)
+}
+
+// The value of the threshold observation.
+func (o GetAlertRuleAnomalySingleSelectObservationOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalySingleSelectObservation) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAlertRuleAnomalySingleSelectObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleAnomalySingleSelectObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleAnomalySingleSelectObservation)(nil)).Elem()
+}
+
+func (o GetAlertRuleAnomalySingleSelectObservationArrayOutput) ToGetAlertRuleAnomalySingleSelectObservationArrayOutput() GetAlertRuleAnomalySingleSelectObservationArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalySingleSelectObservationArrayOutput) ToGetAlertRuleAnomalySingleSelectObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalySingleSelectObservationArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalySingleSelectObservationArrayOutput) Index(i pulumi.IntInput) GetAlertRuleAnomalySingleSelectObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertRuleAnomalySingleSelectObservation {
+		return vs[0].([]GetAlertRuleAnomalySingleSelectObservation)[vs[1].(int)]
+	}).(GetAlertRuleAnomalySingleSelectObservationOutput)
+}
+
+type GetAlertRuleAnomalyThresholdObservation struct {
+	// The description of the threshold observation.
+	Description string `pulumi:"description"`
+	// The max value of the threshold observation.
+	Max string `pulumi:"max"`
+	// The min value of the threshold observation.
+	Min string `pulumi:"min"`
+	// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+	Name string `pulumi:"name"`
+	// The value of the threshold observation.
+	Value string `pulumi:"value"`
+}
+
+// GetAlertRuleAnomalyThresholdObservationInput is an input type that accepts GetAlertRuleAnomalyThresholdObservationArgs and GetAlertRuleAnomalyThresholdObservationOutput values.
+// You can construct a concrete instance of `GetAlertRuleAnomalyThresholdObservationInput` via:
+//
+//	GetAlertRuleAnomalyThresholdObservationArgs{...}
+type GetAlertRuleAnomalyThresholdObservationInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleAnomalyThresholdObservationOutput() GetAlertRuleAnomalyThresholdObservationOutput
+	ToGetAlertRuleAnomalyThresholdObservationOutputWithContext(context.Context) GetAlertRuleAnomalyThresholdObservationOutput
+}
+
+type GetAlertRuleAnomalyThresholdObservationArgs struct {
+	// The description of the threshold observation.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The max value of the threshold observation.
+	Max pulumi.StringInput `pulumi:"max"`
+	// The min value of the threshold observation.
+	Min pulumi.StringInput `pulumi:"min"`
+	// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the threshold observation.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAlertRuleAnomalyThresholdObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleAnomalyThresholdObservation)(nil)).Elem()
+}
+
+func (i GetAlertRuleAnomalyThresholdObservationArgs) ToGetAlertRuleAnomalyThresholdObservationOutput() GetAlertRuleAnomalyThresholdObservationOutput {
+	return i.ToGetAlertRuleAnomalyThresholdObservationOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleAnomalyThresholdObservationArgs) ToGetAlertRuleAnomalyThresholdObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalyThresholdObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyThresholdObservationOutput)
+}
+
+// GetAlertRuleAnomalyThresholdObservationArrayInput is an input type that accepts GetAlertRuleAnomalyThresholdObservationArray and GetAlertRuleAnomalyThresholdObservationArrayOutput values.
+// You can construct a concrete instance of `GetAlertRuleAnomalyThresholdObservationArrayInput` via:
+//
+//	GetAlertRuleAnomalyThresholdObservationArray{ GetAlertRuleAnomalyThresholdObservationArgs{...} }
+type GetAlertRuleAnomalyThresholdObservationArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleAnomalyThresholdObservationArrayOutput() GetAlertRuleAnomalyThresholdObservationArrayOutput
+	ToGetAlertRuleAnomalyThresholdObservationArrayOutputWithContext(context.Context) GetAlertRuleAnomalyThresholdObservationArrayOutput
+}
+
+type GetAlertRuleAnomalyThresholdObservationArray []GetAlertRuleAnomalyThresholdObservationInput
+
+func (GetAlertRuleAnomalyThresholdObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleAnomalyThresholdObservation)(nil)).Elem()
+}
+
+func (i GetAlertRuleAnomalyThresholdObservationArray) ToGetAlertRuleAnomalyThresholdObservationArrayOutput() GetAlertRuleAnomalyThresholdObservationArrayOutput {
+	return i.ToGetAlertRuleAnomalyThresholdObservationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleAnomalyThresholdObservationArray) ToGetAlertRuleAnomalyThresholdObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyThresholdObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyThresholdObservationArrayOutput)
+}
+
+type GetAlertRuleAnomalyThresholdObservationOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleAnomalyThresholdObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleAnomalyThresholdObservation)(nil)).Elem()
+}
+
+func (o GetAlertRuleAnomalyThresholdObservationOutput) ToGetAlertRuleAnomalyThresholdObservationOutput() GetAlertRuleAnomalyThresholdObservationOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyThresholdObservationOutput) ToGetAlertRuleAnomalyThresholdObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalyThresholdObservationOutput {
+	return o
+}
+
+// The description of the threshold observation.
+func (o GetAlertRuleAnomalyThresholdObservationOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyThresholdObservation) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The max value of the threshold observation.
+func (o GetAlertRuleAnomalyThresholdObservationOutput) Max() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyThresholdObservation) string { return v.Max }).(pulumi.StringOutput)
+}
+
+// The min value of the threshold observation.
+func (o GetAlertRuleAnomalyThresholdObservationOutput) Min() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyThresholdObservation) string { return v.Min }).(pulumi.StringOutput)
+}
+
+// The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
+func (o GetAlertRuleAnomalyThresholdObservationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyThresholdObservation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the threshold observation.
+func (o GetAlertRuleAnomalyThresholdObservationOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleAnomalyThresholdObservation) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAlertRuleAnomalyThresholdObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleAnomalyThresholdObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleAnomalyThresholdObservation)(nil)).Elem()
+}
+
+func (o GetAlertRuleAnomalyThresholdObservationArrayOutput) ToGetAlertRuleAnomalyThresholdObservationArrayOutput() GetAlertRuleAnomalyThresholdObservationArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyThresholdObservationArrayOutput) ToGetAlertRuleAnomalyThresholdObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyThresholdObservationArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleAnomalyThresholdObservationArrayOutput) Index(i pulumi.IntInput) GetAlertRuleAnomalyThresholdObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertRuleAnomalyThresholdObservation {
+		return vs[0].([]GetAlertRuleAnomalyThresholdObservation)[vs[1].(int)]
+	}).(GetAlertRuleAnomalyThresholdObservationOutput)
+}
+
 type GetAlertRuleTemplateNrtTemplate struct {
 	// The description of this Sentinel Scheduled Alert Rule Template.
 	Description string `pulumi:"description"`
@@ -3585,6 +5507,16 @@ func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) Index(i pulumi.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInMultiSelectObservationInput)(nil)).Elem(), AlertRuleAnomalyBuiltInMultiSelectObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInMultiSelectObservationArrayInput)(nil)).Elem(), AlertRuleAnomalyBuiltInMultiSelectObservationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInPrioritizedExcludeObservationInput)(nil)).Elem(), AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayInput)(nil)).Elem(), AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInRequiredDataConnectorInput)(nil)).Elem(), AlertRuleAnomalyBuiltInRequiredDataConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInRequiredDataConnectorArrayInput)(nil)).Elem(), AlertRuleAnomalyBuiltInRequiredDataConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInSingleSelectObservationInput)(nil)).Elem(), AlertRuleAnomalyBuiltInSingleSelectObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInSingleSelectObservationArrayInput)(nil)).Elem(), AlertRuleAnomalyBuiltInSingleSelectObservationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInThresholdObservationInput)(nil)).Elem(), AlertRuleAnomalyBuiltInThresholdObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInThresholdObservationArrayInput)(nil)).Elem(), AlertRuleAnomalyBuiltInThresholdObservationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionSourceInput)(nil)).Elem(), AlertRuleFusionSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionSourceArrayInput)(nil)).Elem(), AlertRuleFusionSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionSourceSubTypeInput)(nil)).Elem(), AlertRuleFusionSourceSubTypeArgs{})
@@ -3633,12 +5565,40 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionPlaybookArrayInput)(nil)).Elem(), AutomationRuleActionPlaybookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleConditionInput)(nil)).Elem(), AutomationRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleConditionArrayInput)(nil)).Elem(), AutomationRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetadataAuthorInput)(nil)).Elem(), MetadataAuthorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetadataAuthorPtrInput)(nil)).Elem(), MetadataAuthorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetadataCategoryInput)(nil)).Elem(), MetadataCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetadataCategoryPtrInput)(nil)).Elem(), MetadataCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetadataSourceInput)(nil)).Elem(), MetadataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetadataSourcePtrInput)(nil)).Elem(), MetadataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetadataSupportInput)(nil)).Elem(), MetadataSupportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetadataSupportPtrInput)(nil)).Elem(), MetadataSupportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleAnomalyMultiSelectObservationInput)(nil)).Elem(), GetAlertRuleAnomalyMultiSelectObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleAnomalyMultiSelectObservationArrayInput)(nil)).Elem(), GetAlertRuleAnomalyMultiSelectObservationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleAnomalyPrioritizedExcludeObservationInput)(nil)).Elem(), GetAlertRuleAnomalyPrioritizedExcludeObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleAnomalyPrioritizedExcludeObservationArrayInput)(nil)).Elem(), GetAlertRuleAnomalyPrioritizedExcludeObservationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleAnomalyRequiredDataConnectorInput)(nil)).Elem(), GetAlertRuleAnomalyRequiredDataConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleAnomalyRequiredDataConnectorArrayInput)(nil)).Elem(), GetAlertRuleAnomalyRequiredDataConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleAnomalySingleSelectObservationInput)(nil)).Elem(), GetAlertRuleAnomalySingleSelectObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleAnomalySingleSelectObservationArrayInput)(nil)).Elem(), GetAlertRuleAnomalySingleSelectObservationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleAnomalyThresholdObservationInput)(nil)).Elem(), GetAlertRuleAnomalyThresholdObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleAnomalyThresholdObservationArrayInput)(nil)).Elem(), GetAlertRuleAnomalyThresholdObservationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateNrtTemplateInput)(nil)).Elem(), GetAlertRuleTemplateNrtTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateNrtTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateNrtTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplateInput)(nil)).Elem(), GetAlertRuleTemplateScheduledTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateScheduledTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplateInput)(nil)).Elem(), GetAlertRuleTemplateSecurityIncidentTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateSecurityIncidentTemplateArray{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInMultiSelectObservationOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInRequiredDataConnectorOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInSingleSelectObservationOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInThresholdObservationOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInThresholdObservationArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleFusionSourceOutput{})
 	pulumi.RegisterOutputType(AlertRuleFusionSourceArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleFusionSourceSubTypeOutput{})
@@ -3687,6 +5647,24 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRuleActionPlaybookArrayOutput{})
 	pulumi.RegisterOutputType(AutomationRuleConditionOutput{})
 	pulumi.RegisterOutputType(AutomationRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(MetadataAuthorOutput{})
+	pulumi.RegisterOutputType(MetadataAuthorPtrOutput{})
+	pulumi.RegisterOutputType(MetadataCategoryOutput{})
+	pulumi.RegisterOutputType(MetadataCategoryPtrOutput{})
+	pulumi.RegisterOutputType(MetadataSourceOutput{})
+	pulumi.RegisterOutputType(MetadataSourcePtrOutput{})
+	pulumi.RegisterOutputType(MetadataSupportOutput{})
+	pulumi.RegisterOutputType(MetadataSupportPtrOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleAnomalyMultiSelectObservationOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleAnomalyMultiSelectObservationArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleAnomalyPrioritizedExcludeObservationOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleAnomalyRequiredDataConnectorOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleAnomalyRequiredDataConnectorArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleAnomalySingleSelectObservationOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleAnomalySingleSelectObservationArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleAnomalyThresholdObservationOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleAnomalyThresholdObservationArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertRuleTemplateNrtTemplateOutput{})
 	pulumi.RegisterOutputType(GetAlertRuleTemplateNrtTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertRuleTemplateScheduledTemplateOutput{})

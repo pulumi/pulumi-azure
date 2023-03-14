@@ -3,12 +3,16 @@
 
 package com.pulumi.azure.media.inputs;
 
+import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs;
+import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencClearTrackArgs;
+import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs;
 import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs;
 import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs;
 import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,6 +21,51 @@ import javax.annotation.Nullable;
 public final class StreamingPolicyCommonEncryptionCencArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final StreamingPolicyCommonEncryptionCencArgs Empty = new StreamingPolicyCommonEncryptionCencArgs();
+
+    /**
+     * A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    @Import(name="clearKeyEncryption")
+    private @Nullable Output<StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs> clearKeyEncryption;
+
+    /**
+     * @return A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    public Optional<Output<StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs>> clearKeyEncryption() {
+        return Optional.ofNullable(this.clearKeyEncryption);
+    }
+
+    /**
+     * One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    @Import(name="clearTracks")
+    private @Nullable Output<List<StreamingPolicyCommonEncryptionCencClearTrackArgs>> clearTracks;
+
+    /**
+     * @return One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    public Optional<Output<List<StreamingPolicyCommonEncryptionCencClearTrackArgs>>> clearTracks() {
+        return Optional.ofNullable(this.clearTracks);
+    }
+
+    /**
+     * One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    @Import(name="contentKeyToTrackMappings")
+    private @Nullable Output<List<StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs>> contentKeyToTrackMappings;
+
+    /**
+     * @return One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    public Optional<Output<List<StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs>>> contentKeyToTrackMappings() {
+        return Optional.ofNullable(this.contentKeyToTrackMappings);
+    }
 
     /**
      * A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -49,14 +98,14 @@ public final class StreamingPolicyCommonEncryptionCencArgs extends com.pulumi.re
     }
 
     /**
-     * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+     * The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
      * 
      */
     @Import(name="drmWidevineCustomLicenseAcquisitionUrlTemplate")
     private @Nullable Output<String> drmWidevineCustomLicenseAcquisitionUrlTemplate;
 
     /**
-     * @return Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+     * @return The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
      * 
      */
     public Optional<Output<String>> drmWidevineCustomLicenseAcquisitionUrlTemplate() {
@@ -81,6 +130,9 @@ public final class StreamingPolicyCommonEncryptionCencArgs extends com.pulumi.re
     private StreamingPolicyCommonEncryptionCencArgs() {}
 
     private StreamingPolicyCommonEncryptionCencArgs(StreamingPolicyCommonEncryptionCencArgs $) {
+        this.clearKeyEncryption = $.clearKeyEncryption;
+        this.clearTracks = $.clearTracks;
+        this.contentKeyToTrackMappings = $.contentKeyToTrackMappings;
         this.defaultContentKey = $.defaultContentKey;
         this.drmPlayready = $.drmPlayready;
         this.drmWidevineCustomLicenseAcquisitionUrlTemplate = $.drmWidevineCustomLicenseAcquisitionUrlTemplate;
@@ -103,6 +155,89 @@ public final class StreamingPolicyCommonEncryptionCencArgs extends com.pulumi.re
 
         public Builder(StreamingPolicyCommonEncryptionCencArgs defaults) {
             $ = new StreamingPolicyCommonEncryptionCencArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param clearKeyEncryption A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clearKeyEncryption(@Nullable Output<StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs> clearKeyEncryption) {
+            $.clearKeyEncryption = clearKeyEncryption;
+            return this;
+        }
+
+        /**
+         * @param clearKeyEncryption A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clearKeyEncryption(StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs clearKeyEncryption) {
+            return clearKeyEncryption(Output.of(clearKeyEncryption));
+        }
+
+        /**
+         * @param clearTracks One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clearTracks(@Nullable Output<List<StreamingPolicyCommonEncryptionCencClearTrackArgs>> clearTracks) {
+            $.clearTracks = clearTracks;
+            return this;
+        }
+
+        /**
+         * @param clearTracks One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clearTracks(List<StreamingPolicyCommonEncryptionCencClearTrackArgs> clearTracks) {
+            return clearTracks(Output.of(clearTracks));
+        }
+
+        /**
+         * @param clearTracks One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clearTracks(StreamingPolicyCommonEncryptionCencClearTrackArgs... clearTracks) {
+            return clearTracks(List.of(clearTracks));
+        }
+
+        /**
+         * @param contentKeyToTrackMappings One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contentKeyToTrackMappings(@Nullable Output<List<StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs>> contentKeyToTrackMappings) {
+            $.contentKeyToTrackMappings = contentKeyToTrackMappings;
+            return this;
+        }
+
+        /**
+         * @param contentKeyToTrackMappings One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contentKeyToTrackMappings(List<StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs> contentKeyToTrackMappings) {
+            return contentKeyToTrackMappings(Output.of(contentKeyToTrackMappings));
+        }
+
+        /**
+         * @param contentKeyToTrackMappings One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contentKeyToTrackMappings(StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs... contentKeyToTrackMappings) {
+            return contentKeyToTrackMappings(List.of(contentKeyToTrackMappings));
         }
 
         /**
@@ -148,7 +283,7 @@ public final class StreamingPolicyCommonEncryptionCencArgs extends com.pulumi.re
         }
 
         /**
-         * @param drmWidevineCustomLicenseAcquisitionUrlTemplate Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         * @param drmWidevineCustomLicenseAcquisitionUrlTemplate The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
          * 
          * @return builder
          * 
@@ -159,7 +294,7 @@ public final class StreamingPolicyCommonEncryptionCencArgs extends com.pulumi.re
         }
 
         /**
-         * @param drmWidevineCustomLicenseAcquisitionUrlTemplate Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         * @param drmWidevineCustomLicenseAcquisitionUrlTemplate The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
          * 
          * @return builder
          * 

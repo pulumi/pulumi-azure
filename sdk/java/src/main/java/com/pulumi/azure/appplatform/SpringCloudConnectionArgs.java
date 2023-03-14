@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform;
 
 import com.pulumi.azure.appplatform.inputs.SpringCloudConnectionAuthenticationArgs;
+import com.pulumi.azure.appplatform.inputs.SpringCloudConnectionSecretStoreArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -62,6 +63,21 @@ public final class SpringCloudConnectionArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * An option to store secret value in secure place. An `secret_store` block as defined below.
+     * 
+     */
+    @Import(name="secretStore")
+    private @Nullable Output<SpringCloudConnectionSecretStoreArgs> secretStore;
+
+    /**
+     * @return An option to store secret value in secure place. An `secret_store` block as defined below.
+     * 
+     */
+    public Optional<Output<SpringCloudConnectionSecretStoreArgs>> secretStore() {
+        return Optional.ofNullable(this.secretStore);
+    }
+
+    /**
      * The ID of the data source spring cloud. Changing this forces a new resource to be created.
      * 
      */
@@ -112,6 +128,7 @@ public final class SpringCloudConnectionArgs extends com.pulumi.resources.Resour
         this.authentication = $.authentication;
         this.clientType = $.clientType;
         this.name = $.name;
+        this.secretStore = $.secretStore;
         this.springCloudId = $.springCloudId;
         this.targetResourceId = $.targetResourceId;
         this.vnetSolution = $.vnetSolution;
@@ -196,6 +213,27 @@ public final class SpringCloudConnectionArgs extends com.pulumi.resources.Resour
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param secretStore An option to store secret value in secure place. An `secret_store` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretStore(@Nullable Output<SpringCloudConnectionSecretStoreArgs> secretStore) {
+            $.secretStore = secretStore;
+            return this;
+        }
+
+        /**
+         * @param secretStore An option to store secret value in secure place. An `secret_store` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretStore(SpringCloudConnectionSecretStoreArgs secretStore) {
+            return secretStore(Output.of(secretStore));
         }
 
         /**

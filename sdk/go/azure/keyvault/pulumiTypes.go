@@ -3499,6 +3499,337 @@ func (o CertificateIssuerAdminArrayOutput) Index(i pulumi.IntInput) CertificateI
 	}).(CertificateIssuerAdminOutput)
 }
 
+type KeyRotationPolicy struct {
+	// An `automatic` block as defined below.
+	Automatic *KeyRotationPolicyAutomatic `pulumi:"automatic"`
+	// Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+	ExpireAfter *string `pulumi:"expireAfter"`
+	// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+	NotifyBeforeExpiry *string `pulumi:"notifyBeforeExpiry"`
+}
+
+// KeyRotationPolicyInput is an input type that accepts KeyRotationPolicyArgs and KeyRotationPolicyOutput values.
+// You can construct a concrete instance of `KeyRotationPolicyInput` via:
+//
+//	KeyRotationPolicyArgs{...}
+type KeyRotationPolicyInput interface {
+	pulumi.Input
+
+	ToKeyRotationPolicyOutput() KeyRotationPolicyOutput
+	ToKeyRotationPolicyOutputWithContext(context.Context) KeyRotationPolicyOutput
+}
+
+type KeyRotationPolicyArgs struct {
+	// An `automatic` block as defined below.
+	Automatic KeyRotationPolicyAutomaticPtrInput `pulumi:"automatic"`
+	// Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+	ExpireAfter pulumi.StringPtrInput `pulumi:"expireAfter"`
+	// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+	NotifyBeforeExpiry pulumi.StringPtrInput `pulumi:"notifyBeforeExpiry"`
+}
+
+func (KeyRotationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyRotationPolicy)(nil)).Elem()
+}
+
+func (i KeyRotationPolicyArgs) ToKeyRotationPolicyOutput() KeyRotationPolicyOutput {
+	return i.ToKeyRotationPolicyOutputWithContext(context.Background())
+}
+
+func (i KeyRotationPolicyArgs) ToKeyRotationPolicyOutputWithContext(ctx context.Context) KeyRotationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyRotationPolicyOutput)
+}
+
+func (i KeyRotationPolicyArgs) ToKeyRotationPolicyPtrOutput() KeyRotationPolicyPtrOutput {
+	return i.ToKeyRotationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i KeyRotationPolicyArgs) ToKeyRotationPolicyPtrOutputWithContext(ctx context.Context) KeyRotationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyRotationPolicyOutput).ToKeyRotationPolicyPtrOutputWithContext(ctx)
+}
+
+// KeyRotationPolicyPtrInput is an input type that accepts KeyRotationPolicyArgs, KeyRotationPolicyPtr and KeyRotationPolicyPtrOutput values.
+// You can construct a concrete instance of `KeyRotationPolicyPtrInput` via:
+//
+//	        KeyRotationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type KeyRotationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToKeyRotationPolicyPtrOutput() KeyRotationPolicyPtrOutput
+	ToKeyRotationPolicyPtrOutputWithContext(context.Context) KeyRotationPolicyPtrOutput
+}
+
+type keyRotationPolicyPtrType KeyRotationPolicyArgs
+
+func KeyRotationPolicyPtr(v *KeyRotationPolicyArgs) KeyRotationPolicyPtrInput {
+	return (*keyRotationPolicyPtrType)(v)
+}
+
+func (*keyRotationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyRotationPolicy)(nil)).Elem()
+}
+
+func (i *keyRotationPolicyPtrType) ToKeyRotationPolicyPtrOutput() KeyRotationPolicyPtrOutput {
+	return i.ToKeyRotationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *keyRotationPolicyPtrType) ToKeyRotationPolicyPtrOutputWithContext(ctx context.Context) KeyRotationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyRotationPolicyPtrOutput)
+}
+
+type KeyRotationPolicyOutput struct{ *pulumi.OutputState }
+
+func (KeyRotationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyRotationPolicy)(nil)).Elem()
+}
+
+func (o KeyRotationPolicyOutput) ToKeyRotationPolicyOutput() KeyRotationPolicyOutput {
+	return o
+}
+
+func (o KeyRotationPolicyOutput) ToKeyRotationPolicyOutputWithContext(ctx context.Context) KeyRotationPolicyOutput {
+	return o
+}
+
+func (o KeyRotationPolicyOutput) ToKeyRotationPolicyPtrOutput() KeyRotationPolicyPtrOutput {
+	return o.ToKeyRotationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o KeyRotationPolicyOutput) ToKeyRotationPolicyPtrOutputWithContext(ctx context.Context) KeyRotationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyRotationPolicy) *KeyRotationPolicy {
+		return &v
+	}).(KeyRotationPolicyPtrOutput)
+}
+
+// An `automatic` block as defined below.
+func (o KeyRotationPolicyOutput) Automatic() KeyRotationPolicyAutomaticPtrOutput {
+	return o.ApplyT(func(v KeyRotationPolicy) *KeyRotationPolicyAutomatic { return v.Automatic }).(KeyRotationPolicyAutomaticPtrOutput)
+}
+
+// Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+func (o KeyRotationPolicyOutput) ExpireAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyRotationPolicy) *string { return v.ExpireAfter }).(pulumi.StringPtrOutput)
+}
+
+// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+func (o KeyRotationPolicyOutput) NotifyBeforeExpiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyRotationPolicy) *string { return v.NotifyBeforeExpiry }).(pulumi.StringPtrOutput)
+}
+
+type KeyRotationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyRotationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyRotationPolicy)(nil)).Elem()
+}
+
+func (o KeyRotationPolicyPtrOutput) ToKeyRotationPolicyPtrOutput() KeyRotationPolicyPtrOutput {
+	return o
+}
+
+func (o KeyRotationPolicyPtrOutput) ToKeyRotationPolicyPtrOutputWithContext(ctx context.Context) KeyRotationPolicyPtrOutput {
+	return o
+}
+
+func (o KeyRotationPolicyPtrOutput) Elem() KeyRotationPolicyOutput {
+	return o.ApplyT(func(v *KeyRotationPolicy) KeyRotationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret KeyRotationPolicy
+		return ret
+	}).(KeyRotationPolicyOutput)
+}
+
+// An `automatic` block as defined below.
+func (o KeyRotationPolicyPtrOutput) Automatic() KeyRotationPolicyAutomaticPtrOutput {
+	return o.ApplyT(func(v *KeyRotationPolicy) *KeyRotationPolicyAutomatic {
+		if v == nil {
+			return nil
+		}
+		return v.Automatic
+	}).(KeyRotationPolicyAutomaticPtrOutput)
+}
+
+// Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+func (o KeyRotationPolicyPtrOutput) ExpireAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyRotationPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpireAfter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+func (o KeyRotationPolicyPtrOutput) NotifyBeforeExpiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyRotationPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotifyBeforeExpiry
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyRotationPolicyAutomatic struct {
+	// Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+	TimeAfterCreation *string `pulumi:"timeAfterCreation"`
+	// Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+	TimeBeforeExpiry *string `pulumi:"timeBeforeExpiry"`
+}
+
+// KeyRotationPolicyAutomaticInput is an input type that accepts KeyRotationPolicyAutomaticArgs and KeyRotationPolicyAutomaticOutput values.
+// You can construct a concrete instance of `KeyRotationPolicyAutomaticInput` via:
+//
+//	KeyRotationPolicyAutomaticArgs{...}
+type KeyRotationPolicyAutomaticInput interface {
+	pulumi.Input
+
+	ToKeyRotationPolicyAutomaticOutput() KeyRotationPolicyAutomaticOutput
+	ToKeyRotationPolicyAutomaticOutputWithContext(context.Context) KeyRotationPolicyAutomaticOutput
+}
+
+type KeyRotationPolicyAutomaticArgs struct {
+	// Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+	TimeAfterCreation pulumi.StringPtrInput `pulumi:"timeAfterCreation"`
+	// Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+	TimeBeforeExpiry pulumi.StringPtrInput `pulumi:"timeBeforeExpiry"`
+}
+
+func (KeyRotationPolicyAutomaticArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyRotationPolicyAutomatic)(nil)).Elem()
+}
+
+func (i KeyRotationPolicyAutomaticArgs) ToKeyRotationPolicyAutomaticOutput() KeyRotationPolicyAutomaticOutput {
+	return i.ToKeyRotationPolicyAutomaticOutputWithContext(context.Background())
+}
+
+func (i KeyRotationPolicyAutomaticArgs) ToKeyRotationPolicyAutomaticOutputWithContext(ctx context.Context) KeyRotationPolicyAutomaticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyRotationPolicyAutomaticOutput)
+}
+
+func (i KeyRotationPolicyAutomaticArgs) ToKeyRotationPolicyAutomaticPtrOutput() KeyRotationPolicyAutomaticPtrOutput {
+	return i.ToKeyRotationPolicyAutomaticPtrOutputWithContext(context.Background())
+}
+
+func (i KeyRotationPolicyAutomaticArgs) ToKeyRotationPolicyAutomaticPtrOutputWithContext(ctx context.Context) KeyRotationPolicyAutomaticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyRotationPolicyAutomaticOutput).ToKeyRotationPolicyAutomaticPtrOutputWithContext(ctx)
+}
+
+// KeyRotationPolicyAutomaticPtrInput is an input type that accepts KeyRotationPolicyAutomaticArgs, KeyRotationPolicyAutomaticPtr and KeyRotationPolicyAutomaticPtrOutput values.
+// You can construct a concrete instance of `KeyRotationPolicyAutomaticPtrInput` via:
+//
+//	        KeyRotationPolicyAutomaticArgs{...}
+//
+//	or:
+//
+//	        nil
+type KeyRotationPolicyAutomaticPtrInput interface {
+	pulumi.Input
+
+	ToKeyRotationPolicyAutomaticPtrOutput() KeyRotationPolicyAutomaticPtrOutput
+	ToKeyRotationPolicyAutomaticPtrOutputWithContext(context.Context) KeyRotationPolicyAutomaticPtrOutput
+}
+
+type keyRotationPolicyAutomaticPtrType KeyRotationPolicyAutomaticArgs
+
+func KeyRotationPolicyAutomaticPtr(v *KeyRotationPolicyAutomaticArgs) KeyRotationPolicyAutomaticPtrInput {
+	return (*keyRotationPolicyAutomaticPtrType)(v)
+}
+
+func (*keyRotationPolicyAutomaticPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyRotationPolicyAutomatic)(nil)).Elem()
+}
+
+func (i *keyRotationPolicyAutomaticPtrType) ToKeyRotationPolicyAutomaticPtrOutput() KeyRotationPolicyAutomaticPtrOutput {
+	return i.ToKeyRotationPolicyAutomaticPtrOutputWithContext(context.Background())
+}
+
+func (i *keyRotationPolicyAutomaticPtrType) ToKeyRotationPolicyAutomaticPtrOutputWithContext(ctx context.Context) KeyRotationPolicyAutomaticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyRotationPolicyAutomaticPtrOutput)
+}
+
+type KeyRotationPolicyAutomaticOutput struct{ *pulumi.OutputState }
+
+func (KeyRotationPolicyAutomaticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyRotationPolicyAutomatic)(nil)).Elem()
+}
+
+func (o KeyRotationPolicyAutomaticOutput) ToKeyRotationPolicyAutomaticOutput() KeyRotationPolicyAutomaticOutput {
+	return o
+}
+
+func (o KeyRotationPolicyAutomaticOutput) ToKeyRotationPolicyAutomaticOutputWithContext(ctx context.Context) KeyRotationPolicyAutomaticOutput {
+	return o
+}
+
+func (o KeyRotationPolicyAutomaticOutput) ToKeyRotationPolicyAutomaticPtrOutput() KeyRotationPolicyAutomaticPtrOutput {
+	return o.ToKeyRotationPolicyAutomaticPtrOutputWithContext(context.Background())
+}
+
+func (o KeyRotationPolicyAutomaticOutput) ToKeyRotationPolicyAutomaticPtrOutputWithContext(ctx context.Context) KeyRotationPolicyAutomaticPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyRotationPolicyAutomatic) *KeyRotationPolicyAutomatic {
+		return &v
+	}).(KeyRotationPolicyAutomaticPtrOutput)
+}
+
+// Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+func (o KeyRotationPolicyAutomaticOutput) TimeAfterCreation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyRotationPolicyAutomatic) *string { return v.TimeAfterCreation }).(pulumi.StringPtrOutput)
+}
+
+// Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+func (o KeyRotationPolicyAutomaticOutput) TimeBeforeExpiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyRotationPolicyAutomatic) *string { return v.TimeBeforeExpiry }).(pulumi.StringPtrOutput)
+}
+
+type KeyRotationPolicyAutomaticPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyRotationPolicyAutomaticPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyRotationPolicyAutomatic)(nil)).Elem()
+}
+
+func (o KeyRotationPolicyAutomaticPtrOutput) ToKeyRotationPolicyAutomaticPtrOutput() KeyRotationPolicyAutomaticPtrOutput {
+	return o
+}
+
+func (o KeyRotationPolicyAutomaticPtrOutput) ToKeyRotationPolicyAutomaticPtrOutputWithContext(ctx context.Context) KeyRotationPolicyAutomaticPtrOutput {
+	return o
+}
+
+func (o KeyRotationPolicyAutomaticPtrOutput) Elem() KeyRotationPolicyAutomaticOutput {
+	return o.ApplyT(func(v *KeyRotationPolicyAutomatic) KeyRotationPolicyAutomatic {
+		if v != nil {
+			return *v
+		}
+		var ret KeyRotationPolicyAutomatic
+		return ret
+	}).(KeyRotationPolicyAutomaticOutput)
+}
+
+// Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+func (o KeyRotationPolicyAutomaticPtrOutput) TimeAfterCreation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyRotationPolicyAutomatic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeAfterCreation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+func (o KeyRotationPolicyAutomaticPtrOutput) TimeBeforeExpiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyRotationPolicyAutomatic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeBeforeExpiry
+	}).(pulumi.StringPtrOutput)
+}
+
 type KeyVaultAccessPolicy struct {
 	// The object ID of an Application in Azure Active Directory.
 	ApplicationId *string `pulumi:"applicationId"`
@@ -5810,6 +6141,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateContactsContactArrayInput)(nil)).Elem(), CertificateContactsContactArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateIssuerAdminInput)(nil)).Elem(), CertificateIssuerAdminArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateIssuerAdminArrayInput)(nil)).Elem(), CertificateIssuerAdminArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyRotationPolicyInput)(nil)).Elem(), KeyRotationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyRotationPolicyPtrInput)(nil)).Elem(), KeyRotationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyRotationPolicyAutomaticInput)(nil)).Elem(), KeyRotationPolicyAutomaticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyRotationPolicyAutomaticPtrInput)(nil)).Elem(), KeyRotationPolicyAutomaticArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultAccessPolicyInput)(nil)).Elem(), KeyVaultAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultAccessPolicyArrayInput)(nil)).Elem(), KeyVaultAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultContactInput)(nil)).Elem(), KeyVaultContactArgs{})
@@ -5890,6 +6225,10 @@ func init() {
 	pulumi.RegisterOutputType(CertificateContactsContactArrayOutput{})
 	pulumi.RegisterOutputType(CertificateIssuerAdminOutput{})
 	pulumi.RegisterOutputType(CertificateIssuerAdminArrayOutput{})
+	pulumi.RegisterOutputType(KeyRotationPolicyOutput{})
+	pulumi.RegisterOutputType(KeyRotationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(KeyRotationPolicyAutomaticOutput{})
+	pulumi.RegisterOutputType(KeyRotationPolicyAutomaticPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAccessPolicyOutput{})
 	pulumi.RegisterOutputType(KeyVaultAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultContactOutput{})

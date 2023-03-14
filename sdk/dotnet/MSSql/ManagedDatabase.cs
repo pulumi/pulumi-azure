@@ -79,6 +79,12 @@ namespace Pulumi.Azure.MSSql
     public partial class ManagedDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// A `long_term_retention_policy` block as defined below.
+        /// </summary>
+        [Output("longTermRetentionPolicy")]
+        public Output<Outputs.ManagedDatabaseLongTermRetentionPolicy> LongTermRetentionPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managedInstanceId")]
@@ -89,6 +95,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+        /// </summary>
+        [Output("shortTermRetentionDays")]
+        public Output<int?> ShortTermRetentionDays { get; private set; } = null!;
 
 
         /// <summary>
@@ -137,6 +149,12 @@ namespace Pulumi.Azure.MSSql
     public sealed class ManagedDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `long_term_retention_policy` block as defined below.
+        /// </summary>
+        [Input("longTermRetentionPolicy")]
+        public Input<Inputs.ManagedDatabaseLongTermRetentionPolicyArgs>? LongTermRetentionPolicy { get; set; }
+
+        /// <summary>
         /// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedInstanceId", required: true)]
@@ -148,6 +166,12 @@ namespace Pulumi.Azure.MSSql
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+        /// </summary>
+        [Input("shortTermRetentionDays")]
+        public Input<int>? ShortTermRetentionDays { get; set; }
+
         public ManagedDatabaseArgs()
         {
         }
@@ -156,6 +180,12 @@ namespace Pulumi.Azure.MSSql
 
     public sealed class ManagedDatabaseState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `long_term_retention_policy` block as defined below.
+        /// </summary>
+        [Input("longTermRetentionPolicy")]
+        public Input<Inputs.ManagedDatabaseLongTermRetentionPolicyGetArgs>? LongTermRetentionPolicy { get; set; }
+
         /// <summary>
         /// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         /// </summary>
@@ -167,6 +197,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+        /// </summary>
+        [Input("shortTermRetentionDays")]
+        public Input<int>? ShortTermRetentionDays { get; set; }
 
         public ManagedDatabaseState()
         {

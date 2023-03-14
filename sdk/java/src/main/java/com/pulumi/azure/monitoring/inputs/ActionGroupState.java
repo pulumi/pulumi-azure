@@ -150,6 +150,21 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+     * 
+     */
+    @Import(name="location")
+    private @Nullable Output<String> location;
+
+    /**
+     * @return The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+     * 
+     */
+    public Optional<Output<String>> location() {
+        return Optional.ofNullable(this.location);
+    }
+
+    /**
      * One or more `logic_app_receiver` blocks as defined below.
      * 
      */
@@ -280,6 +295,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         this.enabled = $.enabled;
         this.eventHubReceivers = $.eventHubReceivers;
         this.itsmReceivers = $.itsmReceivers;
+        this.location = $.location;
         this.logicAppReceivers = $.logicAppReceivers;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -544,6 +560,27 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder itsmReceivers(ActionGroupItsmReceiverArgs... itsmReceivers) {
             return itsmReceivers(List.of(itsmReceivers));
+        }
+
+        /**
+         * @param location The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder location(@Nullable Output<String> location) {
+            $.location = location;
+            return this;
+        }
+
+        /**
+         * @param location The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder location(String location) {
+            return location(Output.of(location));
         }
 
         /**

@@ -87,6 +87,10 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly authSettings!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotAuthSettings | undefined>;
     /**
+     * an `authSettingsV2` block as detailed below.
+     */
+    public readonly authSettingsV2!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2 | undefined>;
+    /**
      * a `backup` block as detailed below.
      */
     public readonly backup!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotBackup | undefined>;
@@ -230,6 +234,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             const state = argsOrState as LinuxFunctionAppSlotState | undefined;
             resourceInputs["appSettings"] = state ? state.appSettings : undefined;
             resourceInputs["authSettings"] = state ? state.authSettings : undefined;
+            resourceInputs["authSettingsV2"] = state ? state.authSettingsV2 : undefined;
             resourceInputs["backup"] = state ? state.backup : undefined;
             resourceInputs["builtinLoggingEnabled"] = state ? state.builtinLoggingEnabled : undefined;
             resourceInputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
@@ -272,6 +277,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             }
             resourceInputs["appSettings"] = args ? args.appSettings : undefined;
             resourceInputs["authSettings"] = args ? args.authSettings : undefined;
+            resourceInputs["authSettingsV2"] = args ? args.authSettingsV2 : undefined;
             resourceInputs["backup"] = args ? args.backup : undefined;
             resourceInputs["builtinLoggingEnabled"] = args ? args.builtinLoggingEnabled : undefined;
             resourceInputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
@@ -324,6 +330,10 @@ export interface LinuxFunctionAppSlotState {
      * an `authSettings` block as detailed below.
      */
     authSettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettings>;
+    /**
+     * an `authSettingsV2` block as detailed below.
+     */
+    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2>;
     /**
      * a `backup` block as detailed below.
      */
@@ -466,6 +476,10 @@ export interface LinuxFunctionAppSlotArgs {
      * an `authSettings` block as detailed below.
      */
     authSettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettings>;
+    /**
+     * an `authSettingsV2` block as detailed below.
+     */
+    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2>;
     /**
      * a `backup` block as detailed below.
      */

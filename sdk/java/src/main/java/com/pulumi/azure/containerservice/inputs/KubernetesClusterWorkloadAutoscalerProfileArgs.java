@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,10 +31,58 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
         return Optional.ofNullable(this.kedaEnabled);
     }
 
+    /**
+     * Which resources values should be controlled.
+     * 
+     */
+    @Import(name="verticalPodAutoscalerControlledValues")
+    private @Nullable Output<String> verticalPodAutoscalerControlledValues;
+
+    /**
+     * @return Which resources values should be controlled.
+     * 
+     */
+    public Optional<Output<String>> verticalPodAutoscalerControlledValues() {
+        return Optional.ofNullable(this.verticalPodAutoscalerControlledValues);
+    }
+
+    /**
+     * Specifies whether Vertical Pod Autoscaler should be enabled.
+     * 
+     */
+    @Import(name="verticalPodAutoscalerEnabled")
+    private @Nullable Output<Boolean> verticalPodAutoscalerEnabled;
+
+    /**
+     * @return Specifies whether Vertical Pod Autoscaler should be enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> verticalPodAutoscalerEnabled() {
+        return Optional.ofNullable(this.verticalPodAutoscalerEnabled);
+    }
+
+    /**
+     * How the autoscaler applies changes to pod resources.
+     * 
+     */
+    @Import(name="verticalPodAutoscalerUpdateMode")
+    private @Nullable Output<String> verticalPodAutoscalerUpdateMode;
+
+    /**
+     * @return How the autoscaler applies changes to pod resources.
+     * 
+     */
+    public Optional<Output<String>> verticalPodAutoscalerUpdateMode() {
+        return Optional.ofNullable(this.verticalPodAutoscalerUpdateMode);
+    }
+
     private KubernetesClusterWorkloadAutoscalerProfileArgs() {}
 
     private KubernetesClusterWorkloadAutoscalerProfileArgs(KubernetesClusterWorkloadAutoscalerProfileArgs $) {
         this.kedaEnabled = $.kedaEnabled;
+        this.verticalPodAutoscalerControlledValues = $.verticalPodAutoscalerControlledValues;
+        this.verticalPodAutoscalerEnabled = $.verticalPodAutoscalerEnabled;
+        this.verticalPodAutoscalerUpdateMode = $.verticalPodAutoscalerUpdateMode;
     }
 
     public static Builder builder() {
@@ -73,6 +122,69 @@ public final class KubernetesClusterWorkloadAutoscalerProfileArgs extends com.pu
          */
         public Builder kedaEnabled(Boolean kedaEnabled) {
             return kedaEnabled(Output.of(kedaEnabled));
+        }
+
+        /**
+         * @param verticalPodAutoscalerControlledValues Which resources values should be controlled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verticalPodAutoscalerControlledValues(@Nullable Output<String> verticalPodAutoscalerControlledValues) {
+            $.verticalPodAutoscalerControlledValues = verticalPodAutoscalerControlledValues;
+            return this;
+        }
+
+        /**
+         * @param verticalPodAutoscalerControlledValues Which resources values should be controlled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verticalPodAutoscalerControlledValues(String verticalPodAutoscalerControlledValues) {
+            return verticalPodAutoscalerControlledValues(Output.of(verticalPodAutoscalerControlledValues));
+        }
+
+        /**
+         * @param verticalPodAutoscalerEnabled Specifies whether Vertical Pod Autoscaler should be enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verticalPodAutoscalerEnabled(@Nullable Output<Boolean> verticalPodAutoscalerEnabled) {
+            $.verticalPodAutoscalerEnabled = verticalPodAutoscalerEnabled;
+            return this;
+        }
+
+        /**
+         * @param verticalPodAutoscalerEnabled Specifies whether Vertical Pod Autoscaler should be enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verticalPodAutoscalerEnabled(Boolean verticalPodAutoscalerEnabled) {
+            return verticalPodAutoscalerEnabled(Output.of(verticalPodAutoscalerEnabled));
+        }
+
+        /**
+         * @param verticalPodAutoscalerUpdateMode How the autoscaler applies changes to pod resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verticalPodAutoscalerUpdateMode(@Nullable Output<String> verticalPodAutoscalerUpdateMode) {
+            $.verticalPodAutoscalerUpdateMode = verticalPodAutoscalerUpdateMode;
+            return this;
+        }
+
+        /**
+         * @param verticalPodAutoscalerUpdateMode How the autoscaler applies changes to pod resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verticalPodAutoscalerUpdateMode(String verticalPodAutoscalerUpdateMode) {
+            return verticalPodAutoscalerUpdateMode(Output.of(verticalPodAutoscalerUpdateMode));
         }
 
         public KubernetesClusterWorkloadAutoscalerProfileArgs build() {

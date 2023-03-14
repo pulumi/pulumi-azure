@@ -157,6 +157,10 @@ export interface GetKubernetesClusterResult {
      */
     readonly nodeResourceGroup: string;
     /**
+     * The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+     */
+    readonly nodeResourceGroupId: string;
+    /**
      * Whether or not the OIDC feature is enabled or disabled.
      */
     readonly oidcIssuerEnabled: boolean;

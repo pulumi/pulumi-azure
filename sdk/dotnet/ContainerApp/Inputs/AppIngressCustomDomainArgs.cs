@@ -12,14 +12,20 @@ namespace Pulumi.Azure.ContainerApp.Inputs
 
     public sealed class AppIngressCustomDomainArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+        /// </summary>
         [Input("certificateBindingType")]
         public Input<string>? CertificateBindingType { get; set; }
 
+        /// <summary>
+        /// The ID of the Container App Environment Certificate.
+        /// </summary>
         [Input("certificateId", required: true)]
         public Input<string> CertificateId { get; set; } = null!;
 
         /// <summary>
-        /// The name for this Container App. Changing this forces a new resource to be created.
+        /// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

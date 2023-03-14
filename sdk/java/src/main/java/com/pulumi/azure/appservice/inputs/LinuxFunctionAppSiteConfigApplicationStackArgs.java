@@ -49,14 +49,14 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
     }
 
     /**
-     * The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
+     * The Version of Java to use. Supported versions include `8`, `11` &amp; `17`.
      * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
+     * @return The Version of Java to use. Supported versions include `8`, `11` &amp; `17`.
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -222,7 +222,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
+         * @param javaVersion The Version of Java to use. Supported versions include `8`, `11` &amp; `17`.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Supported versions include `8`, `11` &amp; `17` (In-Preview).
+         * @param javaVersion The Version of Java to use. Supported versions include `8`, `11` &amp; `17`.
          * 
          * @return builder
          * 

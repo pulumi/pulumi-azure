@@ -70,6 +70,10 @@ export interface GetNamespaceResult {
      */
     readonly defaultSecondaryKey: string;
     /**
+     * The URL to access the ServiceBus Namespace.
+     */
+    readonly endpoint: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

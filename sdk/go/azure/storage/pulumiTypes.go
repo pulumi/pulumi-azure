@@ -1926,7 +1926,7 @@ type AccountNetworkRulesType struct {
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction string `pulumi:"defaultAction"`
-	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
 	IpRules []string `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccesses []AccountNetworkRulesPrivateLinkAccess `pulumi:"privateLinkAccesses"`
@@ -1950,7 +1950,7 @@ type AccountNetworkRulesTypeArgs struct {
 	Bypasses pulumi.StringArrayInput `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
-	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccesses AccountNetworkRulesPrivateLinkAccessArrayInput `pulumi:"privateLinkAccesses"`
@@ -2045,7 +2045,7 @@ func (o AccountNetworkRulesTypeOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
-// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
 func (o AccountNetworkRulesTypeOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
@@ -2104,7 +2104,7 @@ func (o AccountNetworkRulesTypePtrOutput) DefaultAction() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
 func (o AccountNetworkRulesTypePtrOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRulesType) []string {
 		if v == nil {
@@ -5560,6 +5560,8 @@ func (o ManagementPolicyRuleActionsOutput) Version() ManagementPolicyRuleActions
 }
 
 type ManagementPolicyRuleActionsBaseBlob struct {
+	// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+	AutoTierToHotFromCoolEnabled *bool `pulumi:"autoTierToHotFromCoolEnabled"`
 	// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 	DeleteAfterDaysSinceCreationGreaterThan *int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
@@ -5594,6 +5596,8 @@ type ManagementPolicyRuleActionsBaseBlobInput interface {
 }
 
 type ManagementPolicyRuleActionsBaseBlobArgs struct {
+	// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+	AutoTierToHotFromCoolEnabled pulumi.BoolPtrInput `pulumi:"autoTierToHotFromCoolEnabled"`
 	// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
@@ -5693,6 +5697,11 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) ToManagementPolicyRuleActions
 	}).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
 }
 
+// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+func (o ManagementPolicyRuleActionsBaseBlobOutput) AutoTierToHotFromCoolEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *bool { return v.AutoTierToHotFromCoolEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
@@ -5779,6 +5788,16 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) Elem() ManagementPolicyRul
 		var ret ManagementPolicyRuleActionsBaseBlob
 		return ret
 	}).(ManagementPolicyRuleActionsBaseBlobOutput)
+}
+
+// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) AutoTierToHotFromCoolEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoTierToHotFromCoolEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.

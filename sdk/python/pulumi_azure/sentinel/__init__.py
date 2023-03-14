@@ -5,11 +5,13 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .alert_rule_anomaly_built_in import *
 from .alert_rule_fusion import *
 from .alert_rule_machine_learning_behavior_analytics import *
 from .alert_rule_ms_security_incident import *
 from .alert_rule_nrt import *
 from .alert_rule_scheduled import *
+from .alert_rule_threat_intelligence import *
 from .authomation_rule import *
 from .automation_rule import *
 from .data_connector_aws_cloud_trail import *
@@ -31,8 +33,10 @@ from .data_connector_office_power_bi import *
 from .data_connector_threat_intelligence import *
 from .data_connector_threat_intelligence_taxii import *
 from .get_alert_rule import *
+from .get_alert_rule_anomaly import *
 from .get_alert_rule_template import *
 from .log_analytics_workspace_onboarding import *
+from .metadata import *
 from .watchlist import *
 from .watchlist_item import *
 from ._inputs import *

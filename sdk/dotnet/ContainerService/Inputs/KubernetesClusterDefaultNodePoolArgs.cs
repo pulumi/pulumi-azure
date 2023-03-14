@@ -205,6 +205,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
+        /// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+        /// </summary>
+        [Input("temporaryNameForRotation")]
+        public Input<string>? TemporaryNameForRotation { get; set; }
+
+        /// <summary>
         /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type")]
@@ -223,7 +229,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs>? UpgradeSettings { get; set; }
 
         /// <summary>
-        /// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+        /// The size of the Virtual Machine, such as `Standard_DS2_v2`.
         /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;

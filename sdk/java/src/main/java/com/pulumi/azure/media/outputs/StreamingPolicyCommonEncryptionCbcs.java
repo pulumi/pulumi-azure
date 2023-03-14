@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.media.outputs;
 
+import com.pulumi.azure.media.outputs.StreamingPolicyCommonEncryptionCbcsClearKeyEncryption;
 import com.pulumi.azure.media.outputs.StreamingPolicyCommonEncryptionCbcsDefaultContentKey;
 import com.pulumi.azure.media.outputs.StreamingPolicyCommonEncryptionCbcsDrmFairplay;
 import com.pulumi.azure.media.outputs.StreamingPolicyCommonEncryptionCbcsEnabledProtocols;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StreamingPolicyCommonEncryptionCbcs {
+    /**
+     * @return A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    private @Nullable StreamingPolicyCommonEncryptionCbcsClearKeyEncryption clearKeyEncryption;
     /**
      * @return A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
@@ -30,6 +36,13 @@ public final class StreamingPolicyCommonEncryptionCbcs {
     private @Nullable StreamingPolicyCommonEncryptionCbcsEnabledProtocols enabledProtocols;
 
     private StreamingPolicyCommonEncryptionCbcs() {}
+    /**
+     * @return A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    public Optional<StreamingPolicyCommonEncryptionCbcsClearKeyEncryption> clearKeyEncryption() {
+        return Optional.ofNullable(this.clearKeyEncryption);
+    }
     /**
      * @return A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
@@ -61,17 +74,24 @@ public final class StreamingPolicyCommonEncryptionCbcs {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable StreamingPolicyCommonEncryptionCbcsClearKeyEncryption clearKeyEncryption;
         private @Nullable StreamingPolicyCommonEncryptionCbcsDefaultContentKey defaultContentKey;
         private @Nullable StreamingPolicyCommonEncryptionCbcsDrmFairplay drmFairplay;
         private @Nullable StreamingPolicyCommonEncryptionCbcsEnabledProtocols enabledProtocols;
         public Builder() {}
         public Builder(StreamingPolicyCommonEncryptionCbcs defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.clearKeyEncryption = defaults.clearKeyEncryption;
     	      this.defaultContentKey = defaults.defaultContentKey;
     	      this.drmFairplay = defaults.drmFairplay;
     	      this.enabledProtocols = defaults.enabledProtocols;
         }
 
+        @CustomType.Setter
+        public Builder clearKeyEncryption(@Nullable StreamingPolicyCommonEncryptionCbcsClearKeyEncryption clearKeyEncryption) {
+            this.clearKeyEncryption = clearKeyEncryption;
+            return this;
+        }
         @CustomType.Setter
         public Builder defaultContentKey(@Nullable StreamingPolicyCommonEncryptionCbcsDefaultContentKey defaultContentKey) {
             this.defaultContentKey = defaultContentKey;
@@ -89,6 +109,7 @@ public final class StreamingPolicyCommonEncryptionCbcs {
         }
         public StreamingPolicyCommonEncryptionCbcs build() {
             final var o = new StreamingPolicyCommonEncryptionCbcs();
+            o.clearKeyEncryption = clearKeyEncryption;
             o.defaultContentKey = defaultContentKey;
             o.drmFairplay = drmFairplay;
             o.enabledProtocols = enabledProtocols;

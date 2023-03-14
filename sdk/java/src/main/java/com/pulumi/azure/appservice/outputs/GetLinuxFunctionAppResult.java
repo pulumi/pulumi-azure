@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetLinuxFunctionAppAuthSetting;
+import com.pulumi.azure.appservice.outputs.GetLinuxFunctionAppAuthSettingsV2;
 import com.pulumi.azure.appservice.outputs.GetLinuxFunctionAppBackup;
 import com.pulumi.azure.appservice.outputs.GetLinuxFunctionAppConnectionString;
 import com.pulumi.azure.appservice.outputs.GetLinuxFunctionAppIdentity;
@@ -30,6 +31,11 @@ public final class GetLinuxFunctionAppResult {
      * 
      */
     private List<GetLinuxFunctionAppAuthSetting> authSettings;
+    /**
+     * @return A `auth_settings_v2` block as defined below.
+     * 
+     */
+    private List<GetLinuxFunctionAppAuthSettingsV2> authSettingsV2s;
     /**
      * @return A `backup` block as defined below.
      * 
@@ -206,6 +212,13 @@ public final class GetLinuxFunctionAppResult {
      */
     public List<GetLinuxFunctionAppAuthSetting> authSettings() {
         return this.authSettings;
+    }
+    /**
+     * @return A `auth_settings_v2` block as defined below.
+     * 
+     */
+    public List<GetLinuxFunctionAppAuthSettingsV2> authSettingsV2s() {
+        return this.authSettingsV2s;
     }
     /**
      * @return A `backup` block as defined below.
@@ -446,6 +459,7 @@ public final class GetLinuxFunctionAppResult {
     public static final class Builder {
         private Map<String,String> appSettings;
         private List<GetLinuxFunctionAppAuthSetting> authSettings;
+        private List<GetLinuxFunctionAppAuthSettingsV2> authSettingsV2s;
         private List<GetLinuxFunctionAppBackup> backups;
         private Boolean builtinLoggingEnabled;
         private Boolean clientCertificateEnabled;
@@ -484,6 +498,7 @@ public final class GetLinuxFunctionAppResult {
     	      Objects.requireNonNull(defaults);
     	      this.appSettings = defaults.appSettings;
     	      this.authSettings = defaults.authSettings;
+    	      this.authSettingsV2s = defaults.authSettingsV2s;
     	      this.backups = defaults.backups;
     	      this.builtinLoggingEnabled = defaults.builtinLoggingEnabled;
     	      this.clientCertificateEnabled = defaults.clientCertificateEnabled;
@@ -531,6 +546,14 @@ public final class GetLinuxFunctionAppResult {
         }
         public Builder authSettings(GetLinuxFunctionAppAuthSetting... authSettings) {
             return authSettings(List.of(authSettings));
+        }
+        @CustomType.Setter
+        public Builder authSettingsV2s(List<GetLinuxFunctionAppAuthSettingsV2> authSettingsV2s) {
+            this.authSettingsV2s = Objects.requireNonNull(authSettingsV2s);
+            return this;
+        }
+        public Builder authSettingsV2s(GetLinuxFunctionAppAuthSettingsV2... authSettingsV2s) {
+            return authSettingsV2s(List.of(authSettingsV2s));
         }
         @CustomType.Setter
         public Builder backups(List<GetLinuxFunctionAppBackup> backups) {
@@ -725,6 +748,7 @@ public final class GetLinuxFunctionAppResult {
             final var o = new GetLinuxFunctionAppResult();
             o.appSettings = appSettings;
             o.authSettings = authSettings;
+            o.authSettingsV2s = authSettingsV2s;
             o.backups = backups;
             o.builtinLoggingEnabled = builtinLoggingEnabled;
             o.clientCertificateEnabled = clientCertificateEnabled;

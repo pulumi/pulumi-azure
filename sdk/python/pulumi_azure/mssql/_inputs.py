@@ -19,6 +19,7 @@ __all__ = [
     'ElasticPoolSkuArgs',
     'FailoverGroupPartnerServerArgs',
     'FailoverGroupReadWriteEndpointFailoverPolicyArgs',
+    'ManagedDatabaseLongTermRetentionPolicyArgs',
     'ManagedInstanceFailoverGroupPartnerRegionArgs',
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs',
     'ManagedInstanceIdentityArgs',
@@ -597,6 +598,77 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
     @grace_minutes.setter
     def grace_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "grace_minutes", value)
+
+
+@pulumi.input_type
+class ManagedDatabaseLongTermRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 monthly_retention: Optional[pulumi.Input[str]] = None,
+                 week_of_year: Optional[pulumi.Input[int]] = None,
+                 weekly_retention: Optional[pulumi.Input[str]] = None,
+                 yearly_retention: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        :param pulumi.Input[int] week_of_year: The week of year to take the yearly backup. Value has to be between `1` and `52`.
+        :param pulumi.Input[str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        :param pulumi.Input[str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        """
+        if monthly_retention is not None:
+            pulumi.set(__self__, "monthly_retention", monthly_retention)
+        if week_of_year is not None:
+            pulumi.set(__self__, "week_of_year", week_of_year)
+        if weekly_retention is not None:
+            pulumi.set(__self__, "weekly_retention", weekly_retention)
+        if yearly_retention is not None:
+            pulumi.set(__self__, "yearly_retention", yearly_retention)
+
+    @property
+    @pulumi.getter(name="monthlyRetention")
+    def monthly_retention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        """
+        return pulumi.get(self, "monthly_retention")
+
+    @monthly_retention.setter
+    def monthly_retention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monthly_retention", value)
+
+    @property
+    @pulumi.getter(name="weekOfYear")
+    def week_of_year(self) -> Optional[pulumi.Input[int]]:
+        """
+        The week of year to take the yearly backup. Value has to be between `1` and `52`.
+        """
+        return pulumi.get(self, "week_of_year")
+
+    @week_of_year.setter
+    def week_of_year(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "week_of_year", value)
+
+    @property
+    @pulumi.getter(name="weeklyRetention")
+    def weekly_retention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        """
+        return pulumi.get(self, "weekly_retention")
+
+    @weekly_retention.setter
+    def weekly_retention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "weekly_retention", value)
+
+    @property
+    @pulumi.getter(name="yearlyRetention")
+    def yearly_retention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        """
+        return pulumi.get(self, "yearly_retention")
+
+    @yearly_retention.setter
+    def yearly_retention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "yearly_retention", value)
 
 
 @pulumi.input_type

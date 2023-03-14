@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Media.Inputs
     public sealed class StreamingPolicyCommonEncryptionCbcsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        /// </summary>
+        [Input("clearKeyEncryption")]
+        public Input<Inputs.StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionGetArgs>? ClearKeyEncryption { get; set; }
+
+        /// <summary>
         /// A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
         /// </summary>
         [Input("defaultContentKey")]

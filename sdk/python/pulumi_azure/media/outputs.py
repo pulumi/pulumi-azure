@@ -49,13 +49,23 @@ __all__ = [
     'StreamingEndpointSkus',
     'StreamingLocatorContentKey',
     'StreamingPolicyCommonEncryptionCbcs',
+    'StreamingPolicyCommonEncryptionCbcsClearKeyEncryption',
     'StreamingPolicyCommonEncryptionCbcsDefaultContentKey',
     'StreamingPolicyCommonEncryptionCbcsDrmFairplay',
     'StreamingPolicyCommonEncryptionCbcsEnabledProtocols',
     'StreamingPolicyCommonEncryptionCenc',
+    'StreamingPolicyCommonEncryptionCencClearKeyEncryption',
+    'StreamingPolicyCommonEncryptionCencClearTrack',
+    'StreamingPolicyCommonEncryptionCencClearTrackCondition',
+    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping',
+    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack',
+    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition',
     'StreamingPolicyCommonEncryptionCencDefaultContentKey',
     'StreamingPolicyCommonEncryptionCencDrmPlayready',
     'StreamingPolicyCommonEncryptionCencEnabledProtocols',
+    'StreamingPolicyEnvelopeEncryption',
+    'StreamingPolicyEnvelopeEncryptionDefaultContentKey',
+    'StreamingPolicyEnvelopeEncryptionEnabledProtocols',
     'StreamingPolicyNoEncryptionEnabledProtocols',
     'TransformOutput',
     'TransformOutputAudioAnalyzerPreset',
@@ -2621,7 +2631,9 @@ class StreamingPolicyCommonEncryptionCbcs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultContentKey":
+        if key == "clearKeyEncryption":
+            suggest = "clear_key_encryption"
+        elif key == "defaultContentKey":
             suggest = "default_content_key"
         elif key == "drmFairplay":
             suggest = "drm_fairplay"
@@ -2640,20 +2652,32 @@ class StreamingPolicyCommonEncryptionCbcs(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 clear_key_encryption: Optional['outputs.StreamingPolicyCommonEncryptionCbcsClearKeyEncryption'] = None,
                  default_content_key: Optional['outputs.StreamingPolicyCommonEncryptionCbcsDefaultContentKey'] = None,
                  drm_fairplay: Optional['outputs.StreamingPolicyCommonEncryptionCbcsDrmFairplay'] = None,
                  enabled_protocols: Optional['outputs.StreamingPolicyCommonEncryptionCbcsEnabledProtocols'] = None):
         """
+        :param 'StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs' clear_key_encryption: A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param 'StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs' default_content_key: A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param 'StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs' drm_fairplay: A `drm_fairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param 'StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs' enabled_protocols: A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
+        if clear_key_encryption is not None:
+            pulumi.set(__self__, "clear_key_encryption", clear_key_encryption)
         if default_content_key is not None:
             pulumi.set(__self__, "default_content_key", default_content_key)
         if drm_fairplay is not None:
             pulumi.set(__self__, "drm_fairplay", drm_fairplay)
         if enabled_protocols is not None:
             pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+
+    @property
+    @pulumi.getter(name="clearKeyEncryption")
+    def clear_key_encryption(self) -> Optional['outputs.StreamingPolicyCommonEncryptionCbcsClearKeyEncryption']:
+        """
+        A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "clear_key_encryption")
 
     @property
     @pulumi.getter(name="defaultContentKey")
@@ -2678,6 +2702,41 @@ class StreamingPolicyCommonEncryptionCbcs(dict):
         A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "enabled_protocols")
+
+
+@pulumi.output_type
+class StreamingPolicyCommonEncryptionCbcsClearKeyEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customKeysAcquisitionUrlTemplate":
+            suggest = "custom_keys_acquisition_url_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyCommonEncryptionCbcsClearKeyEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyCommonEncryptionCbcsClearKeyEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyCommonEncryptionCbcsClearKeyEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_keys_acquisition_url_template: str):
+        """
+        :param str custom_keys_acquisition_url_template: The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+        """
+        pulumi.set(__self__, "custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
+
+    @property
+    @pulumi.getter(name="customKeysAcquisitionUrlTemplate")
+    def custom_keys_acquisition_url_template(self) -> str:
+        """
+        The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "custom_keys_acquisition_url_template")
 
 
 @pulumi.output_type
@@ -2754,7 +2813,7 @@ class StreamingPolicyCommonEncryptionCbcsDrmFairplay(dict):
                  custom_license_acquisition_url_template: Optional[str] = None):
         """
         :param bool allow_persistent_license: All license to be persistent or not. Changing this forces a new Streaming Policy to be created.
-        :param str custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+        :param str custom_license_acquisition_url_template: The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
         """
         if allow_persistent_license is not None:
             pulumi.set(__self__, "allow_persistent_license", allow_persistent_license)
@@ -2773,7 +2832,7 @@ class StreamingPolicyCommonEncryptionCbcsDrmFairplay(dict):
     @pulumi.getter(name="customLicenseAcquisitionUrlTemplate")
     def custom_license_acquisition_url_template(self) -> Optional[str]:
         """
-        Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+        The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "custom_license_acquisition_url_template")
 
@@ -2855,7 +2914,13 @@ class StreamingPolicyCommonEncryptionCenc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultContentKey":
+        if key == "clearKeyEncryption":
+            suggest = "clear_key_encryption"
+        elif key == "clearTracks":
+            suggest = "clear_tracks"
+        elif key == "contentKeyToTrackMappings":
+            suggest = "content_key_to_track_mappings"
+        elif key == "defaultContentKey":
             suggest = "default_content_key"
         elif key == "drmPlayready":
             suggest = "drm_playready"
@@ -2876,16 +2941,28 @@ class StreamingPolicyCommonEncryptionCenc(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 clear_key_encryption: Optional['outputs.StreamingPolicyCommonEncryptionCencClearKeyEncryption'] = None,
+                 clear_tracks: Optional[Sequence['outputs.StreamingPolicyCommonEncryptionCencClearTrack']] = None,
+                 content_key_to_track_mappings: Optional[Sequence['outputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping']] = None,
                  default_content_key: Optional['outputs.StreamingPolicyCommonEncryptionCencDefaultContentKey'] = None,
                  drm_playready: Optional['outputs.StreamingPolicyCommonEncryptionCencDrmPlayready'] = None,
                  drm_widevine_custom_license_acquisition_url_template: Optional[str] = None,
                  enabled_protocols: Optional['outputs.StreamingPolicyCommonEncryptionCencEnabledProtocols'] = None):
         """
+        :param 'StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs' clear_key_encryption: A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param Sequence['StreamingPolicyCommonEncryptionCencClearTrackArgs'] clear_tracks: One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param Sequence['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs'] content_key_to_track_mappings: One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         :param 'StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs' default_content_key: A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param 'StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs' drm_playready: A `drm_playready` block as defined below. Changing this forces a new Streaming Policy to be created.
-        :param str drm_widevine_custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+        :param str drm_widevine_custom_license_acquisition_url_template: The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
         :param 'StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs' enabled_protocols: A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
+        if clear_key_encryption is not None:
+            pulumi.set(__self__, "clear_key_encryption", clear_key_encryption)
+        if clear_tracks is not None:
+            pulumi.set(__self__, "clear_tracks", clear_tracks)
+        if content_key_to_track_mappings is not None:
+            pulumi.set(__self__, "content_key_to_track_mappings", content_key_to_track_mappings)
         if default_content_key is not None:
             pulumi.set(__self__, "default_content_key", default_content_key)
         if drm_playready is not None:
@@ -2894,6 +2971,30 @@ class StreamingPolicyCommonEncryptionCenc(dict):
             pulumi.set(__self__, "drm_widevine_custom_license_acquisition_url_template", drm_widevine_custom_license_acquisition_url_template)
         if enabled_protocols is not None:
             pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+
+    @property
+    @pulumi.getter(name="clearKeyEncryption")
+    def clear_key_encryption(self) -> Optional['outputs.StreamingPolicyCommonEncryptionCencClearKeyEncryption']:
+        """
+        A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "clear_key_encryption")
+
+    @property
+    @pulumi.getter(name="clearTracks")
+    def clear_tracks(self) -> Optional[Sequence['outputs.StreamingPolicyCommonEncryptionCencClearTrack']]:
+        """
+        One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "clear_tracks")
+
+    @property
+    @pulumi.getter(name="contentKeyToTrackMappings")
+    def content_key_to_track_mappings(self) -> Optional[Sequence['outputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping']]:
+        """
+        One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "content_key_to_track_mappings")
 
     @property
     @pulumi.getter(name="defaultContentKey")
@@ -2915,7 +3016,7 @@ class StreamingPolicyCommonEncryptionCenc(dict):
     @pulumi.getter(name="drmWidevineCustomLicenseAcquisitionUrlTemplate")
     def drm_widevine_custom_license_acquisition_url_template(self) -> Optional[str]:
         """
-        Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+        The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "drm_widevine_custom_license_acquisition_url_template")
 
@@ -2926,6 +3027,216 @@ class StreamingPolicyCommonEncryptionCenc(dict):
         A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "enabled_protocols")
+
+
+@pulumi.output_type
+class StreamingPolicyCommonEncryptionCencClearKeyEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customKeysAcquisitionUrlTemplate":
+            suggest = "custom_keys_acquisition_url_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyCommonEncryptionCencClearKeyEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyCommonEncryptionCencClearKeyEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyCommonEncryptionCencClearKeyEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_keys_acquisition_url_template: str):
+        """
+        :param str custom_keys_acquisition_url_template: The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+        """
+        pulumi.set(__self__, "custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
+
+    @property
+    @pulumi.getter(name="customKeysAcquisitionUrlTemplate")
+    def custom_keys_acquisition_url_template(self) -> str:
+        """
+        The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "custom_keys_acquisition_url_template")
+
+
+@pulumi.output_type
+class StreamingPolicyCommonEncryptionCencClearTrack(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.StreamingPolicyCommonEncryptionCencClearTrackCondition']):
+        """
+        :param Sequence['StreamingPolicyCommonEncryptionCencClearTrackConditionArgs'] conditions: One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.StreamingPolicyCommonEncryptionCencClearTrackCondition']:
+        """
+        One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class StreamingPolicyCommonEncryptionCencClearTrackCondition(dict):
+    def __init__(__self__, *,
+                 operation: str,
+                 property: str,
+                 value: str):
+        """
+        :param str operation: The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
+        :param str property: The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
+        :param str value: The track property value. Changing this forces a new Streaming Policy to be created.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "property", property)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> str:
+        """
+        The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "operation")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The track property value. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def property(self) -> str:
+        """
+        The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "property")
+
+
+@pulumi.output_type
+class StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tracks: Sequence['outputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack'],
+                 label: Optional[str] = None,
+                 policy_name: Optional[str] = None):
+        """
+        :param Sequence['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs'] tracks: One or more `track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param str label: Specifies the content key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+        :param str policy_name: The policy used by the default key. Changing this forces a new Streaming Policy to be created.
+        """
+        pulumi.set(__self__, "tracks", tracks)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+
+    @property
+    @pulumi.getter
+    def tracks(self) -> Sequence['outputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack']:
+        """
+        One or more `track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "tracks")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Specifies the content key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        The policy used by the default key. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "policy_name")
+
+
+@pulumi.output_type
+class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition']):
+        """
+        :param Sequence['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs'] conditions: One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition']:
+        """
+        One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition(dict):
+    def __init__(__self__, *,
+                 operation: str,
+                 property: str,
+                 value: str):
+        """
+        :param str operation: The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
+        :param str property: The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
+        :param str value: The track property value. Changing this forces a new Streaming Policy to be created.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "property", property)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> str:
+        """
+        The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "operation")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The track property value. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def property(self) -> str:
+        """
+        The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "property")
 
 
 @pulumi.output_type
@@ -3002,7 +3313,7 @@ class StreamingPolicyCommonEncryptionCencDrmPlayready(dict):
                  custom_license_acquisition_url_template: Optional[str] = None):
         """
         :param str custom_attributes: Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
-        :param str custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+        :param str custom_license_acquisition_url_template: The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
         """
         if custom_attributes is not None:
             pulumi.set(__self__, "custom_attributes", custom_attributes)
@@ -3021,7 +3332,7 @@ class StreamingPolicyCommonEncryptionCencDrmPlayready(dict):
     @pulumi.getter(name="customLicenseAcquisitionUrlTemplate")
     def custom_license_acquisition_url_template(self) -> Optional[str]:
         """
-        Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+        The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "custom_license_acquisition_url_template")
 
@@ -3043,6 +3354,190 @@ class StreamingPolicyCommonEncryptionCencEnabledProtocols(dict):
 
     def get(self, key: str, default = None) -> Any:
         StreamingPolicyCommonEncryptionCencEnabledProtocols.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dash: Optional[bool] = None,
+                 download: Optional[bool] = None,
+                 hls: Optional[bool] = None,
+                 smooth_streaming: Optional[bool] = None):
+        """
+        :param bool dash: Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+        :param bool download: Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+        :param bool hls: Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+        :param bool smooth_streaming: Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        if dash is not None:
+            pulumi.set(__self__, "dash", dash)
+        if download is not None:
+            pulumi.set(__self__, "download", download)
+        if hls is not None:
+            pulumi.set(__self__, "hls", hls)
+        if smooth_streaming is not None:
+            pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+
+    @property
+    @pulumi.getter
+    def dash(self) -> Optional[bool]:
+        """
+        Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "dash")
+
+    @property
+    @pulumi.getter
+    def download(self) -> Optional[bool]:
+        """
+        Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "download")
+
+    @property
+    @pulumi.getter
+    def hls(self) -> Optional[bool]:
+        """
+        Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "hls")
+
+    @property
+    @pulumi.getter(name="smoothStreaming")
+    def smooth_streaming(self) -> Optional[bool]:
+        """
+        Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "smooth_streaming")
+
+
+@pulumi.output_type
+class StreamingPolicyEnvelopeEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customKeysAcquisitionUrlTemplate":
+            suggest = "custom_keys_acquisition_url_template"
+        elif key == "defaultContentKey":
+            suggest = "default_content_key"
+        elif key == "enabledProtocols":
+            suggest = "enabled_protocols"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyEnvelopeEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyEnvelopeEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyEnvelopeEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_keys_acquisition_url_template: Optional[str] = None,
+                 default_content_key: Optional['outputs.StreamingPolicyEnvelopeEncryptionDefaultContentKey'] = None,
+                 enabled_protocols: Optional['outputs.StreamingPolicyEnvelopeEncryptionEnabledProtocols'] = None):
+        """
+        :param str custom_keys_acquisition_url_template: The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs' default_content_key: A `default_content_key` block as defined above. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs' enabled_protocols: A `enabled_protocols` block as defined above. Changing this forces a new Streaming Policy to be created.
+        """
+        if custom_keys_acquisition_url_template is not None:
+            pulumi.set(__self__, "custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
+        if default_content_key is not None:
+            pulumi.set(__self__, "default_content_key", default_content_key)
+        if enabled_protocols is not None:
+            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+
+    @property
+    @pulumi.getter(name="customKeysAcquisitionUrlTemplate")
+    def custom_keys_acquisition_url_template(self) -> Optional[str]:
+        """
+        The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "custom_keys_acquisition_url_template")
+
+    @property
+    @pulumi.getter(name="defaultContentKey")
+    def default_content_key(self) -> Optional['outputs.StreamingPolicyEnvelopeEncryptionDefaultContentKey']:
+        """
+        A `default_content_key` block as defined above. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "default_content_key")
+
+    @property
+    @pulumi.getter(name="enabledProtocols")
+    def enabled_protocols(self) -> Optional['outputs.StreamingPolicyEnvelopeEncryptionEnabledProtocols']:
+        """
+        A `enabled_protocols` block as defined above. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "enabled_protocols")
+
+
+@pulumi.output_type
+class StreamingPolicyEnvelopeEncryptionDefaultContentKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyEnvelopeEncryptionDefaultContentKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyEnvelopeEncryptionDefaultContentKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyEnvelopeEncryptionDefaultContentKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 label: Optional[str] = None,
+                 policy_name: Optional[str] = None):
+        """
+        :param str label: Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+        :param str policy_name: Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+        """
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "policy_name")
+
+
+@pulumi.output_type
+class StreamingPolicyEnvelopeEncryptionEnabledProtocols(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smoothStreaming":
+            suggest = "smooth_streaming"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyEnvelopeEncryptionEnabledProtocols. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyEnvelopeEncryptionEnabledProtocols.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyEnvelopeEncryptionEnabledProtocols.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

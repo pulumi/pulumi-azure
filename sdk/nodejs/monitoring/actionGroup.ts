@@ -167,6 +167,10 @@ export class ActionGroup extends pulumi.CustomResource {
      */
     public readonly itsmReceivers!: pulumi.Output<outputs.monitoring.ActionGroupItsmReceiver[] | undefined>;
     /**
+     * The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+     */
+    public readonly location!: pulumi.Output<string>;
+    /**
      * One or more `logicAppReceiver` blocks as defined below.
      */
     public readonly logicAppReceivers!: pulumi.Output<outputs.monitoring.ActionGroupLogicAppReceiver[] | undefined>;
@@ -220,6 +224,7 @@ export class ActionGroup extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["eventHubReceivers"] = state ? state.eventHubReceivers : undefined;
             resourceInputs["itsmReceivers"] = state ? state.itsmReceivers : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["logicAppReceivers"] = state ? state.logicAppReceivers : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -244,6 +249,7 @@ export class ActionGroup extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["eventHubReceivers"] = args ? args.eventHubReceivers : undefined;
             resourceInputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -294,6 +300,10 @@ export interface ActionGroupState {
      * One or more `itsmReceiver` blocks as defined below.
      */
     itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupItsmReceiver>[]>;
+    /**
+     * The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+     */
+    location?: pulumi.Input<string>;
     /**
      * One or more `logicAppReceiver` blocks as defined below.
      */
@@ -364,6 +374,10 @@ export interface ActionGroupArgs {
      * One or more `itsmReceiver` blocks as defined below.
      */
     itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupItsmReceiver>[]>;
+    /**
+     * The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+     */
+    location?: pulumi.Input<string>;
     /**
      * One or more `logicAppReceiver` blocks as defined below.
      */

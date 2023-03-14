@@ -3,17 +3,36 @@
 
 package com.pulumi.azure.media.outputs;
 
+import com.pulumi.azure.media.outputs.StreamingPolicyCommonEncryptionCencClearKeyEncryption;
+import com.pulumi.azure.media.outputs.StreamingPolicyCommonEncryptionCencClearTrack;
+import com.pulumi.azure.media.outputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping;
 import com.pulumi.azure.media.outputs.StreamingPolicyCommonEncryptionCencDefaultContentKey;
 import com.pulumi.azure.media.outputs.StreamingPolicyCommonEncryptionCencDrmPlayready;
 import com.pulumi.azure.media.outputs.StreamingPolicyCommonEncryptionCencEnabledProtocols;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class StreamingPolicyCommonEncryptionCenc {
+    /**
+     * @return A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    private @Nullable StreamingPolicyCommonEncryptionCencClearKeyEncryption clearKeyEncryption;
+    /**
+     * @return One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    private @Nullable List<StreamingPolicyCommonEncryptionCencClearTrack> clearTracks;
+    /**
+     * @return One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    private @Nullable List<StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping> contentKeyToTrackMappings;
     /**
      * @return A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
@@ -25,7 +44,7 @@ public final class StreamingPolicyCommonEncryptionCenc {
      */
     private @Nullable StreamingPolicyCommonEncryptionCencDrmPlayready drmPlayready;
     /**
-     * @return Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+     * @return The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
      * 
      */
     private @Nullable String drmWidevineCustomLicenseAcquisitionUrlTemplate;
@@ -36,6 +55,27 @@ public final class StreamingPolicyCommonEncryptionCenc {
     private @Nullable StreamingPolicyCommonEncryptionCencEnabledProtocols enabledProtocols;
 
     private StreamingPolicyCommonEncryptionCenc() {}
+    /**
+     * @return A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    public Optional<StreamingPolicyCommonEncryptionCencClearKeyEncryption> clearKeyEncryption() {
+        return Optional.ofNullable(this.clearKeyEncryption);
+    }
+    /**
+     * @return One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    public List<StreamingPolicyCommonEncryptionCencClearTrack> clearTracks() {
+        return this.clearTracks == null ? List.of() : this.clearTracks;
+    }
+    /**
+     * @return One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    public List<StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping> contentKeyToTrackMappings() {
+        return this.contentKeyToTrackMappings == null ? List.of() : this.contentKeyToTrackMappings;
+    }
     /**
      * @return A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
@@ -51,7 +91,7 @@ public final class StreamingPolicyCommonEncryptionCenc {
         return Optional.ofNullable(this.drmPlayready);
     }
     /**
-     * @return Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+     * @return The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
      * 
      */
     public Optional<String> drmWidevineCustomLicenseAcquisitionUrlTemplate() {
@@ -74,6 +114,9 @@ public final class StreamingPolicyCommonEncryptionCenc {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable StreamingPolicyCommonEncryptionCencClearKeyEncryption clearKeyEncryption;
+        private @Nullable List<StreamingPolicyCommonEncryptionCencClearTrack> clearTracks;
+        private @Nullable List<StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping> contentKeyToTrackMappings;
         private @Nullable StreamingPolicyCommonEncryptionCencDefaultContentKey defaultContentKey;
         private @Nullable StreamingPolicyCommonEncryptionCencDrmPlayready drmPlayready;
         private @Nullable String drmWidevineCustomLicenseAcquisitionUrlTemplate;
@@ -81,12 +124,36 @@ public final class StreamingPolicyCommonEncryptionCenc {
         public Builder() {}
         public Builder(StreamingPolicyCommonEncryptionCenc defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.clearKeyEncryption = defaults.clearKeyEncryption;
+    	      this.clearTracks = defaults.clearTracks;
+    	      this.contentKeyToTrackMappings = defaults.contentKeyToTrackMappings;
     	      this.defaultContentKey = defaults.defaultContentKey;
     	      this.drmPlayready = defaults.drmPlayready;
     	      this.drmWidevineCustomLicenseAcquisitionUrlTemplate = defaults.drmWidevineCustomLicenseAcquisitionUrlTemplate;
     	      this.enabledProtocols = defaults.enabledProtocols;
         }
 
+        @CustomType.Setter
+        public Builder clearKeyEncryption(@Nullable StreamingPolicyCommonEncryptionCencClearKeyEncryption clearKeyEncryption) {
+            this.clearKeyEncryption = clearKeyEncryption;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clearTracks(@Nullable List<StreamingPolicyCommonEncryptionCencClearTrack> clearTracks) {
+            this.clearTracks = clearTracks;
+            return this;
+        }
+        public Builder clearTracks(StreamingPolicyCommonEncryptionCencClearTrack... clearTracks) {
+            return clearTracks(List.of(clearTracks));
+        }
+        @CustomType.Setter
+        public Builder contentKeyToTrackMappings(@Nullable List<StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping> contentKeyToTrackMappings) {
+            this.contentKeyToTrackMappings = contentKeyToTrackMappings;
+            return this;
+        }
+        public Builder contentKeyToTrackMappings(StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping... contentKeyToTrackMappings) {
+            return contentKeyToTrackMappings(List.of(contentKeyToTrackMappings));
+        }
         @CustomType.Setter
         public Builder defaultContentKey(@Nullable StreamingPolicyCommonEncryptionCencDefaultContentKey defaultContentKey) {
             this.defaultContentKey = defaultContentKey;
@@ -109,6 +176,9 @@ public final class StreamingPolicyCommonEncryptionCenc {
         }
         public StreamingPolicyCommonEncryptionCenc build() {
             final var o = new StreamingPolicyCommonEncryptionCenc();
+            o.clearKeyEncryption = clearKeyEncryption;
+            o.clearTracks = clearTracks;
+            o.contentKeyToTrackMappings = contentKeyToTrackMappings;
             o.defaultContentKey = defaultContentKey;
             o.drmPlayready = drmPlayready;
             o.drmWidevineCustomLicenseAcquisitionUrlTemplate = drmWidevineCustomLicenseAcquisitionUrlTemplate;

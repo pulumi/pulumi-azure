@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class ManagementPolicyRuleActionsBaseBlob
     {
         /// <summary>
+        /// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+        /// </summary>
+        public readonly bool? AutoTierToHotFromCoolEnabled;
+        /// <summary>
         /// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         public readonly int? DeleteAfterDaysSinceCreationGreaterThan;
@@ -56,6 +60,8 @@ namespace Pulumi.Azure.Storage.Outputs
 
         [OutputConstructor]
         private ManagementPolicyRuleActionsBaseBlob(
+            bool? autoTierToHotFromCoolEnabled,
+
             int? deleteAfterDaysSinceCreationGreaterThan,
 
             int? deleteAfterDaysSinceLastAccessTimeGreaterThan,
@@ -76,6 +82,7 @@ namespace Pulumi.Azure.Storage.Outputs
 
             int? tierToCoolAfterDaysSinceModificationGreaterThan)
         {
+            AutoTierToHotFromCoolEnabled = autoTierToHotFromCoolEnabled;
             DeleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
             DeleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
             DeleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;

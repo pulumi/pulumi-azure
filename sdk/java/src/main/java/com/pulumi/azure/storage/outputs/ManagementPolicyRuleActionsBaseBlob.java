@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -11,6 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ManagementPolicyRuleActionsBaseBlob {
+    /**
+     * @return Whether a blob should automatically be tiered from cool back to hot if it&#39;s accessed again after being tiered to cool. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean autoTierToHotFromCoolEnabled;
     /**
      * @return The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
      * 
@@ -63,6 +69,13 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     private @Nullable Integer tierToCoolAfterDaysSinceModificationGreaterThan;
 
     private ManagementPolicyRuleActionsBaseBlob() {}
+    /**
+     * @return Whether a blob should automatically be tiered from cool back to hot if it&#39;s accessed again after being tiered to cool. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> autoTierToHotFromCoolEnabled() {
+        return Optional.ofNullable(this.autoTierToHotFromCoolEnabled);
+    }
     /**
      * @return The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
      * 
@@ -143,6 +156,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean autoTierToHotFromCoolEnabled;
         private @Nullable Integer deleteAfterDaysSinceCreationGreaterThan;
         private @Nullable Integer deleteAfterDaysSinceLastAccessTimeGreaterThan;
         private @Nullable Integer deleteAfterDaysSinceModificationGreaterThan;
@@ -156,6 +170,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
         public Builder() {}
         public Builder(ManagementPolicyRuleActionsBaseBlob defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.autoTierToHotFromCoolEnabled = defaults.autoTierToHotFromCoolEnabled;
     	      this.deleteAfterDaysSinceCreationGreaterThan = defaults.deleteAfterDaysSinceCreationGreaterThan;
     	      this.deleteAfterDaysSinceLastAccessTimeGreaterThan = defaults.deleteAfterDaysSinceLastAccessTimeGreaterThan;
     	      this.deleteAfterDaysSinceModificationGreaterThan = defaults.deleteAfterDaysSinceModificationGreaterThan;
@@ -168,6 +183,11 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     	      this.tierToCoolAfterDaysSinceModificationGreaterThan = defaults.tierToCoolAfterDaysSinceModificationGreaterThan;
         }
 
+        @CustomType.Setter
+        public Builder autoTierToHotFromCoolEnabled(@Nullable Boolean autoTierToHotFromCoolEnabled) {
+            this.autoTierToHotFromCoolEnabled = autoTierToHotFromCoolEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder deleteAfterDaysSinceCreationGreaterThan(@Nullable Integer deleteAfterDaysSinceCreationGreaterThan) {
             this.deleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
@@ -220,6 +240,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
         }
         public ManagementPolicyRuleActionsBaseBlob build() {
             final var o = new ManagementPolicyRuleActionsBaseBlob();
+            o.autoTierToHotFromCoolEnabled = autoTierToHotFromCoolEnabled;
             o.deleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
             o.deleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
             o.deleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;

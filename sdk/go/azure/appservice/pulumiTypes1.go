@@ -10,6 +10,9522 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type GetLinuxWebAppSiteConfigIpRestrictionHeader struct {
+	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
+	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// GetLinuxWebAppSiteConfigIpRestrictionHeaderInput is an input type that accepts GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs and GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigIpRestrictionHeaderInput` via:
+//
+//	GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs{...}
+type GetLinuxWebAppSiteConfigIpRestrictionHeaderInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigIpRestrictionHeaderOutput() GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput
+	ToGetLinuxWebAppSiteConfigIpRestrictionHeaderOutputWithContext(context.Context) GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput
+}
+
+type GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs struct {
+	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
+	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigIpRestrictionHeader)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs) ToGetLinuxWebAppSiteConfigIpRestrictionHeaderOutput() GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput {
+	return i.ToGetLinuxWebAppSiteConfigIpRestrictionHeaderOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs) ToGetLinuxWebAppSiteConfigIpRestrictionHeaderOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput)
+}
+
+// GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput is an input type that accepts GetLinuxWebAppSiteConfigIpRestrictionHeaderArray and GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput` via:
+//
+//	GetLinuxWebAppSiteConfigIpRestrictionHeaderArray{ GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs{...} }
+type GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput() GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput
+	ToGetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput
+}
+
+type GetLinuxWebAppSiteConfigIpRestrictionHeaderArray []GetLinuxWebAppSiteConfigIpRestrictionHeaderInput
+
+func (GetLinuxWebAppSiteConfigIpRestrictionHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigIpRestrictionHeader)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigIpRestrictionHeaderArray) ToGetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput() GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput {
+	return i.ToGetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigIpRestrictionHeaderArray) ToGetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigIpRestrictionHeader)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) ToGetLinuxWebAppSiteConfigIpRestrictionHeaderOutput() GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) ToGetLinuxWebAppSiteConfigIpRestrictionHeaderOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestrictionHeader) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestrictionHeader) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigIpRestrictionHeader)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput) ToGetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput() GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput) ToGetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigIpRestrictionHeader {
+		return vs[0].([]GetLinuxWebAppSiteConfigIpRestrictionHeader)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput)
+}
+
+type GetLinuxWebAppSiteConfigScmIpRestriction struct {
+	// A `action` block as defined above.
+	Action    string                                           `pulumi:"action"`
+	Headers   []GetLinuxWebAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
+	IpAddress string                                           `pulumi:"ipAddress"`
+	// The name of this Linux Web App.
+	Name       string `pulumi:"name"`
+	Priority   int    `pulumi:"priority"`
+	ServiceTag string `pulumi:"serviceTag"`
+	// The subnet id which the Linux Web App is vNet Integrated with.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// GetLinuxWebAppSiteConfigScmIpRestrictionInput is an input type that accepts GetLinuxWebAppSiteConfigScmIpRestrictionArgs and GetLinuxWebAppSiteConfigScmIpRestrictionOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigScmIpRestrictionInput` via:
+//
+//	GetLinuxWebAppSiteConfigScmIpRestrictionArgs{...}
+type GetLinuxWebAppSiteConfigScmIpRestrictionInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigScmIpRestrictionOutput() GetLinuxWebAppSiteConfigScmIpRestrictionOutput
+	ToGetLinuxWebAppSiteConfigScmIpRestrictionOutputWithContext(context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionOutput
+}
+
+type GetLinuxWebAppSiteConfigScmIpRestrictionArgs struct {
+	// A `action` block as defined above.
+	Action    pulumi.StringInput                                       `pulumi:"action"`
+	Headers   GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	IpAddress pulumi.StringInput                                       `pulumi:"ipAddress"`
+	// The name of this Linux Web App.
+	Name       pulumi.StringInput `pulumi:"name"`
+	Priority   pulumi.IntInput    `pulumi:"priority"`
+	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
+	// The subnet id which the Linux Web App is vNet Integrated with.
+	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (GetLinuxWebAppSiteConfigScmIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionArgs) ToGetLinuxWebAppSiteConfigScmIpRestrictionOutput() GetLinuxWebAppSiteConfigScmIpRestrictionOutput {
+	return i.ToGetLinuxWebAppSiteConfigScmIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionArgs) ToGetLinuxWebAppSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigScmIpRestrictionOutput)
+}
+
+// GetLinuxWebAppSiteConfigScmIpRestrictionArrayInput is an input type that accepts GetLinuxWebAppSiteConfigScmIpRestrictionArray and GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigScmIpRestrictionArrayInput` via:
+//
+//	GetLinuxWebAppSiteConfigScmIpRestrictionArray{ GetLinuxWebAppSiteConfigScmIpRestrictionArgs{...} }
+type GetLinuxWebAppSiteConfigScmIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput() GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput
+	ToGetLinuxWebAppSiteConfigScmIpRestrictionArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput
+}
+
+type GetLinuxWebAppSiteConfigScmIpRestrictionArray []GetLinuxWebAppSiteConfigScmIpRestrictionInput
+
+func (GetLinuxWebAppSiteConfigScmIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionArray) ToGetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput() GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput {
+	return i.ToGetLinuxWebAppSiteConfigScmIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionArray) ToGetLinuxWebAppSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) ToGetLinuxWebAppSiteConfigScmIpRestrictionOutput() GetLinuxWebAppSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) ToGetLinuxWebAppSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+// A `action` block as defined above.
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Headers() GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) []GetLinuxWebAppSiteConfigScmIpRestrictionHeader {
+		return v.Headers
+	}).(GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The name of this Linux Web App.
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
+}
+
+// The subnet id which the Linux Web App is vNet Integrated with.
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput) ToGetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput() GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput) ToGetLinuxWebAppSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigScmIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigScmIpRestriction {
+		return vs[0].([]GetLinuxWebAppSiteConfigScmIpRestriction)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteConfigScmIpRestrictionOutput)
+}
+
+type GetLinuxWebAppSiteConfigScmIpRestrictionHeader struct {
+	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
+	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// GetLinuxWebAppSiteConfigScmIpRestrictionHeaderInput is an input type that accepts GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs and GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigScmIpRestrictionHeaderInput` via:
+//
+//	GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs{...}
+type GetLinuxWebAppSiteConfigScmIpRestrictionHeaderInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput() GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput
+	ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutputWithContext(context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput
+}
+
+type GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs struct {
+	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
+	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigScmIpRestrictionHeader)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs) ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput() GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput {
+	return i.ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs) ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput)
+}
+
+// GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput is an input type that accepts GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArray and GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput` via:
+//
+//	GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArray{ GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs{...} }
+type GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput() GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput
+	ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput
+}
+
+type GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArray []GetLinuxWebAppSiteConfigScmIpRestrictionHeaderInput
+
+func (GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigScmIpRestrictionHeader)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArray) ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput() GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput {
+	return i.ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArray) ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigScmIpRestrictionHeader)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput() GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigScmIpRestrictionHeader)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput() GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigScmIpRestrictionHeader {
+		return vs[0].([]GetLinuxWebAppSiteConfigScmIpRestrictionHeader)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput)
+}
+
+type GetLinuxWebAppSiteCredential struct {
+	// The name of this Linux Web App.
+	Name string `pulumi:"name"`
+	// The Site Credentials Password used for publishing.
+	Password string `pulumi:"password"`
+}
+
+// GetLinuxWebAppSiteCredentialInput is an input type that accepts GetLinuxWebAppSiteCredentialArgs and GetLinuxWebAppSiteCredentialOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteCredentialInput` via:
+//
+//	GetLinuxWebAppSiteCredentialArgs{...}
+type GetLinuxWebAppSiteCredentialInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteCredentialOutput() GetLinuxWebAppSiteCredentialOutput
+	ToGetLinuxWebAppSiteCredentialOutputWithContext(context.Context) GetLinuxWebAppSiteCredentialOutput
+}
+
+type GetLinuxWebAppSiteCredentialArgs struct {
+	// The name of this Linux Web App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Site Credentials Password used for publishing.
+	Password pulumi.StringInput `pulumi:"password"`
+}
+
+func (GetLinuxWebAppSiteCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteCredential)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteCredentialArgs) ToGetLinuxWebAppSiteCredentialOutput() GetLinuxWebAppSiteCredentialOutput {
+	return i.ToGetLinuxWebAppSiteCredentialOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteCredentialArgs) ToGetLinuxWebAppSiteCredentialOutputWithContext(ctx context.Context) GetLinuxWebAppSiteCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteCredentialOutput)
+}
+
+// GetLinuxWebAppSiteCredentialArrayInput is an input type that accepts GetLinuxWebAppSiteCredentialArray and GetLinuxWebAppSiteCredentialArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteCredentialArrayInput` via:
+//
+//	GetLinuxWebAppSiteCredentialArray{ GetLinuxWebAppSiteCredentialArgs{...} }
+type GetLinuxWebAppSiteCredentialArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteCredentialArrayOutput() GetLinuxWebAppSiteCredentialArrayOutput
+	ToGetLinuxWebAppSiteCredentialArrayOutputWithContext(context.Context) GetLinuxWebAppSiteCredentialArrayOutput
+}
+
+type GetLinuxWebAppSiteCredentialArray []GetLinuxWebAppSiteCredentialInput
+
+func (GetLinuxWebAppSiteCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteCredential)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteCredentialArray) ToGetLinuxWebAppSiteCredentialArrayOutput() GetLinuxWebAppSiteCredentialArrayOutput {
+	return i.ToGetLinuxWebAppSiteCredentialArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteCredentialArray) ToGetLinuxWebAppSiteCredentialArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteCredentialArrayOutput)
+}
+
+type GetLinuxWebAppSiteCredentialOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteCredential)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteCredentialOutput) ToGetLinuxWebAppSiteCredentialOutput() GetLinuxWebAppSiteCredentialOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteCredentialOutput) ToGetLinuxWebAppSiteCredentialOutputWithContext(ctx context.Context) GetLinuxWebAppSiteCredentialOutput {
+	return o
+}
+
+// The name of this Linux Web App.
+func (o GetLinuxWebAppSiteCredentialOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteCredential) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Site Credentials Password used for publishing.
+func (o GetLinuxWebAppSiteCredentialOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteCredential) string { return v.Password }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppSiteCredentialArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteCredential)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteCredentialArrayOutput) ToGetLinuxWebAppSiteCredentialArrayOutput() GetLinuxWebAppSiteCredentialArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteCredentialArrayOutput) ToGetLinuxWebAppSiteCredentialArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteCredentialArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteCredentialArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteCredential {
+		return vs[0].([]GetLinuxWebAppSiteCredential)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteCredentialOutput)
+}
+
+type GetLinuxWebAppStickySetting struct {
+	// A list of `appSetting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+	AppSettingNames []string `pulumi:"appSettingNames"`
+	// A list of `connectionString` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+	ConnectionStringNames []string `pulumi:"connectionStringNames"`
+}
+
+// GetLinuxWebAppStickySettingInput is an input type that accepts GetLinuxWebAppStickySettingArgs and GetLinuxWebAppStickySettingOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppStickySettingInput` via:
+//
+//	GetLinuxWebAppStickySettingArgs{...}
+type GetLinuxWebAppStickySettingInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppStickySettingOutput() GetLinuxWebAppStickySettingOutput
+	ToGetLinuxWebAppStickySettingOutputWithContext(context.Context) GetLinuxWebAppStickySettingOutput
+}
+
+type GetLinuxWebAppStickySettingArgs struct {
+	// A list of `appSetting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+	AppSettingNames pulumi.StringArrayInput `pulumi:"appSettingNames"`
+	// A list of `connectionString` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+	ConnectionStringNames pulumi.StringArrayInput `pulumi:"connectionStringNames"`
+}
+
+func (GetLinuxWebAppStickySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppStickySetting)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppStickySettingArgs) ToGetLinuxWebAppStickySettingOutput() GetLinuxWebAppStickySettingOutput {
+	return i.ToGetLinuxWebAppStickySettingOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppStickySettingArgs) ToGetLinuxWebAppStickySettingOutputWithContext(ctx context.Context) GetLinuxWebAppStickySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppStickySettingOutput)
+}
+
+// GetLinuxWebAppStickySettingArrayInput is an input type that accepts GetLinuxWebAppStickySettingArray and GetLinuxWebAppStickySettingArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppStickySettingArrayInput` via:
+//
+//	GetLinuxWebAppStickySettingArray{ GetLinuxWebAppStickySettingArgs{...} }
+type GetLinuxWebAppStickySettingArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppStickySettingArrayOutput() GetLinuxWebAppStickySettingArrayOutput
+	ToGetLinuxWebAppStickySettingArrayOutputWithContext(context.Context) GetLinuxWebAppStickySettingArrayOutput
+}
+
+type GetLinuxWebAppStickySettingArray []GetLinuxWebAppStickySettingInput
+
+func (GetLinuxWebAppStickySettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppStickySetting)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppStickySettingArray) ToGetLinuxWebAppStickySettingArrayOutput() GetLinuxWebAppStickySettingArrayOutput {
+	return i.ToGetLinuxWebAppStickySettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppStickySettingArray) ToGetLinuxWebAppStickySettingArrayOutputWithContext(ctx context.Context) GetLinuxWebAppStickySettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppStickySettingArrayOutput)
+}
+
+type GetLinuxWebAppStickySettingOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppStickySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppStickySetting)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppStickySettingOutput) ToGetLinuxWebAppStickySettingOutput() GetLinuxWebAppStickySettingOutput {
+	return o
+}
+
+func (o GetLinuxWebAppStickySettingOutput) ToGetLinuxWebAppStickySettingOutputWithContext(ctx context.Context) GetLinuxWebAppStickySettingOutput {
+	return o
+}
+
+// A list of `appSetting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+func (o GetLinuxWebAppStickySettingOutput) AppSettingNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppStickySetting) []string { return v.AppSettingNames }).(pulumi.StringArrayOutput)
+}
+
+// A list of `connectionString` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+func (o GetLinuxWebAppStickySettingOutput) ConnectionStringNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppStickySetting) []string { return v.ConnectionStringNames }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppStickySettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppStickySettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppStickySetting)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppStickySettingArrayOutput) ToGetLinuxWebAppStickySettingArrayOutput() GetLinuxWebAppStickySettingArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppStickySettingArrayOutput) ToGetLinuxWebAppStickySettingArrayOutputWithContext(ctx context.Context) GetLinuxWebAppStickySettingArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppStickySettingArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppStickySettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppStickySetting {
+		return vs[0].([]GetLinuxWebAppStickySetting)[vs[1].(int)]
+	}).(GetLinuxWebAppStickySettingOutput)
+}
+
+type GetLinuxWebAppStorageAccount struct {
+	// The Access key for the storage account.
+	AccessKey string `pulumi:"accessKey"`
+	// The Name of the Storage Account.
+	AccountName string `pulumi:"accountName"`
+	// The path at which to mount the Storage Share.
+	MountPath string `pulumi:"mountPath"`
+	// The name of this Linux Web App.
+	Name string `pulumi:"name"`
+	// The Name of the File Share or Container Name for Blob storage.
+	ShareName string `pulumi:"shareName"`
+	// The Azure Storage Type.
+	Type string `pulumi:"type"`
+}
+
+// GetLinuxWebAppStorageAccountInput is an input type that accepts GetLinuxWebAppStorageAccountArgs and GetLinuxWebAppStorageAccountOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppStorageAccountInput` via:
+//
+//	GetLinuxWebAppStorageAccountArgs{...}
+type GetLinuxWebAppStorageAccountInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppStorageAccountOutput() GetLinuxWebAppStorageAccountOutput
+	ToGetLinuxWebAppStorageAccountOutputWithContext(context.Context) GetLinuxWebAppStorageAccountOutput
+}
+
+type GetLinuxWebAppStorageAccountArgs struct {
+	// The Access key for the storage account.
+	AccessKey pulumi.StringInput `pulumi:"accessKey"`
+	// The Name of the Storage Account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The path at which to mount the Storage Share.
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	// The name of this Linux Web App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Name of the File Share or Container Name for Blob storage.
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+	// The Azure Storage Type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetLinuxWebAppStorageAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppStorageAccount)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppStorageAccountArgs) ToGetLinuxWebAppStorageAccountOutput() GetLinuxWebAppStorageAccountOutput {
+	return i.ToGetLinuxWebAppStorageAccountOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppStorageAccountArgs) ToGetLinuxWebAppStorageAccountOutputWithContext(ctx context.Context) GetLinuxWebAppStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppStorageAccountOutput)
+}
+
+// GetLinuxWebAppStorageAccountArrayInput is an input type that accepts GetLinuxWebAppStorageAccountArray and GetLinuxWebAppStorageAccountArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppStorageAccountArrayInput` via:
+//
+//	GetLinuxWebAppStorageAccountArray{ GetLinuxWebAppStorageAccountArgs{...} }
+type GetLinuxWebAppStorageAccountArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppStorageAccountArrayOutput() GetLinuxWebAppStorageAccountArrayOutput
+	ToGetLinuxWebAppStorageAccountArrayOutputWithContext(context.Context) GetLinuxWebAppStorageAccountArrayOutput
+}
+
+type GetLinuxWebAppStorageAccountArray []GetLinuxWebAppStorageAccountInput
+
+func (GetLinuxWebAppStorageAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppStorageAccount)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppStorageAccountArray) ToGetLinuxWebAppStorageAccountArrayOutput() GetLinuxWebAppStorageAccountArrayOutput {
+	return i.ToGetLinuxWebAppStorageAccountArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppStorageAccountArray) ToGetLinuxWebAppStorageAccountArrayOutputWithContext(ctx context.Context) GetLinuxWebAppStorageAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppStorageAccountArrayOutput)
+}
+
+type GetLinuxWebAppStorageAccountOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppStorageAccount)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppStorageAccountOutput) ToGetLinuxWebAppStorageAccountOutput() GetLinuxWebAppStorageAccountOutput {
+	return o
+}
+
+func (o GetLinuxWebAppStorageAccountOutput) ToGetLinuxWebAppStorageAccountOutputWithContext(ctx context.Context) GetLinuxWebAppStorageAccountOutput {
+	return o
+}
+
+// The Access key for the storage account.
+func (o GetLinuxWebAppStorageAccountOutput) AccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppStorageAccount) string { return v.AccessKey }).(pulumi.StringOutput)
+}
+
+// The Name of the Storage Account.
+func (o GetLinuxWebAppStorageAccountOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppStorageAccount) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// The path at which to mount the Storage Share.
+func (o GetLinuxWebAppStorageAccountOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppStorageAccount) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+// The name of this Linux Web App.
+func (o GetLinuxWebAppStorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppStorageAccount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Name of the File Share or Container Name for Blob storage.
+func (o GetLinuxWebAppStorageAccountOutput) ShareName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppStorageAccount) string { return v.ShareName }).(pulumi.StringOutput)
+}
+
+// The Azure Storage Type.
+func (o GetLinuxWebAppStorageAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppStorageAccount) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppStorageAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppStorageAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppStorageAccount)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppStorageAccountArrayOutput) ToGetLinuxWebAppStorageAccountArrayOutput() GetLinuxWebAppStorageAccountArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppStorageAccountArrayOutput) ToGetLinuxWebAppStorageAccountArrayOutputWithContext(ctx context.Context) GetLinuxWebAppStorageAccountArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppStorageAccountArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppStorageAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppStorageAccount {
+		return vs[0].([]GetLinuxWebAppStorageAccount)[vs[1].(int)]
+	}).(GetLinuxWebAppStorageAccountOutput)
+}
+
+type GetWindowsFunctionAppAuthSetting struct {
+	// A `activeDirectory` block as defined above.
+	ActiveDirectories []GetWindowsFunctionAppAuthSettingActiveDirectory `pulumi:"activeDirectories"`
+	// A map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+	AdditionalLoginParameters map[string]string `pulumi:"additionalLoginParameters"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider string `pulumi:"defaultProvider"`
+	// Is the Backup Job enabled?
+	Enabled bool `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebooks []GetWindowsFunctionAppAuthSettingFacebook `pulumi:"facebooks"`
+	// A `github` block as defined below.
+	Githubs []GetWindowsFunctionAppAuthSettingGithub `pulumi:"githubs"`
+	// A `google` block as defined below.
+	Googles []GetWindowsFunctionAppAuthSettingGoogle `pulumi:"googles"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
+	Issuer string `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsofts []GetWindowsFunctionAppAuthSettingMicrosoft `pulumi:"microsofts"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionHours float64 `pulumi:"tokenRefreshExtensionHours"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled bool `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitters []GetWindowsFunctionAppAuthSettingTwitter `pulumi:"twitters"`
+	// The action to take when an unauthenticated client attempts to access the app.
+	UnauthenticatedClientAction string `pulumi:"unauthenticatedClientAction"`
+}
+
+// GetWindowsFunctionAppAuthSettingInput is an input type that accepts GetWindowsFunctionAppAuthSettingArgs and GetWindowsFunctionAppAuthSettingOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingArgs{...}
+type GetWindowsFunctionAppAuthSettingInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingOutput() GetWindowsFunctionAppAuthSettingOutput
+	ToGetWindowsFunctionAppAuthSettingOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingOutput
+}
+
+type GetWindowsFunctionAppAuthSettingArgs struct {
+	// A `activeDirectory` block as defined above.
+	ActiveDirectories GetWindowsFunctionAppAuthSettingActiveDirectoryArrayInput `pulumi:"activeDirectories"`
+	// A map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+	AdditionalLoginParameters pulumi.StringMapInput `pulumi:"additionalLoginParameters"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider pulumi.StringInput `pulumi:"defaultProvider"`
+	// Is the Backup Job enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebooks GetWindowsFunctionAppAuthSettingFacebookArrayInput `pulumi:"facebooks"`
+	// A `github` block as defined below.
+	Githubs GetWindowsFunctionAppAuthSettingGithubArrayInput `pulumi:"githubs"`
+	// A `google` block as defined below.
+	Googles GetWindowsFunctionAppAuthSettingGoogleArrayInput `pulumi:"googles"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsofts GetWindowsFunctionAppAuthSettingMicrosoftArrayInput `pulumi:"microsofts"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionHours pulumi.Float64Input `pulumi:"tokenRefreshExtensionHours"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled pulumi.BoolInput `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitters GetWindowsFunctionAppAuthSettingTwitterArrayInput `pulumi:"twitters"`
+	// The action to take when an unauthenticated client attempts to access the app.
+	UnauthenticatedClientAction pulumi.StringInput `pulumi:"unauthenticatedClientAction"`
+}
+
+func (GetWindowsFunctionAppAuthSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSetting)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingArgs) ToGetWindowsFunctionAppAuthSettingOutput() GetWindowsFunctionAppAuthSettingOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingArgs) ToGetWindowsFunctionAppAuthSettingOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingOutput)
+}
+
+// GetWindowsFunctionAppAuthSettingArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingArray and GetWindowsFunctionAppAuthSettingArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingArray{ GetWindowsFunctionAppAuthSettingArgs{...} }
+type GetWindowsFunctionAppAuthSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingArrayOutput() GetWindowsFunctionAppAuthSettingArrayOutput
+	ToGetWindowsFunctionAppAuthSettingArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingArray []GetWindowsFunctionAppAuthSettingInput
+
+func (GetWindowsFunctionAppAuthSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSetting)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingArray) ToGetWindowsFunctionAppAuthSettingArrayOutput() GetWindowsFunctionAppAuthSettingArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingArray) ToGetWindowsFunctionAppAuthSettingArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSetting)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingOutput) ToGetWindowsFunctionAppAuthSettingOutput() GetWindowsFunctionAppAuthSettingOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingOutput) ToGetWindowsFunctionAppAuthSettingOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingOutput {
+	return o
+}
+
+// A `activeDirectory` block as defined above.
+func (o GetWindowsFunctionAppAuthSettingOutput) ActiveDirectories() GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) []GetWindowsFunctionAppAuthSettingActiveDirectory {
+		return v.ActiveDirectories
+	}).(GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput)
+}
+
+// A map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+func (o GetWindowsFunctionAppAuthSettingOutput) AdditionalLoginParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) map[string]string { return v.AdditionalLoginParameters }).(pulumi.StringMapOutput)
+}
+
+// External URLs that can be redirected to as part of logging in or logging out of the app.
+func (o GetWindowsFunctionAppAuthSettingOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
+}
+
+// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+func (o GetWindowsFunctionAppAuthSettingOutput) DefaultProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) string { return v.DefaultProvider }).(pulumi.StringOutput)
+}
+
+// Is the Backup Job enabled?
+func (o GetWindowsFunctionAppAuthSettingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A `facebook` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingOutput) Facebooks() GetWindowsFunctionAppAuthSettingFacebookArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) []GetWindowsFunctionAppAuthSettingFacebook {
+		return v.Facebooks
+	}).(GetWindowsFunctionAppAuthSettingFacebookArrayOutput)
+}
+
+// A `github` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingOutput) Githubs() GetWindowsFunctionAppAuthSettingGithubArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) []GetWindowsFunctionAppAuthSettingGithub { return v.Githubs }).(GetWindowsFunctionAppAuthSettingGithubArrayOutput)
+}
+
+// A `google` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingOutput) Googles() GetWindowsFunctionAppAuthSettingGoogleArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) []GetWindowsFunctionAppAuthSettingGoogle { return v.Googles }).(GetWindowsFunctionAppAuthSettingGoogleArrayOutput)
+}
+
+// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
+func (o GetWindowsFunctionAppAuthSettingOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// A `microsoft` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingOutput) Microsofts() GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) []GetWindowsFunctionAppAuthSettingMicrosoft {
+		return v.Microsofts
+	}).(GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput)
+}
+
+// The Runtime Version of the Authentication and Authorisation feature of this App.
+func (o GetWindowsFunctionAppAuthSettingOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+func (o GetWindowsFunctionAppAuthSettingOutput) TokenRefreshExtensionHours() pulumi.Float64Output {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64Output)
+}
+
+// Is the Token Store configuration Enabled.
+func (o GetWindowsFunctionAppAuthSettingOutput) TokenStoreEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) bool { return v.TokenStoreEnabled }).(pulumi.BoolOutput)
+}
+
+// A `twitter` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingOutput) Twitters() GetWindowsFunctionAppAuthSettingTwitterArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) []GetWindowsFunctionAppAuthSettingTwitter { return v.Twitters }).(GetWindowsFunctionAppAuthSettingTwitterArrayOutput)
+}
+
+// The action to take when an unauthenticated client attempts to access the app.
+func (o GetWindowsFunctionAppAuthSettingOutput) UnauthenticatedClientAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSetting) string { return v.UnauthenticatedClientAction }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSetting)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingArrayOutput) ToGetWindowsFunctionAppAuthSettingArrayOutput() GetWindowsFunctionAppAuthSettingArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingArrayOutput) ToGetWindowsFunctionAppAuthSettingArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSetting {
+		return vs[0].([]GetWindowsFunctionAppAuthSetting)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingActiveDirectory struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+}
+
+// GetWindowsFunctionAppAuthSettingActiveDirectoryInput is an input type that accepts GetWindowsFunctionAppAuthSettingActiveDirectoryArgs and GetWindowsFunctionAppAuthSettingActiveDirectoryOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingActiveDirectoryInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingActiveDirectoryArgs{...}
+type GetWindowsFunctionAppAuthSettingActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingActiveDirectoryOutput() GetWindowsFunctionAppAuthSettingActiveDirectoryOutput
+	ToGetWindowsFunctionAppAuthSettingActiveDirectoryOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingActiveDirectoryOutput
+}
+
+type GetWindowsFunctionAppAuthSettingActiveDirectoryArgs struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+}
+
+func (GetWindowsFunctionAppAuthSettingActiveDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingActiveDirectoryArgs) ToGetWindowsFunctionAppAuthSettingActiveDirectoryOutput() GetWindowsFunctionAppAuthSettingActiveDirectoryOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingActiveDirectoryOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingActiveDirectoryArgs) ToGetWindowsFunctionAppAuthSettingActiveDirectoryOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingActiveDirectoryOutput)
+}
+
+// GetWindowsFunctionAppAuthSettingActiveDirectoryArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingActiveDirectoryArray and GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingActiveDirectoryArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingActiveDirectoryArray{ GetWindowsFunctionAppAuthSettingActiveDirectoryArgs{...} }
+type GetWindowsFunctionAppAuthSettingActiveDirectoryArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput() GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput
+	ToGetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingActiveDirectoryArray []GetWindowsFunctionAppAuthSettingActiveDirectoryInput
+
+func (GetWindowsFunctionAppAuthSettingActiveDirectoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingActiveDirectoryArray) ToGetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput() GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingActiveDirectoryArray) ToGetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingActiveDirectoryOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingActiveDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingActiveDirectoryOutput) ToGetWindowsFunctionAppAuthSettingActiveDirectoryOutput() GetWindowsFunctionAppAuthSettingActiveDirectoryOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingActiveDirectoryOutput) ToGetWindowsFunctionAppAuthSettingActiveDirectoryOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingActiveDirectoryOutput {
+	return o
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetWindowsFunctionAppAuthSettingActiveDirectoryOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingActiveDirectory) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingActiveDirectoryOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingActiveDirectory) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingActiveDirectoryOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingActiveDirectory) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingActiveDirectoryOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingActiveDirectory) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput) ToGetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput() GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput) ToGetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingActiveDirectoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingActiveDirectory {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingActiveDirectory)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingActiveDirectoryOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingFacebook struct {
+	// The App ID of the Facebook app used for login.
+	AppId string `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	AppSecret string `pulumi:"appSecret"`
+	// The app setting name that contains the `appSecret` value used for Facebook Login.
+	AppSecretSettingName string `pulumi:"appSecretSettingName"`
+	// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetWindowsFunctionAppAuthSettingFacebookInput is an input type that accepts GetWindowsFunctionAppAuthSettingFacebookArgs and GetWindowsFunctionAppAuthSettingFacebookOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingFacebookInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingFacebookArgs{...}
+type GetWindowsFunctionAppAuthSettingFacebookInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingFacebookOutput() GetWindowsFunctionAppAuthSettingFacebookOutput
+	ToGetWindowsFunctionAppAuthSettingFacebookOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingFacebookOutput
+}
+
+type GetWindowsFunctionAppAuthSettingFacebookArgs struct {
+	// The App ID of the Facebook app used for login.
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	// The app setting name that contains the `appSecret` value used for Facebook Login.
+	AppSecretSettingName pulumi.StringInput `pulumi:"appSecretSettingName"`
+	// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetWindowsFunctionAppAuthSettingFacebookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingFacebookArgs) ToGetWindowsFunctionAppAuthSettingFacebookOutput() GetWindowsFunctionAppAuthSettingFacebookOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingFacebookOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingFacebookArgs) ToGetWindowsFunctionAppAuthSettingFacebookOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingFacebookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingFacebookOutput)
+}
+
+// GetWindowsFunctionAppAuthSettingFacebookArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingFacebookArray and GetWindowsFunctionAppAuthSettingFacebookArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingFacebookArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingFacebookArray{ GetWindowsFunctionAppAuthSettingFacebookArgs{...} }
+type GetWindowsFunctionAppAuthSettingFacebookArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingFacebookArrayOutput() GetWindowsFunctionAppAuthSettingFacebookArrayOutput
+	ToGetWindowsFunctionAppAuthSettingFacebookArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingFacebookArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingFacebookArray []GetWindowsFunctionAppAuthSettingFacebookInput
+
+func (GetWindowsFunctionAppAuthSettingFacebookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingFacebookArray) ToGetWindowsFunctionAppAuthSettingFacebookArrayOutput() GetWindowsFunctionAppAuthSettingFacebookArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingFacebookArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingFacebookArray) ToGetWindowsFunctionAppAuthSettingFacebookArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingFacebookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingFacebookArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingFacebookOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingFacebookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingFacebookOutput) ToGetWindowsFunctionAppAuthSettingFacebookOutput() GetWindowsFunctionAppAuthSettingFacebookOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingFacebookOutput) ToGetWindowsFunctionAppAuthSettingFacebookOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingFacebookOutput {
+	return o
+}
+
+// The App ID of the Facebook app used for login.
+func (o GetWindowsFunctionAppAuthSettingFacebookOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingFacebook) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The App Secret of the Facebook app used for Facebook Login.
+func (o GetWindowsFunctionAppAuthSettingFacebookOutput) AppSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingFacebook) string { return v.AppSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the `appSecret` value used for Facebook Login.
+func (o GetWindowsFunctionAppAuthSettingFacebookOutput) AppSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingFacebook) string { return v.AppSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+func (o GetWindowsFunctionAppAuthSettingFacebookOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingFacebook) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingFacebookArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingFacebookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingFacebookArrayOutput) ToGetWindowsFunctionAppAuthSettingFacebookArrayOutput() GetWindowsFunctionAppAuthSettingFacebookArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingFacebookArrayOutput) ToGetWindowsFunctionAppAuthSettingFacebookArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingFacebookArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingFacebookArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingFacebookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingFacebook {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingFacebook)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingFacebookOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingGithub struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetWindowsFunctionAppAuthSettingGithubInput is an input type that accepts GetWindowsFunctionAppAuthSettingGithubArgs and GetWindowsFunctionAppAuthSettingGithubOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingGithubInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingGithubArgs{...}
+type GetWindowsFunctionAppAuthSettingGithubInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingGithubOutput() GetWindowsFunctionAppAuthSettingGithubOutput
+	ToGetWindowsFunctionAppAuthSettingGithubOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingGithubOutput
+}
+
+type GetWindowsFunctionAppAuthSettingGithubArgs struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetWindowsFunctionAppAuthSettingGithubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingGithubArgs) ToGetWindowsFunctionAppAuthSettingGithubOutput() GetWindowsFunctionAppAuthSettingGithubOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingGithubOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingGithubArgs) ToGetWindowsFunctionAppAuthSettingGithubOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGithubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingGithubOutput)
+}
+
+// GetWindowsFunctionAppAuthSettingGithubArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingGithubArray and GetWindowsFunctionAppAuthSettingGithubArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingGithubArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingGithubArray{ GetWindowsFunctionAppAuthSettingGithubArgs{...} }
+type GetWindowsFunctionAppAuthSettingGithubArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingGithubArrayOutput() GetWindowsFunctionAppAuthSettingGithubArrayOutput
+	ToGetWindowsFunctionAppAuthSettingGithubArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingGithubArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingGithubArray []GetWindowsFunctionAppAuthSettingGithubInput
+
+func (GetWindowsFunctionAppAuthSettingGithubArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingGithubArray) ToGetWindowsFunctionAppAuthSettingGithubArrayOutput() GetWindowsFunctionAppAuthSettingGithubArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingGithubArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingGithubArray) ToGetWindowsFunctionAppAuthSettingGithubArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGithubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingGithubArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingGithubOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingGithubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingGithubOutput) ToGetWindowsFunctionAppAuthSettingGithubOutput() GetWindowsFunctionAppAuthSettingGithubOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingGithubOutput) ToGetWindowsFunctionAppAuthSettingGithubOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGithubOutput {
+	return o
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingGithubOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingGithub) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingGithubOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingGithub) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingGithubOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingGithub) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+func (o GetWindowsFunctionAppAuthSettingGithubOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingGithub) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingGithubArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingGithubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingGithubArrayOutput) ToGetWindowsFunctionAppAuthSettingGithubArrayOutput() GetWindowsFunctionAppAuthSettingGithubArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingGithubArrayOutput) ToGetWindowsFunctionAppAuthSettingGithubArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGithubArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingGithubArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingGithubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingGithub {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingGithub)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingGithubOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingGoogle struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetWindowsFunctionAppAuthSettingGoogleInput is an input type that accepts GetWindowsFunctionAppAuthSettingGoogleArgs and GetWindowsFunctionAppAuthSettingGoogleOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingGoogleInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingGoogleArgs{...}
+type GetWindowsFunctionAppAuthSettingGoogleInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingGoogleOutput() GetWindowsFunctionAppAuthSettingGoogleOutput
+	ToGetWindowsFunctionAppAuthSettingGoogleOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingGoogleOutput
+}
+
+type GetWindowsFunctionAppAuthSettingGoogleArgs struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetWindowsFunctionAppAuthSettingGoogleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingGoogleArgs) ToGetWindowsFunctionAppAuthSettingGoogleOutput() GetWindowsFunctionAppAuthSettingGoogleOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingGoogleOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingGoogleArgs) ToGetWindowsFunctionAppAuthSettingGoogleOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGoogleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingGoogleOutput)
+}
+
+// GetWindowsFunctionAppAuthSettingGoogleArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingGoogleArray and GetWindowsFunctionAppAuthSettingGoogleArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingGoogleArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingGoogleArray{ GetWindowsFunctionAppAuthSettingGoogleArgs{...} }
+type GetWindowsFunctionAppAuthSettingGoogleArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingGoogleArrayOutput() GetWindowsFunctionAppAuthSettingGoogleArrayOutput
+	ToGetWindowsFunctionAppAuthSettingGoogleArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingGoogleArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingGoogleArray []GetWindowsFunctionAppAuthSettingGoogleInput
+
+func (GetWindowsFunctionAppAuthSettingGoogleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingGoogleArray) ToGetWindowsFunctionAppAuthSettingGoogleArrayOutput() GetWindowsFunctionAppAuthSettingGoogleArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingGoogleArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingGoogleArray) ToGetWindowsFunctionAppAuthSettingGoogleArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGoogleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingGoogleArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingGoogleOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingGoogleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingGoogleOutput) ToGetWindowsFunctionAppAuthSettingGoogleOutput() GetWindowsFunctionAppAuthSettingGoogleOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingGoogleOutput) ToGetWindowsFunctionAppAuthSettingGoogleOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGoogleOutput {
+	return o
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingGoogleOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingGoogle) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingGoogleOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingGoogle) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingGoogleOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingGoogle) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+func (o GetWindowsFunctionAppAuthSettingGoogleOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingGoogle) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingGoogleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingGoogleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingGoogleArrayOutput) ToGetWindowsFunctionAppAuthSettingGoogleArrayOutput() GetWindowsFunctionAppAuthSettingGoogleArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingGoogleArrayOutput) ToGetWindowsFunctionAppAuthSettingGoogleArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGoogleArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingGoogleArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingGoogleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingGoogle {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingGoogle)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingGoogleOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingMicrosoft struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetWindowsFunctionAppAuthSettingMicrosoftInput is an input type that accepts GetWindowsFunctionAppAuthSettingMicrosoftArgs and GetWindowsFunctionAppAuthSettingMicrosoftOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingMicrosoftInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingMicrosoftArgs{...}
+type GetWindowsFunctionAppAuthSettingMicrosoftInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingMicrosoftOutput() GetWindowsFunctionAppAuthSettingMicrosoftOutput
+	ToGetWindowsFunctionAppAuthSettingMicrosoftOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingMicrosoftOutput
+}
+
+type GetWindowsFunctionAppAuthSettingMicrosoftArgs struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetWindowsFunctionAppAuthSettingMicrosoftArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingMicrosoftArgs) ToGetWindowsFunctionAppAuthSettingMicrosoftOutput() GetWindowsFunctionAppAuthSettingMicrosoftOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingMicrosoftOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingMicrosoftArgs) ToGetWindowsFunctionAppAuthSettingMicrosoftOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingMicrosoftOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingMicrosoftOutput)
+}
+
+// GetWindowsFunctionAppAuthSettingMicrosoftArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingMicrosoftArray and GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingMicrosoftArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingMicrosoftArray{ GetWindowsFunctionAppAuthSettingMicrosoftArgs{...} }
+type GetWindowsFunctionAppAuthSettingMicrosoftArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingMicrosoftArrayOutput() GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput
+	ToGetWindowsFunctionAppAuthSettingMicrosoftArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingMicrosoftArray []GetWindowsFunctionAppAuthSettingMicrosoftInput
+
+func (GetWindowsFunctionAppAuthSettingMicrosoftArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingMicrosoftArray) ToGetWindowsFunctionAppAuthSettingMicrosoftArrayOutput() GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingMicrosoftArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingMicrosoftArray) ToGetWindowsFunctionAppAuthSettingMicrosoftArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingMicrosoftOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingMicrosoftOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingMicrosoftOutput) ToGetWindowsFunctionAppAuthSettingMicrosoftOutput() GetWindowsFunctionAppAuthSettingMicrosoftOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingMicrosoftOutput) ToGetWindowsFunctionAppAuthSettingMicrosoftOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingMicrosoftOutput {
+	return o
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingMicrosoftOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingMicrosoft) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingMicrosoftOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingMicrosoft) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingMicrosoftOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingMicrosoft) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+func (o GetWindowsFunctionAppAuthSettingMicrosoftOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingMicrosoft) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput) ToGetWindowsFunctionAppAuthSettingMicrosoftArrayOutput() GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput) ToGetWindowsFunctionAppAuthSettingMicrosoftArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingMicrosoftOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingMicrosoft {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingMicrosoft)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingMicrosoftOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingTwitter struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey string `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecret string `pulumi:"consumerSecret"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName string `pulumi:"consumerSecretSettingName"`
+}
+
+// GetWindowsFunctionAppAuthSettingTwitterInput is an input type that accepts GetWindowsFunctionAppAuthSettingTwitterArgs and GetWindowsFunctionAppAuthSettingTwitterOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingTwitterInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingTwitterArgs{...}
+type GetWindowsFunctionAppAuthSettingTwitterInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingTwitterOutput() GetWindowsFunctionAppAuthSettingTwitterOutput
+	ToGetWindowsFunctionAppAuthSettingTwitterOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingTwitterOutput
+}
+
+type GetWindowsFunctionAppAuthSettingTwitterArgs struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey pulumi.StringInput `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecret pulumi.StringInput `pulumi:"consumerSecret"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName pulumi.StringInput `pulumi:"consumerSecretSettingName"`
+}
+
+func (GetWindowsFunctionAppAuthSettingTwitterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingTwitterArgs) ToGetWindowsFunctionAppAuthSettingTwitterOutput() GetWindowsFunctionAppAuthSettingTwitterOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingTwitterOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingTwitterArgs) ToGetWindowsFunctionAppAuthSettingTwitterOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingTwitterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingTwitterOutput)
+}
+
+// GetWindowsFunctionAppAuthSettingTwitterArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingTwitterArray and GetWindowsFunctionAppAuthSettingTwitterArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingTwitterArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingTwitterArray{ GetWindowsFunctionAppAuthSettingTwitterArgs{...} }
+type GetWindowsFunctionAppAuthSettingTwitterArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingTwitterArrayOutput() GetWindowsFunctionAppAuthSettingTwitterArrayOutput
+	ToGetWindowsFunctionAppAuthSettingTwitterArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingTwitterArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingTwitterArray []GetWindowsFunctionAppAuthSettingTwitterInput
+
+func (GetWindowsFunctionAppAuthSettingTwitterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingTwitterArray) ToGetWindowsFunctionAppAuthSettingTwitterArrayOutput() GetWindowsFunctionAppAuthSettingTwitterArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingTwitterArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingTwitterArray) ToGetWindowsFunctionAppAuthSettingTwitterArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingTwitterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingTwitterArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingTwitterOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingTwitterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingTwitterOutput) ToGetWindowsFunctionAppAuthSettingTwitterOutput() GetWindowsFunctionAppAuthSettingTwitterOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingTwitterOutput) ToGetWindowsFunctionAppAuthSettingTwitterOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingTwitterOutput {
+	return o
+}
+
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+func (o GetWindowsFunctionAppAuthSettingTwitterOutput) ConsumerKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingTwitter) string { return v.ConsumerKey }).(pulumi.StringOutput)
+}
+
+// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+func (o GetWindowsFunctionAppAuthSettingTwitterOutput) ConsumerSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingTwitter) string { return v.ConsumerSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+func (o GetWindowsFunctionAppAuthSettingTwitterOutput) ConsumerSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingTwitter) string { return v.ConsumerSecretSettingName }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingTwitterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingTwitterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingTwitterArrayOutput) ToGetWindowsFunctionAppAuthSettingTwitterArrayOutput() GetWindowsFunctionAppAuthSettingTwitterArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingTwitterArrayOutput) ToGetWindowsFunctionAppAuthSettingTwitterArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingTwitterArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingTwitterArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingTwitterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingTwitter {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingTwitter)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingTwitterOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2 struct {
+	// An `activeDirectoryV2` block as defined below.
+	ActiveDirectoryV2s []GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 `pulumi:"activeDirectoryV2s"`
+	// An `appleV2` block as defined below.
+	AppleV2s []GetWindowsFunctionAppAuthSettingsV2AppleV2 `pulumi:"appleV2s"`
+	// Are the AuthV2 Settings enabled.
+	AuthEnabled bool `pulumi:"authEnabled"`
+	// An `azureStaticWebAppV2` block as defined below.
+	AzureStaticWebAppV2s []GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2 `pulumi:"azureStaticWebAppV2s"`
+	// The path to the App Auth settings.
+	ConfigFilePath string `pulumi:"configFilePath"`
+	// Zero or more `customOidcV2` blocks as defined below.
+	CustomOidcV2s []GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 `pulumi:"customOidcV2s"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider string `pulumi:"defaultProvider"`
+	// The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+	ExcludedPaths []string `pulumi:"excludedPaths"`
+	// A `facebookV2` block as defined below.
+	FacebookV2s []GetWindowsFunctionAppAuthSettingsV2FacebookV2 `pulumi:"facebookV2s"`
+	// The convention used to determine the url of the request made.
+	ForwardProxyConvention string `pulumi:"forwardProxyConvention"`
+	// The name of the custom header containing the host of the request.
+	ForwardProxyCustomHostHeaderName string `pulumi:"forwardProxyCustomHostHeaderName"`
+	// The name of the custom header containing the scheme of the request.
+	ForwardProxyCustomSchemeHeaderName string `pulumi:"forwardProxyCustomSchemeHeaderName"`
+	// A `githubV2` block as defined below.
+	GithubV2s []GetWindowsFunctionAppAuthSettingsV2GithubV2 `pulumi:"githubV2s"`
+	// A `googleV2` block as defined below.
+	GoogleV2s []GetWindowsFunctionAppAuthSettingsV2GoogleV2 `pulumi:"googleV2s"`
+	// The prefix that should precede all the authentication and authorisation paths.
+	HttpRouteApiPrefix string `pulumi:"httpRouteApiPrefix"`
+	// A `login` block as defined below.
+	Logins []GetWindowsFunctionAppAuthSettingsV2Login `pulumi:"logins"`
+	// A `microsoftV2` block as defined below.
+	MicrosoftV2s []GetWindowsFunctionAppAuthSettingsV2MicrosoftV2 `pulumi:"microsoftV2s"`
+	// Is the authentication flow used for all requests.
+	RequireAuthentication bool `pulumi:"requireAuthentication"`
+	// Is HTTPS required on connections?
+	RequireHttps bool `pulumi:"requireHttps"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+	// A `twitterV2` block as defined below.
+	TwitterV2s []GetWindowsFunctionAppAuthSettingsV2TwitterV2 `pulumi:"twitterV2s"`
+	// The action to take for requests made without authentication.
+	UnauthenticatedAction string `pulumi:"unauthenticatedAction"`
+}
+
+// GetWindowsFunctionAppAuthSettingsV2Input is an input type that accepts GetWindowsFunctionAppAuthSettingsV2Args and GetWindowsFunctionAppAuthSettingsV2Output values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2Input` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2Args{...}
+type GetWindowsFunctionAppAuthSettingsV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2Output() GetWindowsFunctionAppAuthSettingsV2Output
+	ToGetWindowsFunctionAppAuthSettingsV2OutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2Output
+}
+
+type GetWindowsFunctionAppAuthSettingsV2Args struct {
+	// An `activeDirectoryV2` block as defined below.
+	ActiveDirectoryV2s GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayInput `pulumi:"activeDirectoryV2s"`
+	// An `appleV2` block as defined below.
+	AppleV2s GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayInput `pulumi:"appleV2s"`
+	// Are the AuthV2 Settings enabled.
+	AuthEnabled pulumi.BoolInput `pulumi:"authEnabled"`
+	// An `azureStaticWebAppV2` block as defined below.
+	AzureStaticWebAppV2s GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayInput `pulumi:"azureStaticWebAppV2s"`
+	// The path to the App Auth settings.
+	ConfigFilePath pulumi.StringInput `pulumi:"configFilePath"`
+	// Zero or more `customOidcV2` blocks as defined below.
+	CustomOidcV2s GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayInput `pulumi:"customOidcV2s"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider pulumi.StringInput `pulumi:"defaultProvider"`
+	// The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+	ExcludedPaths pulumi.StringArrayInput `pulumi:"excludedPaths"`
+	// A `facebookV2` block as defined below.
+	FacebookV2s GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayInput `pulumi:"facebookV2s"`
+	// The convention used to determine the url of the request made.
+	ForwardProxyConvention pulumi.StringInput `pulumi:"forwardProxyConvention"`
+	// The name of the custom header containing the host of the request.
+	ForwardProxyCustomHostHeaderName pulumi.StringInput `pulumi:"forwardProxyCustomHostHeaderName"`
+	// The name of the custom header containing the scheme of the request.
+	ForwardProxyCustomSchemeHeaderName pulumi.StringInput `pulumi:"forwardProxyCustomSchemeHeaderName"`
+	// A `githubV2` block as defined below.
+	GithubV2s GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayInput `pulumi:"githubV2s"`
+	// A `googleV2` block as defined below.
+	GoogleV2s GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayInput `pulumi:"googleV2s"`
+	// The prefix that should precede all the authentication and authorisation paths.
+	HttpRouteApiPrefix pulumi.StringInput `pulumi:"httpRouteApiPrefix"`
+	// A `login` block as defined below.
+	Logins GetWindowsFunctionAppAuthSettingsV2LoginArrayInput `pulumi:"logins"`
+	// A `microsoftV2` block as defined below.
+	MicrosoftV2s GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayInput `pulumi:"microsoftV2s"`
+	// Is the authentication flow used for all requests.
+	RequireAuthentication pulumi.BoolInput `pulumi:"requireAuthentication"`
+	// Is HTTPS required on connections?
+	RequireHttps pulumi.BoolInput `pulumi:"requireHttps"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+	// A `twitterV2` block as defined below.
+	TwitterV2s GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayInput `pulumi:"twitterV2s"`
+	// The action to take for requests made without authentication.
+	UnauthenticatedAction pulumi.StringInput `pulumi:"unauthenticatedAction"`
+}
+
+func (GetWindowsFunctionAppAuthSettingsV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2Args) ToGetWindowsFunctionAppAuthSettingsV2Output() GetWindowsFunctionAppAuthSettingsV2Output {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2Args) ToGetWindowsFunctionAppAuthSettingsV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2Output)
+}
+
+// GetWindowsFunctionAppAuthSettingsV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2Array and GetWindowsFunctionAppAuthSettingsV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2ArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2Array{ GetWindowsFunctionAppAuthSettingsV2Args{...} }
+type GetWindowsFunctionAppAuthSettingsV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2ArrayOutput
+	ToGetWindowsFunctionAppAuthSettingsV2ArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2ArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2Array []GetWindowsFunctionAppAuthSettingsV2Input
+
+func (GetWindowsFunctionAppAuthSettingsV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2Array) ToGetWindowsFunctionAppAuthSettingsV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2ArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2Array) ToGetWindowsFunctionAppAuthSettingsV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2ArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2Output) ToGetWindowsFunctionAppAuthSettingsV2Output() GetWindowsFunctionAppAuthSettingsV2Output {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2Output) ToGetWindowsFunctionAppAuthSettingsV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2Output {
+	return o
+}
+
+// An `activeDirectoryV2` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) ActiveDirectoryV2s() GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) []GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 {
+		return v.ActiveDirectoryV2s
+	}).(GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput)
+}
+
+// An `appleV2` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) AppleV2s() GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) []GetWindowsFunctionAppAuthSettingsV2AppleV2 {
+		return v.AppleV2s
+	}).(GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput)
+}
+
+// Are the AuthV2 Settings enabled.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) AuthEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) bool { return v.AuthEnabled }).(pulumi.BoolOutput)
+}
+
+// An `azureStaticWebAppV2` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) AzureStaticWebAppV2s() GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) []GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
+		return v.AzureStaticWebAppV2s
+	}).(GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput)
+}
+
+// The path to the App Auth settings.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) ConfigFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) string { return v.ConfigFilePath }).(pulumi.StringOutput)
+}
+
+// Zero or more `customOidcV2` blocks as defined below.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) CustomOidcV2s() GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) []GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 {
+		return v.CustomOidcV2s
+	}).(GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput)
+}
+
+// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) DefaultProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) string { return v.DefaultProvider }).(pulumi.StringOutput)
+}
+
+// The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) ExcludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) []string { return v.ExcludedPaths }).(pulumi.StringArrayOutput)
+}
+
+// A `facebookV2` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) FacebookV2s() GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) []GetWindowsFunctionAppAuthSettingsV2FacebookV2 {
+		return v.FacebookV2s
+	}).(GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput)
+}
+
+// The convention used to determine the url of the request made.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) ForwardProxyConvention() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) string { return v.ForwardProxyConvention }).(pulumi.StringOutput)
+}
+
+// The name of the custom header containing the host of the request.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) ForwardProxyCustomHostHeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) string { return v.ForwardProxyCustomHostHeaderName }).(pulumi.StringOutput)
+}
+
+// The name of the custom header containing the scheme of the request.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) ForwardProxyCustomSchemeHeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) string { return v.ForwardProxyCustomSchemeHeaderName }).(pulumi.StringOutput)
+}
+
+// A `githubV2` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) GithubV2s() GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) []GetWindowsFunctionAppAuthSettingsV2GithubV2 {
+		return v.GithubV2s
+	}).(GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput)
+}
+
+// A `googleV2` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) GoogleV2s() GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) []GetWindowsFunctionAppAuthSettingsV2GoogleV2 {
+		return v.GoogleV2s
+	}).(GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput)
+}
+
+// The prefix that should precede all the authentication and authorisation paths.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) HttpRouteApiPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) string { return v.HttpRouteApiPrefix }).(pulumi.StringOutput)
+}
+
+// A `login` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) Logins() GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) []GetWindowsFunctionAppAuthSettingsV2Login {
+		return v.Logins
+	}).(GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput)
+}
+
+// A `microsoftV2` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) MicrosoftV2s() GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) []GetWindowsFunctionAppAuthSettingsV2MicrosoftV2 {
+		return v.MicrosoftV2s
+	}).(GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput)
+}
+
+// Is the authentication flow used for all requests.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) RequireAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) bool { return v.RequireAuthentication }).(pulumi.BoolOutput)
+}
+
+// Is HTTPS required on connections?
+func (o GetWindowsFunctionAppAuthSettingsV2Output) RequireHttps() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) bool { return v.RequireHttps }).(pulumi.BoolOutput)
+}
+
+// The Runtime Version of the Authentication and Authorisation feature of this App.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+// A `twitterV2` block as defined below.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) TwitterV2s() GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) []GetWindowsFunctionAppAuthSettingsV2TwitterV2 {
+		return v.TwitterV2s
+	}).(GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput)
+}
+
+// The action to take for requests made without authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2Output) UnauthenticatedAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2) string { return v.UnauthenticatedAction }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2 {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingsV2Output)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 struct {
+	// The list of allowed Applications for the Default Authorisation Policy.
+	AllowedApplications []string `pulumi:"allowedApplications"`
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The list of allowed Group Names for the Default Authorisation Policy.
+	AllowedGroups []string `pulumi:"allowedGroups"`
+	// The list of allowed Identities for the Default Authorisation Policy.
+	AllowedIdentities []string `pulumi:"allowedIdentities"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The thumbprint of the certificate used for signing purposes.
+	ClientSecretCertificateThumbprint string `pulumi:"clientSecretCertificateThumbprint"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Allowed Client Applications in the JWT Claim.
+	JwtAllowedClientApplications []string `pulumi:"jwtAllowedClientApplications"`
+	// The list of Allowed Groups in the JWT Claim.
+	JwtAllowedGroups []string `pulumi:"jwtAllowedGroups"`
+	// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
+	LoginParameters map[string]string `pulumi:"loginParameters"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Input is an input type that accepts GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args and GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Input` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args{...}
+type GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output() GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output
+	ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output
+}
+
+type GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args struct {
+	// The list of allowed Applications for the Default Authorisation Policy.
+	AllowedApplications pulumi.StringArrayInput `pulumi:"allowedApplications"`
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The list of allowed Group Names for the Default Authorisation Policy.
+	AllowedGroups pulumi.StringArrayInput `pulumi:"allowedGroups"`
+	// The list of allowed Identities for the Default Authorisation Policy.
+	AllowedIdentities pulumi.StringArrayInput `pulumi:"allowedIdentities"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The thumbprint of the certificate used for signing purposes.
+	ClientSecretCertificateThumbprint pulumi.StringInput `pulumi:"clientSecretCertificateThumbprint"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Allowed Client Applications in the JWT Claim.
+	JwtAllowedClientApplications pulumi.StringArrayInput `pulumi:"jwtAllowedClientApplications"`
+	// The list of Allowed Groups in the JWT Claim.
+	JwtAllowedGroups pulumi.StringArrayInput `pulumi:"jwtAllowedGroups"`
+	// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
+	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args) ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output() GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args) ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output)
+}
+
+// GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Array and GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Array{ GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args{...} }
+type GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput
+	ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Array []GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Input
+
+func (GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Array) ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Array) ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output() GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output {
+	return o
+}
+
+// The list of allowed Applications for the Default Authorisation Policy.
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) AllowedApplications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedApplications }).(pulumi.StringArrayOutput)
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The list of allowed Group Names for the Default Authorisation Policy.
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) AllowedGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedGroups }).(pulumi.StringArrayOutput)
+}
+
+// The list of allowed Identities for the Default Authorisation Policy.
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) AllowedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedIdentities }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The thumbprint of the certificate used for signing purposes.
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) ClientSecretCertificateThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) string {
+		return v.ClientSecretCertificateThumbprint
+	}).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Allowed Client Applications in the JWT Claim.
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) JwtAllowedClientApplications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) []string {
+		return v.JwtAllowedClientApplications
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of Allowed Groups in the JWT Claim.
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) JwtAllowedGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) []string { return v.JwtAllowedGroups }).(pulumi.StringArrayOutput)
+}
+
+// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) LoginParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) map[string]string {
+		return v.LoginParameters
+	}).(pulumi.StringMapOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2AppleV2 struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetWindowsFunctionAppAuthSettingsV2AppleV2Input is an input type that accepts GetWindowsFunctionAppAuthSettingsV2AppleV2Args and GetWindowsFunctionAppAuthSettingsV2AppleV2Output values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2AppleV2Input` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2AppleV2Args{...}
+type GetWindowsFunctionAppAuthSettingsV2AppleV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2AppleV2Output() GetWindowsFunctionAppAuthSettingsV2AppleV2Output
+	ToGetWindowsFunctionAppAuthSettingsV2AppleV2OutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2AppleV2Output
+}
+
+type GetWindowsFunctionAppAuthSettingsV2AppleV2Args struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetWindowsFunctionAppAuthSettingsV2AppleV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2AppleV2Args) ToGetWindowsFunctionAppAuthSettingsV2AppleV2Output() GetWindowsFunctionAppAuthSettingsV2AppleV2Output {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2AppleV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2AppleV2Args) ToGetWindowsFunctionAppAuthSettingsV2AppleV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AppleV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2AppleV2Output)
+}
+
+// GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2AppleV2Array and GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2AppleV2Array{ GetWindowsFunctionAppAuthSettingsV2AppleV2Args{...} }
+type GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput
+	ToGetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2AppleV2Array []GetWindowsFunctionAppAuthSettingsV2AppleV2Input
+
+func (GetWindowsFunctionAppAuthSettingsV2AppleV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2AppleV2Array) ToGetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2AppleV2Array) ToGetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2AppleV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2AppleV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AppleV2Output) ToGetWindowsFunctionAppAuthSettingsV2AppleV2Output() GetWindowsFunctionAppAuthSettingsV2AppleV2Output {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AppleV2Output) ToGetWindowsFunctionAppAuthSettingsV2AppleV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AppleV2Output {
+	return o
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2AppleV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2AppleV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2AppleV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2AppleV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2AppleV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2AppleV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2AppleV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2AppleV2 {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2AppleV2)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingsV2AppleV2Output)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2 struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+}
+
+// GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Input is an input type that accepts GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args and GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Input` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args{...}
+type GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output() GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output
+	ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output
+}
+
+type GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+}
+
+func (GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args) ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output() GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args) ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output)
+}
+
+// GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Array and GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Array{ GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args{...} }
+type GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput
+	ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Array []GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Input
+
+func (GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Array) ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Array) ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output) ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output() GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output) ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return o
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 struct {
+	// The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+	AuthorisationEndpoint string `pulumi:"authorisationEndpoint"`
+	// The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+	CertificationUri string `pulumi:"certificationUri"`
+	// The Client Credential Method used.
+	ClientCredentialMethod string `pulumi:"clientCredentialMethod"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+	IssuerEndpoint string `pulumi:"issuerEndpoint"`
+	// The name of this Windows Function App.
+	Name string `pulumi:"name"`
+	// The name of the claim that contains the users name.
+	NameClaimType string `pulumi:"nameClaimType"`
+	// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+	OpenidConfigurationEndpoint string `pulumi:"openidConfigurationEndpoint"`
+	// The list of the scopes that are requested while authenticating.
+	Scopes []string `pulumi:"scopes"`
+	// The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Input is an input type that accepts GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args and GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Input` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args{...}
+type GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output() GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output
+	ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2OutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output
+}
+
+type GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args struct {
+	// The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+	AuthorisationEndpoint pulumi.StringInput `pulumi:"authorisationEndpoint"`
+	// The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+	CertificationUri pulumi.StringInput `pulumi:"certificationUri"`
+	// The Client Credential Method used.
+	ClientCredentialMethod pulumi.StringInput `pulumi:"clientCredentialMethod"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+	IssuerEndpoint pulumi.StringInput `pulumi:"issuerEndpoint"`
+	// The name of this Windows Function App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the claim that contains the users name.
+	NameClaimType pulumi.StringInput `pulumi:"nameClaimType"`
+	// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+	OpenidConfigurationEndpoint pulumi.StringInput `pulumi:"openidConfigurationEndpoint"`
+	// The list of the scopes that are requested while authenticating.
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	// The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args) ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output() GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args) ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output)
+}
+
+// GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Array and GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Array{ GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args{...} }
+type GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput
+	ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Array []GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Input
+
+func (GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Array) ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Array) ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output() GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output {
+	return o
+}
+
+// The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) AuthorisationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.AuthorisationEndpoint }).(pulumi.StringOutput)
+}
+
+// The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) CertificationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.CertificationUri }).(pulumi.StringOutput)
+}
+
+// The Client Credential Method used.
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) ClientCredentialMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.ClientCredentialMethod }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) IssuerEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.IssuerEndpoint }).(pulumi.StringOutput)
+}
+
+// The name of this Windows Function App.
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the claim that contains the users name.
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) NameClaimType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.NameClaimType }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) OpenidConfigurationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.OpenidConfigurationEndpoint }).(pulumi.StringOutput)
+}
+
+// The list of the scopes that are requested while authenticating.
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.TokenEndpoint }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2CustomOidcV2)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2FacebookV2 struct {
+	// The App ID of the Facebook app used for login.
+	AppId string `pulumi:"appId"`
+	// The app setting name that contains the `appSecret` value used for Facebook Login.
+	AppSecretSettingName string `pulumi:"appSecretSettingName"`
+	// The version of the Facebook API to be used while logging in.
+	GraphApiVersion string `pulumi:"graphApiVersion"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetWindowsFunctionAppAuthSettingsV2FacebookV2Input is an input type that accepts GetWindowsFunctionAppAuthSettingsV2FacebookV2Args and GetWindowsFunctionAppAuthSettingsV2FacebookV2Output values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2FacebookV2Input` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2FacebookV2Args{...}
+type GetWindowsFunctionAppAuthSettingsV2FacebookV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2FacebookV2Output() GetWindowsFunctionAppAuthSettingsV2FacebookV2Output
+	ToGetWindowsFunctionAppAuthSettingsV2FacebookV2OutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2FacebookV2Output
+}
+
+type GetWindowsFunctionAppAuthSettingsV2FacebookV2Args struct {
+	// The App ID of the Facebook app used for login.
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The app setting name that contains the `appSecret` value used for Facebook Login.
+	AppSecretSettingName pulumi.StringInput `pulumi:"appSecretSettingName"`
+	// The version of the Facebook API to be used while logging in.
+	GraphApiVersion pulumi.StringInput `pulumi:"graphApiVersion"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetWindowsFunctionAppAuthSettingsV2FacebookV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2FacebookV2Args) ToGetWindowsFunctionAppAuthSettingsV2FacebookV2Output() GetWindowsFunctionAppAuthSettingsV2FacebookV2Output {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2FacebookV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2FacebookV2Args) ToGetWindowsFunctionAppAuthSettingsV2FacebookV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2FacebookV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2FacebookV2Output)
+}
+
+// GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2FacebookV2Array and GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2FacebookV2Array{ GetWindowsFunctionAppAuthSettingsV2FacebookV2Args{...} }
+type GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput
+	ToGetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2FacebookV2Array []GetWindowsFunctionAppAuthSettingsV2FacebookV2Input
+
+func (GetWindowsFunctionAppAuthSettingsV2FacebookV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2FacebookV2Array) ToGetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2FacebookV2Array) ToGetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2FacebookV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2FacebookV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2Output) ToGetWindowsFunctionAppAuthSettingsV2FacebookV2Output() GetWindowsFunctionAppAuthSettingsV2FacebookV2Output {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2Output) ToGetWindowsFunctionAppAuthSettingsV2FacebookV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2FacebookV2Output {
+	return o
+}
+
+// The App ID of the Facebook app used for login.
+func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2Output) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2FacebookV2) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the `appSecret` value used for Facebook Login.
+func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2Output) AppSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2FacebookV2) string { return v.AppSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The version of the Facebook API to be used while logging in.
+func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2Output) GraphApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2FacebookV2) string { return v.GraphApiVersion }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2FacebookV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2FacebookV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2FacebookV2 {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2FacebookV2)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingsV2FacebookV2Output)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2GithubV2 struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetWindowsFunctionAppAuthSettingsV2GithubV2Input is an input type that accepts GetWindowsFunctionAppAuthSettingsV2GithubV2Args and GetWindowsFunctionAppAuthSettingsV2GithubV2Output values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2GithubV2Input` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2GithubV2Args{...}
+type GetWindowsFunctionAppAuthSettingsV2GithubV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2GithubV2Output() GetWindowsFunctionAppAuthSettingsV2GithubV2Output
+	ToGetWindowsFunctionAppAuthSettingsV2GithubV2OutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2GithubV2Output
+}
+
+type GetWindowsFunctionAppAuthSettingsV2GithubV2Args struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetWindowsFunctionAppAuthSettingsV2GithubV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2GithubV2Args) ToGetWindowsFunctionAppAuthSettingsV2GithubV2Output() GetWindowsFunctionAppAuthSettingsV2GithubV2Output {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2GithubV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2GithubV2Args) ToGetWindowsFunctionAppAuthSettingsV2GithubV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GithubV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2GithubV2Output)
+}
+
+// GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2GithubV2Array and GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2GithubV2Array{ GetWindowsFunctionAppAuthSettingsV2GithubV2Args{...} }
+type GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput
+	ToGetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2GithubV2Array []GetWindowsFunctionAppAuthSettingsV2GithubV2Input
+
+func (GetWindowsFunctionAppAuthSettingsV2GithubV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2GithubV2Array) ToGetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2GithubV2Array) ToGetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2GithubV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2GithubV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GithubV2Output) ToGetWindowsFunctionAppAuthSettingsV2GithubV2Output() GetWindowsFunctionAppAuthSettingsV2GithubV2Output {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GithubV2Output) ToGetWindowsFunctionAppAuthSettingsV2GithubV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GithubV2Output {
+	return o
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2GithubV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2GithubV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2GithubV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2GithubV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2GithubV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2GithubV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2GithubV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2GithubV2 {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2GithubV2)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingsV2GithubV2Output)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2GoogleV2 struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetWindowsFunctionAppAuthSettingsV2GoogleV2Input is an input type that accepts GetWindowsFunctionAppAuthSettingsV2GoogleV2Args and GetWindowsFunctionAppAuthSettingsV2GoogleV2Output values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2GoogleV2Input` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2GoogleV2Args{...}
+type GetWindowsFunctionAppAuthSettingsV2GoogleV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2GoogleV2Output() GetWindowsFunctionAppAuthSettingsV2GoogleV2Output
+	ToGetWindowsFunctionAppAuthSettingsV2GoogleV2OutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2GoogleV2Output
+}
+
+type GetWindowsFunctionAppAuthSettingsV2GoogleV2Args struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetWindowsFunctionAppAuthSettingsV2GoogleV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2GoogleV2Args) ToGetWindowsFunctionAppAuthSettingsV2GoogleV2Output() GetWindowsFunctionAppAuthSettingsV2GoogleV2Output {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2GoogleV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2GoogleV2Args) ToGetWindowsFunctionAppAuthSettingsV2GoogleV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GoogleV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2GoogleV2Output)
+}
+
+// GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2GoogleV2Array and GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2GoogleV2Array{ GetWindowsFunctionAppAuthSettingsV2GoogleV2Args{...} }
+type GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput
+	ToGetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2GoogleV2Array []GetWindowsFunctionAppAuthSettingsV2GoogleV2Input
+
+func (GetWindowsFunctionAppAuthSettingsV2GoogleV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2GoogleV2Array) ToGetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2GoogleV2Array) ToGetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2GoogleV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2GoogleV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2Output) ToGetWindowsFunctionAppAuthSettingsV2GoogleV2Output() GetWindowsFunctionAppAuthSettingsV2GoogleV2Output {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2Output) ToGetWindowsFunctionAppAuthSettingsV2GoogleV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GoogleV2Output {
+	return o
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2Output) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2GoogleV2) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2GoogleV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2GoogleV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2GoogleV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2GoogleV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2GoogleV2 {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2GoogleV2)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingsV2GoogleV2Output)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2Login struct {
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The method by which cookies expire.
+	CookieExpirationConvention string `pulumi:"cookieExpirationConvention"`
+	// The time after the request is made when the session cookie should expire.
+	CookieExpirationTime string `pulumi:"cookieExpirationTime"`
+	// The endpoint to which logout requests are made.
+	LogoutEndpoint string `pulumi:"logoutEndpoint"`
+	// The time after the request is made when the nonce should expire.
+	NonceExpirationTime string `pulumi:"nonceExpirationTime"`
+	// Are the fragments from the request preserved after the login request is made.
+	PreserveUrlFragmentsForLogins bool `pulumi:"preserveUrlFragmentsForLogins"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionTime float64 `pulumi:"tokenRefreshExtensionTime"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled bool `pulumi:"tokenStoreEnabled"`
+	// The directory path in the App Filesystem in which the tokens are stored.
+	TokenStorePath string `pulumi:"tokenStorePath"`
+	// The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+	TokenStoreSasSettingName string `pulumi:"tokenStoreSasSettingName"`
+	// Is the nonce validated while completing the login flow.
+	ValidateNonce bool `pulumi:"validateNonce"`
+}
+
+// GetWindowsFunctionAppAuthSettingsV2LoginInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2LoginArgs and GetWindowsFunctionAppAuthSettingsV2LoginOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2LoginInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2LoginArgs{...}
+type GetWindowsFunctionAppAuthSettingsV2LoginInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2LoginOutput() GetWindowsFunctionAppAuthSettingsV2LoginOutput
+	ToGetWindowsFunctionAppAuthSettingsV2LoginOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2LoginOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2LoginArgs struct {
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The method by which cookies expire.
+	CookieExpirationConvention pulumi.StringInput `pulumi:"cookieExpirationConvention"`
+	// The time after the request is made when the session cookie should expire.
+	CookieExpirationTime pulumi.StringInput `pulumi:"cookieExpirationTime"`
+	// The endpoint to which logout requests are made.
+	LogoutEndpoint pulumi.StringInput `pulumi:"logoutEndpoint"`
+	// The time after the request is made when the nonce should expire.
+	NonceExpirationTime pulumi.StringInput `pulumi:"nonceExpirationTime"`
+	// Are the fragments from the request preserved after the login request is made.
+	PreserveUrlFragmentsForLogins pulumi.BoolInput `pulumi:"preserveUrlFragmentsForLogins"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionTime pulumi.Float64Input `pulumi:"tokenRefreshExtensionTime"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled pulumi.BoolInput `pulumi:"tokenStoreEnabled"`
+	// The directory path in the App Filesystem in which the tokens are stored.
+	TokenStorePath pulumi.StringInput `pulumi:"tokenStorePath"`
+	// The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+	TokenStoreSasSettingName pulumi.StringInput `pulumi:"tokenStoreSasSettingName"`
+	// Is the nonce validated while completing the login flow.
+	ValidateNonce pulumi.BoolInput `pulumi:"validateNonce"`
+}
+
+func (GetWindowsFunctionAppAuthSettingsV2LoginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2LoginArgs) ToGetWindowsFunctionAppAuthSettingsV2LoginOutput() GetWindowsFunctionAppAuthSettingsV2LoginOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2LoginOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2LoginArgs) ToGetWindowsFunctionAppAuthSettingsV2LoginOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2LoginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2LoginOutput)
+}
+
+// GetWindowsFunctionAppAuthSettingsV2LoginArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2LoginArray and GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2LoginArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2LoginArray{ GetWindowsFunctionAppAuthSettingsV2LoginArgs{...} }
+type GetWindowsFunctionAppAuthSettingsV2LoginArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2LoginArrayOutput() GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput
+	ToGetWindowsFunctionAppAuthSettingsV2LoginArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2LoginArray []GetWindowsFunctionAppAuthSettingsV2LoginInput
+
+func (GetWindowsFunctionAppAuthSettingsV2LoginArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2LoginArray) ToGetWindowsFunctionAppAuthSettingsV2LoginArrayOutput() GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2LoginArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2LoginArray) ToGetWindowsFunctionAppAuthSettingsV2LoginArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2LoginOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2LoginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) ToGetWindowsFunctionAppAuthSettingsV2LoginOutput() GetWindowsFunctionAppAuthSettingsV2LoginOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) ToGetWindowsFunctionAppAuthSettingsV2LoginOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2LoginOutput {
+	return o
+}
+
+// External URLs that can be redirected to as part of logging in or logging out of the app.
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2Login) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
+}
+
+// The method by which cookies expire.
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) CookieExpirationConvention() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2Login) string { return v.CookieExpirationConvention }).(pulumi.StringOutput)
+}
+
+// The time after the request is made when the session cookie should expire.
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) CookieExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2Login) string { return v.CookieExpirationTime }).(pulumi.StringOutput)
+}
+
+// The endpoint to which logout requests are made.
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) LogoutEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2Login) string { return v.LogoutEndpoint }).(pulumi.StringOutput)
+}
+
+// The time after the request is made when the nonce should expire.
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) NonceExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2Login) string { return v.NonceExpirationTime }).(pulumi.StringOutput)
+}
+
+// Are the fragments from the request preserved after the login request is made.
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) PreserveUrlFragmentsForLogins() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2Login) bool { return v.PreserveUrlFragmentsForLogins }).(pulumi.BoolOutput)
+}
+
+// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) TokenRefreshExtensionTime() pulumi.Float64Output {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2Login) float64 { return v.TokenRefreshExtensionTime }).(pulumi.Float64Output)
+}
+
+// Is the Token Store configuration Enabled.
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) TokenStoreEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2Login) bool { return v.TokenStoreEnabled }).(pulumi.BoolOutput)
+}
+
+// The directory path in the App Filesystem in which the tokens are stored.
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) TokenStorePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2Login) string { return v.TokenStorePath }).(pulumi.StringOutput)
+}
+
+// The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) TokenStoreSasSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2Login) string { return v.TokenStoreSasSettingName }).(pulumi.StringOutput)
+}
+
+// Is the nonce validated while completing the login flow.
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) ValidateNonce() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2Login) bool { return v.ValidateNonce }).(pulumi.BoolOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2LoginArrayOutput() GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2LoginArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2LoginOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2Login {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2Login)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingsV2LoginOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2MicrosoftV2 struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Input is an input type that accepts GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Args and GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Input` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Args{...}
+type GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output() GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output
+	ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2OutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output
+}
+
+type GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Args struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Args) ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output() GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Args) ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output)
+}
+
+// GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Array and GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Array{ GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Args{...} }
+type GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput
+	ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Array []GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Input
+
+func (GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Array) ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Array) ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output) ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output() GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output) ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output {
+	return o
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2MicrosoftV2) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2MicrosoftV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2MicrosoftV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2MicrosoftV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2MicrosoftV2 {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2MicrosoftV2)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2TwitterV2 struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey string `pulumi:"consumerKey"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName string `pulumi:"consumerSecretSettingName"`
+}
+
+// GetWindowsFunctionAppAuthSettingsV2TwitterV2Input is an input type that accepts GetWindowsFunctionAppAuthSettingsV2TwitterV2Args and GetWindowsFunctionAppAuthSettingsV2TwitterV2Output values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2TwitterV2Input` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2TwitterV2Args{...}
+type GetWindowsFunctionAppAuthSettingsV2TwitterV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2TwitterV2Output() GetWindowsFunctionAppAuthSettingsV2TwitterV2Output
+	ToGetWindowsFunctionAppAuthSettingsV2TwitterV2OutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2TwitterV2Output
+}
+
+type GetWindowsFunctionAppAuthSettingsV2TwitterV2Args struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey pulumi.StringInput `pulumi:"consumerKey"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName pulumi.StringInput `pulumi:"consumerSecretSettingName"`
+}
+
+func (GetWindowsFunctionAppAuthSettingsV2TwitterV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2TwitterV2Args) ToGetWindowsFunctionAppAuthSettingsV2TwitterV2Output() GetWindowsFunctionAppAuthSettingsV2TwitterV2Output {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2TwitterV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2TwitterV2Args) ToGetWindowsFunctionAppAuthSettingsV2TwitterV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2TwitterV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2TwitterV2Output)
+}
+
+// GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2TwitterV2Array and GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayInput` via:
+//
+//	GetWindowsFunctionAppAuthSettingsV2TwitterV2Array{ GetWindowsFunctionAppAuthSettingsV2TwitterV2Args{...} }
+type GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput
+	ToGetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutputWithContext(context.Context) GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput
+}
+
+type GetWindowsFunctionAppAuthSettingsV2TwitterV2Array []GetWindowsFunctionAppAuthSettingsV2TwitterV2Input
+
+func (GetWindowsFunctionAppAuthSettingsV2TwitterV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2TwitterV2Array) ToGetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput {
+	return i.ToGetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppAuthSettingsV2TwitterV2Array) ToGetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2TwitterV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2TwitterV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2Output) ToGetWindowsFunctionAppAuthSettingsV2TwitterV2Output() GetWindowsFunctionAppAuthSettingsV2TwitterV2Output {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2Output) ToGetWindowsFunctionAppAuthSettingsV2TwitterV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2TwitterV2Output {
+	return o
+}
+
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2Output) ConsumerKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2TwitterV2) string { return v.ConsumerKey }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2Output) ConsumerSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2TwitterV2) string { return v.ConsumerSecretSettingName }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput() GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2TwitterV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2TwitterV2 {
+		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2TwitterV2)[vs[1].(int)]
+	}).(GetWindowsFunctionAppAuthSettingsV2TwitterV2Output)
+}
+
+type GetWindowsFunctionAppBackup struct {
+	// Is the Backup Job enabled?
+	Enabled bool `pulumi:"enabled"`
+	// The name of this Windows Function App.
+	Name string `pulumi:"name"`
+	// A `schedule` block as defined below.
+	Schedules []GetWindowsFunctionAppBackupSchedule `pulumi:"schedules"`
+	// The SAS URL to the container.
+	StorageAccountUrl string `pulumi:"storageAccountUrl"`
+}
+
+// GetWindowsFunctionAppBackupInput is an input type that accepts GetWindowsFunctionAppBackupArgs and GetWindowsFunctionAppBackupOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppBackupInput` via:
+//
+//	GetWindowsFunctionAppBackupArgs{...}
+type GetWindowsFunctionAppBackupInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppBackupOutput() GetWindowsFunctionAppBackupOutput
+	ToGetWindowsFunctionAppBackupOutputWithContext(context.Context) GetWindowsFunctionAppBackupOutput
+}
+
+type GetWindowsFunctionAppBackupArgs struct {
+	// Is the Backup Job enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The name of this Windows Function App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `schedule` block as defined below.
+	Schedules GetWindowsFunctionAppBackupScheduleArrayInput `pulumi:"schedules"`
+	// The SAS URL to the container.
+	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
+}
+
+func (GetWindowsFunctionAppBackupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppBackup)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppBackupArgs) ToGetWindowsFunctionAppBackupOutput() GetWindowsFunctionAppBackupOutput {
+	return i.ToGetWindowsFunctionAppBackupOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppBackupArgs) ToGetWindowsFunctionAppBackupOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppBackupOutput)
+}
+
+// GetWindowsFunctionAppBackupArrayInput is an input type that accepts GetWindowsFunctionAppBackupArray and GetWindowsFunctionAppBackupArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppBackupArrayInput` via:
+//
+//	GetWindowsFunctionAppBackupArray{ GetWindowsFunctionAppBackupArgs{...} }
+type GetWindowsFunctionAppBackupArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppBackupArrayOutput() GetWindowsFunctionAppBackupArrayOutput
+	ToGetWindowsFunctionAppBackupArrayOutputWithContext(context.Context) GetWindowsFunctionAppBackupArrayOutput
+}
+
+type GetWindowsFunctionAppBackupArray []GetWindowsFunctionAppBackupInput
+
+func (GetWindowsFunctionAppBackupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppBackup)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppBackupArray) ToGetWindowsFunctionAppBackupArrayOutput() GetWindowsFunctionAppBackupArrayOutput {
+	return i.ToGetWindowsFunctionAppBackupArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppBackupArray) ToGetWindowsFunctionAppBackupArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppBackupArrayOutput)
+}
+
+type GetWindowsFunctionAppBackupOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppBackupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppBackup)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppBackupOutput) ToGetWindowsFunctionAppBackupOutput() GetWindowsFunctionAppBackupOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppBackupOutput) ToGetWindowsFunctionAppBackupOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupOutput {
+	return o
+}
+
+// Is the Backup Job enabled?
+func (o GetWindowsFunctionAppBackupOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppBackup) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The name of this Windows Function App.
+func (o GetWindowsFunctionAppBackupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppBackup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `schedule` block as defined below.
+func (o GetWindowsFunctionAppBackupOutput) Schedules() GetWindowsFunctionAppBackupScheduleArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppBackup) []GetWindowsFunctionAppBackupSchedule { return v.Schedules }).(GetWindowsFunctionAppBackupScheduleArrayOutput)
+}
+
+// The SAS URL to the container.
+func (o GetWindowsFunctionAppBackupOutput) StorageAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppBackup) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppBackupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppBackupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppBackup)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppBackupArrayOutput) ToGetWindowsFunctionAppBackupArrayOutput() GetWindowsFunctionAppBackupArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppBackupArrayOutput) ToGetWindowsFunctionAppBackupArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppBackupArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppBackupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppBackup {
+		return vs[0].([]GetWindowsFunctionAppBackup)[vs[1].(int)]
+	}).(GetWindowsFunctionAppBackupOutput)
+}
+
+type GetWindowsFunctionAppBackupSchedule struct {
+	// How often the backup is executed.
+	FrequencyInterval int `pulumi:"frequencyInterval"`
+	// The unit of time the backup should take place.
+	FrequencyUnit string `pulumi:"frequencyUnit"`
+	// Should the service keep at least one backup.
+	KeepAtLeastOneBackup bool   `pulumi:"keepAtLeastOneBackup"`
+	LastExecutionTime    string `pulumi:"lastExecutionTime"`
+	// After how many days backups is deleted.
+	RetentionPeriodDays int `pulumi:"retentionPeriodDays"`
+	// When the schedule should start working in RFC-3339 format.
+	StartTime string `pulumi:"startTime"`
+}
+
+// GetWindowsFunctionAppBackupScheduleInput is an input type that accepts GetWindowsFunctionAppBackupScheduleArgs and GetWindowsFunctionAppBackupScheduleOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppBackupScheduleInput` via:
+//
+//	GetWindowsFunctionAppBackupScheduleArgs{...}
+type GetWindowsFunctionAppBackupScheduleInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppBackupScheduleOutput() GetWindowsFunctionAppBackupScheduleOutput
+	ToGetWindowsFunctionAppBackupScheduleOutputWithContext(context.Context) GetWindowsFunctionAppBackupScheduleOutput
+}
+
+type GetWindowsFunctionAppBackupScheduleArgs struct {
+	// How often the backup is executed.
+	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
+	// The unit of time the backup should take place.
+	FrequencyUnit pulumi.StringInput `pulumi:"frequencyUnit"`
+	// Should the service keep at least one backup.
+	KeepAtLeastOneBackup pulumi.BoolInput   `pulumi:"keepAtLeastOneBackup"`
+	LastExecutionTime    pulumi.StringInput `pulumi:"lastExecutionTime"`
+	// After how many days backups is deleted.
+	RetentionPeriodDays pulumi.IntInput `pulumi:"retentionPeriodDays"`
+	// When the schedule should start working in RFC-3339 format.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (GetWindowsFunctionAppBackupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppBackupSchedule)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppBackupScheduleArgs) ToGetWindowsFunctionAppBackupScheduleOutput() GetWindowsFunctionAppBackupScheduleOutput {
+	return i.ToGetWindowsFunctionAppBackupScheduleOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppBackupScheduleArgs) ToGetWindowsFunctionAppBackupScheduleOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppBackupScheduleOutput)
+}
+
+// GetWindowsFunctionAppBackupScheduleArrayInput is an input type that accepts GetWindowsFunctionAppBackupScheduleArray and GetWindowsFunctionAppBackupScheduleArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppBackupScheduleArrayInput` via:
+//
+//	GetWindowsFunctionAppBackupScheduleArray{ GetWindowsFunctionAppBackupScheduleArgs{...} }
+type GetWindowsFunctionAppBackupScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppBackupScheduleArrayOutput() GetWindowsFunctionAppBackupScheduleArrayOutput
+	ToGetWindowsFunctionAppBackupScheduleArrayOutputWithContext(context.Context) GetWindowsFunctionAppBackupScheduleArrayOutput
+}
+
+type GetWindowsFunctionAppBackupScheduleArray []GetWindowsFunctionAppBackupScheduleInput
+
+func (GetWindowsFunctionAppBackupScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppBackupSchedule)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppBackupScheduleArray) ToGetWindowsFunctionAppBackupScheduleArrayOutput() GetWindowsFunctionAppBackupScheduleArrayOutput {
+	return i.ToGetWindowsFunctionAppBackupScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppBackupScheduleArray) ToGetWindowsFunctionAppBackupScheduleArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppBackupScheduleArrayOutput)
+}
+
+type GetWindowsFunctionAppBackupScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppBackupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppBackupSchedule)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppBackupScheduleOutput) ToGetWindowsFunctionAppBackupScheduleOutput() GetWindowsFunctionAppBackupScheduleOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppBackupScheduleOutput) ToGetWindowsFunctionAppBackupScheduleOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupScheduleOutput {
+	return o
+}
+
+// How often the backup is executed.
+func (o GetWindowsFunctionAppBackupScheduleOutput) FrequencyInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppBackupSchedule) int { return v.FrequencyInterval }).(pulumi.IntOutput)
+}
+
+// The unit of time the backup should take place.
+func (o GetWindowsFunctionAppBackupScheduleOutput) FrequencyUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppBackupSchedule) string { return v.FrequencyUnit }).(pulumi.StringOutput)
+}
+
+// Should the service keep at least one backup.
+func (o GetWindowsFunctionAppBackupScheduleOutput) KeepAtLeastOneBackup() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppBackupSchedule) bool { return v.KeepAtLeastOneBackup }).(pulumi.BoolOutput)
+}
+
+func (o GetWindowsFunctionAppBackupScheduleOutput) LastExecutionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppBackupSchedule) string { return v.LastExecutionTime }).(pulumi.StringOutput)
+}
+
+// After how many days backups is deleted.
+func (o GetWindowsFunctionAppBackupScheduleOutput) RetentionPeriodDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppBackupSchedule) int { return v.RetentionPeriodDays }).(pulumi.IntOutput)
+}
+
+// When the schedule should start working in RFC-3339 format.
+func (o GetWindowsFunctionAppBackupScheduleOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppBackupSchedule) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppBackupScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppBackupScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppBackupSchedule)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppBackupScheduleArrayOutput) ToGetWindowsFunctionAppBackupScheduleArrayOutput() GetWindowsFunctionAppBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppBackupScheduleArrayOutput) ToGetWindowsFunctionAppBackupScheduleArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppBackupScheduleArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppBackupScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppBackupSchedule {
+		return vs[0].([]GetWindowsFunctionAppBackupSchedule)[vs[1].(int)]
+	}).(GetWindowsFunctionAppBackupScheduleOutput)
+}
+
+type GetWindowsFunctionAppConnectionString struct {
+	// The name of this Windows Function App.
+	Name string `pulumi:"name"`
+	// The type of Managed Service Identity that is configured on this Windows Function App.
+	Type string `pulumi:"type"`
+	// The connection string value.
+	Value string `pulumi:"value"`
+}
+
+// GetWindowsFunctionAppConnectionStringInput is an input type that accepts GetWindowsFunctionAppConnectionStringArgs and GetWindowsFunctionAppConnectionStringOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppConnectionStringInput` via:
+//
+//	GetWindowsFunctionAppConnectionStringArgs{...}
+type GetWindowsFunctionAppConnectionStringInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppConnectionStringOutput() GetWindowsFunctionAppConnectionStringOutput
+	ToGetWindowsFunctionAppConnectionStringOutputWithContext(context.Context) GetWindowsFunctionAppConnectionStringOutput
+}
+
+type GetWindowsFunctionAppConnectionStringArgs struct {
+	// The name of this Windows Function App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of Managed Service Identity that is configured on this Windows Function App.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The connection string value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetWindowsFunctionAppConnectionStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppConnectionString)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppConnectionStringArgs) ToGetWindowsFunctionAppConnectionStringOutput() GetWindowsFunctionAppConnectionStringOutput {
+	return i.ToGetWindowsFunctionAppConnectionStringOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppConnectionStringArgs) ToGetWindowsFunctionAppConnectionStringOutputWithContext(ctx context.Context) GetWindowsFunctionAppConnectionStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppConnectionStringOutput)
+}
+
+// GetWindowsFunctionAppConnectionStringArrayInput is an input type that accepts GetWindowsFunctionAppConnectionStringArray and GetWindowsFunctionAppConnectionStringArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppConnectionStringArrayInput` via:
+//
+//	GetWindowsFunctionAppConnectionStringArray{ GetWindowsFunctionAppConnectionStringArgs{...} }
+type GetWindowsFunctionAppConnectionStringArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppConnectionStringArrayOutput() GetWindowsFunctionAppConnectionStringArrayOutput
+	ToGetWindowsFunctionAppConnectionStringArrayOutputWithContext(context.Context) GetWindowsFunctionAppConnectionStringArrayOutput
+}
+
+type GetWindowsFunctionAppConnectionStringArray []GetWindowsFunctionAppConnectionStringInput
+
+func (GetWindowsFunctionAppConnectionStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppConnectionString)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppConnectionStringArray) ToGetWindowsFunctionAppConnectionStringArrayOutput() GetWindowsFunctionAppConnectionStringArrayOutput {
+	return i.ToGetWindowsFunctionAppConnectionStringArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppConnectionStringArray) ToGetWindowsFunctionAppConnectionStringArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppConnectionStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppConnectionStringArrayOutput)
+}
+
+type GetWindowsFunctionAppConnectionStringOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppConnectionStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppConnectionString)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppConnectionStringOutput) ToGetWindowsFunctionAppConnectionStringOutput() GetWindowsFunctionAppConnectionStringOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppConnectionStringOutput) ToGetWindowsFunctionAppConnectionStringOutputWithContext(ctx context.Context) GetWindowsFunctionAppConnectionStringOutput {
+	return o
+}
+
+// The name of this Windows Function App.
+func (o GetWindowsFunctionAppConnectionStringOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppConnectionString) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Windows Function App.
+func (o GetWindowsFunctionAppConnectionStringOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppConnectionString) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The connection string value.
+func (o GetWindowsFunctionAppConnectionStringOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppConnectionString) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppConnectionStringArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppConnectionStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppConnectionString)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppConnectionStringArrayOutput) ToGetWindowsFunctionAppConnectionStringArrayOutput() GetWindowsFunctionAppConnectionStringArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppConnectionStringArrayOutput) ToGetWindowsFunctionAppConnectionStringArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppConnectionStringArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppConnectionStringArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppConnectionStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppConnectionString {
+		return vs[0].([]GetWindowsFunctionAppConnectionString)[vs[1].(int)]
+	}).(GetWindowsFunctionAppConnectionStringOutput)
+}
+
+type GetWindowsFunctionAppIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Windows Function App.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Windows Function App.
+	Type string `pulumi:"type"`
+}
+
+// GetWindowsFunctionAppIdentityInput is an input type that accepts GetWindowsFunctionAppIdentityArgs and GetWindowsFunctionAppIdentityOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppIdentityInput` via:
+//
+//	GetWindowsFunctionAppIdentityArgs{...}
+type GetWindowsFunctionAppIdentityInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppIdentityOutput() GetWindowsFunctionAppIdentityOutput
+	ToGetWindowsFunctionAppIdentityOutputWithContext(context.Context) GetWindowsFunctionAppIdentityOutput
+}
+
+type GetWindowsFunctionAppIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Windows Function App.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Windows Function App.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetWindowsFunctionAppIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppIdentity)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppIdentityArgs) ToGetWindowsFunctionAppIdentityOutput() GetWindowsFunctionAppIdentityOutput {
+	return i.ToGetWindowsFunctionAppIdentityOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppIdentityArgs) ToGetWindowsFunctionAppIdentityOutputWithContext(ctx context.Context) GetWindowsFunctionAppIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppIdentityOutput)
+}
+
+// GetWindowsFunctionAppIdentityArrayInput is an input type that accepts GetWindowsFunctionAppIdentityArray and GetWindowsFunctionAppIdentityArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppIdentityArrayInput` via:
+//
+//	GetWindowsFunctionAppIdentityArray{ GetWindowsFunctionAppIdentityArgs{...} }
+type GetWindowsFunctionAppIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppIdentityArrayOutput() GetWindowsFunctionAppIdentityArrayOutput
+	ToGetWindowsFunctionAppIdentityArrayOutputWithContext(context.Context) GetWindowsFunctionAppIdentityArrayOutput
+}
+
+type GetWindowsFunctionAppIdentityArray []GetWindowsFunctionAppIdentityInput
+
+func (GetWindowsFunctionAppIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppIdentity)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppIdentityArray) ToGetWindowsFunctionAppIdentityArrayOutput() GetWindowsFunctionAppIdentityArrayOutput {
+	return i.ToGetWindowsFunctionAppIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppIdentityArray) ToGetWindowsFunctionAppIdentityArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppIdentityArrayOutput)
+}
+
+type GetWindowsFunctionAppIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppIdentity)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppIdentityOutput) ToGetWindowsFunctionAppIdentityOutput() GetWindowsFunctionAppIdentityOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppIdentityOutput) ToGetWindowsFunctionAppIdentityOutputWithContext(ctx context.Context) GetWindowsFunctionAppIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Windows Function App.
+func (o GetWindowsFunctionAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+func (o GetWindowsFunctionAppIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+func (o GetWindowsFunctionAppIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Windows Function App.
+func (o GetWindowsFunctionAppIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppIdentity)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppIdentityArrayOutput) ToGetWindowsFunctionAppIdentityArrayOutput() GetWindowsFunctionAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppIdentityArrayOutput) ToGetWindowsFunctionAppIdentityArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppIdentityArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppIdentity {
+		return vs[0].([]GetWindowsFunctionAppIdentity)[vs[1].(int)]
+	}).(GetWindowsFunctionAppIdentityOutput)
+}
+
+type GetWindowsFunctionAppSiteConfig struct {
+	// Is this Windows Function App Always On?.
+	AlwaysOn bool `pulumi:"alwaysOn"`
+	// The URL of the API definition that describes this Windows Function App.
+	ApiDefinitionUrl string `pulumi:"apiDefinitionUrl"`
+	// The ID of the API Management API for this Windows Function App.
+	ApiManagementApiId string `pulumi:"apiManagementApiId"`
+	// The App command line to launch.
+	AppCommandLine string `pulumi:"appCommandLine"`
+	// The number of workers this function app can scale out to.
+	AppScaleLimit int `pulumi:"appScaleLimit"`
+	// A `appServiceLogs` block as defined above.
+	AppServiceLogs []GetWindowsFunctionAppSiteConfigAppServiceLog `pulumi:"appServiceLogs"`
+	// The Connection String for linking the Windows Function App to Application Insights.
+	ApplicationInsightsConnectionString string `pulumi:"applicationInsightsConnectionString"`
+	// The Instrumentation Key for connecting the Windows Function App to Application Insights.
+	ApplicationInsightsKey string `pulumi:"applicationInsightsKey"`
+	// A `applicationStack` block as defined above.
+	ApplicationStacks []GetWindowsFunctionAppSiteConfigApplicationStack `pulumi:"applicationStacks"`
+	// A `cors` block as defined above.
+	Cors []GetWindowsFunctionAppSiteConfigCor `pulumi:"cors"`
+	// A list of Default Documents for the Windows Web App.
+	DefaultDocuments []string `pulumi:"defaultDocuments"`
+	// Is detailed error logging enabled?
+	DetailedErrorLoggingEnabled bool `pulumi:"detailedErrorLoggingEnabled"`
+	// The number of minimum instances for this Windows Function App.
+	ElasticInstanceMinimum int `pulumi:"elasticInstanceMinimum"`
+	// State of FTP / FTPS service for this Windows Function App.
+	FtpsState string `pulumi:"ftpsState"`
+	// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
+	HealthCheckEvictionTimeInMin int `pulumi:"healthCheckEvictionTimeInMin"`
+	// The path to be checked for this Windows Function App health.
+	HealthCheckPath string `pulumi:"healthCheckPath"`
+	// Is the HTTP2 protocol enabled?
+	Http2Enabled bool `pulumi:"http2Enabled"`
+	// One or more `ipRestriction` blocks as defined above.
+	IpRestrictions []GetWindowsFunctionAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
+	// The Site load balancing mode.
+	LoadBalancingMode string `pulumi:"loadBalancingMode"`
+	// The Managed pipeline mode.
+	ManagedPipelineMode string `pulumi:"managedPipelineMode"`
+	// The minimum version of TLS required for SSL requests.
+	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
+	// The number of pre-warmed instances for this Windows Function App.
+	PreWarmedInstanceCount int `pulumi:"preWarmedInstanceCount"`
+	// Is Remote Debugging enabled?
+	RemoteDebuggingEnabled bool `pulumi:"remoteDebuggingEnabled"`
+	// The Remote Debugging Version.
+	RemoteDebuggingVersion string `pulumi:"remoteDebuggingVersion"`
+	// Is Scale Monitoring of the Functions Runtime enabled?
+	RuntimeScaleMonitoringEnabled bool `pulumi:"runtimeScaleMonitoringEnabled"`
+	// One or more `scmIpRestriction` blocks as defined above.
+	ScmIpRestrictions []GetWindowsFunctionAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
+	// The minimum version of TLS required for SSL requests to the SCM site.
+	ScmMinimumTlsVersion string `pulumi:"scmMinimumTlsVersion"`
+	// The SCM type.
+	ScmType string `pulumi:"scmType"`
+	// Is the `ipRestriction` configuration used for the SCM?.
+	ScmUseMainIpRestriction bool `pulumi:"scmUseMainIpRestriction"`
+	// Is the Windows Function App using a 32-bit worker process?
+	Use32BitWorker bool `pulumi:"use32BitWorker"`
+	// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+	VnetRouteAllEnabled bool `pulumi:"vnetRouteAllEnabled"`
+	// Are Web Sockets enabled?
+	WebsocketsEnabled bool `pulumi:"websocketsEnabled"`
+	// The Windows FX version.
+	WindowsFxVersion string `pulumi:"windowsFxVersion"`
+	// The number of Workers for this Windows Function App.
+	WorkerCount int `pulumi:"workerCount"`
+}
+
+// GetWindowsFunctionAppSiteConfigInput is an input type that accepts GetWindowsFunctionAppSiteConfigArgs and GetWindowsFunctionAppSiteConfigOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigArgs{...}
+type GetWindowsFunctionAppSiteConfigInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigOutput() GetWindowsFunctionAppSiteConfigOutput
+	ToGetWindowsFunctionAppSiteConfigOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigOutput
+}
+
+type GetWindowsFunctionAppSiteConfigArgs struct {
+	// Is this Windows Function App Always On?.
+	AlwaysOn pulumi.BoolInput `pulumi:"alwaysOn"`
+	// The URL of the API definition that describes this Windows Function App.
+	ApiDefinitionUrl pulumi.StringInput `pulumi:"apiDefinitionUrl"`
+	// The ID of the API Management API for this Windows Function App.
+	ApiManagementApiId pulumi.StringInput `pulumi:"apiManagementApiId"`
+	// The App command line to launch.
+	AppCommandLine pulumi.StringInput `pulumi:"appCommandLine"`
+	// The number of workers this function app can scale out to.
+	AppScaleLimit pulumi.IntInput `pulumi:"appScaleLimit"`
+	// A `appServiceLogs` block as defined above.
+	AppServiceLogs GetWindowsFunctionAppSiteConfigAppServiceLogArrayInput `pulumi:"appServiceLogs"`
+	// The Connection String for linking the Windows Function App to Application Insights.
+	ApplicationInsightsConnectionString pulumi.StringInput `pulumi:"applicationInsightsConnectionString"`
+	// The Instrumentation Key for connecting the Windows Function App to Application Insights.
+	ApplicationInsightsKey pulumi.StringInput `pulumi:"applicationInsightsKey"`
+	// A `applicationStack` block as defined above.
+	ApplicationStacks GetWindowsFunctionAppSiteConfigApplicationStackArrayInput `pulumi:"applicationStacks"`
+	// A `cors` block as defined above.
+	Cors GetWindowsFunctionAppSiteConfigCorArrayInput `pulumi:"cors"`
+	// A list of Default Documents for the Windows Web App.
+	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
+	// Is detailed error logging enabled?
+	DetailedErrorLoggingEnabled pulumi.BoolInput `pulumi:"detailedErrorLoggingEnabled"`
+	// The number of minimum instances for this Windows Function App.
+	ElasticInstanceMinimum pulumi.IntInput `pulumi:"elasticInstanceMinimum"`
+	// State of FTP / FTPS service for this Windows Function App.
+	FtpsState pulumi.StringInput `pulumi:"ftpsState"`
+	// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
+	HealthCheckEvictionTimeInMin pulumi.IntInput `pulumi:"healthCheckEvictionTimeInMin"`
+	// The path to be checked for this Windows Function App health.
+	HealthCheckPath pulumi.StringInput `pulumi:"healthCheckPath"`
+	// Is the HTTP2 protocol enabled?
+	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
+	// One or more `ipRestriction` blocks as defined above.
+	IpRestrictions GetWindowsFunctionAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
+	// The Site load balancing mode.
+	LoadBalancingMode pulumi.StringInput `pulumi:"loadBalancingMode"`
+	// The Managed pipeline mode.
+	ManagedPipelineMode pulumi.StringInput `pulumi:"managedPipelineMode"`
+	// The minimum version of TLS required for SSL requests.
+	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
+	// The number of pre-warmed instances for this Windows Function App.
+	PreWarmedInstanceCount pulumi.IntInput `pulumi:"preWarmedInstanceCount"`
+	// Is Remote Debugging enabled?
+	RemoteDebuggingEnabled pulumi.BoolInput `pulumi:"remoteDebuggingEnabled"`
+	// The Remote Debugging Version.
+	RemoteDebuggingVersion pulumi.StringInput `pulumi:"remoteDebuggingVersion"`
+	// Is Scale Monitoring of the Functions Runtime enabled?
+	RuntimeScaleMonitoringEnabled pulumi.BoolInput `pulumi:"runtimeScaleMonitoringEnabled"`
+	// One or more `scmIpRestriction` blocks as defined above.
+	ScmIpRestrictions GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
+	// The minimum version of TLS required for SSL requests to the SCM site.
+	ScmMinimumTlsVersion pulumi.StringInput `pulumi:"scmMinimumTlsVersion"`
+	// The SCM type.
+	ScmType pulumi.StringInput `pulumi:"scmType"`
+	// Is the `ipRestriction` configuration used for the SCM?.
+	ScmUseMainIpRestriction pulumi.BoolInput `pulumi:"scmUseMainIpRestriction"`
+	// Is the Windows Function App using a 32-bit worker process?
+	Use32BitWorker pulumi.BoolInput `pulumi:"use32BitWorker"`
+	// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+	VnetRouteAllEnabled pulumi.BoolInput `pulumi:"vnetRouteAllEnabled"`
+	// Are Web Sockets enabled?
+	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
+	// The Windows FX version.
+	WindowsFxVersion pulumi.StringInput `pulumi:"windowsFxVersion"`
+	// The number of Workers for this Windows Function App.
+	WorkerCount pulumi.IntInput `pulumi:"workerCount"`
+}
+
+func (GetWindowsFunctionAppSiteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfig)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigArgs) ToGetWindowsFunctionAppSiteConfigOutput() GetWindowsFunctionAppSiteConfigOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigArgs) ToGetWindowsFunctionAppSiteConfigOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigOutput)
+}
+
+// GetWindowsFunctionAppSiteConfigArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigArray and GetWindowsFunctionAppSiteConfigArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigArrayInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigArray{ GetWindowsFunctionAppSiteConfigArgs{...} }
+type GetWindowsFunctionAppSiteConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigArrayOutput() GetWindowsFunctionAppSiteConfigArrayOutput
+	ToGetWindowsFunctionAppSiteConfigArrayOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigArrayOutput
+}
+
+type GetWindowsFunctionAppSiteConfigArray []GetWindowsFunctionAppSiteConfigInput
+
+func (GetWindowsFunctionAppSiteConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfig)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigArray) ToGetWindowsFunctionAppSiteConfigArrayOutput() GetWindowsFunctionAppSiteConfigArrayOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigArray) ToGetWindowsFunctionAppSiteConfigArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigArrayOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfig)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigOutput) ToGetWindowsFunctionAppSiteConfigOutput() GetWindowsFunctionAppSiteConfigOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigOutput) ToGetWindowsFunctionAppSiteConfigOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigOutput {
+	return o
+}
+
+// Is this Windows Function App Always On?.
+func (o GetWindowsFunctionAppSiteConfigOutput) AlwaysOn() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) bool { return v.AlwaysOn }).(pulumi.BoolOutput)
+}
+
+// The URL of the API definition that describes this Windows Function App.
+func (o GetWindowsFunctionAppSiteConfigOutput) ApiDefinitionUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.ApiDefinitionUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the API Management API for this Windows Function App.
+func (o GetWindowsFunctionAppSiteConfigOutput) ApiManagementApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.ApiManagementApiId }).(pulumi.StringOutput)
+}
+
+// The App command line to launch.
+func (o GetWindowsFunctionAppSiteConfigOutput) AppCommandLine() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.AppCommandLine }).(pulumi.StringOutput)
+}
+
+// The number of workers this function app can scale out to.
+func (o GetWindowsFunctionAppSiteConfigOutput) AppScaleLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) int { return v.AppScaleLimit }).(pulumi.IntOutput)
+}
+
+// A `appServiceLogs` block as defined above.
+func (o GetWindowsFunctionAppSiteConfigOutput) AppServiceLogs() GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) []GetWindowsFunctionAppSiteConfigAppServiceLog {
+		return v.AppServiceLogs
+	}).(GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput)
+}
+
+// The Connection String for linking the Windows Function App to Application Insights.
+func (o GetWindowsFunctionAppSiteConfigOutput) ApplicationInsightsConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.ApplicationInsightsConnectionString }).(pulumi.StringOutput)
+}
+
+// The Instrumentation Key for connecting the Windows Function App to Application Insights.
+func (o GetWindowsFunctionAppSiteConfigOutput) ApplicationInsightsKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.ApplicationInsightsKey }).(pulumi.StringOutput)
+}
+
+// A `applicationStack` block as defined above.
+func (o GetWindowsFunctionAppSiteConfigOutput) ApplicationStacks() GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) []GetWindowsFunctionAppSiteConfigApplicationStack {
+		return v.ApplicationStacks
+	}).(GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput)
+}
+
+// A `cors` block as defined above.
+func (o GetWindowsFunctionAppSiteConfigOutput) Cors() GetWindowsFunctionAppSiteConfigCorArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) []GetWindowsFunctionAppSiteConfigCor { return v.Cors }).(GetWindowsFunctionAppSiteConfigCorArrayOutput)
+}
+
+// A list of Default Documents for the Windows Web App.
+func (o GetWindowsFunctionAppSiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
+}
+
+// Is detailed error logging enabled?
+func (o GetWindowsFunctionAppSiteConfigOutput) DetailedErrorLoggingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolOutput)
+}
+
+// The number of minimum instances for this Windows Function App.
+func (o GetWindowsFunctionAppSiteConfigOutput) ElasticInstanceMinimum() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) int { return v.ElasticInstanceMinimum }).(pulumi.IntOutput)
+}
+
+// State of FTP / FTPS service for this Windows Function App.
+func (o GetWindowsFunctionAppSiteConfigOutput) FtpsState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.FtpsState }).(pulumi.StringOutput)
+}
+
+// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
+func (o GetWindowsFunctionAppSiteConfigOutput) HealthCheckEvictionTimeInMin() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) int { return v.HealthCheckEvictionTimeInMin }).(pulumi.IntOutput)
+}
+
+// The path to be checked for this Windows Function App health.
+func (o GetWindowsFunctionAppSiteConfigOutput) HealthCheckPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.HealthCheckPath }).(pulumi.StringOutput)
+}
+
+// Is the HTTP2 protocol enabled?
+func (o GetWindowsFunctionAppSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) bool { return v.Http2Enabled }).(pulumi.BoolOutput)
+}
+
+// One or more `ipRestriction` blocks as defined above.
+func (o GetWindowsFunctionAppSiteConfigOutput) IpRestrictions() GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) []GetWindowsFunctionAppSiteConfigIpRestriction {
+		return v.IpRestrictions
+	}).(GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput)
+}
+
+// The Site load balancing mode.
+func (o GetWindowsFunctionAppSiteConfigOutput) LoadBalancingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.LoadBalancingMode }).(pulumi.StringOutput)
+}
+
+// The Managed pipeline mode.
+func (o GetWindowsFunctionAppSiteConfigOutput) ManagedPipelineMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.ManagedPipelineMode }).(pulumi.StringOutput)
+}
+
+// The minimum version of TLS required for SSL requests.
+func (o GetWindowsFunctionAppSiteConfigOutput) MinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.MinimumTlsVersion }).(pulumi.StringOutput)
+}
+
+// The number of pre-warmed instances for this Windows Function App.
+func (o GetWindowsFunctionAppSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) int { return v.PreWarmedInstanceCount }).(pulumi.IntOutput)
+}
+
+// Is Remote Debugging enabled?
+func (o GetWindowsFunctionAppSiteConfigOutput) RemoteDebuggingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolOutput)
+}
+
+// The Remote Debugging Version.
+func (o GetWindowsFunctionAppSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.RemoteDebuggingVersion }).(pulumi.StringOutput)
+}
+
+// Is Scale Monitoring of the Functions Runtime enabled?
+func (o GetWindowsFunctionAppSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolOutput)
+}
+
+// One or more `scmIpRestriction` blocks as defined above.
+func (o GetWindowsFunctionAppSiteConfigOutput) ScmIpRestrictions() GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) []GetWindowsFunctionAppSiteConfigScmIpRestriction {
+		return v.ScmIpRestrictions
+	}).(GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput)
+}
+
+// The minimum version of TLS required for SSL requests to the SCM site.
+func (o GetWindowsFunctionAppSiteConfigOutput) ScmMinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.ScmMinimumTlsVersion }).(pulumi.StringOutput)
+}
+
+// The SCM type.
+func (o GetWindowsFunctionAppSiteConfigOutput) ScmType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.ScmType }).(pulumi.StringOutput)
+}
+
+// Is the `ipRestriction` configuration used for the SCM?.
+func (o GetWindowsFunctionAppSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolOutput)
+}
+
+// Is the Windows Function App using a 32-bit worker process?
+func (o GetWindowsFunctionAppSiteConfigOutput) Use32BitWorker() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) bool { return v.Use32BitWorker }).(pulumi.BoolOutput)
+}
+
+// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+func (o GetWindowsFunctionAppSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) bool { return v.VnetRouteAllEnabled }).(pulumi.BoolOutput)
+}
+
+// Are Web Sockets enabled?
+func (o GetWindowsFunctionAppSiteConfigOutput) WebsocketsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) bool { return v.WebsocketsEnabled }).(pulumi.BoolOutput)
+}
+
+// The Windows FX version.
+func (o GetWindowsFunctionAppSiteConfigOutput) WindowsFxVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.WindowsFxVersion }).(pulumi.StringOutput)
+}
+
+// The number of Workers for this Windows Function App.
+func (o GetWindowsFunctionAppSiteConfigOutput) WorkerCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) int { return v.WorkerCount }).(pulumi.IntOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfig)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigArrayOutput) ToGetWindowsFunctionAppSiteConfigArrayOutput() GetWindowsFunctionAppSiteConfigArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigArrayOutput) ToGetWindowsFunctionAppSiteConfigArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfig {
+		return vs[0].([]GetWindowsFunctionAppSiteConfig)[vs[1].(int)]
+	}).(GetWindowsFunctionAppSiteConfigOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigAppServiceLog struct {
+	// The amount of disk space to use for logs.
+	DiskQuotaMb int `pulumi:"diskQuotaMb"`
+	// After how many days backups is deleted.
+	RetentionPeriodDays int `pulumi:"retentionPeriodDays"`
+}
+
+// GetWindowsFunctionAppSiteConfigAppServiceLogInput is an input type that accepts GetWindowsFunctionAppSiteConfigAppServiceLogArgs and GetWindowsFunctionAppSiteConfigAppServiceLogOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigAppServiceLogInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigAppServiceLogArgs{...}
+type GetWindowsFunctionAppSiteConfigAppServiceLogInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigAppServiceLogOutput() GetWindowsFunctionAppSiteConfigAppServiceLogOutput
+	ToGetWindowsFunctionAppSiteConfigAppServiceLogOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigAppServiceLogOutput
+}
+
+type GetWindowsFunctionAppSiteConfigAppServiceLogArgs struct {
+	// The amount of disk space to use for logs.
+	DiskQuotaMb pulumi.IntInput `pulumi:"diskQuotaMb"`
+	// After how many days backups is deleted.
+	RetentionPeriodDays pulumi.IntInput `pulumi:"retentionPeriodDays"`
+}
+
+func (GetWindowsFunctionAppSiteConfigAppServiceLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigAppServiceLog)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigAppServiceLogArgs) ToGetWindowsFunctionAppSiteConfigAppServiceLogOutput() GetWindowsFunctionAppSiteConfigAppServiceLogOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigAppServiceLogOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigAppServiceLogArgs) ToGetWindowsFunctionAppSiteConfigAppServiceLogOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigAppServiceLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigAppServiceLogOutput)
+}
+
+// GetWindowsFunctionAppSiteConfigAppServiceLogArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigAppServiceLogArray and GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigAppServiceLogArrayInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigAppServiceLogArray{ GetWindowsFunctionAppSiteConfigAppServiceLogArgs{...} }
+type GetWindowsFunctionAppSiteConfigAppServiceLogArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput() GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput
+	ToGetWindowsFunctionAppSiteConfigAppServiceLogArrayOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput
+}
+
+type GetWindowsFunctionAppSiteConfigAppServiceLogArray []GetWindowsFunctionAppSiteConfigAppServiceLogInput
+
+func (GetWindowsFunctionAppSiteConfigAppServiceLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigAppServiceLog)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigAppServiceLogArray) ToGetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput() GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigAppServiceLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigAppServiceLogArray) ToGetWindowsFunctionAppSiteConfigAppServiceLogArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigAppServiceLogOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigAppServiceLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigAppServiceLog)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigAppServiceLogOutput) ToGetWindowsFunctionAppSiteConfigAppServiceLogOutput() GetWindowsFunctionAppSiteConfigAppServiceLogOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigAppServiceLogOutput) ToGetWindowsFunctionAppSiteConfigAppServiceLogOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigAppServiceLogOutput {
+	return o
+}
+
+// The amount of disk space to use for logs.
+func (o GetWindowsFunctionAppSiteConfigAppServiceLogOutput) DiskQuotaMb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigAppServiceLog) int { return v.DiskQuotaMb }).(pulumi.IntOutput)
+}
+
+// After how many days backups is deleted.
+func (o GetWindowsFunctionAppSiteConfigAppServiceLogOutput) RetentionPeriodDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigAppServiceLog) int { return v.RetentionPeriodDays }).(pulumi.IntOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigAppServiceLog)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput) ToGetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput() GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput) ToGetWindowsFunctionAppSiteConfigAppServiceLogArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigAppServiceLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfigAppServiceLog {
+		return vs[0].([]GetWindowsFunctionAppSiteConfigAppServiceLog)[vs[1].(int)]
+	}).(GetWindowsFunctionAppSiteConfigAppServiceLogOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigApplicationStack struct {
+	// The version of .Net to use.
+	DotnetVersion string `pulumi:"dotnetVersion"`
+	// The version of Java to use.
+	JavaVersion string `pulumi:"javaVersion"`
+	// The version of Node to use.
+	NodeVersion string `pulumi:"nodeVersion"`
+	// The version of PowerShell Core to use.
+	PowershellCoreVersion string `pulumi:"powershellCoreVersion"`
+	// Is the Windows Function App using a custom runtime?.
+	UseCustomRuntime         bool `pulumi:"useCustomRuntime"`
+	UseDotnetIsolatedRuntime bool `pulumi:"useDotnetIsolatedRuntime"`
+}
+
+// GetWindowsFunctionAppSiteConfigApplicationStackInput is an input type that accepts GetWindowsFunctionAppSiteConfigApplicationStackArgs and GetWindowsFunctionAppSiteConfigApplicationStackOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigApplicationStackInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigApplicationStackArgs{...}
+type GetWindowsFunctionAppSiteConfigApplicationStackInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigApplicationStackOutput() GetWindowsFunctionAppSiteConfigApplicationStackOutput
+	ToGetWindowsFunctionAppSiteConfigApplicationStackOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigApplicationStackOutput
+}
+
+type GetWindowsFunctionAppSiteConfigApplicationStackArgs struct {
+	// The version of .Net to use.
+	DotnetVersion pulumi.StringInput `pulumi:"dotnetVersion"`
+	// The version of Java to use.
+	JavaVersion pulumi.StringInput `pulumi:"javaVersion"`
+	// The version of Node to use.
+	NodeVersion pulumi.StringInput `pulumi:"nodeVersion"`
+	// The version of PowerShell Core to use.
+	PowershellCoreVersion pulumi.StringInput `pulumi:"powershellCoreVersion"`
+	// Is the Windows Function App using a custom runtime?.
+	UseCustomRuntime         pulumi.BoolInput `pulumi:"useCustomRuntime"`
+	UseDotnetIsolatedRuntime pulumi.BoolInput `pulumi:"useDotnetIsolatedRuntime"`
+}
+
+func (GetWindowsFunctionAppSiteConfigApplicationStackArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigApplicationStack)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigApplicationStackArgs) ToGetWindowsFunctionAppSiteConfigApplicationStackOutput() GetWindowsFunctionAppSiteConfigApplicationStackOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigApplicationStackOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigApplicationStackArgs) ToGetWindowsFunctionAppSiteConfigApplicationStackOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigApplicationStackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigApplicationStackOutput)
+}
+
+// GetWindowsFunctionAppSiteConfigApplicationStackArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigApplicationStackArray and GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigApplicationStackArrayInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigApplicationStackArray{ GetWindowsFunctionAppSiteConfigApplicationStackArgs{...} }
+type GetWindowsFunctionAppSiteConfigApplicationStackArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigApplicationStackArrayOutput() GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput
+	ToGetWindowsFunctionAppSiteConfigApplicationStackArrayOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput
+}
+
+type GetWindowsFunctionAppSiteConfigApplicationStackArray []GetWindowsFunctionAppSiteConfigApplicationStackInput
+
+func (GetWindowsFunctionAppSiteConfigApplicationStackArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigApplicationStack)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigApplicationStackArray) ToGetWindowsFunctionAppSiteConfigApplicationStackArrayOutput() GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigApplicationStackArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigApplicationStackArray) ToGetWindowsFunctionAppSiteConfigApplicationStackArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigApplicationStackOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigApplicationStackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigApplicationStack)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigApplicationStackOutput) ToGetWindowsFunctionAppSiteConfigApplicationStackOutput() GetWindowsFunctionAppSiteConfigApplicationStackOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigApplicationStackOutput) ToGetWindowsFunctionAppSiteConfigApplicationStackOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigApplicationStackOutput {
+	return o
+}
+
+// The version of .Net to use.
+func (o GetWindowsFunctionAppSiteConfigApplicationStackOutput) DotnetVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigApplicationStack) string { return v.DotnetVersion }).(pulumi.StringOutput)
+}
+
+// The version of Java to use.
+func (o GetWindowsFunctionAppSiteConfigApplicationStackOutput) JavaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigApplicationStack) string { return v.JavaVersion }).(pulumi.StringOutput)
+}
+
+// The version of Node to use.
+func (o GetWindowsFunctionAppSiteConfigApplicationStackOutput) NodeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigApplicationStack) string { return v.NodeVersion }).(pulumi.StringOutput)
+}
+
+// The version of PowerShell Core to use.
+func (o GetWindowsFunctionAppSiteConfigApplicationStackOutput) PowershellCoreVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigApplicationStack) string { return v.PowershellCoreVersion }).(pulumi.StringOutput)
+}
+
+// Is the Windows Function App using a custom runtime?.
+func (o GetWindowsFunctionAppSiteConfigApplicationStackOutput) UseCustomRuntime() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigApplicationStack) bool { return v.UseCustomRuntime }).(pulumi.BoolOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigApplicationStackOutput) UseDotnetIsolatedRuntime() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigApplicationStack) bool { return v.UseDotnetIsolatedRuntime }).(pulumi.BoolOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigApplicationStack)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput) ToGetWindowsFunctionAppSiteConfigApplicationStackArrayOutput() GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput) ToGetWindowsFunctionAppSiteConfigApplicationStackArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigApplicationStackOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfigApplicationStack {
+		return vs[0].([]GetWindowsFunctionAppSiteConfigApplicationStack)[vs[1].(int)]
+	}).(GetWindowsFunctionAppSiteConfigApplicationStackOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigCor struct {
+	// A list of origins that should be allowed to make cross-origin calls.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Are credentials allows in CORS requests?.
+	SupportCredentials bool `pulumi:"supportCredentials"`
+}
+
+// GetWindowsFunctionAppSiteConfigCorInput is an input type that accepts GetWindowsFunctionAppSiteConfigCorArgs and GetWindowsFunctionAppSiteConfigCorOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigCorInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigCorArgs{...}
+type GetWindowsFunctionAppSiteConfigCorInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigCorOutput() GetWindowsFunctionAppSiteConfigCorOutput
+	ToGetWindowsFunctionAppSiteConfigCorOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigCorOutput
+}
+
+type GetWindowsFunctionAppSiteConfigCorArgs struct {
+	// A list of origins that should be allowed to make cross-origin calls.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Are credentials allows in CORS requests?.
+	SupportCredentials pulumi.BoolInput `pulumi:"supportCredentials"`
+}
+
+func (GetWindowsFunctionAppSiteConfigCorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigCor)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigCorArgs) ToGetWindowsFunctionAppSiteConfigCorOutput() GetWindowsFunctionAppSiteConfigCorOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigCorOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigCorArgs) ToGetWindowsFunctionAppSiteConfigCorOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigCorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigCorOutput)
+}
+
+// GetWindowsFunctionAppSiteConfigCorArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigCorArray and GetWindowsFunctionAppSiteConfigCorArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigCorArrayInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigCorArray{ GetWindowsFunctionAppSiteConfigCorArgs{...} }
+type GetWindowsFunctionAppSiteConfigCorArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigCorArrayOutput() GetWindowsFunctionAppSiteConfigCorArrayOutput
+	ToGetWindowsFunctionAppSiteConfigCorArrayOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigCorArrayOutput
+}
+
+type GetWindowsFunctionAppSiteConfigCorArray []GetWindowsFunctionAppSiteConfigCorInput
+
+func (GetWindowsFunctionAppSiteConfigCorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigCor)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigCorArray) ToGetWindowsFunctionAppSiteConfigCorArrayOutput() GetWindowsFunctionAppSiteConfigCorArrayOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigCorArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigCorArray) ToGetWindowsFunctionAppSiteConfigCorArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigCorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigCorArrayOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigCorOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigCorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigCor)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigCorOutput) ToGetWindowsFunctionAppSiteConfigCorOutput() GetWindowsFunctionAppSiteConfigCorOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigCorOutput) ToGetWindowsFunctionAppSiteConfigCorOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigCorOutput {
+	return o
+}
+
+// A list of origins that should be allowed to make cross-origin calls.
+func (o GetWindowsFunctionAppSiteConfigCorOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigCor) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Are credentials allows in CORS requests?.
+func (o GetWindowsFunctionAppSiteConfigCorOutput) SupportCredentials() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigCor) bool { return v.SupportCredentials }).(pulumi.BoolOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigCorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigCorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigCor)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigCorArrayOutput) ToGetWindowsFunctionAppSiteConfigCorArrayOutput() GetWindowsFunctionAppSiteConfigCorArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigCorArrayOutput) ToGetWindowsFunctionAppSiteConfigCorArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigCorArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigCorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfigCor {
+		return vs[0].([]GetWindowsFunctionAppSiteConfigCor)[vs[1].(int)]
+	}).(GetWindowsFunctionAppSiteConfigCorOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigIpRestriction struct {
+	Action    string                                               `pulumi:"action"`
+	Headers   []GetWindowsFunctionAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
+	IpAddress string                                               `pulumi:"ipAddress"`
+	// The name of this Windows Function App.
+	Name       string `pulumi:"name"`
+	Priority   int    `pulumi:"priority"`
+	ServiceTag string `pulumi:"serviceTag"`
+	// The subnet id which the Windows Function App is vNet Integrated with.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// GetWindowsFunctionAppSiteConfigIpRestrictionInput is an input type that accepts GetWindowsFunctionAppSiteConfigIpRestrictionArgs and GetWindowsFunctionAppSiteConfigIpRestrictionOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigIpRestrictionInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigIpRestrictionArgs{...}
+type GetWindowsFunctionAppSiteConfigIpRestrictionInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigIpRestrictionOutput() GetWindowsFunctionAppSiteConfigIpRestrictionOutput
+	ToGetWindowsFunctionAppSiteConfigIpRestrictionOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionOutput
+}
+
+type GetWindowsFunctionAppSiteConfigIpRestrictionArgs struct {
+	Action    pulumi.StringInput                                           `pulumi:"action"`
+	Headers   GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	IpAddress pulumi.StringInput                                           `pulumi:"ipAddress"`
+	// The name of this Windows Function App.
+	Name       pulumi.StringInput `pulumi:"name"`
+	Priority   pulumi.IntInput    `pulumi:"priority"`
+	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
+	// The subnet id which the Windows Function App is vNet Integrated with.
+	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (GetWindowsFunctionAppSiteConfigIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionArgs) ToGetWindowsFunctionAppSiteConfigIpRestrictionOutput() GetWindowsFunctionAppSiteConfigIpRestrictionOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionArgs) ToGetWindowsFunctionAppSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigIpRestrictionOutput)
+}
+
+// GetWindowsFunctionAppSiteConfigIpRestrictionArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigIpRestrictionArray and GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigIpRestrictionArrayInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigIpRestrictionArray{ GetWindowsFunctionAppSiteConfigIpRestrictionArgs{...} }
+type GetWindowsFunctionAppSiteConfigIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput() GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput
+	ToGetWindowsFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput
+}
+
+type GetWindowsFunctionAppSiteConfigIpRestrictionArray []GetWindowsFunctionAppSiteConfigIpRestrictionInput
+
+func (GetWindowsFunctionAppSiteConfigIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionArray) ToGetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput() GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionArray) ToGetWindowsFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) ToGetWindowsFunctionAppSiteConfigIpRestrictionOutput() GetWindowsFunctionAppSiteConfigIpRestrictionOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) ToGetWindowsFunctionAppSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Headers() GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) []GetWindowsFunctionAppSiteConfigIpRestrictionHeader {
+		return v.Headers
+	}).(GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The name of this Windows Function App.
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
+}
+
+// The subnet id which the Windows Function App is vNet Integrated with.
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput) ToGetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput() GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput) ToGetWindowsFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfigIpRestriction {
+		return vs[0].([]GetWindowsFunctionAppSiteConfigIpRestriction)[vs[1].(int)]
+	}).(GetWindowsFunctionAppSiteConfigIpRestrictionOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigIpRestrictionHeader struct {
+	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
+	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// GetWindowsFunctionAppSiteConfigIpRestrictionHeaderInput is an input type that accepts GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs and GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigIpRestrictionHeaderInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs{...}
+type GetWindowsFunctionAppSiteConfigIpRestrictionHeaderInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput() GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput
+	ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput
+}
+
+type GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs struct {
+	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
+	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigIpRestrictionHeader)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs) ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput() GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs) ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput)
+}
+
+// GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArray and GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArray{ GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs{...} }
+type GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput() GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput
+	ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput
+}
+
+type GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArray []GetWindowsFunctionAppSiteConfigIpRestrictionHeaderInput
+
+func (GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigIpRestrictionHeader)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArray) ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput() GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArray) ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigIpRestrictionHeader)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput() GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestrictionHeader) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestrictionHeader) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigIpRestrictionHeader)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput() GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfigIpRestrictionHeader {
+		return vs[0].([]GetWindowsFunctionAppSiteConfigIpRestrictionHeader)[vs[1].(int)]
+	}).(GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigScmIpRestriction struct {
+	Action    string                                                  `pulumi:"action"`
+	Headers   []GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
+	IpAddress string                                                  `pulumi:"ipAddress"`
+	// The name of this Windows Function App.
+	Name       string `pulumi:"name"`
+	Priority   int    `pulumi:"priority"`
+	ServiceTag string `pulumi:"serviceTag"`
+	// The subnet id which the Windows Function App is vNet Integrated with.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// GetWindowsFunctionAppSiteConfigScmIpRestrictionInput is an input type that accepts GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs and GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigScmIpRestrictionInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs{...}
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigScmIpRestrictionOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput
+	ToGetWindowsFunctionAppSiteConfigScmIpRestrictionOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput
+}
+
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs struct {
+	Action    pulumi.StringInput                                              `pulumi:"action"`
+	Headers   GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	IpAddress pulumi.StringInput                                              `pulumi:"ipAddress"`
+	// The name of this Windows Function App.
+	Name       pulumi.StringInput `pulumi:"name"`
+	Priority   pulumi.IntInput    `pulumi:"priority"`
+	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
+	// The subnet id which the Windows Function App is vNet Integrated with.
+	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigScmIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput)
+}
+
+// GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigScmIpRestrictionArray and GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigScmIpRestrictionArray{ GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs{...} }
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput
+	ToGetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput
+}
+
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionArray []GetWindowsFunctionAppSiteConfigScmIpRestrictionInput
+
+func (GetWindowsFunctionAppSiteConfigScmIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionArray) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionArray) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Headers() GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) []GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader {
+		return v.Headers
+	}).(GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The name of this Windows Function App.
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
+}
+
+// The subnet id which the Windows Function App is vNet Integrated with.
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfigScmIpRestriction {
+		return vs[0].([]GetWindowsFunctionAppSiteConfigScmIpRestriction)[vs[1].(int)]
+	}).(GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader struct {
+	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
+	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderInput is an input type that accepts GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs and GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs{...}
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput
+	ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput
+}
+
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs struct {
+	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
+	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput)
+}
+
+// GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArray and GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput` via:
+//
+//	GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArray{ GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs{...} }
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput
+	ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput
+}
+
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArray []GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderInput
+
+func (GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArray) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput {
+	return i.ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArray) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput() GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader {
+		return vs[0].([]GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader)[vs[1].(int)]
+	}).(GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput)
+}
+
+type GetWindowsFunctionAppSiteCredential struct {
+	// The name of this Windows Function App.
+	Name string `pulumi:"name"`
+	// The Site Credentials Password used for publishing.
+	Password string `pulumi:"password"`
+}
+
+// GetWindowsFunctionAppSiteCredentialInput is an input type that accepts GetWindowsFunctionAppSiteCredentialArgs and GetWindowsFunctionAppSiteCredentialOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteCredentialInput` via:
+//
+//	GetWindowsFunctionAppSiteCredentialArgs{...}
+type GetWindowsFunctionAppSiteCredentialInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteCredentialOutput() GetWindowsFunctionAppSiteCredentialOutput
+	ToGetWindowsFunctionAppSiteCredentialOutputWithContext(context.Context) GetWindowsFunctionAppSiteCredentialOutput
+}
+
+type GetWindowsFunctionAppSiteCredentialArgs struct {
+	// The name of this Windows Function App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Site Credentials Password used for publishing.
+	Password pulumi.StringInput `pulumi:"password"`
+}
+
+func (GetWindowsFunctionAppSiteCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteCredential)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteCredentialArgs) ToGetWindowsFunctionAppSiteCredentialOutput() GetWindowsFunctionAppSiteCredentialOutput {
+	return i.ToGetWindowsFunctionAppSiteCredentialOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteCredentialArgs) ToGetWindowsFunctionAppSiteCredentialOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteCredentialOutput)
+}
+
+// GetWindowsFunctionAppSiteCredentialArrayInput is an input type that accepts GetWindowsFunctionAppSiteCredentialArray and GetWindowsFunctionAppSiteCredentialArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppSiteCredentialArrayInput` via:
+//
+//	GetWindowsFunctionAppSiteCredentialArray{ GetWindowsFunctionAppSiteCredentialArgs{...} }
+type GetWindowsFunctionAppSiteCredentialArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppSiteCredentialArrayOutput() GetWindowsFunctionAppSiteCredentialArrayOutput
+	ToGetWindowsFunctionAppSiteCredentialArrayOutputWithContext(context.Context) GetWindowsFunctionAppSiteCredentialArrayOutput
+}
+
+type GetWindowsFunctionAppSiteCredentialArray []GetWindowsFunctionAppSiteCredentialInput
+
+func (GetWindowsFunctionAppSiteCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteCredential)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppSiteCredentialArray) ToGetWindowsFunctionAppSiteCredentialArrayOutput() GetWindowsFunctionAppSiteCredentialArrayOutput {
+	return i.ToGetWindowsFunctionAppSiteCredentialArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppSiteCredentialArray) ToGetWindowsFunctionAppSiteCredentialArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteCredentialArrayOutput)
+}
+
+type GetWindowsFunctionAppSiteCredentialOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppSiteCredential)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteCredentialOutput) ToGetWindowsFunctionAppSiteCredentialOutput() GetWindowsFunctionAppSiteCredentialOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteCredentialOutput) ToGetWindowsFunctionAppSiteCredentialOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteCredentialOutput {
+	return o
+}
+
+// The name of this Windows Function App.
+func (o GetWindowsFunctionAppSiteCredentialOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteCredential) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Site Credentials Password used for publishing.
+func (o GetWindowsFunctionAppSiteCredentialOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteCredential) string { return v.Password }).(pulumi.StringOutput)
+}
+
+type GetWindowsFunctionAppSiteCredentialArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppSiteCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppSiteCredential)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppSiteCredentialArrayOutput) ToGetWindowsFunctionAppSiteCredentialArrayOutput() GetWindowsFunctionAppSiteCredentialArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteCredentialArrayOutput) ToGetWindowsFunctionAppSiteCredentialArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteCredentialArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppSiteCredentialArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteCredential {
+		return vs[0].([]GetWindowsFunctionAppSiteCredential)[vs[1].(int)]
+	}).(GetWindowsFunctionAppSiteCredentialOutput)
+}
+
+type GetWindowsFunctionAppStickySetting struct {
+	// A list of `appSetting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+	AppSettingNames []string `pulumi:"appSettingNames"`
+	// A list of `connectionString` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+	ConnectionStringNames []string `pulumi:"connectionStringNames"`
+}
+
+// GetWindowsFunctionAppStickySettingInput is an input type that accepts GetWindowsFunctionAppStickySettingArgs and GetWindowsFunctionAppStickySettingOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppStickySettingInput` via:
+//
+//	GetWindowsFunctionAppStickySettingArgs{...}
+type GetWindowsFunctionAppStickySettingInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppStickySettingOutput() GetWindowsFunctionAppStickySettingOutput
+	ToGetWindowsFunctionAppStickySettingOutputWithContext(context.Context) GetWindowsFunctionAppStickySettingOutput
+}
+
+type GetWindowsFunctionAppStickySettingArgs struct {
+	// A list of `appSetting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+	AppSettingNames pulumi.StringArrayInput `pulumi:"appSettingNames"`
+	// A list of `connectionString` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+	ConnectionStringNames pulumi.StringArrayInput `pulumi:"connectionStringNames"`
+}
+
+func (GetWindowsFunctionAppStickySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppStickySetting)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppStickySettingArgs) ToGetWindowsFunctionAppStickySettingOutput() GetWindowsFunctionAppStickySettingOutput {
+	return i.ToGetWindowsFunctionAppStickySettingOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppStickySettingArgs) ToGetWindowsFunctionAppStickySettingOutputWithContext(ctx context.Context) GetWindowsFunctionAppStickySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppStickySettingOutput)
+}
+
+// GetWindowsFunctionAppStickySettingArrayInput is an input type that accepts GetWindowsFunctionAppStickySettingArray and GetWindowsFunctionAppStickySettingArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFunctionAppStickySettingArrayInput` via:
+//
+//	GetWindowsFunctionAppStickySettingArray{ GetWindowsFunctionAppStickySettingArgs{...} }
+type GetWindowsFunctionAppStickySettingArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFunctionAppStickySettingArrayOutput() GetWindowsFunctionAppStickySettingArrayOutput
+	ToGetWindowsFunctionAppStickySettingArrayOutputWithContext(context.Context) GetWindowsFunctionAppStickySettingArrayOutput
+}
+
+type GetWindowsFunctionAppStickySettingArray []GetWindowsFunctionAppStickySettingInput
+
+func (GetWindowsFunctionAppStickySettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppStickySetting)(nil)).Elem()
+}
+
+func (i GetWindowsFunctionAppStickySettingArray) ToGetWindowsFunctionAppStickySettingArrayOutput() GetWindowsFunctionAppStickySettingArrayOutput {
+	return i.ToGetWindowsFunctionAppStickySettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFunctionAppStickySettingArray) ToGetWindowsFunctionAppStickySettingArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppStickySettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppStickySettingArrayOutput)
+}
+
+type GetWindowsFunctionAppStickySettingOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppStickySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFunctionAppStickySetting)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppStickySettingOutput) ToGetWindowsFunctionAppStickySettingOutput() GetWindowsFunctionAppStickySettingOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppStickySettingOutput) ToGetWindowsFunctionAppStickySettingOutputWithContext(ctx context.Context) GetWindowsFunctionAppStickySettingOutput {
+	return o
+}
+
+// A list of `appSetting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+func (o GetWindowsFunctionAppStickySettingOutput) AppSettingNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppStickySetting) []string { return v.AppSettingNames }).(pulumi.StringArrayOutput)
+}
+
+// A list of `connectionString` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+func (o GetWindowsFunctionAppStickySettingOutput) ConnectionStringNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppStickySetting) []string { return v.ConnectionStringNames }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsFunctionAppStickySettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFunctionAppStickySettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFunctionAppStickySetting)(nil)).Elem()
+}
+
+func (o GetWindowsFunctionAppStickySettingArrayOutput) ToGetWindowsFunctionAppStickySettingArrayOutput() GetWindowsFunctionAppStickySettingArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppStickySettingArrayOutput) ToGetWindowsFunctionAppStickySettingArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppStickySettingArrayOutput {
+	return o
+}
+
+func (o GetWindowsFunctionAppStickySettingArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppStickySettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppStickySetting {
+		return vs[0].([]GetWindowsFunctionAppStickySetting)[vs[1].(int)]
+	}).(GetWindowsFunctionAppStickySettingOutput)
+}
+
+type GetWindowsWebAppAuthSetting struct {
+	// A `activeDirectory` block as defined above.
+	ActiveDirectories []GetWindowsWebAppAuthSettingActiveDirectory `pulumi:"activeDirectories"`
+	// A `additionalLoginParameters` block as defined above.
+	AdditionalLoginParameters map[string]string `pulumi:"additionalLoginParameters"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider string `pulumi:"defaultProvider"`
+	// Is the Backup enabled?
+	Enabled bool `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebooks []GetWindowsWebAppAuthSettingFacebook `pulumi:"facebooks"`
+	// A `github` block as defined below.
+	Githubs []GetWindowsWebAppAuthSettingGithub `pulumi:"githubs"`
+	// A `google` block as defined below.
+	Googles []GetWindowsWebAppAuthSettingGoogle `pulumi:"googles"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
+	Issuer string `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsofts []GetWindowsWebAppAuthSettingMicrosoft `pulumi:"microsofts"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionHours float64 `pulumi:"tokenRefreshExtensionHours"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled bool `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitters []GetWindowsWebAppAuthSettingTwitter `pulumi:"twitters"`
+	// The action to take when an unauthenticated client attempts to access the app.
+	UnauthenticatedClientAction string `pulumi:"unauthenticatedClientAction"`
+}
+
+// GetWindowsWebAppAuthSettingInput is an input type that accepts GetWindowsWebAppAuthSettingArgs and GetWindowsWebAppAuthSettingOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingInput` via:
+//
+//	GetWindowsWebAppAuthSettingArgs{...}
+type GetWindowsWebAppAuthSettingInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingOutput() GetWindowsWebAppAuthSettingOutput
+	ToGetWindowsWebAppAuthSettingOutputWithContext(context.Context) GetWindowsWebAppAuthSettingOutput
+}
+
+type GetWindowsWebAppAuthSettingArgs struct {
+	// A `activeDirectory` block as defined above.
+	ActiveDirectories GetWindowsWebAppAuthSettingActiveDirectoryArrayInput `pulumi:"activeDirectories"`
+	// A `additionalLoginParameters` block as defined above.
+	AdditionalLoginParameters pulumi.StringMapInput `pulumi:"additionalLoginParameters"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider pulumi.StringInput `pulumi:"defaultProvider"`
+	// Is the Backup enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebooks GetWindowsWebAppAuthSettingFacebookArrayInput `pulumi:"facebooks"`
+	// A `github` block as defined below.
+	Githubs GetWindowsWebAppAuthSettingGithubArrayInput `pulumi:"githubs"`
+	// A `google` block as defined below.
+	Googles GetWindowsWebAppAuthSettingGoogleArrayInput `pulumi:"googles"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsofts GetWindowsWebAppAuthSettingMicrosoftArrayInput `pulumi:"microsofts"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionHours pulumi.Float64Input `pulumi:"tokenRefreshExtensionHours"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled pulumi.BoolInput `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitters GetWindowsWebAppAuthSettingTwitterArrayInput `pulumi:"twitters"`
+	// The action to take when an unauthenticated client attempts to access the app.
+	UnauthenticatedClientAction pulumi.StringInput `pulumi:"unauthenticatedClientAction"`
+}
+
+func (GetWindowsWebAppAuthSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSetting)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingArgs) ToGetWindowsWebAppAuthSettingOutput() GetWindowsWebAppAuthSettingOutput {
+	return i.ToGetWindowsWebAppAuthSettingOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingArgs) ToGetWindowsWebAppAuthSettingOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingOutput)
+}
+
+// GetWindowsWebAppAuthSettingArrayInput is an input type that accepts GetWindowsWebAppAuthSettingArray and GetWindowsWebAppAuthSettingArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingArray{ GetWindowsWebAppAuthSettingArgs{...} }
+type GetWindowsWebAppAuthSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingArrayOutput() GetWindowsWebAppAuthSettingArrayOutput
+	ToGetWindowsWebAppAuthSettingArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingArray []GetWindowsWebAppAuthSettingInput
+
+func (GetWindowsWebAppAuthSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSetting)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingArray) ToGetWindowsWebAppAuthSettingArrayOutput() GetWindowsWebAppAuthSettingArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingArray) ToGetWindowsWebAppAuthSettingArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSetting)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingOutput) ToGetWindowsWebAppAuthSettingOutput() GetWindowsWebAppAuthSettingOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingOutput) ToGetWindowsWebAppAuthSettingOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingOutput {
+	return o
+}
+
+// A `activeDirectory` block as defined above.
+func (o GetWindowsWebAppAuthSettingOutput) ActiveDirectories() GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) []GetWindowsWebAppAuthSettingActiveDirectory {
+		return v.ActiveDirectories
+	}).(GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput)
+}
+
+// A `additionalLoginParameters` block as defined above.
+func (o GetWindowsWebAppAuthSettingOutput) AdditionalLoginParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) map[string]string { return v.AdditionalLoginParameters }).(pulumi.StringMapOutput)
+}
+
+// External URLs that can be redirected to as part of logging in or logging out of the app.
+func (o GetWindowsWebAppAuthSettingOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
+}
+
+// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+func (o GetWindowsWebAppAuthSettingOutput) DefaultProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) string { return v.DefaultProvider }).(pulumi.StringOutput)
+}
+
+// Is the Backup enabled?
+func (o GetWindowsWebAppAuthSettingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A `facebook` block as defined below.
+func (o GetWindowsWebAppAuthSettingOutput) Facebooks() GetWindowsWebAppAuthSettingFacebookArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) []GetWindowsWebAppAuthSettingFacebook { return v.Facebooks }).(GetWindowsWebAppAuthSettingFacebookArrayOutput)
+}
+
+// A `github` block as defined below.
+func (o GetWindowsWebAppAuthSettingOutput) Githubs() GetWindowsWebAppAuthSettingGithubArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) []GetWindowsWebAppAuthSettingGithub { return v.Githubs }).(GetWindowsWebAppAuthSettingGithubArrayOutput)
+}
+
+// A `google` block as defined below.
+func (o GetWindowsWebAppAuthSettingOutput) Googles() GetWindowsWebAppAuthSettingGoogleArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) []GetWindowsWebAppAuthSettingGoogle { return v.Googles }).(GetWindowsWebAppAuthSettingGoogleArrayOutput)
+}
+
+// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
+func (o GetWindowsWebAppAuthSettingOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// A `microsoft` block as defined below.
+func (o GetWindowsWebAppAuthSettingOutput) Microsofts() GetWindowsWebAppAuthSettingMicrosoftArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) []GetWindowsWebAppAuthSettingMicrosoft { return v.Microsofts }).(GetWindowsWebAppAuthSettingMicrosoftArrayOutput)
+}
+
+// The Runtime Version of the Authentication and Authorisation feature of this App.
+func (o GetWindowsWebAppAuthSettingOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+func (o GetWindowsWebAppAuthSettingOutput) TokenRefreshExtensionHours() pulumi.Float64Output {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64Output)
+}
+
+// Is the Token Store configuration Enabled.
+func (o GetWindowsWebAppAuthSettingOutput) TokenStoreEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) bool { return v.TokenStoreEnabled }).(pulumi.BoolOutput)
+}
+
+// A `twitter` block as defined below.
+func (o GetWindowsWebAppAuthSettingOutput) Twitters() GetWindowsWebAppAuthSettingTwitterArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) []GetWindowsWebAppAuthSettingTwitter { return v.Twitters }).(GetWindowsWebAppAuthSettingTwitterArrayOutput)
+}
+
+// The action to take when an unauthenticated client attempts to access the app.
+func (o GetWindowsWebAppAuthSettingOutput) UnauthenticatedClientAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSetting) string { return v.UnauthenticatedClientAction }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppAuthSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSetting)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingArrayOutput) ToGetWindowsWebAppAuthSettingArrayOutput() GetWindowsWebAppAuthSettingArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingArrayOutput) ToGetWindowsWebAppAuthSettingArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSetting {
+		return vs[0].([]GetWindowsWebAppAuthSetting)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingOutput)
+}
+
+type GetWindowsWebAppAuthSettingActiveDirectory struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+}
+
+// GetWindowsWebAppAuthSettingActiveDirectoryInput is an input type that accepts GetWindowsWebAppAuthSettingActiveDirectoryArgs and GetWindowsWebAppAuthSettingActiveDirectoryOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingActiveDirectoryInput` via:
+//
+//	GetWindowsWebAppAuthSettingActiveDirectoryArgs{...}
+type GetWindowsWebAppAuthSettingActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingActiveDirectoryOutput() GetWindowsWebAppAuthSettingActiveDirectoryOutput
+	ToGetWindowsWebAppAuthSettingActiveDirectoryOutputWithContext(context.Context) GetWindowsWebAppAuthSettingActiveDirectoryOutput
+}
+
+type GetWindowsWebAppAuthSettingActiveDirectoryArgs struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+}
+
+func (GetWindowsWebAppAuthSettingActiveDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingActiveDirectoryArgs) ToGetWindowsWebAppAuthSettingActiveDirectoryOutput() GetWindowsWebAppAuthSettingActiveDirectoryOutput {
+	return i.ToGetWindowsWebAppAuthSettingActiveDirectoryOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingActiveDirectoryArgs) ToGetWindowsWebAppAuthSettingActiveDirectoryOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingActiveDirectoryOutput)
+}
+
+// GetWindowsWebAppAuthSettingActiveDirectoryArrayInput is an input type that accepts GetWindowsWebAppAuthSettingActiveDirectoryArray and GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingActiveDirectoryArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingActiveDirectoryArray{ GetWindowsWebAppAuthSettingActiveDirectoryArgs{...} }
+type GetWindowsWebAppAuthSettingActiveDirectoryArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingActiveDirectoryArrayOutput() GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput
+	ToGetWindowsWebAppAuthSettingActiveDirectoryArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingActiveDirectoryArray []GetWindowsWebAppAuthSettingActiveDirectoryInput
+
+func (GetWindowsWebAppAuthSettingActiveDirectoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingActiveDirectoryArray) ToGetWindowsWebAppAuthSettingActiveDirectoryArrayOutput() GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingActiveDirectoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingActiveDirectoryArray) ToGetWindowsWebAppAuthSettingActiveDirectoryArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingActiveDirectoryOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingActiveDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingActiveDirectoryOutput) ToGetWindowsWebAppAuthSettingActiveDirectoryOutput() GetWindowsWebAppAuthSettingActiveDirectoryOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingActiveDirectoryOutput) ToGetWindowsWebAppAuthSettingActiveDirectoryOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingActiveDirectoryOutput {
+	return o
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetWindowsWebAppAuthSettingActiveDirectoryOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingActiveDirectory) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingActiveDirectoryOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingActiveDirectory) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingActiveDirectoryOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingActiveDirectory) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingActiveDirectoryOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingActiveDirectory) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput) ToGetWindowsWebAppAuthSettingActiveDirectoryArrayOutput() GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput) ToGetWindowsWebAppAuthSettingActiveDirectoryArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingActiveDirectoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingActiveDirectory {
+		return vs[0].([]GetWindowsWebAppAuthSettingActiveDirectory)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingActiveDirectoryOutput)
+}
+
+type GetWindowsWebAppAuthSettingFacebook struct {
+	// The App ID of the Facebook app used for login.
+	AppId string `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook login.
+	AppSecret string `pulumi:"appSecret"`
+	// The app setting name that contains the `appSecret` value used for Facebook login.
+	AppSecretSettingName string `pulumi:"appSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetWindowsWebAppAuthSettingFacebookInput is an input type that accepts GetWindowsWebAppAuthSettingFacebookArgs and GetWindowsWebAppAuthSettingFacebookOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingFacebookInput` via:
+//
+//	GetWindowsWebAppAuthSettingFacebookArgs{...}
+type GetWindowsWebAppAuthSettingFacebookInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingFacebookOutput() GetWindowsWebAppAuthSettingFacebookOutput
+	ToGetWindowsWebAppAuthSettingFacebookOutputWithContext(context.Context) GetWindowsWebAppAuthSettingFacebookOutput
+}
+
+type GetWindowsWebAppAuthSettingFacebookArgs struct {
+	// The App ID of the Facebook app used for login.
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook login.
+	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	// The app setting name that contains the `appSecret` value used for Facebook login.
+	AppSecretSettingName pulumi.StringInput `pulumi:"appSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetWindowsWebAppAuthSettingFacebookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingFacebookArgs) ToGetWindowsWebAppAuthSettingFacebookOutput() GetWindowsWebAppAuthSettingFacebookOutput {
+	return i.ToGetWindowsWebAppAuthSettingFacebookOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingFacebookArgs) ToGetWindowsWebAppAuthSettingFacebookOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingFacebookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingFacebookOutput)
+}
+
+// GetWindowsWebAppAuthSettingFacebookArrayInput is an input type that accepts GetWindowsWebAppAuthSettingFacebookArray and GetWindowsWebAppAuthSettingFacebookArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingFacebookArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingFacebookArray{ GetWindowsWebAppAuthSettingFacebookArgs{...} }
+type GetWindowsWebAppAuthSettingFacebookArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingFacebookArrayOutput() GetWindowsWebAppAuthSettingFacebookArrayOutput
+	ToGetWindowsWebAppAuthSettingFacebookArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingFacebookArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingFacebookArray []GetWindowsWebAppAuthSettingFacebookInput
+
+func (GetWindowsWebAppAuthSettingFacebookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingFacebookArray) ToGetWindowsWebAppAuthSettingFacebookArrayOutput() GetWindowsWebAppAuthSettingFacebookArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingFacebookArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingFacebookArray) ToGetWindowsWebAppAuthSettingFacebookArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingFacebookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingFacebookArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingFacebookOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingFacebookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingFacebookOutput) ToGetWindowsWebAppAuthSettingFacebookOutput() GetWindowsWebAppAuthSettingFacebookOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingFacebookOutput) ToGetWindowsWebAppAuthSettingFacebookOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingFacebookOutput {
+	return o
+}
+
+// The App ID of the Facebook app used for login.
+func (o GetWindowsWebAppAuthSettingFacebookOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingFacebook) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The App Secret of the Facebook app used for Facebook login.
+func (o GetWindowsWebAppAuthSettingFacebookOutput) AppSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingFacebook) string { return v.AppSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the `appSecret` value used for Facebook login.
+func (o GetWindowsWebAppAuthSettingFacebookOutput) AppSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingFacebook) string { return v.AppSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+func (o GetWindowsWebAppAuthSettingFacebookOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingFacebook) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingFacebookArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingFacebookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingFacebookArrayOutput) ToGetWindowsWebAppAuthSettingFacebookArrayOutput() GetWindowsWebAppAuthSettingFacebookArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingFacebookArrayOutput) ToGetWindowsWebAppAuthSettingFacebookArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingFacebookArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingFacebookArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingFacebookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingFacebook {
+		return vs[0].([]GetWindowsWebAppAuthSettingFacebook)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingFacebookOutput)
+}
+
+type GetWindowsWebAppAuthSettingGithub struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetWindowsWebAppAuthSettingGithubInput is an input type that accepts GetWindowsWebAppAuthSettingGithubArgs and GetWindowsWebAppAuthSettingGithubOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingGithubInput` via:
+//
+//	GetWindowsWebAppAuthSettingGithubArgs{...}
+type GetWindowsWebAppAuthSettingGithubInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingGithubOutput() GetWindowsWebAppAuthSettingGithubOutput
+	ToGetWindowsWebAppAuthSettingGithubOutputWithContext(context.Context) GetWindowsWebAppAuthSettingGithubOutput
+}
+
+type GetWindowsWebAppAuthSettingGithubArgs struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetWindowsWebAppAuthSettingGithubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingGithubArgs) ToGetWindowsWebAppAuthSettingGithubOutput() GetWindowsWebAppAuthSettingGithubOutput {
+	return i.ToGetWindowsWebAppAuthSettingGithubOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingGithubArgs) ToGetWindowsWebAppAuthSettingGithubOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGithubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingGithubOutput)
+}
+
+// GetWindowsWebAppAuthSettingGithubArrayInput is an input type that accepts GetWindowsWebAppAuthSettingGithubArray and GetWindowsWebAppAuthSettingGithubArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingGithubArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingGithubArray{ GetWindowsWebAppAuthSettingGithubArgs{...} }
+type GetWindowsWebAppAuthSettingGithubArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingGithubArrayOutput() GetWindowsWebAppAuthSettingGithubArrayOutput
+	ToGetWindowsWebAppAuthSettingGithubArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingGithubArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingGithubArray []GetWindowsWebAppAuthSettingGithubInput
+
+func (GetWindowsWebAppAuthSettingGithubArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingGithubArray) ToGetWindowsWebAppAuthSettingGithubArrayOutput() GetWindowsWebAppAuthSettingGithubArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingGithubArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingGithubArray) ToGetWindowsWebAppAuthSettingGithubArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGithubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingGithubArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingGithubOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingGithubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingGithubOutput) ToGetWindowsWebAppAuthSettingGithubOutput() GetWindowsWebAppAuthSettingGithubOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingGithubOutput) ToGetWindowsWebAppAuthSettingGithubOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGithubOutput {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingGithubOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingGithub) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingGithubOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingGithub) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingGithubOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingGithub) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+func (o GetWindowsWebAppAuthSettingGithubOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingGithub) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingGithubArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingGithubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingGithubArrayOutput) ToGetWindowsWebAppAuthSettingGithubArrayOutput() GetWindowsWebAppAuthSettingGithubArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingGithubArrayOutput) ToGetWindowsWebAppAuthSettingGithubArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGithubArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingGithubArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingGithubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingGithub {
+		return vs[0].([]GetWindowsWebAppAuthSettingGithub)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingGithubOutput)
+}
+
+type GetWindowsWebAppAuthSettingGoogle struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetWindowsWebAppAuthSettingGoogleInput is an input type that accepts GetWindowsWebAppAuthSettingGoogleArgs and GetWindowsWebAppAuthSettingGoogleOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingGoogleInput` via:
+//
+//	GetWindowsWebAppAuthSettingGoogleArgs{...}
+type GetWindowsWebAppAuthSettingGoogleInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingGoogleOutput() GetWindowsWebAppAuthSettingGoogleOutput
+	ToGetWindowsWebAppAuthSettingGoogleOutputWithContext(context.Context) GetWindowsWebAppAuthSettingGoogleOutput
+}
+
+type GetWindowsWebAppAuthSettingGoogleArgs struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetWindowsWebAppAuthSettingGoogleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingGoogleArgs) ToGetWindowsWebAppAuthSettingGoogleOutput() GetWindowsWebAppAuthSettingGoogleOutput {
+	return i.ToGetWindowsWebAppAuthSettingGoogleOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingGoogleArgs) ToGetWindowsWebAppAuthSettingGoogleOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGoogleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingGoogleOutput)
+}
+
+// GetWindowsWebAppAuthSettingGoogleArrayInput is an input type that accepts GetWindowsWebAppAuthSettingGoogleArray and GetWindowsWebAppAuthSettingGoogleArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingGoogleArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingGoogleArray{ GetWindowsWebAppAuthSettingGoogleArgs{...} }
+type GetWindowsWebAppAuthSettingGoogleArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingGoogleArrayOutput() GetWindowsWebAppAuthSettingGoogleArrayOutput
+	ToGetWindowsWebAppAuthSettingGoogleArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingGoogleArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingGoogleArray []GetWindowsWebAppAuthSettingGoogleInput
+
+func (GetWindowsWebAppAuthSettingGoogleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingGoogleArray) ToGetWindowsWebAppAuthSettingGoogleArrayOutput() GetWindowsWebAppAuthSettingGoogleArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingGoogleArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingGoogleArray) ToGetWindowsWebAppAuthSettingGoogleArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGoogleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingGoogleArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingGoogleOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingGoogleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingGoogleOutput) ToGetWindowsWebAppAuthSettingGoogleOutput() GetWindowsWebAppAuthSettingGoogleOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingGoogleOutput) ToGetWindowsWebAppAuthSettingGoogleOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGoogleOutput {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingGoogleOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingGoogle) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingGoogleOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingGoogle) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingGoogleOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingGoogle) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+func (o GetWindowsWebAppAuthSettingGoogleOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingGoogle) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingGoogleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingGoogleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingGoogleArrayOutput) ToGetWindowsWebAppAuthSettingGoogleArrayOutput() GetWindowsWebAppAuthSettingGoogleArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingGoogleArrayOutput) ToGetWindowsWebAppAuthSettingGoogleArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGoogleArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingGoogleArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingGoogleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingGoogle {
+		return vs[0].([]GetWindowsWebAppAuthSettingGoogle)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingGoogleOutput)
+}
+
+type GetWindowsWebAppAuthSettingMicrosoft struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetWindowsWebAppAuthSettingMicrosoftInput is an input type that accepts GetWindowsWebAppAuthSettingMicrosoftArgs and GetWindowsWebAppAuthSettingMicrosoftOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingMicrosoftInput` via:
+//
+//	GetWindowsWebAppAuthSettingMicrosoftArgs{...}
+type GetWindowsWebAppAuthSettingMicrosoftInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingMicrosoftOutput() GetWindowsWebAppAuthSettingMicrosoftOutput
+	ToGetWindowsWebAppAuthSettingMicrosoftOutputWithContext(context.Context) GetWindowsWebAppAuthSettingMicrosoftOutput
+}
+
+type GetWindowsWebAppAuthSettingMicrosoftArgs struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetWindowsWebAppAuthSettingMicrosoftArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingMicrosoftArgs) ToGetWindowsWebAppAuthSettingMicrosoftOutput() GetWindowsWebAppAuthSettingMicrosoftOutput {
+	return i.ToGetWindowsWebAppAuthSettingMicrosoftOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingMicrosoftArgs) ToGetWindowsWebAppAuthSettingMicrosoftOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingMicrosoftOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingMicrosoftOutput)
+}
+
+// GetWindowsWebAppAuthSettingMicrosoftArrayInput is an input type that accepts GetWindowsWebAppAuthSettingMicrosoftArray and GetWindowsWebAppAuthSettingMicrosoftArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingMicrosoftArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingMicrosoftArray{ GetWindowsWebAppAuthSettingMicrosoftArgs{...} }
+type GetWindowsWebAppAuthSettingMicrosoftArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingMicrosoftArrayOutput() GetWindowsWebAppAuthSettingMicrosoftArrayOutput
+	ToGetWindowsWebAppAuthSettingMicrosoftArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingMicrosoftArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingMicrosoftArray []GetWindowsWebAppAuthSettingMicrosoftInput
+
+func (GetWindowsWebAppAuthSettingMicrosoftArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingMicrosoftArray) ToGetWindowsWebAppAuthSettingMicrosoftArrayOutput() GetWindowsWebAppAuthSettingMicrosoftArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingMicrosoftArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingMicrosoftArray) ToGetWindowsWebAppAuthSettingMicrosoftArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingMicrosoftArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingMicrosoftArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingMicrosoftOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingMicrosoftOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingMicrosoftOutput) ToGetWindowsWebAppAuthSettingMicrosoftOutput() GetWindowsWebAppAuthSettingMicrosoftOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingMicrosoftOutput) ToGetWindowsWebAppAuthSettingMicrosoftOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingMicrosoftOutput {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingMicrosoftOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingMicrosoft) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingMicrosoftOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingMicrosoft) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingMicrosoftOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingMicrosoft) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+func (o GetWindowsWebAppAuthSettingMicrosoftOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingMicrosoft) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingMicrosoftArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingMicrosoftArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingMicrosoftArrayOutput) ToGetWindowsWebAppAuthSettingMicrosoftArrayOutput() GetWindowsWebAppAuthSettingMicrosoftArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingMicrosoftArrayOutput) ToGetWindowsWebAppAuthSettingMicrosoftArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingMicrosoftArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingMicrosoftArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingMicrosoftOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingMicrosoft {
+		return vs[0].([]GetWindowsWebAppAuthSettingMicrosoft)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingMicrosoftOutput)
+}
+
+type GetWindowsWebAppAuthSettingTwitter struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey string `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecret string `pulumi:"consumerSecret"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName string `pulumi:"consumerSecretSettingName"`
+}
+
+// GetWindowsWebAppAuthSettingTwitterInput is an input type that accepts GetWindowsWebAppAuthSettingTwitterArgs and GetWindowsWebAppAuthSettingTwitterOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingTwitterInput` via:
+//
+//	GetWindowsWebAppAuthSettingTwitterArgs{...}
+type GetWindowsWebAppAuthSettingTwitterInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingTwitterOutput() GetWindowsWebAppAuthSettingTwitterOutput
+	ToGetWindowsWebAppAuthSettingTwitterOutputWithContext(context.Context) GetWindowsWebAppAuthSettingTwitterOutput
+}
+
+type GetWindowsWebAppAuthSettingTwitterArgs struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey pulumi.StringInput `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecret pulumi.StringInput `pulumi:"consumerSecret"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName pulumi.StringInput `pulumi:"consumerSecretSettingName"`
+}
+
+func (GetWindowsWebAppAuthSettingTwitterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingTwitterArgs) ToGetWindowsWebAppAuthSettingTwitterOutput() GetWindowsWebAppAuthSettingTwitterOutput {
+	return i.ToGetWindowsWebAppAuthSettingTwitterOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingTwitterArgs) ToGetWindowsWebAppAuthSettingTwitterOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingTwitterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingTwitterOutput)
+}
+
+// GetWindowsWebAppAuthSettingTwitterArrayInput is an input type that accepts GetWindowsWebAppAuthSettingTwitterArray and GetWindowsWebAppAuthSettingTwitterArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingTwitterArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingTwitterArray{ GetWindowsWebAppAuthSettingTwitterArgs{...} }
+type GetWindowsWebAppAuthSettingTwitterArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingTwitterArrayOutput() GetWindowsWebAppAuthSettingTwitterArrayOutput
+	ToGetWindowsWebAppAuthSettingTwitterArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingTwitterArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingTwitterArray []GetWindowsWebAppAuthSettingTwitterInput
+
+func (GetWindowsWebAppAuthSettingTwitterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingTwitterArray) ToGetWindowsWebAppAuthSettingTwitterArrayOutput() GetWindowsWebAppAuthSettingTwitterArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingTwitterArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingTwitterArray) ToGetWindowsWebAppAuthSettingTwitterArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingTwitterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingTwitterArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingTwitterOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingTwitterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingTwitterOutput) ToGetWindowsWebAppAuthSettingTwitterOutput() GetWindowsWebAppAuthSettingTwitterOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingTwitterOutput) ToGetWindowsWebAppAuthSettingTwitterOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingTwitterOutput {
+	return o
+}
+
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+func (o GetWindowsWebAppAuthSettingTwitterOutput) ConsumerKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingTwitter) string { return v.ConsumerKey }).(pulumi.StringOutput)
+}
+
+// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+func (o GetWindowsWebAppAuthSettingTwitterOutput) ConsumerSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingTwitter) string { return v.ConsumerSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+func (o GetWindowsWebAppAuthSettingTwitterOutput) ConsumerSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingTwitter) string { return v.ConsumerSecretSettingName }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppAuthSettingTwitterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingTwitterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingTwitterArrayOutput) ToGetWindowsWebAppAuthSettingTwitterArrayOutput() GetWindowsWebAppAuthSettingTwitterArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingTwitterArrayOutput) ToGetWindowsWebAppAuthSettingTwitterArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingTwitterArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingTwitterArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingTwitterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingTwitter {
+		return vs[0].([]GetWindowsWebAppAuthSettingTwitter)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingTwitterOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2 struct {
+	// An `activeDirectoryV2` block as defined below.
+	ActiveDirectoryV2s []GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 `pulumi:"activeDirectoryV2s"`
+	// An `appleV2` block as defined below.
+	AppleV2s []GetWindowsWebAppAuthSettingsV2AppleV2 `pulumi:"appleV2s"`
+	// Are the AuthV2 Settings enabled.
+	AuthEnabled bool `pulumi:"authEnabled"`
+	// An `azureStaticWebAppV2` block as defined below.
+	AzureStaticWebAppV2s []GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2 `pulumi:"azureStaticWebAppV2s"`
+	// The path to the App Auth settings.
+	ConfigFilePath string `pulumi:"configFilePath"`
+	// Zero or more `customOidcV2` blocks as defined below.
+	CustomOidcV2s []GetWindowsWebAppAuthSettingsV2CustomOidcV2 `pulumi:"customOidcV2s"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider string `pulumi:"defaultProvider"`
+	// The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+	ExcludedPaths []string `pulumi:"excludedPaths"`
+	// A `facebookV2` block as defined below.
+	FacebookV2s []GetWindowsWebAppAuthSettingsV2FacebookV2 `pulumi:"facebookV2s"`
+	// The convention used to determine the url of the request made.
+	ForwardProxyConvention string `pulumi:"forwardProxyConvention"`
+	// The name of the custom header containing the host of the request.
+	ForwardProxyCustomHostHeaderName string `pulumi:"forwardProxyCustomHostHeaderName"`
+	// The name of the custom header containing the scheme of the request.
+	ForwardProxyCustomSchemeHeaderName string `pulumi:"forwardProxyCustomSchemeHeaderName"`
+	// A `githubV2` block as defined below.
+	GithubV2s []GetWindowsWebAppAuthSettingsV2GithubV2 `pulumi:"githubV2s"`
+	// A `googleV2` block as defined below.
+	GoogleV2s []GetWindowsWebAppAuthSettingsV2GoogleV2 `pulumi:"googleV2s"`
+	// The prefix that should precede all the authentication and authorisation paths.
+	HttpRouteApiPrefix string `pulumi:"httpRouteApiPrefix"`
+	// A `login` block as defined below.
+	Logins []GetWindowsWebAppAuthSettingsV2Login `pulumi:"logins"`
+	// A `microsoftV2` block as defined below.
+	MicrosoftV2s []GetWindowsWebAppAuthSettingsV2MicrosoftV2 `pulumi:"microsoftV2s"`
+	// Is the authentication flow used for all requests.
+	RequireAuthentication bool `pulumi:"requireAuthentication"`
+	// Is HTTPS required on connections?
+	RequireHttps bool `pulumi:"requireHttps"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+	// A `twitterV2` block as defined below.
+	TwitterV2s []GetWindowsWebAppAuthSettingsV2TwitterV2 `pulumi:"twitterV2s"`
+	// The action to take for requests made without authentication.
+	UnauthenticatedAction string `pulumi:"unauthenticatedAction"`
+}
+
+// GetWindowsWebAppAuthSettingsV2Input is an input type that accepts GetWindowsWebAppAuthSettingsV2Args and GetWindowsWebAppAuthSettingsV2Output values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2Input` via:
+//
+//	GetWindowsWebAppAuthSettingsV2Args{...}
+type GetWindowsWebAppAuthSettingsV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2Output() GetWindowsWebAppAuthSettingsV2Output
+	ToGetWindowsWebAppAuthSettingsV2OutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2Output
+}
+
+type GetWindowsWebAppAuthSettingsV2Args struct {
+	// An `activeDirectoryV2` block as defined below.
+	ActiveDirectoryV2s GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput `pulumi:"activeDirectoryV2s"`
+	// An `appleV2` block as defined below.
+	AppleV2s GetWindowsWebAppAuthSettingsV2AppleV2ArrayInput `pulumi:"appleV2s"`
+	// Are the AuthV2 Settings enabled.
+	AuthEnabled pulumi.BoolInput `pulumi:"authEnabled"`
+	// An `azureStaticWebAppV2` block as defined below.
+	AzureStaticWebAppV2s GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput `pulumi:"azureStaticWebAppV2s"`
+	// The path to the App Auth settings.
+	ConfigFilePath pulumi.StringInput `pulumi:"configFilePath"`
+	// Zero or more `customOidcV2` blocks as defined below.
+	CustomOidcV2s GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayInput `pulumi:"customOidcV2s"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider pulumi.StringInput `pulumi:"defaultProvider"`
+	// The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+	ExcludedPaths pulumi.StringArrayInput `pulumi:"excludedPaths"`
+	// A `facebookV2` block as defined below.
+	FacebookV2s GetWindowsWebAppAuthSettingsV2FacebookV2ArrayInput `pulumi:"facebookV2s"`
+	// The convention used to determine the url of the request made.
+	ForwardProxyConvention pulumi.StringInput `pulumi:"forwardProxyConvention"`
+	// The name of the custom header containing the host of the request.
+	ForwardProxyCustomHostHeaderName pulumi.StringInput `pulumi:"forwardProxyCustomHostHeaderName"`
+	// The name of the custom header containing the scheme of the request.
+	ForwardProxyCustomSchemeHeaderName pulumi.StringInput `pulumi:"forwardProxyCustomSchemeHeaderName"`
+	// A `githubV2` block as defined below.
+	GithubV2s GetWindowsWebAppAuthSettingsV2GithubV2ArrayInput `pulumi:"githubV2s"`
+	// A `googleV2` block as defined below.
+	GoogleV2s GetWindowsWebAppAuthSettingsV2GoogleV2ArrayInput `pulumi:"googleV2s"`
+	// The prefix that should precede all the authentication and authorisation paths.
+	HttpRouteApiPrefix pulumi.StringInput `pulumi:"httpRouteApiPrefix"`
+	// A `login` block as defined below.
+	Logins GetWindowsWebAppAuthSettingsV2LoginArrayInput `pulumi:"logins"`
+	// A `microsoftV2` block as defined below.
+	MicrosoftV2s GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayInput `pulumi:"microsoftV2s"`
+	// Is the authentication flow used for all requests.
+	RequireAuthentication pulumi.BoolInput `pulumi:"requireAuthentication"`
+	// Is HTTPS required on connections?
+	RequireHttps pulumi.BoolInput `pulumi:"requireHttps"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+	// A `twitterV2` block as defined below.
+	TwitterV2s GetWindowsWebAppAuthSettingsV2TwitterV2ArrayInput `pulumi:"twitterV2s"`
+	// The action to take for requests made without authentication.
+	UnauthenticatedAction pulumi.StringInput `pulumi:"unauthenticatedAction"`
+}
+
+func (GetWindowsWebAppAuthSettingsV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2Args) ToGetWindowsWebAppAuthSettingsV2Output() GetWindowsWebAppAuthSettingsV2Output {
+	return i.ToGetWindowsWebAppAuthSettingsV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2Args) ToGetWindowsWebAppAuthSettingsV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2Output)
+}
+
+// GetWindowsWebAppAuthSettingsV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2Array and GetWindowsWebAppAuthSettingsV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2ArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2Array{ GetWindowsWebAppAuthSettingsV2Args{...} }
+type GetWindowsWebAppAuthSettingsV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2ArrayOutput() GetWindowsWebAppAuthSettingsV2ArrayOutput
+	ToGetWindowsWebAppAuthSettingsV2ArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2ArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2Array []GetWindowsWebAppAuthSettingsV2Input
+
+func (GetWindowsWebAppAuthSettingsV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2Array) ToGetWindowsWebAppAuthSettingsV2ArrayOutput() GetWindowsWebAppAuthSettingsV2ArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2Array) ToGetWindowsWebAppAuthSettingsV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2ArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2Output) ToGetWindowsWebAppAuthSettingsV2Output() GetWindowsWebAppAuthSettingsV2Output {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2Output) ToGetWindowsWebAppAuthSettingsV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2Output {
+	return o
+}
+
+// An `activeDirectoryV2` block as defined below.
+func (o GetWindowsWebAppAuthSettingsV2Output) ActiveDirectoryV2s() GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) []GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
+		return v.ActiveDirectoryV2s
+	}).(GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput)
+}
+
+// An `appleV2` block as defined below.
+func (o GetWindowsWebAppAuthSettingsV2Output) AppleV2s() GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) []GetWindowsWebAppAuthSettingsV2AppleV2 { return v.AppleV2s }).(GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput)
+}
+
+// Are the AuthV2 Settings enabled.
+func (o GetWindowsWebAppAuthSettingsV2Output) AuthEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) bool { return v.AuthEnabled }).(pulumi.BoolOutput)
+}
+
+// An `azureStaticWebAppV2` block as defined below.
+func (o GetWindowsWebAppAuthSettingsV2Output) AzureStaticWebAppV2s() GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) []GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2 {
+		return v.AzureStaticWebAppV2s
+	}).(GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput)
+}
+
+// The path to the App Auth settings.
+func (o GetWindowsWebAppAuthSettingsV2Output) ConfigFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) string { return v.ConfigFilePath }).(pulumi.StringOutput)
+}
+
+// Zero or more `customOidcV2` blocks as defined below.
+func (o GetWindowsWebAppAuthSettingsV2Output) CustomOidcV2s() GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) []GetWindowsWebAppAuthSettingsV2CustomOidcV2 {
+		return v.CustomOidcV2s
+	}).(GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput)
+}
+
+// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+func (o GetWindowsWebAppAuthSettingsV2Output) DefaultProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) string { return v.DefaultProvider }).(pulumi.StringOutput)
+}
+
+// The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+func (o GetWindowsWebAppAuthSettingsV2Output) ExcludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) []string { return v.ExcludedPaths }).(pulumi.StringArrayOutput)
+}
+
+// A `facebookV2` block as defined below.
+func (o GetWindowsWebAppAuthSettingsV2Output) FacebookV2s() GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) []GetWindowsWebAppAuthSettingsV2FacebookV2 {
+		return v.FacebookV2s
+	}).(GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput)
+}
+
+// The convention used to determine the url of the request made.
+func (o GetWindowsWebAppAuthSettingsV2Output) ForwardProxyConvention() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) string { return v.ForwardProxyConvention }).(pulumi.StringOutput)
+}
+
+// The name of the custom header containing the host of the request.
+func (o GetWindowsWebAppAuthSettingsV2Output) ForwardProxyCustomHostHeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) string { return v.ForwardProxyCustomHostHeaderName }).(pulumi.StringOutput)
+}
+
+// The name of the custom header containing the scheme of the request.
+func (o GetWindowsWebAppAuthSettingsV2Output) ForwardProxyCustomSchemeHeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) string { return v.ForwardProxyCustomSchemeHeaderName }).(pulumi.StringOutput)
+}
+
+// A `githubV2` block as defined below.
+func (o GetWindowsWebAppAuthSettingsV2Output) GithubV2s() GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) []GetWindowsWebAppAuthSettingsV2GithubV2 { return v.GithubV2s }).(GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput)
+}
+
+// A `googleV2` block as defined below.
+func (o GetWindowsWebAppAuthSettingsV2Output) GoogleV2s() GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) []GetWindowsWebAppAuthSettingsV2GoogleV2 { return v.GoogleV2s }).(GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput)
+}
+
+// The prefix that should precede all the authentication and authorisation paths.
+func (o GetWindowsWebAppAuthSettingsV2Output) HttpRouteApiPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) string { return v.HttpRouteApiPrefix }).(pulumi.StringOutput)
+}
+
+// A `login` block as defined below.
+func (o GetWindowsWebAppAuthSettingsV2Output) Logins() GetWindowsWebAppAuthSettingsV2LoginArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) []GetWindowsWebAppAuthSettingsV2Login { return v.Logins }).(GetWindowsWebAppAuthSettingsV2LoginArrayOutput)
+}
+
+// A `microsoftV2` block as defined below.
+func (o GetWindowsWebAppAuthSettingsV2Output) MicrosoftV2s() GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) []GetWindowsWebAppAuthSettingsV2MicrosoftV2 {
+		return v.MicrosoftV2s
+	}).(GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput)
+}
+
+// Is the authentication flow used for all requests.
+func (o GetWindowsWebAppAuthSettingsV2Output) RequireAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) bool { return v.RequireAuthentication }).(pulumi.BoolOutput)
+}
+
+// Is HTTPS required on connections?
+func (o GetWindowsWebAppAuthSettingsV2Output) RequireHttps() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) bool { return v.RequireHttps }).(pulumi.BoolOutput)
+}
+
+// The Runtime Version of the Authentication and Authorisation feature of this App.
+func (o GetWindowsWebAppAuthSettingsV2Output) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+// A `twitterV2` block as defined below.
+func (o GetWindowsWebAppAuthSettingsV2Output) TwitterV2s() GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) []GetWindowsWebAppAuthSettingsV2TwitterV2 { return v.TwitterV2s }).(GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput)
+}
+
+// The action to take for requests made without authentication.
+func (o GetWindowsWebAppAuthSettingsV2Output) UnauthenticatedAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2) string { return v.UnauthenticatedAction }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2ArrayOutput() GetWindowsWebAppAuthSettingsV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2 {
+		return vs[0].([]GetWindowsWebAppAuthSettingsV2)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingsV2Output)
+}
+
+type GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 struct {
+	// The list of allowed Applications for the Default Authorisation Policy.
+	AllowedApplications []string `pulumi:"allowedApplications"`
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The list of allowed Group Names for the Default Authorisation Policy.
+	AllowedGroups []string `pulumi:"allowedGroups"`
+	// The list of allowed Identities for the Default Authorisation Policy.
+	AllowedIdentities []string `pulumi:"allowedIdentities"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The thumbprint of the certificate used for signing purposes.
+	ClientSecretCertificateThumbprint string `pulumi:"clientSecretCertificateThumbprint"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Allowed Client Applications in the JWT Claim.
+	JwtAllowedClientApplications []string `pulumi:"jwtAllowedClientApplications"`
+	// The list of Allowed Groups in the JWT Claim.
+	JwtAllowedGroups []string `pulumi:"jwtAllowedGroups"`
+	// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
+	LoginParameters map[string]string `pulumi:"loginParameters"`
+	// The Tenant ID of the Managed Service Identity.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Input is an input type that accepts GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args and GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Input` via:
+//
+//	GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args{...}
+type GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output() GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output
+	ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output
+}
+
+type GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args struct {
+	// The list of allowed Applications for the Default Authorisation Policy.
+	AllowedApplications pulumi.StringArrayInput `pulumi:"allowedApplications"`
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The list of allowed Group Names for the Default Authorisation Policy.
+	AllowedGroups pulumi.StringArrayInput `pulumi:"allowedGroups"`
+	// The list of allowed Identities for the Default Authorisation Policy.
+	AllowedIdentities pulumi.StringArrayInput `pulumi:"allowedIdentities"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The thumbprint of the certificate used for signing purposes.
+	ClientSecretCertificateThumbprint pulumi.StringInput `pulumi:"clientSecretCertificateThumbprint"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Allowed Client Applications in the JWT Claim.
+	JwtAllowedClientApplications pulumi.StringArrayInput `pulumi:"jwtAllowedClientApplications"`
+	// The list of Allowed Groups in the JWT Claim.
+	JwtAllowedGroups pulumi.StringArrayInput `pulumi:"jwtAllowedGroups"`
+	// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
+	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
+	// The Tenant ID of the Managed Service Identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args) ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output() GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output {
+	return i.ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args) ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output)
+}
+
+// GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Array and GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Array{ GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args{...} }
+type GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput() GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput
+	ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Array []GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Input
+
+func (GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Array) ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput() GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Array) ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output() GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output {
+	return o
+}
+
+// The list of allowed Applications for the Default Authorisation Policy.
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) AllowedApplications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedApplications }).(pulumi.StringArrayOutput)
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The list of allowed Group Names for the Default Authorisation Policy.
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) AllowedGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedGroups }).(pulumi.StringArrayOutput)
+}
+
+// The list of allowed Identities for the Default Authorisation Policy.
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) AllowedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedIdentities }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The thumbprint of the certificate used for signing purposes.
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) ClientSecretCertificateThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) string {
+		return v.ClientSecretCertificateThumbprint
+	}).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Allowed Client Applications in the JWT Claim.
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) JwtAllowedClientApplications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) []string {
+		return v.JwtAllowedClientApplications
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of Allowed Groups in the JWT Claim.
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) JwtAllowedGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) []string { return v.JwtAllowedGroups }).(pulumi.StringArrayOutput)
+}
+
+// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) LoginParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) map[string]string { return v.LoginParameters }).(pulumi.StringMapOutput)
+}
+
+// The Tenant ID of the Managed Service Identity.
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput() GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
+		return vs[0].([]GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output)
+}
+
+type GetWindowsWebAppAuthSettingsV2AppleV2 struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetWindowsWebAppAuthSettingsV2AppleV2Input is an input type that accepts GetWindowsWebAppAuthSettingsV2AppleV2Args and GetWindowsWebAppAuthSettingsV2AppleV2Output values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2AppleV2Input` via:
+//
+//	GetWindowsWebAppAuthSettingsV2AppleV2Args{...}
+type GetWindowsWebAppAuthSettingsV2AppleV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2AppleV2Output() GetWindowsWebAppAuthSettingsV2AppleV2Output
+	ToGetWindowsWebAppAuthSettingsV2AppleV2OutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2AppleV2Output
+}
+
+type GetWindowsWebAppAuthSettingsV2AppleV2Args struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetWindowsWebAppAuthSettingsV2AppleV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2AppleV2Args) ToGetWindowsWebAppAuthSettingsV2AppleV2Output() GetWindowsWebAppAuthSettingsV2AppleV2Output {
+	return i.ToGetWindowsWebAppAuthSettingsV2AppleV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2AppleV2Args) ToGetWindowsWebAppAuthSettingsV2AppleV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AppleV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2AppleV2Output)
+}
+
+// GetWindowsWebAppAuthSettingsV2AppleV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2AppleV2Array and GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2AppleV2ArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2AppleV2Array{ GetWindowsWebAppAuthSettingsV2AppleV2Args{...} }
+type GetWindowsWebAppAuthSettingsV2AppleV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput() GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput
+	ToGetWindowsWebAppAuthSettingsV2AppleV2ArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2AppleV2Array []GetWindowsWebAppAuthSettingsV2AppleV2Input
+
+func (GetWindowsWebAppAuthSettingsV2AppleV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2AppleV2Array) ToGetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput() GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2AppleV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2AppleV2Array) ToGetWindowsWebAppAuthSettingsV2AppleV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2AppleV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2AppleV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AppleV2Output) ToGetWindowsWebAppAuthSettingsV2AppleV2Output() GetWindowsWebAppAuthSettingsV2AppleV2Output {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AppleV2Output) ToGetWindowsWebAppAuthSettingsV2AppleV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AppleV2Output {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2AppleV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2AppleV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2AppleV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2AppleV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetWindowsWebAppAuthSettingsV2AppleV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2AppleV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput() GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2AppleV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2AppleV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2AppleV2 {
+		return vs[0].([]GetWindowsWebAppAuthSettingsV2AppleV2)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingsV2AppleV2Output)
+}
+
+type GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2 struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+}
+
+// GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Input is an input type that accepts GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args and GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Input` via:
+//
+//	GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args{...}
+type GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output() GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output
+	ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output
+}
+
+type GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+}
+
+func (GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args) ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output() GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return i.ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args) ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output)
+}
+
+// GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Array and GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Array{ GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args{...} }
+type GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput() GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput
+	ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Array []GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Input
+
+func (GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Array) ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput() GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Array) ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output) ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output() GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output) ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput() GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2 {
+		return vs[0].([]GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output)
+}
+
+type GetWindowsWebAppAuthSettingsV2CustomOidcV2 struct {
+	// The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+	AuthorisationEndpoint string `pulumi:"authorisationEndpoint"`
+	// The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+	CertificationUri string `pulumi:"certificationUri"`
+	// The Client Credential Method used.
+	ClientCredentialMethod string `pulumi:"clientCredentialMethod"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+	IssuerEndpoint string `pulumi:"issuerEndpoint"`
+	// The name of this Windows Web App.
+	Name string `pulumi:"name"`
+	// The name of the claim that contains the users name.
+	NameClaimType string `pulumi:"nameClaimType"`
+	// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+	OpenidConfigurationEndpoint string `pulumi:"openidConfigurationEndpoint"`
+	// The list of the scopes that are requested while authenticating.
+	Scopes []string `pulumi:"scopes"`
+	// The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// GetWindowsWebAppAuthSettingsV2CustomOidcV2Input is an input type that accepts GetWindowsWebAppAuthSettingsV2CustomOidcV2Args and GetWindowsWebAppAuthSettingsV2CustomOidcV2Output values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2CustomOidcV2Input` via:
+//
+//	GetWindowsWebAppAuthSettingsV2CustomOidcV2Args{...}
+type GetWindowsWebAppAuthSettingsV2CustomOidcV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2CustomOidcV2Output() GetWindowsWebAppAuthSettingsV2CustomOidcV2Output
+	ToGetWindowsWebAppAuthSettingsV2CustomOidcV2OutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2CustomOidcV2Output
+}
+
+type GetWindowsWebAppAuthSettingsV2CustomOidcV2Args struct {
+	// The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+	AuthorisationEndpoint pulumi.StringInput `pulumi:"authorisationEndpoint"`
+	// The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+	CertificationUri pulumi.StringInput `pulumi:"certificationUri"`
+	// The Client Credential Method used.
+	ClientCredentialMethod pulumi.StringInput `pulumi:"clientCredentialMethod"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+	IssuerEndpoint pulumi.StringInput `pulumi:"issuerEndpoint"`
+	// The name of this Windows Web App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the claim that contains the users name.
+	NameClaimType pulumi.StringInput `pulumi:"nameClaimType"`
+	// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+	OpenidConfigurationEndpoint pulumi.StringInput `pulumi:"openidConfigurationEndpoint"`
+	// The list of the scopes that are requested while authenticating.
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	// The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (GetWindowsWebAppAuthSettingsV2CustomOidcV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2CustomOidcV2Args) ToGetWindowsWebAppAuthSettingsV2CustomOidcV2Output() GetWindowsWebAppAuthSettingsV2CustomOidcV2Output {
+	return i.ToGetWindowsWebAppAuthSettingsV2CustomOidcV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2CustomOidcV2Args) ToGetWindowsWebAppAuthSettingsV2CustomOidcV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2CustomOidcV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2CustomOidcV2Output)
+}
+
+// GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2CustomOidcV2Array and GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2CustomOidcV2Array{ GetWindowsWebAppAuthSettingsV2CustomOidcV2Args{...} }
+type GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput() GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput
+	ToGetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2CustomOidcV2Array []GetWindowsWebAppAuthSettingsV2CustomOidcV2Input
+
+func (GetWindowsWebAppAuthSettingsV2CustomOidcV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2CustomOidcV2Array) ToGetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput() GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2CustomOidcV2Array) ToGetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2CustomOidcV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) ToGetWindowsWebAppAuthSettingsV2CustomOidcV2Output() GetWindowsWebAppAuthSettingsV2CustomOidcV2Output {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) ToGetWindowsWebAppAuthSettingsV2CustomOidcV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2CustomOidcV2Output {
+	return o
+}
+
+// The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) AuthorisationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.AuthorisationEndpoint }).(pulumi.StringOutput)
+}
+
+// The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) CertificationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.CertificationUri }).(pulumi.StringOutput)
+}
+
+// The Client Credential Method used.
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) ClientCredentialMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.ClientCredentialMethod }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) IssuerEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.IssuerEndpoint }).(pulumi.StringOutput)
+}
+
+// The name of this Windows Web App.
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the claim that contains the users name.
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) NameClaimType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.NameClaimType }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) OpenidConfigurationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.OpenidConfigurationEndpoint }).(pulumi.StringOutput)
+}
+
+// The list of the scopes that are requested while authenticating.
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.TokenEndpoint }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput() GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2CustomOidcV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2CustomOidcV2 {
+		return vs[0].([]GetWindowsWebAppAuthSettingsV2CustomOidcV2)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingsV2CustomOidcV2Output)
+}
+
+type GetWindowsWebAppAuthSettingsV2FacebookV2 struct {
+	// The App ID of the Facebook app used for login.
+	AppId string `pulumi:"appId"`
+	// The app setting name that contains the `appSecret` value used for Facebook login.
+	AppSecretSettingName string `pulumi:"appSecretSettingName"`
+	// The version of the Facebook API to be used while logging in.
+	GraphApiVersion string `pulumi:"graphApiVersion"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetWindowsWebAppAuthSettingsV2FacebookV2Input is an input type that accepts GetWindowsWebAppAuthSettingsV2FacebookV2Args and GetWindowsWebAppAuthSettingsV2FacebookV2Output values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2FacebookV2Input` via:
+//
+//	GetWindowsWebAppAuthSettingsV2FacebookV2Args{...}
+type GetWindowsWebAppAuthSettingsV2FacebookV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2FacebookV2Output() GetWindowsWebAppAuthSettingsV2FacebookV2Output
+	ToGetWindowsWebAppAuthSettingsV2FacebookV2OutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2FacebookV2Output
+}
+
+type GetWindowsWebAppAuthSettingsV2FacebookV2Args struct {
+	// The App ID of the Facebook app used for login.
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The app setting name that contains the `appSecret` value used for Facebook login.
+	AppSecretSettingName pulumi.StringInput `pulumi:"appSecretSettingName"`
+	// The version of the Facebook API to be used while logging in.
+	GraphApiVersion pulumi.StringInput `pulumi:"graphApiVersion"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetWindowsWebAppAuthSettingsV2FacebookV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2FacebookV2Args) ToGetWindowsWebAppAuthSettingsV2FacebookV2Output() GetWindowsWebAppAuthSettingsV2FacebookV2Output {
+	return i.ToGetWindowsWebAppAuthSettingsV2FacebookV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2FacebookV2Args) ToGetWindowsWebAppAuthSettingsV2FacebookV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2FacebookV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2FacebookV2Output)
+}
+
+// GetWindowsWebAppAuthSettingsV2FacebookV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2FacebookV2Array and GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2FacebookV2ArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2FacebookV2Array{ GetWindowsWebAppAuthSettingsV2FacebookV2Args{...} }
+type GetWindowsWebAppAuthSettingsV2FacebookV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput() GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput
+	ToGetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2FacebookV2Array []GetWindowsWebAppAuthSettingsV2FacebookV2Input
+
+func (GetWindowsWebAppAuthSettingsV2FacebookV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2FacebookV2Array) ToGetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput() GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2FacebookV2Array) ToGetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2FacebookV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2FacebookV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2FacebookV2Output) ToGetWindowsWebAppAuthSettingsV2FacebookV2Output() GetWindowsWebAppAuthSettingsV2FacebookV2Output {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2FacebookV2Output) ToGetWindowsWebAppAuthSettingsV2FacebookV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2FacebookV2Output {
+	return o
+}
+
+// The App ID of the Facebook app used for login.
+func (o GetWindowsWebAppAuthSettingsV2FacebookV2Output) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2FacebookV2) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the `appSecret` value used for Facebook login.
+func (o GetWindowsWebAppAuthSettingsV2FacebookV2Output) AppSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2FacebookV2) string { return v.AppSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The version of the Facebook API to be used while logging in.
+func (o GetWindowsWebAppAuthSettingsV2FacebookV2Output) GraphApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2FacebookV2) string { return v.GraphApiVersion }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetWindowsWebAppAuthSettingsV2FacebookV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2FacebookV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput() GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2FacebookV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2FacebookV2 {
+		return vs[0].([]GetWindowsWebAppAuthSettingsV2FacebookV2)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingsV2FacebookV2Output)
+}
+
+type GetWindowsWebAppAuthSettingsV2GithubV2 struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetWindowsWebAppAuthSettingsV2GithubV2Input is an input type that accepts GetWindowsWebAppAuthSettingsV2GithubV2Args and GetWindowsWebAppAuthSettingsV2GithubV2Output values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2GithubV2Input` via:
+//
+//	GetWindowsWebAppAuthSettingsV2GithubV2Args{...}
+type GetWindowsWebAppAuthSettingsV2GithubV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2GithubV2Output() GetWindowsWebAppAuthSettingsV2GithubV2Output
+	ToGetWindowsWebAppAuthSettingsV2GithubV2OutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2GithubV2Output
+}
+
+type GetWindowsWebAppAuthSettingsV2GithubV2Args struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetWindowsWebAppAuthSettingsV2GithubV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2GithubV2Args) ToGetWindowsWebAppAuthSettingsV2GithubV2Output() GetWindowsWebAppAuthSettingsV2GithubV2Output {
+	return i.ToGetWindowsWebAppAuthSettingsV2GithubV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2GithubV2Args) ToGetWindowsWebAppAuthSettingsV2GithubV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GithubV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2GithubV2Output)
+}
+
+// GetWindowsWebAppAuthSettingsV2GithubV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2GithubV2Array and GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2GithubV2ArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2GithubV2Array{ GetWindowsWebAppAuthSettingsV2GithubV2Args{...} }
+type GetWindowsWebAppAuthSettingsV2GithubV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput() GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput
+	ToGetWindowsWebAppAuthSettingsV2GithubV2ArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2GithubV2Array []GetWindowsWebAppAuthSettingsV2GithubV2Input
+
+func (GetWindowsWebAppAuthSettingsV2GithubV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2GithubV2Array) ToGetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput() GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2GithubV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2GithubV2Array) ToGetWindowsWebAppAuthSettingsV2GithubV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2GithubV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2GithubV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GithubV2Output) ToGetWindowsWebAppAuthSettingsV2GithubV2Output() GetWindowsWebAppAuthSettingsV2GithubV2Output {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GithubV2Output) ToGetWindowsWebAppAuthSettingsV2GithubV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GithubV2Output {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2GithubV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2GithubV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2GithubV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2GithubV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetWindowsWebAppAuthSettingsV2GithubV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2GithubV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput() GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2GithubV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2GithubV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2GithubV2 {
+		return vs[0].([]GetWindowsWebAppAuthSettingsV2GithubV2)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingsV2GithubV2Output)
+}
+
+type GetWindowsWebAppAuthSettingsV2GoogleV2 struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetWindowsWebAppAuthSettingsV2GoogleV2Input is an input type that accepts GetWindowsWebAppAuthSettingsV2GoogleV2Args and GetWindowsWebAppAuthSettingsV2GoogleV2Output values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2GoogleV2Input` via:
+//
+//	GetWindowsWebAppAuthSettingsV2GoogleV2Args{...}
+type GetWindowsWebAppAuthSettingsV2GoogleV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2GoogleV2Output() GetWindowsWebAppAuthSettingsV2GoogleV2Output
+	ToGetWindowsWebAppAuthSettingsV2GoogleV2OutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2GoogleV2Output
+}
+
+type GetWindowsWebAppAuthSettingsV2GoogleV2Args struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetWindowsWebAppAuthSettingsV2GoogleV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2GoogleV2Args) ToGetWindowsWebAppAuthSettingsV2GoogleV2Output() GetWindowsWebAppAuthSettingsV2GoogleV2Output {
+	return i.ToGetWindowsWebAppAuthSettingsV2GoogleV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2GoogleV2Args) ToGetWindowsWebAppAuthSettingsV2GoogleV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GoogleV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2GoogleV2Output)
+}
+
+// GetWindowsWebAppAuthSettingsV2GoogleV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2GoogleV2Array and GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2GoogleV2ArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2GoogleV2Array{ GetWindowsWebAppAuthSettingsV2GoogleV2Args{...} }
+type GetWindowsWebAppAuthSettingsV2GoogleV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput() GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput
+	ToGetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2GoogleV2Array []GetWindowsWebAppAuthSettingsV2GoogleV2Input
+
+func (GetWindowsWebAppAuthSettingsV2GoogleV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2GoogleV2Array) ToGetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput() GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2GoogleV2Array) ToGetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2GoogleV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2GoogleV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GoogleV2Output) ToGetWindowsWebAppAuthSettingsV2GoogleV2Output() GetWindowsWebAppAuthSettingsV2GoogleV2Output {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GoogleV2Output) ToGetWindowsWebAppAuthSettingsV2GoogleV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GoogleV2Output {
+	return o
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetWindowsWebAppAuthSettingsV2GoogleV2Output) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2GoogleV2) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2GoogleV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2GoogleV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2GoogleV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2GoogleV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetWindowsWebAppAuthSettingsV2GoogleV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2GoogleV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput() GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2GoogleV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2GoogleV2 {
+		return vs[0].([]GetWindowsWebAppAuthSettingsV2GoogleV2)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingsV2GoogleV2Output)
+}
+
+type GetWindowsWebAppAuthSettingsV2Login struct {
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The method by which cookies expire.
+	CookieExpirationConvention string `pulumi:"cookieExpirationConvention"`
+	// The time after the request is made when the session cookie should expire.
+	CookieExpirationTime string `pulumi:"cookieExpirationTime"`
+	// The endpoint to which logout requests are made.
+	LogoutEndpoint string `pulumi:"logoutEndpoint"`
+	// The time after the request is made when the nonce should expire.
+	NonceExpirationTime string `pulumi:"nonceExpirationTime"`
+	// Are the fragments from the request preserved after the login request is made.
+	PreserveUrlFragmentsForLogins bool `pulumi:"preserveUrlFragmentsForLogins"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionTime float64 `pulumi:"tokenRefreshExtensionTime"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled bool `pulumi:"tokenStoreEnabled"`
+	// The directory path in the App Filesystem in which the tokens are stored.
+	TokenStorePath string `pulumi:"tokenStorePath"`
+	// The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+	TokenStoreSasSettingName string `pulumi:"tokenStoreSasSettingName"`
+	// Is the nonce validated while completing the login flow.
+	ValidateNonce bool `pulumi:"validateNonce"`
+}
+
+// GetWindowsWebAppAuthSettingsV2LoginInput is an input type that accepts GetWindowsWebAppAuthSettingsV2LoginArgs and GetWindowsWebAppAuthSettingsV2LoginOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2LoginInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2LoginArgs{...}
+type GetWindowsWebAppAuthSettingsV2LoginInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2LoginOutput() GetWindowsWebAppAuthSettingsV2LoginOutput
+	ToGetWindowsWebAppAuthSettingsV2LoginOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2LoginOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2LoginArgs struct {
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The method by which cookies expire.
+	CookieExpirationConvention pulumi.StringInput `pulumi:"cookieExpirationConvention"`
+	// The time after the request is made when the session cookie should expire.
+	CookieExpirationTime pulumi.StringInput `pulumi:"cookieExpirationTime"`
+	// The endpoint to which logout requests are made.
+	LogoutEndpoint pulumi.StringInput `pulumi:"logoutEndpoint"`
+	// The time after the request is made when the nonce should expire.
+	NonceExpirationTime pulumi.StringInput `pulumi:"nonceExpirationTime"`
+	// Are the fragments from the request preserved after the login request is made.
+	PreserveUrlFragmentsForLogins pulumi.BoolInput `pulumi:"preserveUrlFragmentsForLogins"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionTime pulumi.Float64Input `pulumi:"tokenRefreshExtensionTime"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled pulumi.BoolInput `pulumi:"tokenStoreEnabled"`
+	// The directory path in the App Filesystem in which the tokens are stored.
+	TokenStorePath pulumi.StringInput `pulumi:"tokenStorePath"`
+	// The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+	TokenStoreSasSettingName pulumi.StringInput `pulumi:"tokenStoreSasSettingName"`
+	// Is the nonce validated while completing the login flow.
+	ValidateNonce pulumi.BoolInput `pulumi:"validateNonce"`
+}
+
+func (GetWindowsWebAppAuthSettingsV2LoginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2LoginArgs) ToGetWindowsWebAppAuthSettingsV2LoginOutput() GetWindowsWebAppAuthSettingsV2LoginOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2LoginOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2LoginArgs) ToGetWindowsWebAppAuthSettingsV2LoginOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2LoginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2LoginOutput)
+}
+
+// GetWindowsWebAppAuthSettingsV2LoginArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2LoginArray and GetWindowsWebAppAuthSettingsV2LoginArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2LoginArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2LoginArray{ GetWindowsWebAppAuthSettingsV2LoginArgs{...} }
+type GetWindowsWebAppAuthSettingsV2LoginArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2LoginArrayOutput() GetWindowsWebAppAuthSettingsV2LoginArrayOutput
+	ToGetWindowsWebAppAuthSettingsV2LoginArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2LoginArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2LoginArray []GetWindowsWebAppAuthSettingsV2LoginInput
+
+func (GetWindowsWebAppAuthSettingsV2LoginArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2LoginArray) ToGetWindowsWebAppAuthSettingsV2LoginArrayOutput() GetWindowsWebAppAuthSettingsV2LoginArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2LoginArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2LoginArray) ToGetWindowsWebAppAuthSettingsV2LoginArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2LoginArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2LoginArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2LoginOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2LoginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) ToGetWindowsWebAppAuthSettingsV2LoginOutput() GetWindowsWebAppAuthSettingsV2LoginOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) ToGetWindowsWebAppAuthSettingsV2LoginOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2LoginOutput {
+	return o
+}
+
+// External URLs that can be redirected to as part of logging in or logging out of the app.
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2Login) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
+}
+
+// The method by which cookies expire.
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) CookieExpirationConvention() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2Login) string { return v.CookieExpirationConvention }).(pulumi.StringOutput)
+}
+
+// The time after the request is made when the session cookie should expire.
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) CookieExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2Login) string { return v.CookieExpirationTime }).(pulumi.StringOutput)
+}
+
+// The endpoint to which logout requests are made.
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) LogoutEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2Login) string { return v.LogoutEndpoint }).(pulumi.StringOutput)
+}
+
+// The time after the request is made when the nonce should expire.
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) NonceExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2Login) string { return v.NonceExpirationTime }).(pulumi.StringOutput)
+}
+
+// Are the fragments from the request preserved after the login request is made.
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) PreserveUrlFragmentsForLogins() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2Login) bool { return v.PreserveUrlFragmentsForLogins }).(pulumi.BoolOutput)
+}
+
+// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) TokenRefreshExtensionTime() pulumi.Float64Output {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2Login) float64 { return v.TokenRefreshExtensionTime }).(pulumi.Float64Output)
+}
+
+// Is the Token Store configuration Enabled.
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) TokenStoreEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2Login) bool { return v.TokenStoreEnabled }).(pulumi.BoolOutput)
+}
+
+// The directory path in the App Filesystem in which the tokens are stored.
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) TokenStorePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2Login) string { return v.TokenStorePath }).(pulumi.StringOutput)
+}
+
+// The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) TokenStoreSasSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2Login) string { return v.TokenStoreSasSettingName }).(pulumi.StringOutput)
+}
+
+// Is the nonce validated while completing the login flow.
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) ValidateNonce() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2Login) bool { return v.ValidateNonce }).(pulumi.BoolOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2LoginArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2LoginArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2LoginArrayOutput) ToGetWindowsWebAppAuthSettingsV2LoginArrayOutput() GetWindowsWebAppAuthSettingsV2LoginArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2LoginArrayOutput) ToGetWindowsWebAppAuthSettingsV2LoginArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2LoginArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2LoginArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2LoginOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2Login {
+		return vs[0].([]GetWindowsWebAppAuthSettingsV2Login)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingsV2LoginOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2MicrosoftV2 struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetWindowsWebAppAuthSettingsV2MicrosoftV2Input is an input type that accepts GetWindowsWebAppAuthSettingsV2MicrosoftV2Args and GetWindowsWebAppAuthSettingsV2MicrosoftV2Output values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2MicrosoftV2Input` via:
+//
+//	GetWindowsWebAppAuthSettingsV2MicrosoftV2Args{...}
+type GetWindowsWebAppAuthSettingsV2MicrosoftV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2MicrosoftV2Output() GetWindowsWebAppAuthSettingsV2MicrosoftV2Output
+	ToGetWindowsWebAppAuthSettingsV2MicrosoftV2OutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2MicrosoftV2Output
+}
+
+type GetWindowsWebAppAuthSettingsV2MicrosoftV2Args struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetWindowsWebAppAuthSettingsV2MicrosoftV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2MicrosoftV2Args) ToGetWindowsWebAppAuthSettingsV2MicrosoftV2Output() GetWindowsWebAppAuthSettingsV2MicrosoftV2Output {
+	return i.ToGetWindowsWebAppAuthSettingsV2MicrosoftV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2MicrosoftV2Args) ToGetWindowsWebAppAuthSettingsV2MicrosoftV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2MicrosoftV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2MicrosoftV2Output)
+}
+
+// GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2MicrosoftV2Array and GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2MicrosoftV2Array{ GetWindowsWebAppAuthSettingsV2MicrosoftV2Args{...} }
+type GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput() GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput
+	ToGetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2MicrosoftV2Array []GetWindowsWebAppAuthSettingsV2MicrosoftV2Input
+
+func (GetWindowsWebAppAuthSettingsV2MicrosoftV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2MicrosoftV2Array) ToGetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput() GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2MicrosoftV2Array) ToGetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2MicrosoftV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2MicrosoftV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2Output) ToGetWindowsWebAppAuthSettingsV2MicrosoftV2Output() GetWindowsWebAppAuthSettingsV2MicrosoftV2Output {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2Output) ToGetWindowsWebAppAuthSettingsV2MicrosoftV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2MicrosoftV2Output {
+	return o
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2Output) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2MicrosoftV2) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2MicrosoftV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2MicrosoftV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2MicrosoftV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput() GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2MicrosoftV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2MicrosoftV2 {
+		return vs[0].([]GetWindowsWebAppAuthSettingsV2MicrosoftV2)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingsV2MicrosoftV2Output)
+}
+
+type GetWindowsWebAppAuthSettingsV2TwitterV2 struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey string `pulumi:"consumerKey"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName string `pulumi:"consumerSecretSettingName"`
+}
+
+// GetWindowsWebAppAuthSettingsV2TwitterV2Input is an input type that accepts GetWindowsWebAppAuthSettingsV2TwitterV2Args and GetWindowsWebAppAuthSettingsV2TwitterV2Output values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2TwitterV2Input` via:
+//
+//	GetWindowsWebAppAuthSettingsV2TwitterV2Args{...}
+type GetWindowsWebAppAuthSettingsV2TwitterV2Input interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2TwitterV2Output() GetWindowsWebAppAuthSettingsV2TwitterV2Output
+	ToGetWindowsWebAppAuthSettingsV2TwitterV2OutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2TwitterV2Output
+}
+
+type GetWindowsWebAppAuthSettingsV2TwitterV2Args struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey pulumi.StringInput `pulumi:"consumerKey"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName pulumi.StringInput `pulumi:"consumerSecretSettingName"`
+}
+
+func (GetWindowsWebAppAuthSettingsV2TwitterV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2TwitterV2Args) ToGetWindowsWebAppAuthSettingsV2TwitterV2Output() GetWindowsWebAppAuthSettingsV2TwitterV2Output {
+	return i.ToGetWindowsWebAppAuthSettingsV2TwitterV2OutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2TwitterV2Args) ToGetWindowsWebAppAuthSettingsV2TwitterV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2TwitterV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2TwitterV2Output)
+}
+
+// GetWindowsWebAppAuthSettingsV2TwitterV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2TwitterV2Array and GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2TwitterV2ArrayInput` via:
+//
+//	GetWindowsWebAppAuthSettingsV2TwitterV2Array{ GetWindowsWebAppAuthSettingsV2TwitterV2Args{...} }
+type GetWindowsWebAppAuthSettingsV2TwitterV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput() GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput
+	ToGetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutputWithContext(context.Context) GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput
+}
+
+type GetWindowsWebAppAuthSettingsV2TwitterV2Array []GetWindowsWebAppAuthSettingsV2TwitterV2Input
+
+func (GetWindowsWebAppAuthSettingsV2TwitterV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppAuthSettingsV2TwitterV2Array) ToGetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput() GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput {
+	return i.ToGetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppAuthSettingsV2TwitterV2Array) ToGetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2TwitterV2Output struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2TwitterV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2TwitterV2Output) ToGetWindowsWebAppAuthSettingsV2TwitterV2Output() GetWindowsWebAppAuthSettingsV2TwitterV2Output {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2TwitterV2Output) ToGetWindowsWebAppAuthSettingsV2TwitterV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2TwitterV2Output {
+	return o
+}
+
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+func (o GetWindowsWebAppAuthSettingsV2TwitterV2Output) ConsumerKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2TwitterV2) string { return v.ConsumerKey }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+func (o GetWindowsWebAppAuthSettingsV2TwitterV2Output) ConsumerSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2TwitterV2) string { return v.ConsumerSecretSettingName }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput() GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2TwitterV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2TwitterV2 {
+		return vs[0].([]GetWindowsWebAppAuthSettingsV2TwitterV2)[vs[1].(int)]
+	}).(GetWindowsWebAppAuthSettingsV2TwitterV2Output)
+}
+
+type GetWindowsWebAppBackup struct {
+	// Is the Backup enabled?
+	Enabled bool `pulumi:"enabled"`
+	// The name of this Windows Web App.
+	Name string `pulumi:"name"`
+	// A `schedule` block as defined below.
+	Schedules []GetWindowsWebAppBackupSchedule `pulumi:"schedules"`
+	// The SAS URL to the container.
+	StorageAccountUrl string `pulumi:"storageAccountUrl"`
+}
+
+// GetWindowsWebAppBackupInput is an input type that accepts GetWindowsWebAppBackupArgs and GetWindowsWebAppBackupOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppBackupInput` via:
+//
+//	GetWindowsWebAppBackupArgs{...}
+type GetWindowsWebAppBackupInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppBackupOutput() GetWindowsWebAppBackupOutput
+	ToGetWindowsWebAppBackupOutputWithContext(context.Context) GetWindowsWebAppBackupOutput
+}
+
+type GetWindowsWebAppBackupArgs struct {
+	// Is the Backup enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The name of this Windows Web App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `schedule` block as defined below.
+	Schedules GetWindowsWebAppBackupScheduleArrayInput `pulumi:"schedules"`
+	// The SAS URL to the container.
+	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
+}
+
+func (GetWindowsWebAppBackupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppBackup)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppBackupArgs) ToGetWindowsWebAppBackupOutput() GetWindowsWebAppBackupOutput {
+	return i.ToGetWindowsWebAppBackupOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppBackupArgs) ToGetWindowsWebAppBackupOutputWithContext(ctx context.Context) GetWindowsWebAppBackupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppBackupOutput)
+}
+
+// GetWindowsWebAppBackupArrayInput is an input type that accepts GetWindowsWebAppBackupArray and GetWindowsWebAppBackupArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppBackupArrayInput` via:
+//
+//	GetWindowsWebAppBackupArray{ GetWindowsWebAppBackupArgs{...} }
+type GetWindowsWebAppBackupArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppBackupArrayOutput() GetWindowsWebAppBackupArrayOutput
+	ToGetWindowsWebAppBackupArrayOutputWithContext(context.Context) GetWindowsWebAppBackupArrayOutput
+}
+
+type GetWindowsWebAppBackupArray []GetWindowsWebAppBackupInput
+
+func (GetWindowsWebAppBackupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppBackup)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppBackupArray) ToGetWindowsWebAppBackupArrayOutput() GetWindowsWebAppBackupArrayOutput {
+	return i.ToGetWindowsWebAppBackupArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppBackupArray) ToGetWindowsWebAppBackupArrayOutputWithContext(ctx context.Context) GetWindowsWebAppBackupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppBackupArrayOutput)
+}
+
+type GetWindowsWebAppBackupOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppBackupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppBackup)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppBackupOutput) ToGetWindowsWebAppBackupOutput() GetWindowsWebAppBackupOutput {
+	return o
+}
+
+func (o GetWindowsWebAppBackupOutput) ToGetWindowsWebAppBackupOutputWithContext(ctx context.Context) GetWindowsWebAppBackupOutput {
+	return o
+}
+
+// Is the Backup enabled?
+func (o GetWindowsWebAppBackupOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppBackup) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The name of this Windows Web App.
+func (o GetWindowsWebAppBackupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppBackup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `schedule` block as defined below.
+func (o GetWindowsWebAppBackupOutput) Schedules() GetWindowsWebAppBackupScheduleArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppBackup) []GetWindowsWebAppBackupSchedule { return v.Schedules }).(GetWindowsWebAppBackupScheduleArrayOutput)
+}
+
+// The SAS URL to the container.
+func (o GetWindowsWebAppBackupOutput) StorageAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppBackup) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppBackupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppBackupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppBackup)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppBackupArrayOutput) ToGetWindowsWebAppBackupArrayOutput() GetWindowsWebAppBackupArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppBackupArrayOutput) ToGetWindowsWebAppBackupArrayOutputWithContext(ctx context.Context) GetWindowsWebAppBackupArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppBackupArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppBackupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppBackup {
+		return vs[0].([]GetWindowsWebAppBackup)[vs[1].(int)]
+	}).(GetWindowsWebAppBackupOutput)
+}
+
+type GetWindowsWebAppBackupSchedule struct {
+	// How often the backup will be executed.
+	FrequencyInterval int `pulumi:"frequencyInterval"`
+	// The unit of time for how often the backup should take place.
+	FrequencyUnit string `pulumi:"frequencyUnit"`
+	// Will the service keep at least one backup, regardless of age of backup.
+	KeepAtLeastOneBackup bool `pulumi:"keepAtLeastOneBackup"`
+	// The time of the last backup attempt.
+	LastExecutionTime string `pulumi:"lastExecutionTime"`
+	// After how many days backups should be deleted.
+	RetentionPeriodDays int `pulumi:"retentionPeriodDays"`
+	// When the schedule should start in RFC-3339 format.
+	StartTime string `pulumi:"startTime"`
+}
+
+// GetWindowsWebAppBackupScheduleInput is an input type that accepts GetWindowsWebAppBackupScheduleArgs and GetWindowsWebAppBackupScheduleOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppBackupScheduleInput` via:
+//
+//	GetWindowsWebAppBackupScheduleArgs{...}
+type GetWindowsWebAppBackupScheduleInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppBackupScheduleOutput() GetWindowsWebAppBackupScheduleOutput
+	ToGetWindowsWebAppBackupScheduleOutputWithContext(context.Context) GetWindowsWebAppBackupScheduleOutput
+}
+
+type GetWindowsWebAppBackupScheduleArgs struct {
+	// How often the backup will be executed.
+	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
+	// The unit of time for how often the backup should take place.
+	FrequencyUnit pulumi.StringInput `pulumi:"frequencyUnit"`
+	// Will the service keep at least one backup, regardless of age of backup.
+	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
+	// The time of the last backup attempt.
+	LastExecutionTime pulumi.StringInput `pulumi:"lastExecutionTime"`
+	// After how many days backups should be deleted.
+	RetentionPeriodDays pulumi.IntInput `pulumi:"retentionPeriodDays"`
+	// When the schedule should start in RFC-3339 format.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (GetWindowsWebAppBackupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppBackupSchedule)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppBackupScheduleArgs) ToGetWindowsWebAppBackupScheduleOutput() GetWindowsWebAppBackupScheduleOutput {
+	return i.ToGetWindowsWebAppBackupScheduleOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppBackupScheduleArgs) ToGetWindowsWebAppBackupScheduleOutputWithContext(ctx context.Context) GetWindowsWebAppBackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppBackupScheduleOutput)
+}
+
+// GetWindowsWebAppBackupScheduleArrayInput is an input type that accepts GetWindowsWebAppBackupScheduleArray and GetWindowsWebAppBackupScheduleArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppBackupScheduleArrayInput` via:
+//
+//	GetWindowsWebAppBackupScheduleArray{ GetWindowsWebAppBackupScheduleArgs{...} }
+type GetWindowsWebAppBackupScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppBackupScheduleArrayOutput() GetWindowsWebAppBackupScheduleArrayOutput
+	ToGetWindowsWebAppBackupScheduleArrayOutputWithContext(context.Context) GetWindowsWebAppBackupScheduleArrayOutput
+}
+
+type GetWindowsWebAppBackupScheduleArray []GetWindowsWebAppBackupScheduleInput
+
+func (GetWindowsWebAppBackupScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppBackupSchedule)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppBackupScheduleArray) ToGetWindowsWebAppBackupScheduleArrayOutput() GetWindowsWebAppBackupScheduleArrayOutput {
+	return i.ToGetWindowsWebAppBackupScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppBackupScheduleArray) ToGetWindowsWebAppBackupScheduleArrayOutputWithContext(ctx context.Context) GetWindowsWebAppBackupScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppBackupScheduleArrayOutput)
+}
+
+type GetWindowsWebAppBackupScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppBackupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppBackupSchedule)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppBackupScheduleOutput) ToGetWindowsWebAppBackupScheduleOutput() GetWindowsWebAppBackupScheduleOutput {
+	return o
+}
+
+func (o GetWindowsWebAppBackupScheduleOutput) ToGetWindowsWebAppBackupScheduleOutputWithContext(ctx context.Context) GetWindowsWebAppBackupScheduleOutput {
+	return o
+}
+
+// How often the backup will be executed.
+func (o GetWindowsWebAppBackupScheduleOutput) FrequencyInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsWebAppBackupSchedule) int { return v.FrequencyInterval }).(pulumi.IntOutput)
+}
+
+// The unit of time for how often the backup should take place.
+func (o GetWindowsWebAppBackupScheduleOutput) FrequencyUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppBackupSchedule) string { return v.FrequencyUnit }).(pulumi.StringOutput)
+}
+
+// Will the service keep at least one backup, regardless of age of backup.
+func (o GetWindowsWebAppBackupScheduleOutput) KeepAtLeastOneBackup() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppBackupSchedule) bool { return v.KeepAtLeastOneBackup }).(pulumi.BoolOutput)
+}
+
+// The time of the last backup attempt.
+func (o GetWindowsWebAppBackupScheduleOutput) LastExecutionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppBackupSchedule) string { return v.LastExecutionTime }).(pulumi.StringOutput)
+}
+
+// After how many days backups should be deleted.
+func (o GetWindowsWebAppBackupScheduleOutput) RetentionPeriodDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsWebAppBackupSchedule) int { return v.RetentionPeriodDays }).(pulumi.IntOutput)
+}
+
+// When the schedule should start in RFC-3339 format.
+func (o GetWindowsWebAppBackupScheduleOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppBackupSchedule) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppBackupScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppBackupScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppBackupSchedule)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppBackupScheduleArrayOutput) ToGetWindowsWebAppBackupScheduleArrayOutput() GetWindowsWebAppBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppBackupScheduleArrayOutput) ToGetWindowsWebAppBackupScheduleArrayOutputWithContext(ctx context.Context) GetWindowsWebAppBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppBackupScheduleArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppBackupScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppBackupSchedule {
+		return vs[0].([]GetWindowsWebAppBackupSchedule)[vs[1].(int)]
+	}).(GetWindowsWebAppBackupScheduleOutput)
+}
+
+type GetWindowsWebAppConnectionString struct {
+	// The name of this Windows Web App.
+	Name string `pulumi:"name"`
+	// The Azure Storage Type.
+	Type string `pulumi:"type"`
+	// The Connection String value.
+	Value string `pulumi:"value"`
+}
+
+// GetWindowsWebAppConnectionStringInput is an input type that accepts GetWindowsWebAppConnectionStringArgs and GetWindowsWebAppConnectionStringOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppConnectionStringInput` via:
+//
+//	GetWindowsWebAppConnectionStringArgs{...}
+type GetWindowsWebAppConnectionStringInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppConnectionStringOutput() GetWindowsWebAppConnectionStringOutput
+	ToGetWindowsWebAppConnectionStringOutputWithContext(context.Context) GetWindowsWebAppConnectionStringOutput
+}
+
+type GetWindowsWebAppConnectionStringArgs struct {
+	// The name of this Windows Web App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Azure Storage Type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The Connection String value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetWindowsWebAppConnectionStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppConnectionString)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppConnectionStringArgs) ToGetWindowsWebAppConnectionStringOutput() GetWindowsWebAppConnectionStringOutput {
+	return i.ToGetWindowsWebAppConnectionStringOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppConnectionStringArgs) ToGetWindowsWebAppConnectionStringOutputWithContext(ctx context.Context) GetWindowsWebAppConnectionStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppConnectionStringOutput)
+}
+
+// GetWindowsWebAppConnectionStringArrayInput is an input type that accepts GetWindowsWebAppConnectionStringArray and GetWindowsWebAppConnectionStringArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppConnectionStringArrayInput` via:
+//
+//	GetWindowsWebAppConnectionStringArray{ GetWindowsWebAppConnectionStringArgs{...} }
+type GetWindowsWebAppConnectionStringArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppConnectionStringArrayOutput() GetWindowsWebAppConnectionStringArrayOutput
+	ToGetWindowsWebAppConnectionStringArrayOutputWithContext(context.Context) GetWindowsWebAppConnectionStringArrayOutput
+}
+
+type GetWindowsWebAppConnectionStringArray []GetWindowsWebAppConnectionStringInput
+
+func (GetWindowsWebAppConnectionStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppConnectionString)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppConnectionStringArray) ToGetWindowsWebAppConnectionStringArrayOutput() GetWindowsWebAppConnectionStringArrayOutput {
+	return i.ToGetWindowsWebAppConnectionStringArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppConnectionStringArray) ToGetWindowsWebAppConnectionStringArrayOutputWithContext(ctx context.Context) GetWindowsWebAppConnectionStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppConnectionStringArrayOutput)
+}
+
+type GetWindowsWebAppConnectionStringOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppConnectionStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppConnectionString)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppConnectionStringOutput) ToGetWindowsWebAppConnectionStringOutput() GetWindowsWebAppConnectionStringOutput {
+	return o
+}
+
+func (o GetWindowsWebAppConnectionStringOutput) ToGetWindowsWebAppConnectionStringOutputWithContext(ctx context.Context) GetWindowsWebAppConnectionStringOutput {
+	return o
+}
+
+// The name of this Windows Web App.
+func (o GetWindowsWebAppConnectionStringOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppConnectionString) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Azure Storage Type.
+func (o GetWindowsWebAppConnectionStringOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppConnectionString) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Connection String value.
+func (o GetWindowsWebAppConnectionStringOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppConnectionString) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppConnectionStringArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppConnectionStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppConnectionString)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppConnectionStringArrayOutput) ToGetWindowsWebAppConnectionStringArrayOutput() GetWindowsWebAppConnectionStringArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppConnectionStringArrayOutput) ToGetWindowsWebAppConnectionStringArrayOutputWithContext(ctx context.Context) GetWindowsWebAppConnectionStringArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppConnectionStringArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppConnectionStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppConnectionString {
+		return vs[0].([]GetWindowsWebAppConnectionString)[vs[1].(int)]
+	}).(GetWindowsWebAppConnectionStringOutput)
+}
+
+type GetWindowsWebAppIdentity struct {
+	// A `identityIds` block as defined below.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID Managed Service Identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the Managed Service Identity.
+	TenantId string `pulumi:"tenantId"`
+	// The Azure Storage Type.
+	Type string `pulumi:"type"`
+}
+
+// GetWindowsWebAppIdentityInput is an input type that accepts GetWindowsWebAppIdentityArgs and GetWindowsWebAppIdentityOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppIdentityInput` via:
+//
+//	GetWindowsWebAppIdentityArgs{...}
+type GetWindowsWebAppIdentityInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppIdentityOutput() GetWindowsWebAppIdentityOutput
+	ToGetWindowsWebAppIdentityOutputWithContext(context.Context) GetWindowsWebAppIdentityOutput
+}
+
+type GetWindowsWebAppIdentityArgs struct {
+	// A `identityIds` block as defined below.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID Managed Service Identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the Managed Service Identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The Azure Storage Type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetWindowsWebAppIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppIdentity)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppIdentityArgs) ToGetWindowsWebAppIdentityOutput() GetWindowsWebAppIdentityOutput {
+	return i.ToGetWindowsWebAppIdentityOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppIdentityArgs) ToGetWindowsWebAppIdentityOutputWithContext(ctx context.Context) GetWindowsWebAppIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppIdentityOutput)
+}
+
+// GetWindowsWebAppIdentityArrayInput is an input type that accepts GetWindowsWebAppIdentityArray and GetWindowsWebAppIdentityArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppIdentityArrayInput` via:
+//
+//	GetWindowsWebAppIdentityArray{ GetWindowsWebAppIdentityArgs{...} }
+type GetWindowsWebAppIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppIdentityArrayOutput() GetWindowsWebAppIdentityArrayOutput
+	ToGetWindowsWebAppIdentityArrayOutputWithContext(context.Context) GetWindowsWebAppIdentityArrayOutput
+}
+
+type GetWindowsWebAppIdentityArray []GetWindowsWebAppIdentityInput
+
+func (GetWindowsWebAppIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppIdentity)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppIdentityArray) ToGetWindowsWebAppIdentityArrayOutput() GetWindowsWebAppIdentityArrayOutput {
+	return i.ToGetWindowsWebAppIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppIdentityArray) ToGetWindowsWebAppIdentityArrayOutputWithContext(ctx context.Context) GetWindowsWebAppIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppIdentityArrayOutput)
+}
+
+type GetWindowsWebAppIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppIdentity)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppIdentityOutput) ToGetWindowsWebAppIdentityOutput() GetWindowsWebAppIdentityOutput {
+	return o
+}
+
+func (o GetWindowsWebAppIdentityOutput) ToGetWindowsWebAppIdentityOutputWithContext(ctx context.Context) GetWindowsWebAppIdentityOutput {
+	return o
+}
+
+// A `identityIds` block as defined below.
+func (o GetWindowsWebAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID Managed Service Identity.
+func (o GetWindowsWebAppIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the Managed Service Identity.
+func (o GetWindowsWebAppIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The Azure Storage Type.
+func (o GetWindowsWebAppIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppIdentity)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppIdentityArrayOutput) ToGetWindowsWebAppIdentityArrayOutput() GetWindowsWebAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppIdentityArrayOutput) ToGetWindowsWebAppIdentityArrayOutputWithContext(ctx context.Context) GetWindowsWebAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppIdentityArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppIdentity {
+		return vs[0].([]GetWindowsWebAppIdentity)[vs[1].(int)]
+	}).(GetWindowsWebAppIdentityOutput)
+}
+
+type GetWindowsWebAppLog struct {
+	// A `applicationLogs` block as defined above.
+	ApplicationLogs []GetWindowsWebAppLogApplicationLog `pulumi:"applicationLogs"`
+	// Is Detailed Error Messaging enabled.
+	DetailedErrorMessages bool `pulumi:"detailedErrorMessages"`
+	// Is Failed Request Tracing enabled.
+	FailedRequestTracing bool `pulumi:"failedRequestTracing"`
+	// An `httpLogs` block as defined above.
+	HttpLogs []GetWindowsWebAppLogHttpLog `pulumi:"httpLogs"`
+}
+
+// GetWindowsWebAppLogInput is an input type that accepts GetWindowsWebAppLogArgs and GetWindowsWebAppLogOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogInput` via:
+//
+//	GetWindowsWebAppLogArgs{...}
+type GetWindowsWebAppLogInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogOutput() GetWindowsWebAppLogOutput
+	ToGetWindowsWebAppLogOutputWithContext(context.Context) GetWindowsWebAppLogOutput
+}
+
+type GetWindowsWebAppLogArgs struct {
+	// A `applicationLogs` block as defined above.
+	ApplicationLogs GetWindowsWebAppLogApplicationLogArrayInput `pulumi:"applicationLogs"`
+	// Is Detailed Error Messaging enabled.
+	DetailedErrorMessages pulumi.BoolInput `pulumi:"detailedErrorMessages"`
+	// Is Failed Request Tracing enabled.
+	FailedRequestTracing pulumi.BoolInput `pulumi:"failedRequestTracing"`
+	// An `httpLogs` block as defined above.
+	HttpLogs GetWindowsWebAppLogHttpLogArrayInput `pulumi:"httpLogs"`
+}
+
+func (GetWindowsWebAppLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLog)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogArgs) ToGetWindowsWebAppLogOutput() GetWindowsWebAppLogOutput {
+	return i.ToGetWindowsWebAppLogOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogArgs) ToGetWindowsWebAppLogOutputWithContext(ctx context.Context) GetWindowsWebAppLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogOutput)
+}
+
+// GetWindowsWebAppLogArrayInput is an input type that accepts GetWindowsWebAppLogArray and GetWindowsWebAppLogArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogArrayInput` via:
+//
+//	GetWindowsWebAppLogArray{ GetWindowsWebAppLogArgs{...} }
+type GetWindowsWebAppLogArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogArrayOutput() GetWindowsWebAppLogArrayOutput
+	ToGetWindowsWebAppLogArrayOutputWithContext(context.Context) GetWindowsWebAppLogArrayOutput
+}
+
+type GetWindowsWebAppLogArray []GetWindowsWebAppLogInput
+
+func (GetWindowsWebAppLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLog)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogArray) ToGetWindowsWebAppLogArrayOutput() GetWindowsWebAppLogArrayOutput {
+	return i.ToGetWindowsWebAppLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogArray) ToGetWindowsWebAppLogArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogArrayOutput)
+}
+
+type GetWindowsWebAppLogOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLog)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogOutput) ToGetWindowsWebAppLogOutput() GetWindowsWebAppLogOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogOutput) ToGetWindowsWebAppLogOutputWithContext(ctx context.Context) GetWindowsWebAppLogOutput {
+	return o
+}
+
+// A `applicationLogs` block as defined above.
+func (o GetWindowsWebAppLogOutput) ApplicationLogs() GetWindowsWebAppLogApplicationLogArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLog) []GetWindowsWebAppLogApplicationLog { return v.ApplicationLogs }).(GetWindowsWebAppLogApplicationLogArrayOutput)
+}
+
+// Is Detailed Error Messaging enabled.
+func (o GetWindowsWebAppLogOutput) DetailedErrorMessages() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLog) bool { return v.DetailedErrorMessages }).(pulumi.BoolOutput)
+}
+
+// Is Failed Request Tracing enabled.
+func (o GetWindowsWebAppLogOutput) FailedRequestTracing() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLog) bool { return v.FailedRequestTracing }).(pulumi.BoolOutput)
+}
+
+// An `httpLogs` block as defined above.
+func (o GetWindowsWebAppLogOutput) HttpLogs() GetWindowsWebAppLogHttpLogArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLog) []GetWindowsWebAppLogHttpLog { return v.HttpLogs }).(GetWindowsWebAppLogHttpLogArrayOutput)
+}
+
+type GetWindowsWebAppLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLog)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogArrayOutput) ToGetWindowsWebAppLogArrayOutput() GetWindowsWebAppLogArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogArrayOutput) ToGetWindowsWebAppLogArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppLog {
+		return vs[0].([]GetWindowsWebAppLog)[vs[1].(int)]
+	}).(GetWindowsWebAppLogOutput)
+}
+
+type GetWindowsWebAppLogApplicationLog struct {
+	// A `azureBlobStorage` block as defined above.
+	AzureBlobStorages []GetWindowsWebAppLogApplicationLogAzureBlobStorage `pulumi:"azureBlobStorages"`
+	// The logging level.
+	FileSystemLevel string `pulumi:"fileSystemLevel"`
+}
+
+// GetWindowsWebAppLogApplicationLogInput is an input type that accepts GetWindowsWebAppLogApplicationLogArgs and GetWindowsWebAppLogApplicationLogOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogApplicationLogInput` via:
+//
+//	GetWindowsWebAppLogApplicationLogArgs{...}
+type GetWindowsWebAppLogApplicationLogInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogApplicationLogOutput() GetWindowsWebAppLogApplicationLogOutput
+	ToGetWindowsWebAppLogApplicationLogOutputWithContext(context.Context) GetWindowsWebAppLogApplicationLogOutput
+}
+
+type GetWindowsWebAppLogApplicationLogArgs struct {
+	// A `azureBlobStorage` block as defined above.
+	AzureBlobStorages GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayInput `pulumi:"azureBlobStorages"`
+	// The logging level.
+	FileSystemLevel pulumi.StringInput `pulumi:"fileSystemLevel"`
+}
+
+func (GetWindowsWebAppLogApplicationLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLogApplicationLog)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogApplicationLogArgs) ToGetWindowsWebAppLogApplicationLogOutput() GetWindowsWebAppLogApplicationLogOutput {
+	return i.ToGetWindowsWebAppLogApplicationLogOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogApplicationLogArgs) ToGetWindowsWebAppLogApplicationLogOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogApplicationLogOutput)
+}
+
+// GetWindowsWebAppLogApplicationLogArrayInput is an input type that accepts GetWindowsWebAppLogApplicationLogArray and GetWindowsWebAppLogApplicationLogArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogApplicationLogArrayInput` via:
+//
+//	GetWindowsWebAppLogApplicationLogArray{ GetWindowsWebAppLogApplicationLogArgs{...} }
+type GetWindowsWebAppLogApplicationLogArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogApplicationLogArrayOutput() GetWindowsWebAppLogApplicationLogArrayOutput
+	ToGetWindowsWebAppLogApplicationLogArrayOutputWithContext(context.Context) GetWindowsWebAppLogApplicationLogArrayOutput
+}
+
+type GetWindowsWebAppLogApplicationLogArray []GetWindowsWebAppLogApplicationLogInput
+
+func (GetWindowsWebAppLogApplicationLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLogApplicationLog)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogApplicationLogArray) ToGetWindowsWebAppLogApplicationLogArrayOutput() GetWindowsWebAppLogApplicationLogArrayOutput {
+	return i.ToGetWindowsWebAppLogApplicationLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogApplicationLogArray) ToGetWindowsWebAppLogApplicationLogArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogApplicationLogArrayOutput)
+}
+
+type GetWindowsWebAppLogApplicationLogOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogApplicationLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLogApplicationLog)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogApplicationLogOutput) ToGetWindowsWebAppLogApplicationLogOutput() GetWindowsWebAppLogApplicationLogOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogApplicationLogOutput) ToGetWindowsWebAppLogApplicationLogOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogOutput {
+	return o
+}
+
+// A `azureBlobStorage` block as defined above.
+func (o GetWindowsWebAppLogApplicationLogOutput) AzureBlobStorages() GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLogApplicationLog) []GetWindowsWebAppLogApplicationLogAzureBlobStorage {
+		return v.AzureBlobStorages
+	}).(GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput)
+}
+
+// The logging level.
+func (o GetWindowsWebAppLogApplicationLogOutput) FileSystemLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLogApplicationLog) string { return v.FileSystemLevel }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppLogApplicationLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogApplicationLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLogApplicationLog)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogApplicationLogArrayOutput) ToGetWindowsWebAppLogApplicationLogArrayOutput() GetWindowsWebAppLogApplicationLogArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogApplicationLogArrayOutput) ToGetWindowsWebAppLogApplicationLogArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogApplicationLogArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogApplicationLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppLogApplicationLog {
+		return vs[0].([]GetWindowsWebAppLogApplicationLog)[vs[1].(int)]
+	}).(GetWindowsWebAppLogApplicationLogOutput)
+}
+
+type GetWindowsWebAppLogApplicationLogAzureBlobStorage struct {
+	// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+	Level string `pulumi:"level"`
+	// The retention period in days.
+	RetentionInDays int `pulumi:"retentionInDays"`
+	// The SAS url to the Azure Blob container.
+	SasUrl string `pulumi:"sasUrl"`
+}
+
+// GetWindowsWebAppLogApplicationLogAzureBlobStorageInput is an input type that accepts GetWindowsWebAppLogApplicationLogAzureBlobStorageArgs and GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogApplicationLogAzureBlobStorageInput` via:
+//
+//	GetWindowsWebAppLogApplicationLogAzureBlobStorageArgs{...}
+type GetWindowsWebAppLogApplicationLogAzureBlobStorageInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogApplicationLogAzureBlobStorageOutput() GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput
+	ToGetWindowsWebAppLogApplicationLogAzureBlobStorageOutputWithContext(context.Context) GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput
+}
+
+type GetWindowsWebAppLogApplicationLogAzureBlobStorageArgs struct {
+	// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+	Level pulumi.StringInput `pulumi:"level"`
+	// The retention period in days.
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	// The SAS url to the Azure Blob container.
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
+}
+
+func (GetWindowsWebAppLogApplicationLogAzureBlobStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLogApplicationLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogApplicationLogAzureBlobStorageArgs) ToGetWindowsWebAppLogApplicationLogAzureBlobStorageOutput() GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput {
+	return i.ToGetWindowsWebAppLogApplicationLogAzureBlobStorageOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogApplicationLogAzureBlobStorageArgs) ToGetWindowsWebAppLogApplicationLogAzureBlobStorageOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput)
+}
+
+// GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayInput is an input type that accepts GetWindowsWebAppLogApplicationLogAzureBlobStorageArray and GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayInput` via:
+//
+//	GetWindowsWebAppLogApplicationLogAzureBlobStorageArray{ GetWindowsWebAppLogApplicationLogAzureBlobStorageArgs{...} }
+type GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput() GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput
+	ToGetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutputWithContext(context.Context) GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput
+}
+
+type GetWindowsWebAppLogApplicationLogAzureBlobStorageArray []GetWindowsWebAppLogApplicationLogAzureBlobStorageInput
+
+func (GetWindowsWebAppLogApplicationLogAzureBlobStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLogApplicationLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogApplicationLogAzureBlobStorageArray) ToGetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput() GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput {
+	return i.ToGetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogApplicationLogAzureBlobStorageArray) ToGetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput)
+}
+
+type GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLogApplicationLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput) ToGetWindowsWebAppLogApplicationLogAzureBlobStorageOutput() GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput) ToGetWindowsWebAppLogApplicationLogAzureBlobStorageOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput {
+	return o
+}
+
+// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLogApplicationLogAzureBlobStorage) string { return v.Level }).(pulumi.StringOutput)
+}
+
+// The retention period in days.
+func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLogApplicationLogAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
+}
+
+// The SAS url to the Azure Blob container.
+func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLogApplicationLogAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLogApplicationLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput) ToGetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput() GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput) ToGetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppLogApplicationLogAzureBlobStorage {
+		return vs[0].([]GetWindowsWebAppLogApplicationLogAzureBlobStorage)[vs[1].(int)]
+	}).(GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput)
+}
+
+type GetWindowsWebAppLogHttpLog struct {
+	// A `azureBlobStorage` block as defined above.
+	AzureBlobStorages []GetWindowsWebAppLogHttpLogAzureBlobStorage `pulumi:"azureBlobStorages"`
+	// A `fileSystem` block as defined above.
+	FileSystems []GetWindowsWebAppLogHttpLogFileSystem `pulumi:"fileSystems"`
+}
+
+// GetWindowsWebAppLogHttpLogInput is an input type that accepts GetWindowsWebAppLogHttpLogArgs and GetWindowsWebAppLogHttpLogOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogHttpLogInput` via:
+//
+//	GetWindowsWebAppLogHttpLogArgs{...}
+type GetWindowsWebAppLogHttpLogInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogHttpLogOutput() GetWindowsWebAppLogHttpLogOutput
+	ToGetWindowsWebAppLogHttpLogOutputWithContext(context.Context) GetWindowsWebAppLogHttpLogOutput
+}
+
+type GetWindowsWebAppLogHttpLogArgs struct {
+	// A `azureBlobStorage` block as defined above.
+	AzureBlobStorages GetWindowsWebAppLogHttpLogAzureBlobStorageArrayInput `pulumi:"azureBlobStorages"`
+	// A `fileSystem` block as defined above.
+	FileSystems GetWindowsWebAppLogHttpLogFileSystemArrayInput `pulumi:"fileSystems"`
+}
+
+func (GetWindowsWebAppLogHttpLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLogHttpLog)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogHttpLogArgs) ToGetWindowsWebAppLogHttpLogOutput() GetWindowsWebAppLogHttpLogOutput {
+	return i.ToGetWindowsWebAppLogHttpLogOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogHttpLogArgs) ToGetWindowsWebAppLogHttpLogOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogOutput)
+}
+
+// GetWindowsWebAppLogHttpLogArrayInput is an input type that accepts GetWindowsWebAppLogHttpLogArray and GetWindowsWebAppLogHttpLogArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogHttpLogArrayInput` via:
+//
+//	GetWindowsWebAppLogHttpLogArray{ GetWindowsWebAppLogHttpLogArgs{...} }
+type GetWindowsWebAppLogHttpLogArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogHttpLogArrayOutput() GetWindowsWebAppLogHttpLogArrayOutput
+	ToGetWindowsWebAppLogHttpLogArrayOutputWithContext(context.Context) GetWindowsWebAppLogHttpLogArrayOutput
+}
+
+type GetWindowsWebAppLogHttpLogArray []GetWindowsWebAppLogHttpLogInput
+
+func (GetWindowsWebAppLogHttpLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLogHttpLog)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogHttpLogArray) ToGetWindowsWebAppLogHttpLogArrayOutput() GetWindowsWebAppLogHttpLogArrayOutput {
+	return i.ToGetWindowsWebAppLogHttpLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogHttpLogArray) ToGetWindowsWebAppLogHttpLogArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogArrayOutput)
+}
+
+type GetWindowsWebAppLogHttpLogOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogHttpLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLogHttpLog)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogHttpLogOutput) ToGetWindowsWebAppLogHttpLogOutput() GetWindowsWebAppLogHttpLogOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogOutput) ToGetWindowsWebAppLogHttpLogOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogOutput {
+	return o
+}
+
+// A `azureBlobStorage` block as defined above.
+func (o GetWindowsWebAppLogHttpLogOutput) AzureBlobStorages() GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLogHttpLog) []GetWindowsWebAppLogHttpLogAzureBlobStorage {
+		return v.AzureBlobStorages
+	}).(GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput)
+}
+
+// A `fileSystem` block as defined above.
+func (o GetWindowsWebAppLogHttpLogOutput) FileSystems() GetWindowsWebAppLogHttpLogFileSystemArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLogHttpLog) []GetWindowsWebAppLogHttpLogFileSystem { return v.FileSystems }).(GetWindowsWebAppLogHttpLogFileSystemArrayOutput)
+}
+
+type GetWindowsWebAppLogHttpLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogHttpLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLogHttpLog)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogHttpLogArrayOutput) ToGetWindowsWebAppLogHttpLogArrayOutput() GetWindowsWebAppLogHttpLogArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogArrayOutput) ToGetWindowsWebAppLogHttpLogArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogHttpLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppLogHttpLog {
+		return vs[0].([]GetWindowsWebAppLogHttpLog)[vs[1].(int)]
+	}).(GetWindowsWebAppLogHttpLogOutput)
+}
+
+type GetWindowsWebAppLogHttpLogAzureBlobStorage struct {
+	// The retention period in days.
+	RetentionInDays int `pulumi:"retentionInDays"`
+	// The SAS url to the Azure Blob container.
+	SasUrl string `pulumi:"sasUrl"`
+}
+
+// GetWindowsWebAppLogHttpLogAzureBlobStorageInput is an input type that accepts GetWindowsWebAppLogHttpLogAzureBlobStorageArgs and GetWindowsWebAppLogHttpLogAzureBlobStorageOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogHttpLogAzureBlobStorageInput` via:
+//
+//	GetWindowsWebAppLogHttpLogAzureBlobStorageArgs{...}
+type GetWindowsWebAppLogHttpLogAzureBlobStorageInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogHttpLogAzureBlobStorageOutput() GetWindowsWebAppLogHttpLogAzureBlobStorageOutput
+	ToGetWindowsWebAppLogHttpLogAzureBlobStorageOutputWithContext(context.Context) GetWindowsWebAppLogHttpLogAzureBlobStorageOutput
+}
+
+type GetWindowsWebAppLogHttpLogAzureBlobStorageArgs struct {
+	// The retention period in days.
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	// The SAS url to the Azure Blob container.
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
+}
+
+func (GetWindowsWebAppLogHttpLogAzureBlobStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLogHttpLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogHttpLogAzureBlobStorageArgs) ToGetWindowsWebAppLogHttpLogAzureBlobStorageOutput() GetWindowsWebAppLogHttpLogAzureBlobStorageOutput {
+	return i.ToGetWindowsWebAppLogHttpLogAzureBlobStorageOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogHttpLogAzureBlobStorageArgs) ToGetWindowsWebAppLogHttpLogAzureBlobStorageOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogAzureBlobStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogAzureBlobStorageOutput)
+}
+
+// GetWindowsWebAppLogHttpLogAzureBlobStorageArrayInput is an input type that accepts GetWindowsWebAppLogHttpLogAzureBlobStorageArray and GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogHttpLogAzureBlobStorageArrayInput` via:
+//
+//	GetWindowsWebAppLogHttpLogAzureBlobStorageArray{ GetWindowsWebAppLogHttpLogAzureBlobStorageArgs{...} }
+type GetWindowsWebAppLogHttpLogAzureBlobStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput() GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput
+	ToGetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutputWithContext(context.Context) GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput
+}
+
+type GetWindowsWebAppLogHttpLogAzureBlobStorageArray []GetWindowsWebAppLogHttpLogAzureBlobStorageInput
+
+func (GetWindowsWebAppLogHttpLogAzureBlobStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLogHttpLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogHttpLogAzureBlobStorageArray) ToGetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput() GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput {
+	return i.ToGetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogHttpLogAzureBlobStorageArray) ToGetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput)
+}
+
+type GetWindowsWebAppLogHttpLogAzureBlobStorageOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogHttpLogAzureBlobStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLogHttpLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogHttpLogAzureBlobStorageOutput) ToGetWindowsWebAppLogHttpLogAzureBlobStorageOutput() GetWindowsWebAppLogHttpLogAzureBlobStorageOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogAzureBlobStorageOutput) ToGetWindowsWebAppLogHttpLogAzureBlobStorageOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogAzureBlobStorageOutput {
+	return o
+}
+
+// The retention period in days.
+func (o GetWindowsWebAppLogHttpLogAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLogHttpLogAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
+}
+
+// The SAS url to the Azure Blob container.
+func (o GetWindowsWebAppLogHttpLogAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLogHttpLogAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLogHttpLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput) ToGetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput() GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput) ToGetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogHttpLogAzureBlobStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppLogHttpLogAzureBlobStorage {
+		return vs[0].([]GetWindowsWebAppLogHttpLogAzureBlobStorage)[vs[1].(int)]
+	}).(GetWindowsWebAppLogHttpLogAzureBlobStorageOutput)
+}
+
+type GetWindowsWebAppLogHttpLogFileSystem struct {
+	// The retention period in days.
+	RetentionInDays int `pulumi:"retentionInDays"`
+	// The maximum size in megabytes that log files can use.
+	RetentionInMb int `pulumi:"retentionInMb"`
+}
+
+// GetWindowsWebAppLogHttpLogFileSystemInput is an input type that accepts GetWindowsWebAppLogHttpLogFileSystemArgs and GetWindowsWebAppLogHttpLogFileSystemOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogHttpLogFileSystemInput` via:
+//
+//	GetWindowsWebAppLogHttpLogFileSystemArgs{...}
+type GetWindowsWebAppLogHttpLogFileSystemInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogHttpLogFileSystemOutput() GetWindowsWebAppLogHttpLogFileSystemOutput
+	ToGetWindowsWebAppLogHttpLogFileSystemOutputWithContext(context.Context) GetWindowsWebAppLogHttpLogFileSystemOutput
+}
+
+type GetWindowsWebAppLogHttpLogFileSystemArgs struct {
+	// The retention period in days.
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	// The maximum size in megabytes that log files can use.
+	RetentionInMb pulumi.IntInput `pulumi:"retentionInMb"`
+}
+
+func (GetWindowsWebAppLogHttpLogFileSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLogHttpLogFileSystem)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogHttpLogFileSystemArgs) ToGetWindowsWebAppLogHttpLogFileSystemOutput() GetWindowsWebAppLogHttpLogFileSystemOutput {
+	return i.ToGetWindowsWebAppLogHttpLogFileSystemOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogHttpLogFileSystemArgs) ToGetWindowsWebAppLogHttpLogFileSystemOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogFileSystemOutput)
+}
+
+// GetWindowsWebAppLogHttpLogFileSystemArrayInput is an input type that accepts GetWindowsWebAppLogHttpLogFileSystemArray and GetWindowsWebAppLogHttpLogFileSystemArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppLogHttpLogFileSystemArrayInput` via:
+//
+//	GetWindowsWebAppLogHttpLogFileSystemArray{ GetWindowsWebAppLogHttpLogFileSystemArgs{...} }
+type GetWindowsWebAppLogHttpLogFileSystemArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppLogHttpLogFileSystemArrayOutput() GetWindowsWebAppLogHttpLogFileSystemArrayOutput
+	ToGetWindowsWebAppLogHttpLogFileSystemArrayOutputWithContext(context.Context) GetWindowsWebAppLogHttpLogFileSystemArrayOutput
+}
+
+type GetWindowsWebAppLogHttpLogFileSystemArray []GetWindowsWebAppLogHttpLogFileSystemInput
+
+func (GetWindowsWebAppLogHttpLogFileSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLogHttpLogFileSystem)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppLogHttpLogFileSystemArray) ToGetWindowsWebAppLogHttpLogFileSystemArrayOutput() GetWindowsWebAppLogHttpLogFileSystemArrayOutput {
+	return i.ToGetWindowsWebAppLogHttpLogFileSystemArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppLogHttpLogFileSystemArray) ToGetWindowsWebAppLogHttpLogFileSystemArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogFileSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogFileSystemArrayOutput)
+}
+
+type GetWindowsWebAppLogHttpLogFileSystemOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogHttpLogFileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppLogHttpLogFileSystem)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogHttpLogFileSystemOutput) ToGetWindowsWebAppLogHttpLogFileSystemOutput() GetWindowsWebAppLogHttpLogFileSystemOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogFileSystemOutput) ToGetWindowsWebAppLogHttpLogFileSystemOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogFileSystemOutput {
+	return o
+}
+
+// The retention period in days.
+func (o GetWindowsWebAppLogHttpLogFileSystemOutput) RetentionInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLogHttpLogFileSystem) int { return v.RetentionInDays }).(pulumi.IntOutput)
+}
+
+// The maximum size in megabytes that log files can use.
+func (o GetWindowsWebAppLogHttpLogFileSystemOutput) RetentionInMb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsWebAppLogHttpLogFileSystem) int { return v.RetentionInMb }).(pulumi.IntOutput)
+}
+
+type GetWindowsWebAppLogHttpLogFileSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppLogHttpLogFileSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppLogHttpLogFileSystem)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppLogHttpLogFileSystemArrayOutput) ToGetWindowsWebAppLogHttpLogFileSystemArrayOutput() GetWindowsWebAppLogHttpLogFileSystemArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogFileSystemArrayOutput) ToGetWindowsWebAppLogHttpLogFileSystemArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogFileSystemArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogFileSystemArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogHttpLogFileSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppLogHttpLogFileSystem {
+		return vs[0].([]GetWindowsWebAppLogHttpLogFileSystem)[vs[1].(int)]
+	}).(GetWindowsWebAppLogHttpLogFileSystemOutput)
+}
+
+type GetWindowsWebAppSiteConfig struct {
+	// Is this Windows Web App is Always On enabled.
+	AlwaysOn bool `pulumi:"alwaysOn"`
+	// The ID of the APIM configuration for this Windows Web App.
+	ApiDefinitionUrl string `pulumi:"apiDefinitionUrl"`
+	// The ID of the API Management setting linked to the Windows Web App.
+	ApiManagementApiId string `pulumi:"apiManagementApiId"`
+	// The command line used to launch this app.
+	AppCommandLine string `pulumi:"appCommandLine"`
+	// A `applicationStack` block as defined above.
+	ApplicationStacks []GetWindowsWebAppSiteConfigApplicationStack `pulumi:"applicationStacks"`
+	// Are Auto heal rules to be enabled.
+	AutoHealEnabled bool `pulumi:"autoHealEnabled"`
+	// A `autoHealSetting` block as defined above.
+	AutoHealSettings []GetWindowsWebAppSiteConfigAutoHealSetting `pulumi:"autoHealSettings"`
+	// The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
+	ContainerRegistryManagedIdentityClientId string `pulumi:"containerRegistryManagedIdentityClientId"`
+	// Do connections for Azure Container Registry use Managed Identity.
+	ContainerRegistryUseManagedIdentity bool `pulumi:"containerRegistryUseManagedIdentity"`
+	// A `cors` block as defined above.
+	Cors []GetWindowsWebAppSiteConfigCor `pulumi:"cors"`
+	// The list of Default Documents for the Windows Web App.
+	DefaultDocuments []string `pulumi:"defaultDocuments"`
+	// Is Detailed Error Logging enabled.
+	DetailedErrorLoggingEnabled bool `pulumi:"detailedErrorLoggingEnabled"`
+	// The State of FTP / FTPS service.
+	FtpsState string `pulumi:"ftpsState"`
+	// (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+	HealthCheckEvictionTimeInMin int `pulumi:"healthCheckEvictionTimeInMin"`
+	// The path to the Health Check endpoint.
+	HealthCheckPath string `pulumi:"healthCheckPath"`
+	// Is HTTP2.0 enabled.
+	Http2Enabled bool `pulumi:"http2Enabled"`
+	// A `ipRestriction` block as defined above.
+	IpRestrictions []GetWindowsWebAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
+	// The site Load Balancing Mode.
+	LoadBalancingMode string `pulumi:"loadBalancingMode"`
+	// Is the Local MySQL enabled.
+	LocalMysqlEnabled bool `pulumi:"localMysqlEnabled"`
+	// The Managed Pipeline Mode.
+	ManagedPipelineMode string `pulumi:"managedPipelineMode"`
+	// The Minimum version of TLS for requests.
+	MinimumTlsVersion      string `pulumi:"minimumTlsVersion"`
+	RemoteDebuggingEnabled bool   `pulumi:"remoteDebuggingEnabled"`
+	// The Remote Debugging Version.
+	RemoteDebuggingVersion string `pulumi:"remoteDebuggingVersion"`
+	// A `scmIpRestriction` block as defined above.
+	ScmIpRestrictions []GetWindowsWebAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
+	// The Minimum version of TLS for requests to SCM.
+	ScmMinimumTlsVersion string `pulumi:"scmMinimumTlsVersion"`
+	// The Source Control Management Type in use.
+	ScmType string `pulumi:"scmType"`
+	// Is the Windows Web App `ipRestriction` configuration used for the SCM also.
+	ScmUseMainIpRestriction bool `pulumi:"scmUseMainIpRestriction"`
+	// Does the Windows Web App use a 32-bit worker.
+	Use32BitWorker bool `pulumi:"use32BitWorker"`
+	// A `virtualApplication` block as defined below.
+	VirtualApplications []GetWindowsWebAppSiteConfigVirtualApplication `pulumi:"virtualApplications"`
+	// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+	VnetRouteAllEnabled bool `pulumi:"vnetRouteAllEnabled"`
+	// Are Web Sockets enabled?
+	WebsocketsEnabled bool `pulumi:"websocketsEnabled"`
+	// The string representation of the Windows FX Version.
+	WindowsFxVersion string `pulumi:"windowsFxVersion"`
+	// The number of Workers for this Windows App Service.
+	WorkerCount int `pulumi:"workerCount"`
+}
+
+// GetWindowsWebAppSiteConfigInput is an input type that accepts GetWindowsWebAppSiteConfigArgs and GetWindowsWebAppSiteConfigOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppSiteConfigInput` via:
+//
+//	GetWindowsWebAppSiteConfigArgs{...}
+type GetWindowsWebAppSiteConfigInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppSiteConfigOutput() GetWindowsWebAppSiteConfigOutput
+	ToGetWindowsWebAppSiteConfigOutputWithContext(context.Context) GetWindowsWebAppSiteConfigOutput
+}
+
+type GetWindowsWebAppSiteConfigArgs struct {
+	// Is this Windows Web App is Always On enabled.
+	AlwaysOn pulumi.BoolInput `pulumi:"alwaysOn"`
+	// The ID of the APIM configuration for this Windows Web App.
+	ApiDefinitionUrl pulumi.StringInput `pulumi:"apiDefinitionUrl"`
+	// The ID of the API Management setting linked to the Windows Web App.
+	ApiManagementApiId pulumi.StringInput `pulumi:"apiManagementApiId"`
+	// The command line used to launch this app.
+	AppCommandLine pulumi.StringInput `pulumi:"appCommandLine"`
+	// A `applicationStack` block as defined above.
+	ApplicationStacks GetWindowsWebAppSiteConfigApplicationStackArrayInput `pulumi:"applicationStacks"`
+	// Are Auto heal rules to be enabled.
+	AutoHealEnabled pulumi.BoolInput `pulumi:"autoHealEnabled"`
+	// A `autoHealSetting` block as defined above.
+	AutoHealSettings GetWindowsWebAppSiteConfigAutoHealSettingArrayInput `pulumi:"autoHealSettings"`
+	// The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
+	ContainerRegistryManagedIdentityClientId pulumi.StringInput `pulumi:"containerRegistryManagedIdentityClientId"`
+	// Do connections for Azure Container Registry use Managed Identity.
+	ContainerRegistryUseManagedIdentity pulumi.BoolInput `pulumi:"containerRegistryUseManagedIdentity"`
+	// A `cors` block as defined above.
+	Cors GetWindowsWebAppSiteConfigCorArrayInput `pulumi:"cors"`
+	// The list of Default Documents for the Windows Web App.
+	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
+	// Is Detailed Error Logging enabled.
+	DetailedErrorLoggingEnabled pulumi.BoolInput `pulumi:"detailedErrorLoggingEnabled"`
+	// The State of FTP / FTPS service.
+	FtpsState pulumi.StringInput `pulumi:"ftpsState"`
+	// (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+	HealthCheckEvictionTimeInMin pulumi.IntInput `pulumi:"healthCheckEvictionTimeInMin"`
+	// The path to the Health Check endpoint.
+	HealthCheckPath pulumi.StringInput `pulumi:"healthCheckPath"`
+	// Is HTTP2.0 enabled.
+	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
+	// A `ipRestriction` block as defined above.
+	IpRestrictions GetWindowsWebAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
+	// The site Load Balancing Mode.
+	LoadBalancingMode pulumi.StringInput `pulumi:"loadBalancingMode"`
+	// Is the Local MySQL enabled.
+	LocalMysqlEnabled pulumi.BoolInput `pulumi:"localMysqlEnabled"`
+	// The Managed Pipeline Mode.
+	ManagedPipelineMode pulumi.StringInput `pulumi:"managedPipelineMode"`
+	// The Minimum version of TLS for requests.
+	MinimumTlsVersion      pulumi.StringInput `pulumi:"minimumTlsVersion"`
+	RemoteDebuggingEnabled pulumi.BoolInput   `pulumi:"remoteDebuggingEnabled"`
+	// The Remote Debugging Version.
+	RemoteDebuggingVersion pulumi.StringInput `pulumi:"remoteDebuggingVersion"`
+	// A `scmIpRestriction` block as defined above.
+	ScmIpRestrictions GetWindowsWebAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
+	// The Minimum version of TLS for requests to SCM.
+	ScmMinimumTlsVersion pulumi.StringInput `pulumi:"scmMinimumTlsVersion"`
+	// The Source Control Management Type in use.
+	ScmType pulumi.StringInput `pulumi:"scmType"`
+	// Is the Windows Web App `ipRestriction` configuration used for the SCM also.
+	ScmUseMainIpRestriction pulumi.BoolInput `pulumi:"scmUseMainIpRestriction"`
+	// Does the Windows Web App use a 32-bit worker.
+	Use32BitWorker pulumi.BoolInput `pulumi:"use32BitWorker"`
+	// A `virtualApplication` block as defined below.
+	VirtualApplications GetWindowsWebAppSiteConfigVirtualApplicationArrayInput `pulumi:"virtualApplications"`
+	// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+	VnetRouteAllEnabled pulumi.BoolInput `pulumi:"vnetRouteAllEnabled"`
+	// Are Web Sockets enabled?
+	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
+	// The string representation of the Windows FX Version.
+	WindowsFxVersion pulumi.StringInput `pulumi:"windowsFxVersion"`
+	// The number of Workers for this Windows App Service.
+	WorkerCount pulumi.IntInput `pulumi:"workerCount"`
+}
+
+func (GetWindowsWebAppSiteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppSiteConfig)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppSiteConfigArgs) ToGetWindowsWebAppSiteConfigOutput() GetWindowsWebAppSiteConfigOutput {
+	return i.ToGetWindowsWebAppSiteConfigOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppSiteConfigArgs) ToGetWindowsWebAppSiteConfigOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigOutput)
+}
+
+// GetWindowsWebAppSiteConfigArrayInput is an input type that accepts GetWindowsWebAppSiteConfigArray and GetWindowsWebAppSiteConfigArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppSiteConfigArrayInput` via:
+//
+//	GetWindowsWebAppSiteConfigArray{ GetWindowsWebAppSiteConfigArgs{...} }
+type GetWindowsWebAppSiteConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppSiteConfigArrayOutput() GetWindowsWebAppSiteConfigArrayOutput
+	ToGetWindowsWebAppSiteConfigArrayOutputWithContext(context.Context) GetWindowsWebAppSiteConfigArrayOutput
+}
+
+type GetWindowsWebAppSiteConfigArray []GetWindowsWebAppSiteConfigInput
+
+func (GetWindowsWebAppSiteConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppSiteConfig)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppSiteConfigArray) ToGetWindowsWebAppSiteConfigArrayOutput() GetWindowsWebAppSiteConfigArrayOutput {
+	return i.ToGetWindowsWebAppSiteConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppSiteConfigArray) ToGetWindowsWebAppSiteConfigArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigArrayOutput)
+}
+
+type GetWindowsWebAppSiteConfigOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppSiteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppSiteConfig)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppSiteConfigOutput) ToGetWindowsWebAppSiteConfigOutput() GetWindowsWebAppSiteConfigOutput {
+	return o
+}
+
+func (o GetWindowsWebAppSiteConfigOutput) ToGetWindowsWebAppSiteConfigOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigOutput {
+	return o
+}
+
+// Is this Windows Web App is Always On enabled.
+func (o GetWindowsWebAppSiteConfigOutput) AlwaysOn() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.AlwaysOn }).(pulumi.BoolOutput)
+}
+
+// The ID of the APIM configuration for this Windows Web App.
+func (o GetWindowsWebAppSiteConfigOutput) ApiDefinitionUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.ApiDefinitionUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the API Management setting linked to the Windows Web App.
+func (o GetWindowsWebAppSiteConfigOutput) ApiManagementApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.ApiManagementApiId }).(pulumi.StringOutput)
+}
+
+// The command line used to launch this app.
+func (o GetWindowsWebAppSiteConfigOutput) AppCommandLine() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.AppCommandLine }).(pulumi.StringOutput)
+}
+
+// A `applicationStack` block as defined above.
+func (o GetWindowsWebAppSiteConfigOutput) ApplicationStacks() GetWindowsWebAppSiteConfigApplicationStackArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) []GetWindowsWebAppSiteConfigApplicationStack {
+		return v.ApplicationStacks
+	}).(GetWindowsWebAppSiteConfigApplicationStackArrayOutput)
+}
+
+// Are Auto heal rules to be enabled.
+func (o GetWindowsWebAppSiteConfigOutput) AutoHealEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.AutoHealEnabled }).(pulumi.BoolOutput)
+}
+
+// A `autoHealSetting` block as defined above.
+func (o GetWindowsWebAppSiteConfigOutput) AutoHealSettings() GetWindowsWebAppSiteConfigAutoHealSettingArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) []GetWindowsWebAppSiteConfigAutoHealSetting {
+		return v.AutoHealSettings
+	}).(GetWindowsWebAppSiteConfigAutoHealSettingArrayOutput)
+}
+
+// The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
+func (o GetWindowsWebAppSiteConfigOutput) ContainerRegistryManagedIdentityClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.ContainerRegistryManagedIdentityClientId }).(pulumi.StringOutput)
+}
+
+// Do connections for Azure Container Registry use Managed Identity.
+func (o GetWindowsWebAppSiteConfigOutput) ContainerRegistryUseManagedIdentity() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.ContainerRegistryUseManagedIdentity }).(pulumi.BoolOutput)
+}
+
+// A `cors` block as defined above.
+func (o GetWindowsWebAppSiteConfigOutput) Cors() GetWindowsWebAppSiteConfigCorArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) []GetWindowsWebAppSiteConfigCor { return v.Cors }).(GetWindowsWebAppSiteConfigCorArrayOutput)
+}
+
+// The list of Default Documents for the Windows Web App.
+func (o GetWindowsWebAppSiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
+}
+
+// Is Detailed Error Logging enabled.
+func (o GetWindowsWebAppSiteConfigOutput) DetailedErrorLoggingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolOutput)
+}
+
+// The State of FTP / FTPS service.
+func (o GetWindowsWebAppSiteConfigOutput) FtpsState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.FtpsState }).(pulumi.StringOutput)
+}
+
+// (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+func (o GetWindowsWebAppSiteConfigOutput) HealthCheckEvictionTimeInMin() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) int { return v.HealthCheckEvictionTimeInMin }).(pulumi.IntOutput)
+}
+
+// The path to the Health Check endpoint.
+func (o GetWindowsWebAppSiteConfigOutput) HealthCheckPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.HealthCheckPath }).(pulumi.StringOutput)
+}
+
+// Is HTTP2.0 enabled.
+func (o GetWindowsWebAppSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.Http2Enabled }).(pulumi.BoolOutput)
+}
+
+// A `ipRestriction` block as defined above.
+func (o GetWindowsWebAppSiteConfigOutput) IpRestrictions() GetWindowsWebAppSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) []GetWindowsWebAppSiteConfigIpRestriction { return v.IpRestrictions }).(GetWindowsWebAppSiteConfigIpRestrictionArrayOutput)
+}
+
+// The site Load Balancing Mode.
+func (o GetWindowsWebAppSiteConfigOutput) LoadBalancingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.LoadBalancingMode }).(pulumi.StringOutput)
+}
+
+// Is the Local MySQL enabled.
+func (o GetWindowsWebAppSiteConfigOutput) LocalMysqlEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.LocalMysqlEnabled }).(pulumi.BoolOutput)
+}
+
+// The Managed Pipeline Mode.
+func (o GetWindowsWebAppSiteConfigOutput) ManagedPipelineMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.ManagedPipelineMode }).(pulumi.StringOutput)
+}
+
+// The Minimum version of TLS for requests.
+func (o GetWindowsWebAppSiteConfigOutput) MinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.MinimumTlsVersion }).(pulumi.StringOutput)
+}
+
+func (o GetWindowsWebAppSiteConfigOutput) RemoteDebuggingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolOutput)
+}
+
+// The Remote Debugging Version.
+func (o GetWindowsWebAppSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.RemoteDebuggingVersion }).(pulumi.StringOutput)
+}
+
+// A `scmIpRestriction` block as defined above.
+func (o GetWindowsWebAppSiteConfigOutput) ScmIpRestrictions() GetWindowsWebAppSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) []GetWindowsWebAppSiteConfigScmIpRestriction {
+		return v.ScmIpRestrictions
+	}).(GetWindowsWebAppSiteConfigScmIpRestrictionArrayOutput)
+}
+
+// The Minimum version of TLS for requests to SCM.
+func (o GetWindowsWebAppSiteConfigOutput) ScmMinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.ScmMinimumTlsVersion }).(pulumi.StringOutput)
+}
+
+// The Source Control Management Type in use.
+func (o GetWindowsWebAppSiteConfigOutput) ScmType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.ScmType }).(pulumi.StringOutput)
+}
+
+// Is the Windows Web App `ipRestriction` configuration used for the SCM also.
+func (o GetWindowsWebAppSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolOutput)
+}
+
+// Does the Windows Web App use a 32-bit worker.
+func (o GetWindowsWebAppSiteConfigOutput) Use32BitWorker() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.Use32BitWorker }).(pulumi.BoolOutput)
+}
+
+// A `virtualApplication` block as defined below.
+func (o GetWindowsWebAppSiteConfigOutput) VirtualApplications() GetWindowsWebAppSiteConfigVirtualApplicationArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) []GetWindowsWebAppSiteConfigVirtualApplication {
+		return v.VirtualApplications
+	}).(GetWindowsWebAppSiteConfigVirtualApplicationArrayOutput)
+}
+
+// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+func (o GetWindowsWebAppSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.VnetRouteAllEnabled }).(pulumi.BoolOutput)
+}
+
+// Are Web Sockets enabled?
+func (o GetWindowsWebAppSiteConfigOutput) WebsocketsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.WebsocketsEnabled }).(pulumi.BoolOutput)
+}
+
+// The string representation of the Windows FX Version.
+func (o GetWindowsWebAppSiteConfigOutput) WindowsFxVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.WindowsFxVersion }).(pulumi.StringOutput)
+}
+
+// The number of Workers for this Windows App Service.
+func (o GetWindowsWebAppSiteConfigOutput) WorkerCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) int { return v.WorkerCount }).(pulumi.IntOutput)
+}
+
+type GetWindowsWebAppSiteConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppSiteConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppSiteConfig)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppSiteConfigArrayOutput) ToGetWindowsWebAppSiteConfigArrayOutput() GetWindowsWebAppSiteConfigArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppSiteConfigArrayOutput) ToGetWindowsWebAppSiteConfigArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppSiteConfigArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppSiteConfig {
+		return vs[0].([]GetWindowsWebAppSiteConfig)[vs[1].(int)]
+	}).(GetWindowsWebAppSiteConfigOutput)
+}
+
 type GetWindowsWebAppSiteConfigApplicationStack struct {
 	// The Current Stack value of the Windows Web App.
 	CurrentStack string `pulumi:"currentStack"`
@@ -2255,6 +11771,140 @@ func (o GetWindowsWebAppStorageAccountArrayOutput) Index(i pulumi.IntInput) GetW
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigIpRestrictionHeaderInput)(nil)).Elem(), GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigIpRestrictionHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigScmIpRestrictionInput)(nil)).Elem(), GetLinuxWebAppSiteConfigScmIpRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigScmIpRestrictionArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigScmIpRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigScmIpRestrictionHeaderInput)(nil)).Elem(), GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteCredentialInput)(nil)).Elem(), GetLinuxWebAppSiteCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteCredentialArrayInput)(nil)).Elem(), GetLinuxWebAppSiteCredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppStickySettingInput)(nil)).Elem(), GetLinuxWebAppStickySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppStickySettingArrayInput)(nil)).Elem(), GetLinuxWebAppStickySettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppStorageAccountInput)(nil)).Elem(), GetLinuxWebAppStorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppStorageAccountArrayInput)(nil)).Elem(), GetLinuxWebAppStorageAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingActiveDirectoryInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingActiveDirectoryArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingActiveDirectoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingFacebookInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingFacebookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingFacebookArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingFacebookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingGithubInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingGithubArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingGithubArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingGithubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingGoogleInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingGoogleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingGoogleArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingGoogleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingMicrosoftInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingMicrosoftArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingMicrosoftArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingMicrosoftArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingTwitterInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingTwitterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingTwitterArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingTwitterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2Input)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2ArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Input)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2AppleV2Input)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2AppleV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2AppleV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Input)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Input)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2FacebookV2Input)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2FacebookV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2FacebookV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2GithubV2Input)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2GithubV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2GithubV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2GoogleV2Input)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2GoogleV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2GoogleV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2LoginInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2LoginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2LoginArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2LoginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Input)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2TwitterV2Input)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2TwitterV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingsV2TwitterV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppBackupInput)(nil)).Elem(), GetWindowsFunctionAppBackupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppBackupArrayInput)(nil)).Elem(), GetWindowsFunctionAppBackupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppBackupScheduleInput)(nil)).Elem(), GetWindowsFunctionAppBackupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppBackupScheduleArrayInput)(nil)).Elem(), GetWindowsFunctionAppBackupScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppConnectionStringInput)(nil)).Elem(), GetWindowsFunctionAppConnectionStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppConnectionStringArrayInput)(nil)).Elem(), GetWindowsFunctionAppConnectionStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppIdentityInput)(nil)).Elem(), GetWindowsFunctionAppIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppIdentityArrayInput)(nil)).Elem(), GetWindowsFunctionAppIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigArrayInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigAppServiceLogInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigAppServiceLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigAppServiceLogArrayInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigAppServiceLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigApplicationStackInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigApplicationStackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigApplicationStackArrayInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigApplicationStackArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigCorInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigCorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigCorArrayInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigCorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigIpRestrictionInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigIpRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigIpRestrictionArrayInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigIpRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigIpRestrictionHeaderInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigScmIpRestrictionInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigScmIpRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput)(nil)).Elem(), GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteCredentialInput)(nil)).Elem(), GetWindowsFunctionAppSiteCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppSiteCredentialArrayInput)(nil)).Elem(), GetWindowsFunctionAppSiteCredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppStickySettingInput)(nil)).Elem(), GetWindowsFunctionAppStickySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppStickySettingArrayInput)(nil)).Elem(), GetWindowsFunctionAppStickySettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingInput)(nil)).Elem(), GetWindowsWebAppAuthSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingActiveDirectoryInput)(nil)).Elem(), GetWindowsWebAppAuthSettingActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingActiveDirectoryArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingActiveDirectoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingFacebookInput)(nil)).Elem(), GetWindowsWebAppAuthSettingFacebookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingFacebookArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingFacebookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingGithubInput)(nil)).Elem(), GetWindowsWebAppAuthSettingGithubArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingGithubArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingGithubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingGoogleInput)(nil)).Elem(), GetWindowsWebAppAuthSettingGoogleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingGoogleArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingGoogleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingMicrosoftInput)(nil)).Elem(), GetWindowsWebAppAuthSettingMicrosoftArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingMicrosoftArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingMicrosoftArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingTwitterInput)(nil)).Elem(), GetWindowsWebAppAuthSettingTwitterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingTwitterArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingTwitterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2Input)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2ArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Input)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2AppleV2Input)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2AppleV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2AppleV2ArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2AppleV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Input)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2CustomOidcV2Input)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2CustomOidcV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2CustomOidcV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2FacebookV2Input)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2FacebookV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2FacebookV2ArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2FacebookV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2GithubV2Input)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2GithubV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2GithubV2ArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2GithubV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2GoogleV2Input)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2GoogleV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2GoogleV2ArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2GoogleV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2LoginInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2LoginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2LoginArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2LoginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2MicrosoftV2Input)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2MicrosoftV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2MicrosoftV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2TwitterV2Input)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2TwitterV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppAuthSettingsV2TwitterV2ArrayInput)(nil)).Elem(), GetWindowsWebAppAuthSettingsV2TwitterV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppBackupInput)(nil)).Elem(), GetWindowsWebAppBackupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppBackupArrayInput)(nil)).Elem(), GetWindowsWebAppBackupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppBackupScheduleInput)(nil)).Elem(), GetWindowsWebAppBackupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppBackupScheduleArrayInput)(nil)).Elem(), GetWindowsWebAppBackupScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppConnectionStringInput)(nil)).Elem(), GetWindowsWebAppConnectionStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppConnectionStringArrayInput)(nil)).Elem(), GetWindowsWebAppConnectionStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppIdentityInput)(nil)).Elem(), GetWindowsWebAppIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppIdentityArrayInput)(nil)).Elem(), GetWindowsWebAppIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogInput)(nil)).Elem(), GetWindowsWebAppLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogArrayInput)(nil)).Elem(), GetWindowsWebAppLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogApplicationLogInput)(nil)).Elem(), GetWindowsWebAppLogApplicationLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogApplicationLogArrayInput)(nil)).Elem(), GetWindowsWebAppLogApplicationLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogApplicationLogAzureBlobStorageInput)(nil)).Elem(), GetWindowsWebAppLogApplicationLogAzureBlobStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayInput)(nil)).Elem(), GetWindowsWebAppLogApplicationLogAzureBlobStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogHttpLogInput)(nil)).Elem(), GetWindowsWebAppLogHttpLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogHttpLogArrayInput)(nil)).Elem(), GetWindowsWebAppLogHttpLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogHttpLogAzureBlobStorageInput)(nil)).Elem(), GetWindowsWebAppLogHttpLogAzureBlobStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogHttpLogAzureBlobStorageArrayInput)(nil)).Elem(), GetWindowsWebAppLogHttpLogAzureBlobStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogHttpLogFileSystemInput)(nil)).Elem(), GetWindowsWebAppLogHttpLogFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppLogHttpLogFileSystemArrayInput)(nil)).Elem(), GetWindowsWebAppLogHttpLogFileSystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigInput)(nil)).Elem(), GetWindowsWebAppSiteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigArrayInput)(nil)).Elem(), GetWindowsWebAppSiteConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigApplicationStackInput)(nil)).Elem(), GetWindowsWebAppSiteConfigApplicationStackArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigApplicationStackArrayInput)(nil)).Elem(), GetWindowsWebAppSiteConfigApplicationStackArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigAutoHealSettingInput)(nil)).Elem(), GetWindowsWebAppSiteConfigAutoHealSettingArgs{})
@@ -2291,6 +11941,140 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStickySettingArrayInput)(nil)).Elem(), GetWindowsWebAppStickySettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountArrayInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArray{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigScmIpRestrictionOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteCredentialOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteCredentialArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppStickySettingOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppStickySettingArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppStorageAccountOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppStorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingActiveDirectoryOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingFacebookOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingFacebookArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingGithubOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingGithubArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingGoogleOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingGoogleArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingMicrosoftOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingTwitterOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingTwitterArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2Output{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2AppleV2Output{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2FacebookV2Output{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2GithubV2Output{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2GoogleV2Output{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2LoginOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2TwitterV2Output{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppBackupOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppBackupArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppBackupScheduleOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppBackupScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppConnectionStringOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppIdentityOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigAppServiceLogOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigApplicationStackOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigCorOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigCorArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigIpRestrictionOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteCredentialOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppSiteCredentialArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppStickySettingOutput{})
+	pulumi.RegisterOutputType(GetWindowsFunctionAppStickySettingArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingActiveDirectoryOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingFacebookOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingFacebookArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingGithubOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingGithubArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingGoogleOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingGoogleArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingMicrosoftOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingMicrosoftArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingTwitterOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingTwitterArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2Output{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2AppleV2Output{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2CustomOidcV2Output{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2FacebookV2Output{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2GithubV2Output{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2GoogleV2Output{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2LoginOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2LoginArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2MicrosoftV2Output{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2TwitterV2Output{})
+	pulumi.RegisterOutputType(GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppBackupOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppBackupArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppBackupScheduleOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppBackupScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppConnectionStringOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppIdentityOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogApplicationLogOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogApplicationLogArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogHttpLogOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogHttpLogArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogHttpLogAzureBlobStorageOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogHttpLogFileSystemOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppLogHttpLogFileSystemArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigApplicationStackOutput{})
 	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigApplicationStackArrayOutput{})
 	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigAutoHealSettingOutput{})

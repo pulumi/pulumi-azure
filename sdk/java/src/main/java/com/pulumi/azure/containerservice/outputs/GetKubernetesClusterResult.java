@@ -165,6 +165,11 @@ public final class GetKubernetesClusterResult {
      */
     private String nodeResourceGroup;
     /**
+     * @return The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+     * 
+     */
+    private String nodeResourceGroupId;
+    /**
      * @return Whether or not the OIDC feature is enabled or disabled.
      * 
      */
@@ -412,6 +417,13 @@ public final class GetKubernetesClusterResult {
         return this.nodeResourceGroup;
     }
     /**
+     * @return The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+     * 
+     */
+    public String nodeResourceGroupId() {
+        return this.nodeResourceGroupId;
+    }
+    /**
      * @return Whether or not the OIDC feature is enabled or disabled.
      * 
      */
@@ -528,6 +540,7 @@ public final class GetKubernetesClusterResult {
         private String name;
         private List<GetKubernetesClusterNetworkProfile> networkProfiles;
         private String nodeResourceGroup;
+        private String nodeResourceGroupId;
         private Boolean oidcIssuerEnabled;
         private String oidcIssuerUrl;
         private List<GetKubernetesClusterOmsAgent> omsAgents;
@@ -570,6 +583,7 @@ public final class GetKubernetesClusterResult {
     	      this.name = defaults.name;
     	      this.networkProfiles = defaults.networkProfiles;
     	      this.nodeResourceGroup = defaults.nodeResourceGroup;
+    	      this.nodeResourceGroupId = defaults.nodeResourceGroupId;
     	      this.oidcIssuerEnabled = defaults.oidcIssuerEnabled;
     	      this.oidcIssuerUrl = defaults.oidcIssuerUrl;
     	      this.omsAgents = defaults.omsAgents;
@@ -762,6 +776,11 @@ public final class GetKubernetesClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder nodeResourceGroupId(String nodeResourceGroupId) {
+            this.nodeResourceGroupId = Objects.requireNonNull(nodeResourceGroupId);
+            return this;
+        }
+        @CustomType.Setter
         public Builder oidcIssuerEnabled(Boolean oidcIssuerEnabled) {
             this.oidcIssuerEnabled = Objects.requireNonNull(oidcIssuerEnabled);
             return this;
@@ -862,6 +881,7 @@ public final class GetKubernetesClusterResult {
             o.name = name;
             o.networkProfiles = networkProfiles;
             o.nodeResourceGroup = nodeResourceGroup;
+            o.nodeResourceGroupId = nodeResourceGroupId;
             o.oidcIssuerEnabled = oidcIssuerEnabled;
             o.oidcIssuerUrl = oidcIssuerUrl;
             o.omsAgents = omsAgents;

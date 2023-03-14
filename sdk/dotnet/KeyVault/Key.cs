@@ -10,69 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "premium",
-    ///         SoftDeleteRetentionDays = 7,
-    ///         AccessPolicies = new[]
-    ///         {
-    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
-    ///             {
-    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///                 KeyPermissions = new[]
-    ///                 {
-    ///                     "Create",
-    ///                     "Get",
-    ///                     "Purge",
-    ///                     "Recover",
-    ///                 },
-    ///                 SecretPermissions = new[]
-    ///                 {
-    ///                     "Set",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var generated = new Azure.KeyVault.Key("generated", new()
-    ///     {
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         KeyType = "RSA",
-    ///         KeySize = 2048,
-    ///         KeyOpts = new[]
-    ///         {
-    ///             "decrypt",
-    ///             "encrypt",
-    ///             "sign",
-    ///             "unwrapKey",
-    ///             "verify",
-    ///             "wrapKey",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Key Vault Key which is Enabled can be imported using the `resource id`, e.g.
@@ -167,6 +104,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Output("resourceVersionlessId")]
         public Output<string> ResourceVersionlessId { get; private set; } = null!;
+
+        /// <summary>
+        /// A `rotation_policy` block as defined below.
+        /// </summary>
+        [Output("rotationPolicy")]
+        public Output<Outputs.KeyRotationPolicy> RotationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -298,6 +241,12 @@ namespace Pulumi.Azure.KeyVault
         [Input("notBeforeDate")]
         public Input<string>? NotBeforeDate { get; set; }
 
+        /// <summary>
+        /// A `rotation_policy` block as defined below.
+        /// </summary>
+        [Input("rotationPolicy")]
+        public Input<Inputs.KeyRotationPolicyArgs>? RotationPolicy { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -407,6 +356,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("resourceVersionlessId")]
         public Input<string>? ResourceVersionlessId { get; set; }
+
+        /// <summary>
+        /// A `rotation_policy` block as defined below.
+        /// </summary>
+        [Input("rotationPolicy")]
+        public Input<Inputs.KeyRotationPolicyGetArgs>? RotationPolicy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

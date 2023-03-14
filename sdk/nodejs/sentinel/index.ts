@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AlertRuleAnomalyBuiltInArgs, AlertRuleAnomalyBuiltInState } from "./alertRuleAnomalyBuiltIn";
+export type AlertRuleAnomalyBuiltIn = import("./alertRuleAnomalyBuiltIn").AlertRuleAnomalyBuiltIn;
+export const AlertRuleAnomalyBuiltIn: typeof import("./alertRuleAnomalyBuiltIn").AlertRuleAnomalyBuiltIn = null as any;
+utilities.lazyLoad(exports, ["AlertRuleAnomalyBuiltIn"], () => require("./alertRuleAnomalyBuiltIn"));
+
 export { AlertRuleFusionArgs, AlertRuleFusionState } from "./alertRuleFusion";
 export type AlertRuleFusion = import("./alertRuleFusion").AlertRuleFusion;
 export const AlertRuleFusion: typeof import("./alertRuleFusion").AlertRuleFusion = null as any;
@@ -29,6 +34,11 @@ export { AlertRuleScheduledArgs, AlertRuleScheduledState } from "./alertRuleSche
 export type AlertRuleScheduled = import("./alertRuleScheduled").AlertRuleScheduled;
 export const AlertRuleScheduled: typeof import("./alertRuleScheduled").AlertRuleScheduled = null as any;
 utilities.lazyLoad(exports, ["AlertRuleScheduled"], () => require("./alertRuleScheduled"));
+
+export { AlertRuleThreatIntelligenceArgs, AlertRuleThreatIntelligenceState } from "./alertRuleThreatIntelligence";
+export type AlertRuleThreatIntelligence = import("./alertRuleThreatIntelligence").AlertRuleThreatIntelligence;
+export const AlertRuleThreatIntelligence: typeof import("./alertRuleThreatIntelligence").AlertRuleThreatIntelligence = null as any;
+utilities.lazyLoad(exports, ["AlertRuleThreatIntelligence"], () => require("./alertRuleThreatIntelligence"));
 
 export { AuthomationRuleArgs, AuthomationRuleState } from "./authomationRule";
 export type AuthomationRule = import("./authomationRule").AuthomationRule;
@@ -135,6 +145,11 @@ export const getAlertRule: typeof import("./getAlertRule").getAlertRule = null a
 export const getAlertRuleOutput: typeof import("./getAlertRule").getAlertRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getAlertRule","getAlertRuleOutput"], () => require("./getAlertRule"));
 
+export { GetAlertRuleAnomalyArgs, GetAlertRuleAnomalyResult, GetAlertRuleAnomalyOutputArgs } from "./getAlertRuleAnomaly";
+export const getAlertRuleAnomaly: typeof import("./getAlertRuleAnomaly").getAlertRuleAnomaly = null as any;
+export const getAlertRuleAnomalyOutput: typeof import("./getAlertRuleAnomaly").getAlertRuleAnomalyOutput = null as any;
+utilities.lazyLoad(exports, ["getAlertRuleAnomaly","getAlertRuleAnomalyOutput"], () => require("./getAlertRuleAnomaly"));
+
 export { GetAlertRuleTemplateArgs, GetAlertRuleTemplateResult, GetAlertRuleTemplateOutputArgs } from "./getAlertRuleTemplate";
 export const getAlertRuleTemplate: typeof import("./getAlertRuleTemplate").getAlertRuleTemplate = null as any;
 export const getAlertRuleTemplateOutput: typeof import("./getAlertRuleTemplate").getAlertRuleTemplateOutput = null as any;
@@ -144,6 +159,11 @@ export { LogAnalyticsWorkspaceOnboardingArgs, LogAnalyticsWorkspaceOnboardingSta
 export type LogAnalyticsWorkspaceOnboarding = import("./logAnalyticsWorkspaceOnboarding").LogAnalyticsWorkspaceOnboarding;
 export const LogAnalyticsWorkspaceOnboarding: typeof import("./logAnalyticsWorkspaceOnboarding").LogAnalyticsWorkspaceOnboarding = null as any;
 utilities.lazyLoad(exports, ["LogAnalyticsWorkspaceOnboarding"], () => require("./logAnalyticsWorkspaceOnboarding"));
+
+export { MetadataArgs, MetadataState } from "./metadata";
+export type Metadata = import("./metadata").Metadata;
+export const Metadata: typeof import("./metadata").Metadata = null as any;
+utilities.lazyLoad(exports, ["Metadata"], () => require("./metadata"));
 
 export { WatchlistArgs, WatchlistState } from "./watchlist";
 export type Watchlist = import("./watchlist").Watchlist;
@@ -160,6 +180,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn":
+                return new AlertRuleAnomalyBuiltIn(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleFusion:AlertRuleFusion":
                 return new AlertRuleFusion(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics":
@@ -170,6 +192,8 @@ const _module = {
                 return new AlertRuleNrt(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
                 return new AlertRuleScheduled(name, <any>undefined, { urn })
+            case "azure:sentinel/alertRuleThreatIntelligence:AlertRuleThreatIntelligence":
+                return new AlertRuleThreatIntelligence(name, <any>undefined, { urn })
             case "azure:sentinel/authomationRule:AuthomationRule":
                 return new AuthomationRule(name, <any>undefined, { urn })
             case "azure:sentinel/automationRule:AutomationRule":
@@ -212,6 +236,8 @@ const _module = {
                 return new DataConnectorThreatIntelligenceTaxii(name, <any>undefined, { urn })
             case "azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding":
                 return new LogAnalyticsWorkspaceOnboarding(name, <any>undefined, { urn })
+            case "azure:sentinel/metadata:Metadata":
+                return new Metadata(name, <any>undefined, { urn })
             case "azure:sentinel/watchlist:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
             case "azure:sentinel/watchlistItem:WatchlistItem":
@@ -221,11 +247,13 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleAnomalyBuiltIn", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleFusion", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMachineLearningBehaviorAnalytics", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMsSecurityIncident", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleNrt", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleScheduled", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleThreatIntelligence", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/authomationRule", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/automationRule", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAwsCloudTrail", _module)
@@ -247,5 +275,6 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOfficePowe
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligence", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligenceTaxii", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/logAnalyticsWorkspaceOnboarding", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/metadata", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlist", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlistItem", _module)

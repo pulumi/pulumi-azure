@@ -33,6 +33,7 @@ class PolicyVMArgs:
         :param pulumi.Input['PolicyVMBackupArgs'] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
+        :param pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs'] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_type: Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
@@ -103,6 +104,9 @@ class PolicyVMArgs:
     @property
     @pulumi.getter(name="instantRestoreResourceGroup")
     def instant_restore_resource_group(self) -> Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']]:
+        """
+        Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+        """
         return pulumi.get(self, "instant_restore_resource_group")
 
     @instant_restore_resource_group.setter
@@ -224,6 +228,7 @@ class _PolicyVMState:
         """
         Input properties used for looking up and filtering PolicyVM resources.
         :param pulumi.Input['PolicyVMBackupArgs'] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs'] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_type: Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
@@ -275,6 +280,9 @@ class _PolicyVMState:
     @property
     @pulumi.getter(name="instantRestoreResourceGroup")
     def instant_restore_resource_group(self) -> Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']]:
+        """
+        Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+        """
         return pulumi.get(self, "instant_restore_resource_group")
 
     @instant_restore_resource_group.setter
@@ -484,6 +492,7 @@ class PolicyVM(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_type: Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
@@ -646,6 +655,7 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_type: Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
@@ -686,6 +696,9 @@ class PolicyVM(pulumi.CustomResource):
     @property
     @pulumi.getter(name="instantRestoreResourceGroup")
     def instant_restore_resource_group(self) -> pulumi.Output[Optional['outputs.PolicyVMInstantRestoreResourceGroup']]:
+        """
+        Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+        """
         return pulumi.get(self, "instant_restore_resource_group")
 
     @property

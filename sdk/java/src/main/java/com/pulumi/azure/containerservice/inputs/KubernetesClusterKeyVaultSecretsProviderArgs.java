@@ -34,14 +34,14 @@ public final class KubernetesClusterKeyVaultSecretsProviderArgs extends com.pulu
     }
 
     /**
-     * Is secret rotation enabled?
+     * Should the secret store CSI driver on the AKS cluster be enabled?
      * 
      */
     @Import(name="secretRotationEnabled")
     private @Nullable Output<Boolean> secretRotationEnabled;
 
     /**
-     * @return Is secret rotation enabled?
+     * @return Should the secret store CSI driver on the AKS cluster be enabled?
      * 
      */
     public Optional<Output<Boolean>> secretRotationEnabled() {
@@ -121,7 +121,7 @@ public final class KubernetesClusterKeyVaultSecretsProviderArgs extends com.pulu
         }
 
         /**
-         * @param secretRotationEnabled Is secret rotation enabled?
+         * @param secretRotationEnabled Should the secret store CSI driver on the AKS cluster be enabled?
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class KubernetesClusterKeyVaultSecretsProviderArgs extends com.pulu
         }
 
         /**
-         * @param secretRotationEnabled Is secret rotation enabled?
+         * @param secretRotationEnabled Should the secret store CSI driver on the AKS cluster be enabled?
          * 
          * @return builder
          * 

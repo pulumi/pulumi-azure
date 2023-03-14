@@ -10,6 +10,11 @@ export const getNetwork: typeof import("./getNetwork").getNetwork = null as any;
 export const getNetworkOutput: typeof import("./getNetwork").getNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getNetwork","getNetworkOutput"], () => require("./getNetwork"));
 
+export { GetNetworkDataNetworkArgs, GetNetworkDataNetworkResult, GetNetworkDataNetworkOutputArgs } from "./getNetworkDataNetwork";
+export const getNetworkDataNetwork: typeof import("./getNetworkDataNetwork").getNetworkDataNetwork = null as any;
+export const getNetworkDataNetworkOutput: typeof import("./getNetworkDataNetwork").getNetworkDataNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkDataNetwork","getNetworkDataNetworkOutput"], () => require("./getNetworkDataNetwork"));
+
 export { GetNetworkServiceArgs, GetNetworkServiceResult, GetNetworkServiceOutputArgs } from "./getNetworkService";
 export const getNetworkService: typeof import("./getNetworkService").getNetworkService = null as any;
 export const getNetworkServiceOutput: typeof import("./getNetworkService").getNetworkServiceOutput = null as any;
@@ -34,6 +39,11 @@ export { NetworkArgs, NetworkState } from "./network";
 export type Network = import("./network").Network;
 export const Network: typeof import("./network").Network = null as any;
 utilities.lazyLoad(exports, ["Network"], () => require("./network"));
+
+export { NetworkDataNetworkArgs, NetworkDataNetworkState } from "./networkDataNetwork";
+export type NetworkDataNetwork = import("./networkDataNetwork").NetworkDataNetwork;
+export const NetworkDataNetwork: typeof import("./networkDataNetwork").NetworkDataNetwork = null as any;
+utilities.lazyLoad(exports, ["NetworkDataNetwork"], () => require("./networkDataNetwork"));
 
 export { NetworkServiceArgs, NetworkServiceState } from "./networkService";
 export type NetworkService = import("./networkService").NetworkService;
@@ -62,6 +72,8 @@ const _module = {
         switch (type) {
             case "azure:mobile/network:Network":
                 return new Network(name, <any>undefined, { urn })
+            case "azure:mobile/networkDataNetwork:NetworkDataNetwork":
+                return new NetworkDataNetwork(name, <any>undefined, { urn })
             case "azure:mobile/networkService:NetworkService":
                 return new NetworkService(name, <any>undefined, { urn })
             case "azure:mobile/networkSimGroup:NetworkSimGroup":
@@ -76,6 +88,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "mobile/network", _module)
+pulumi.runtime.registerResourceModule("azure", "mobile/networkDataNetwork", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkService", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkSimGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkSite", _module)

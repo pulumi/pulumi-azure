@@ -74,14 +74,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+     * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      * 
      */
     @Import(name="cosmosdbThroughput")
     private @Nullable Output<Integer> cosmosdbThroughput;
 
     /**
-     * @return The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+     * @return The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      * 
      */
     public Optional<Output<Integer>> cosmosdbThroughput() {
@@ -289,7 +289,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cosmosdbThroughput The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+         * @param cosmosdbThroughput The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cosmosdbThroughput The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+         * @param cosmosdbThroughput The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
          * 
          * @return builder
          * 

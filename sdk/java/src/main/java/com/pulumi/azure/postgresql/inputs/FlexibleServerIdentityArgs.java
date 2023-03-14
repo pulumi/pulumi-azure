@@ -17,14 +17,14 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
     public static final FlexibleServerIdentityArgs Empty = new FlexibleServerIdentityArgs();
 
     /**
-     * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+     * A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -54,14 +54,14 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public Output<String> type() {
@@ -96,7 +96,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+         * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 

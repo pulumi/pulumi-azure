@@ -129,6 +129,8 @@ type SpringCloudConnection struct {
 	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	SecretStore SpringCloudConnectionSecretStorePtrOutput `pulumi:"secretStore"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringOutput `pulumi:"springCloudId"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
@@ -181,6 +183,8 @@ type springCloudConnectionState struct {
 	ClientType *string `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	SecretStore *SpringCloudConnectionSecretStore `pulumi:"secretStore"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId *string `pulumi:"springCloudId"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
@@ -196,6 +200,8 @@ type SpringCloudConnectionState struct {
 	ClientType pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	SecretStore SpringCloudConnectionSecretStorePtrInput
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringPtrInput
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
@@ -215,6 +221,8 @@ type springCloudConnectionArgs struct {
 	ClientType *string `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	SecretStore *SpringCloudConnectionSecretStore `pulumi:"secretStore"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId string `pulumi:"springCloudId"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
@@ -231,6 +239,8 @@ type SpringCloudConnectionArgs struct {
 	ClientType pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	SecretStore SpringCloudConnectionSecretStorePtrInput
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringInput
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
@@ -339,6 +349,11 @@ func (o SpringCloudConnectionOutput) ClientType() pulumi.StringPtrOutput {
 // The name of the service connection. Changing this forces a new resource to be created.
 func (o SpringCloudConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An option to store secret value in secure place. An `secretStore` block as defined below.
+func (o SpringCloudConnectionOutput) SecretStore() SpringCloudConnectionSecretStorePtrOutput {
+	return o.ApplyT(func(v *SpringCloudConnection) SpringCloudConnectionSecretStorePtrOutput { return v.SecretStore }).(SpringCloudConnectionSecretStorePtrOutput)
 }
 
 // The ID of the data source spring cloud. Changing this forces a new resource to be created.

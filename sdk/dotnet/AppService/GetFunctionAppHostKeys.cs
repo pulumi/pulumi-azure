@@ -114,6 +114,10 @@ namespace Pulumi.Azure.AppService
     public sealed class GetFunctionAppHostKeysResult
     {
         /// <summary>
+        /// Function App resource's Blobs Extension system key.
+        /// </summary>
+        public readonly string BlobsExtensionKey;
+        /// <summary>
         /// Function App resource's default function key.
         /// </summary>
         public readonly string DefaultFunctionKey;
@@ -146,6 +150,8 @@ namespace Pulumi.Azure.AppService
 
         [OutputConstructor]
         private GetFunctionAppHostKeysResult(
+            string blobsExtensionKey,
+
             string defaultFunctionKey,
 
             string durabletaskExtensionKey,
@@ -164,6 +170,7 @@ namespace Pulumi.Azure.AppService
 
             string webpubsubExtensionKey)
         {
+            BlobsExtensionKey = blobsExtensionKey;
             DefaultFunctionKey = defaultFunctionKey;
             DurabletaskExtensionKey = durabletaskExtensionKey;
             EventGridExtensionConfigKey = eventGridExtensionConfigKey;

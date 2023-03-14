@@ -93,10 +93,14 @@ import (
 type ManagedDatabase struct {
 	pulumi.CustomResourceState
 
+	// A `longTermRetentionPolicy` block as defined below.
+	LongTermRetentionPolicy ManagedDatabaseLongTermRetentionPolicyOutput `pulumi:"longTermRetentionPolicy"`
 	// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringOutput `pulumi:"managedInstanceId"`
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+	ShortTermRetentionDays pulumi.IntPtrOutput `pulumi:"shortTermRetentionDays"`
 }
 
 // NewManagedDatabase registers a new resource with the given unique name, arguments, and options.
@@ -131,17 +135,25 @@ func GetManagedDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedDatabase resources.
 type managedDatabaseState struct {
+	// A `longTermRetentionPolicy` block as defined below.
+	LongTermRetentionPolicy *ManagedDatabaseLongTermRetentionPolicy `pulumi:"longTermRetentionPolicy"`
 	// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
 	ManagedInstanceId *string `pulumi:"managedInstanceId"`
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+	ShortTermRetentionDays *int `pulumi:"shortTermRetentionDays"`
 }
 
 type ManagedDatabaseState struct {
+	// A `longTermRetentionPolicy` block as defined below.
+	LongTermRetentionPolicy ManagedDatabaseLongTermRetentionPolicyPtrInput
 	// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringPtrInput
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+	ShortTermRetentionDays pulumi.IntPtrInput
 }
 
 func (ManagedDatabaseState) ElementType() reflect.Type {
@@ -149,18 +161,26 @@ func (ManagedDatabaseState) ElementType() reflect.Type {
 }
 
 type managedDatabaseArgs struct {
+	// A `longTermRetentionPolicy` block as defined below.
+	LongTermRetentionPolicy *ManagedDatabaseLongTermRetentionPolicy `pulumi:"longTermRetentionPolicy"`
 	// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
 	ManagedInstanceId string `pulumi:"managedInstanceId"`
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+	ShortTermRetentionDays *int `pulumi:"shortTermRetentionDays"`
 }
 
 // The set of arguments for constructing a ManagedDatabase resource.
 type ManagedDatabaseArgs struct {
+	// A `longTermRetentionPolicy` block as defined below.
+	LongTermRetentionPolicy ManagedDatabaseLongTermRetentionPolicyPtrInput
 	// The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringInput
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+	ShortTermRetentionDays pulumi.IntPtrInput
 }
 
 func (ManagedDatabaseArgs) ElementType() reflect.Type {
@@ -250,6 +270,13 @@ func (o ManagedDatabaseOutput) ToManagedDatabaseOutputWithContext(ctx context.Co
 	return o
 }
 
+// A `longTermRetentionPolicy` block as defined below.
+func (o ManagedDatabaseOutput) LongTermRetentionPolicy() ManagedDatabaseLongTermRetentionPolicyOutput {
+	return o.ApplyT(func(v *ManagedDatabase) ManagedDatabaseLongTermRetentionPolicyOutput {
+		return v.LongTermRetentionPolicy
+	}).(ManagedDatabaseLongTermRetentionPolicyOutput)
+}
+
 // The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
 func (o ManagedDatabaseOutput) ManagedInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.ManagedInstanceId }).(pulumi.StringOutput)
@@ -258,6 +285,11 @@ func (o ManagedDatabaseOutput) ManagedInstanceId() pulumi.StringOutput {
 // The name of the Managed Database to create. Changing this forces a new resource to be created.
 func (o ManagedDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+func (o ManagedDatabaseOutput) ShortTermRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.IntPtrOutput { return v.ShortTermRetentionDays }).(pulumi.IntPtrOutput)
 }
 
 type ManagedDatabaseArrayOutput struct{ *pulumi.OutputState }

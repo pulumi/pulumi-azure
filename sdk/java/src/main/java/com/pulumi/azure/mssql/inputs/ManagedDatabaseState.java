@@ -3,8 +3,10 @@
 
 package com.pulumi.azure.mssql.inputs;
 
+import com.pulumi.azure.mssql.inputs.ManagedDatabaseLongTermRetentionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArgs {
 
     public static final ManagedDatabaseState Empty = new ManagedDatabaseState();
+
+    /**
+     * A `long_term_retention_policy` block as defined below.
+     * 
+     */
+    @Import(name="longTermRetentionPolicy")
+    private @Nullable Output<ManagedDatabaseLongTermRetentionPolicyArgs> longTermRetentionPolicy;
+
+    /**
+     * @return A `long_term_retention_policy` block as defined below.
+     * 
+     */
+    public Optional<Output<ManagedDatabaseLongTermRetentionPolicyArgs>> longTermRetentionPolicy() {
+        return Optional.ofNullable(this.longTermRetentionPolicy);
+    }
 
     /**
      * The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
@@ -45,11 +62,28 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+     * 
+     */
+    @Import(name="shortTermRetentionDays")
+    private @Nullable Output<Integer> shortTermRetentionDays;
+
+    /**
+     * @return The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+     * 
+     */
+    public Optional<Output<Integer>> shortTermRetentionDays() {
+        return Optional.ofNullable(this.shortTermRetentionDays);
+    }
+
     private ManagedDatabaseState() {}
 
     private ManagedDatabaseState(ManagedDatabaseState $) {
+        this.longTermRetentionPolicy = $.longTermRetentionPolicy;
         this.managedInstanceId = $.managedInstanceId;
         this.name = $.name;
+        this.shortTermRetentionDays = $.shortTermRetentionDays;
     }
 
     public static Builder builder() {
@@ -68,6 +102,27 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
 
         public Builder(ManagedDatabaseState defaults) {
             $ = new ManagedDatabaseState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param longTermRetentionPolicy A `long_term_retention_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder longTermRetentionPolicy(@Nullable Output<ManagedDatabaseLongTermRetentionPolicyArgs> longTermRetentionPolicy) {
+            $.longTermRetentionPolicy = longTermRetentionPolicy;
+            return this;
+        }
+
+        /**
+         * @param longTermRetentionPolicy A `long_term_retention_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder longTermRetentionPolicy(ManagedDatabaseLongTermRetentionPolicyArgs longTermRetentionPolicy) {
+            return longTermRetentionPolicy(Output.of(longTermRetentionPolicy));
         }
 
         /**
@@ -110,6 +165,27 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param shortTermRetentionDays The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shortTermRetentionDays(@Nullable Output<Integer> shortTermRetentionDays) {
+            $.shortTermRetentionDays = shortTermRetentionDays;
+            return this;
+        }
+
+        /**
+         * @param shortTermRetentionDays The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shortTermRetentionDays(Integer shortTermRetentionDays) {
+            return shortTermRetentionDays(Output.of(shortTermRetentionDays));
         }
 
         public ManagedDatabaseState build() {

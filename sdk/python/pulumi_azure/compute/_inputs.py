@@ -82,6 +82,7 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs',
     'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs',
     'OrchestratedVirtualMachineScaleSetPlanArgs',
+    'OrchestratedVirtualMachineScaleSetPriorityMixArgs',
     'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs',
     'OrchestratedVirtualMachineScaleSetTerminationNotificationArgs',
     'PacketCaptureFilterArgs',
@@ -4809,6 +4810,45 @@ class OrchestratedVirtualMachineScaleSetPlanArgs:
     @publisher.setter
     def publisher(self, value: pulumi.Input[str]):
         pulumi.set(self, "publisher", value)
+
+
+@pulumi.input_type
+class OrchestratedVirtualMachineScaleSetPriorityMixArgs:
+    def __init__(__self__, *,
+                 base_regular_count: Optional[pulumi.Input[int]] = None,
+                 regular_percentage_above_base: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] base_regular_count: Specifies the base number of VMs of `Regular` priority that will be created before any VMs of priority `Spot` are created. Possible values are integers between `0` and `1000`. Defaults to `0`.
+        :param pulumi.Input[int] regular_percentage_above_base: Specifies the desired percentage of VM instances that are of `Regular` priority after the base count has been reached. Possible values are integers between `0` and `100`. Defaults to `0`.
+        """
+        if base_regular_count is not None:
+            pulumi.set(__self__, "base_regular_count", base_regular_count)
+        if regular_percentage_above_base is not None:
+            pulumi.set(__self__, "regular_percentage_above_base", regular_percentage_above_base)
+
+    @property
+    @pulumi.getter(name="baseRegularCount")
+    def base_regular_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the base number of VMs of `Regular` priority that will be created before any VMs of priority `Spot` are created. Possible values are integers between `0` and `1000`. Defaults to `0`.
+        """
+        return pulumi.get(self, "base_regular_count")
+
+    @base_regular_count.setter
+    def base_regular_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "base_regular_count", value)
+
+    @property
+    @pulumi.getter(name="regularPercentageAboveBase")
+    def regular_percentage_above_base(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the desired percentage of VM instances that are of `Regular` priority after the base count has been reached. Possible values are integers between `0` and `100`. Defaults to `0`.
+        """
+        return pulumi.get(self, "regular_percentage_above_base")
+
+    @regular_percentage_above_base.setter
+    def regular_percentage_above_base(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "regular_percentage_above_base", value)
 
 
 @pulumi.input_type

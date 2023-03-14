@@ -37,6 +37,7 @@ __all__ = [
     'AppServiceStorageAccountArgs',
     'CertificateOrderCertificateArgs',
     'ConnectionAuthenticationArgs',
+    'ConnectionSecretStoreArgs',
     'EnvironmentClusterSettingArgs',
     'EnvironmentV3ClusterSettingArgs',
     'EnvironmentV3InboundNetworkDependencyArgs',
@@ -79,6 +80,17 @@ __all__ = [
     'LinuxFunctionAppAuthSettingsGoogleArgs',
     'LinuxFunctionAppAuthSettingsMicrosoftArgs',
     'LinuxFunctionAppAuthSettingsTwitterArgs',
+    'LinuxFunctionAppAuthSettingsV2Args',
+    'LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args',
+    'LinuxFunctionAppAuthSettingsV2AppleV2Args',
+    'LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args',
+    'LinuxFunctionAppAuthSettingsV2CustomOidcV2Args',
+    'LinuxFunctionAppAuthSettingsV2FacebookV2Args',
+    'LinuxFunctionAppAuthSettingsV2GithubV2Args',
+    'LinuxFunctionAppAuthSettingsV2GoogleV2Args',
+    'LinuxFunctionAppAuthSettingsV2LoginArgs',
+    'LinuxFunctionAppAuthSettingsV2MicrosoftV2Args',
+    'LinuxFunctionAppAuthSettingsV2TwitterV2Args',
     'LinuxFunctionAppBackupArgs',
     'LinuxFunctionAppBackupScheduleArgs',
     'LinuxFunctionAppConnectionStringArgs',
@@ -100,6 +112,17 @@ __all__ = [
     'LinuxFunctionAppSlotAuthSettingsGoogleArgs',
     'LinuxFunctionAppSlotAuthSettingsMicrosoftArgs',
     'LinuxFunctionAppSlotAuthSettingsTwitterArgs',
+    'LinuxFunctionAppSlotAuthSettingsV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2AppleV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2GithubV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2LoginArgs',
+    'LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args',
     'LinuxFunctionAppSlotBackupArgs',
     'LinuxFunctionAppSlotBackupScheduleArgs',
     'LinuxFunctionAppSlotConnectionStringArgs',
@@ -241,6 +264,17 @@ __all__ = [
     'WindowsFunctionAppAuthSettingsGoogleArgs',
     'WindowsFunctionAppAuthSettingsMicrosoftArgs',
     'WindowsFunctionAppAuthSettingsTwitterArgs',
+    'WindowsFunctionAppAuthSettingsV2Args',
+    'WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args',
+    'WindowsFunctionAppAuthSettingsV2AppleV2Args',
+    'WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args',
+    'WindowsFunctionAppAuthSettingsV2CustomOidcV2Args',
+    'WindowsFunctionAppAuthSettingsV2FacebookV2Args',
+    'WindowsFunctionAppAuthSettingsV2GithubV2Args',
+    'WindowsFunctionAppAuthSettingsV2GoogleV2Args',
+    'WindowsFunctionAppAuthSettingsV2LoginArgs',
+    'WindowsFunctionAppAuthSettingsV2MicrosoftV2Args',
+    'WindowsFunctionAppAuthSettingsV2TwitterV2Args',
     'WindowsFunctionAppBackupArgs',
     'WindowsFunctionAppBackupScheduleArgs',
     'WindowsFunctionAppConnectionStringArgs',
@@ -261,6 +295,17 @@ __all__ = [
     'WindowsFunctionAppSlotAuthSettingsGoogleArgs',
     'WindowsFunctionAppSlotAuthSettingsMicrosoftArgs',
     'WindowsFunctionAppSlotAuthSettingsTwitterArgs',
+    'WindowsFunctionAppSlotAuthSettingsV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2AppleV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2GithubV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2LoginArgs',
+    'WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args',
     'WindowsFunctionAppSlotBackupArgs',
     'WindowsFunctionAppSlotBackupScheduleArgs',
     'WindowsFunctionAppSlotConnectionStringArgs',
@@ -2734,6 +2779,28 @@ class ConnectionAuthenticationArgs:
     @subscription_id.setter
     def subscription_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class ConnectionSecretStoreArgs:
+    def __init__(__self__, *,
+                 key_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key_vault_id: The key vault id to store secret.
+        """
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> pulumi.Input[str]:
+        """
+        The key vault id to store secret.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_id", value)
 
 
 @pulumi.input_type
@@ -5812,13 +5879,13 @@ class LinuxFunctionAppAuthSettingsArgs:
         :param pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
-        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
         :param pulumi.Input['LinuxFunctionAppAuthSettingsGithubArgs'] github: A `github` block as defined below.
         :param pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
         :param pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
-        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
@@ -5906,7 +5973,7 @@ class LinuxFunctionAppAuthSettingsArgs:
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         """
         return pulumi.get(self, "default_provider")
 
@@ -5978,7 +6045,7 @@ class LinuxFunctionAppAuthSettingsArgs:
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -6436,6 +6503,1296 @@ class LinuxFunctionAppAuthSettingsTwitterArgs:
 
     @consumer_secret_setting_name.setter
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsV2Args:
+    def __init__(__self__, *,
+                 login: pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArgs'],
+                 active_directory_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args']] = None,
+                 apple_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Args']] = None,
+                 auth_enabled: Optional[pulumi.Input[bool]] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 config_file_path: Optional[pulumi.Input[str]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 facebook_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Args']] = None,
+                 forward_proxy_convention: Optional[pulumi.Input[str]] = None,
+                 forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
+                 forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
+                 github_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Args']] = None,
+                 google_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Args']] = None,
+                 http_route_api_prefix: Optional[pulumi.Input[str]] = None,
+                 microsoft_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Args']] = None,
+                 require_authentication: Optional[pulumi.Input[bool]] = None,
+                 require_https: Optional[pulumi.Input[bool]] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 twitter_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Args']] = None,
+                 unauthenticated_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
+        :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
+        :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+        pulumi.set(__self__, "login", login)
+        if active_directory_v2 is not None:
+            pulumi.set(__self__, "active_directory_v2", active_directory_v2)
+        if apple_v2 is not None:
+            pulumi.set(__self__, "apple_v2", apple_v2)
+        if auth_enabled is not None:
+            pulumi.set(__self__, "auth_enabled", auth_enabled)
+        if azure_static_web_app_v2 is not None:
+            pulumi.set(__self__, "azure_static_web_app_v2", azure_static_web_app_v2)
+        if config_file_path is not None:
+            pulumi.set(__self__, "config_file_path", config_file_path)
+        if custom_oidc_v2s is not None:
+            pulumi.set(__self__, "custom_oidc_v2s", custom_oidc_v2s)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if facebook_v2 is not None:
+            pulumi.set(__self__, "facebook_v2", facebook_v2)
+        if forward_proxy_convention is not None:
+            pulumi.set(__self__, "forward_proxy_convention", forward_proxy_convention)
+        if forward_proxy_custom_host_header_name is not None:
+            pulumi.set(__self__, "forward_proxy_custom_host_header_name", forward_proxy_custom_host_header_name)
+        if forward_proxy_custom_scheme_header_name is not None:
+            pulumi.set(__self__, "forward_proxy_custom_scheme_header_name", forward_proxy_custom_scheme_header_name)
+        if github_v2 is not None:
+            pulumi.set(__self__, "github_v2", github_v2)
+        if google_v2 is not None:
+            pulumi.set(__self__, "google_v2", google_v2)
+        if http_route_api_prefix is not None:
+            pulumi.set(__self__, "http_route_api_prefix", http_route_api_prefix)
+        if microsoft_v2 is not None:
+            pulumi.set(__self__, "microsoft_v2", microsoft_v2)
+        if require_authentication is not None:
+            pulumi.set(__self__, "require_authentication", require_authentication)
+        if require_https is not None:
+            pulumi.set(__self__, "require_https", require_https)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if twitter_v2 is not None:
+            pulumi.set(__self__, "twitter_v2", twitter_v2)
+        if unauthenticated_action is not None:
+            pulumi.set(__self__, "unauthenticated_action", unauthenticated_action)
+
+    @property
+    @pulumi.getter
+    def login(self) -> pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArgs']:
+        """
+        A `login` block as defined below.
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArgs']):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter(name="activeDirectoryV2")
+    def active_directory_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args']]:
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        return pulumi.get(self, "active_directory_v2")
+
+    @active_directory_v2.setter
+    def active_directory_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args']]):
+        pulumi.set(self, "active_directory_v2", value)
+
+    @property
+    @pulumi.getter(name="appleV2")
+    def apple_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Args']]:
+        """
+        An `apple_v2` block as defined below.
+        """
+        return pulumi.get(self, "apple_v2")
+
+    @apple_v2.setter
+    def apple_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Args']]):
+        pulumi.set(self, "apple_v2", value)
+
+    @property
+    @pulumi.getter(name="authEnabled")
+    def auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "auth_enabled")
+
+    @auth_enabled.setter
+    def auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auth_enabled", value)
+
+    @property
+    @pulumi.getter(name="azureStaticWebAppV2")
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']]:
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        return pulumi.get(self, "azure_static_web_app_v2")
+
+    @azure_static_web_app_v2.setter
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']]):
+        pulumi.set(self, "azure_static_web_app_v2", value)
+
+    @property
+    @pulumi.getter(name="configFilePath")
+    def config_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the App Auth settings.
+        """
+        return pulumi.get(self, "config_file_path")
+
+    @config_file_path.setter
+    def config_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config_file_path", value)
+
+    @property
+    @pulumi.getter(name="customOidcV2s")
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args']]]]:
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        return pulumi.get(self, "custom_oidc_v2s")
+
+    @custom_oidc_v2s.setter
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args']]]]):
+        pulumi.set(self, "custom_oidc_v2s", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        """
+        return pulumi.get(self, "excluded_paths")
+
+    @excluded_paths.setter
+    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_paths", value)
+
+    @property
+    @pulumi.getter(name="facebookV2")
+    def facebook_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Args']]:
+        """
+        A `facebook_v2` block as defined below.
+        """
+        return pulumi.get(self, "facebook_v2")
+
+    @facebook_v2.setter
+    def facebook_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Args']]):
+        pulumi.set(self, "facebook_v2", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyConvention")
+    def forward_proxy_convention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        """
+        return pulumi.get(self, "forward_proxy_convention")
+
+    @forward_proxy_convention.setter
+    def forward_proxy_convention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_convention", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyCustomHostHeaderName")
+    def forward_proxy_custom_host_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the custom header containing the host of the request.
+        """
+        return pulumi.get(self, "forward_proxy_custom_host_header_name")
+
+    @forward_proxy_custom_host_header_name.setter
+    def forward_proxy_custom_host_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_custom_host_header_name", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyCustomSchemeHeaderName")
+    def forward_proxy_custom_scheme_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        return pulumi.get(self, "forward_proxy_custom_scheme_header_name")
+
+    @forward_proxy_custom_scheme_header_name.setter
+    def forward_proxy_custom_scheme_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_custom_scheme_header_name", value)
+
+    @property
+    @pulumi.getter(name="githubV2")
+    def github_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Args']]:
+        """
+        A `github_v2` block as defined below.
+        """
+        return pulumi.get(self, "github_v2")
+
+    @github_v2.setter
+    def github_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Args']]):
+        pulumi.set(self, "github_v2", value)
+
+    @property
+    @pulumi.getter(name="googleV2")
+    def google_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Args']]:
+        """
+        A `google_v2` block as defined below.
+        """
+        return pulumi.get(self, "google_v2")
+
+    @google_v2.setter
+    def google_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Args']]):
+        pulumi.set(self, "google_v2", value)
+
+    @property
+    @pulumi.getter(name="httpRouteApiPrefix")
+    def http_route_api_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        return pulumi.get(self, "http_route_api_prefix")
+
+    @http_route_api_prefix.setter
+    def http_route_api_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_route_api_prefix", value)
+
+    @property
+    @pulumi.getter(name="microsoftV2")
+    def microsoft_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Args']]:
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        return pulumi.get(self, "microsoft_v2")
+
+    @microsoft_v2.setter
+    def microsoft_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Args']]):
+        pulumi.set(self, "microsoft_v2", value)
+
+    @property
+    @pulumi.getter(name="requireAuthentication")
+    def require_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the authentication flow be used for all requests.
+        """
+        return pulumi.get(self, "require_authentication")
+
+    @require_authentication.setter
+    def require_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_authentication", value)
+
+    @property
+    @pulumi.getter(name="requireHttps")
+    def require_https(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        return pulumi.get(self, "require_https")
+
+    @require_https.setter
+    def require_https(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_https", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="twitterV2")
+    def twitter_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Args']]:
+        """
+        A `twitter_v2` block as defined below.
+        """
+        return pulumi.get(self, "twitter_v2")
+
+    @twitter_v2.setter
+    def twitter_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Args']]):
+        pulumi.set(self, "twitter_v2", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedAction")
+    def unauthenticated_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+        return pulumi.get(self, "unauthenticated_action")
+
+    @unauthenticated_action.setter
+    def unauthenticated_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_action", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 tenant_auth_endpoint: pulumi.Input[str],
+                 allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 jwt_allowed_client_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 jwt_allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 www_authentication_disabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        :param pulumi.Input[bool] www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
+        if allowed_applications is not None:
+            pulumi.set(__self__, "allowed_applications", allowed_applications)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if allowed_groups is not None:
+            pulumi.set(__self__, "allowed_groups", allowed_groups)
+        if allowed_identities is not None:
+            pulumi.set(__self__, "allowed_identities", allowed_identities)
+        if client_secret_certificate_thumbprint is not None:
+            pulumi.set(__self__, "client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if jwt_allowed_client_applications is not None:
+            pulumi.set(__self__, "jwt_allowed_client_applications", jwt_allowed_client_applications)
+        if jwt_allowed_groups is not None:
+            pulumi.set(__self__, "jwt_allowed_groups", jwt_allowed_groups)
+        if login_parameters is not None:
+            pulumi.set(__self__, "login_parameters", login_parameters)
+        if www_authentication_disabled is not None:
+            pulumi.set(__self__, "www_authentication_disabled", www_authentication_disabled)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="tenantAuthEndpoint")
+    def tenant_auth_endpoint(self) -> pulumi.Input[str]:
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        """
+        return pulumi.get(self, "tenant_auth_endpoint")
+
+    @tenant_auth_endpoint.setter
+    def tenant_auth_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_auth_endpoint", value)
+
+    @property
+    @pulumi.getter(name="allowedApplications")
+    def allowed_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_applications")
+
+    @allowed_applications.setter
+    def allowed_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_applications", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="allowedGroups")
+    def allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_groups")
+
+    @allowed_groups.setter
+    def allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_groups", value)
+
+    @property
+    @pulumi.getter(name="allowedIdentities")
+    def allowed_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_identities")
+
+    @allowed_identities.setter
+    def allowed_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_identities", value)
+
+    @property
+    @pulumi.getter(name="clientSecretCertificateThumbprint")
+    def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        return pulumi.get(self, "client_secret_certificate_thumbprint")
+
+    @client_secret_certificate_thumbprint.setter
+    def client_secret_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_certificate_thumbprint", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="jwtAllowedClientApplications")
+    def jwt_allowed_client_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        return pulumi.get(self, "jwt_allowed_client_applications")
+
+    @jwt_allowed_client_applications.setter
+    def jwt_allowed_client_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "jwt_allowed_client_applications", value)
+
+    @property
+    @pulumi.getter(name="jwtAllowedGroups")
+    def jwt_allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        return pulumi.get(self, "jwt_allowed_groups")
+
+    @jwt_allowed_groups.setter
+    def jwt_allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "jwt_allowed_groups", value)
+
+    @property
+    @pulumi.getter(name="loginParameters")
+    def login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        return pulumi.get(self, "login_parameters")
+
+    @login_parameters.setter
+    def login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "login_parameters", value)
+
+    @property
+    @pulumi.getter(name="wwwAuthenticationDisabled")
+    def www_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        """
+        return pulumi.get(self, "www_authentication_disabled")
+
+    @www_authentication_disabled.setter
+    def www_authentication_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "www_authentication_disabled", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsV2AppleV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsV2CustomOidcV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 openid_configuration_endpoint: pulumi.Input[str],
+                 authorisation_endpoint: Optional[pulumi.Input[str]] = None,
+                 certification_uri: Optional[pulumi.Input[str]] = None,
+                 client_credential_method: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 issuer_endpoint: Optional[pulumi.Input[str]] = None,
+                 name_claim_type: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 token_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] name: The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param pulumi.Input[str] openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        :param pulumi.Input[str] authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] client_credential_method: The Client Credential Method used.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[str] issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] name_claim_type: The name of the claim that contains the users name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of the scopes that should be requested while authenticating.
+        :param pulumi.Input[str] token_endpoint: The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "openid_configuration_endpoint", openid_configuration_endpoint)
+        if authorisation_endpoint is not None:
+            pulumi.set(__self__, "authorisation_endpoint", authorisation_endpoint)
+        if certification_uri is not None:
+            pulumi.set(__self__, "certification_uri", certification_uri)
+        if client_credential_method is not None:
+            pulumi.set(__self__, "client_credential_method", client_credential_method)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if issuer_endpoint is not None:
+            pulumi.set(__self__, "issuer_endpoint", issuer_endpoint)
+        if name_claim_type is not None:
+            pulumi.set(__self__, "name_claim_type", name_claim_type)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="openidConfigurationEndpoint")
+    def openid_configuration_endpoint(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        return pulumi.get(self, "openid_configuration_endpoint")
+
+    @openid_configuration_endpoint.setter
+    def openid_configuration_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "openid_configuration_endpoint", value)
+
+    @property
+    @pulumi.getter(name="authorisationEndpoint")
+    def authorisation_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "authorisation_endpoint")
+
+    @authorisation_endpoint.setter
+    def authorisation_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorisation_endpoint", value)
+
+    @property
+    @pulumi.getter(name="certificationUri")
+    def certification_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "certification_uri")
+
+    @certification_uri.setter
+    def certification_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certification_uri", value)
+
+    @property
+    @pulumi.getter(name="clientCredentialMethod")
+    def client_credential_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Credential Method used.
+        """
+        return pulumi.get(self, "client_credential_method")
+
+    @client_credential_method.setter
+    def client_credential_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_credential_method", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="issuerEndpoint")
+    def issuer_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "issuer_endpoint")
+
+    @issuer_endpoint.setter
+    def issuer_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_endpoint", value)
+
+    @property
+    @pulumi.getter(name="nameClaimType")
+    def name_claim_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the claim that contains the users name.
+        """
+        return pulumi.get(self, "name_claim_type")
+
+    @name_claim_type.setter
+    def name_claim_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_claim_type", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_endpoint", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsV2FacebookV2Args:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret_setting_name: pulumi.Input[str],
+                 graph_api_version: Optional[pulumi.Input[str]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
+        :param pulumi.Input[str] graph_api_version: The version of the Facebook API to be used while logging in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if graph_api_version is not None:
+            pulumi.set(__self__, "graph_api_version", graph_api_version)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="graphApiVersion")
+    def graph_api_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        return pulumi.get(self, "graph_api_version")
+
+    @graph_api_version.setter
+    def graph_api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "graph_api_version", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsV2GithubV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsV2GoogleV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsV2LoginArgs:
+    def __init__(__self__, *,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
+                 cookie_expiration_time: Optional[pulumi.Input[str]] = None,
+                 logout_endpoint: Optional[pulumi.Input[str]] = None,
+                 nonce_expiration_time: Optional[pulumi.Input[str]] = None,
+                 preserve_url_fragments_for_logins: Optional[pulumi.Input[bool]] = None,
+                 token_refresh_extension_time: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 token_store_path: Optional[pulumi.Input[str]] = None,
+                 token_store_sas_setting_name: Optional[pulumi.Input[str]] = None,
+                 validate_nonce: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+        :param pulumi.Input[str] cookie_expiration_convention: The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        :param pulumi.Input[str] cookie_expiration_time: The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        :param pulumi.Input[str] logout_endpoint: The endpoint to which logout requests should be made.
+        :param pulumi.Input[str] nonce_expiration_time: The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        :param pulumi.Input[bool] preserve_url_fragments_for_logins: Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        :param pulumi.Input[float] token_refresh_extension_time: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Token Store configuration Enabled. Defaults to `false`
+        :param pulumi.Input[str] token_store_path: The directory path in the App Filesystem in which the tokens will be stored.
+        :param pulumi.Input[str] token_store_sas_setting_name: The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        :param pulumi.Input[bool] validate_nonce: Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if cookie_expiration_convention is not None:
+            pulumi.set(__self__, "cookie_expiration_convention", cookie_expiration_convention)
+        if cookie_expiration_time is not None:
+            pulumi.set(__self__, "cookie_expiration_time", cookie_expiration_time)
+        if logout_endpoint is not None:
+            pulumi.set(__self__, "logout_endpoint", logout_endpoint)
+        if nonce_expiration_time is not None:
+            pulumi.set(__self__, "nonce_expiration_time", nonce_expiration_time)
+        if preserve_url_fragments_for_logins is not None:
+            pulumi.set(__self__, "preserve_url_fragments_for_logins", preserve_url_fragments_for_logins)
+        if token_refresh_extension_time is not None:
+            pulumi.set(__self__, "token_refresh_extension_time", token_refresh_extension_time)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if token_store_path is not None:
+            pulumi.set(__self__, "token_store_path", token_store_path)
+        if token_store_sas_setting_name is not None:
+            pulumi.set(__self__, "token_store_sas_setting_name", token_store_sas_setting_name)
+        if validate_nonce is not None:
+            pulumi.set(__self__, "validate_nonce", validate_nonce)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="cookieExpirationConvention")
+    def cookie_expiration_convention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        return pulumi.get(self, "cookie_expiration_convention")
+
+    @cookie_expiration_convention.setter
+    def cookie_expiration_convention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_expiration_convention", value)
+
+    @property
+    @pulumi.getter(name="cookieExpirationTime")
+    def cookie_expiration_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        return pulumi.get(self, "cookie_expiration_time")
+
+    @cookie_expiration_time.setter
+    def cookie_expiration_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_expiration_time", value)
+
+    @property
+    @pulumi.getter(name="logoutEndpoint")
+    def logout_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to which logout requests should be made.
+        """
+        return pulumi.get(self, "logout_endpoint")
+
+    @logout_endpoint.setter
+    def logout_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logout_endpoint", value)
+
+    @property
+    @pulumi.getter(name="nonceExpirationTime")
+    def nonce_expiration_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        return pulumi.get(self, "nonce_expiration_time")
+
+    @nonce_expiration_time.setter
+    def nonce_expiration_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nonce_expiration_time", value)
+
+    @property
+    @pulumi.getter(name="preserveUrlFragmentsForLogins")
+    def preserve_url_fragments_for_logins(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        return pulumi.get(self, "preserve_url_fragments_for_logins")
+
+    @preserve_url_fragments_for_logins.setter
+    def preserve_url_fragments_for_logins(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preserve_url_fragments_for_logins", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionTime")
+    def token_refresh_extension_time(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_time")
+
+    @token_refresh_extension_time.setter
+    def token_refresh_extension_time(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_time", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter(name="tokenStorePath")
+    def token_store_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        return pulumi.get(self, "token_store_path")
+
+    @token_store_path.setter
+    def token_store_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_store_path", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreSasSettingName")
+    def token_store_sas_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        return pulumi.get(self, "token_store_sas_setting_name")
+
+    @token_store_sas_setting_name.setter
+    def token_store_sas_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_store_sas_setting_name", value)
+
+    @property
+    @pulumi.getter(name="validateNonce")
+    def validate_nonce(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+        return pulumi.get(self, "validate_nonce")
+
+    @validate_nonce.setter
+    def validate_nonce(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate_nonce", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsV2MicrosoftV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsV2TwitterV2Args:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret_setting_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
 
@@ -7350,7 +8707,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]] dockers: One or more `docker` blocks as defined below.
         :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
-        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
+        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, `11` & `17`.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values are `3.10`, `3.9`, `3.8` and `3.7`.
@@ -7402,7 +8759,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
+        The Version of Java to use. Supported versions include `8`, `11` & `17`.
         """
         return pulumi.get(self, "java_version")
 
@@ -8035,13 +9392,13 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
         :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: an `active_directory` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
-        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArgs'] facebook: a `facebook` block as detailed below.
         :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArgs'] github: a `github` block as detailed below.
         :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArgs'] google: a `google` block as detailed below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens.
         :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArgs'] microsoft: a `microsoft` block as detailed below.
-        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use.
+        :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArgs'] twitter: a `twitter` block as detailed below.
@@ -8129,7 +9486,7 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         """
         return pulumi.get(self, "default_provider")
 
@@ -8201,7 +9558,7 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The RuntimeVersion of the Authentication / Authorization feature in use.
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -8659,6 +10016,1296 @@ class LinuxFunctionAppSlotAuthSettingsTwitterArgs:
 
     @consumer_secret_setting_name.setter
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsV2Args:
+    def __init__(__self__, *,
+                 login: pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArgs'],
+                 active_directory_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']] = None,
+                 apple_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Args']] = None,
+                 auth_enabled: Optional[pulumi.Input[bool]] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 config_file_path: Optional[pulumi.Input[str]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 facebook_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args']] = None,
+                 forward_proxy_convention: Optional[pulumi.Input[str]] = None,
+                 forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
+                 forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
+                 github_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Args']] = None,
+                 google_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args']] = None,
+                 http_route_api_prefix: Optional[pulumi.Input[str]] = None,
+                 microsoft_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args']] = None,
+                 require_authentication: Optional[pulumi.Input[bool]] = None,
+                 require_https: Optional[pulumi.Input[bool]] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 twitter_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args']] = None,
+                 unauthenticated_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
+        :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
+        :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+        pulumi.set(__self__, "login", login)
+        if active_directory_v2 is not None:
+            pulumi.set(__self__, "active_directory_v2", active_directory_v2)
+        if apple_v2 is not None:
+            pulumi.set(__self__, "apple_v2", apple_v2)
+        if auth_enabled is not None:
+            pulumi.set(__self__, "auth_enabled", auth_enabled)
+        if azure_static_web_app_v2 is not None:
+            pulumi.set(__self__, "azure_static_web_app_v2", azure_static_web_app_v2)
+        if config_file_path is not None:
+            pulumi.set(__self__, "config_file_path", config_file_path)
+        if custom_oidc_v2s is not None:
+            pulumi.set(__self__, "custom_oidc_v2s", custom_oidc_v2s)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if facebook_v2 is not None:
+            pulumi.set(__self__, "facebook_v2", facebook_v2)
+        if forward_proxy_convention is not None:
+            pulumi.set(__self__, "forward_proxy_convention", forward_proxy_convention)
+        if forward_proxy_custom_host_header_name is not None:
+            pulumi.set(__self__, "forward_proxy_custom_host_header_name", forward_proxy_custom_host_header_name)
+        if forward_proxy_custom_scheme_header_name is not None:
+            pulumi.set(__self__, "forward_proxy_custom_scheme_header_name", forward_proxy_custom_scheme_header_name)
+        if github_v2 is not None:
+            pulumi.set(__self__, "github_v2", github_v2)
+        if google_v2 is not None:
+            pulumi.set(__self__, "google_v2", google_v2)
+        if http_route_api_prefix is not None:
+            pulumi.set(__self__, "http_route_api_prefix", http_route_api_prefix)
+        if microsoft_v2 is not None:
+            pulumi.set(__self__, "microsoft_v2", microsoft_v2)
+        if require_authentication is not None:
+            pulumi.set(__self__, "require_authentication", require_authentication)
+        if require_https is not None:
+            pulumi.set(__self__, "require_https", require_https)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if twitter_v2 is not None:
+            pulumi.set(__self__, "twitter_v2", twitter_v2)
+        if unauthenticated_action is not None:
+            pulumi.set(__self__, "unauthenticated_action", unauthenticated_action)
+
+    @property
+    @pulumi.getter
+    def login(self) -> pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArgs']:
+        """
+        A `login` block as defined below.
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArgs']):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter(name="activeDirectoryV2")
+    def active_directory_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']]:
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        return pulumi.get(self, "active_directory_v2")
+
+    @active_directory_v2.setter
+    def active_directory_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']]):
+        pulumi.set(self, "active_directory_v2", value)
+
+    @property
+    @pulumi.getter(name="appleV2")
+    def apple_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Args']]:
+        """
+        An `apple_v2` block as defined below.
+        """
+        return pulumi.get(self, "apple_v2")
+
+    @apple_v2.setter
+    def apple_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Args']]):
+        pulumi.set(self, "apple_v2", value)
+
+    @property
+    @pulumi.getter(name="authEnabled")
+    def auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "auth_enabled")
+
+    @auth_enabled.setter
+    def auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auth_enabled", value)
+
+    @property
+    @pulumi.getter(name="azureStaticWebAppV2")
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]:
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        return pulumi.get(self, "azure_static_web_app_v2")
+
+    @azure_static_web_app_v2.setter
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]):
+        pulumi.set(self, "azure_static_web_app_v2", value)
+
+    @property
+    @pulumi.getter(name="configFilePath")
+    def config_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the App Auth settings.
+        """
+        return pulumi.get(self, "config_file_path")
+
+    @config_file_path.setter
+    def config_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config_file_path", value)
+
+    @property
+    @pulumi.getter(name="customOidcV2s")
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]]:
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        return pulumi.get(self, "custom_oidc_v2s")
+
+    @custom_oidc_v2s.setter
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]]):
+        pulumi.set(self, "custom_oidc_v2s", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        """
+        return pulumi.get(self, "excluded_paths")
+
+    @excluded_paths.setter
+    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_paths", value)
+
+    @property
+    @pulumi.getter(name="facebookV2")
+    def facebook_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args']]:
+        """
+        A `facebook_v2` block as defined below.
+        """
+        return pulumi.get(self, "facebook_v2")
+
+    @facebook_v2.setter
+    def facebook_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args']]):
+        pulumi.set(self, "facebook_v2", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyConvention")
+    def forward_proxy_convention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        """
+        return pulumi.get(self, "forward_proxy_convention")
+
+    @forward_proxy_convention.setter
+    def forward_proxy_convention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_convention", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyCustomHostHeaderName")
+    def forward_proxy_custom_host_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the custom header containing the host of the request.
+        """
+        return pulumi.get(self, "forward_proxy_custom_host_header_name")
+
+    @forward_proxy_custom_host_header_name.setter
+    def forward_proxy_custom_host_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_custom_host_header_name", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyCustomSchemeHeaderName")
+    def forward_proxy_custom_scheme_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        return pulumi.get(self, "forward_proxy_custom_scheme_header_name")
+
+    @forward_proxy_custom_scheme_header_name.setter
+    def forward_proxy_custom_scheme_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_custom_scheme_header_name", value)
+
+    @property
+    @pulumi.getter(name="githubV2")
+    def github_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Args']]:
+        """
+        A `github_v2` block as defined below.
+        """
+        return pulumi.get(self, "github_v2")
+
+    @github_v2.setter
+    def github_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Args']]):
+        pulumi.set(self, "github_v2", value)
+
+    @property
+    @pulumi.getter(name="googleV2")
+    def google_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args']]:
+        """
+        A `google_v2` block as defined below.
+        """
+        return pulumi.get(self, "google_v2")
+
+    @google_v2.setter
+    def google_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args']]):
+        pulumi.set(self, "google_v2", value)
+
+    @property
+    @pulumi.getter(name="httpRouteApiPrefix")
+    def http_route_api_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        return pulumi.get(self, "http_route_api_prefix")
+
+    @http_route_api_prefix.setter
+    def http_route_api_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_route_api_prefix", value)
+
+    @property
+    @pulumi.getter(name="microsoftV2")
+    def microsoft_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args']]:
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        return pulumi.get(self, "microsoft_v2")
+
+    @microsoft_v2.setter
+    def microsoft_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args']]):
+        pulumi.set(self, "microsoft_v2", value)
+
+    @property
+    @pulumi.getter(name="requireAuthentication")
+    def require_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the authentication flow be used for all requests.
+        """
+        return pulumi.get(self, "require_authentication")
+
+    @require_authentication.setter
+    def require_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_authentication", value)
+
+    @property
+    @pulumi.getter(name="requireHttps")
+    def require_https(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        return pulumi.get(self, "require_https")
+
+    @require_https.setter
+    def require_https(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_https", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="twitterV2")
+    def twitter_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args']]:
+        """
+        A `twitter_v2` block as defined below.
+        """
+        return pulumi.get(self, "twitter_v2")
+
+    @twitter_v2.setter
+    def twitter_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args']]):
+        pulumi.set(self, "twitter_v2", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedAction")
+    def unauthenticated_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+        return pulumi.get(self, "unauthenticated_action")
+
+    @unauthenticated_action.setter
+    def unauthenticated_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_action", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 tenant_auth_endpoint: pulumi.Input[str],
+                 allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 jwt_allowed_client_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 jwt_allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 www_authentication_disabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        :param pulumi.Input[bool] www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
+        if allowed_applications is not None:
+            pulumi.set(__self__, "allowed_applications", allowed_applications)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if allowed_groups is not None:
+            pulumi.set(__self__, "allowed_groups", allowed_groups)
+        if allowed_identities is not None:
+            pulumi.set(__self__, "allowed_identities", allowed_identities)
+        if client_secret_certificate_thumbprint is not None:
+            pulumi.set(__self__, "client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if jwt_allowed_client_applications is not None:
+            pulumi.set(__self__, "jwt_allowed_client_applications", jwt_allowed_client_applications)
+        if jwt_allowed_groups is not None:
+            pulumi.set(__self__, "jwt_allowed_groups", jwt_allowed_groups)
+        if login_parameters is not None:
+            pulumi.set(__self__, "login_parameters", login_parameters)
+        if www_authentication_disabled is not None:
+            pulumi.set(__self__, "www_authentication_disabled", www_authentication_disabled)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="tenantAuthEndpoint")
+    def tenant_auth_endpoint(self) -> pulumi.Input[str]:
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        """
+        return pulumi.get(self, "tenant_auth_endpoint")
+
+    @tenant_auth_endpoint.setter
+    def tenant_auth_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_auth_endpoint", value)
+
+    @property
+    @pulumi.getter(name="allowedApplications")
+    def allowed_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_applications")
+
+    @allowed_applications.setter
+    def allowed_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_applications", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="allowedGroups")
+    def allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_groups")
+
+    @allowed_groups.setter
+    def allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_groups", value)
+
+    @property
+    @pulumi.getter(name="allowedIdentities")
+    def allowed_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_identities")
+
+    @allowed_identities.setter
+    def allowed_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_identities", value)
+
+    @property
+    @pulumi.getter(name="clientSecretCertificateThumbprint")
+    def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        return pulumi.get(self, "client_secret_certificate_thumbprint")
+
+    @client_secret_certificate_thumbprint.setter
+    def client_secret_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_certificate_thumbprint", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="jwtAllowedClientApplications")
+    def jwt_allowed_client_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        return pulumi.get(self, "jwt_allowed_client_applications")
+
+    @jwt_allowed_client_applications.setter
+    def jwt_allowed_client_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "jwt_allowed_client_applications", value)
+
+    @property
+    @pulumi.getter(name="jwtAllowedGroups")
+    def jwt_allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        return pulumi.get(self, "jwt_allowed_groups")
+
+    @jwt_allowed_groups.setter
+    def jwt_allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "jwt_allowed_groups", value)
+
+    @property
+    @pulumi.getter(name="loginParameters")
+    def login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        return pulumi.get(self, "login_parameters")
+
+    @login_parameters.setter
+    def login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "login_parameters", value)
+
+    @property
+    @pulumi.getter(name="wwwAuthenticationDisabled")
+    def www_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        """
+        return pulumi.get(self, "www_authentication_disabled")
+
+    @www_authentication_disabled.setter
+    def www_authentication_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "www_authentication_disabled", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 openid_configuration_endpoint: pulumi.Input[str],
+                 authorisation_endpoint: Optional[pulumi.Input[str]] = None,
+                 certification_uri: Optional[pulumi.Input[str]] = None,
+                 client_credential_method: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 issuer_endpoint: Optional[pulumi.Input[str]] = None,
+                 name_claim_type: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 token_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] name: Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        :param pulumi.Input[str] authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] client_credential_method: The Client Credential Method used.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[str] issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] name_claim_type: The name of the claim that contains the users name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of the scopes that should be requested while authenticating.
+        :param pulumi.Input[str] token_endpoint: The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "openid_configuration_endpoint", openid_configuration_endpoint)
+        if authorisation_endpoint is not None:
+            pulumi.set(__self__, "authorisation_endpoint", authorisation_endpoint)
+        if certification_uri is not None:
+            pulumi.set(__self__, "certification_uri", certification_uri)
+        if client_credential_method is not None:
+            pulumi.set(__self__, "client_credential_method", client_credential_method)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if issuer_endpoint is not None:
+            pulumi.set(__self__, "issuer_endpoint", issuer_endpoint)
+        if name_claim_type is not None:
+            pulumi.set(__self__, "name_claim_type", name_claim_type)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="openidConfigurationEndpoint")
+    def openid_configuration_endpoint(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        return pulumi.get(self, "openid_configuration_endpoint")
+
+    @openid_configuration_endpoint.setter
+    def openid_configuration_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "openid_configuration_endpoint", value)
+
+    @property
+    @pulumi.getter(name="authorisationEndpoint")
+    def authorisation_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "authorisation_endpoint")
+
+    @authorisation_endpoint.setter
+    def authorisation_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorisation_endpoint", value)
+
+    @property
+    @pulumi.getter(name="certificationUri")
+    def certification_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "certification_uri")
+
+    @certification_uri.setter
+    def certification_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certification_uri", value)
+
+    @property
+    @pulumi.getter(name="clientCredentialMethod")
+    def client_credential_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Credential Method used.
+        """
+        return pulumi.get(self, "client_credential_method")
+
+    @client_credential_method.setter
+    def client_credential_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_credential_method", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="issuerEndpoint")
+    def issuer_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "issuer_endpoint")
+
+    @issuer_endpoint.setter
+    def issuer_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_endpoint", value)
+
+    @property
+    @pulumi.getter(name="nameClaimType")
+    def name_claim_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the claim that contains the users name.
+        """
+        return pulumi.get(self, "name_claim_type")
+
+    @name_claim_type.setter
+    def name_claim_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_claim_type", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_endpoint", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret_setting_name: pulumi.Input[str],
+                 graph_api_version: Optional[pulumi.Input[str]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
+        :param pulumi.Input[str] graph_api_version: The version of the Facebook API to be used while logging in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if graph_api_version is not None:
+            pulumi.set(__self__, "graph_api_version", graph_api_version)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="graphApiVersion")
+    def graph_api_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        return pulumi.get(self, "graph_api_version")
+
+    @graph_api_version.setter
+    def graph_api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "graph_api_version", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsV2GithubV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsV2LoginArgs:
+    def __init__(__self__, *,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
+                 cookie_expiration_time: Optional[pulumi.Input[str]] = None,
+                 logout_endpoint: Optional[pulumi.Input[str]] = None,
+                 nonce_expiration_time: Optional[pulumi.Input[str]] = None,
+                 preserve_url_fragments_for_logins: Optional[pulumi.Input[bool]] = None,
+                 token_refresh_extension_time: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 token_store_path: Optional[pulumi.Input[str]] = None,
+                 token_store_sas_setting_name: Optional[pulumi.Input[str]] = None,
+                 validate_nonce: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+        :param pulumi.Input[str] cookie_expiration_convention: The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        :param pulumi.Input[str] cookie_expiration_time: The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        :param pulumi.Input[str] logout_endpoint: The endpoint to which logout requests should be made.
+        :param pulumi.Input[str] nonce_expiration_time: The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        :param pulumi.Input[bool] preserve_url_fragments_for_logins: Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        :param pulumi.Input[float] token_refresh_extension_time: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Token Store configuration Enabled. Defaults to `false`
+        :param pulumi.Input[str] token_store_path: The directory path in the App Filesystem in which the tokens will be stored.
+        :param pulumi.Input[str] token_store_sas_setting_name: The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        :param pulumi.Input[bool] validate_nonce: Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if cookie_expiration_convention is not None:
+            pulumi.set(__self__, "cookie_expiration_convention", cookie_expiration_convention)
+        if cookie_expiration_time is not None:
+            pulumi.set(__self__, "cookie_expiration_time", cookie_expiration_time)
+        if logout_endpoint is not None:
+            pulumi.set(__self__, "logout_endpoint", logout_endpoint)
+        if nonce_expiration_time is not None:
+            pulumi.set(__self__, "nonce_expiration_time", nonce_expiration_time)
+        if preserve_url_fragments_for_logins is not None:
+            pulumi.set(__self__, "preserve_url_fragments_for_logins", preserve_url_fragments_for_logins)
+        if token_refresh_extension_time is not None:
+            pulumi.set(__self__, "token_refresh_extension_time", token_refresh_extension_time)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if token_store_path is not None:
+            pulumi.set(__self__, "token_store_path", token_store_path)
+        if token_store_sas_setting_name is not None:
+            pulumi.set(__self__, "token_store_sas_setting_name", token_store_sas_setting_name)
+        if validate_nonce is not None:
+            pulumi.set(__self__, "validate_nonce", validate_nonce)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="cookieExpirationConvention")
+    def cookie_expiration_convention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        return pulumi.get(self, "cookie_expiration_convention")
+
+    @cookie_expiration_convention.setter
+    def cookie_expiration_convention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_expiration_convention", value)
+
+    @property
+    @pulumi.getter(name="cookieExpirationTime")
+    def cookie_expiration_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        return pulumi.get(self, "cookie_expiration_time")
+
+    @cookie_expiration_time.setter
+    def cookie_expiration_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_expiration_time", value)
+
+    @property
+    @pulumi.getter(name="logoutEndpoint")
+    def logout_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to which logout requests should be made.
+        """
+        return pulumi.get(self, "logout_endpoint")
+
+    @logout_endpoint.setter
+    def logout_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logout_endpoint", value)
+
+    @property
+    @pulumi.getter(name="nonceExpirationTime")
+    def nonce_expiration_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        return pulumi.get(self, "nonce_expiration_time")
+
+    @nonce_expiration_time.setter
+    def nonce_expiration_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nonce_expiration_time", value)
+
+    @property
+    @pulumi.getter(name="preserveUrlFragmentsForLogins")
+    def preserve_url_fragments_for_logins(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        return pulumi.get(self, "preserve_url_fragments_for_logins")
+
+    @preserve_url_fragments_for_logins.setter
+    def preserve_url_fragments_for_logins(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preserve_url_fragments_for_logins", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionTime")
+    def token_refresh_extension_time(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_time")
+
+    @token_refresh_extension_time.setter
+    def token_refresh_extension_time(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_time", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter(name="tokenStorePath")
+    def token_store_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        return pulumi.get(self, "token_store_path")
+
+    @token_store_path.setter
+    def token_store_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_store_path", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreSasSettingName")
+    def token_store_sas_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        return pulumi.get(self, "token_store_sas_setting_name")
+
+    @token_store_sas_setting_name.setter
+    def token_store_sas_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_store_sas_setting_name", value)
+
+    @property
+    @pulumi.getter(name="validateNonce")
+    def validate_nonce(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+        return pulumi.get(self, "validate_nonce")
+
+    @validate_nonce.setter
+    def validate_nonce(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate_nonce", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret_setting_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
 
@@ -21152,13 +23799,13 @@ class WindowsFunctionAppAuthSettingsArgs:
         :param pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
-        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsGithubArgs'] github: A `github` block as defined below.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
-        :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+        :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
@@ -21246,7 +23893,7 @@ class WindowsFunctionAppAuthSettingsArgs:
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         """
         return pulumi.get(self, "default_provider")
 
@@ -21318,7 +23965,7 @@ class WindowsFunctionAppAuthSettingsArgs:
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -21776,6 +24423,1296 @@ class WindowsFunctionAppAuthSettingsTwitterArgs:
 
     @consumer_secret_setting_name.setter
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsV2Args:
+    def __init__(__self__, *,
+                 login: pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArgs'],
+                 active_directory_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args']] = None,
+                 apple_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Args']] = None,
+                 auth_enabled: Optional[pulumi.Input[bool]] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 config_file_path: Optional[pulumi.Input[str]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 facebook_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Args']] = None,
+                 forward_proxy_convention: Optional[pulumi.Input[str]] = None,
+                 forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
+                 forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
+                 github_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Args']] = None,
+                 google_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Args']] = None,
+                 http_route_api_prefix: Optional[pulumi.Input[str]] = None,
+                 microsoft_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Args']] = None,
+                 require_authentication: Optional[pulumi.Input[bool]] = None,
+                 require_https: Optional[pulumi.Input[bool]] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 twitter_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Args']] = None,
+                 unauthenticated_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
+        :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
+        :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
+        :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+        pulumi.set(__self__, "login", login)
+        if active_directory_v2 is not None:
+            pulumi.set(__self__, "active_directory_v2", active_directory_v2)
+        if apple_v2 is not None:
+            pulumi.set(__self__, "apple_v2", apple_v2)
+        if auth_enabled is not None:
+            pulumi.set(__self__, "auth_enabled", auth_enabled)
+        if azure_static_web_app_v2 is not None:
+            pulumi.set(__self__, "azure_static_web_app_v2", azure_static_web_app_v2)
+        if config_file_path is not None:
+            pulumi.set(__self__, "config_file_path", config_file_path)
+        if custom_oidc_v2s is not None:
+            pulumi.set(__self__, "custom_oidc_v2s", custom_oidc_v2s)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if facebook_v2 is not None:
+            pulumi.set(__self__, "facebook_v2", facebook_v2)
+        if forward_proxy_convention is not None:
+            pulumi.set(__self__, "forward_proxy_convention", forward_proxy_convention)
+        if forward_proxy_custom_host_header_name is not None:
+            pulumi.set(__self__, "forward_proxy_custom_host_header_name", forward_proxy_custom_host_header_name)
+        if forward_proxy_custom_scheme_header_name is not None:
+            pulumi.set(__self__, "forward_proxy_custom_scheme_header_name", forward_proxy_custom_scheme_header_name)
+        if github_v2 is not None:
+            pulumi.set(__self__, "github_v2", github_v2)
+        if google_v2 is not None:
+            pulumi.set(__self__, "google_v2", google_v2)
+        if http_route_api_prefix is not None:
+            pulumi.set(__self__, "http_route_api_prefix", http_route_api_prefix)
+        if microsoft_v2 is not None:
+            pulumi.set(__self__, "microsoft_v2", microsoft_v2)
+        if require_authentication is not None:
+            pulumi.set(__self__, "require_authentication", require_authentication)
+        if require_https is not None:
+            pulumi.set(__self__, "require_https", require_https)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if twitter_v2 is not None:
+            pulumi.set(__self__, "twitter_v2", twitter_v2)
+        if unauthenticated_action is not None:
+            pulumi.set(__self__, "unauthenticated_action", unauthenticated_action)
+
+    @property
+    @pulumi.getter
+    def login(self) -> pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArgs']:
+        """
+        A `login` block as defined below.
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArgs']):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter(name="activeDirectoryV2")
+    def active_directory_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args']]:
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        return pulumi.get(self, "active_directory_v2")
+
+    @active_directory_v2.setter
+    def active_directory_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args']]):
+        pulumi.set(self, "active_directory_v2", value)
+
+    @property
+    @pulumi.getter(name="appleV2")
+    def apple_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Args']]:
+        """
+        An `apple_v2` block as defined below.
+        """
+        return pulumi.get(self, "apple_v2")
+
+    @apple_v2.setter
+    def apple_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Args']]):
+        pulumi.set(self, "apple_v2", value)
+
+    @property
+    @pulumi.getter(name="authEnabled")
+    def auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "auth_enabled")
+
+    @auth_enabled.setter
+    def auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auth_enabled", value)
+
+    @property
+    @pulumi.getter(name="azureStaticWebAppV2")
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']]:
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        return pulumi.get(self, "azure_static_web_app_v2")
+
+    @azure_static_web_app_v2.setter
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']]):
+        pulumi.set(self, "azure_static_web_app_v2", value)
+
+    @property
+    @pulumi.getter(name="configFilePath")
+    def config_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the App Auth settings.
+        """
+        return pulumi.get(self, "config_file_path")
+
+    @config_file_path.setter
+    def config_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config_file_path", value)
+
+    @property
+    @pulumi.getter(name="customOidcV2s")
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args']]]]:
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        return pulumi.get(self, "custom_oidc_v2s")
+
+    @custom_oidc_v2s.setter
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args']]]]):
+        pulumi.set(self, "custom_oidc_v2s", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        """
+        return pulumi.get(self, "excluded_paths")
+
+    @excluded_paths.setter
+    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_paths", value)
+
+    @property
+    @pulumi.getter(name="facebookV2")
+    def facebook_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Args']]:
+        """
+        A `facebook_v2` block as defined below.
+        """
+        return pulumi.get(self, "facebook_v2")
+
+    @facebook_v2.setter
+    def facebook_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Args']]):
+        pulumi.set(self, "facebook_v2", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyConvention")
+    def forward_proxy_convention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        """
+        return pulumi.get(self, "forward_proxy_convention")
+
+    @forward_proxy_convention.setter
+    def forward_proxy_convention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_convention", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyCustomHostHeaderName")
+    def forward_proxy_custom_host_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the custom header containing the host of the request.
+        """
+        return pulumi.get(self, "forward_proxy_custom_host_header_name")
+
+    @forward_proxy_custom_host_header_name.setter
+    def forward_proxy_custom_host_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_custom_host_header_name", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyCustomSchemeHeaderName")
+    def forward_proxy_custom_scheme_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        return pulumi.get(self, "forward_proxy_custom_scheme_header_name")
+
+    @forward_proxy_custom_scheme_header_name.setter
+    def forward_proxy_custom_scheme_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_custom_scheme_header_name", value)
+
+    @property
+    @pulumi.getter(name="githubV2")
+    def github_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Args']]:
+        """
+        A `github_v2` block as defined below.
+        """
+        return pulumi.get(self, "github_v2")
+
+    @github_v2.setter
+    def github_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Args']]):
+        pulumi.set(self, "github_v2", value)
+
+    @property
+    @pulumi.getter(name="googleV2")
+    def google_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Args']]:
+        """
+        A `google_v2` block as defined below.
+        """
+        return pulumi.get(self, "google_v2")
+
+    @google_v2.setter
+    def google_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Args']]):
+        pulumi.set(self, "google_v2", value)
+
+    @property
+    @pulumi.getter(name="httpRouteApiPrefix")
+    def http_route_api_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        return pulumi.get(self, "http_route_api_prefix")
+
+    @http_route_api_prefix.setter
+    def http_route_api_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_route_api_prefix", value)
+
+    @property
+    @pulumi.getter(name="microsoftV2")
+    def microsoft_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Args']]:
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        return pulumi.get(self, "microsoft_v2")
+
+    @microsoft_v2.setter
+    def microsoft_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Args']]):
+        pulumi.set(self, "microsoft_v2", value)
+
+    @property
+    @pulumi.getter(name="requireAuthentication")
+    def require_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the authentication flow be used for all requests.
+        """
+        return pulumi.get(self, "require_authentication")
+
+    @require_authentication.setter
+    def require_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_authentication", value)
+
+    @property
+    @pulumi.getter(name="requireHttps")
+    def require_https(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        return pulumi.get(self, "require_https")
+
+    @require_https.setter
+    def require_https(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_https", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="twitterV2")
+    def twitter_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Args']]:
+        """
+        A `twitter_v2` block as defined below.
+        """
+        return pulumi.get(self, "twitter_v2")
+
+    @twitter_v2.setter
+    def twitter_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Args']]):
+        pulumi.set(self, "twitter_v2", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedAction")
+    def unauthenticated_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+        return pulumi.get(self, "unauthenticated_action")
+
+    @unauthenticated_action.setter
+    def unauthenticated_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_action", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 tenant_auth_endpoint: pulumi.Input[str],
+                 allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 jwt_allowed_client_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 jwt_allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 www_authentication_disabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        :param pulumi.Input[bool] www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
+        if allowed_applications is not None:
+            pulumi.set(__self__, "allowed_applications", allowed_applications)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if allowed_groups is not None:
+            pulumi.set(__self__, "allowed_groups", allowed_groups)
+        if allowed_identities is not None:
+            pulumi.set(__self__, "allowed_identities", allowed_identities)
+        if client_secret_certificate_thumbprint is not None:
+            pulumi.set(__self__, "client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if jwt_allowed_client_applications is not None:
+            pulumi.set(__self__, "jwt_allowed_client_applications", jwt_allowed_client_applications)
+        if jwt_allowed_groups is not None:
+            pulumi.set(__self__, "jwt_allowed_groups", jwt_allowed_groups)
+        if login_parameters is not None:
+            pulumi.set(__self__, "login_parameters", login_parameters)
+        if www_authentication_disabled is not None:
+            pulumi.set(__self__, "www_authentication_disabled", www_authentication_disabled)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="tenantAuthEndpoint")
+    def tenant_auth_endpoint(self) -> pulumi.Input[str]:
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        """
+        return pulumi.get(self, "tenant_auth_endpoint")
+
+    @tenant_auth_endpoint.setter
+    def tenant_auth_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_auth_endpoint", value)
+
+    @property
+    @pulumi.getter(name="allowedApplications")
+    def allowed_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_applications")
+
+    @allowed_applications.setter
+    def allowed_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_applications", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="allowedGroups")
+    def allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_groups")
+
+    @allowed_groups.setter
+    def allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_groups", value)
+
+    @property
+    @pulumi.getter(name="allowedIdentities")
+    def allowed_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_identities")
+
+    @allowed_identities.setter
+    def allowed_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_identities", value)
+
+    @property
+    @pulumi.getter(name="clientSecretCertificateThumbprint")
+    def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        return pulumi.get(self, "client_secret_certificate_thumbprint")
+
+    @client_secret_certificate_thumbprint.setter
+    def client_secret_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_certificate_thumbprint", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="jwtAllowedClientApplications")
+    def jwt_allowed_client_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        return pulumi.get(self, "jwt_allowed_client_applications")
+
+    @jwt_allowed_client_applications.setter
+    def jwt_allowed_client_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "jwt_allowed_client_applications", value)
+
+    @property
+    @pulumi.getter(name="jwtAllowedGroups")
+    def jwt_allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        return pulumi.get(self, "jwt_allowed_groups")
+
+    @jwt_allowed_groups.setter
+    def jwt_allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "jwt_allowed_groups", value)
+
+    @property
+    @pulumi.getter(name="loginParameters")
+    def login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        return pulumi.get(self, "login_parameters")
+
+    @login_parameters.setter
+    def login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "login_parameters", value)
+
+    @property
+    @pulumi.getter(name="wwwAuthenticationDisabled")
+    def www_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        """
+        return pulumi.get(self, "www_authentication_disabled")
+
+    @www_authentication_disabled.setter
+    def www_authentication_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "www_authentication_disabled", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsV2AppleV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsV2CustomOidcV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 openid_configuration_endpoint: pulumi.Input[str],
+                 authorisation_endpoint: Optional[pulumi.Input[str]] = None,
+                 certification_uri: Optional[pulumi.Input[str]] = None,
+                 client_credential_method: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 issuer_endpoint: Optional[pulumi.Input[str]] = None,
+                 name_claim_type: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 token_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param pulumi.Input[str] openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        :param pulumi.Input[str] authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] client_credential_method: The Client Credential Method used.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[str] issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] name_claim_type: The name of the claim that contains the users name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of the scopes that should be requested while authenticating.
+        :param pulumi.Input[str] token_endpoint: The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "openid_configuration_endpoint", openid_configuration_endpoint)
+        if authorisation_endpoint is not None:
+            pulumi.set(__self__, "authorisation_endpoint", authorisation_endpoint)
+        if certification_uri is not None:
+            pulumi.set(__self__, "certification_uri", certification_uri)
+        if client_credential_method is not None:
+            pulumi.set(__self__, "client_credential_method", client_credential_method)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if issuer_endpoint is not None:
+            pulumi.set(__self__, "issuer_endpoint", issuer_endpoint)
+        if name_claim_type is not None:
+            pulumi.set(__self__, "name_claim_type", name_claim_type)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="openidConfigurationEndpoint")
+    def openid_configuration_endpoint(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        return pulumi.get(self, "openid_configuration_endpoint")
+
+    @openid_configuration_endpoint.setter
+    def openid_configuration_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "openid_configuration_endpoint", value)
+
+    @property
+    @pulumi.getter(name="authorisationEndpoint")
+    def authorisation_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "authorisation_endpoint")
+
+    @authorisation_endpoint.setter
+    def authorisation_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorisation_endpoint", value)
+
+    @property
+    @pulumi.getter(name="certificationUri")
+    def certification_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "certification_uri")
+
+    @certification_uri.setter
+    def certification_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certification_uri", value)
+
+    @property
+    @pulumi.getter(name="clientCredentialMethod")
+    def client_credential_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Credential Method used.
+        """
+        return pulumi.get(self, "client_credential_method")
+
+    @client_credential_method.setter
+    def client_credential_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_credential_method", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="issuerEndpoint")
+    def issuer_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "issuer_endpoint")
+
+    @issuer_endpoint.setter
+    def issuer_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_endpoint", value)
+
+    @property
+    @pulumi.getter(name="nameClaimType")
+    def name_claim_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the claim that contains the users name.
+        """
+        return pulumi.get(self, "name_claim_type")
+
+    @name_claim_type.setter
+    def name_claim_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_claim_type", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_endpoint", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsV2FacebookV2Args:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret_setting_name: pulumi.Input[str],
+                 graph_api_version: Optional[pulumi.Input[str]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
+        :param pulumi.Input[str] graph_api_version: The version of the Facebook API to be used while logging in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if graph_api_version is not None:
+            pulumi.set(__self__, "graph_api_version", graph_api_version)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="graphApiVersion")
+    def graph_api_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        return pulumi.get(self, "graph_api_version")
+
+    @graph_api_version.setter
+    def graph_api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "graph_api_version", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsV2GithubV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsV2GoogleV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsV2LoginArgs:
+    def __init__(__self__, *,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
+                 cookie_expiration_time: Optional[pulumi.Input[str]] = None,
+                 logout_endpoint: Optional[pulumi.Input[str]] = None,
+                 nonce_expiration_time: Optional[pulumi.Input[str]] = None,
+                 preserve_url_fragments_for_logins: Optional[pulumi.Input[bool]] = None,
+                 token_refresh_extension_time: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 token_store_path: Optional[pulumi.Input[str]] = None,
+                 token_store_sas_setting_name: Optional[pulumi.Input[str]] = None,
+                 validate_nonce: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+        :param pulumi.Input[str] cookie_expiration_convention: The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        :param pulumi.Input[str] cookie_expiration_time: The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        :param pulumi.Input[str] logout_endpoint: The endpoint to which logout requests should be made.
+        :param pulumi.Input[str] nonce_expiration_time: The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        :param pulumi.Input[bool] preserve_url_fragments_for_logins: Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        :param pulumi.Input[float] token_refresh_extension_time: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Token Store configuration Enabled. Defaults to `false`
+        :param pulumi.Input[str] token_store_path: The directory path in the App Filesystem in which the tokens will be stored.
+        :param pulumi.Input[str] token_store_sas_setting_name: The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        :param pulumi.Input[bool] validate_nonce: Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if cookie_expiration_convention is not None:
+            pulumi.set(__self__, "cookie_expiration_convention", cookie_expiration_convention)
+        if cookie_expiration_time is not None:
+            pulumi.set(__self__, "cookie_expiration_time", cookie_expiration_time)
+        if logout_endpoint is not None:
+            pulumi.set(__self__, "logout_endpoint", logout_endpoint)
+        if nonce_expiration_time is not None:
+            pulumi.set(__self__, "nonce_expiration_time", nonce_expiration_time)
+        if preserve_url_fragments_for_logins is not None:
+            pulumi.set(__self__, "preserve_url_fragments_for_logins", preserve_url_fragments_for_logins)
+        if token_refresh_extension_time is not None:
+            pulumi.set(__self__, "token_refresh_extension_time", token_refresh_extension_time)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if token_store_path is not None:
+            pulumi.set(__self__, "token_store_path", token_store_path)
+        if token_store_sas_setting_name is not None:
+            pulumi.set(__self__, "token_store_sas_setting_name", token_store_sas_setting_name)
+        if validate_nonce is not None:
+            pulumi.set(__self__, "validate_nonce", validate_nonce)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="cookieExpirationConvention")
+    def cookie_expiration_convention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        return pulumi.get(self, "cookie_expiration_convention")
+
+    @cookie_expiration_convention.setter
+    def cookie_expiration_convention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_expiration_convention", value)
+
+    @property
+    @pulumi.getter(name="cookieExpirationTime")
+    def cookie_expiration_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        return pulumi.get(self, "cookie_expiration_time")
+
+    @cookie_expiration_time.setter
+    def cookie_expiration_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_expiration_time", value)
+
+    @property
+    @pulumi.getter(name="logoutEndpoint")
+    def logout_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to which logout requests should be made.
+        """
+        return pulumi.get(self, "logout_endpoint")
+
+    @logout_endpoint.setter
+    def logout_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logout_endpoint", value)
+
+    @property
+    @pulumi.getter(name="nonceExpirationTime")
+    def nonce_expiration_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        return pulumi.get(self, "nonce_expiration_time")
+
+    @nonce_expiration_time.setter
+    def nonce_expiration_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nonce_expiration_time", value)
+
+    @property
+    @pulumi.getter(name="preserveUrlFragmentsForLogins")
+    def preserve_url_fragments_for_logins(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        return pulumi.get(self, "preserve_url_fragments_for_logins")
+
+    @preserve_url_fragments_for_logins.setter
+    def preserve_url_fragments_for_logins(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preserve_url_fragments_for_logins", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionTime")
+    def token_refresh_extension_time(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_time")
+
+    @token_refresh_extension_time.setter
+    def token_refresh_extension_time(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_time", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter(name="tokenStorePath")
+    def token_store_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        return pulumi.get(self, "token_store_path")
+
+    @token_store_path.setter
+    def token_store_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_store_path", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreSasSettingName")
+    def token_store_sas_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        return pulumi.get(self, "token_store_sas_setting_name")
+
+    @token_store_sas_setting_name.setter
+    def token_store_sas_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_store_sas_setting_name", value)
+
+    @property
+    @pulumi.getter(name="validateNonce")
+    def validate_nonce(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+        return pulumi.get(self, "validate_nonce")
+
+    @validate_nonce.setter
+    def validate_nonce(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate_nonce", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsV2MicrosoftV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsV2TwitterV2Args:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret_setting_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
 
@@ -23227,13 +27164,13 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: an `active_directory` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
-        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArgs'] facebook: a `facebook` block as detailed below.
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArgs'] github: a `github` block as detailed below.
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArgs'] google: a `google` block as detailed below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens.
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArgs'] microsoft: a `microsoft` block as detailed below.
-        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use.
+        :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArgs'] twitter: a `twitter` block as detailed below.
@@ -23321,7 +27258,7 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         """
         return pulumi.get(self, "default_provider")
 
@@ -23393,7 +27330,7 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The RuntimeVersion of the Authentication / Authorization feature in use.
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -23851,6 +27788,1296 @@ class WindowsFunctionAppSlotAuthSettingsTwitterArgs:
 
     @consumer_secret_setting_name.setter
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsV2Args:
+    def __init__(__self__, *,
+                 login: pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArgs'],
+                 active_directory_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']] = None,
+                 apple_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Args']] = None,
+                 auth_enabled: Optional[pulumi.Input[bool]] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 config_file_path: Optional[pulumi.Input[str]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 facebook_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args']] = None,
+                 forward_proxy_convention: Optional[pulumi.Input[str]] = None,
+                 forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
+                 forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
+                 github_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Args']] = None,
+                 google_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args']] = None,
+                 http_route_api_prefix: Optional[pulumi.Input[str]] = None,
+                 microsoft_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args']] = None,
+                 require_authentication: Optional[pulumi.Input[bool]] = None,
+                 require_https: Optional[pulumi.Input[bool]] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 twitter_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args']] = None,
+                 unauthenticated_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
+        :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
+        :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+        pulumi.set(__self__, "login", login)
+        if active_directory_v2 is not None:
+            pulumi.set(__self__, "active_directory_v2", active_directory_v2)
+        if apple_v2 is not None:
+            pulumi.set(__self__, "apple_v2", apple_v2)
+        if auth_enabled is not None:
+            pulumi.set(__self__, "auth_enabled", auth_enabled)
+        if azure_static_web_app_v2 is not None:
+            pulumi.set(__self__, "azure_static_web_app_v2", azure_static_web_app_v2)
+        if config_file_path is not None:
+            pulumi.set(__self__, "config_file_path", config_file_path)
+        if custom_oidc_v2s is not None:
+            pulumi.set(__self__, "custom_oidc_v2s", custom_oidc_v2s)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if facebook_v2 is not None:
+            pulumi.set(__self__, "facebook_v2", facebook_v2)
+        if forward_proxy_convention is not None:
+            pulumi.set(__self__, "forward_proxy_convention", forward_proxy_convention)
+        if forward_proxy_custom_host_header_name is not None:
+            pulumi.set(__self__, "forward_proxy_custom_host_header_name", forward_proxy_custom_host_header_name)
+        if forward_proxy_custom_scheme_header_name is not None:
+            pulumi.set(__self__, "forward_proxy_custom_scheme_header_name", forward_proxy_custom_scheme_header_name)
+        if github_v2 is not None:
+            pulumi.set(__self__, "github_v2", github_v2)
+        if google_v2 is not None:
+            pulumi.set(__self__, "google_v2", google_v2)
+        if http_route_api_prefix is not None:
+            pulumi.set(__self__, "http_route_api_prefix", http_route_api_prefix)
+        if microsoft_v2 is not None:
+            pulumi.set(__self__, "microsoft_v2", microsoft_v2)
+        if require_authentication is not None:
+            pulumi.set(__self__, "require_authentication", require_authentication)
+        if require_https is not None:
+            pulumi.set(__self__, "require_https", require_https)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if twitter_v2 is not None:
+            pulumi.set(__self__, "twitter_v2", twitter_v2)
+        if unauthenticated_action is not None:
+            pulumi.set(__self__, "unauthenticated_action", unauthenticated_action)
+
+    @property
+    @pulumi.getter
+    def login(self) -> pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArgs']:
+        """
+        A `login` block as defined below.
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArgs']):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter(name="activeDirectoryV2")
+    def active_directory_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']]:
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        return pulumi.get(self, "active_directory_v2")
+
+    @active_directory_v2.setter
+    def active_directory_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']]):
+        pulumi.set(self, "active_directory_v2", value)
+
+    @property
+    @pulumi.getter(name="appleV2")
+    def apple_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Args']]:
+        """
+        An `apple_v2` block as defined below.
+        """
+        return pulumi.get(self, "apple_v2")
+
+    @apple_v2.setter
+    def apple_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Args']]):
+        pulumi.set(self, "apple_v2", value)
+
+    @property
+    @pulumi.getter(name="authEnabled")
+    def auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "auth_enabled")
+
+    @auth_enabled.setter
+    def auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auth_enabled", value)
+
+    @property
+    @pulumi.getter(name="azureStaticWebAppV2")
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]:
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        return pulumi.get(self, "azure_static_web_app_v2")
+
+    @azure_static_web_app_v2.setter
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]):
+        pulumi.set(self, "azure_static_web_app_v2", value)
+
+    @property
+    @pulumi.getter(name="configFilePath")
+    def config_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the App Auth settings.
+        """
+        return pulumi.get(self, "config_file_path")
+
+    @config_file_path.setter
+    def config_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config_file_path", value)
+
+    @property
+    @pulumi.getter(name="customOidcV2s")
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]]:
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        return pulumi.get(self, "custom_oidc_v2s")
+
+    @custom_oidc_v2s.setter
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]]):
+        pulumi.set(self, "custom_oidc_v2s", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        """
+        return pulumi.get(self, "excluded_paths")
+
+    @excluded_paths.setter
+    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_paths", value)
+
+    @property
+    @pulumi.getter(name="facebookV2")
+    def facebook_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args']]:
+        """
+        A `facebook_v2` block as defined below.
+        """
+        return pulumi.get(self, "facebook_v2")
+
+    @facebook_v2.setter
+    def facebook_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args']]):
+        pulumi.set(self, "facebook_v2", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyConvention")
+    def forward_proxy_convention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+        """
+        return pulumi.get(self, "forward_proxy_convention")
+
+    @forward_proxy_convention.setter
+    def forward_proxy_convention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_convention", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyCustomHostHeaderName")
+    def forward_proxy_custom_host_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the custom header containing the host of the request.
+        """
+        return pulumi.get(self, "forward_proxy_custom_host_header_name")
+
+    @forward_proxy_custom_host_header_name.setter
+    def forward_proxy_custom_host_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_custom_host_header_name", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyCustomSchemeHeaderName")
+    def forward_proxy_custom_scheme_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        return pulumi.get(self, "forward_proxy_custom_scheme_header_name")
+
+    @forward_proxy_custom_scheme_header_name.setter
+    def forward_proxy_custom_scheme_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_custom_scheme_header_name", value)
+
+    @property
+    @pulumi.getter(name="githubV2")
+    def github_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Args']]:
+        """
+        A `github_v2` block as defined below.
+        """
+        return pulumi.get(self, "github_v2")
+
+    @github_v2.setter
+    def github_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Args']]):
+        pulumi.set(self, "github_v2", value)
+
+    @property
+    @pulumi.getter(name="googleV2")
+    def google_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args']]:
+        """
+        A `google_v2` block as defined below.
+        """
+        return pulumi.get(self, "google_v2")
+
+    @google_v2.setter
+    def google_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args']]):
+        pulumi.set(self, "google_v2", value)
+
+    @property
+    @pulumi.getter(name="httpRouteApiPrefix")
+    def http_route_api_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        return pulumi.get(self, "http_route_api_prefix")
+
+    @http_route_api_prefix.setter
+    def http_route_api_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_route_api_prefix", value)
+
+    @property
+    @pulumi.getter(name="microsoftV2")
+    def microsoft_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args']]:
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        return pulumi.get(self, "microsoft_v2")
+
+    @microsoft_v2.setter
+    def microsoft_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args']]):
+        pulumi.set(self, "microsoft_v2", value)
+
+    @property
+    @pulumi.getter(name="requireAuthentication")
+    def require_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the authentication flow be used for all requests.
+        """
+        return pulumi.get(self, "require_authentication")
+
+    @require_authentication.setter
+    def require_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_authentication", value)
+
+    @property
+    @pulumi.getter(name="requireHttps")
+    def require_https(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        return pulumi.get(self, "require_https")
+
+    @require_https.setter
+    def require_https(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_https", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="twitterV2")
+    def twitter_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args']]:
+        """
+        A `twitter_v2` block as defined below.
+        """
+        return pulumi.get(self, "twitter_v2")
+
+    @twitter_v2.setter
+    def twitter_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args']]):
+        pulumi.set(self, "twitter_v2", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedAction")
+    def unauthenticated_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+        return pulumi.get(self, "unauthenticated_action")
+
+    @unauthenticated_action.setter
+    def unauthenticated_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_action", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 tenant_auth_endpoint: pulumi.Input[str],
+                 allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 jwt_allowed_client_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 jwt_allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 www_authentication_disabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        :param pulumi.Input[bool] www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
+        if allowed_applications is not None:
+            pulumi.set(__self__, "allowed_applications", allowed_applications)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if allowed_groups is not None:
+            pulumi.set(__self__, "allowed_groups", allowed_groups)
+        if allowed_identities is not None:
+            pulumi.set(__self__, "allowed_identities", allowed_identities)
+        if client_secret_certificate_thumbprint is not None:
+            pulumi.set(__self__, "client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if jwt_allowed_client_applications is not None:
+            pulumi.set(__self__, "jwt_allowed_client_applications", jwt_allowed_client_applications)
+        if jwt_allowed_groups is not None:
+            pulumi.set(__self__, "jwt_allowed_groups", jwt_allowed_groups)
+        if login_parameters is not None:
+            pulumi.set(__self__, "login_parameters", login_parameters)
+        if www_authentication_disabled is not None:
+            pulumi.set(__self__, "www_authentication_disabled", www_authentication_disabled)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="tenantAuthEndpoint")
+    def tenant_auth_endpoint(self) -> pulumi.Input[str]:
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        """
+        return pulumi.get(self, "tenant_auth_endpoint")
+
+    @tenant_auth_endpoint.setter
+    def tenant_auth_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_auth_endpoint", value)
+
+    @property
+    @pulumi.getter(name="allowedApplications")
+    def allowed_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_applications")
+
+    @allowed_applications.setter
+    def allowed_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_applications", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="allowedGroups")
+    def allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_groups")
+
+    @allowed_groups.setter
+    def allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_groups", value)
+
+    @property
+    @pulumi.getter(name="allowedIdentities")
+    def allowed_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_identities")
+
+    @allowed_identities.setter
+    def allowed_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_identities", value)
+
+    @property
+    @pulumi.getter(name="clientSecretCertificateThumbprint")
+    def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        return pulumi.get(self, "client_secret_certificate_thumbprint")
+
+    @client_secret_certificate_thumbprint.setter
+    def client_secret_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_certificate_thumbprint", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="jwtAllowedClientApplications")
+    def jwt_allowed_client_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        return pulumi.get(self, "jwt_allowed_client_applications")
+
+    @jwt_allowed_client_applications.setter
+    def jwt_allowed_client_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "jwt_allowed_client_applications", value)
+
+    @property
+    @pulumi.getter(name="jwtAllowedGroups")
+    def jwt_allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        return pulumi.get(self, "jwt_allowed_groups")
+
+    @jwt_allowed_groups.setter
+    def jwt_allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "jwt_allowed_groups", value)
+
+    @property
+    @pulumi.getter(name="loginParameters")
+    def login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        return pulumi.get(self, "login_parameters")
+
+    @login_parameters.setter
+    def login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "login_parameters", value)
+
+    @property
+    @pulumi.getter(name="wwwAuthenticationDisabled")
+    def www_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        """
+        return pulumi.get(self, "www_authentication_disabled")
+
+    @www_authentication_disabled.setter
+    def www_authentication_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "www_authentication_disabled", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsV2AppleV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 openid_configuration_endpoint: pulumi.Input[str],
+                 authorisation_endpoint: Optional[pulumi.Input[str]] = None,
+                 certification_uri: Optional[pulumi.Input[str]] = None,
+                 client_credential_method: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 issuer_endpoint: Optional[pulumi.Input[str]] = None,
+                 name_claim_type: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 token_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        :param pulumi.Input[str] authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] client_credential_method: The Client Credential Method used.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[str] issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] name_claim_type: The name of the claim that contains the users name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of the scopes that should be requested while authenticating.
+        :param pulumi.Input[str] token_endpoint: The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "openid_configuration_endpoint", openid_configuration_endpoint)
+        if authorisation_endpoint is not None:
+            pulumi.set(__self__, "authorisation_endpoint", authorisation_endpoint)
+        if certification_uri is not None:
+            pulumi.set(__self__, "certification_uri", certification_uri)
+        if client_credential_method is not None:
+            pulumi.set(__self__, "client_credential_method", client_credential_method)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if issuer_endpoint is not None:
+            pulumi.set(__self__, "issuer_endpoint", issuer_endpoint)
+        if name_claim_type is not None:
+            pulumi.set(__self__, "name_claim_type", name_claim_type)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="openidConfigurationEndpoint")
+    def openid_configuration_endpoint(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        return pulumi.get(self, "openid_configuration_endpoint")
+
+    @openid_configuration_endpoint.setter
+    def openid_configuration_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "openid_configuration_endpoint", value)
+
+    @property
+    @pulumi.getter(name="authorisationEndpoint")
+    def authorisation_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "authorisation_endpoint")
+
+    @authorisation_endpoint.setter
+    def authorisation_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorisation_endpoint", value)
+
+    @property
+    @pulumi.getter(name="certificationUri")
+    def certification_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "certification_uri")
+
+    @certification_uri.setter
+    def certification_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certification_uri", value)
+
+    @property
+    @pulumi.getter(name="clientCredentialMethod")
+    def client_credential_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Credential Method used.
+        """
+        return pulumi.get(self, "client_credential_method")
+
+    @client_credential_method.setter
+    def client_credential_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_credential_method", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="issuerEndpoint")
+    def issuer_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "issuer_endpoint")
+
+    @issuer_endpoint.setter
+    def issuer_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_endpoint", value)
+
+    @property
+    @pulumi.getter(name="nameClaimType")
+    def name_claim_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the claim that contains the users name.
+        """
+        return pulumi.get(self, "name_claim_type")
+
+    @name_claim_type.setter
+    def name_claim_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_claim_type", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_endpoint", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret_setting_name: pulumi.Input[str],
+                 graph_api_version: Optional[pulumi.Input[str]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
+        :param pulumi.Input[str] graph_api_version: The version of the Facebook API to be used while logging in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if graph_api_version is not None:
+            pulumi.set(__self__, "graph_api_version", graph_api_version)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="graphApiVersion")
+    def graph_api_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        return pulumi.get(self, "graph_api_version")
+
+    @graph_api_version.setter
+    def graph_api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "graph_api_version", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsV2LoginArgs:
+    def __init__(__self__, *,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
+                 cookie_expiration_time: Optional[pulumi.Input[str]] = None,
+                 logout_endpoint: Optional[pulumi.Input[str]] = None,
+                 nonce_expiration_time: Optional[pulumi.Input[str]] = None,
+                 preserve_url_fragments_for_logins: Optional[pulumi.Input[bool]] = None,
+                 token_refresh_extension_time: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 token_store_path: Optional[pulumi.Input[str]] = None,
+                 token_store_sas_setting_name: Optional[pulumi.Input[str]] = None,
+                 validate_nonce: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+        :param pulumi.Input[str] cookie_expiration_convention: The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        :param pulumi.Input[str] cookie_expiration_time: The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        :param pulumi.Input[str] logout_endpoint: The endpoint to which logout requests should be made.
+        :param pulumi.Input[str] nonce_expiration_time: The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        :param pulumi.Input[bool] preserve_url_fragments_for_logins: Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        :param pulumi.Input[float] token_refresh_extension_time: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Token Store configuration Enabled. Defaults to `false`
+        :param pulumi.Input[str] token_store_path: The directory path in the App Filesystem in which the tokens will be stored.
+        :param pulumi.Input[str] token_store_sas_setting_name: The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        :param pulumi.Input[bool] validate_nonce: Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if cookie_expiration_convention is not None:
+            pulumi.set(__self__, "cookie_expiration_convention", cookie_expiration_convention)
+        if cookie_expiration_time is not None:
+            pulumi.set(__self__, "cookie_expiration_time", cookie_expiration_time)
+        if logout_endpoint is not None:
+            pulumi.set(__self__, "logout_endpoint", logout_endpoint)
+        if nonce_expiration_time is not None:
+            pulumi.set(__self__, "nonce_expiration_time", nonce_expiration_time)
+        if preserve_url_fragments_for_logins is not None:
+            pulumi.set(__self__, "preserve_url_fragments_for_logins", preserve_url_fragments_for_logins)
+        if token_refresh_extension_time is not None:
+            pulumi.set(__self__, "token_refresh_extension_time", token_refresh_extension_time)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if token_store_path is not None:
+            pulumi.set(__self__, "token_store_path", token_store_path)
+        if token_store_sas_setting_name is not None:
+            pulumi.set(__self__, "token_store_sas_setting_name", token_store_sas_setting_name)
+        if validate_nonce is not None:
+            pulumi.set(__self__, "validate_nonce", validate_nonce)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="cookieExpirationConvention")
+    def cookie_expiration_convention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        return pulumi.get(self, "cookie_expiration_convention")
+
+    @cookie_expiration_convention.setter
+    def cookie_expiration_convention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_expiration_convention", value)
+
+    @property
+    @pulumi.getter(name="cookieExpirationTime")
+    def cookie_expiration_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        return pulumi.get(self, "cookie_expiration_time")
+
+    @cookie_expiration_time.setter
+    def cookie_expiration_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_expiration_time", value)
+
+    @property
+    @pulumi.getter(name="logoutEndpoint")
+    def logout_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to which logout requests should be made.
+        """
+        return pulumi.get(self, "logout_endpoint")
+
+    @logout_endpoint.setter
+    def logout_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logout_endpoint", value)
+
+    @property
+    @pulumi.getter(name="nonceExpirationTime")
+    def nonce_expiration_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        return pulumi.get(self, "nonce_expiration_time")
+
+    @nonce_expiration_time.setter
+    def nonce_expiration_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nonce_expiration_time", value)
+
+    @property
+    @pulumi.getter(name="preserveUrlFragmentsForLogins")
+    def preserve_url_fragments_for_logins(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        return pulumi.get(self, "preserve_url_fragments_for_logins")
+
+    @preserve_url_fragments_for_logins.setter
+    def preserve_url_fragments_for_logins(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preserve_url_fragments_for_logins", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionTime")
+    def token_refresh_extension_time(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_time")
+
+    @token_refresh_extension_time.setter
+    def token_refresh_extension_time(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_time", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter(name="tokenStorePath")
+    def token_store_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        return pulumi.get(self, "token_store_path")
+
+    @token_store_path.setter
+    def token_store_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_store_path", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreSasSettingName")
+    def token_store_sas_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        return pulumi.get(self, "token_store_sas_setting_name")
+
+    @token_store_sas_setting_name.setter
+    def token_store_sas_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_store_sas_setting_name", value)
+
+    @property
+    @pulumi.getter(name="validateNonce")
+    def validate_nonce(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+        return pulumi.get(self, "validate_nonce")
+
+    @validate_nonce.setter
+    def validate_nonce(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate_nonce", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret_setting_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
 

@@ -10,6 +10,11 @@ import java.util.Objects;
 @CustomType
 public final class GetFunctionAppHostKeysResult {
     /**
+     * @return Function App resource&#39;s Blobs Extension system key.
+     * 
+     */
+    private String blobsExtensionKey;
+    /**
      * @return Function App resource&#39;s default function key.
      * 
      */
@@ -48,6 +53,13 @@ public final class GetFunctionAppHostKeysResult {
     private String webpubsubExtensionKey;
 
     private GetFunctionAppHostKeysResult() {}
+    /**
+     * @return Function App resource&#39;s Blobs Extension system key.
+     * 
+     */
+    public String blobsExtensionKey() {
+        return this.blobsExtensionKey;
+    }
     /**
      * @return Function App resource&#39;s default function key.
      * 
@@ -113,6 +125,7 @@ public final class GetFunctionAppHostKeysResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String blobsExtensionKey;
         private String defaultFunctionKey;
         private String durabletaskExtensionKey;
         private String eventGridExtensionConfigKey;
@@ -125,6 +138,7 @@ public final class GetFunctionAppHostKeysResult {
         public Builder() {}
         public Builder(GetFunctionAppHostKeysResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.blobsExtensionKey = defaults.blobsExtensionKey;
     	      this.defaultFunctionKey = defaults.defaultFunctionKey;
     	      this.durabletaskExtensionKey = defaults.durabletaskExtensionKey;
     	      this.eventGridExtensionConfigKey = defaults.eventGridExtensionConfigKey;
@@ -136,6 +150,11 @@ public final class GetFunctionAppHostKeysResult {
     	      this.webpubsubExtensionKey = defaults.webpubsubExtensionKey;
         }
 
+        @CustomType.Setter
+        public Builder blobsExtensionKey(String blobsExtensionKey) {
+            this.blobsExtensionKey = Objects.requireNonNull(blobsExtensionKey);
+            return this;
+        }
         @CustomType.Setter
         public Builder defaultFunctionKey(String defaultFunctionKey) {
             this.defaultFunctionKey = Objects.requireNonNull(defaultFunctionKey);
@@ -183,6 +202,7 @@ public final class GetFunctionAppHostKeysResult {
         }
         public GetFunctionAppHostKeysResult build() {
             final var o = new GetFunctionAppHostKeysResult();
+            o.blobsExtensionKey = blobsExtensionKey;
             o.defaultFunctionKey = defaultFunctionKey;
             o.durabletaskExtensionKey = durabletaskExtensionKey;
             o.eventGridExtensionConfigKey = eventGridExtensionConfigKey;

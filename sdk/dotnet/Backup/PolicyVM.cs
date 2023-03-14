@@ -110,6 +110,9 @@ namespace Pulumi.Azure.Backup
         [Output("backup")]
         public Output<Outputs.PolicyVMBackup> Backup { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+        /// </summary>
         [Output("instantRestoreResourceGroup")]
         public Output<Outputs.PolicyVMInstantRestoreResourceGroup?> InstantRestoreResourceGroup { get; private set; } = null!;
 
@@ -225,6 +228,9 @@ namespace Pulumi.Azure.Backup
         [Input("backup", required: true)]
         public Input<Inputs.PolicyVMBackupArgs> Backup { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+        /// </summary>
         [Input("instantRestoreResourceGroup")]
         public Input<Inputs.PolicyVMInstantRestoreResourceGroupArgs>? InstantRestoreResourceGroup { get; set; }
 
@@ -302,6 +308,9 @@ namespace Pulumi.Azure.Backup
         [Input("backup")]
         public Input<Inputs.PolicyVMBackupGetArgs>? Backup { get; set; }
 
+        /// <summary>
+        /// Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+        /// </summary>
         [Input("instantRestoreResourceGroup")]
         public Input<Inputs.PolicyVMInstantRestoreResourceGroupGetArgs>? InstantRestoreResourceGroup { get; set; }
 

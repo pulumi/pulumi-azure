@@ -22,7 +22,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_management_services=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, microsoft_defenders=None, name=None, network_profiles=None, node_resource_group=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_principals=None, storage_profiles=None, tags=None, windows_profiles=None):
+    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_management_services=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, microsoft_defenders=None, name=None, network_profiles=None, node_resource_group=None, node_resource_group_id=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_principals=None, storage_profiles=None, tags=None, windows_profiles=None):
         if aci_connector_linuxes and not isinstance(aci_connector_linuxes, list):
             raise TypeError("Expected argument 'aci_connector_linuxes' to be a list")
         pulumi.set(__self__, "aci_connector_linuxes", aci_connector_linuxes)
@@ -104,6 +104,9 @@ class GetKubernetesClusterResult:
         if node_resource_group and not isinstance(node_resource_group, str):
             raise TypeError("Expected argument 'node_resource_group' to be a str")
         pulumi.set(__self__, "node_resource_group", node_resource_group)
+        if node_resource_group_id and not isinstance(node_resource_group_id, str):
+            raise TypeError("Expected argument 'node_resource_group_id' to be a str")
+        pulumi.set(__self__, "node_resource_group_id", node_resource_group_id)
         if oidc_issuer_enabled and not isinstance(oidc_issuer_enabled, bool):
             raise TypeError("Expected argument 'oidc_issuer_enabled' to be a bool")
         pulumi.set(__self__, "oidc_issuer_enabled", oidc_issuer_enabled)
@@ -358,6 +361,14 @@ class GetKubernetesClusterResult:
         return pulumi.get(self, "node_resource_group")
 
     @property
+    @pulumi.getter(name="nodeResourceGroupId")
+    def node_resource_group_id(self) -> str:
+        """
+        The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+        """
+        return pulumi.get(self, "node_resource_group_id")
+
+    @property
     @pulumi.getter(name="oidcIssuerEnabled")
     def oidc_issuer_enabled(self) -> bool:
         """
@@ -484,6 +495,7 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             name=self.name,
             network_profiles=self.network_profiles,
             node_resource_group=self.node_resource_group,
+            node_resource_group_id=self.node_resource_group_id,
             oidc_issuer_enabled=self.oidc_issuer_enabled,
             oidc_issuer_url=self.oidc_issuer_url,
             oms_agents=self.oms_agents,
@@ -552,6 +564,7 @@ def get_kubernetes_cluster(name: Optional[str] = None,
         name=__ret__.name,
         network_profiles=__ret__.network_profiles,
         node_resource_group=__ret__.node_resource_group,
+        node_resource_group_id=__ret__.node_resource_group_id,
         oidc_issuer_enabled=__ret__.oidc_issuer_enabled,
         oidc_issuer_url=__ret__.oidc_issuer_url,
         oms_agents=__ret__.oms_agents,

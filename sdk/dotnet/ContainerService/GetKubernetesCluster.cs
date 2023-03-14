@@ -222,6 +222,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string NodeResourceGroup;
         /// <summary>
+        /// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+        /// </summary>
+        public readonly string NodeResourceGroupId;
+        /// <summary>
         /// Whether or not the OIDC feature is enabled or disabled.
         /// </summary>
         public readonly bool OidcIssuerEnabled;
@@ -323,6 +327,8 @@ namespace Pulumi.Azure.ContainerService
 
             string nodeResourceGroup,
 
+            string nodeResourceGroupId,
+
             bool oidcIssuerEnabled,
 
             string oidcIssuerUrl,
@@ -374,6 +380,7 @@ namespace Pulumi.Azure.ContainerService
             Name = name;
             NetworkProfiles = networkProfiles;
             NodeResourceGroup = nodeResourceGroup;
+            NodeResourceGroupId = nodeResourceGroupId;
             OidcIssuerEnabled = oidcIssuerEnabled;
             OidcIssuerUrl = oidcIssuerUrl;
             OmsAgents = omsAgents;

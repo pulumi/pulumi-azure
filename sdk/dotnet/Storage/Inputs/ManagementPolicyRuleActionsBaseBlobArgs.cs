@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class ManagementPolicyRuleActionsBaseBlobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+        /// </summary>
+        [Input("autoTierToHotFromCoolEnabled")]
+        public Input<bool>? AutoTierToHotFromCoolEnabled { get; set; }
+
+        /// <summary>
         /// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         [Input("deleteAfterDaysSinceCreationGreaterThan")]

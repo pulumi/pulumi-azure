@@ -21,7 +21,7 @@ class GetNamespaceResult:
     """
     A collection of values returned by getNamespace.
     """
-    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, id=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
+    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, endpoint=None, id=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
         if capacity and not isinstance(capacity, int):
             raise TypeError("Expected argument 'capacity' to be a int")
         pulumi.set(__self__, "capacity", capacity)
@@ -37,6 +37,9 @@ class GetNamespaceResult:
         if default_secondary_key and not isinstance(default_secondary_key, str):
             raise TypeError("Expected argument 'default_secondary_key' to be a str")
         pulumi.set(__self__, "default_secondary_key", default_secondary_key)
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        pulumi.set(__self__, "endpoint", endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -103,6 +106,14 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        The URL to access the ServiceBus Namespace.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
@@ -163,6 +174,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             default_primary_key=self.default_primary_key,
             default_secondary_connection_string=self.default_secondary_connection_string,
             default_secondary_key=self.default_secondary_key,
+            endpoint=self.endpoint,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -205,6 +217,7 @@ def get_namespace(name: Optional[str] = None,
         default_primary_key=__ret__.default_primary_key,
         default_secondary_connection_string=__ret__.default_secondary_connection_string,
         default_secondary_key=__ret__.default_secondary_key,
+        endpoint=__ret__.endpoint,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

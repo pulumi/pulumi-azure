@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice;
 
 import com.pulumi.azure.appservice.inputs.ConnectionAuthenticationArgs;
+import com.pulumi.azure.appservice.inputs.ConnectionSecretStoreArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -77,6 +78,21 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * An option to store secret value in secure place. An `secret_store` block as defined below.
+     * 
+     */
+    @Import(name="secretStore")
+    private @Nullable Output<ConnectionSecretStoreArgs> secretStore;
+
+    /**
+     * @return An option to store secret value in secure place. An `secret_store` block as defined below.
+     * 
+     */
+    public Optional<Output<ConnectionSecretStoreArgs>> secretStore() {
+        return Optional.ofNullable(this.secretStore);
+    }
+
+    /**
      * The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
      * 
      */
@@ -113,6 +129,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         this.authentication = $.authentication;
         this.clientType = $.clientType;
         this.name = $.name;
+        this.secretStore = $.secretStore;
         this.targetResourceId = $.targetResourceId;
         this.vnetSolution = $.vnetSolution;
     }
@@ -217,6 +234,27 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param secretStore An option to store secret value in secure place. An `secret_store` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretStore(@Nullable Output<ConnectionSecretStoreArgs> secretStore) {
+            $.secretStore = secretStore;
+            return this;
+        }
+
+        /**
+         * @param secretStore An option to store secret value in secure place. An `secret_store` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretStore(ConnectionSecretStoreArgs secretStore) {
+            return secretStore(Output.of(secretStore));
         }
 
         /**

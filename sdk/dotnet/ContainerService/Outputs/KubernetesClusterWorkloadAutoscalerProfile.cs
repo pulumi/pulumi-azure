@@ -17,11 +17,33 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Specifies whether KEDA Autoscaler can be used for workloads.
         /// </summary>
         public readonly bool? KedaEnabled;
+        /// <summary>
+        /// Which resources values should be controlled.
+        /// </summary>
+        public readonly string? VerticalPodAutoscalerControlledValues;
+        /// <summary>
+        /// Specifies whether Vertical Pod Autoscaler should be enabled.
+        /// </summary>
+        public readonly bool? VerticalPodAutoscalerEnabled;
+        /// <summary>
+        /// How the autoscaler applies changes to pod resources.
+        /// </summary>
+        public readonly string? VerticalPodAutoscalerUpdateMode;
 
         [OutputConstructor]
-        private KubernetesClusterWorkloadAutoscalerProfile(bool? kedaEnabled)
+        private KubernetesClusterWorkloadAutoscalerProfile(
+            bool? kedaEnabled,
+
+            string? verticalPodAutoscalerControlledValues,
+
+            bool? verticalPodAutoscalerEnabled,
+
+            string? verticalPodAutoscalerUpdateMode)
         {
             KedaEnabled = kedaEnabled;
+            VerticalPodAutoscalerControlledValues = verticalPodAutoscalerControlledValues;
+            VerticalPodAutoscalerEnabled = verticalPodAutoscalerEnabled;
+            VerticalPodAutoscalerUpdateMode = verticalPodAutoscalerUpdateMode;
         }
     }
 }

@@ -229,6 +229,21 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+     * 
+     */
+    @Import(name="sslMinimalTlsVersionEnforced")
+    private @Nullable Output<String> sslMinimalTlsVersionEnforced;
+
+    /**
+     * @return The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+     * 
+     */
+    public Optional<Output<String>> sslMinimalTlsVersionEnforced() {
+        return Optional.ofNullable(this.sslMinimalTlsVersionEnforced);
+    }
+
+    /**
      * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
      * 
      */
@@ -290,6 +305,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         this.restorePointInTime = $.restorePointInTime;
         this.skuName = $.skuName;
         this.sslEnforcementEnabled = $.sslEnforcementEnabled;
+        this.sslMinimalTlsVersionEnforced = $.sslMinimalTlsVersionEnforced;
         this.storageMb = $.storageMb;
         this.tags = $.tags;
         this.version = $.version;
@@ -605,6 +621,27 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sslEnforcementEnabled(Boolean sslEnforcementEnabled) {
             return sslEnforcementEnabled(Output.of(sslEnforcementEnabled));
+        }
+
+        /**
+         * @param sslMinimalTlsVersionEnforced The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sslMinimalTlsVersionEnforced(@Nullable Output<String> sslMinimalTlsVersionEnforced) {
+            $.sslMinimalTlsVersionEnforced = sslMinimalTlsVersionEnforced;
+            return this;
+        }
+
+        /**
+         * @param sslMinimalTlsVersionEnforced The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sslMinimalTlsVersionEnforced(String sslMinimalTlsVersionEnforced) {
+            return sslMinimalTlsVersionEnforced(Output.of(sslMinimalTlsVersionEnforced));
         }
 
         /**

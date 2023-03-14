@@ -130,6 +130,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsFunctionAppAuthSettingResult> AuthSettings;
         /// <summary>
+        /// A `auth_settings_v2` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWindowsFunctionAppAuthSettingsV2Result> AuthSettingsV2s;
+        /// <summary>
         /// A `backup` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsFunctionAppBackupResult> Backups;
@@ -265,6 +269,8 @@ namespace Pulumi.Azure.AppService
 
             ImmutableArray<Outputs.GetWindowsFunctionAppAuthSettingResult> authSettings,
 
+            ImmutableArray<Outputs.GetWindowsFunctionAppAuthSettingsV2Result> authSettingsV2s,
+
             ImmutableArray<Outputs.GetWindowsFunctionAppBackupResult> backups,
 
             bool builtinLoggingEnabled,
@@ -333,6 +339,7 @@ namespace Pulumi.Azure.AppService
         {
             AppSettings = appSettings;
             AuthSettings = authSettings;
+            AuthSettingsV2s = authSettingsV2s;
             Backups = backups;
             BuiltinLoggingEnabled = builtinLoggingEnabled;
             ClientCertificateEnabled = clientCertificateEnabled;

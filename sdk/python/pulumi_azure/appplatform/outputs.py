@@ -22,6 +22,7 @@ __all__ = [
     'SpringCloudBuilderStack',
     'SpringCloudConfigurationServiceRepository',
     'SpringCloudConnectionAuthentication',
+    'SpringCloudConnectionSecretStore',
     'SpringCloudContainerDeploymentQuota',
     'SpringCloudCustomizedAcceleratorGitRepository',
     'SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth',
@@ -842,6 +843,41 @@ class SpringCloudConnectionAuthentication(dict):
         Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
         """
         return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class SpringCloudConnectionSecretStore(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultId":
+            suggest = "key_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudConnectionSecretStore. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudConnectionSecretStore.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudConnectionSecretStore.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_id: str):
+        """
+        :param str key_vault_id: The key vault id to store secret.
+        """
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        """
+        The key vault id to store secret.
+        """
+        return pulumi.get(self, "key_vault_id")
 
 
 @pulumi.output_type

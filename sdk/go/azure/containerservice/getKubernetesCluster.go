@@ -111,6 +111,8 @@ type LookupKubernetesClusterResult struct {
 	NetworkProfiles []GetKubernetesClusterNetworkProfile `pulumi:"networkProfiles"`
 	// Auto-generated Resource Group containing AKS Cluster resources.
 	NodeResourceGroup string `pulumi:"nodeResourceGroup"`
+	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+	NodeResourceGroupId string `pulumi:"nodeResourceGroupId"`
 	// Whether or not the OIDC feature is enabled or disabled.
 	OidcIssuerEnabled bool `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
@@ -325,6 +327,11 @@ func (o LookupKubernetesClusterResultOutput) NetworkProfiles() GetKubernetesClus
 // Auto-generated Resource Group containing AKS Cluster resources.
 func (o LookupKubernetesClusterResultOutput) NodeResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.NodeResourceGroup }).(pulumi.StringOutput)
+}
+
+// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+func (o LookupKubernetesClusterResultOutput) NodeResourceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.NodeResourceGroupId }).(pulumi.StringOutput)
 }
 
 // Whether or not the OIDC feature is enabled or disabled.

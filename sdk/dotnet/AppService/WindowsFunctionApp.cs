@@ -79,6 +79,12 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.WindowsFunctionAppAuthSettings?> AuthSettings { get; private set; } = null!;
 
         /// <summary>
+        /// A `auth_settings_v2` block as defined below.
+        /// </summary>
+        [Output("authSettingsV2")]
+        public Output<Outputs.WindowsFunctionAppAuthSettingsV2?> AuthSettingsV2 { get; private set; } = null!;
+
+        /// <summary>
         /// A `backup` block as defined below.
         /// </summary>
         [Output("backup")]
@@ -352,6 +358,12 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.WindowsFunctionAppAuthSettingsArgs>? AuthSettings { get; set; }
 
         /// <summary>
+        /// A `auth_settings_v2` block as defined below.
+        /// </summary>
+        [Input("authSettingsV2")]
+        public Input<Inputs.WindowsFunctionAppAuthSettingsV2Args>? AuthSettingsV2 { get; set; }
+
+        /// <summary>
         /// A `backup` block as defined below.
         /// </summary>
         [Input("backup")]
@@ -560,6 +572,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.WindowsFunctionAppAuthSettingsGetArgs>? AuthSettings { get; set; }
+
+        /// <summary>
+        /// A `auth_settings_v2` block as defined below.
+        /// </summary>
+        [Input("authSettingsV2")]
+        public Input<Inputs.WindowsFunctionAppAuthSettingsV2GetArgs>? AuthSettingsV2 { get; set; }
 
         /// <summary>
         /// A `backup` block as defined below.

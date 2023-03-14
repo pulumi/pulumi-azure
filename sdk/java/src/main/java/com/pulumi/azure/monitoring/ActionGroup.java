@@ -283,6 +283,20 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.itsmReceivers);
     }
     /**
+     * The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+     * 
+     */
+    @Export(name="location", type=String.class, parameters={})
+    private Output<String> location;
+
+    /**
+     * @return The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+     * 
+     */
+    public Output<String> location() {
+        return this.location;
+    }
+    /**
      * One or more `logic_app_receiver` blocks as defined below.
      * 
      */

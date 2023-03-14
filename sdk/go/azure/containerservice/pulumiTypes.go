@@ -4623,13 +4623,15 @@ type KubernetesClusterDefaultNodePool struct {
 	ScaleDownMode *string `pulumi:"scaleDownMode"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+	TemporaryNameForRotation *string `pulumi:"temporaryNameForRotation"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
 	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings *KubernetesClusterDefaultNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
-	// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
 	VmSize string `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
@@ -4709,13 +4711,15 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	ScaleDownMode pulumi.StringPtrInput `pulumi:"scaleDownMode"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+	TemporaryNameForRotation pulumi.StringPtrInput `pulumi:"temporaryNameForRotation"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
-	// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
@@ -4953,6 +4957,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+func (o KubernetesClusterDefaultNodePoolOutput) TemporaryNameForRotation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.TemporaryNameForRotation }).(pulumi.StringPtrOutput)
+}
+
 // The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -4970,7 +4979,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) UpgradeSettings() KubernetesClus
 	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
 }
 
-// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+// The size of the Virtual Machine, such as `Standard_DS2_v2`.
 func (o KubernetesClusterDefaultNodePoolOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -5304,6 +5313,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Tags() pulumi.StringMapOutput
 	}).(pulumi.StringMapOutput)
 }
 
+// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) TemporaryNameForRotation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemporaryNameForRotation
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
@@ -5334,7 +5353,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) UpgradeSettings() KubernetesC
 	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
 }
 
-// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+// The size of the Virtual Machine, such as `Standard_DS2_v2`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -7753,7 +7772,7 @@ func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultNetworkAccess() 
 type KubernetesClusterKeyVaultSecretsProvider struct {
 	// An `secretIdentity` block is exported. The exported attributes are defined below.
 	SecretIdentities []KubernetesClusterKeyVaultSecretsProviderSecretIdentity `pulumi:"secretIdentities"`
-	// Is secret rotation enabled?
+	// Should the secret store CSI driver on the AKS cluster be enabled?
 	SecretRotationEnabled *bool `pulumi:"secretRotationEnabled"`
 	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
 	SecretRotationInterval *string `pulumi:"secretRotationInterval"`
@@ -7773,7 +7792,7 @@ type KubernetesClusterKeyVaultSecretsProviderInput interface {
 type KubernetesClusterKeyVaultSecretsProviderArgs struct {
 	// An `secretIdentity` block is exported. The exported attributes are defined below.
 	SecretIdentities KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayInput `pulumi:"secretIdentities"`
-	// Is secret rotation enabled?
+	// Should the secret store CSI driver on the AKS cluster be enabled?
 	SecretRotationEnabled pulumi.BoolPtrInput `pulumi:"secretRotationEnabled"`
 	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
 	SecretRotationInterval pulumi.StringPtrInput `pulumi:"secretRotationInterval"`
@@ -7863,7 +7882,7 @@ func (o KubernetesClusterKeyVaultSecretsProviderOutput) SecretIdentities() Kuber
 	}).(KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput)
 }
 
-// Is secret rotation enabled?
+// Should the secret store CSI driver on the AKS cluster be enabled?
 func (o KubernetesClusterKeyVaultSecretsProviderOutput) SecretRotationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProvider) *bool { return v.SecretRotationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7907,7 +7926,7 @@ func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) SecretIdentities() Ku
 	}).(KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput)
 }
 
-// Is secret rotation enabled?
+// Should the secret store CSI driver on the AKS cluster be enabled?
 func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) SecretRotationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKeyVaultSecretsProvider) *bool {
 		if v == nil {
@@ -11902,6 +11921,8 @@ func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) OutboundNatEnabled() p
 type KubernetesClusterOmsAgent struct {
 	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+	// Is managed identity authentication for monitoring enabled?
+	MsiAuthForMonitoringEnabled *bool `pulumi:"msiAuthForMonitoringEnabled"`
 	// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
 	OmsAgentIdentities []KubernetesClusterOmsAgentOmsAgentIdentity `pulumi:"omsAgentIdentities"`
 }
@@ -11920,6 +11941,8 @@ type KubernetesClusterOmsAgentInput interface {
 type KubernetesClusterOmsAgentArgs struct {
 	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+	// Is managed identity authentication for monitoring enabled?
+	MsiAuthForMonitoringEnabled pulumi.BoolPtrInput `pulumi:"msiAuthForMonitoringEnabled"`
 	// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
 	OmsAgentIdentities KubernetesClusterOmsAgentOmsAgentIdentityArrayInput `pulumi:"omsAgentIdentities"`
 }
@@ -12006,6 +12029,11 @@ func (o KubernetesClusterOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.String
 	return o.ApplyT(func(v KubernetesClusterOmsAgent) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
 }
 
+// Is managed identity authentication for monitoring enabled?
+func (o KubernetesClusterOmsAgentOutput) MsiAuthForMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterOmsAgent) *bool { return v.MsiAuthForMonitoringEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // An `omsAgentIdentity` block is exported. The exported attributes are defined below.
 func (o KubernetesClusterOmsAgentOutput) OmsAgentIdentities() KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterOmsAgent) []KubernetesClusterOmsAgentOmsAgentIdentity {
@@ -12045,6 +12073,16 @@ func (o KubernetesClusterOmsAgentPtrOutput) LogAnalyticsWorkspaceId() pulumi.Str
 		}
 		return &v.LogAnalyticsWorkspaceId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Is managed identity authentication for monitoring enabled?
+func (o KubernetesClusterOmsAgentPtrOutput) MsiAuthForMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterOmsAgent) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MsiAuthForMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // An `omsAgentIdentity` block is exported. The exported attributes are defined below.
@@ -13031,6 +13069,12 @@ func (o KubernetesClusterWindowsProfileGmsaPtrOutput) RootDomain() pulumi.String
 type KubernetesClusterWorkloadAutoscalerProfile struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
 	KedaEnabled *bool `pulumi:"kedaEnabled"`
+	// Which resources values should be controlled.
+	VerticalPodAutoscalerControlledValues *string `pulumi:"verticalPodAutoscalerControlledValues"`
+	// Specifies whether Vertical Pod Autoscaler should be enabled.
+	VerticalPodAutoscalerEnabled *bool `pulumi:"verticalPodAutoscalerEnabled"`
+	// How the autoscaler applies changes to pod resources.
+	VerticalPodAutoscalerUpdateMode *string `pulumi:"verticalPodAutoscalerUpdateMode"`
 }
 
 // KubernetesClusterWorkloadAutoscalerProfileInput is an input type that accepts KubernetesClusterWorkloadAutoscalerProfileArgs and KubernetesClusterWorkloadAutoscalerProfileOutput values.
@@ -13047,6 +13091,12 @@ type KubernetesClusterWorkloadAutoscalerProfileInput interface {
 type KubernetesClusterWorkloadAutoscalerProfileArgs struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
 	KedaEnabled pulumi.BoolPtrInput `pulumi:"kedaEnabled"`
+	// Which resources values should be controlled.
+	VerticalPodAutoscalerControlledValues pulumi.StringPtrInput `pulumi:"verticalPodAutoscalerControlledValues"`
+	// Specifies whether Vertical Pod Autoscaler should be enabled.
+	VerticalPodAutoscalerEnabled pulumi.BoolPtrInput `pulumi:"verticalPodAutoscalerEnabled"`
+	// How the autoscaler applies changes to pod resources.
+	VerticalPodAutoscalerUpdateMode pulumi.StringPtrInput `pulumi:"verticalPodAutoscalerUpdateMode"`
 }
 
 func (KubernetesClusterWorkloadAutoscalerProfileArgs) ElementType() reflect.Type {
@@ -13131,6 +13181,23 @@ func (o KubernetesClusterWorkloadAutoscalerProfileOutput) KedaEnabled() pulumi.B
 	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *bool { return v.KedaEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Which resources values should be controlled.
+func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerControlledValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *string {
+		return v.VerticalPodAutoscalerControlledValues
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether Vertical Pod Autoscaler should be enabled.
+func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *bool { return v.VerticalPodAutoscalerEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// How the autoscaler applies changes to pod resources.
+func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerUpdateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *string { return v.VerticalPodAutoscalerUpdateMode }).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterWorkloadAutoscalerProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWorkloadAutoscalerProfilePtrOutput) ElementType() reflect.Type {
@@ -13163,6 +13230,36 @@ func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) KedaEnabled() pulum
 		}
 		return v.KedaEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Which resources values should be controlled.
+func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscalerControlledValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VerticalPodAutoscalerControlledValues
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether Vertical Pod Autoscaler should be enabled.
+func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscalerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VerticalPodAutoscalerEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// How the autoscaler applies changes to pod resources.
+func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscalerUpdateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VerticalPodAutoscalerUpdateMode
+	}).(pulumi.StringPtrOutput)
 }
 
 type KubernetesFleetManagerHubProfile struct {

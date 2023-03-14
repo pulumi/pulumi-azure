@@ -144,6 +144,10 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string DefaultSecondaryKey;
         /// <summary>
+        /// The URL to access the ServiceBus Namespace.
+        /// </summary>
+        public readonly string Endpoint;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -178,6 +182,8 @@ namespace Pulumi.Azure.ServiceBus
 
             string defaultSecondaryKey,
 
+            string endpoint,
+
             string id,
 
             string location,
@@ -197,6 +203,7 @@ namespace Pulumi.Azure.ServiceBus
             DefaultPrimaryKey = defaultPrimaryKey;
             DefaultSecondaryConnectionString = defaultSecondaryConnectionString;
             DefaultSecondaryKey = defaultSecondaryKey;
+            Endpoint = endpoint;
             Id = id;
             Location = location;
             Name = name;

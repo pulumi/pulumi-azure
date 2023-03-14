@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +17,21 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
      * 
      */
     private @Nullable Boolean kedaEnabled;
+    /**
+     * @return Which resources values should be controlled.
+     * 
+     */
+    private @Nullable String verticalPodAutoscalerControlledValues;
+    /**
+     * @return Specifies whether Vertical Pod Autoscaler should be enabled.
+     * 
+     */
+    private @Nullable Boolean verticalPodAutoscalerEnabled;
+    /**
+     * @return How the autoscaler applies changes to pod resources.
+     * 
+     */
+    private @Nullable String verticalPodAutoscalerUpdateMode;
 
     private KubernetesClusterWorkloadAutoscalerProfile() {}
     /**
@@ -24,6 +40,27 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
      */
     public Optional<Boolean> kedaEnabled() {
         return Optional.ofNullable(this.kedaEnabled);
+    }
+    /**
+     * @return Which resources values should be controlled.
+     * 
+     */
+    public Optional<String> verticalPodAutoscalerControlledValues() {
+        return Optional.ofNullable(this.verticalPodAutoscalerControlledValues);
+    }
+    /**
+     * @return Specifies whether Vertical Pod Autoscaler should be enabled.
+     * 
+     */
+    public Optional<Boolean> verticalPodAutoscalerEnabled() {
+        return Optional.ofNullable(this.verticalPodAutoscalerEnabled);
+    }
+    /**
+     * @return How the autoscaler applies changes to pod resources.
+     * 
+     */
+    public Optional<String> verticalPodAutoscalerUpdateMode() {
+        return Optional.ofNullable(this.verticalPodAutoscalerUpdateMode);
     }
 
     public static Builder builder() {
@@ -36,10 +73,16 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean kedaEnabled;
+        private @Nullable String verticalPodAutoscalerControlledValues;
+        private @Nullable Boolean verticalPodAutoscalerEnabled;
+        private @Nullable String verticalPodAutoscalerUpdateMode;
         public Builder() {}
         public Builder(KubernetesClusterWorkloadAutoscalerProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kedaEnabled = defaults.kedaEnabled;
+    	      this.verticalPodAutoscalerControlledValues = defaults.verticalPodAutoscalerControlledValues;
+    	      this.verticalPodAutoscalerEnabled = defaults.verticalPodAutoscalerEnabled;
+    	      this.verticalPodAutoscalerUpdateMode = defaults.verticalPodAutoscalerUpdateMode;
         }
 
         @CustomType.Setter
@@ -47,9 +90,27 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
             this.kedaEnabled = kedaEnabled;
             return this;
         }
+        @CustomType.Setter
+        public Builder verticalPodAutoscalerControlledValues(@Nullable String verticalPodAutoscalerControlledValues) {
+            this.verticalPodAutoscalerControlledValues = verticalPodAutoscalerControlledValues;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder verticalPodAutoscalerEnabled(@Nullable Boolean verticalPodAutoscalerEnabled) {
+            this.verticalPodAutoscalerEnabled = verticalPodAutoscalerEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder verticalPodAutoscalerUpdateMode(@Nullable String verticalPodAutoscalerUpdateMode) {
+            this.verticalPodAutoscalerUpdateMode = verticalPodAutoscalerUpdateMode;
+            return this;
+        }
         public KubernetesClusterWorkloadAutoscalerProfile build() {
             final var o = new KubernetesClusterWorkloadAutoscalerProfile();
             o.kedaEnabled = kedaEnabled;
+            o.verticalPodAutoscalerControlledValues = verticalPodAutoscalerControlledValues;
+            o.verticalPodAutoscalerEnabled = verticalPodAutoscalerEnabled;
+            o.verticalPodAutoscalerUpdateMode = verticalPodAutoscalerUpdateMode;
             return o;
         }
     }

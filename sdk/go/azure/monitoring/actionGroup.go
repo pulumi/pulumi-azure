@@ -182,6 +182,8 @@ type ActionGroup struct {
 	EventHubReceivers ActionGroupEventHubReceiverArrayOutput `pulumi:"eventHubReceivers"`
 	// One or more `itsmReceiver` blocks as defined below.
 	ItsmReceivers ActionGroupItsmReceiverArrayOutput `pulumi:"itsmReceivers"`
+	// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+	Location pulumi.StringOutput `pulumi:"location"`
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers ActionGroupLogicAppReceiverArrayOutput `pulumi:"logicAppReceivers"`
 	// The name of the Action Group. Changing this forces a new resource to be created.
@@ -251,6 +253,8 @@ type actionGroupState struct {
 	EventHubReceivers []ActionGroupEventHubReceiver `pulumi:"eventHubReceivers"`
 	// One or more `itsmReceiver` blocks as defined below.
 	ItsmReceivers []ActionGroupItsmReceiver `pulumi:"itsmReceivers"`
+	// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+	Location *string `pulumi:"location"`
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers []ActionGroupLogicAppReceiver `pulumi:"logicAppReceivers"`
 	// The name of the Action Group. Changing this forces a new resource to be created.
@@ -286,6 +290,8 @@ type ActionGroupState struct {
 	EventHubReceivers ActionGroupEventHubReceiverArrayInput
 	// One or more `itsmReceiver` blocks as defined below.
 	ItsmReceivers ActionGroupItsmReceiverArrayInput
+	// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+	Location pulumi.StringPtrInput
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers ActionGroupLogicAppReceiverArrayInput
 	// The name of the Action Group. Changing this forces a new resource to be created.
@@ -325,6 +331,8 @@ type actionGroupArgs struct {
 	EventHubReceivers []ActionGroupEventHubReceiver `pulumi:"eventHubReceivers"`
 	// One or more `itsmReceiver` blocks as defined below.
 	ItsmReceivers []ActionGroupItsmReceiver `pulumi:"itsmReceivers"`
+	// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+	Location *string `pulumi:"location"`
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers []ActionGroupLogicAppReceiver `pulumi:"logicAppReceivers"`
 	// The name of the Action Group. Changing this forces a new resource to be created.
@@ -361,6 +369,8 @@ type ActionGroupArgs struct {
 	EventHubReceivers ActionGroupEventHubReceiverArrayInput
 	// One or more `itsmReceiver` blocks as defined below.
 	ItsmReceivers ActionGroupItsmReceiverArrayInput
+	// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+	Location pulumi.StringPtrInput
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers ActionGroupLogicAppReceiverArrayInput
 	// The name of the Action Group. Changing this forces a new resource to be created.
@@ -506,6 +516,11 @@ func (o ActionGroupOutput) EventHubReceivers() ActionGroupEventHubReceiverArrayO
 // One or more `itsmReceiver` blocks as defined below.
 func (o ActionGroupOutput) ItsmReceivers() ActionGroupItsmReceiverArrayOutput {
 	return o.ApplyT(func(v *ActionGroup) ActionGroupItsmReceiverArrayOutput { return v.ItsmReceivers }).(ActionGroupItsmReceiverArrayOutput)
+}
+
+// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+func (o ActionGroupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
 // One or more `logicAppReceiver` blocks as defined below.

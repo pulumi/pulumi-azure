@@ -336,6 +336,10 @@ class PolicyVMInstantRestoreResourceGroupArgs:
     def __init__(__self__, *,
                  prefix: pulumi.Input[str],
                  suffix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] prefix: The prefix for the `instant_restore_resource_group` name.
+        :param pulumi.Input[str] suffix: The suffix for the `instant_restore_resource_group` name.
+        """
         pulumi.set(__self__, "prefix", prefix)
         if suffix is not None:
             pulumi.set(__self__, "suffix", suffix)
@@ -343,6 +347,9 @@ class PolicyVMInstantRestoreResourceGroupArgs:
     @property
     @pulumi.getter
     def prefix(self) -> pulumi.Input[str]:
+        """
+        The prefix for the `instant_restore_resource_group` name.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -352,6 +359,9 @@ class PolicyVMInstantRestoreResourceGroupArgs:
     @property
     @pulumi.getter
     def suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The suffix for the `instant_restore_resource_group` name.
+        """
         return pulumi.get(self, "suffix")
 
     @suffix.setter

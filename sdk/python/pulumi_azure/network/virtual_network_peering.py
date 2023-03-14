@@ -21,6 +21,7 @@ class VirtualNetworkPeeringArgs:
                  allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a VirtualNetworkPeering resource.
@@ -44,6 +45,8 @@ class VirtualNetworkPeeringArgs:
             pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
         if use_remote_gateways is not None:
             pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
 
@@ -132,6 +135,15 @@ class VirtualNetworkPeeringArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "triggers", value)
+
+    @property
     @pulumi.getter(name="useRemoteGateways")
     def use_remote_gateways(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -153,6 +165,7 @@ class _VirtualNetworkPeeringState:
                  name: Optional[pulumi.Input[str]] = None,
                  remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None):
         """
@@ -178,6 +191,8 @@ class _VirtualNetworkPeeringState:
             pulumi.set(__self__, "remote_virtual_network_id", remote_virtual_network_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
         if use_remote_gateways is not None:
             pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
         if virtual_network_name is not None:
@@ -256,6 +271,15 @@ class _VirtualNetworkPeeringState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "triggers", value)
+
+    @property
     @pulumi.getter(name="useRemoteGateways")
     def use_remote_gateways(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -291,6 +315,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -412,6 +437,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -433,6 +459,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["triggers"] = triggers
             __props__.__dict__["use_remote_gateways"] = use_remote_gateways
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
@@ -453,6 +480,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             use_remote_gateways: Optional[pulumi.Input[bool]] = None,
             virtual_network_name: Optional[pulumi.Input[str]] = None) -> 'VirtualNetworkPeering':
         """
@@ -481,6 +509,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["remote_virtual_network_id"] = remote_virtual_network_id
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["triggers"] = triggers
         __props__.__dict__["use_remote_gateways"] = use_remote_gateways
         __props__.__dict__["virtual_network_name"] = virtual_network_name
         return VirtualNetworkPeering(resource_name, opts=opts, __props__=__props__)
@@ -532,6 +561,11 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        return pulumi.get(self, "triggers")
 
     @property
     @pulumi.getter(name="useRemoteGateways")

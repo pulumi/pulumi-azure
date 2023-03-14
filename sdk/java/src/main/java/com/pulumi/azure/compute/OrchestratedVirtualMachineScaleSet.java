@@ -16,6 +16,7 @@ import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetNetwor
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsDisk;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsProfile;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetPlan;
+import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetPriorityMix;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetSourceImageReference;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetTerminationNotification;
 import com.pulumi.core.Output;
@@ -397,6 +398,20 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      */
     public Output<Optional<String>> priority() {
         return Codegen.optional(this.priority);
+    }
+    /**
+     * a `priority_mix` block as defined below
+     * 
+     */
+    @Export(name="priorityMix", type=OrchestratedVirtualMachineScaleSetPriorityMix.class, parameters={})
+    private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetPriorityMix> priorityMix;
+
+    /**
+     * @return a `priority_mix` block as defined below
+     * 
+     */
+    public Output<Optional<OrchestratedVirtualMachineScaleSetPriorityMix>> priorityMix() {
+        return Codegen.optional(this.priorityMix);
     }
     /**
      * The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.

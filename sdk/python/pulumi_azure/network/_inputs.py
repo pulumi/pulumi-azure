@@ -2196,7 +2196,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]] conditions: One or more `condition` blocks as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
-        :param pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs'] url: One `url` block as defined above
+        :param pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs'] url: One `url` block as defined below
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_sequence", rule_sequence)
@@ -2273,7 +2273,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']]:
         """
-        One `url` block as defined above
+        One `url` block as defined below
         """
         return pulumi.get(self, "url")
 
@@ -3736,20 +3736,36 @@ class ExpressRouteCircuitPeeringIpv6Args:
 @pulumi.input_type
 class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs:
     def __init__(__self__, *,
+                 advertised_communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  advertised_public_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  customer_asn: Optional[pulumi.Input[int]] = None,
                  routing_registry_name: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] advertised_communities: The communities of Bgp Peering specified for microsoft peering.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] advertised_public_prefixes: A list of Advertised Public Prefixes.
         :param pulumi.Input[int] customer_asn: The CustomerASN of the peering. Defaults to `0`.
         :param pulumi.Input[str] routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
+        if advertised_communities is not None:
+            pulumi.set(__self__, "advertised_communities", advertised_communities)
         if advertised_public_prefixes is not None:
             pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
         if customer_asn is not None:
             pulumi.set(__self__, "customer_asn", customer_asn)
         if routing_registry_name is not None:
             pulumi.set(__self__, "routing_registry_name", routing_registry_name)
+
+    @property
+    @pulumi.getter(name="advertisedCommunities")
+    def advertised_communities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The communities of Bgp Peering specified for microsoft peering.
+        """
+        return pulumi.get(self, "advertised_communities")
+
+    @advertised_communities.setter
+    def advertised_communities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "advertised_communities", value)
 
     @property
     @pulumi.getter(name="advertisedPublicPrefixes")
@@ -3792,14 +3808,18 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs:
 class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
     def __init__(__self__, *,
                  advertised_public_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 advertised_communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  customer_asn: Optional[pulumi.Input[int]] = None,
                  routing_registry_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] advertised_public_prefixes: A list of Advertised Public Prefixes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] advertised_communities: The communities of Bgp Peering specified for microsoft peering.
         :param pulumi.Input[int] customer_asn: The CustomerASN of the peering. Defaults to `0`.
         :param pulumi.Input[str] routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
+        if advertised_communities is not None:
+            pulumi.set(__self__, "advertised_communities", advertised_communities)
         if customer_asn is not None:
             pulumi.set(__self__, "customer_asn", customer_asn)
         if routing_registry_name is not None:
@@ -3816,6 +3836,18 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
     @advertised_public_prefixes.setter
     def advertised_public_prefixes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "advertised_public_prefixes", value)
+
+    @property
+    @pulumi.getter(name="advertisedCommunities")
+    def advertised_communities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The communities of Bgp Peering specified for microsoft peering.
+        """
+        return pulumi.get(self, "advertised_communities")
+
+    @advertised_communities.setter
+    def advertised_communities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "advertised_communities", value)
 
     @property
     @pulumi.getter(name="customerAsn")

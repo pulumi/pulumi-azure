@@ -39,6 +39,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
                  os_profile: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileArgs']] = None,
                  plan: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs']] = None,
                  priority: Optional[pulumi.Input[str]] = None,
+                 priority_mix: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -74,6 +75,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileArgs'] os_profile: An `os_profile` block as defined below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs'] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
         :param pulumi.Input[str] sku_name: The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
@@ -129,6 +131,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "plan", plan)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if priority_mix is not None:
+            pulumi.set(__self__, "priority_mix", priority_mix)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if single_placement_group is not None:
@@ -427,6 +431,18 @@ class OrchestratedVirtualMachineScaleSetArgs:
         pulumi.set(self, "priority", value)
 
     @property
+    @pulumi.getter(name="priorityMix")
+    def priority_mix(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs']]:
+        """
+        a `priority_mix` block as defined below
+        """
+        return pulumi.get(self, "priority_mix")
+
+    @priority_mix.setter
+    def priority_mix(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs']]):
+        pulumi.set(self, "priority_mix", value)
+
+    @property
     @pulumi.getter(name="proximityPlacementGroupId")
     def proximity_placement_group_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -572,6 +588,7 @@ class _OrchestratedVirtualMachineScaleSetState:
                  plan: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs']] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
+                 priority_mix: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -608,6 +625,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs'] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
@@ -665,6 +683,8 @@ class _OrchestratedVirtualMachineScaleSetState:
             pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if priority_mix is not None:
+            pulumi.set(__self__, "priority_mix", priority_mix)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if resource_group_name is not None:
@@ -955,6 +975,18 @@ class _OrchestratedVirtualMachineScaleSetState:
         pulumi.set(self, "priority", value)
 
     @property
+    @pulumi.getter(name="priorityMix")
+    def priority_mix(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs']]:
+        """
+        a `priority_mix` block as defined below
+        """
+        return pulumi.get(self, "priority_mix")
+
+    @priority_mix.setter
+    def priority_mix(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs']]):
+        pulumi.set(self, "priority_mix", value)
+
+    @property
     @pulumi.getter(name="proximityPlacementGroupId")
     def proximity_placement_group_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1126,6 +1158,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  plan: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
+                 priority_mix: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -1193,6 +1226,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
@@ -1279,6 +1313,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  plan: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
+                 priority_mix: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -1323,6 +1358,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'platform_fault_domain_count'")
             __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count
             __props__.__dict__["priority"] = priority
+            __props__.__dict__["priority_mix"] = priority_mix
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -1371,6 +1407,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             plan: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']]] = None,
             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
             priority: Optional[pulumi.Input[str]] = None,
+            priority_mix: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']]] = None,
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -1412,6 +1449,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
@@ -1451,6 +1489,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["plan"] = plan
         __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count
         __props__.__dict__["priority"] = priority
+        __props__.__dict__["priority_mix"] = priority_mix
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["single_placement_group"] = single_placement_group
@@ -1640,6 +1679,14 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="priorityMix")
+    def priority_mix(self) -> pulumi.Output[Optional['outputs.OrchestratedVirtualMachineScaleSetPriorityMix']]:
+        """
+        a `priority_mix` block as defined below
+        """
+        return pulumi.get(self, "priority_mix")
 
     @property
     @pulumi.getter(name="proximityPlacementGroupId")

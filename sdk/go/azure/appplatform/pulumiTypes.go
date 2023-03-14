@@ -1912,6 +1912,143 @@ func (o SpringCloudConnectionAuthenticationPtrOutput) Type() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpringCloudConnectionSecretStore struct {
+	// The key vault id to store secret.
+	KeyVaultId string `pulumi:"keyVaultId"`
+}
+
+// SpringCloudConnectionSecretStoreInput is an input type that accepts SpringCloudConnectionSecretStoreArgs and SpringCloudConnectionSecretStoreOutput values.
+// You can construct a concrete instance of `SpringCloudConnectionSecretStoreInput` via:
+//
+//	SpringCloudConnectionSecretStoreArgs{...}
+type SpringCloudConnectionSecretStoreInput interface {
+	pulumi.Input
+
+	ToSpringCloudConnectionSecretStoreOutput() SpringCloudConnectionSecretStoreOutput
+	ToSpringCloudConnectionSecretStoreOutputWithContext(context.Context) SpringCloudConnectionSecretStoreOutput
+}
+
+type SpringCloudConnectionSecretStoreArgs struct {
+	// The key vault id to store secret.
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+}
+
+func (SpringCloudConnectionSecretStoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudConnectionSecretStore)(nil)).Elem()
+}
+
+func (i SpringCloudConnectionSecretStoreArgs) ToSpringCloudConnectionSecretStoreOutput() SpringCloudConnectionSecretStoreOutput {
+	return i.ToSpringCloudConnectionSecretStoreOutputWithContext(context.Background())
+}
+
+func (i SpringCloudConnectionSecretStoreArgs) ToSpringCloudConnectionSecretStoreOutputWithContext(ctx context.Context) SpringCloudConnectionSecretStoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionSecretStoreOutput)
+}
+
+func (i SpringCloudConnectionSecretStoreArgs) ToSpringCloudConnectionSecretStorePtrOutput() SpringCloudConnectionSecretStorePtrOutput {
+	return i.ToSpringCloudConnectionSecretStorePtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudConnectionSecretStoreArgs) ToSpringCloudConnectionSecretStorePtrOutputWithContext(ctx context.Context) SpringCloudConnectionSecretStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionSecretStoreOutput).ToSpringCloudConnectionSecretStorePtrOutputWithContext(ctx)
+}
+
+// SpringCloudConnectionSecretStorePtrInput is an input type that accepts SpringCloudConnectionSecretStoreArgs, SpringCloudConnectionSecretStorePtr and SpringCloudConnectionSecretStorePtrOutput values.
+// You can construct a concrete instance of `SpringCloudConnectionSecretStorePtrInput` via:
+//
+//	        SpringCloudConnectionSecretStoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudConnectionSecretStorePtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudConnectionSecretStorePtrOutput() SpringCloudConnectionSecretStorePtrOutput
+	ToSpringCloudConnectionSecretStorePtrOutputWithContext(context.Context) SpringCloudConnectionSecretStorePtrOutput
+}
+
+type springCloudConnectionSecretStorePtrType SpringCloudConnectionSecretStoreArgs
+
+func SpringCloudConnectionSecretStorePtr(v *SpringCloudConnectionSecretStoreArgs) SpringCloudConnectionSecretStorePtrInput {
+	return (*springCloudConnectionSecretStorePtrType)(v)
+}
+
+func (*springCloudConnectionSecretStorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudConnectionSecretStore)(nil)).Elem()
+}
+
+func (i *springCloudConnectionSecretStorePtrType) ToSpringCloudConnectionSecretStorePtrOutput() SpringCloudConnectionSecretStorePtrOutput {
+	return i.ToSpringCloudConnectionSecretStorePtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudConnectionSecretStorePtrType) ToSpringCloudConnectionSecretStorePtrOutputWithContext(ctx context.Context) SpringCloudConnectionSecretStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionSecretStorePtrOutput)
+}
+
+type SpringCloudConnectionSecretStoreOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudConnectionSecretStoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudConnectionSecretStore)(nil)).Elem()
+}
+
+func (o SpringCloudConnectionSecretStoreOutput) ToSpringCloudConnectionSecretStoreOutput() SpringCloudConnectionSecretStoreOutput {
+	return o
+}
+
+func (o SpringCloudConnectionSecretStoreOutput) ToSpringCloudConnectionSecretStoreOutputWithContext(ctx context.Context) SpringCloudConnectionSecretStoreOutput {
+	return o
+}
+
+func (o SpringCloudConnectionSecretStoreOutput) ToSpringCloudConnectionSecretStorePtrOutput() SpringCloudConnectionSecretStorePtrOutput {
+	return o.ToSpringCloudConnectionSecretStorePtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudConnectionSecretStoreOutput) ToSpringCloudConnectionSecretStorePtrOutputWithContext(ctx context.Context) SpringCloudConnectionSecretStorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudConnectionSecretStore) *SpringCloudConnectionSecretStore {
+		return &v
+	}).(SpringCloudConnectionSecretStorePtrOutput)
+}
+
+// The key vault id to store secret.
+func (o SpringCloudConnectionSecretStoreOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudConnectionSecretStore) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+type SpringCloudConnectionSecretStorePtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudConnectionSecretStorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudConnectionSecretStore)(nil)).Elem()
+}
+
+func (o SpringCloudConnectionSecretStorePtrOutput) ToSpringCloudConnectionSecretStorePtrOutput() SpringCloudConnectionSecretStorePtrOutput {
+	return o
+}
+
+func (o SpringCloudConnectionSecretStorePtrOutput) ToSpringCloudConnectionSecretStorePtrOutputWithContext(ctx context.Context) SpringCloudConnectionSecretStorePtrOutput {
+	return o
+}
+
+func (o SpringCloudConnectionSecretStorePtrOutput) Elem() SpringCloudConnectionSecretStoreOutput {
+	return o.ApplyT(func(v *SpringCloudConnectionSecretStore) SpringCloudConnectionSecretStore {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudConnectionSecretStore
+		return ret
+	}).(SpringCloudConnectionSecretStoreOutput)
+}
+
+// The key vault id to store secret.
+func (o SpringCloudConnectionSecretStorePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudConnectionSecretStore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpringCloudContainerDeploymentQuota struct {
 	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
 	Cpu *string `pulumi:"cpu"`
@@ -6869,6 +7006,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudConfigurationServiceRepositoryArrayInput)(nil)).Elem(), SpringCloudConfigurationServiceRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudConnectionAuthenticationInput)(nil)).Elem(), SpringCloudConnectionAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudConnectionAuthenticationPtrInput)(nil)).Elem(), SpringCloudConnectionAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudConnectionSecretStoreInput)(nil)).Elem(), SpringCloudConnectionSecretStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudConnectionSecretStorePtrInput)(nil)).Elem(), SpringCloudConnectionSecretStoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudContainerDeploymentQuotaInput)(nil)).Elem(), SpringCloudContainerDeploymentQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudContainerDeploymentQuotaPtrInput)(nil)).Elem(), SpringCloudContainerDeploymentQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepositoryInput)(nil)).Elem(), SpringCloudCustomizedAcceleratorGitRepositoryArgs{})
@@ -6951,6 +7090,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudConfigurationServiceRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudConnectionAuthenticationOutput{})
 	pulumi.RegisterOutputType(SpringCloudConnectionAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudConnectionSecretStoreOutput{})
+	pulumi.RegisterOutputType(SpringCloudConnectionSecretStorePtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudContainerDeploymentQuotaOutput{})
 	pulumi.RegisterOutputType(SpringCloudContainerDeploymentQuotaPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudCustomizedAcceleratorGitRepositoryOutput{})

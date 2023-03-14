@@ -21,7 +21,10 @@ class GetFunctionAppHostKeysResult:
     """
     A collection of values returned by getFunctionAppHostKeys.
     """
-    def __init__(__self__, default_function_key=None, durabletask_extension_key=None, event_grid_extension_config_key=None, id=None, name=None, primary_key=None, resource_group_name=None, signalr_extension_key=None, webpubsub_extension_key=None):
+    def __init__(__self__, blobs_extension_key=None, default_function_key=None, durabletask_extension_key=None, event_grid_extension_config_key=None, id=None, name=None, primary_key=None, resource_group_name=None, signalr_extension_key=None, webpubsub_extension_key=None):
+        if blobs_extension_key and not isinstance(blobs_extension_key, str):
+            raise TypeError("Expected argument 'blobs_extension_key' to be a str")
+        pulumi.set(__self__, "blobs_extension_key", blobs_extension_key)
         if default_function_key and not isinstance(default_function_key, str):
             raise TypeError("Expected argument 'default_function_key' to be a str")
         pulumi.set(__self__, "default_function_key", default_function_key)
@@ -49,6 +52,14 @@ class GetFunctionAppHostKeysResult:
         if webpubsub_extension_key and not isinstance(webpubsub_extension_key, str):
             raise TypeError("Expected argument 'webpubsub_extension_key' to be a str")
         pulumi.set(__self__, "webpubsub_extension_key", webpubsub_extension_key)
+
+    @property
+    @pulumi.getter(name="blobsExtensionKey")
+    def blobs_extension_key(self) -> str:
+        """
+        Function App resource's Blobs Extension system key.
+        """
+        return pulumi.get(self, "blobs_extension_key")
 
     @property
     @pulumi.getter(name="defaultFunctionKey")
@@ -123,6 +134,7 @@ class AwaitableGetFunctionAppHostKeysResult(GetFunctionAppHostKeysResult):
         if False:
             yield self
         return GetFunctionAppHostKeysResult(
+            blobs_extension_key=self.blobs_extension_key,
             default_function_key=self.default_function_key,
             durabletask_extension_key=self.durabletask_extension_key,
             event_grid_extension_config_key=self.event_grid_extension_config_key,
@@ -161,6 +173,7 @@ def get_function_app_host_keys(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys', __args__, opts=opts, typ=GetFunctionAppHostKeysResult).value
 
     return AwaitableGetFunctionAppHostKeysResult(
+        blobs_extension_key=__ret__.blobs_extension_key,
         default_function_key=__ret__.default_function_key,
         durabletask_extension_key=__ret__.durabletask_extension_key,
         event_grid_extension_config_key=__ret__.event_grid_extension_config_key,

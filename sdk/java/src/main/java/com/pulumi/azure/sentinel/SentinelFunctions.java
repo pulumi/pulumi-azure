@@ -4,10 +4,13 @@
 package com.pulumi.azure.sentinel;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyArgs;
+import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyPlainArgs;
 import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
 import com.pulumi.azure.sentinel.inputs.GetAlertRulePlainArgs;
 import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
 import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplatePlainArgs;
+import com.pulumi.azure.sentinel.outputs.GetAlertRuleAnomalyResult;
 import com.pulumi.azure.sentinel.outputs.GetAlertRuleResult;
 import com.pulumi.azure.sentinel.outputs.GetAlertRuleTemplateResult;
 import com.pulumi.core.Output;
@@ -200,6 +203,34 @@ public final class SentinelFunctions {
      */
     public static CompletableFuture<GetAlertRuleResult> getAlertRulePlain(GetAlertRulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:sentinel/getAlertRule:getAlertRule", TypeShape.of(GetAlertRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Anomaly Alert Rule.
+     * 
+     */
+    public static Output<GetAlertRuleAnomalyResult> getAlertRuleAnomaly(GetAlertRuleAnomalyArgs args) {
+        return getAlertRuleAnomaly(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Anomaly Alert Rule.
+     * 
+     */
+    public static CompletableFuture<GetAlertRuleAnomalyResult> getAlertRuleAnomalyPlain(GetAlertRuleAnomalyPlainArgs args) {
+        return getAlertRuleAnomalyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Anomaly Alert Rule.
+     * 
+     */
+    public static Output<GetAlertRuleAnomalyResult> getAlertRuleAnomaly(GetAlertRuleAnomalyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", TypeShape.of(GetAlertRuleAnomalyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Anomaly Alert Rule.
+     * 
+     */
+    public static CompletableFuture<GetAlertRuleAnomalyResult> getAlertRuleAnomalyPlain(GetAlertRuleAnomalyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", TypeShape.of(GetAlertRuleAnomalyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Sentinel Alert Rule Template.

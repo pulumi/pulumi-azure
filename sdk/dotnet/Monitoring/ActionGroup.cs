@@ -222,6 +222,12 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<Outputs.ActionGroupItsmReceiver>> ItsmReceivers { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `logic_app_receiver` blocks as defined below.
         /// </summary>
         [Output("logicAppReceivers")]
@@ -405,6 +411,12 @@ namespace Pulumi.Azure.Monitoring
             set => _itsmReceivers = value;
         }
 
+        /// <summary>
+        /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
         [Input("logicAppReceivers")]
         private InputList<Inputs.ActionGroupLogicAppReceiverArgs>? _logicAppReceivers;
 
@@ -580,6 +592,12 @@ namespace Pulumi.Azure.Monitoring
             get => _itsmReceivers ?? (_itsmReceivers = new InputList<Inputs.ActionGroupItsmReceiverGetArgs>());
             set => _itsmReceivers = value;
         }
+
+        /// <summary>
+        /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("logicAppReceivers")]
         private InputList<Inputs.ActionGroupLogicAppReceiverGetArgs>? _logicAppReceivers;

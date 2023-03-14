@@ -159,6 +159,20 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.defaultSecondaryKey;
     }
     /**
+     * The URL to access the ServiceBus Namespace.
+     * 
+     */
+    @Export(name="endpoint", type=String.class, parameters={})
+    private Output<String> endpoint;
+
+    /**
+     * @return The URL to access the ServiceBus Namespace.
+     * 
+     */
+    public Output<String> endpoint() {
+        return this.endpoint;
+    }
+    /**
      * An `identity` block as defined below.
      * 
      */

@@ -18,6 +18,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("logAnalyticsWorkspaceId", required: true)]
         public Input<string> LogAnalyticsWorkspaceId { get; set; } = null!;
 
+        /// <summary>
+        /// Is managed identity authentication for monitoring enabled?
+        /// </summary>
+        [Input("msiAuthForMonitoringEnabled")]
+        public Input<bool>? MsiAuthForMonitoringEnabled { get; set; }
+
         [Input("omsAgentIdentities")]
         private InputList<Inputs.KubernetesClusterOmsAgentOmsAgentIdentityArgs>? _omsAgentIdentities;
 

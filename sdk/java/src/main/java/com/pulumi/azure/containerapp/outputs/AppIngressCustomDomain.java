@@ -11,23 +11,39 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppIngressCustomDomain {
+    /**
+     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+     * 
+     */
     private @Nullable String certificateBindingType;
+    /**
+     * @return The ID of the Container App Environment Certificate.
+     * 
+     */
     private String certificateId;
     /**
-     * @return The name for this Container App. Changing this forces a new resource to be created.
+     * @return The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
      * 
      */
     private String name;
 
     private AppIngressCustomDomain() {}
+    /**
+     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+     * 
+     */
     public Optional<String> certificateBindingType() {
         return Optional.ofNullable(this.certificateBindingType);
     }
+    /**
+     * @return The ID of the Container App Environment Certificate.
+     * 
+     */
     public String certificateId() {
         return this.certificateId;
     }
     /**
-     * @return The name for this Container App. Changing this forces a new resource to be created.
+     * @return The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
      * 
      */
     public String name() {

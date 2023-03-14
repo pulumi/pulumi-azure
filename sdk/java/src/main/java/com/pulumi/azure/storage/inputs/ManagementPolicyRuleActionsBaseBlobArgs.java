@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ManagementPolicyRuleActionsBaseBlobArgs Empty = new ManagementPolicyRuleActionsBaseBlobArgs();
+
+    /**
+     * Whether a blob should automatically be tiered from cool back to hot if it&#39;s accessed again after being tiered to cool. Defaults to `false`.
+     * 
+     */
+    @Import(name="autoTierToHotFromCoolEnabled")
+    private @Nullable Output<Boolean> autoTierToHotFromCoolEnabled;
+
+    /**
+     * @return Whether a blob should automatically be tiered from cool back to hot if it&#39;s accessed again after being tiered to cool. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> autoTierToHotFromCoolEnabled() {
+        return Optional.ofNullable(this.autoTierToHotFromCoolEnabled);
+    }
 
     /**
      * The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
@@ -168,6 +184,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
     private ManagementPolicyRuleActionsBaseBlobArgs() {}
 
     private ManagementPolicyRuleActionsBaseBlobArgs(ManagementPolicyRuleActionsBaseBlobArgs $) {
+        this.autoTierToHotFromCoolEnabled = $.autoTierToHotFromCoolEnabled;
         this.deleteAfterDaysSinceCreationGreaterThan = $.deleteAfterDaysSinceCreationGreaterThan;
         this.deleteAfterDaysSinceLastAccessTimeGreaterThan = $.deleteAfterDaysSinceLastAccessTimeGreaterThan;
         this.deleteAfterDaysSinceModificationGreaterThan = $.deleteAfterDaysSinceModificationGreaterThan;
@@ -196,6 +213,27 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
 
         public Builder(ManagementPolicyRuleActionsBaseBlobArgs defaults) {
             $ = new ManagementPolicyRuleActionsBaseBlobArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param autoTierToHotFromCoolEnabled Whether a blob should automatically be tiered from cool back to hot if it&#39;s accessed again after being tiered to cool. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoTierToHotFromCoolEnabled(@Nullable Output<Boolean> autoTierToHotFromCoolEnabled) {
+            $.autoTierToHotFromCoolEnabled = autoTierToHotFromCoolEnabled;
+            return this;
+        }
+
+        /**
+         * @param autoTierToHotFromCoolEnabled Whether a blob should automatically be tiered from cool back to hot if it&#39;s accessed again after being tiered to cool. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoTierToHotFromCoolEnabled(Boolean autoTierToHotFromCoolEnabled) {
+            return autoTierToHotFromCoolEnabled(Output.of(autoTierToHotFromCoolEnabled));
         }
 
         /**

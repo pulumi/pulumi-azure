@@ -271,7 +271,9 @@ class AppIngressCustomDomainArgs:
                  name: pulumi.Input[str],
                  certificate_binding_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] certificate_id: The ID of the Container App Environment Certificate.
+        :param pulumi.Input[str] name: The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+        :param pulumi.Input[str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
         """
         pulumi.set(__self__, "certificate_id", certificate_id)
         pulumi.set(__self__, "name", name)
@@ -281,6 +283,9 @@ class AppIngressCustomDomainArgs:
     @property
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Container App Environment Certificate.
+        """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
@@ -291,7 +296,7 @@ class AppIngressCustomDomainArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name for this Container App. Changing this forces a new resource to be created.
+        The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
         """
         return pulumi.get(self, "name")
 
@@ -302,6 +307,9 @@ class AppIngressCustomDomainArgs:
     @property
     @pulumi.getter(name="certificateBindingType")
     def certificate_binding_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+        """
         return pulumi.get(self, "certificate_binding_type")
 
     @certificate_binding_type.setter

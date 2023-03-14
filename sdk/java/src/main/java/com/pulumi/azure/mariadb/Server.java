@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
  *             .geoRedundantBackupEnabled(false)
  *             .publicNetworkAccessEnabled(false)
  *             .sslEnforcementEnabled(true)
+ *             .sslMinimalTlsVersionEnforced(&#34;TLS1_2&#34;)
  *             .build());
  * 
  *     }
@@ -288,6 +289,20 @@ public class Server extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> sslEnforcementEnabled() {
         return this.sslEnforcementEnabled;
+    }
+    /**
+     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+     * 
+     */
+    @Export(name="sslMinimalTlsVersionEnforced", type=String.class, parameters={})
+    private Output</* @Nullable */ String> sslMinimalTlsVersionEnforced;
+
+    /**
+     * @return The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+     * 
+     */
+    public Output<Optional<String>> sslMinimalTlsVersionEnforced() {
+        return Codegen.optional(this.sslMinimalTlsVersionEnforced);
     }
     /**
      * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).

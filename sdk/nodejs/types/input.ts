@@ -2376,6 +2376,13 @@ export namespace appplatform {
         type: pulumi.Input<string>;
     }
 
+    export interface SpringCloudConnectionSecretStore {
+        /**
+         * The key vault id to store secret.
+         */
+        keyVaultId: pulumi.Input<string>;
+    }
+
     export interface SpringCloudContainerDeploymentQuota {
         /**
          * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -3414,6 +3421,13 @@ export namespace appservice {
         type: pulumi.Input<string>;
     }
 
+    export interface ConnectionSecretStore {
+        /**
+         * The key vault id to store secret.
+         */
+        keyVaultId: pulumi.Input<string>;
+    }
+
     export interface EnvironmentClusterSetting {
         /**
          * The name of the Cluster Setting.
@@ -4242,7 +4256,7 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -4270,7 +4284,7 @@ export namespace appservice {
          */
         microsoft?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsMicrosoft>;
         /**
-         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          */
         runtimeVersion?: pulumi.Input<string>;
         /**
@@ -4399,6 +4413,347 @@ export namespace appservice {
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
          */
         consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2 {
+        /**
+         * An `activeDirectoryV2` block as defined below.
+         */
+        activeDirectoryV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2>;
+        /**
+         * An `appleV2` block as defined below.
+         */
+        appleV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2AppleV2>;
+        /**
+         * Should the AuthV2 Settings be enabled. Defaults to `false`.
+         */
+        authEnabled?: pulumi.Input<boolean>;
+        /**
+         * An `azureStaticWebAppV2` block as defined below.
+         */
+        azureStaticWebAppV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2>;
+        /**
+         * The path to the App Auth settings.
+         */
+        configFilePath?: pulumi.Input<string>;
+        /**
+         * Zero or more `customOidcV2` blocks as defined below.
+         */
+        customOidcV2s?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2CustomOidcV2>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         */
+        excludedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `facebookV2` block as defined below.
+         */
+        facebookV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2FacebookV2>;
+        /**
+         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         */
+        forwardProxyConvention?: pulumi.Input<string>;
+        /**
+         * The name of the custom header containing the host of the request.
+         */
+        forwardProxyCustomHostHeaderName?: pulumi.Input<string>;
+        /**
+         * The name of the custom header containing the scheme of the request.
+         */
+        forwardProxyCustomSchemeHeaderName?: pulumi.Input<string>;
+        /**
+         * A `githubV2` block as defined below.
+         */
+        githubV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2GithubV2>;
+        /**
+         * A `googleV2` block as defined below.
+         */
+        googleV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2GoogleV2>;
+        /**
+         * The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+         */
+        httpRouteApiPrefix?: pulumi.Input<string>;
+        /**
+         * A `login` block as defined below.
+         */
+        login: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2Login>;
+        /**
+         * A `microsoftV2` block as defined below.
+         */
+        microsoftV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2MicrosoftV2>;
+        /**
+         * Should the authentication flow be used for all requests.
+         */
+        requireAuthentication?: pulumi.Input<boolean>;
+        /**
+         * Should HTTPS be required on connections? Defaults to `true`.
+         */
+        requireHttps?: pulumi.Input<boolean>;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * A `twitterV2` block as defined below.
+         */
+        twitterV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2TwitterV2>;
+        /**
+         * The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+         */
+        unauthenticatedAction?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 {
+        /**
+         * The list of allowed Applications for the Default Authorisation Policy.
+         */
+        allowedApplications?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of allowed Group Names for the Default Authorisation Policy.
+         */
+        allowedGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of allowed Identities for the Default Authorisation Policy.
+         */
+        allowedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
+        clientSecretCertificateThumbprint?: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * A list of Allowed Client Applications in the JWT Claim.
+         */
+        jwtAllowedClientApplications?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Allowed Groups in the JWT Claim.
+         */
+        jwtAllowedGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+         */
+        loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         */
+        tenantAuthEndpoint: pulumi.Input<string>;
+        /**
+         * Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         */
+        wwwAuthenticationDisabled?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2AppleV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2CustomOidcV2 {
+        /**
+         * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+         */
+        authorisationEndpoint?: pulumi.Input<string>;
+        /**
+         * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+         */
+        certificationUri?: pulumi.Input<string>;
+        /**
+         * The Client Credential Method used.
+         */
+        clientCredentialMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        issuerEndpoint?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name of the claim that contains the users name.
+         */
+        nameClaimType?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         */
+        openidConfigurationEndpoint: pulumi.Input<string>;
+        /**
+         * The list of the scopes that should be requested while authenticating.
+         */
+        scopes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        tokenEndpoint?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2FacebookV2 {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: pulumi.Input<string>;
+        /**
+         * The version of the Facebook API to be used while logging in.
+         */
+        graphApiVersion?: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2GithubV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2GoogleV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2Login {
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+         */
+        cookieExpirationConvention?: pulumi.Input<string>;
+        /**
+         * The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+         */
+        cookieExpirationTime?: pulumi.Input<string>;
+        /**
+         * The endpoint to which logout requests should be made.
+         */
+        logoutEndpoint?: pulumi.Input<string>;
+        /**
+         * The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+         */
+        nonceExpirationTime?: pulumi.Input<string>;
+        /**
+         * Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+         */
+        preserveUrlFragmentsForLogins?: pulumi.Input<boolean>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionTime?: pulumi.Input<number>;
+        /**
+         * Should the Token Store configuration Enabled. Defaults to `false`
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * The directory path in the App Filesystem in which the tokens will be stored.
+         */
+        tokenStorePath?: pulumi.Input<string>;
+        /**
+         * The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+         */
+        tokenStoreSasSettingName?: pulumi.Input<string>;
+        /**
+         * Should the nonce be validated while completing the login flow. Defaults to `true`.
+         */
+        validateNonce?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2MicrosoftV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsV2TwitterV2 {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: pulumi.Input<string>;
     }
 
     export interface LinuxFunctionAppBackup {
@@ -4637,7 +4992,7 @@ export namespace appservice {
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
-         * The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
+         * The Version of Java to use. Supported versions include `8`, `11` & `17`.
          */
         javaVersion?: pulumi.Input<string>;
         /**
@@ -4821,7 +5176,7 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -4849,7 +5204,7 @@ export namespace appservice {
          */
         microsoft?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsMicrosoft>;
         /**
-         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          */
         runtimeVersion?: pulumi.Input<string>;
         /**
@@ -4978,6 +5333,347 @@ export namespace appservice {
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
          */
         consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2 {
+        /**
+         * An `activeDirectoryV2` block as defined below.
+         */
+        activeDirectoryV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2>;
+        /**
+         * An `appleV2` block as defined below.
+         */
+        appleV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2AppleV2>;
+        /**
+         * Should the AuthV2 Settings be enabled. Defaults to `false`.
+         */
+        authEnabled?: pulumi.Input<boolean>;
+        /**
+         * An `azureStaticWebAppV2` block as defined below.
+         */
+        azureStaticWebAppV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2>;
+        /**
+         * The path to the App Auth settings.
+         */
+        configFilePath?: pulumi.Input<string>;
+        /**
+         * Zero or more `customOidcV2` blocks as defined below.
+         */
+        customOidcV2s?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         */
+        excludedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `facebookV2` block as defined below.
+         */
+        facebookV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2FacebookV2>;
+        /**
+         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         */
+        forwardProxyConvention?: pulumi.Input<string>;
+        /**
+         * The name of the custom header containing the host of the request.
+         */
+        forwardProxyCustomHostHeaderName?: pulumi.Input<string>;
+        /**
+         * The name of the custom header containing the scheme of the request.
+         */
+        forwardProxyCustomSchemeHeaderName?: pulumi.Input<string>;
+        /**
+         * A `githubV2` block as defined below.
+         */
+        githubV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2GithubV2>;
+        /**
+         * A `googleV2` block as defined below.
+         */
+        googleV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2GoogleV2>;
+        /**
+         * The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+         */
+        httpRouteApiPrefix?: pulumi.Input<string>;
+        /**
+         * A `login` block as defined below.
+         */
+        login: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2Login>;
+        /**
+         * A `microsoftV2` block as defined below.
+         */
+        microsoftV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2>;
+        /**
+         * Should the authentication flow be used for all requests.
+         */
+        requireAuthentication?: pulumi.Input<boolean>;
+        /**
+         * Should HTTPS be required on connections? Defaults to `true`.
+         */
+        requireHttps?: pulumi.Input<boolean>;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * A `twitterV2` block as defined below.
+         */
+        twitterV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsV2TwitterV2>;
+        /**
+         * The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+         */
+        unauthenticatedAction?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
+        /**
+         * The list of allowed Applications for the Default Authorisation Policy.
+         */
+        allowedApplications?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of allowed Group Names for the Default Authorisation Policy.
+         */
+        allowedGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of allowed Identities for the Default Authorisation Policy.
+         */
+        allowedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
+        clientSecretCertificateThumbprint?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * A list of Allowed Client Applications in the JWT Claim.
+         */
+        jwtAllowedClientApplications?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Allowed Groups in the JWT Claim.
+         */
+        jwtAllowedGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+         */
+        loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         */
+        tenantAuthEndpoint: pulumi.Input<string>;
+        /**
+         * Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         */
+        wwwAuthenticationDisabled?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2AppleV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2 {
+        /**
+         * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+         */
+        authorisationEndpoint?: pulumi.Input<string>;
+        /**
+         * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+         */
+        certificationUri?: pulumi.Input<string>;
+        /**
+         * The Client Credential Method used.
+         */
+        clientCredentialMethod?: pulumi.Input<string>;
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        issuerEndpoint?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name of the claim that contains the users name.
+         */
+        nameClaimType?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         */
+        openidConfigurationEndpoint: pulumi.Input<string>;
+        /**
+         * The list of the scopes that should be requested while authenticating.
+         */
+        scopes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        tokenEndpoint?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2FacebookV2 {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: pulumi.Input<string>;
+        /**
+         * The version of the Facebook API to be used while logging in.
+         */
+        graphApiVersion?: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2GithubV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2GoogleV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2Login {
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+         */
+        cookieExpirationConvention?: pulumi.Input<string>;
+        /**
+         * The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+         */
+        cookieExpirationTime?: pulumi.Input<string>;
+        /**
+         * The endpoint to which logout requests should be made.
+         */
+        logoutEndpoint?: pulumi.Input<string>;
+        /**
+         * The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+         */
+        nonceExpirationTime?: pulumi.Input<string>;
+        /**
+         * Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+         */
+        preserveUrlFragmentsForLogins?: pulumi.Input<boolean>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionTime?: pulumi.Input<number>;
+        /**
+         * Should the Token Store configuration Enabled. Defaults to `false`
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * The directory path in the App Filesystem in which the tokens will be stored.
+         */
+        tokenStorePath?: pulumi.Input<string>;
+        /**
+         * The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+         */
+        tokenStoreSasSettingName?: pulumi.Input<string>;
+        /**
+         * Should the nonce be validated while completing the login flow. Defaults to `true`.
+         */
+        validateNonce?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsV2TwitterV2 {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: pulumi.Input<string>;
     }
 
     export interface LinuxFunctionAppSlotBackup {
@@ -8302,7 +8998,7 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -8330,7 +9026,7 @@ export namespace appservice {
          */
         microsoft?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsMicrosoft>;
         /**
-         * The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          */
         runtimeVersion?: pulumi.Input<string>;
         /**
@@ -8459,6 +9155,347 @@ export namespace appservice {
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
          */
         consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2 {
+        /**
+         * An `activeDirectoryV2` block as defined below.
+         */
+        activeDirectoryV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2>;
+        /**
+         * An `appleV2` block as defined below.
+         */
+        appleV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsV2AppleV2>;
+        /**
+         * Should the AuthV2 Settings be enabled. Defaults to `false`.
+         */
+        authEnabled?: pulumi.Input<boolean>;
+        /**
+         * An `azureStaticWebAppV2` block as defined below.
+         */
+        azureStaticWebAppV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2>;
+        /**
+         * The path to the App Auth settings.
+         */
+        configFilePath?: pulumi.Input<string>;
+        /**
+         * Zero or more `customOidcV2` blocks as defined below.
+         */
+        customOidcV2s?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsV2CustomOidcV2>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         */
+        excludedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `facebookV2` block as defined below.
+         */
+        facebookV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsV2FacebookV2>;
+        /**
+         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         */
+        forwardProxyConvention?: pulumi.Input<string>;
+        /**
+         * The name of the custom header containing the host of the request.
+         */
+        forwardProxyCustomHostHeaderName?: pulumi.Input<string>;
+        /**
+         * The name of the custom header containing the scheme of the request.
+         */
+        forwardProxyCustomSchemeHeaderName?: pulumi.Input<string>;
+        /**
+         * A `githubV2` block as defined below.
+         */
+        githubV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsV2GithubV2>;
+        /**
+         * A `googleV2` block as defined below.
+         */
+        googleV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsV2GoogleV2>;
+        /**
+         * The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+         */
+        httpRouteApiPrefix?: pulumi.Input<string>;
+        /**
+         * A `login` block as defined below.
+         */
+        login: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsV2Login>;
+        /**
+         * A `microsoftV2` block as defined below.
+         */
+        microsoftV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsV2MicrosoftV2>;
+        /**
+         * Should the authentication flow be used for all requests.
+         */
+        requireAuthentication?: pulumi.Input<boolean>;
+        /**
+         * Should HTTPS be required on connections? Defaults to `true`.
+         */
+        requireHttps?: pulumi.Input<boolean>;
+        /**
+         * The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * A `twitterV2` block as defined below.
+         */
+        twitterV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsV2TwitterV2>;
+        /**
+         * The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+         */
+        unauthenticatedAction?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 {
+        /**
+         * The list of allowed Applications for the Default Authorisation Policy.
+         */
+        allowedApplications?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of allowed Group Names for the Default Authorisation Policy.
+         */
+        allowedGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of allowed Identities for the Default Authorisation Policy.
+         */
+        allowedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
+        clientSecretCertificateThumbprint?: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * A list of Allowed Client Applications in the JWT Claim.
+         */
+        jwtAllowedClientApplications?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Allowed Groups in the JWT Claim.
+         */
+        jwtAllowedGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+         */
+        loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         */
+        tenantAuthEndpoint: pulumi.Input<string>;
+        /**
+         * Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         */
+        wwwAuthenticationDisabled?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2AppleV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2CustomOidcV2 {
+        /**
+         * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+         */
+        authorisationEndpoint?: pulumi.Input<string>;
+        /**
+         * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+         */
+        certificationUri?: pulumi.Input<string>;
+        /**
+         * The Client Credential Method used.
+         */
+        clientCredentialMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        issuerEndpoint?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name of the claim that contains the users name.
+         */
+        nameClaimType?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         */
+        openidConfigurationEndpoint: pulumi.Input<string>;
+        /**
+         * The list of the scopes that should be requested while authenticating.
+         */
+        scopes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        tokenEndpoint?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2FacebookV2 {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: pulumi.Input<string>;
+        /**
+         * The version of the Facebook API to be used while logging in.
+         */
+        graphApiVersion?: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2GithubV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2GoogleV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2Login {
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+         */
+        cookieExpirationConvention?: pulumi.Input<string>;
+        /**
+         * The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+         */
+        cookieExpirationTime?: pulumi.Input<string>;
+        /**
+         * The endpoint to which logout requests should be made.
+         */
+        logoutEndpoint?: pulumi.Input<string>;
+        /**
+         * The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+         */
+        nonceExpirationTime?: pulumi.Input<string>;
+        /**
+         * Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+         */
+        preserveUrlFragmentsForLogins?: pulumi.Input<boolean>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionTime?: pulumi.Input<number>;
+        /**
+         * Should the Token Store configuration Enabled. Defaults to `false`
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * The directory path in the App Filesystem in which the tokens will be stored.
+         */
+        tokenStorePath?: pulumi.Input<string>;
+        /**
+         * The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+         */
+        tokenStoreSasSettingName?: pulumi.Input<string>;
+        /**
+         * Should the nonce be validated while completing the login flow. Defaults to `true`.
+         */
+        validateNonce?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2MicrosoftV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsV2TwitterV2 {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: pulumi.Input<string>;
     }
 
     export interface WindowsFunctionAppBackup {
@@ -8842,7 +9879,7 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         * The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
          */
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -8870,7 +9907,7 @@ export namespace appservice {
          */
         microsoft?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsMicrosoft>;
         /**
-         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          */
         runtimeVersion?: pulumi.Input<string>;
         /**
@@ -8999,6 +10036,347 @@ export namespace appservice {
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
          */
         consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2 {
+        /**
+         * An `activeDirectoryV2` block as defined below.
+         */
+        activeDirectoryV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2>;
+        /**
+         * An `appleV2` block as defined below.
+         */
+        appleV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsV2AppleV2>;
+        /**
+         * Should the AuthV2 Settings be enabled. Defaults to `false`.
+         */
+        authEnabled?: pulumi.Input<boolean>;
+        /**
+         * An `azureStaticWebAppV2` block as defined below.
+         */
+        azureStaticWebAppV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2>;
+        /**
+         * The path to the App Auth settings.
+         */
+        configFilePath?: pulumi.Input<string>;
+        /**
+         * Zero or more `customOidcV2` blocks as defined below.
+         */
+        customOidcV2s?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         */
+        excludedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `facebookV2` block as defined below.
+         */
+        facebookV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsV2FacebookV2>;
+        /**
+         * The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
+         */
+        forwardProxyConvention?: pulumi.Input<string>;
+        /**
+         * The name of the custom header containing the host of the request.
+         */
+        forwardProxyCustomHostHeaderName?: pulumi.Input<string>;
+        /**
+         * The name of the custom header containing the scheme of the request.
+         */
+        forwardProxyCustomSchemeHeaderName?: pulumi.Input<string>;
+        /**
+         * A `githubV2` block as defined below.
+         */
+        githubV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsV2GithubV2>;
+        /**
+         * A `googleV2` block as defined below.
+         */
+        googleV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsV2GoogleV2>;
+        /**
+         * The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+         */
+        httpRouteApiPrefix?: pulumi.Input<string>;
+        /**
+         * A `login` block as defined below.
+         */
+        login: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsV2Login>;
+        /**
+         * A `microsoftV2` block as defined below.
+         */
+        microsoftV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2>;
+        /**
+         * Should the authentication flow be used for all requests.
+         */
+        requireAuthentication?: pulumi.Input<boolean>;
+        /**
+         * Should HTTPS be required on connections? Defaults to `true`.
+         */
+        requireHttps?: pulumi.Input<boolean>;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * A `twitterV2` block as defined below.
+         */
+        twitterV2?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsV2TwitterV2>;
+        /**
+         * The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+         */
+        unauthenticatedAction?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
+        /**
+         * The list of allowed Applications for the Default Authorisation Policy.
+         */
+        allowedApplications?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of allowed Group Names for the Default Authorisation Policy.
+         */
+        allowedGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of allowed Identities for the Default Authorisation Policy.
+         */
+        allowedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
+        clientSecretCertificateThumbprint?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * A list of Allowed Client Applications in the JWT Claim.
+         */
+        jwtAllowedClientApplications?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Allowed Groups in the JWT Claim.
+         */
+        jwtAllowedGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+         */
+        loginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+         */
+        tenantAuthEndpoint: pulumi.Input<string>;
+        /**
+         * Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         */
+        wwwAuthenticationDisabled?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2AppleV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2 {
+        /**
+         * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+         */
+        authorisationEndpoint?: pulumi.Input<string>;
+        /**
+         * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+         */
+        certificationUri?: pulumi.Input<string>;
+        /**
+         * The Client Credential Method used.
+         */
+        clientCredentialMethod?: pulumi.Input<string>;
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        issuerEndpoint?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name of the claim that contains the users name.
+         */
+        nameClaimType?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         */
+        openidConfigurationEndpoint: pulumi.Input<string>;
+        /**
+         * The list of the scopes that should be requested while authenticating.
+         */
+        scopes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        tokenEndpoint?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2FacebookV2 {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: pulumi.Input<string>;
+        /**
+         * The version of the Facebook API to be used while logging in.
+         */
+        graphApiVersion?: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2GithubV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2GoogleV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2Login {
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+         */
+        cookieExpirationConvention?: pulumi.Input<string>;
+        /**
+         * The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+         */
+        cookieExpirationTime?: pulumi.Input<string>;
+        /**
+         * The endpoint to which logout requests should be made.
+         */
+        logoutEndpoint?: pulumi.Input<string>;
+        /**
+         * The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+         */
+        nonceExpirationTime?: pulumi.Input<string>;
+        /**
+         * Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+         */
+        preserveUrlFragmentsForLogins?: pulumi.Input<boolean>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionTime?: pulumi.Input<number>;
+        /**
+         * Should the Token Store configuration Enabled. Defaults to `false`
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * The directory path in the App Filesystem in which the tokens will be stored.
+         */
+        tokenStorePath?: pulumi.Input<string>;
+        /**
+         * The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+         */
+        tokenStoreSasSettingName?: pulumi.Input<string>;
+        /**
+         * Should the nonce be validated while completing the login flow. Defaults to `true`.
+         */
+        validateNonce?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2 {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         */
+        clientSecretSettingName: pulumi.Input<string>;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         */
+        loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsV2TwitterV2 {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: pulumi.Input<string>;
     }
 
     export interface WindowsFunctionAppSlotBackup {
@@ -12309,7 +13687,13 @@ export namespace backup {
     }
 
     export interface PolicyVMInstantRestoreResourceGroup {
+        /**
+         * The prefix for the `instantRestoreResourceGroup` name.
+         */
         prefix: pulumi.Input<string>;
+        /**
+         * The suffix for the `instantRestoreResourceGroup` name.
+         */
         suffix?: pulumi.Input<string>;
     }
 
@@ -16044,6 +17428,17 @@ export namespace compute {
         publisher: pulumi.Input<string>;
     }
 
+    export interface OrchestratedVirtualMachineScaleSetPriorityMix {
+        /**
+         * Specifies the base number of VMs of `Regular` priority that will be created before any VMs of priority `Spot` are created. Possible values are integers between `0` and `1000`. Defaults to `0`.
+         */
+        baseRegularCount?: pulumi.Input<number>;
+        /**
+         * Specifies the desired percentage of VM instances that are of `Regular` priority after the base count has been reached. Possible values are integers between `0` and `100`. Defaults to `0`.
+         */
+        regularPercentageAboveBase?: pulumi.Input<number>;
+    }
+
     export interface OrchestratedVirtualMachineScaleSetSourceImageReference {
         /**
          * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
@@ -18057,10 +19452,16 @@ export namespace containerapp {
     }
 
     export interface AppIngressCustomDomain {
+        /**
+         * The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+         */
         certificateBindingType?: pulumi.Input<string>;
+        /**
+         * The ID of the Container App Environment Certificate.
+         */
         certificateId: pulumi.Input<string>;
         /**
-         * The name for this Container App. Changing this forces a new resource to be created.
+         * The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
          */
         name: pulumi.Input<string>;
     }
@@ -19119,6 +20520,10 @@ export namespace containerservice {
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
+         * Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+         */
+        temporaryNameForRotation?: pulumi.Input<string>;
+        /**
          * The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
          */
         type?: pulumi.Input<string>;
@@ -19131,7 +20536,7 @@ export namespace containerservice {
          */
         upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettings>;
         /**
-         * The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+         * The size of the Virtual Machine, such as `Standard_DS2_v2`.
          */
         vmSize: pulumi.Input<string>;
         /**
@@ -19440,7 +20845,7 @@ export namespace containerservice {
          */
         secretIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKeyVaultSecretsProviderSecretIdentity>[]>;
         /**
-         * Is secret rotation enabled?
+         * Should the secret store CSI driver on the AKS cluster be enabled?
          */
         secretRotationEnabled?: pulumi.Input<boolean>;
         /**
@@ -19923,6 +21328,10 @@ export namespace containerservice {
          */
         logAnalyticsWorkspaceId: pulumi.Input<string>;
         /**
+         * Is managed identity authentication for monitoring enabled?
+         */
+        msiAuthForMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
          * An `omsAgentIdentity` block is exported. The exported attributes are defined below.
          */
         omsAgentIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterOmsAgentOmsAgentIdentity>[]>;
@@ -20019,6 +21428,18 @@ export namespace containerservice {
          * Specifies whether KEDA Autoscaler can be used for workloads.
          */
         kedaEnabled?: pulumi.Input<boolean>;
+        /**
+         * Which resources values should be controlled.
+         */
+        verticalPodAutoscalerControlledValues?: pulumi.Input<string>;
+        /**
+         * Specifies whether Vertical Pod Autoscaler should be enabled.
+         */
+        verticalPodAutoscalerEnabled?: pulumi.Input<boolean>;
+        /**
+         * How the autoscaler applies changes to pod resources.
+         */
+        verticalPodAutoscalerUpdateMode?: pulumi.Input<string>;
     }
 
     export interface KubernetesFleetManagerHubProfile {
@@ -29626,6 +31047,32 @@ export namespace keyvault {
         phone?: pulumi.Input<string>;
     }
 
+    export interface KeyRotationPolicy {
+        /**
+         * An `automatic` block as defined below.
+         */
+        automatic?: pulumi.Input<inputs.keyvault.KeyRotationPolicyAutomatic>;
+        /**
+         * Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+         */
+        expireAfter?: pulumi.Input<string>;
+        /**
+         * Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+         */
+        notifyBeforeExpiry?: pulumi.Input<string>;
+    }
+
+    export interface KeyRotationPolicyAutomatic {
+        /**
+         * Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+         */
+        timeAfterCreation?: pulumi.Input<string>;
+        /**
+         * Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+         */
+        timeBeforeExpiry?: pulumi.Input<string>;
+    }
+
     export interface KeyVaultAccessPolicy {
         /**
          * The object ID of an Application in Azure Active Directory.
@@ -31872,6 +33319,10 @@ export namespace media {
 
     export interface StreamingPolicyCommonEncryptionCbcs {
         /**
+         * A `clearKeyEncryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        clearKeyEncryption?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCbcsClearKeyEncryption>;
+        /**
          * A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
          */
         defaultContentKey?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCbcsDefaultContentKey>;
@@ -31883,6 +33334,13 @@ export namespace media {
          * A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
          */
         enabledProtocols?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCbcsEnabledProtocols>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCbcsClearKeyEncryption {
+        /**
+         * The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+         */
+        customKeysAcquisitionUrlTemplate: pulumi.Input<string>;
     }
 
     export interface StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
@@ -31902,7 +33360,7 @@ export namespace media {
          */
         allowPersistentLicense?: pulumi.Input<boolean>;
         /**
-         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         * The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
          */
         customLicenseAcquisitionUrlTemplate?: pulumi.Input<string>;
     }
@@ -31928,6 +33386,18 @@ export namespace media {
 
     export interface StreamingPolicyCommonEncryptionCenc {
         /**
+         * A `clearKeyEncryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        clearKeyEncryption?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencClearKeyEncryption>;
+        /**
+         * One or more `clearTrack` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        clearTracks?: pulumi.Input<pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencClearTrack>[]>;
+        /**
+         * One or more `contentKeyToTrackMapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        contentKeyToTrackMappings?: pulumi.Input<pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping>[]>;
+        /**
          * A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
          */
         defaultContentKey?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencDefaultContentKey>;
@@ -31936,13 +33406,79 @@ export namespace media {
          */
         drmPlayready?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencDrmPlayready>;
         /**
-         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         * The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
          */
         drmWidevineCustomLicenseAcquisitionUrlTemplate?: pulumi.Input<string>;
         /**
          * A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
          */
         enabledProtocols?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencEnabledProtocols>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencClearKeyEncryption {
+        /**
+         * The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+         */
+        customKeysAcquisitionUrlTemplate: pulumi.Input<string>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencClearTrack {
+        /**
+         * One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        conditions: pulumi.Input<pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencClearTrackCondition>[]>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencClearTrackCondition {
+        /**
+         * The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
+         */
+        operation: pulumi.Input<string>;
+        /**
+         * The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
+         */
+        property: pulumi.Input<string>;
+        /**
+         * The track property value. Changing this forces a new Streaming Policy to be created.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping {
+        /**
+         * Specifies the content key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * The policy used by the default key. Changing this forces a new Streaming Policy to be created.
+         */
+        policyName?: pulumi.Input<string>;
+        /**
+         * One or more `track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        tracks: pulumi.Input<pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack>[]>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack {
+        /**
+         * One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        conditions: pulumi.Input<pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition>[]>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition {
+        /**
+         * The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
+         */
+        operation: pulumi.Input<string>;
+        /**
+         * The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
+         */
+        property: pulumi.Input<string>;
+        /**
+         * The track property value. Changing this forces a new Streaming Policy to be created.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface StreamingPolicyCommonEncryptionCencDefaultContentKey {
@@ -31962,12 +33498,57 @@ export namespace media {
          */
         customAttributes?: pulumi.Input<string>;
         /**
-         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         * The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
          */
         customLicenseAcquisitionUrlTemplate?: pulumi.Input<string>;
     }
 
     export interface StreamingPolicyCommonEncryptionCencEnabledProtocols {
+        /**
+         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        dash?: pulumi.Input<boolean>;
+        /**
+         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        download?: pulumi.Input<boolean>;
+        /**
+         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        hls?: pulumi.Input<boolean>;
+        /**
+         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        smoothStreaming?: pulumi.Input<boolean>;
+    }
+
+    export interface StreamingPolicyEnvelopeEncryption {
+        /**
+         * The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+         */
+        customKeysAcquisitionUrlTemplate?: pulumi.Input<string>;
+        /**
+         * A `defaultContentKey` block as defined above. Changing this forces a new Streaming Policy to be created.
+         */
+        defaultContentKey?: pulumi.Input<inputs.media.StreamingPolicyEnvelopeEncryptionDefaultContentKey>;
+        /**
+         * A `enabledProtocols` block as defined above. Changing this forces a new Streaming Policy to be created.
+         */
+        enabledProtocols?: pulumi.Input<inputs.media.StreamingPolicyEnvelopeEncryptionEnabledProtocols>;
+    }
+
+    export interface StreamingPolicyEnvelopeEncryptionDefaultContentKey {
+        /**
+         * Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+         */
+        policyName?: pulumi.Input<string>;
+    }
+
+    export interface StreamingPolicyEnvelopeEncryptionEnabledProtocols {
         /**
          * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
          */
@@ -34398,6 +35979,25 @@ export namespace mssql {
         mode: pulumi.Input<string>;
     }
 
+    export interface ManagedDatabaseLongTermRetentionPolicy {
+        /**
+         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+         */
+        monthlyRetention?: pulumi.Input<string>;
+        /**
+         * The week of year to take the yearly backup. Value has to be between `1` and `52`.
+         */
+        weekOfYear?: pulumi.Input<number>;
+        /**
+         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+         */
+        weeklyRetention?: pulumi.Input<string>;
+        /**
+         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+         */
+        yearlyRetention?: pulumi.Input<string>;
+    }
+
     export interface ManagedInstanceFailoverGroupPartnerRegion {
         /**
          * The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
@@ -35562,7 +37162,7 @@ export namespace network {
          */
         ruleSequence: pulumi.Input<number>;
         /**
-         * One `url` block as defined above
+         * One `url` block as defined below
          */
         url?: pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSetRewriteRuleUrl>;
     }
@@ -35957,6 +37557,10 @@ export namespace network {
 
     export interface ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
         /**
+         * The communities of Bgp Peering specified for microsoft peering.
+         */
+        advertisedCommunities?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * A list of Advertised Public Prefixes.
          */
         advertisedPublicPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -35971,6 +37575,10 @@ export namespace network {
     }
 
     export interface ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
+        /**
+         * The communities of Bgp Peering specified for microsoft peering.
+         */
+        advertisedCommunities?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of Advertised Public Prefixes.
          */
@@ -38548,7 +40156,7 @@ export namespace postgresql {
 
     export interface FlexibleServerIdentity {
         /**
-         * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+         * A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
@@ -38557,7 +40165,7 @@ export namespace postgresql {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -39189,6 +40797,97 @@ export namespace securitycenter {
 }
 
 export namespace sentinel {
+    export interface AlertRuleAnomalyBuiltInMultiSelectObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A list of supported values of the single select observation.
+         */
+        supportedValues?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of values of the single select observation.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertRuleAnomalyBuiltInPrioritizedExcludeObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The excluded value per `description`.
+         */
+        exclude?: pulumi.Input<string>;
+        /**
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The prioritized value per `description`.
+         */
+        prioritize?: pulumi.Input<string>;
+    }
+
+    export interface AlertRuleAnomalyBuiltInRequiredDataConnector {
+        /**
+         * The ID of the required Data Connector.
+         */
+        connectorId?: pulumi.Input<string>;
+        /**
+         * A list of data types of the required Data Connector.
+         */
+        dataTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertRuleAnomalyBuiltInSingleSelectObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A list of supported values of the single select observation.
+         */
+        supportedValues?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The value of the threshold observation.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface AlertRuleAnomalyBuiltInThresholdObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The max value of the threshold observation.
+         */
+        max?: pulumi.Input<string>;
+        /**
+         * The min value of the threshold observation.
+         */
+        min?: pulumi.Input<string>;
+        /**
+         * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The value of the threshold observation.
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface AlertRuleFusionSource {
         /**
          * Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
@@ -39565,6 +41264,65 @@ export namespace sentinel {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface MetadataAuthor {
+        /**
+         * The email address of the author contact.
+         */
+        email?: pulumi.Input<string>;
+        /**
+         * The link for author/vendor page.
+         */
+        link?: pulumi.Input<string>;
+        /**
+         * The name of the author, company or person.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface MetadataCategory {
+        /**
+         * Specifies a list of domains for the solution content item.
+         */
+        domains?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of industry verticals for the solution content item.
+         */
+        verticals?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface MetadataSource {
+        /**
+         * The id of the content source, the solution ID, Log Analytics Workspace name etc.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+         */
+        kind: pulumi.Input<string>;
+        /**
+         * The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface MetadataSupport {
+        /**
+         * The email address of the support contact.
+         */
+        email?: pulumi.Input<string>;
+        /**
+         * The link for support help.
+         */
+        link?: pulumi.Input<string>;
+        /**
+         * The name of the support contact.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
+         */
+        tier: pulumi.Input<string>;
+    }
 }
 
 export namespace servicebus {
@@ -40806,7 +42564,7 @@ export namespace storage {
          */
         defaultAction: pulumi.Input<string>;
         /**
-         * List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+         * List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
          */
         ipRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -41491,6 +43249,10 @@ export namespace storage {
     }
 
     export interface ManagementPolicyRuleActionsBaseBlob {
+        /**
+         * Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+         */
+        autoTierToHotFromCoolEnabled?: pulumi.Input<boolean>;
         /**
          * The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
          */

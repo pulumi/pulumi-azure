@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appplatform.SpringCloudConnectionArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudConnectionState;
 import com.pulumi.azure.appplatform.outputs.SpringCloudConnectionAuthentication;
+import com.pulumi.azure.appplatform.outputs.SpringCloudConnectionSecretStore;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -172,6 +173,20 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * An option to store secret value in secure place. An `secret_store` block as defined below.
+     * 
+     */
+    @Export(name="secretStore", type=SpringCloudConnectionSecretStore.class, parameters={})
+    private Output</* @Nullable */ SpringCloudConnectionSecretStore> secretStore;
+
+    /**
+     * @return An option to store secret value in secure place. An `secret_store` block as defined below.
+     * 
+     */
+    public Output<Optional<SpringCloudConnectionSecretStore>> secretStore() {
+        return Codegen.optional(this.secretStore);
     }
     /**
      * The ID of the data source spring cloud. Changing this forces a new resource to be created.

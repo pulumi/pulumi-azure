@@ -43,7 +43,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
      */
     private Integer ruleSequence;
     /**
-     * @return One `url` block as defined above
+     * @return One `url` block as defined below
      * 
      */
     private @Nullable ApplicationGatewayRewriteRuleSetRewriteRuleUrl url;
@@ -85,7 +85,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
         return this.ruleSequence;
     }
     /**
-     * @return One `url` block as defined above
+     * @return One `url` block as defined below
      * 
      */
     public Optional<ApplicationGatewayRewriteRuleSetRewriteRuleUrl> url() {

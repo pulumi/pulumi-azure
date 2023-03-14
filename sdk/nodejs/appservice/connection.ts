@@ -116,6 +116,10 @@ export class Connection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * An option to store secret value in secure place. An `secretStore` block as defined below.
+     */
+    public readonly secretStore!: pulumi.Output<outputs.appservice.ConnectionSecretStore | undefined>;
+    /**
      * The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
      */
     public readonly targetResourceId!: pulumi.Output<string>;
@@ -141,6 +145,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["authentication"] = state ? state.authentication : undefined;
             resourceInputs["clientType"] = state ? state.clientType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["secretStore"] = state ? state.secretStore : undefined;
             resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
             resourceInputs["vnetSolution"] = state ? state.vnetSolution : undefined;
         } else {
@@ -158,6 +163,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["authentication"] = args ? args.authentication : undefined;
             resourceInputs["clientType"] = args ? args.clientType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["secretStore"] = args ? args.secretStore : undefined;
             resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             resourceInputs["vnetSolution"] = args ? args.vnetSolution : undefined;
         }
@@ -186,6 +192,10 @@ export interface ConnectionState {
      * The name of the service connection. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An option to store secret value in secure place. An `secretStore` block as defined below.
+     */
+    secretStore?: pulumi.Input<inputs.appservice.ConnectionSecretStore>;
     /**
      * The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
      */
@@ -216,6 +226,10 @@ export interface ConnectionArgs {
      * The name of the service connection. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An option to store secret value in secure place. An `secretStore` block as defined below.
+     */
+    secretStore?: pulumi.Input<inputs.appservice.ConnectionSecretStore>;
     /**
      * The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
      */

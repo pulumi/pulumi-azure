@@ -126,6 +126,8 @@ type Connection struct {
 	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	SecretStore ConnectionSecretStorePtrOutput `pulumi:"secretStore"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
@@ -178,6 +180,8 @@ type connectionState struct {
 	ClientType *string `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	SecretStore *ConnectionSecretStore `pulumi:"secretStore"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
@@ -193,6 +197,8 @@ type ConnectionState struct {
 	ClientType pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	SecretStore ConnectionSecretStorePtrInput
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
 	TargetResourceId pulumi.StringPtrInput
 	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
@@ -212,6 +218,8 @@ type connectionArgs struct {
 	ClientType *string `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	SecretStore *ConnectionSecretStore `pulumi:"secretStore"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
 	TargetResourceId string `pulumi:"targetResourceId"`
 	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
@@ -228,6 +236,8 @@ type ConnectionArgs struct {
 	ClientType pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	SecretStore ConnectionSecretStorePtrInput
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
 	TargetResourceId pulumi.StringInput
 	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
@@ -339,6 +349,11 @@ func (o ConnectionOutput) ClientType() pulumi.StringPtrOutput {
 // The name of the service connection. Changing this forces a new resource to be created.
 func (o ConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An option to store secret value in secure place. An `secretStore` block as defined below.
+func (o ConnectionOutput) SecretStore() ConnectionSecretStorePtrOutput {
+	return o.ApplyT(func(v *Connection) ConnectionSecretStorePtrOutput { return v.SecretStore }).(ConnectionSecretStorePtrOutput)
 }
 
 // The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.

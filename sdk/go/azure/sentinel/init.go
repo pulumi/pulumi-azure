@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn":
+		r = &AlertRuleAnomalyBuiltIn{}
 	case "azure:sentinel/alertRuleFusion:AlertRuleFusion":
 		r = &AlertRuleFusion{}
 	case "azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics":
@@ -31,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertRuleNrt{}
 	case "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
 		r = &AlertRuleScheduled{}
+	case "azure:sentinel/alertRuleThreatIntelligence:AlertRuleThreatIntelligence":
+		r = &AlertRuleThreatIntelligence{}
 	case "azure:sentinel/authomationRule:AuthomationRule":
 		r = &AuthomationRule{}
 	case "azure:sentinel/automationRule:AutomationRule":
@@ -73,6 +77,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataConnectorThreatIntelligenceTaxii{}
 	case "azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding":
 		r = &LogAnalyticsWorkspaceOnboarding{}
+	case "azure:sentinel/metadata:Metadata":
+		r = &Metadata{}
 	case "azure:sentinel/watchlist:Watchlist":
 		r = &Watchlist{}
 	case "azure:sentinel/watchlistItem:WatchlistItem":
@@ -90,6 +96,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/alertRuleAnomalyBuiltIn",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/alertRuleFusion",
@@ -113,6 +124,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/alertRuleScheduled",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/alertRuleThreatIntelligence",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -218,6 +234,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/logAnalyticsWorkspaceOnboarding",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/metadata",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

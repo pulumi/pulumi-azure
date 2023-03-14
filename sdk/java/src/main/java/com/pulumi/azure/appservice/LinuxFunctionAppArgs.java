@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice;
 
 import com.pulumi.azure.appservice.inputs.LinuxFunctionAppAuthSettingsArgs;
+import com.pulumi.azure.appservice.inputs.LinuxFunctionAppAuthSettingsV2Args;
 import com.pulumi.azure.appservice.inputs.LinuxFunctionAppBackupArgs;
 import com.pulumi.azure.appservice.inputs.LinuxFunctionAppConnectionStringArgs;
 import com.pulumi.azure.appservice.inputs.LinuxFunctionAppIdentityArgs;
@@ -54,6 +55,21 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<LinuxFunctionAppAuthSettingsArgs>> authSettings() {
         return Optional.ofNullable(this.authSettings);
+    }
+
+    /**
+     * An `auth_settings_v2` block as defined below.
+     * 
+     */
+    @Import(name="authSettingsV2")
+    private @Nullable Output<LinuxFunctionAppAuthSettingsV2Args> authSettingsV2;
+
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    public Optional<Output<LinuxFunctionAppAuthSettingsV2Args>> authSettingsV2() {
+        return Optional.ofNullable(this.authSettingsV2);
     }
 
     /**
@@ -451,6 +467,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     private LinuxFunctionAppArgs(LinuxFunctionAppArgs $) {
         this.appSettings = $.appSettings;
         this.authSettings = $.authSettings;
+        this.authSettingsV2 = $.authSettingsV2;
         this.backup = $.backup;
         this.builtinLoggingEnabled = $.builtinLoggingEnabled;
         this.clientCertificateEnabled = $.clientCertificateEnabled;
@@ -537,6 +554,27 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder authSettings(LinuxFunctionAppAuthSettingsArgs authSettings) {
             return authSettings(Output.of(authSettings));
+        }
+
+        /**
+         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSettingsV2(@Nullable Output<LinuxFunctionAppAuthSettingsV2Args> authSettingsV2) {
+            $.authSettingsV2 = authSettingsV2;
+            return this;
+        }
+
+        /**
+         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSettingsV2(LinuxFunctionAppAuthSettingsV2Args authSettingsV2) {
+            return authSettingsV2(Output.of(authSettingsV2));
         }
 
         /**

@@ -12,6 +12,18 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("advertisedCommunities")]
+        private InputList<string>? _advertisedCommunities;
+
+        /// <summary>
+        /// The communities of Bgp Peering specified for microsoft peering.
+        /// </summary>
+        public InputList<string> AdvertisedCommunities
+        {
+            get => _advertisedCommunities ?? (_advertisedCommunities = new InputList<string>());
+            set => _advertisedCommunities = value;
+        }
+
         [Input("advertisedPublicPrefixes", required: true)]
         private InputList<string>? _advertisedPublicPrefixes;
 

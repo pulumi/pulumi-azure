@@ -72,6 +72,8 @@ type GetServiceBusNamespaceResult struct {
 	DefaultSecondaryConnectionString string `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
+	// The URL to access the ServiceBus Namespace.
+	Endpoint string `pulumi:"endpoint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location of the Resource Group in which the ServiceBus Namespace exists.
@@ -151,6 +153,11 @@ func (o GetServiceBusNamespaceResultOutput) DefaultSecondaryConnectionString() p
 // The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 func (o GetServiceBusNamespaceResultOutput) DefaultSecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceBusNamespaceResult) string { return v.DefaultSecondaryKey }).(pulumi.StringOutput)
+}
+
+// The URL to access the ServiceBus Namespace.
+func (o GetServiceBusNamespaceResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceBusNamespaceResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -144,14 +144,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cosmosdbKeyVaultKeyVersionlessId);
     }
     /**
-     * The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+     * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      * 
      */
     @Export(name="cosmosdbThroughput", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> cosmosdbThroughput;
 
     /**
-     * @return The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+     * @return The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      * 
      */
     public Output<Optional<Integer>> cosmosdbThroughput() {
