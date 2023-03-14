@@ -2428,6 +2428,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_data_connector_microsoft_threat_intelligence": {
 				Tok: azureResource(azureSentinel, "DataConnectorMicrosoftThreatIntelligence"),
 			},
+			"azurerm_sentinel_alert_rule_anomaly_built_in": {
+				Tok: azureResource(azureSentinel, "AlertRuleAnomalyBuiltIn"),
+			},
+			"azurerm_sentinel_alert_rule_threat_intelligence": {
+				Tok: azureResource(azureSentinel, "AlertRuleThreatIntelligence"),
+			},
+			"azurerm_sentinel_metadata": {
+				Tok: azureResource(azureSentinel, "Metadata"),
+			},
 
 			// Eventgrid
 			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
@@ -2583,11 +2592,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_app_environment_storage":        {Tok: azureResource(azureContainerApp, "EnvironmentStorage")},
 
 			// Mobile
-			"azurerm_mobile_network":           {Tok: azureResource(azureMobile, "Network")},
-			"azurerm_mobile_network_service":   {Tok: azureResource(azureMobile, "NetworkService")},
-			"azurerm_mobile_network_sim_group": {Tok: azureResource(azureMobile, "NetworkSimGroup")},
-			"azurerm_mobile_network_site":      {Tok: azureResource(azureMobile, "NetworkSite")},
-			"azurerm_mobile_network_slice":     {Tok: azureResource(azureMobile, "NetworkSlice")},
+			"azurerm_mobile_network":              {Tok: azureResource(azureMobile, "Network")},
+			"azurerm_mobile_network_service":      {Tok: azureResource(azureMobile, "NetworkService")},
+			"azurerm_mobile_network_sim_group":    {Tok: azureResource(azureMobile, "NetworkSimGroup")},
+			"azurerm_mobile_network_site":         {Tok: azureResource(azureMobile, "NetworkSite")},
+			"azurerm_mobile_network_slice":        {Tok: azureResource(azureMobile, "NetworkSlice")},
+			"azurerm_mobile_network_data_network": {Tok: azureResource(azureMobile, "NetworkDataNetwork")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_aadb2c_directory": {Tok: azureDataSource(aadb2c, "getDirectory")},
@@ -3000,6 +3010,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_databricks_workspace_private_endpoint_connection": {
 				Tok: azureDataSource(azureDataBricks, "getWorkspacePrivateEndpointConnection"),
 			},
+			"azurerm_sentinel_alert_rule_anomaly": {Tok: azureDataSource(azureSentinel, "getAlertRuleAnomaly")},
 
 			"azurerm_mysql_server":          {Tok: azureDataSource(azureMySQL, "getServer")},
 			"azurerm_mysql_flexible_server": {Tok: azureDataSource(azureMySQL, "getFlexibleServer")},
@@ -3058,11 +3069,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_app_environment":             {Tok: azureDataSource(azureContainerApp, "getEnvironment")},
 			"azurerm_container_app_environment_certificate": {Tok: azureDataSource(azureContainerApp, "getEnvironmentCertificate")},
 
-			"azurerm_mobile_network":           {Tok: azureDataSource(azureMobile, "getNetwork")},
-			"azurerm_mobile_network_service":   {Tok: azureDataSource(azureMobile, "getNetworkService")},
-			"azurerm_mobile_network_sim_group": {Tok: azureDataSource(azureMobile, "getNetworkSimGroup")},
-			"azurerm_mobile_network_site":      {Tok: azureDataSource(azureMobile, "getNetworkSite")},
-			"azurerm_mobile_network_slice":     {Tok: azureDataSource(azureMobile, "getNetworkSlice")},
+			"azurerm_mobile_network":              {Tok: azureDataSource(azureMobile, "getNetwork")},
+			"azurerm_mobile_network_service":      {Tok: azureDataSource(azureMobile, "getNetworkService")},
+			"azurerm_mobile_network_sim_group":    {Tok: azureDataSource(azureMobile, "getNetworkSimGroup")},
+			"azurerm_mobile_network_site":         {Tok: azureDataSource(azureMobile, "getNetworkSite")},
+			"azurerm_mobile_network_slice":        {Tok: azureDataSource(azureMobile, "getNetworkSlice")},
+			"azurerm_mobile_network_data_network": {Tok: azureDataSource(azureMobile, "getNetworkDataNetwork")},
 
 			"azurerm_virtual_desktop_host_pool": {Tok: azureDataSource(azureDesktopVirtualization, "getHostPool")},
 			"azurerm_hybrid_compute_machine":    {Tok: azureDataSource(azureHybrid, "getComputeMachine")},
