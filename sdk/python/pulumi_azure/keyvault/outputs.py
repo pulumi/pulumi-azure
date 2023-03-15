@@ -35,6 +35,8 @@ __all__ = [
     'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames',
     'CertificateContactsContact',
     'CertificateIssuerAdmin',
+    'KeyRotationPolicy',
+    'KeyRotationPolicyAutomatic',
     'KeyVaultAccessPolicy',
     'KeyVaultContact',
     'KeyVaultNetworkAcls',
@@ -1402,6 +1404,118 @@ class CertificateIssuerAdmin(dict):
         Phone number of the admin.
         """
         return pulumi.get(self, "phone")
+
+
+@pulumi.output_type
+class KeyRotationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expireAfter":
+            suggest = "expire_after"
+        elif key == "notifyBeforeExpiry":
+            suggest = "notify_before_expiry"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyRotationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyRotationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyRotationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automatic: Optional['outputs.KeyRotationPolicyAutomatic'] = None,
+                 expire_after: Optional[str] = None,
+                 notify_before_expiry: Optional[str] = None):
+        """
+        :param 'KeyRotationPolicyAutomaticArgs' automatic: An `automatic` block as defined below.
+        :param str expire_after: Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+        :param str notify_before_expiry: Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+        """
+        if automatic is not None:
+            pulumi.set(__self__, "automatic", automatic)
+        if expire_after is not None:
+            pulumi.set(__self__, "expire_after", expire_after)
+        if notify_before_expiry is not None:
+            pulumi.set(__self__, "notify_before_expiry", notify_before_expiry)
+
+    @property
+    @pulumi.getter
+    def automatic(self) -> Optional['outputs.KeyRotationPolicyAutomatic']:
+        """
+        An `automatic` block as defined below.
+        """
+        return pulumi.get(self, "automatic")
+
+    @property
+    @pulumi.getter(name="expireAfter")
+    def expire_after(self) -> Optional[str]:
+        """
+        Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+        """
+        return pulumi.get(self, "expire_after")
+
+    @property
+    @pulumi.getter(name="notifyBeforeExpiry")
+    def notify_before_expiry(self) -> Optional[str]:
+        """
+        Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+        """
+        return pulumi.get(self, "notify_before_expiry")
+
+
+@pulumi.output_type
+class KeyRotationPolicyAutomatic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeAfterCreation":
+            suggest = "time_after_creation"
+        elif key == "timeBeforeExpiry":
+            suggest = "time_before_expiry"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyRotationPolicyAutomatic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyRotationPolicyAutomatic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyRotationPolicyAutomatic.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time_after_creation: Optional[str] = None,
+                 time_before_expiry: Optional[str] = None):
+        """
+        :param str time_after_creation: Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+        :param str time_before_expiry: Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+        """
+        if time_after_creation is not None:
+            pulumi.set(__self__, "time_after_creation", time_after_creation)
+        if time_before_expiry is not None:
+            pulumi.set(__self__, "time_before_expiry", time_before_expiry)
+
+    @property
+    @pulumi.getter(name="timeAfterCreation")
+    def time_after_creation(self) -> Optional[str]:
+        """
+        Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+        """
+        return pulumi.get(self, "time_after_creation")
+
+    @property
+    @pulumi.getter(name="timeBeforeExpiry")
+    def time_before_expiry(self) -> Optional[str]:
+        """
+        Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+        """
+        return pulumi.get(self, "time_before_expiry")
 
 
 @pulumi.output_type

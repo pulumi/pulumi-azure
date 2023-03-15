@@ -29,6 +29,7 @@ class ServerArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -48,6 +49,7 @@ class ServerArgs:
         :param pulumi.Input[str] name: Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] restore_point_in_time: When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
+        :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -77,6 +79,8 @@ class ServerArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if restore_point_in_time is not None:
             pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+        if ssl_minimal_tls_version_enforced is not None:
+            pulumi.set(__self__, "ssl_minimal_tls_version_enforced", ssl_minimal_tls_version_enforced)
         if storage_mb is not None:
             pulumi.set(__self__, "storage_mb", storage_mb)
         if tags is not None:
@@ -263,6 +267,18 @@ class ServerArgs:
         pulumi.set(self, "restore_point_in_time", value)
 
     @property
+    @pulumi.getter(name="sslMinimalTlsVersionEnforced")
+    def ssl_minimal_tls_version_enforced(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+        """
+        return pulumi.get(self, "ssl_minimal_tls_version_enforced")
+
+    @ssl_minimal_tls_version_enforced.setter
+    def ssl_minimal_tls_version_enforced(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_minimal_tls_version_enforced", value)
+
+    @property
     @pulumi.getter(name="storageMb")
     def storage_mb(self) -> Optional[pulumi.Input[int]]:
         """
@@ -305,6 +321,7 @@ class _ServerState:
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+                 ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
@@ -325,6 +342,7 @@ class _ServerState:
         :param pulumi.Input[str] restore_point_in_time: When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`.
         :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
@@ -359,6 +377,8 @@ class _ServerState:
             pulumi.set(__self__, "sku_name", sku_name)
         if ssl_enforcement_enabled is not None:
             pulumi.set(__self__, "ssl_enforcement_enabled", ssl_enforcement_enabled)
+        if ssl_minimal_tls_version_enforced is not None:
+            pulumi.set(__self__, "ssl_minimal_tls_version_enforced", ssl_minimal_tls_version_enforced)
         if storage_mb is not None:
             pulumi.set(__self__, "storage_mb", storage_mb)
         if tags is not None:
@@ -547,6 +567,18 @@ class _ServerState:
         pulumi.set(self, "ssl_enforcement_enabled", value)
 
     @property
+    @pulumi.getter(name="sslMinimalTlsVersionEnforced")
+    def ssl_minimal_tls_version_enforced(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+        """
+        return pulumi.get(self, "ssl_minimal_tls_version_enforced")
+
+    @ssl_minimal_tls_version_enforced.setter
+    def ssl_minimal_tls_version_enforced(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_minimal_tls_version_enforced", value)
+
+    @property
     @pulumi.getter(name="storageMb")
     def storage_mb(self) -> Optional[pulumi.Input[int]]:
         """
@@ -602,6 +634,7 @@ class Server(pulumi.CustomResource):
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+                 ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -628,7 +661,8 @@ class Server(pulumi.CustomResource):
             backup_retention_days=7,
             geo_redundant_backup_enabled=False,
             public_network_access_enabled=False,
-            ssl_enforcement_enabled=True)
+            ssl_enforcement_enabled=True,
+            ssl_minimal_tls_version_enforced="TLS1_2")
         ```
 
         ## Import
@@ -655,6 +689,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] restore_point_in_time: When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`.
         :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
@@ -687,7 +722,8 @@ class Server(pulumi.CustomResource):
             backup_retention_days=7,
             geo_redundant_backup_enabled=False,
             public_network_access_enabled=False,
-            ssl_enforcement_enabled=True)
+            ssl_enforcement_enabled=True,
+            ssl_minimal_tls_version_enforced="TLS1_2")
         ```
 
         ## Import
@@ -727,6 +763,7 @@ class Server(pulumi.CustomResource):
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+                 ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -759,6 +796,7 @@ class Server(pulumi.CustomResource):
             if ssl_enforcement_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'ssl_enforcement_enabled'")
             __props__.__dict__["ssl_enforcement_enabled"] = ssl_enforcement_enabled
+            __props__.__dict__["ssl_minimal_tls_version_enforced"] = ssl_minimal_tls_version_enforced
             __props__.__dict__["storage_mb"] = storage_mb
             __props__.__dict__["tags"] = tags
             if version is None and not opts.urn:
@@ -792,6 +830,7 @@ class Server(pulumi.CustomResource):
             restore_point_in_time: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+            ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
             storage_mb: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'Server':
@@ -817,6 +856,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] restore_point_in_time: When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`.
         :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
@@ -840,6 +880,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["restore_point_in_time"] = restore_point_in_time
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["ssl_enforcement_enabled"] = ssl_enforcement_enabled
+        __props__.__dict__["ssl_minimal_tls_version_enforced"] = ssl_minimal_tls_version_enforced
         __props__.__dict__["storage_mb"] = storage_mb
         __props__.__dict__["tags"] = tags
         __props__.__dict__["version"] = version
@@ -964,6 +1005,14 @@ class Server(pulumi.CustomResource):
         Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         """
         return pulumi.get(self, "ssl_enforcement_enabled")
+
+    @property
+    @pulumi.getter(name="sslMinimalTlsVersionEnforced")
+    def ssl_minimal_tls_version_enforced(self) -> pulumi.Output[Optional[str]]:
+        """
+        The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+        """
+        return pulumi.get(self, "ssl_minimal_tls_version_enforced")
 
     @property
     @pulumi.getter(name="storageMb")

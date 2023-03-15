@@ -111,6 +111,21 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The URL to access the ServiceBus Namespace.
+     * 
+     */
+    @Import(name="endpoint")
+    private @Nullable Output<String> endpoint;
+
+    /**
+     * @return The URL to access the ServiceBus Namespace.
+     * 
+     */
+    public Optional<Output<String>> endpoint() {
+        return Optional.ofNullable(this.endpoint);
+    }
+
+    /**
      * An `identity` block as defined below.
      * 
      */
@@ -271,6 +286,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         this.defaultPrimaryKey = $.defaultPrimaryKey;
         this.defaultSecondaryConnectionString = $.defaultSecondaryConnectionString;
         this.defaultSecondaryKey = $.defaultSecondaryKey;
+        this.endpoint = $.endpoint;
         this.identity = $.identity;
         this.localAuthEnabled = $.localAuthEnabled;
         this.location = $.location;
@@ -425,6 +441,27 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder defaultSecondaryKey(String defaultSecondaryKey) {
             return defaultSecondaryKey(Output.of(defaultSecondaryKey));
+        }
+
+        /**
+         * @param endpoint The URL to access the ServiceBus Namespace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpoint(@Nullable Output<String> endpoint) {
+            $.endpoint = endpoint;
+            return this;
+        }
+
+        /**
+         * @param endpoint The URL to access the ServiceBus Namespace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpoint(String endpoint) {
+            return endpoint(Output.of(endpoint));
         }
 
         /**

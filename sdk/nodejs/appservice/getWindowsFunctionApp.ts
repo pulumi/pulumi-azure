@@ -58,6 +58,10 @@ export interface GetWindowsFunctionAppResult {
      */
     readonly authSettings: outputs.appservice.GetWindowsFunctionAppAuthSetting[];
     /**
+     * A `authSettingsV2` block as defined below.
+     */
+    readonly authSettingsV2s: outputs.appservice.GetWindowsFunctionAppAuthSettingsV2[];
+    /**
      * A `backup` block as defined below.
      */
     readonly backups: outputs.appservice.GetWindowsFunctionAppBackup[];

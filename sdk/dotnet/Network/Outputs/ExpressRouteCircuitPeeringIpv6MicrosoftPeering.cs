@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ExpressRouteCircuitPeeringIpv6MicrosoftPeering
     {
         /// <summary>
+        /// The communities of Bgp Peering specified for microsoft peering.
+        /// </summary>
+        public readonly ImmutableArray<string> AdvertisedCommunities;
+        /// <summary>
         /// A list of Advertised Public Prefixes.
         /// </summary>
         public readonly ImmutableArray<string> AdvertisedPublicPrefixes;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private ExpressRouteCircuitPeeringIpv6MicrosoftPeering(
+            ImmutableArray<string> advertisedCommunities,
+
             ImmutableArray<string> advertisedPublicPrefixes,
 
             int? customerAsn,
 
             string? routingRegistryName)
         {
+            AdvertisedCommunities = advertisedCommunities;
             AdvertisedPublicPrefixes = advertisedPublicPrefixes;
             CustomerAsn = customerAsn;
             RoutingRegistryName = routingRegistryName;

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class StreamingPolicyCommonEncryptionCbcs
     {
         /// <summary>
+        /// A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        /// </summary>
+        public readonly Outputs.StreamingPolicyCommonEncryptionCbcsClearKeyEncryption? ClearKeyEncryption;
+        /// <summary>
         /// A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
         /// </summary>
         public readonly Outputs.StreamingPolicyCommonEncryptionCbcsDefaultContentKey? DefaultContentKey;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Media.Outputs
 
         [OutputConstructor]
         private StreamingPolicyCommonEncryptionCbcs(
+            Outputs.StreamingPolicyCommonEncryptionCbcsClearKeyEncryption? clearKeyEncryption,
+
             Outputs.StreamingPolicyCommonEncryptionCbcsDefaultContentKey? defaultContentKey,
 
             Outputs.StreamingPolicyCommonEncryptionCbcsDrmFairplay? drmFairplay,
 
             Outputs.StreamingPolicyCommonEncryptionCbcsEnabledProtocols? enabledProtocols)
         {
+            ClearKeyEncryption = clearKeyEncryption;
             DefaultContentKey = defaultContentKey;
             DrmFairplay = drmFairplay;
             EnabledProtocols = enabledProtocols;

@@ -21,6 +21,7 @@ class StreamingPolicyArgs:
                  common_encryption_cbcs: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsArgs']] = None,
                  common_encryption_cenc: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencArgs']] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+                 envelope_encryption: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  no_encryption_enabled_protocols: Optional[pulumi.Input['StreamingPolicyNoEncryptionEnabledProtocolsArgs']] = None):
         """
@@ -30,6 +31,7 @@ class StreamingPolicyArgs:
         :param pulumi.Input['StreamingPolicyCommonEncryptionCbcsArgs'] common_encryption_cbcs: A `common_encryption_cbcs` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input['StreamingPolicyCommonEncryptionCencArgs'] common_encryption_cenc: A `common_encryption_cenc` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] default_content_key_policy_name: Default Content Key used by current Streaming Policy. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyEnvelopeEncryptionArgs'] envelope_encryption: A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Streaming Policy. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input['StreamingPolicyNoEncryptionEnabledProtocolsArgs'] no_encryption_enabled_protocols: A `no_encryption_enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
@@ -41,6 +43,8 @@ class StreamingPolicyArgs:
             pulumi.set(__self__, "common_encryption_cenc", common_encryption_cenc)
         if default_content_key_policy_name is not None:
             pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
+        if envelope_encryption is not None:
+            pulumi.set(__self__, "envelope_encryption", envelope_encryption)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if no_encryption_enabled_protocols is not None:
@@ -107,6 +111,18 @@ class StreamingPolicyArgs:
         pulumi.set(self, "default_content_key_policy_name", value)
 
     @property
+    @pulumi.getter(name="envelopeEncryption")
+    def envelope_encryption(self) -> Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionArgs']]:
+        """
+        A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "envelope_encryption")
+
+    @envelope_encryption.setter
+    def envelope_encryption(self, value: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionArgs']]):
+        pulumi.set(self, "envelope_encryption", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -137,6 +153,7 @@ class _StreamingPolicyState:
                  common_encryption_cbcs: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsArgs']] = None,
                  common_encryption_cenc: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencArgs']] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+                 envelope_encryption: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionArgs']] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  no_encryption_enabled_protocols: Optional[pulumi.Input['StreamingPolicyNoEncryptionEnabledProtocolsArgs']] = None,
@@ -146,6 +163,7 @@ class _StreamingPolicyState:
         :param pulumi.Input['StreamingPolicyCommonEncryptionCbcsArgs'] common_encryption_cbcs: A `common_encryption_cbcs` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input['StreamingPolicyCommonEncryptionCencArgs'] common_encryption_cenc: A `common_encryption_cenc` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] default_content_key_policy_name: Default Content Key used by current Streaming Policy. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyEnvelopeEncryptionArgs'] envelope_encryption: A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Streaming Policy. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input['StreamingPolicyNoEncryptionEnabledProtocolsArgs'] no_encryption_enabled_protocols: A `no_encryption_enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -157,6 +175,8 @@ class _StreamingPolicyState:
             pulumi.set(__self__, "common_encryption_cenc", common_encryption_cenc)
         if default_content_key_policy_name is not None:
             pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
+        if envelope_encryption is not None:
+            pulumi.set(__self__, "envelope_encryption", envelope_encryption)
         if media_services_account_name is not None:
             pulumi.set(__self__, "media_services_account_name", media_services_account_name)
         if name is not None:
@@ -201,6 +221,18 @@ class _StreamingPolicyState:
     @default_content_key_policy_name.setter
     def default_content_key_policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_content_key_policy_name", value)
+
+    @property
+    @pulumi.getter(name="envelopeEncryption")
+    def envelope_encryption(self) -> Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionArgs']]:
+        """
+        A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "envelope_encryption")
+
+    @envelope_encryption.setter
+    def envelope_encryption(self, value: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionArgs']]):
+        pulumi.set(self, "envelope_encryption", value)
 
     @property
     @pulumi.getter(name="mediaServicesAccountName")
@@ -259,6 +291,7 @@ class StreamingPolicy(pulumi.CustomResource):
                  common_encryption_cbcs: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyCommonEncryptionCbcsArgs']]] = None,
                  common_encryption_cenc: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyCommonEncryptionCencArgs']]] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+                 envelope_encryption: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyEnvelopeEncryptionArgs']]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  no_encryption_enabled_protocols: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyNoEncryptionEnabledProtocolsArgs']]] = None,
@@ -286,15 +319,40 @@ class StreamingPolicy(pulumi.CustomResource):
                 id=example_account.id,
                 is_primary=True,
             )])
+        example_content_key_policy = azure.media.ContentKeyPolicy("exampleContentKeyPolicy",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            policy_options=[azure.media.ContentKeyPolicyPolicyOptionArgs(
+                name="fairPlay",
+                fairplay_configuration=azure.media.ContentKeyPolicyPolicyOptionFairplayConfigurationArgs(
+                    ask="bb566284cc124a21c435a92cd3c108c4",
+                    pfx="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",
+                    pfx_password="password",
+                    rental_duration_seconds=2249,
+                    rental_and_lease_key_type="PersistentUnlimited",
+                ),
+                open_restriction_enabled=True,
+            )])
         example_streaming_policy = azure.media.StreamingPolicy("exampleStreamingPolicy",
             resource_group_name=example_resource_group.name,
             media_services_account_name=example_service_account.name,
             common_encryption_cenc=azure.media.StreamingPolicyCommonEncryptionCencArgs(
+                clear_tracks=[azure.media.StreamingPolicyCommonEncryptionCencClearTrackArgs(
+                    conditions=[azure.media.StreamingPolicyCommonEncryptionCencClearTrackConditionArgs(
+                        property="FourCC",
+                        operation="Equal",
+                        value="hev2",
+                    )],
+                )],
                 enabled_protocols=azure.media.StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs(
                     download=False,
                     dash=True,
                     hls=False,
                     smooth_streaming=False,
+                ),
+                default_content_key=azure.media.StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs(
+                    label="aesDefaultKey",
+                    policy_name=example_content_key_policy.name,
                 ),
                 drm_playready=azure.media.StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs(
                     custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
@@ -329,6 +387,7 @@ class StreamingPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StreamingPolicyCommonEncryptionCbcsArgs']] common_encryption_cbcs: A `common_encryption_cbcs` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[pulumi.InputType['StreamingPolicyCommonEncryptionCencArgs']] common_encryption_cenc: A `common_encryption_cenc` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] default_content_key_policy_name: Default Content Key used by current Streaming Policy. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input[pulumi.InputType['StreamingPolicyEnvelopeEncryptionArgs']] envelope_encryption: A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Streaming Policy. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[pulumi.InputType['StreamingPolicyNoEncryptionEnabledProtocolsArgs']] no_encryption_enabled_protocols: A `no_encryption_enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -362,15 +421,40 @@ class StreamingPolicy(pulumi.CustomResource):
                 id=example_account.id,
                 is_primary=True,
             )])
+        example_content_key_policy = azure.media.ContentKeyPolicy("exampleContentKeyPolicy",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            policy_options=[azure.media.ContentKeyPolicyPolicyOptionArgs(
+                name="fairPlay",
+                fairplay_configuration=azure.media.ContentKeyPolicyPolicyOptionFairplayConfigurationArgs(
+                    ask="bb566284cc124a21c435a92cd3c108c4",
+                    pfx="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",
+                    pfx_password="password",
+                    rental_duration_seconds=2249,
+                    rental_and_lease_key_type="PersistentUnlimited",
+                ),
+                open_restriction_enabled=True,
+            )])
         example_streaming_policy = azure.media.StreamingPolicy("exampleStreamingPolicy",
             resource_group_name=example_resource_group.name,
             media_services_account_name=example_service_account.name,
             common_encryption_cenc=azure.media.StreamingPolicyCommonEncryptionCencArgs(
+                clear_tracks=[azure.media.StreamingPolicyCommonEncryptionCencClearTrackArgs(
+                    conditions=[azure.media.StreamingPolicyCommonEncryptionCencClearTrackConditionArgs(
+                        property="FourCC",
+                        operation="Equal",
+                        value="hev2",
+                    )],
+                )],
                 enabled_protocols=azure.media.StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs(
                     download=False,
                     dash=True,
                     hls=False,
                     smooth_streaming=False,
+                ),
+                default_content_key=azure.media.StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs(
+                    label="aesDefaultKey",
+                    policy_name=example_content_key_policy.name,
                 ),
                 drm_playready=azure.media.StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs(
                     custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
@@ -418,6 +502,7 @@ class StreamingPolicy(pulumi.CustomResource):
                  common_encryption_cbcs: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyCommonEncryptionCbcsArgs']]] = None,
                  common_encryption_cenc: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyCommonEncryptionCencArgs']]] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+                 envelope_encryption: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyEnvelopeEncryptionArgs']]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  no_encryption_enabled_protocols: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyNoEncryptionEnabledProtocolsArgs']]] = None,
@@ -434,6 +519,7 @@ class StreamingPolicy(pulumi.CustomResource):
             __props__.__dict__["common_encryption_cbcs"] = common_encryption_cbcs
             __props__.__dict__["common_encryption_cenc"] = common_encryption_cenc
             __props__.__dict__["default_content_key_policy_name"] = default_content_key_policy_name
+            __props__.__dict__["envelope_encryption"] = envelope_encryption
             if media_services_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'media_services_account_name'")
             __props__.__dict__["media_services_account_name"] = media_services_account_name
@@ -455,6 +541,7 @@ class StreamingPolicy(pulumi.CustomResource):
             common_encryption_cbcs: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyCommonEncryptionCbcsArgs']]] = None,
             common_encryption_cenc: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyCommonEncryptionCencArgs']]] = None,
             default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+            envelope_encryption: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyEnvelopeEncryptionArgs']]] = None,
             media_services_account_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             no_encryption_enabled_protocols: Optional[pulumi.Input[pulumi.InputType['StreamingPolicyNoEncryptionEnabledProtocolsArgs']]] = None,
@@ -469,6 +556,7 @@ class StreamingPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StreamingPolicyCommonEncryptionCbcsArgs']] common_encryption_cbcs: A `common_encryption_cbcs` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[pulumi.InputType['StreamingPolicyCommonEncryptionCencArgs']] common_encryption_cenc: A `common_encryption_cenc` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] default_content_key_policy_name: Default Content Key used by current Streaming Policy. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input[pulumi.InputType['StreamingPolicyEnvelopeEncryptionArgs']] envelope_encryption: A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Streaming Policy. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[pulumi.InputType['StreamingPolicyNoEncryptionEnabledProtocolsArgs']] no_encryption_enabled_protocols: A `no_encryption_enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -481,6 +569,7 @@ class StreamingPolicy(pulumi.CustomResource):
         __props__.__dict__["common_encryption_cbcs"] = common_encryption_cbcs
         __props__.__dict__["common_encryption_cenc"] = common_encryption_cenc
         __props__.__dict__["default_content_key_policy_name"] = default_content_key_policy_name
+        __props__.__dict__["envelope_encryption"] = envelope_encryption
         __props__.__dict__["media_services_account_name"] = media_services_account_name
         __props__.__dict__["name"] = name
         __props__.__dict__["no_encryption_enabled_protocols"] = no_encryption_enabled_protocols
@@ -510,6 +599,14 @@ class StreamingPolicy(pulumi.CustomResource):
         Default Content Key used by current Streaming Policy. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "default_content_key_policy_name")
+
+    @property
+    @pulumi.getter(name="envelopeEncryption")
+    def envelope_encryption(self) -> pulumi.Output[Optional['outputs.StreamingPolicyEnvelopeEncryption']]:
+        """
+        A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        return pulumi.get(self, "envelope_encryption")
 
     @property
     @pulumi.getter(name="mediaServicesAccountName")

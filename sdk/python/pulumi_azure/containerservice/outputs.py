@@ -2323,6 +2323,8 @@ class KubernetesClusterDefaultNodePool(dict):
             suggest = "proximity_placement_group_id"
         elif key == "scaleDownMode":
             suggest = "scale_down_mode"
+        elif key == "temporaryNameForRotation":
+            suggest = "temporary_name_for_rotation"
         elif key == "ultraSsdEnabled":
             suggest = "ultra_ssd_enabled"
         elif key == "upgradeSettings":
@@ -2374,6 +2376,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  proximity_placement_group_id: Optional[str] = None,
                  scale_down_mode: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
+                 temporary_name_for_rotation: Optional[str] = None,
                  type: Optional[str] = None,
                  ultra_ssd_enabled: Optional[bool] = None,
                  upgrade_settings: Optional['outputs.KubernetesClusterDefaultNodePoolUpgradeSettings'] = None,
@@ -2382,7 +2385,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  zones: Optional[Sequence[str]] = None):
         """
         :param str name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
-        :param str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+        :param str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`.
         :param str capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param bool custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
         :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
@@ -2411,6 +2414,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param str scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param Mapping[str, str] tags: A mapping of tags to assign to the Node Pool.
+        :param str temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
         :param str type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
         :param bool ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as documented below.
@@ -2476,6 +2480,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "scale_down_mode", scale_down_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if temporary_name_for_rotation is not None:
+            pulumi.set(__self__, "temporary_name_for_rotation", temporary_name_for_rotation)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if ultra_ssd_enabled is not None:
@@ -2501,7 +2507,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> str:
         """
-        The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+        The size of the Virtual Machine, such as `Standard_DS2_v2`.
         """
         return pulumi.get(self, "vm_size")
 
@@ -2728,6 +2734,14 @@ class KubernetesClusterDefaultNodePool(dict):
         A mapping of tags to assign to the Node Pool.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="temporaryNameForRotation")
+    def temporary_name_for_rotation(self) -> Optional[str]:
+        """
+        Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+        """
+        return pulumi.get(self, "temporary_name_for_rotation")
 
     @property
     @pulumi.getter
@@ -3918,7 +3932,7 @@ class KubernetesClusterKeyVaultSecretsProvider(dict):
                  secret_rotation_interval: Optional[str] = None):
         """
         :param Sequence['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs'] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
-        :param bool secret_rotation_enabled: Is secret rotation enabled?
+        :param bool secret_rotation_enabled: Should the secret store CSI driver on the AKS cluster be enabled?
         :param str secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
         """
         if secret_identities is not None:
@@ -3940,7 +3954,7 @@ class KubernetesClusterKeyVaultSecretsProvider(dict):
     @pulumi.getter(name="secretRotationEnabled")
     def secret_rotation_enabled(self) -> Optional[bool]:
         """
-        Is secret rotation enabled?
+        Should the secret store CSI driver on the AKS cluster be enabled?
         """
         return pulumi.get(self, "secret_rotation_enabled")
 
@@ -5766,6 +5780,8 @@ class KubernetesClusterOmsAgent(dict):
         suggest = None
         if key == "logAnalyticsWorkspaceId":
             suggest = "log_analytics_workspace_id"
+        elif key == "msiAuthForMonitoringEnabled":
+            suggest = "msi_auth_for_monitoring_enabled"
         elif key == "omsAgentIdentities":
             suggest = "oms_agent_identities"
 
@@ -5782,12 +5798,16 @@ class KubernetesClusterOmsAgent(dict):
 
     def __init__(__self__, *,
                  log_analytics_workspace_id: str,
+                 msi_auth_for_monitoring_enabled: Optional[bool] = None,
                  oms_agent_identities: Optional[Sequence['outputs.KubernetesClusterOmsAgentOmsAgentIdentity']] = None):
         """
         :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+        :param bool msi_auth_for_monitoring_enabled: Is managed identity authentication for monitoring enabled?
         :param Sequence['KubernetesClusterOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if msi_auth_for_monitoring_enabled is not None:
+            pulumi.set(__self__, "msi_auth_for_monitoring_enabled", msi_auth_for_monitoring_enabled)
         if oms_agent_identities is not None:
             pulumi.set(__self__, "oms_agent_identities", oms_agent_identities)
 
@@ -5798,6 +5818,14 @@ class KubernetesClusterOmsAgent(dict):
         The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="msiAuthForMonitoringEnabled")
+    def msi_auth_for_monitoring_enabled(self) -> Optional[bool]:
+        """
+        Is managed identity authentication for monitoring enabled?
+        """
+        return pulumi.get(self, "msi_auth_for_monitoring_enabled")
 
     @property
     @pulumi.getter(name="omsAgentIdentities")
@@ -6175,6 +6203,12 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
         suggest = None
         if key == "kedaEnabled":
             suggest = "keda_enabled"
+        elif key == "verticalPodAutoscalerControlledValues":
+            suggest = "vertical_pod_autoscaler_controlled_values"
+        elif key == "verticalPodAutoscalerEnabled":
+            suggest = "vertical_pod_autoscaler_enabled"
+        elif key == "verticalPodAutoscalerUpdateMode":
+            suggest = "vertical_pod_autoscaler_update_mode"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterWorkloadAutoscalerProfile. Access the value via the '{suggest}' property getter instead.")
@@ -6188,12 +6222,24 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 keda_enabled: Optional[bool] = None):
+                 keda_enabled: Optional[bool] = None,
+                 vertical_pod_autoscaler_controlled_values: Optional[str] = None,
+                 vertical_pod_autoscaler_enabled: Optional[bool] = None,
+                 vertical_pod_autoscaler_update_mode: Optional[str] = None):
         """
         :param bool keda_enabled: Specifies whether KEDA Autoscaler can be used for workloads.
+        :param str vertical_pod_autoscaler_controlled_values: Which resources values should be controlled.
+        :param bool vertical_pod_autoscaler_enabled: Specifies whether Vertical Pod Autoscaler should be enabled.
+        :param str vertical_pod_autoscaler_update_mode: How the autoscaler applies changes to pod resources.
         """
         if keda_enabled is not None:
             pulumi.set(__self__, "keda_enabled", keda_enabled)
+        if vertical_pod_autoscaler_controlled_values is not None:
+            pulumi.set(__self__, "vertical_pod_autoscaler_controlled_values", vertical_pod_autoscaler_controlled_values)
+        if vertical_pod_autoscaler_enabled is not None:
+            pulumi.set(__self__, "vertical_pod_autoscaler_enabled", vertical_pod_autoscaler_enabled)
+        if vertical_pod_autoscaler_update_mode is not None:
+            pulumi.set(__self__, "vertical_pod_autoscaler_update_mode", vertical_pod_autoscaler_update_mode)
 
     @property
     @pulumi.getter(name="kedaEnabled")
@@ -6202,6 +6248,30 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
         Specifies whether KEDA Autoscaler can be used for workloads.
         """
         return pulumi.get(self, "keda_enabled")
+
+    @property
+    @pulumi.getter(name="verticalPodAutoscalerControlledValues")
+    def vertical_pod_autoscaler_controlled_values(self) -> Optional[str]:
+        """
+        Which resources values should be controlled.
+        """
+        return pulumi.get(self, "vertical_pod_autoscaler_controlled_values")
+
+    @property
+    @pulumi.getter(name="verticalPodAutoscalerEnabled")
+    def vertical_pod_autoscaler_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether Vertical Pod Autoscaler should be enabled.
+        """
+        return pulumi.get(self, "vertical_pod_autoscaler_enabled")
+
+    @property
+    @pulumi.getter(name="verticalPodAutoscalerUpdateMode")
+    def vertical_pod_autoscaler_update_mode(self) -> Optional[str]:
+        """
+        How the autoscaler applies changes to pod resources.
+        """
+        return pulumi.get(self, "vertical_pod_autoscaler_update_mode")
 
 
 @pulumi.output_type

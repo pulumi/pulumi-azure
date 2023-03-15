@@ -127,6 +127,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// An option to store secret value in secure place. An `secret_store` block as defined below.
+        /// </summary>
+        [Output("secretStore")]
+        public Output<Outputs.SpringCloudConnectionSecretStore?> SecretStore { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the data source spring cloud. Changing this forces a new resource to be created.
         /// </summary>
         [Output("springCloudId")]
@@ -209,6 +215,12 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// An option to store secret value in secure place. An `secret_store` block as defined below.
+        /// </summary>
+        [Input("secretStore")]
+        public Input<Inputs.SpringCloudConnectionSecretStoreArgs>? SecretStore { get; set; }
+
+        /// <summary>
         /// The ID of the data source spring cloud. Changing this forces a new resource to be created.
         /// </summary>
         [Input("springCloudId", required: true)]
@@ -251,6 +263,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An option to store secret value in secure place. An `secret_store` block as defined below.
+        /// </summary>
+        [Input("secretStore")]
+        public Input<Inputs.SpringCloudConnectionSecretStoreGetArgs>? SecretStore { get; set; }
 
         /// <summary>
         /// The ID of the data source spring cloud. Changing this forces a new resource to be created.

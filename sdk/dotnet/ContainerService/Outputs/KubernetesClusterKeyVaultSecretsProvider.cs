@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.KubernetesClusterKeyVaultSecretsProviderSecretIdentity> SecretIdentities;
         /// <summary>
-        /// Is secret rotation enabled?
+        /// Should the secret store CSI driver on the AKS cluster be enabled?
         /// </summary>
         public readonly bool? SecretRotationEnabled;
         /// <summary>

@@ -47,6 +47,10 @@ export interface GetFunctionAppHostKeysArgs {
  */
 export interface GetFunctionAppHostKeysResult {
     /**
+     * Function App resource's Blobs Extension system key.
+     */
+    readonly blobsExtensionKey: string;
+    /**
      * Function App resource's default function key.
      */
     readonly defaultFunctionKey: string;

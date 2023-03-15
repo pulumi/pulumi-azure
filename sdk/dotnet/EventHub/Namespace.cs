@@ -89,6 +89,12 @@ namespace Pulumi.Azure.EventHub
         public Output<string> DefaultSecondaryKey { get; private set; } = null!;
 
         /// <summary>
+        /// The URL to access the ServiceBus Namespace.
+        /// </summary>
+        [Output("endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -364,6 +370,12 @@ namespace Pulumi.Azure.EventHub
                 _defaultSecondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The URL to access the ServiceBus Namespace.
+        /// </summary>
+        [Input("endpoint")]
+        public Input<string>? Endpoint { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.

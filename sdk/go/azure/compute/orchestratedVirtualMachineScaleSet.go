@@ -113,6 +113,8 @@ type OrchestratedVirtualMachineScaleSet struct {
 	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
 	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
+	// a `priorityMix` block as defined below
+	PriorityMix OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput `pulumi:"priorityMix"`
 	// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -225,6 +227,8 @@ type orchestratedVirtualMachineScaleSetState struct {
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
 	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority *string `pulumi:"priority"`
+	// a `priorityMix` block as defined below
+	PriorityMix *OrchestratedVirtualMachineScaleSetPriorityMix `pulumi:"priorityMix"`
 	// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -296,6 +300,8 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	PlatformFaultDomainCount pulumi.IntPtrInput
 	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority pulumi.StringPtrInput
+	// a `priorityMix` block as defined below
+	PriorityMix OrchestratedVirtualMachineScaleSetPriorityMixPtrInput
 	// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -371,6 +377,8 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
 	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority *string `pulumi:"priority"`
+	// a `priorityMix` block as defined below
+	PriorityMix *OrchestratedVirtualMachineScaleSetPriorityMix `pulumi:"priorityMix"`
 	// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -441,6 +449,8 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	PlatformFaultDomainCount pulumi.IntInput
 	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority pulumi.StringPtrInput
+	// a `priorityMix` block as defined below
+	PriorityMix OrchestratedVirtualMachineScaleSetPriorityMixPtrInput
 	// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -682,6 +692,13 @@ func (o OrchestratedVirtualMachineScaleSetOutput) PlatformFaultDomainCount() pul
 // The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 func (o OrchestratedVirtualMachineScaleSetOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
+}
+
+// a `priorityMix` block as defined below
+func (o OrchestratedVirtualMachineScaleSetOutput) PriorityMix() OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
+		return v.PriorityMix
+	}).(OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput)
 }
 
 // The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.

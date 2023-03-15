@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appservice.ConnectionArgs;
 import com.pulumi.azure.appservice.inputs.ConnectionState;
 import com.pulumi.azure.appservice.outputs.ConnectionAuthentication;
+import com.pulumi.azure.appservice.outputs.ConnectionSecretStore;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -181,6 +182,20 @@ public class Connection extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * An option to store secret value in secure place. An `secret_store` block as defined below.
+     * 
+     */
+    @Export(name="secretStore", type=ConnectionSecretStore.class, parameters={})
+    private Output</* @Nullable */ ConnectionSecretStore> secretStore;
+
+    /**
+     * @return An option to store secret value in secure place. An `secret_store` block as defined below.
+     * 
+     */
+    public Output<Optional<ConnectionSecretStore>> secretStore() {
+        return Codegen.optional(this.secretStore);
     }
     /**
      * The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.

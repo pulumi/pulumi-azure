@@ -459,6 +459,21 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
+     * Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+     * 
+     */
+    @Import(name="temporaryNameForRotation")
+    private @Nullable Output<String> temporaryNameForRotation;
+
+    /**
+     * @return Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+     * 
+     */
+    public Optional<Output<String>> temporaryNameForRotation() {
+        return Optional.ofNullable(this.temporaryNameForRotation);
+    }
+
+    /**
      * The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
      * 
      */
@@ -504,14 +519,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+     * The size of the Virtual Machine, such as `Standard_DS2_v2`.
      * 
      */
     @Import(name="vmSize", required=true)
     private Output<String> vmSize;
 
     /**
-     * @return The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+     * @return The size of the Virtual Machine, such as `Standard_DS2_v2`.
      * 
      */
     public Output<String> vmSize() {
@@ -595,6 +610,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
         this.scaleDownMode = $.scaleDownMode;
         this.tags = $.tags;
+        this.temporaryNameForRotation = $.temporaryNameForRotation;
         this.type = $.type;
         this.ultraSsdEnabled = $.ultraSsdEnabled;
         this.upgradeSettings = $.upgradeSettings;
@@ -1242,6 +1258,27 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
+         * @param temporaryNameForRotation Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder temporaryNameForRotation(@Nullable Output<String> temporaryNameForRotation) {
+            $.temporaryNameForRotation = temporaryNameForRotation;
+            return this;
+        }
+
+        /**
+         * @param temporaryNameForRotation Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder temporaryNameForRotation(String temporaryNameForRotation) {
+            return temporaryNameForRotation(Output.of(temporaryNameForRotation));
+        }
+
+        /**
          * @param type The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -1305,7 +1342,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param vmSize The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+         * @param vmSize The size of the Virtual Machine, such as `Standard_DS2_v2`.
          * 
          * @return builder
          * 
@@ -1316,7 +1353,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param vmSize The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+         * @param vmSize The size of the Virtual Machine, such as `Standard_DS2_v2`.
          * 
          * @return builder
          * 

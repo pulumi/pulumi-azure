@@ -130,6 +130,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+        /// </summary>
+        public readonly string? TemporaryNameForRotation;
+        /// <summary>
         /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Type;
@@ -142,7 +146,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolUpgradeSettings? UpgradeSettings;
         /// <summary>
-        /// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+        /// The size of the Virtual Machine, such as `Standard_DS2_v2`.
         /// </summary>
         public readonly string VmSize;
         /// <summary>
@@ -218,6 +222,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableDictionary<string, string>? tags,
 
+            string? temporaryNameForRotation,
+
             string? type,
 
             bool? ultraSsdEnabled,
@@ -261,6 +267,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             ProximityPlacementGroupId = proximityPlacementGroupId;
             ScaleDownMode = scaleDownMode;
             Tags = tags;
+            TemporaryNameForRotation = temporaryNameForRotation;
             Type = type;
             UltraSsdEnabled = ultraSsdEnabled;
             UpgradeSettings = upgradeSettings;

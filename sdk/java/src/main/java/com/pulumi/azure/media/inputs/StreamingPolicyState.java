@@ -5,6 +5,7 @@ package com.pulumi.azure.media.inputs;
 
 import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCbcsArgs;
 import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencArgs;
+import com.pulumi.azure.media.inputs.StreamingPolicyEnvelopeEncryptionArgs;
 import com.pulumi.azure.media.inputs.StreamingPolicyNoEncryptionEnabledProtocolsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -61,6 +62,21 @@ public final class StreamingPolicyState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> defaultContentKeyPolicyName() {
         return Optional.ofNullable(this.defaultContentKeyPolicyName);
+    }
+
+    /**
+     * A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    @Import(name="envelopeEncryption")
+    private @Nullable Output<StreamingPolicyEnvelopeEncryptionArgs> envelopeEncryption;
+
+    /**
+     * @return A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+     * 
+     */
+    public Optional<Output<StreamingPolicyEnvelopeEncryptionArgs>> envelopeEncryption() {
+        return Optional.ofNullable(this.envelopeEncryption);
     }
 
     /**
@@ -129,6 +145,7 @@ public final class StreamingPolicyState extends com.pulumi.resources.ResourceArg
         this.commonEncryptionCbcs = $.commonEncryptionCbcs;
         this.commonEncryptionCenc = $.commonEncryptionCenc;
         this.defaultContentKeyPolicyName = $.defaultContentKeyPolicyName;
+        this.envelopeEncryption = $.envelopeEncryption;
         this.mediaServicesAccountName = $.mediaServicesAccountName;
         this.name = $.name;
         this.noEncryptionEnabledProtocols = $.noEncryptionEnabledProtocols;
@@ -214,6 +231,27 @@ public final class StreamingPolicyState extends com.pulumi.resources.ResourceArg
          */
         public Builder defaultContentKeyPolicyName(String defaultContentKeyPolicyName) {
             return defaultContentKeyPolicyName(Output.of(defaultContentKeyPolicyName));
+        }
+
+        /**
+         * @param envelopeEncryption A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder envelopeEncryption(@Nullable Output<StreamingPolicyEnvelopeEncryptionArgs> envelopeEncryption) {
+            $.envelopeEncryption = envelopeEncryption;
+            return this;
+        }
+
+        /**
+         * @param envelopeEncryption A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder envelopeEncryption(StreamingPolicyEnvelopeEncryptionArgs envelopeEncryption) {
+            return envelopeEncryption(Output.of(envelopeEncryption));
         }
 
         /**

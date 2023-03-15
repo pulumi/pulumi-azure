@@ -130,9 +130,17 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
     public Output<PolicyVMBackup> backup() {
         return this.backup;
     }
+    /**
+     * Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+     * 
+     */
     @Export(name="instantRestoreResourceGroup", type=PolicyVMInstantRestoreResourceGroup.class, parameters={})
     private Output</* @Nullable */ PolicyVMInstantRestoreResourceGroup> instantRestoreResourceGroup;
 
+    /**
+     * @return Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+     * 
+     */
     public Output<Optional<PolicyVMInstantRestoreResourceGroup>> instantRestoreResourceGroup() {
         return Codegen.optional(this.instantRestoreResourceGroup);
     }

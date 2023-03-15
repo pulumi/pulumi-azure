@@ -3287,7 +3287,7 @@ type ApplicationGatewayRewriteRuleSetRewriteRule struct {
 	ResponseHeaderConfigurations []ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration `pulumi:"responseHeaderConfigurations"`
 	// Rule sequence of the rewrite rule that determines the order of execution in a set.
 	RuleSequence int `pulumi:"ruleSequence"`
-	// One `url` block as defined above
+	// One `url` block as defined below
 	Url *ApplicationGatewayRewriteRuleSetRewriteRuleUrl `pulumi:"url"`
 }
 
@@ -3313,7 +3313,7 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleArgs struct {
 	ResponseHeaderConfigurations ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput `pulumi:"responseHeaderConfigurations"`
 	// Rule sequence of the rewrite rule that determines the order of execution in a set.
 	RuleSequence pulumi.IntInput `pulumi:"ruleSequence"`
-	// One `url` block as defined above
+	// One `url` block as defined below
 	Url ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrInput `pulumi:"url"`
 }
 
@@ -3399,7 +3399,7 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleOutput) RuleSequence() pulumi
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRule) int { return v.RuleSequence }).(pulumi.IntOutput)
 }
 
-// One `url` block as defined above
+// One `url` block as defined below
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleOutput) Url() ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRule) *ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
 		return v.Url
@@ -6189,6 +6189,8 @@ func (o ExpressRouteCircuitPeeringIpv6PtrOutput) SecondaryPeerAddressPrefix() pu
 }
 
 type ExpressRouteCircuitPeeringIpv6MicrosoftPeering struct {
+	// The communities of Bgp Peering specified for microsoft peering.
+	AdvertisedCommunities []string `pulumi:"advertisedCommunities"`
 	// A list of Advertised Public Prefixes.
 	AdvertisedPublicPrefixes []string `pulumi:"advertisedPublicPrefixes"`
 	// The CustomerASN of the peering. Defaults to `0`.
@@ -6209,6 +6211,8 @@ type ExpressRouteCircuitPeeringIpv6MicrosoftPeeringInput interface {
 }
 
 type ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs struct {
+	// The communities of Bgp Peering specified for microsoft peering.
+	AdvertisedCommunities pulumi.StringArrayInput `pulumi:"advertisedCommunities"`
 	// A list of Advertised Public Prefixes.
 	AdvertisedPublicPrefixes pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
 	// The CustomerASN of the peering. Defaults to `0`.
@@ -6294,6 +6298,11 @@ func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) ToExpressRouteCirc
 	}).(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput)
 }
 
+// The communities of Bgp Peering specified for microsoft peering.
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) AdvertisedCommunities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6MicrosoftPeering) []string { return v.AdvertisedCommunities }).(pulumi.StringArrayOutput)
+}
+
 // A list of Advertised Public Prefixes.
 func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6MicrosoftPeering) []string { return v.AdvertisedPublicPrefixes }).(pulumi.StringArrayOutput)
@@ -6333,6 +6342,16 @@ func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) Elem() ExpressR
 	}).(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput)
 }
 
+// The communities of Bgp Peering specified for microsoft peering.
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) AdvertisedCommunities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6MicrosoftPeering) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdvertisedCommunities
+	}).(pulumi.StringArrayOutput)
+}
+
 // A list of Advertised Public Prefixes.
 func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6MicrosoftPeering) []string {
@@ -6364,6 +6383,8 @@ func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) RoutingRegistry
 }
 
 type ExpressRouteCircuitPeeringMicrosoftPeeringConfig struct {
+	// The communities of Bgp Peering specified for microsoft peering.
+	AdvertisedCommunities []string `pulumi:"advertisedCommunities"`
 	// A list of Advertised Public Prefixes.
 	AdvertisedPublicPrefixes []string `pulumi:"advertisedPublicPrefixes"`
 	// The CustomerASN of the peering. Defaults to `0`.
@@ -6384,6 +6405,8 @@ type ExpressRouteCircuitPeeringMicrosoftPeeringConfigInput interface {
 }
 
 type ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs struct {
+	// The communities of Bgp Peering specified for microsoft peering.
+	AdvertisedCommunities pulumi.StringArrayInput `pulumi:"advertisedCommunities"`
 	// A list of Advertised Public Prefixes.
 	AdvertisedPublicPrefixes pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
 	// The CustomerASN of the peering. Defaults to `0`.
@@ -6469,6 +6492,11 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) ToExpressRouteCi
 	}).(ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput)
 }
 
+// The communities of Bgp Peering specified for microsoft peering.
+func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) AdvertisedCommunities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) []string { return v.AdvertisedCommunities }).(pulumi.StringArrayOutput)
+}
+
 // A list of Advertised Public Prefixes.
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) []string { return v.AdvertisedPublicPrefixes }).(pulumi.StringArrayOutput)
@@ -6506,6 +6534,16 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) Elem() Expres
 		var ret ExpressRouteCircuitPeeringMicrosoftPeeringConfig
 		return ret
 	}).(ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput)
+}
+
+// The communities of Bgp Peering specified for microsoft peering.
+func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) AdvertisedCommunities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringMicrosoftPeeringConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdvertisedCommunities
+	}).(pulumi.StringArrayOutput)
 }
 
 // A list of Advertised Public Prefixes.

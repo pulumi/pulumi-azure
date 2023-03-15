@@ -21,6 +21,7 @@ class SpringCloudConnectionArgs:
                  target_resource_id: pulumi.Input[str],
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SpringCloudConnection resource.
@@ -29,6 +30,7 @@ class SpringCloudConnectionArgs:
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
+        :param pulumi.Input['SpringCloudConnectionSecretStoreArgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
         pulumi.set(__self__, "authentication", authentication)
@@ -38,6 +40,8 @@ class SpringCloudConnectionArgs:
             pulumi.set(__self__, "client_type", client_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if secret_store is not None:
+            pulumi.set(__self__, "secret_store", secret_store)
         if vnet_solution is not None:
             pulumi.set(__self__, "vnet_solution", vnet_solution)
 
@@ -102,6 +106,18 @@ class SpringCloudConnectionArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="secretStore")
+    def secret_store(self) -> Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]:
+        """
+        An option to store secret value in secure place. An `secret_store` block as defined below.
+        """
+        return pulumi.get(self, "secret_store")
+
+    @secret_store.setter
+    def secret_store(self, value: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]):
+        pulumi.set(self, "secret_store", value)
+
+    @property
     @pulumi.getter(name="vnetSolution")
     def vnet_solution(self) -> Optional[pulumi.Input[str]]:
         """
@@ -120,6 +136,7 @@ class _SpringCloudConnectionState:
                  authentication: Optional[pulumi.Input['SpringCloudConnectionAuthenticationArgs']] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']] = None,
                  spring_cloud_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None):
@@ -128,6 +145,7 @@ class _SpringCloudConnectionState:
         :param pulumi.Input['SpringCloudConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
+        :param pulumi.Input['SpringCloudConnectionSecretStoreArgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
@@ -138,6 +156,8 @@ class _SpringCloudConnectionState:
             pulumi.set(__self__, "client_type", client_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if secret_store is not None:
+            pulumi.set(__self__, "secret_store", secret_store)
         if spring_cloud_id is not None:
             pulumi.set(__self__, "spring_cloud_id", spring_cloud_id)
         if target_resource_id is not None:
@@ -180,6 +200,18 @@ class _SpringCloudConnectionState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="secretStore")
+    def secret_store(self) -> Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]:
+        """
+        An option to store secret value in secure place. An `secret_store` block as defined below.
+        """
+        return pulumi.get(self, "secret_store")
+
+    @secret_store.setter
+    def secret_store(self, value: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]):
+        pulumi.set(self, "secret_store", value)
 
     @property
     @pulumi.getter(name="springCloudId")
@@ -226,6 +258,7 @@ class SpringCloudConnection(pulumi.CustomResource):
                  authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']]] = None,
                  spring_cloud_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
@@ -294,6 +327,7 @@ class SpringCloudConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
@@ -381,6 +415,7 @@ class SpringCloudConnection(pulumi.CustomResource):
                  authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']]] = None,
                  spring_cloud_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
@@ -398,6 +433,7 @@ class SpringCloudConnection(pulumi.CustomResource):
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["client_type"] = client_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["secret_store"] = secret_store
             if spring_cloud_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_id'")
             __props__.__dict__["spring_cloud_id"] = spring_cloud_id
@@ -418,6 +454,7 @@ class SpringCloudConnection(pulumi.CustomResource):
             authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']]] = None,
             client_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']]] = None,
             spring_cloud_id: Optional[pulumi.Input[str]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None,
             vnet_solution: Optional[pulumi.Input[str]] = None) -> 'SpringCloudConnection':
@@ -431,6 +468,7 @@ class SpringCloudConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
@@ -442,6 +480,7 @@ class SpringCloudConnection(pulumi.CustomResource):
         __props__.__dict__["authentication"] = authentication
         __props__.__dict__["client_type"] = client_type
         __props__.__dict__["name"] = name
+        __props__.__dict__["secret_store"] = secret_store
         __props__.__dict__["spring_cloud_id"] = spring_cloud_id
         __props__.__dict__["target_resource_id"] = target_resource_id
         __props__.__dict__["vnet_solution"] = vnet_solution
@@ -470,6 +509,14 @@ class SpringCloudConnection(pulumi.CustomResource):
         The name of the service connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretStore")
+    def secret_store(self) -> pulumi.Output[Optional['outputs.SpringCloudConnectionSecretStore']]:
+        """
+        An option to store secret value in secure place. An `secret_store` block as defined below.
+        """
+        return pulumi.get(self, "secret_store")
 
     @property
     @pulumi.getter(name="springCloudId")

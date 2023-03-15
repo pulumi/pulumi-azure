@@ -21,6 +21,7 @@ class WindowsFunctionAppArgs:
                  site_config: pulumi.Input['WindowsFunctionAppSiteConfigArgs'],
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsArgs']] = None,
+                 auth_settings_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2Args']] = None,
                  backup: Optional[pulumi.Input['WindowsFunctionAppBackupArgs']] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -51,6 +52,7 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input['WindowsFunctionAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2Args'] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input['WindowsFunctionAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -82,6 +84,8 @@ class WindowsFunctionAppArgs:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
+        if auth_settings_v2 is not None:
+            pulumi.set(__self__, "auth_settings_v2", auth_settings_v2)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
         if builtin_logging_enabled is not None:
@@ -188,6 +192,18 @@ class WindowsFunctionAppArgs:
     @auth_settings.setter
     def auth_settings(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
+
+    @property
+    @pulumi.getter(name="authSettingsV2")
+    def auth_settings_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2Args']]:
+        """
+        A `auth_settings_v2` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings_v2")
+
+    @auth_settings_v2.setter
+    def auth_settings_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2Args']]):
+        pulumi.set(self, "auth_settings_v2", value)
 
     @property
     @pulumi.getter
@@ -471,6 +487,7 @@ class _WindowsFunctionAppState:
     def __init__(__self__, *,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsArgs']] = None,
+                 auth_settings_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2Args']] = None,
                  backup: Optional[pulumi.Input['WindowsFunctionAppBackupArgs']] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -509,6 +526,7 @@ class _WindowsFunctionAppState:
         Input properties used for looking up and filtering WindowsFunctionApp resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2Args'] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input['WindowsFunctionAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -548,6 +566,8 @@ class _WindowsFunctionAppState:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
+        if auth_settings_v2 is not None:
+            pulumi.set(__self__, "auth_settings_v2", auth_settings_v2)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
         if builtin_logging_enabled is not None:
@@ -640,6 +660,18 @@ class _WindowsFunctionAppState:
     @auth_settings.setter
     def auth_settings(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
+
+    @property
+    @pulumi.getter(name="authSettingsV2")
+    def auth_settings_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2Args']]:
+        """
+        A `auth_settings_v2` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings_v2")
+
+    @auth_settings_v2.setter
+    def auth_settings_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2Args']]):
+        pulumi.set(self, "auth_settings_v2", value)
 
     @property
     @pulumi.getter
@@ -1057,6 +1089,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsArgs']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsV2Args']]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppBackupArgs']]] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1125,6 +1158,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsV2Args']] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -1212,6 +1246,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsArgs']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsV2Args']]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppBackupArgs']]] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1249,6 +1284,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
 
             __props__.__dict__["app_settings"] = app_settings
             __props__.__dict__["auth_settings"] = auth_settings
+            __props__.__dict__["auth_settings_v2"] = auth_settings_v2
             __props__.__dict__["backup"] = backup
             __props__.__dict__["builtin_logging_enabled"] = builtin_logging_enabled
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
@@ -1303,6 +1339,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsArgs']]] = None,
+            auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsV2Args']]] = None,
             backup: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppBackupArgs']]] = None,
             builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1346,6 +1383,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsV2Args']] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -1387,6 +1425,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
 
         __props__.__dict__["app_settings"] = app_settings
         __props__.__dict__["auth_settings"] = auth_settings
+        __props__.__dict__["auth_settings_v2"] = auth_settings_v2
         __props__.__dict__["backup"] = backup
         __props__.__dict__["builtin_logging_enabled"] = builtin_logging_enabled
         __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
@@ -1438,6 +1477,14 @@ class WindowsFunctionApp(pulumi.CustomResource):
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
+
+    @property
+    @pulumi.getter(name="authSettingsV2")
+    def auth_settings_v2(self) -> pulumi.Output[Optional['outputs.WindowsFunctionAppAuthSettingsV2']]:
+        """
+        A `auth_settings_v2` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings_v2")
 
     @property
     @pulumi.getter

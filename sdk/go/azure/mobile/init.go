@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:mobile/network:Network":
 		r = &Network{}
+	case "azure:mobile/networkDataNetwork:NetworkDataNetwork":
+		r = &NetworkDataNetwork{}
 	case "azure:mobile/networkService:NetworkService":
 		r = &NetworkService{}
 	case "azure:mobile/networkSimGroup:NetworkSimGroup":
@@ -47,6 +49,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mobile/network",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mobile/networkDataNetwork",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

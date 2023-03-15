@@ -10,6 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AlertRuleAnomalyBuiltInMultiSelectObservationArgs',
+    'AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs',
+    'AlertRuleAnomalyBuiltInRequiredDataConnectorArgs',
+    'AlertRuleAnomalyBuiltInSingleSelectObservationArgs',
+    'AlertRuleAnomalyBuiltInThresholdObservationArgs',
     'AlertRuleFusionSourceArgs',
     'AlertRuleFusionSourceSubTypeArgs',
     'AlertRuleNrtAlertDetailsOverrideArgs',
@@ -34,7 +39,350 @@ __all__ = [
     'AutomationRuleActionIncidentArgs',
     'AutomationRuleActionPlaybookArgs',
     'AutomationRuleConditionArgs',
+    'MetadataAuthorArgs',
+    'MetadataCategoryArgs',
+    'MetadataSourceArgs',
+    'MetadataSupportArgs',
 ]
+
+@pulumi.input_type
+class AlertRuleAnomalyBuiltInMultiSelectObservationArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] description: The description of the threshold observation.
+        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_values: A list of supported values of the single select observation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values of the single select observation.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if supported_values is not None:
+            pulumi.set(__self__, "supported_values", supported_values)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="supportedValues")
+    def supported_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of supported values of the single select observation.
+        """
+        return pulumi.get(self, "supported_values")
+
+    @supported_values.setter
+    def supported_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_values", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of values of the single select observation.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 exclude: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 prioritize: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] description: The description of the threshold observation.
+        :param pulumi.Input[str] exclude: The excluded value per `description`.
+        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] prioritize: The prioritized value per `description`.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if prioritize is not None:
+            pulumi.set(__self__, "prioritize", prioritize)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[pulumi.Input[str]]:
+        """
+        The excluded value per `description`.
+        """
+        return pulumi.get(self, "exclude")
+
+    @exclude.setter
+    def exclude(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exclude", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def prioritize(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prioritized value per `description`.
+        """
+        return pulumi.get(self, "prioritize")
+
+    @prioritize.setter
+    def prioritize(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prioritize", value)
+
+
+@pulumi.input_type
+class AlertRuleAnomalyBuiltInRequiredDataConnectorArgs:
+    def __init__(__self__, *,
+                 connector_id: Optional[pulumi.Input[str]] = None,
+                 data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] connector_id: The ID of the required Data Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_types: A list of data types of the required Data Connector.
+        """
+        if connector_id is not None:
+            pulumi.set(__self__, "connector_id", connector_id)
+        if data_types is not None:
+            pulumi.set(__self__, "data_types", data_types)
+
+    @property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the required Data Connector.
+        """
+        return pulumi.get(self, "connector_id")
+
+    @connector_id.setter
+    def connector_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connector_id", value)
+
+    @property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of data types of the required Data Connector.
+        """
+        return pulumi.get(self, "data_types")
+
+    @data_types.setter
+    def data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "data_types", value)
+
+
+@pulumi.input_type
+class AlertRuleAnomalyBuiltInSingleSelectObservationArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] description: The description of the threshold observation.
+        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_values: A list of supported values of the single select observation.
+        :param pulumi.Input[str] value: The value of the threshold observation.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if supported_values is not None:
+            pulumi.set(__self__, "supported_values", supported_values)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="supportedValues")
+    def supported_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of supported values of the single select observation.
+        """
+        return pulumi.get(self, "supported_values")
+
+    @supported_values.setter
+    def supported_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_values", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the threshold observation.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class AlertRuleAnomalyBuiltInThresholdObservationArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 max: Optional[pulumi.Input[str]] = None,
+                 min: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] description: The description of the threshold observation.
+        :param pulumi.Input[str] max: The max value of the threshold observation.
+        :param pulumi.Input[str] min: The min value of the threshold observation.
+        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] value: The value of the threshold observation.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[str]]:
+        """
+        The max value of the threshold observation.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[str]]:
+        """
+        The min value of the threshold observation.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the threshold observation.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class AlertRuleFusionSourceArgs:
@@ -1383,5 +1731,223 @@ class AutomationRuleConditionArgs:
     @property.setter
     def property(self, value: pulumi.Input[str]):
         pulumi.set(self, "property", value)
+
+
+@pulumi.input_type
+class MetadataAuthorArgs:
+    def __init__(__self__, *,
+                 email: Optional[pulumi.Input[str]] = None,
+                 link: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] email: The email address of the author contact.
+        :param pulumi.Input[str] link: The link for author/vendor page.
+        :param pulumi.Input[str] name: The name of the author, company or person.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address of the author contact.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[pulumi.Input[str]]:
+        """
+        The link for author/vendor page.
+        """
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the author, company or person.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class MetadataCategoryArgs:
+    def __init__(__self__, *,
+                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 verticals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: Specifies a list of domains for the solution content item.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] verticals: Specifies a list of industry verticals for the solution content item.
+        """
+        if domains is not None:
+            pulumi.set(__self__, "domains", domains)
+        if verticals is not None:
+            pulumi.set(__self__, "verticals", verticals)
+
+    @property
+    @pulumi.getter
+    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of domains for the solution content item.
+        """
+        return pulumi.get(self, "domains")
+
+    @domains.setter
+    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "domains", value)
+
+    @property
+    @pulumi.getter
+    def verticals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of industry verticals for the solution content item.
+        """
+        return pulumi.get(self, "verticals")
+
+    @verticals.setter
+    def verticals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "verticals", value)
+
+
+@pulumi.input_type
+class MetadataSourceArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+        :param pulumi.Input[str] id: The id of the content source, the solution ID, Log Analytics Workspace name etc.
+        :param pulumi.Input[str] name: The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
+        """
+        pulumi.set(__self__, "kind", kind)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the content source, the solution ID, Log Analytics Workspace name etc.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class MetadataSupportArgs:
+    def __init__(__self__, *,
+                 tier: pulumi.Input[str],
+                 email: Optional[pulumi.Input[str]] = None,
+                 link: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] tier: The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
+        :param pulumi.Input[str] email: The email address of the support contact.
+        :param pulumi.Input[str] link: The link for support help.
+        :param pulumi.Input[str] name: The name of the support contact.
+        """
+        pulumi.set(__self__, "tier", tier)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> pulumi.Input[str]:
+        """
+        The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address of the support contact.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[pulumi.Input[str]]:
+        """
+        The link for support help.
+        """
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the support contact.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 

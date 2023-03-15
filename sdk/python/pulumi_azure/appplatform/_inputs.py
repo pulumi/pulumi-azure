@@ -21,6 +21,7 @@ __all__ = [
     'SpringCloudBuilderStackArgs',
     'SpringCloudConfigurationServiceRepositoryArgs',
     'SpringCloudConnectionAuthenticationArgs',
+    'SpringCloudConnectionSecretStoreArgs',
     'SpringCloudContainerDeploymentQuotaArgs',
     'SpringCloudCustomizedAcceleratorGitRepositoryArgs',
     'SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs',
@@ -842,6 +843,28 @@ class SpringCloudConnectionAuthenticationArgs:
     @subscription_id.setter
     def subscription_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class SpringCloudConnectionSecretStoreArgs:
+    def __init__(__self__, *,
+                 key_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key_vault_id: The key vault id to store secret.
+        """
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> pulumi.Input[str]:
+        """
+        The key vault id to store secret.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_id", value)
 
 
 @pulumi.input_type

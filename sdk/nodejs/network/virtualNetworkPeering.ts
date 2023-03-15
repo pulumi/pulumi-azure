@@ -100,6 +100,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      */
@@ -128,6 +129,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["remoteVirtualNetworkId"] = state ? state.remoteVirtualNetworkId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
             resourceInputs["useRemoteGateways"] = state ? state.useRemoteGateways : undefined;
             resourceInputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
         } else {
@@ -147,6 +149,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["remoteVirtualNetworkId"] = args ? args.remoteVirtualNetworkId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
@@ -183,6 +186,7 @@ export interface VirtualNetworkPeeringState {
      * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      */
@@ -221,6 +225,7 @@ export interface VirtualNetworkPeeringArgs {
      * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      */

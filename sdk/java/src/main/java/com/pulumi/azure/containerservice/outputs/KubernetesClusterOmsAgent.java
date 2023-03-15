@@ -5,9 +5,11 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterOmsAgentOmsAgentIdentity;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,6 +19,11 @@ public final class KubernetesClusterOmsAgent {
      * 
      */
     private String logAnalyticsWorkspaceId;
+    /**
+     * @return Is managed identity authentication for monitoring enabled?
+     * 
+     */
+    private @Nullable Boolean msiAuthForMonitoringEnabled;
     /**
      * @return An `oms_agent_identity` block is exported. The exported attributes are defined below.
      * 
@@ -30,6 +37,13 @@ public final class KubernetesClusterOmsAgent {
      */
     public String logAnalyticsWorkspaceId() {
         return this.logAnalyticsWorkspaceId;
+    }
+    /**
+     * @return Is managed identity authentication for monitoring enabled?
+     * 
+     */
+    public Optional<Boolean> msiAuthForMonitoringEnabled() {
+        return Optional.ofNullable(this.msiAuthForMonitoringEnabled);
     }
     /**
      * @return An `oms_agent_identity` block is exported. The exported attributes are defined below.
@@ -49,17 +63,24 @@ public final class KubernetesClusterOmsAgent {
     @CustomType.Builder
     public static final class Builder {
         private String logAnalyticsWorkspaceId;
+        private @Nullable Boolean msiAuthForMonitoringEnabled;
         private @Nullable List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities;
         public Builder() {}
         public Builder(KubernetesClusterOmsAgent defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logAnalyticsWorkspaceId = defaults.logAnalyticsWorkspaceId;
+    	      this.msiAuthForMonitoringEnabled = defaults.msiAuthForMonitoringEnabled;
     	      this.omsAgentIdentities = defaults.omsAgentIdentities;
         }
 
         @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder msiAuthForMonitoringEnabled(@Nullable Boolean msiAuthForMonitoringEnabled) {
+            this.msiAuthForMonitoringEnabled = msiAuthForMonitoringEnabled;
             return this;
         }
         @CustomType.Setter
@@ -73,6 +94,7 @@ public final class KubernetesClusterOmsAgent {
         public KubernetesClusterOmsAgent build() {
             final var o = new KubernetesClusterOmsAgent();
             o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            o.msiAuthForMonitoringEnabled = msiAuthForMonitoringEnabled;
             o.omsAgentIdentities = omsAgentIdentities;
             return o;
         }

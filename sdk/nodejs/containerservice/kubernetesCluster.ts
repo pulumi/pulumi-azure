@@ -115,7 +115,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly diskEncryptionSetId!: pulumi.Output<string | undefined>;
     /**
-     * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+     * DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
      */
     public readonly dnsPrefix!: pulumi.Output<string | undefined>;
     /**
@@ -231,6 +231,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly nodeResourceGroup!: pulumi.Output<string>;
     /**
+     * The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+     */
+    public /*out*/ readonly nodeResourceGroupId!: pulumi.Output<string>;
+    /**
      * Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
      */
     public readonly oidcIssuerEnabled!: pulumi.Output<boolean | undefined>;
@@ -287,7 +291,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly servicePrincipal!: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      */
     public readonly skuTier!: pulumi.Output<string | undefined>;
     /**
@@ -367,6 +371,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
             resourceInputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
+            resourceInputs["nodeResourceGroupId"] = state ? state.nodeResourceGroupId : undefined;
             resourceInputs["oidcIssuerEnabled"] = state ? state.oidcIssuerEnabled : undefined;
             resourceInputs["oidcIssuerUrl"] = state ? state.oidcIssuerUrl : undefined;
             resourceInputs["omsAgent"] = state ? state.omsAgent : undefined;
@@ -453,6 +458,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["kubeAdminConfigs"] = undefined /*out*/;
             resourceInputs["kubeConfigRaw"] = undefined /*out*/;
             resourceInputs["kubeConfigs"] = undefined /*out*/;
+            resourceInputs["nodeResourceGroupId"] = undefined /*out*/;
             resourceInputs["oidcIssuerUrl"] = undefined /*out*/;
             resourceInputs["portalFqdn"] = undefined /*out*/;
             resourceInputs["privateFqdn"] = undefined /*out*/;
@@ -509,7 +515,7 @@ export interface KubernetesClusterState {
      */
     diskEncryptionSetId?: pulumi.Input<string>;
     /**
-     * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+     * DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
      */
     dnsPrefix?: pulumi.Input<string>;
     /**
@@ -625,6 +631,10 @@ export interface KubernetesClusterState {
      */
     nodeResourceGroup?: pulumi.Input<string>;
     /**
+     * The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+     */
+    nodeResourceGroupId?: pulumi.Input<string>;
+    /**
      * Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
      */
     oidcIssuerEnabled?: pulumi.Input<boolean>;
@@ -681,7 +691,7 @@ export interface KubernetesClusterState {
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -755,7 +765,7 @@ export interface KubernetesClusterArgs {
      */
     diskEncryptionSetId?: pulumi.Input<string>;
     /**
-     * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+     * DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
      */
     dnsPrefix?: pulumi.Input<string>;
     /**
@@ -891,7 +901,7 @@ export interface KubernetesClusterArgs {
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      */
     skuTier?: pulumi.Input<string>;
     /**

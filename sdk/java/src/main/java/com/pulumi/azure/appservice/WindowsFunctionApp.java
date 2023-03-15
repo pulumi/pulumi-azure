@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appservice.WindowsFunctionAppArgs;
 import com.pulumi.azure.appservice.inputs.WindowsFunctionAppState;
 import com.pulumi.azure.appservice.outputs.WindowsFunctionAppAuthSettings;
+import com.pulumi.azure.appservice.outputs.WindowsFunctionAppAuthSettingsV2;
 import com.pulumi.azure.appservice.outputs.WindowsFunctionAppBackup;
 import com.pulumi.azure.appservice.outputs.WindowsFunctionAppConnectionString;
 import com.pulumi.azure.appservice.outputs.WindowsFunctionAppIdentity;
@@ -127,6 +128,20 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<WindowsFunctionAppAuthSettings>> authSettings() {
         return Codegen.optional(this.authSettings);
+    }
+    /**
+     * A `auth_settings_v2` block as defined below.
+     * 
+     */
+    @Export(name="authSettingsV2", type=WindowsFunctionAppAuthSettingsV2.class, parameters={})
+    private Output</* @Nullable */ WindowsFunctionAppAuthSettingsV2> authSettingsV2;
+
+    /**
+     * @return A `auth_settings_v2` block as defined below.
+     * 
+     */
+    public Output<Optional<WindowsFunctionAppAuthSettingsV2>> authSettingsV2() {
+        return Codegen.optional(this.authSettingsV2);
     }
     /**
      * A `backup` block as defined below.

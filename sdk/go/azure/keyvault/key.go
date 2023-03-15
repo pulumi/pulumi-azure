@@ -11,78 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
-//				TenantId:                *pulumi.String(current.TenantId),
-//				SkuName:                 pulumi.String("premium"),
-//				SoftDeleteRetentionDays: pulumi.Int(7),
-//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-//					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: *pulumi.String(current.ObjectId),
-//						KeyPermissions: pulumi.StringArray{
-//							pulumi.String("Create"),
-//							pulumi.String("Get"),
-//							pulumi.String("Purge"),
-//							pulumi.String("Recover"),
-//						},
-//						SecretPermissions: pulumi.StringArray{
-//							pulumi.String("Set"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = keyvault.NewKey(ctx, "generated", &keyvault.KeyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
-//				KeyType:    pulumi.String("RSA"),
-//				KeySize:    pulumi.Int(2048),
-//				KeyOpts: pulumi.StringArray{
-//					pulumi.String("decrypt"),
-//					pulumi.String("encrypt"),
-//					pulumi.String("sign"),
-//					pulumi.String("unwrapKey"),
-//					pulumi.String("verify"),
-//					pulumi.String("wrapKey"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Key Vault Key which is Enabled can be imported using the `resource id`, e.g.
@@ -123,6 +51,8 @@ type Key struct {
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
 	ResourceVersionlessId pulumi.StringOutput `pulumi:"resourceVersionlessId"`
+	// A `rotationPolicy` block as defined below.
+	RotationPolicy KeyRotationPolicyOutput `pulumi:"rotationPolicy"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The current version of the Key Vault Key.
@@ -201,6 +131,8 @@ type keyState struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
 	ResourceVersionlessId *string `pulumi:"resourceVersionlessId"`
+	// A `rotationPolicy` block as defined below.
+	RotationPolicy *KeyRotationPolicy `pulumi:"rotationPolicy"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The current version of the Key Vault Key.
@@ -242,6 +174,8 @@ type KeyState struct {
 	ResourceId pulumi.StringPtrInput
 	// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
 	ResourceVersionlessId pulumi.StringPtrInput
+	// A `rotationPolicy` block as defined below.
+	RotationPolicy KeyRotationPolicyPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The current version of the Key Vault Key.
@@ -275,6 +209,8 @@ type keyArgs struct {
 	Name *string `pulumi:"name"`
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 	NotBeforeDate *string `pulumi:"notBeforeDate"`
+	// A `rotationPolicy` block as defined below.
+	RotationPolicy *KeyRotationPolicy `pulumi:"rotationPolicy"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -297,6 +233,8 @@ type KeyArgs struct {
 	Name pulumi.StringPtrInput
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 	NotBeforeDate pulumi.StringPtrInput
+	// A `rotationPolicy` block as defined below.
+	RotationPolicy KeyRotationPolicyPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -456,6 +394,11 @@ func (o KeyOutput) ResourceId() pulumi.StringOutput {
 // The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
 func (o KeyOutput) ResourceVersionlessId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.ResourceVersionlessId }).(pulumi.StringOutput)
+}
+
+// A `rotationPolicy` block as defined below.
+func (o KeyOutput) RotationPolicy() KeyRotationPolicyOutput {
+	return o.ApplyT(func(v *Key) KeyRotationPolicyOutput { return v.RotationPolicy }).(KeyRotationPolicyOutput)
 }
 
 // A mapping of tags to assign to the resource.

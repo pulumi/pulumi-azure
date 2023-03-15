@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyVMInstantRestoreResourceGroup {
+    /**
+     * @return The prefix for the `instant_restore_resource_group` name.
+     * 
+     */
     private String prefix;
+    /**
+     * @return The suffix for the `instant_restore_resource_group` name.
+     * 
+     */
     private @Nullable String suffix;
 
     private PolicyVMInstantRestoreResourceGroup() {}
+    /**
+     * @return The prefix for the `instant_restore_resource_group` name.
+     * 
+     */
     public String prefix() {
         return this.prefix;
     }
+    /**
+     * @return The suffix for the `instant_restore_resource_group` name.
+     * 
+     */
     public Optional<String> suffix() {
         return Optional.ofNullable(this.suffix);
     }

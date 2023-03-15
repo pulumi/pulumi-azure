@@ -1042,7 +1042,9 @@ func (o PolicyVMBackupPtrOutput) Weekdays() pulumi.StringArrayOutput {
 }
 
 type PolicyVMInstantRestoreResourceGroup struct {
-	Prefix string  `pulumi:"prefix"`
+	// The prefix for the `instantRestoreResourceGroup` name.
+	Prefix string `pulumi:"prefix"`
+	// The suffix for the `instantRestoreResourceGroup` name.
 	Suffix *string `pulumi:"suffix"`
 }
 
@@ -1058,7 +1060,9 @@ type PolicyVMInstantRestoreResourceGroupInput interface {
 }
 
 type PolicyVMInstantRestoreResourceGroupArgs struct {
-	Prefix pulumi.StringInput    `pulumi:"prefix"`
+	// The prefix for the `instantRestoreResourceGroup` name.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// The suffix for the `instantRestoreResourceGroup` name.
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
@@ -1139,10 +1143,12 @@ func (o PolicyVMInstantRestoreResourceGroupOutput) ToPolicyVMInstantRestoreResou
 	}).(PolicyVMInstantRestoreResourceGroupPtrOutput)
 }
 
+// The prefix for the `instantRestoreResourceGroup` name.
 func (o PolicyVMInstantRestoreResourceGroupOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyVMInstantRestoreResourceGroup) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
+// The suffix for the `instantRestoreResourceGroup` name.
 func (o PolicyVMInstantRestoreResourceGroupOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyVMInstantRestoreResourceGroup) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -1171,6 +1177,7 @@ func (o PolicyVMInstantRestoreResourceGroupPtrOutput) Elem() PolicyVMInstantRest
 	}).(PolicyVMInstantRestoreResourceGroupOutput)
 }
 
+// The prefix for the `instantRestoreResourceGroup` name.
 func (o PolicyVMInstantRestoreResourceGroupPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyVMInstantRestoreResourceGroup) *string {
 		if v == nil {
@@ -1180,6 +1187,7 @@ func (o PolicyVMInstantRestoreResourceGroupPtrOutput) Prefix() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The suffix for the `instantRestoreResourceGroup` name.
 func (o PolicyVMInstantRestoreResourceGroupPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyVMInstantRestoreResourceGroup) *string {
 		if v == nil {

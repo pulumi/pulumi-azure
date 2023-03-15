@@ -709,7 +709,7 @@ class AccountNetworkRulesArgs:
         """
         :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]] private_link_accesses: One or More `private_link_access` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of resource ids for subnets.
         """
@@ -751,7 +751,7 @@ class AccountNetworkRulesArgs:
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
         """
         return pulumi.get(self, "ip_rules")
 
@@ -2272,6 +2272,7 @@ class ManagementPolicyRuleActionsArgs:
 @pulumi.input_type
 class ManagementPolicyRuleActionsBaseBlobArgs:
     def __init__(__self__, *,
+                 auto_tier_to_hot_from_cool_enabled: Optional[pulumi.Input[bool]] = None,
                  delete_after_days_since_creation_greater_than: Optional[pulumi.Input[int]] = None,
                  delete_after_days_since_last_access_time_greater_than: Optional[pulumi.Input[int]] = None,
                  delete_after_days_since_modification_greater_than: Optional[pulumi.Input[int]] = None,
@@ -2283,6 +2284,7 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
                  tier_to_cool_after_days_since_last_access_time_greater_than: Optional[pulumi.Input[int]] = None,
                  tier_to_cool_after_days_since_modification_greater_than: Optional[pulumi.Input[int]] = None):
         """
+        :param pulumi.Input[bool] auto_tier_to_hot_from_cool_enabled: Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
         :param pulumi.Input[int] delete_after_days_since_creation_greater_than: The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
         :param pulumi.Input[int] delete_after_days_since_last_access_time_greater_than: The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
         :param pulumi.Input[int] delete_after_days_since_modification_greater_than: The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
@@ -2294,6 +2296,8 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
         :param pulumi.Input[int] tier_to_cool_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         :param pulumi.Input[int] tier_to_cool_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
         """
+        if auto_tier_to_hot_from_cool_enabled is not None:
+            pulumi.set(__self__, "auto_tier_to_hot_from_cool_enabled", auto_tier_to_hot_from_cool_enabled)
         if delete_after_days_since_creation_greater_than is not None:
             pulumi.set(__self__, "delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
         if delete_after_days_since_last_access_time_greater_than is not None:
@@ -2314,6 +2318,18 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
             pulumi.set(__self__, "tier_to_cool_after_days_since_last_access_time_greater_than", tier_to_cool_after_days_since_last_access_time_greater_than)
         if tier_to_cool_after_days_since_modification_greater_than is not None:
             pulumi.set(__self__, "tier_to_cool_after_days_since_modification_greater_than", tier_to_cool_after_days_since_modification_greater_than)
+
+    @property
+    @pulumi.getter(name="autoTierToHotFromCoolEnabled")
+    def auto_tier_to_hot_from_cool_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_tier_to_hot_from_cool_enabled")
+
+    @auto_tier_to_hot_from_cool_enabled.setter
+    def auto_tier_to_hot_from_cool_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_tier_to_hot_from_cool_enabled", value)
 
     @property
     @pulumi.getter(name="deleteAfterDaysSinceCreationGreaterThan")

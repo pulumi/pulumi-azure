@@ -623,9 +623,11 @@ func (o AppIngressPtrOutput) Transport() pulumi.StringPtrOutput {
 }
 
 type AppIngressCustomDomain struct {
+	// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
 	CertificateBindingType *string `pulumi:"certificateBindingType"`
-	CertificateId          string  `pulumi:"certificateId"`
-	// The name for this Container App. Changing this forces a new resource to be created.
+	// The ID of the Container App Environment Certificate.
+	CertificateId string `pulumi:"certificateId"`
+	// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
 	Name string `pulumi:"name"`
 }
 
@@ -641,9 +643,11 @@ type AppIngressCustomDomainInput interface {
 }
 
 type AppIngressCustomDomainArgs struct {
+	// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
 	CertificateBindingType pulumi.StringPtrInput `pulumi:"certificateBindingType"`
-	CertificateId          pulumi.StringInput    `pulumi:"certificateId"`
-	// The name for this Container App. Changing this forces a new resource to be created.
+	// The ID of the Container App Environment Certificate.
+	CertificateId pulumi.StringInput `pulumi:"certificateId"`
+	// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -724,15 +728,17 @@ func (o AppIngressCustomDomainOutput) ToAppIngressCustomDomainPtrOutputWithConte
 	}).(AppIngressCustomDomainPtrOutput)
 }
 
+// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
 func (o AppIngressCustomDomainOutput) CertificateBindingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIngressCustomDomain) *string { return v.CertificateBindingType }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Container App Environment Certificate.
 func (o AppIngressCustomDomainOutput) CertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppIngressCustomDomain) string { return v.CertificateId }).(pulumi.StringOutput)
 }
 
-// The name for this Container App. Changing this forces a new resource to be created.
+// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
 func (o AppIngressCustomDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppIngressCustomDomain) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -761,6 +767,7 @@ func (o AppIngressCustomDomainPtrOutput) Elem() AppIngressCustomDomainOutput {
 	}).(AppIngressCustomDomainOutput)
 }
 
+// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
 func (o AppIngressCustomDomainPtrOutput) CertificateBindingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppIngressCustomDomain) *string {
 		if v == nil {
@@ -770,6 +777,7 @@ func (o AppIngressCustomDomainPtrOutput) CertificateBindingType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Container App Environment Certificate.
 func (o AppIngressCustomDomainPtrOutput) CertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppIngressCustomDomain) *string {
 		if v == nil {
@@ -779,7 +787,7 @@ func (o AppIngressCustomDomainPtrOutput) CertificateId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name for this Container App. Changing this forces a new resource to be created.
+// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
 func (o AppIngressCustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppIngressCustomDomain) *string {
 		if v == nil {

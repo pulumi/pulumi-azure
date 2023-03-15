@@ -1580,6 +1580,200 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type ManagedDatabaseLongTermRetentionPolicy struct {
+	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+	MonthlyRetention *string `pulumi:"monthlyRetention"`
+	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
+	WeekOfYear *int `pulumi:"weekOfYear"`
+	// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+	WeeklyRetention *string `pulumi:"weeklyRetention"`
+	// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+	YearlyRetention *string `pulumi:"yearlyRetention"`
+}
+
+// ManagedDatabaseLongTermRetentionPolicyInput is an input type that accepts ManagedDatabaseLongTermRetentionPolicyArgs and ManagedDatabaseLongTermRetentionPolicyOutput values.
+// You can construct a concrete instance of `ManagedDatabaseLongTermRetentionPolicyInput` via:
+//
+//	ManagedDatabaseLongTermRetentionPolicyArgs{...}
+type ManagedDatabaseLongTermRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToManagedDatabaseLongTermRetentionPolicyOutput() ManagedDatabaseLongTermRetentionPolicyOutput
+	ToManagedDatabaseLongTermRetentionPolicyOutputWithContext(context.Context) ManagedDatabaseLongTermRetentionPolicyOutput
+}
+
+type ManagedDatabaseLongTermRetentionPolicyArgs struct {
+	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+	MonthlyRetention pulumi.StringPtrInput `pulumi:"monthlyRetention"`
+	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
+	WeekOfYear pulumi.IntPtrInput `pulumi:"weekOfYear"`
+	// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+	WeeklyRetention pulumi.StringPtrInput `pulumi:"weeklyRetention"`
+	// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+	YearlyRetention pulumi.StringPtrInput `pulumi:"yearlyRetention"`
+}
+
+func (ManagedDatabaseLongTermRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (i ManagedDatabaseLongTermRetentionPolicyArgs) ToManagedDatabaseLongTermRetentionPolicyOutput() ManagedDatabaseLongTermRetentionPolicyOutput {
+	return i.ToManagedDatabaseLongTermRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i ManagedDatabaseLongTermRetentionPolicyArgs) ToManagedDatabaseLongTermRetentionPolicyOutputWithContext(ctx context.Context) ManagedDatabaseLongTermRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseLongTermRetentionPolicyOutput)
+}
+
+func (i ManagedDatabaseLongTermRetentionPolicyArgs) ToManagedDatabaseLongTermRetentionPolicyPtrOutput() ManagedDatabaseLongTermRetentionPolicyPtrOutput {
+	return i.ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDatabaseLongTermRetentionPolicyArgs) ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx context.Context) ManagedDatabaseLongTermRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseLongTermRetentionPolicyOutput).ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// ManagedDatabaseLongTermRetentionPolicyPtrInput is an input type that accepts ManagedDatabaseLongTermRetentionPolicyArgs, ManagedDatabaseLongTermRetentionPolicyPtr and ManagedDatabaseLongTermRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `ManagedDatabaseLongTermRetentionPolicyPtrInput` via:
+//
+//	        ManagedDatabaseLongTermRetentionPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDatabaseLongTermRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToManagedDatabaseLongTermRetentionPolicyPtrOutput() ManagedDatabaseLongTermRetentionPolicyPtrOutput
+	ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(context.Context) ManagedDatabaseLongTermRetentionPolicyPtrOutput
+}
+
+type managedDatabaseLongTermRetentionPolicyPtrType ManagedDatabaseLongTermRetentionPolicyArgs
+
+func ManagedDatabaseLongTermRetentionPolicyPtr(v *ManagedDatabaseLongTermRetentionPolicyArgs) ManagedDatabaseLongTermRetentionPolicyPtrInput {
+	return (*managedDatabaseLongTermRetentionPolicyPtrType)(v)
+}
+
+func (*managedDatabaseLongTermRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (i *managedDatabaseLongTermRetentionPolicyPtrType) ToManagedDatabaseLongTermRetentionPolicyPtrOutput() ManagedDatabaseLongTermRetentionPolicyPtrOutput {
+	return i.ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDatabaseLongTermRetentionPolicyPtrType) ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx context.Context) ManagedDatabaseLongTermRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseLongTermRetentionPolicyPtrOutput)
+}
+
+type ManagedDatabaseLongTermRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (ManagedDatabaseLongTermRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (o ManagedDatabaseLongTermRetentionPolicyOutput) ToManagedDatabaseLongTermRetentionPolicyOutput() ManagedDatabaseLongTermRetentionPolicyOutput {
+	return o
+}
+
+func (o ManagedDatabaseLongTermRetentionPolicyOutput) ToManagedDatabaseLongTermRetentionPolicyOutputWithContext(ctx context.Context) ManagedDatabaseLongTermRetentionPolicyOutput {
+	return o
+}
+
+func (o ManagedDatabaseLongTermRetentionPolicyOutput) ToManagedDatabaseLongTermRetentionPolicyPtrOutput() ManagedDatabaseLongTermRetentionPolicyPtrOutput {
+	return o.ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDatabaseLongTermRetentionPolicyOutput) ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx context.Context) ManagedDatabaseLongTermRetentionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDatabaseLongTermRetentionPolicy) *ManagedDatabaseLongTermRetentionPolicy {
+		return &v
+	}).(ManagedDatabaseLongTermRetentionPolicyPtrOutput)
+}
+
+// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+func (o ManagedDatabaseLongTermRetentionPolicyOutput) MonthlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *string { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
+}
+
+// The week of year to take the yearly backup. Value has to be between `1` and `52`.
+func (o ManagedDatabaseLongTermRetentionPolicyOutput) WeekOfYear() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *int { return v.WeekOfYear }).(pulumi.IntPtrOutput)
+}
+
+// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+func (o ManagedDatabaseLongTermRetentionPolicyOutput) WeeklyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *string { return v.WeeklyRetention }).(pulumi.StringPtrOutput)
+}
+
+// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+func (o ManagedDatabaseLongTermRetentionPolicyOutput) YearlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *string { return v.YearlyRetention }).(pulumi.StringPtrOutput)
+}
+
+type ManagedDatabaseLongTermRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDatabaseLongTermRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) ToManagedDatabaseLongTermRetentionPolicyPtrOutput() ManagedDatabaseLongTermRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx context.Context) ManagedDatabaseLongTermRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) Elem() ManagedDatabaseLongTermRetentionPolicyOutput {
+	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) ManagedDatabaseLongTermRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDatabaseLongTermRetentionPolicy
+		return ret
+	}).(ManagedDatabaseLongTermRetentionPolicyOutput)
+}
+
+// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) MonthlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MonthlyRetention
+	}).(pulumi.StringPtrOutput)
+}
+
+// The week of year to take the yearly backup. Value has to be between `1` and `52`.
+func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) WeekOfYear() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WeekOfYear
+	}).(pulumi.IntPtrOutput)
+}
+
+// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) WeeklyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WeeklyRetention
+	}).(pulumi.StringPtrOutput)
+}
+
+// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) YearlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.YearlyRetention
+	}).(pulumi.StringPtrOutput)
+}
+
 type ManagedInstanceFailoverGroupPartnerRegion struct {
 	// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -5419,6 +5613,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupPartnerServerArrayInput)(nil)).Elem(), FailoverGroupPartnerServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseLongTermRetentionPolicyInput)(nil)).Elem(), ManagedDatabaseLongTermRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseLongTermRetentionPolicyPtrInput)(nil)).Elem(), ManagedDatabaseLongTermRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegionInput)(nil)).Elem(), ManagedInstanceFailoverGroupPartnerRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegionArrayInput)(nil)).Elem(), ManagedInstanceFailoverGroupPartnerRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{})
@@ -5479,6 +5675,8 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupPartnerServerArrayOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDatabaseLongTermRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(ManagedDatabaseLongTermRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupPartnerRegionOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupPartnerRegionArrayOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput{})

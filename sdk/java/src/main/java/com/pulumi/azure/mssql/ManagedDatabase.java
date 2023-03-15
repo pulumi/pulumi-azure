@@ -6,11 +6,14 @@ package com.pulumi.azure.mssql;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mssql.ManagedDatabaseArgs;
 import com.pulumi.azure.mssql.inputs.ManagedDatabaseState;
+import com.pulumi.azure.mssql.outputs.ManagedDatabaseLongTermRetentionPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -94,6 +97,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:mssql/managedDatabase:ManagedDatabase")
 public class ManagedDatabase extends com.pulumi.resources.CustomResource {
     /**
+     * A `long_term_retention_policy` block as defined below.
+     * 
+     */
+    @Export(name="longTermRetentionPolicy", type=ManagedDatabaseLongTermRetentionPolicy.class, parameters={})
+    private Output<ManagedDatabaseLongTermRetentionPolicy> longTermRetentionPolicy;
+
+    /**
+     * @return A `long_term_retention_policy` block as defined below.
+     * 
+     */
+    public Output<ManagedDatabaseLongTermRetentionPolicy> longTermRetentionPolicy() {
+        return this.longTermRetentionPolicy;
+    }
+    /**
      * The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
      * 
      */
@@ -120,6 +137,20 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+     * 
+     */
+    @Export(name="shortTermRetentionDays", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> shortTermRetentionDays;
+
+    /**
+     * @return The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+     * 
+     */
+    public Output<Optional<Integer>> shortTermRetentionDays() {
+        return Codegen.optional(this.shortTermRetentionDays);
     }
 
     /**

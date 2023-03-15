@@ -35,18 +35,19 @@ import (
 //				return err
 //			}
 //			_, err = mariadb.NewServer(ctx, "exampleServer", &mariadb.ServerArgs{
-//				Location:                   exampleResourceGroup.Location,
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				AdministratorLogin:         pulumi.String("mariadbadmin"),
-//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-//				SkuName:                    pulumi.String("B_Gen5_2"),
-//				StorageMb:                  pulumi.Int(5120),
-//				Version:                    pulumi.String("10.2"),
-//				AutoGrowEnabled:            pulumi.Bool(true),
-//				BackupRetentionDays:        pulumi.Int(7),
-//				GeoRedundantBackupEnabled:  pulumi.Bool(false),
-//				PublicNetworkAccessEnabled: pulumi.Bool(false),
-//				SslEnforcementEnabled:      pulumi.Bool(true),
+//				Location:                     exampleResourceGroup.Location,
+//				ResourceGroupName:            exampleResourceGroup.Name,
+//				AdministratorLogin:           pulumi.String("mariadbadmin"),
+//				AdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+//				SkuName:                      pulumi.String("B_Gen5_2"),
+//				StorageMb:                    pulumi.Int(5120),
+//				Version:                      pulumi.String("10.2"),
+//				AutoGrowEnabled:              pulumi.Bool(true),
+//				BackupRetentionDays:          pulumi.Int(7),
+//				GeoRedundantBackupEnabled:    pulumi.Bool(false),
+//				PublicNetworkAccessEnabled:   pulumi.Bool(false),
+//				SslEnforcementEnabled:        pulumi.Bool(true),
+//				SslMinimalTlsVersionEnforced: pulumi.String("TLS1_2"),
 //			})
 //			if err != nil {
 //				return err
@@ -99,6 +100,8 @@ type Server struct {
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled pulumi.BoolOutput `pulumi:"sslEnforcementEnabled"`
+	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+	SslMinimalTlsVersionEnforced pulumi.StringPtrOutput `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
 	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
 	// A mapping of tags to assign to the resource.
@@ -185,6 +188,8 @@ type serverState struct {
 	SkuName *string `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled *bool `pulumi:"sslEnforcementEnabled"`
+	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+	SslMinimalTlsVersionEnforced *string `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
 	StorageMb *int `pulumi:"storageMb"`
 	// A mapping of tags to assign to the resource.
@@ -224,6 +229,8 @@ type ServerState struct {
 	SkuName pulumi.StringPtrInput
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled pulumi.BoolPtrInput
+	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+	SslMinimalTlsVersionEnforced pulumi.StringPtrInput
 	// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
 	StorageMb pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
@@ -265,6 +272,8 @@ type serverArgs struct {
 	SkuName string `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled bool `pulumi:"sslEnforcementEnabled"`
+	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+	SslMinimalTlsVersionEnforced *string `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
 	StorageMb *int `pulumi:"storageMb"`
 	// A mapping of tags to assign to the resource.
@@ -303,6 +312,8 @@ type ServerArgs struct {
 	SkuName pulumi.StringInput
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled pulumi.BoolInput
+	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+	SslMinimalTlsVersionEnforced pulumi.StringPtrInput
 	// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
 	StorageMb pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
@@ -471,6 +482,11 @@ func (o ServerOutput) SkuName() pulumi.StringOutput {
 // Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 func (o ServerOutput) SslEnforcementEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolOutput { return v.SslEnforcementEnabled }).(pulumi.BoolOutput)
+}
+
+// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+func (o ServerOutput) SslMinimalTlsVersionEnforced() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SslMinimalTlsVersionEnforced }).(pulumi.StringPtrOutput)
 }
 
 // Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).

@@ -249,14 +249,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.diskEncryptionSetId);
     }
     /**
-     * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+     * DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dnsPrefix", type=String.class, parameters={})
     private Output</* @Nullable */ String> dnsPrefix;
 
     /**
-     * @return DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+     * @return DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> dnsPrefix() {
@@ -653,6 +653,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.nodeResourceGroup;
     }
     /**
+     * The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+     * 
+     */
+    @Export(name="nodeResourceGroupId", type=String.class, parameters={})
+    private Output<String> nodeResourceGroupId;
+
+    /**
+     * @return The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+     * 
+     */
+    public Output<String> nodeResourceGroupId() {
+        return this.nodeResourceGroupId;
+    }
+    /**
      * Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
      * 
      */
@@ -849,14 +863,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.servicePrincipal);
     }
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      * 
      */
     @Export(name="skuTier", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuTier;
 
     /**
-     * @return The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     * @return The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      * 
      */
     public Output<Optional<String>> skuTier() {

@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<string?> CosmosdbKeyVaultKeyVersionlessId { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+        /// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
         /// </summary>
         [Output("cosmosdbThroughput")]
         public Output<int?> CosmosdbThroughput { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? CosmosdbKeyVaultKeyVersionlessId { get; set; }
 
         /// <summary>
-        /// The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+        /// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
         /// </summary>
         [Input("cosmosdbThroughput")]
         public Input<int>? CosmosdbThroughput { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? CosmosdbKeyVaultKeyVersionlessId { get; set; }
 
         /// <summary>
-        /// The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+        /// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
         /// </summary>
         [Input("cosmosdbThroughput")]
         public Input<int>? CosmosdbThroughput { get; set; }

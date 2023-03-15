@@ -37,9 +37,17 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.backup);
     }
 
+    /**
+     * Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+     * 
+     */
     @Import(name="instantRestoreResourceGroup")
     private @Nullable Output<PolicyVMInstantRestoreResourceGroupArgs> instantRestoreResourceGroup;
 
+    /**
+     * @return Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+     * 
+     */
     public Optional<Output<PolicyVMInstantRestoreResourceGroupArgs>> instantRestoreResourceGroup() {
         return Optional.ofNullable(this.instantRestoreResourceGroup);
     }
@@ -250,11 +258,23 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
             return backup(Output.of(backup));
         }
 
+        /**
+         * @param instantRestoreResourceGroup Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instantRestoreResourceGroup(@Nullable Output<PolicyVMInstantRestoreResourceGroupArgs> instantRestoreResourceGroup) {
             $.instantRestoreResourceGroup = instantRestoreResourceGroup;
             return this;
         }
 
+        /**
+         * @param instantRestoreResourceGroup Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instantRestoreResourceGroup(PolicyVMInstantRestoreResourceGroupArgs instantRestoreResourceGroup) {
             return instantRestoreResourceGroup(Output.of(instantRestoreResourceGroup));
         }

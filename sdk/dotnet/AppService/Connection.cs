@@ -128,6 +128,12 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// An option to store secret value in secure place. An `secret_store` block as defined below.
+        /// </summary>
+        [Output("secretStore")]
+        public Output<Outputs.ConnectionSecretStore?> SecretStore { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
         /// </summary>
         [Output("targetResourceId")]
@@ -210,6 +216,12 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// An option to store secret value in secure place. An `secret_store` block as defined below.
+        /// </summary>
+        [Input("secretStore")]
+        public Input<Inputs.ConnectionSecretStoreArgs>? SecretStore { get; set; }
+
+        /// <summary>
         /// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
         /// </summary>
         [Input("targetResourceId", required: true)]
@@ -252,6 +264,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An option to store secret value in secure place. An `secret_store` block as defined below.
+        /// </summary>
+        [Input("secretStore")]
+        public Input<Inputs.ConnectionSecretStoreGetArgs>? SecretStore { get; set; }
 
         /// <summary>
         /// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.

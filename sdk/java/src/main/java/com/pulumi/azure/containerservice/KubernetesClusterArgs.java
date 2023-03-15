@@ -197,14 +197,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+     * DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dnsPrefix")
     private @Nullable Output<String> dnsPrefix;
 
     /**
-     * @return DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+     * @return DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> dnsPrefix() {
@@ -711,14 +711,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      * 
      */
     @Import(name="skuTier")
     private @Nullable Output<String> skuTier;
 
     /**
-     * @return The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     * @return The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      * 
      */
     public Optional<Output<String>> skuTier() {
@@ -1116,7 +1116,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dnsPrefix DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+         * @param dnsPrefix DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1127,7 +1127,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dnsPrefix DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+         * @param dnsPrefix DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1834,7 +1834,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
          * 
          * @return builder
          * 
@@ -1845,7 +1845,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
          * 
          * @return builder
          * 

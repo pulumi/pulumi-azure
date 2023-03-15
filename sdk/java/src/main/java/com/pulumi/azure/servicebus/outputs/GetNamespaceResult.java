@@ -40,6 +40,11 @@ public final class GetNamespaceResult {
      */
     private String defaultSecondaryKey;
     /**
+     * @return The URL to access the ServiceBus Namespace.
+     * 
+     */
+    private String endpoint;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -106,6 +111,13 @@ public final class GetNamespaceResult {
         return this.defaultSecondaryKey;
     }
     /**
+     * @return The URL to access the ServiceBus Namespace.
+     * 
+     */
+    public String endpoint() {
+        return this.endpoint;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -161,6 +173,7 @@ public final class GetNamespaceResult {
         private String defaultPrimaryKey;
         private String defaultSecondaryConnectionString;
         private String defaultSecondaryKey;
+        private String endpoint;
         private String id;
         private String location;
         private String name;
@@ -176,6 +189,7 @@ public final class GetNamespaceResult {
     	      this.defaultPrimaryKey = defaults.defaultPrimaryKey;
     	      this.defaultSecondaryConnectionString = defaults.defaultSecondaryConnectionString;
     	      this.defaultSecondaryKey = defaults.defaultSecondaryKey;
+    	      this.endpoint = defaults.endpoint;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
@@ -208,6 +222,11 @@ public final class GetNamespaceResult {
         @CustomType.Setter
         public Builder defaultSecondaryKey(String defaultSecondaryKey) {
             this.defaultSecondaryKey = Objects.requireNonNull(defaultSecondaryKey);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpoint(String endpoint) {
+            this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
         @CustomType.Setter
@@ -252,6 +271,7 @@ public final class GetNamespaceResult {
             o.defaultPrimaryKey = defaultPrimaryKey;
             o.defaultSecondaryConnectionString = defaultSecondaryConnectionString;
             o.defaultSecondaryKey = defaultSecondaryKey;
+            o.endpoint = endpoint;
             o.id = id;
             o.location = location;
             o.name = name;

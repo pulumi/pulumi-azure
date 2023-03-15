@@ -13,6 +13,36 @@ namespace Pulumi.Azure.Media.Inputs
     public sealed class StreamingPolicyCommonEncryptionCencArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        /// </summary>
+        [Input("clearKeyEncryption")]
+        public Input<Inputs.StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs>? ClearKeyEncryption { get; set; }
+
+        [Input("clearTracks")]
+        private InputList<Inputs.StreamingPolicyCommonEncryptionCencClearTrackArgs>? _clearTracks;
+
+        /// <summary>
+        /// One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        /// </summary>
+        public InputList<Inputs.StreamingPolicyCommonEncryptionCencClearTrackArgs> ClearTracks
+        {
+            get => _clearTracks ?? (_clearTracks = new InputList<Inputs.StreamingPolicyCommonEncryptionCencClearTrackArgs>());
+            set => _clearTracks = value;
+        }
+
+        [Input("contentKeyToTrackMappings")]
+        private InputList<Inputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs>? _contentKeyToTrackMappings;
+
+        /// <summary>
+        /// One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        /// </summary>
+        public InputList<Inputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs> ContentKeyToTrackMappings
+        {
+            get => _contentKeyToTrackMappings ?? (_contentKeyToTrackMappings = new InputList<Inputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs>());
+            set => _contentKeyToTrackMappings = value;
+        }
+
+        /// <summary>
         /// A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
         /// </summary>
         [Input("defaultContentKey")]
@@ -25,7 +55,7 @@ namespace Pulumi.Azure.Media.Inputs
         public Input<Inputs.StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs>? DrmPlayready { get; set; }
 
         /// <summary>
-        /// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+        /// The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
         /// </summary>
         [Input("drmWidevineCustomLicenseAcquisitionUrlTemplate")]
         public Input<string>? DrmWidevineCustomLicenseAcquisitionUrlTemplate { get; set; }

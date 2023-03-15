@@ -5130,6 +5130,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mobile/networkDataNetwork",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/networkDataNetwork:NetworkDataNetwork": "NetworkDataNetwork"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mobile/networkService",
   "fqn": "pulumi_azure.mobile",
   "classes": {
@@ -6954,6 +6962,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "sentinel/alertRuleAnomalyBuiltIn",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn": "AlertRuleAnomalyBuiltIn"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "sentinel/alertRuleFusion",
   "fqn": "pulumi_azure.sentinel",
   "classes": {
@@ -6990,6 +7006,14 @@ _utilities.register(
   "fqn": "pulumi_azure.sentinel",
   "classes": {
    "azure:sentinel/alertRuleScheduled:AlertRuleScheduled": "AlertRuleScheduled"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sentinel/alertRuleThreatIntelligence",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/alertRuleThreatIntelligence:AlertRuleThreatIntelligence": "AlertRuleThreatIntelligence"
   }
  },
  {
@@ -7158,6 +7182,14 @@ _utilities.register(
   "fqn": "pulumi_azure.sentinel",
   "classes": {
    "azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding": "LogAnalyticsWorkspaceOnboarding"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sentinel/metadata",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/metadata:Metadata": "Metadata"
   }
  },
  {

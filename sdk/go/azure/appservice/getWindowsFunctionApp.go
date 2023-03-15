@@ -62,6 +62,8 @@ type LookupWindowsFunctionAppResult struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings []GetWindowsFunctionAppAuthSetting `pulumi:"authSettings"`
+	// A `authSettingsV2` block as defined below.
+	AuthSettingsV2s []GetWindowsFunctionAppAuthSettingsV2 `pulumi:"authSettingsV2s"`
 	// A `backup` block as defined below.
 	Backups []GetWindowsFunctionAppBackup `pulumi:"backups"`
 	// Is the built-in logging enabled?
@@ -177,6 +179,11 @@ func (o LookupWindowsFunctionAppResultOutput) AppSettings() pulumi.StringMapOutp
 // A `authSettings` block as defined below.
 func (o LookupWindowsFunctionAppResultOutput) AuthSettings() GetWindowsFunctionAppAuthSettingArrayOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) []GetWindowsFunctionAppAuthSetting { return v.AuthSettings }).(GetWindowsFunctionAppAuthSettingArrayOutput)
+}
+
+// A `authSettingsV2` block as defined below.
+func (o LookupWindowsFunctionAppResultOutput) AuthSettingsV2s() GetWindowsFunctionAppAuthSettingsV2ArrayOutput {
+	return o.ApplyT(func(v LookupWindowsFunctionAppResult) []GetWindowsFunctionAppAuthSettingsV2 { return v.AuthSettingsV2s }).(GetWindowsFunctionAppAuthSettingsV2ArrayOutput)
 }
 
 // A `backup` block as defined below.

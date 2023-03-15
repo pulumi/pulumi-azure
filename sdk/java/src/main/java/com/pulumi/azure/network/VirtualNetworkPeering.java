@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -174,6 +175,12 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    @Export(name="triggers", type=Map.class, parameters={String.class, String.class})
+    private Output</* @Nullable */ Map<String,String>> triggers;
+
+    public Output<Optional<Map<String,String>>> triggers() {
+        return Codegen.optional(this.triggers);
     }
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.

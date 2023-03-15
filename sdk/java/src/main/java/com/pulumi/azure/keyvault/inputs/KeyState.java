@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.keyvault.inputs;
 
+import com.pulumi.azure.keyvault.inputs.KeyRotationPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -229,6 +230,21 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `rotation_policy` block as defined below.
+     * 
+     */
+    @Import(name="rotationPolicy")
+    private @Nullable Output<KeyRotationPolicyArgs> rotationPolicy;
+
+    /**
+     * @return A `rotation_policy` block as defined below.
+     * 
+     */
+    public Optional<Output<KeyRotationPolicyArgs>> rotationPolicy() {
+        return Optional.ofNullable(this.rotationPolicy);
+    }
+
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -320,6 +336,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         this.publicKeyPem = $.publicKeyPem;
         this.resourceId = $.resourceId;
         this.resourceVersionlessId = $.resourceVersionlessId;
+        this.rotationPolicy = $.rotationPolicy;
         this.tags = $.tags;
         this.version = $.version;
         this.versionlessId = $.versionlessId;
@@ -647,6 +664,27 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceVersionlessId(String resourceVersionlessId) {
             return resourceVersionlessId(Output.of(resourceVersionlessId));
+        }
+
+        /**
+         * @param rotationPolicy A `rotation_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotationPolicy(@Nullable Output<KeyRotationPolicyArgs> rotationPolicy) {
+            $.rotationPolicy = rotationPolicy;
+            return this;
+        }
+
+        /**
+         * @param rotationPolicy A `rotation_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotationPolicy(KeyRotationPolicyArgs rotationPolicy) {
+            return rotationPolicy(Output.of(rotationPolicy));
         }
 
         /**

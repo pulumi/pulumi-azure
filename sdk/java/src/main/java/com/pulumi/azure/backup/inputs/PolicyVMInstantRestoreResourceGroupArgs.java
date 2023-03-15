@@ -15,16 +15,32 @@ public final class PolicyVMInstantRestoreResourceGroupArgs extends com.pulumi.re
 
     public static final PolicyVMInstantRestoreResourceGroupArgs Empty = new PolicyVMInstantRestoreResourceGroupArgs();
 
+    /**
+     * The prefix for the `instant_restore_resource_group` name.
+     * 
+     */
     @Import(name="prefix", required=true)
     private Output<String> prefix;
 
+    /**
+     * @return The prefix for the `instant_restore_resource_group` name.
+     * 
+     */
     public Output<String> prefix() {
         return this.prefix;
     }
 
+    /**
+     * The suffix for the `instant_restore_resource_group` name.
+     * 
+     */
     @Import(name="suffix")
     private @Nullable Output<String> suffix;
 
+    /**
+     * @return The suffix for the `instant_restore_resource_group` name.
+     * 
+     */
     public Optional<Output<String>> suffix() {
         return Optional.ofNullable(this.suffix);
     }
@@ -54,20 +70,44 @@ public final class PolicyVMInstantRestoreResourceGroupArgs extends com.pulumi.re
             $ = new PolicyVMInstantRestoreResourceGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param prefix The prefix for the `instant_restore_resource_group` name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
+        /**
+         * @param prefix The prefix for the `instant_restore_resource_group` name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
+        /**
+         * @param suffix The suffix for the `instant_restore_resource_group` name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suffix(@Nullable Output<String> suffix) {
             $.suffix = suffix;
             return this;
         }
 
+        /**
+         * @param suffix The suffix for the `instant_restore_resource_group` name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suffix(String suffix) {
             return suffix(Output.of(suffix));
         }

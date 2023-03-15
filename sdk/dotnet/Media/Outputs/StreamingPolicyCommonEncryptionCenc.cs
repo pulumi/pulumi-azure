@@ -14,6 +14,18 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class StreamingPolicyCommonEncryptionCenc
     {
         /// <summary>
+        /// A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        /// </summary>
+        public readonly Outputs.StreamingPolicyCommonEncryptionCencClearKeyEncryption? ClearKeyEncryption;
+        /// <summary>
+        /// One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StreamingPolicyCommonEncryptionCencClearTrack> ClearTracks;
+        /// <summary>
+        /// One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping> ContentKeyToTrackMappings;
+        /// <summary>
         /// A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
         /// </summary>
         public readonly Outputs.StreamingPolicyCommonEncryptionCencDefaultContentKey? DefaultContentKey;
@@ -22,7 +34,7 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly Outputs.StreamingPolicyCommonEncryptionCencDrmPlayready? DrmPlayready;
         /// <summary>
-        /// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+        /// The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
         /// </summary>
         public readonly string? DrmWidevineCustomLicenseAcquisitionUrlTemplate;
         /// <summary>
@@ -32,6 +44,12 @@ namespace Pulumi.Azure.Media.Outputs
 
         [OutputConstructor]
         private StreamingPolicyCommonEncryptionCenc(
+            Outputs.StreamingPolicyCommonEncryptionCencClearKeyEncryption? clearKeyEncryption,
+
+            ImmutableArray<Outputs.StreamingPolicyCommonEncryptionCencClearTrack> clearTracks,
+
+            ImmutableArray<Outputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping> contentKeyToTrackMappings,
+
             Outputs.StreamingPolicyCommonEncryptionCencDefaultContentKey? defaultContentKey,
 
             Outputs.StreamingPolicyCommonEncryptionCencDrmPlayready? drmPlayready,
@@ -40,6 +58,9 @@ namespace Pulumi.Azure.Media.Outputs
 
             Outputs.StreamingPolicyCommonEncryptionCencEnabledProtocols? enabledProtocols)
         {
+            ClearKeyEncryption = clearKeyEncryption;
+            ClearTracks = clearTracks;
+            ContentKeyToTrackMappings = contentKeyToTrackMappings;
             DefaultContentKey = defaultContentKey;
             DrmPlayready = drmPlayready;
             DrmWidevineCustomLicenseAcquisitionUrlTemplate = drmWidevineCustomLicenseAcquisitionUrlTemplate;

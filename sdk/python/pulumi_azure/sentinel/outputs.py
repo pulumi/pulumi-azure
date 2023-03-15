@@ -11,6 +11,11 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AlertRuleAnomalyBuiltInMultiSelectObservation',
+    'AlertRuleAnomalyBuiltInPrioritizedExcludeObservation',
+    'AlertRuleAnomalyBuiltInRequiredDataConnector',
+    'AlertRuleAnomalyBuiltInSingleSelectObservation',
+    'AlertRuleAnomalyBuiltInThresholdObservation',
     'AlertRuleFusionSource',
     'AlertRuleFusionSourceSubType',
     'AlertRuleNrtAlertDetailsOverride',
@@ -35,10 +40,335 @@ __all__ = [
     'AutomationRuleActionIncident',
     'AutomationRuleActionPlaybook',
     'AutomationRuleCondition',
+    'MetadataAuthor',
+    'MetadataCategory',
+    'MetadataSource',
+    'MetadataSupport',
+    'GetAlertRuleAnomalyMultiSelectObservationResult',
+    'GetAlertRuleAnomalyPrioritizedExcludeObservationResult',
+    'GetAlertRuleAnomalyRequiredDataConnectorResult',
+    'GetAlertRuleAnomalySingleSelectObservationResult',
+    'GetAlertRuleAnomalyThresholdObservationResult',
     'GetAlertRuleTemplateNrtTemplateResult',
     'GetAlertRuleTemplateScheduledTemplateResult',
     'GetAlertRuleTemplateSecurityIncidentTemplateResult',
 ]
+
+@pulumi.output_type
+class AlertRuleAnomalyBuiltInMultiSelectObservation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedValues":
+            suggest = "supported_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleAnomalyBuiltInMultiSelectObservation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleAnomalyBuiltInMultiSelectObservation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleAnomalyBuiltInMultiSelectObservation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 name: Optional[str] = None,
+                 supported_values: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str description: The description of the threshold observation.
+        :param str name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param Sequence[str] supported_values: A list of supported values of the single select observation.
+        :param Sequence[str] values: A list of values of the single select observation.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if supported_values is not None:
+            pulumi.set(__self__, "supported_values", supported_values)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="supportedValues")
+    def supported_values(self) -> Optional[Sequence[str]]:
+        """
+        A list of supported values of the single select observation.
+        """
+        return pulumi.get(self, "supported_values")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        A list of values of the single select observation.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AlertRuleAnomalyBuiltInPrioritizedExcludeObservation(dict):
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 exclude: Optional[str] = None,
+                 name: Optional[str] = None,
+                 prioritize: Optional[str] = None):
+        """
+        :param str description: The description of the threshold observation.
+        :param str exclude: The excluded value per `description`.
+        :param str name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param str prioritize: The prioritized value per `description`.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if prioritize is not None:
+            pulumi.set(__self__, "prioritize", prioritize)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[str]:
+        """
+        The excluded value per `description`.
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def prioritize(self) -> Optional[str]:
+        """
+        The prioritized value per `description`.
+        """
+        return pulumi.get(self, "prioritize")
+
+
+@pulumi.output_type
+class AlertRuleAnomalyBuiltInRequiredDataConnector(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorId":
+            suggest = "connector_id"
+        elif key == "dataTypes":
+            suggest = "data_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleAnomalyBuiltInRequiredDataConnector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleAnomalyBuiltInRequiredDataConnector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleAnomalyBuiltInRequiredDataConnector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_id: Optional[str] = None,
+                 data_types: Optional[Sequence[str]] = None):
+        """
+        :param str connector_id: The ID of the required Data Connector.
+        :param Sequence[str] data_types: A list of data types of the required Data Connector.
+        """
+        if connector_id is not None:
+            pulumi.set(__self__, "connector_id", connector_id)
+        if data_types is not None:
+            pulumi.set(__self__, "data_types", data_types)
+
+    @property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> Optional[str]:
+        """
+        The ID of the required Data Connector.
+        """
+        return pulumi.get(self, "connector_id")
+
+    @property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> Optional[Sequence[str]]:
+        """
+        A list of data types of the required Data Connector.
+        """
+        return pulumi.get(self, "data_types")
+
+
+@pulumi.output_type
+class AlertRuleAnomalyBuiltInSingleSelectObservation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedValues":
+            suggest = "supported_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleAnomalyBuiltInSingleSelectObservation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleAnomalyBuiltInSingleSelectObservation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleAnomalyBuiltInSingleSelectObservation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 name: Optional[str] = None,
+                 supported_values: Optional[Sequence[str]] = None,
+                 value: Optional[str] = None):
+        """
+        :param str description: The description of the threshold observation.
+        :param str name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param Sequence[str] supported_values: A list of supported values of the single select observation.
+        :param str value: The value of the threshold observation.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if supported_values is not None:
+            pulumi.set(__self__, "supported_values", supported_values)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="supportedValues")
+    def supported_values(self) -> Optional[Sequence[str]]:
+        """
+        A list of supported values of the single select observation.
+        """
+        return pulumi.get(self, "supported_values")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the threshold observation.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AlertRuleAnomalyBuiltInThresholdObservation(dict):
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 max: Optional[str] = None,
+                 min: Optional[str] = None,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str description: The description of the threshold observation.
+        :param str max: The max value of the threshold observation.
+        :param str min: The min value of the threshold observation.
+        :param str name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param str value: The value of the threshold observation.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[str]:
+        """
+        The max value of the threshold observation.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[str]:
+        """
+        The min value of the threshold observation.
+        """
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the threshold observation.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class AlertRuleFusionSource(dict):
@@ -1471,6 +1801,420 @@ class AutomationRuleCondition(dict):
         The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
         """
         return pulumi.get(self, "property")
+
+
+@pulumi.output_type
+class MetadataAuthor(dict):
+    def __init__(__self__, *,
+                 email: Optional[str] = None,
+                 link: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str email: The email address of the author contact.
+        :param str link: The link for author/vendor page.
+        :param str name: The name of the author, company or person.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        The email address of the author contact.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        """
+        The link for author/vendor page.
+        """
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the author, company or person.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class MetadataCategory(dict):
+    def __init__(__self__, *,
+                 domains: Optional[Sequence[str]] = None,
+                 verticals: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] domains: Specifies a list of domains for the solution content item.
+        :param Sequence[str] verticals: Specifies a list of industry verticals for the solution content item.
+        """
+        if domains is not None:
+            pulumi.set(__self__, "domains", domains)
+        if verticals is not None:
+            pulumi.set(__self__, "verticals", verticals)
+
+    @property
+    @pulumi.getter
+    def domains(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of domains for the solution content item.
+        """
+        return pulumi.get(self, "domains")
+
+    @property
+    @pulumi.getter
+    def verticals(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of industry verticals for the solution content item.
+        """
+        return pulumi.get(self, "verticals")
+
+
+@pulumi.output_type
+class MetadataSource(dict):
+    def __init__(__self__, *,
+                 kind: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str kind: The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+        :param str id: The id of the content source, the solution ID, Log Analytics Workspace name etc.
+        :param str name: The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
+        """
+        pulumi.set(__self__, "kind", kind)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The id of the content source, the solution ID, Log Analytics Workspace name etc.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class MetadataSupport(dict):
+    def __init__(__self__, *,
+                 tier: str,
+                 email: Optional[str] = None,
+                 link: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str tier: The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
+        :param str email: The email address of the support contact.
+        :param str link: The link for support help.
+        :param str name: The name of the support contact.
+        """
+        pulumi.set(__self__, "tier", tier)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
+        """
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        The email address of the support contact.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        """
+        The link for support help.
+        """
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the support contact.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetAlertRuleAnomalyMultiSelectObservationResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 name: str,
+                 supported_values: Sequence[str],
+                 values: Sequence[str]):
+        """
+        :param str description: The description of the threshold observation.
+        :param str name: The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        :param Sequence[str] supported_values: A list of supported values of the single select observation.
+        :param Sequence[str] values: A list of values of the single select observation.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "supported_values", supported_values)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="supportedValues")
+    def supported_values(self) -> Sequence[str]:
+        """
+        A list of supported values of the single select observation.
+        """
+        return pulumi.get(self, "supported_values")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of values of the single select observation.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRuleAnomalyPrioritizedExcludeObservationResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 exclude: str,
+                 name: str,
+                 prioritize: str):
+        """
+        :param str description: The description of the threshold observation.
+        :param str exclude: The excluded value per `description`.
+        :param str name: The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        :param str prioritize: The prioritized value per `description`.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "exclude", exclude)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "prioritize", prioritize)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> str:
+        """
+        The excluded value per `description`.
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def prioritize(self) -> str:
+        """
+        The prioritized value per `description`.
+        """
+        return pulumi.get(self, "prioritize")
+
+
+@pulumi.output_type
+class GetAlertRuleAnomalyRequiredDataConnectorResult(dict):
+    def __init__(__self__, *,
+                 connector_id: str,
+                 data_types: Sequence[str]):
+        """
+        :param str connector_id: The ID of the required Data Connector.
+        :param Sequence[str] data_types: A list of data types of the required Data Connector.
+        """
+        pulumi.set(__self__, "connector_id", connector_id)
+        pulumi.set(__self__, "data_types", data_types)
+
+    @property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> str:
+        """
+        The ID of the required Data Connector.
+        """
+        return pulumi.get(self, "connector_id")
+
+    @property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> Sequence[str]:
+        """
+        A list of data types of the required Data Connector.
+        """
+        return pulumi.get(self, "data_types")
+
+
+@pulumi.output_type
+class GetAlertRuleAnomalySingleSelectObservationResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 name: str,
+                 supported_values: Sequence[str],
+                 value: str):
+        """
+        :param str description: The description of the threshold observation.
+        :param str name: The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        :param Sequence[str] supported_values: A list of supported values of the single select observation.
+        :param str value: The value of the threshold observation.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "supported_values", supported_values)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="supportedValues")
+    def supported_values(self) -> Sequence[str]:
+        """
+        A list of supported values of the single select observation.
+        """
+        return pulumi.get(self, "supported_values")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the threshold observation.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAlertRuleAnomalyThresholdObservationResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 max: str,
+                 min: str,
+                 name: str,
+                 value: str):
+        """
+        :param str description: The description of the threshold observation.
+        :param str max: The max value of the threshold observation.
+        :param str min: The min value of the threshold observation.
+        :param str name: The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        :param str value: The value of the threshold observation.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def max(self) -> str:
+        """
+        The max value of the threshold observation.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> str:
+        """
+        The min value of the threshold observation.
+        """
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the threshold observation.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

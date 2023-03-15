@@ -86,6 +86,8 @@ type LinuxFunctionApp struct {
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings LinuxFunctionAppAuthSettingsPtrOutput `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 LinuxFunctionAppAuthSettingsV2PtrOutput `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup LinuxFunctionAppBackupPtrOutput `pulumi:"backup"`
 	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
@@ -206,6 +208,8 @@ type linuxFunctionAppState struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *LinuxFunctionAppAuthSettings `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 *LinuxFunctionAppAuthSettingsV2 `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup *LinuxFunctionAppBackup `pulumi:"backup"`
 	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
@@ -281,6 +285,8 @@ type LinuxFunctionAppState struct {
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings LinuxFunctionAppAuthSettingsPtrInput
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 LinuxFunctionAppAuthSettingsV2PtrInput
 	// A `backup` block as defined below.
 	Backup LinuxFunctionAppBackupPtrInput
 	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
@@ -360,6 +366,8 @@ type linuxFunctionAppArgs struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *LinuxFunctionAppAuthSettings `pulumi:"authSettings"`
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 *LinuxFunctionAppAuthSettingsV2 `pulumi:"authSettingsV2"`
 	// A `backup` block as defined below.
 	Backup *LinuxFunctionAppBackup `pulumi:"backup"`
 	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
@@ -420,6 +428,8 @@ type LinuxFunctionAppArgs struct {
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings LinuxFunctionAppAuthSettingsPtrInput
+	// An `authSettingsV2` block as defined below.
+	AuthSettingsV2 LinuxFunctionAppAuthSettingsV2PtrInput
 	// A `backup` block as defined below.
 	Backup LinuxFunctionAppBackupPtrInput
 	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
@@ -569,6 +579,11 @@ func (o LinuxFunctionAppOutput) AppSettings() pulumi.StringMapOutput {
 // A `authSettings` block as defined below.
 func (o LinuxFunctionAppOutput) AuthSettings() LinuxFunctionAppAuthSettingsPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) LinuxFunctionAppAuthSettingsPtrOutput { return v.AuthSettings }).(LinuxFunctionAppAuthSettingsPtrOutput)
+}
+
+// An `authSettingsV2` block as defined below.
+func (o LinuxFunctionAppOutput) AuthSettingsV2() LinuxFunctionAppAuthSettingsV2PtrOutput {
+	return o.ApplyT(func(v *LinuxFunctionApp) LinuxFunctionAppAuthSettingsV2PtrOutput { return v.AuthSettingsV2 }).(LinuxFunctionAppAuthSettingsV2PtrOutput)
 }
 
 // A `backup` block as defined below.

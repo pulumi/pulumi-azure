@@ -126,7 +126,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
 
         /// <summary>
-        /// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+        /// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dnsPrefix")]
         public Output<string?> DnsPrefix { get; private set; } = null!;
@@ -297,6 +297,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> NodeResourceGroup { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+        /// </summary>
+        [Output("nodeResourceGroupId")]
+        public Output<string> NodeResourceGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
         /// </summary>
         [Output("oidcIssuerEnabled")]
@@ -381,7 +387,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterServicePrincipal?> ServicePrincipal { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
         /// </summary>
         [Output("skuTier")]
         public Output<string?> SkuTier { get; private set; } = null!;
@@ -539,7 +545,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+        /// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsPrefix")]
         public Input<string>? DnsPrefix { get; set; }
@@ -740,7 +746,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterServicePrincipalArgs>? ServicePrincipal { get; set; }
 
         /// <summary>
-        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
@@ -859,7 +865,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+        /// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsPrefix")]
         public Input<string>? DnsPrefix { get; set; }
@@ -1070,6 +1076,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NodeResourceGroup { get; set; }
 
         /// <summary>
+        /// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+        /// </summary>
+        [Input("nodeResourceGroupId")]
+        public Input<string>? NodeResourceGroupId { get; set; }
+
+        /// <summary>
         /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
         /// </summary>
         [Input("oidcIssuerEnabled")]
@@ -1154,7 +1166,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterServicePrincipalGetArgs>? ServicePrincipal { get; set; }
 
         /// <summary>
-        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }

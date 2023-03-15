@@ -97,14 +97,14 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
     }
 
     /**
-     * One `url` block as defined above
+     * One `url` block as defined below
      * 
      */
     @Import(name="url")
     private @Nullable Output<ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs> url;
 
     /**
-     * @return One `url` block as defined above
+     * @return One `url` block as defined below
      * 
      */
     public Optional<Output<ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs>> url() {
@@ -276,7 +276,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
         }
 
         /**
-         * @param url One `url` block as defined above
+         * @param url One `url` block as defined below
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
         }
 
         /**
-         * @param url One `url` block as defined above
+         * @param url One `url` block as defined below
          * 
          * @return builder
          * 

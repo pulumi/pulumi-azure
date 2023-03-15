@@ -87,6 +87,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultSecondaryKey!: pulumi.Output<string>;
     /**
+     * The URL to access the ServiceBus Namespace.
+     */
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.servicebus.NamespaceIdentity | undefined>;
@@ -147,6 +151,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
             resourceInputs["defaultSecondaryConnectionString"] = state ? state.defaultSecondaryConnectionString : undefined;
             resourceInputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -181,6 +186,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["defaultPrimaryKey"] = undefined /*out*/;
             resourceInputs["defaultSecondaryConnectionString"] = undefined /*out*/;
             resourceInputs["defaultSecondaryKey"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/namespace:Namespace" }] };
@@ -219,6 +225,10 @@ export interface NamespaceState {
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
     defaultSecondaryKey?: pulumi.Input<string>;
+    /**
+     * The URL to access the ServiceBus Namespace.
+     */
+    endpoint?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */

@@ -30,12 +30,12 @@ public final class GetLinuxFunctionAppAuthSetting {
      */
     private Map<String,String> additionalLoginParameters;
     /**
-     * @return A list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+     * @return External URLs that can be redirected to as part of logging in or logging out of the app.
      * 
      */
     private List<String> allowedExternalRedirectUrls;
     /**
-     * @return The default authentication provider used when multiple providers are configured.
+     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
      * 
      */
     private String defaultProvider;
@@ -70,7 +70,7 @@ public final class GetLinuxFunctionAppAuthSetting {
      */
     private List<GetLinuxFunctionAppAuthSettingMicrosoft> microsofts;
     /**
-     * @return The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+     * @return The Runtime Version of the Authentication and Authorisation feature of this App.
      * 
      */
     private String runtimeVersion;
@@ -80,7 +80,7 @@ public final class GetLinuxFunctionAppAuthSetting {
      */
     private Double tokenRefreshExtensionHours;
     /**
-     * @return Does the Linux Web App durably store platform-specific security tokens that are obtained during login flows?
+     * @return Is the Token Store configuration Enabled.
      * 
      */
     private Boolean tokenStoreEnabled;
@@ -111,14 +111,14 @@ public final class GetLinuxFunctionAppAuthSetting {
         return this.additionalLoginParameters;
     }
     /**
-     * @return A list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+     * @return External URLs that can be redirected to as part of logging in or logging out of the app.
      * 
      */
     public List<String> allowedExternalRedirectUrls() {
         return this.allowedExternalRedirectUrls;
     }
     /**
-     * @return The default authentication provider used when multiple providers are configured.
+     * @return The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
      * 
      */
     public String defaultProvider() {
@@ -167,7 +167,7 @@ public final class GetLinuxFunctionAppAuthSetting {
         return this.microsofts;
     }
     /**
-     * @return The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+     * @return The Runtime Version of the Authentication and Authorisation feature of this App.
      * 
      */
     public String runtimeVersion() {
@@ -181,7 +181,7 @@ public final class GetLinuxFunctionAppAuthSetting {
         return this.tokenRefreshExtensionHours;
     }
     /**
-     * @return Does the Linux Web App durably store platform-specific security tokens that are obtained during login flows?
+     * @return Is the Token Store configuration Enabled.
      * 
      */
     public Boolean tokenStoreEnabled() {

@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
     /**
+     * @return The communities of Bgp Peering specified for microsoft peering.
+     * 
+     */
+    private @Nullable List<String> advertisedCommunities;
+    /**
      * @return A list of Advertised Public Prefixes.
      * 
      */
@@ -30,6 +35,13 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
     private @Nullable String routingRegistryName;
 
     private ExpressRouteCircuitPeeringMicrosoftPeeringConfig() {}
+    /**
+     * @return The communities of Bgp Peering specified for microsoft peering.
+     * 
+     */
+    public List<String> advertisedCommunities() {
+        return this.advertisedCommunities == null ? List.of() : this.advertisedCommunities;
+    }
     /**
      * @return A list of Advertised Public Prefixes.
      * 
@@ -61,17 +73,27 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> advertisedCommunities;
         private List<String> advertisedPublicPrefixes;
         private @Nullable Integer customerAsn;
         private @Nullable String routingRegistryName;
         public Builder() {}
         public Builder(ExpressRouteCircuitPeeringMicrosoftPeeringConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.advertisedCommunities = defaults.advertisedCommunities;
     	      this.advertisedPublicPrefixes = defaults.advertisedPublicPrefixes;
     	      this.customerAsn = defaults.customerAsn;
     	      this.routingRegistryName = defaults.routingRegistryName;
         }
 
+        @CustomType.Setter
+        public Builder advertisedCommunities(@Nullable List<String> advertisedCommunities) {
+            this.advertisedCommunities = advertisedCommunities;
+            return this;
+        }
+        public Builder advertisedCommunities(String... advertisedCommunities) {
+            return advertisedCommunities(List.of(advertisedCommunities));
+        }
         @CustomType.Setter
         public Builder advertisedPublicPrefixes(List<String> advertisedPublicPrefixes) {
             this.advertisedPublicPrefixes = Objects.requireNonNull(advertisedPublicPrefixes);
@@ -92,6 +114,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
         }
         public ExpressRouteCircuitPeeringMicrosoftPeeringConfig build() {
             final var o = new ExpressRouteCircuitPeeringMicrosoftPeeringConfig();
+            o.advertisedCommunities = advertisedCommunities;
             o.advertisedPublicPrefixes = advertisedPublicPrefixes;
             o.customerAsn = customerAsn;
             o.routingRegistryName = routingRegistryName;

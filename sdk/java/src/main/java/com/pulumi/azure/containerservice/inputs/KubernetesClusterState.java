@@ -199,14 +199,14 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+     * DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dnsPrefix")
     private @Nullable Output<String> dnsPrefix;
 
     /**
-     * @return DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+     * @return DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> dnsPrefix() {
@@ -638,6 +638,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+     * 
+     */
+    @Import(name="nodeResourceGroupId")
+    private @Nullable Output<String> nodeResourceGroupId;
+
+    /**
+     * @return The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+     * 
+     */
+    public Optional<Output<String>> nodeResourceGroupId() {
+        return Optional.ofNullable(this.nodeResourceGroupId);
+    }
+
+    /**
      * Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
      * 
      */
@@ -848,14 +863,14 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      * 
      */
     @Import(name="skuTier")
     private @Nullable Output<String> skuTier;
 
     /**
-     * @return The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     * @return The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      * 
      */
     public Optional<Output<String>> skuTier() {
@@ -994,6 +1009,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.name = $.name;
         this.networkProfile = $.networkProfile;
         this.nodeResourceGroup = $.nodeResourceGroup;
+        this.nodeResourceGroupId = $.nodeResourceGroupId;
         this.oidcIssuerEnabled = $.oidcIssuerEnabled;
         this.oidcIssuerUrl = $.oidcIssuerUrl;
         this.omsAgent = $.omsAgent;
@@ -1262,7 +1278,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dnsPrefix DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+         * @param dnsPrefix DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1273,7 +1289,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dnsPrefix DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+         * @param dnsPrefix DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1895,6 +1911,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param nodeResourceGroupId The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeResourceGroupId(@Nullable Output<String> nodeResourceGroupId) {
+            $.nodeResourceGroupId = nodeResourceGroupId;
+            return this;
+        }
+
+        /**
+         * @param nodeResourceGroupId The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeResourceGroupId(String nodeResourceGroupId) {
+            return nodeResourceGroupId(Output.of(nodeResourceGroupId));
+        }
+
+        /**
          * @param oidcIssuerEnabled Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
          * 
          * @return builder
@@ -2189,7 +2226,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
          * 
          * @return builder
          * 
@@ -2200,7 +2237,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
          * 
          * @return builder
          * 

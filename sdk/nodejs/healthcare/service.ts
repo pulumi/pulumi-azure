@@ -100,7 +100,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly cosmosdbKeyVaultKeyVersionlessId!: pulumi.Output<string | undefined>;
     /**
-     * The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+     * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      */
     public readonly cosmosdbThroughput!: pulumi.Output<number | undefined>;
     /**
@@ -192,7 +192,7 @@ export interface ServiceState {
      */
     cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
     /**
-     * The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+     * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      */
     cosmosdbThroughput?: pulumi.Input<number>;
     /**
@@ -239,7 +239,7 @@ export interface ServiceArgs {
      */
     cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
     /**
-     * The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
+     * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      */
     cosmosdbThroughput?: pulumi.Input<number>;
     /**

@@ -48,14 +48,14 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+     * List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
      * 
      */
     @Import(name="ipRules")
     private @Nullable Output<List<String>> ipRules;
 
     /**
-     * @return List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+     * @return List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
      * 
      */
     public Optional<Output<List<String>>> ipRules() {
@@ -173,7 +173,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ipRules List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+         * @param ipRules List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ipRules List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+         * @param ipRules List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ipRules List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+         * @param ipRules List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
          * 
          * @return builder
          * 

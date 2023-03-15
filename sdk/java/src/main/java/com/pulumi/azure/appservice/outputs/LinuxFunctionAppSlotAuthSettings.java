@@ -37,7 +37,7 @@ public final class LinuxFunctionAppSlotAuthSettings {
      */
     private @Nullable List<String> allowedExternalRedirectUrls;
     /**
-     * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+     * @return The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
      * 
      */
     private @Nullable String defaultProvider;
@@ -72,7 +72,7 @@ public final class LinuxFunctionAppSlotAuthSettings {
      */
     private @Nullable LinuxFunctionAppSlotAuthSettingsMicrosoft microsoft;
     /**
-     * @return The RuntimeVersion of the Authentication / Authorization feature in use.
+     * @return The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
      * 
      */
     private @Nullable String runtimeVersion;
@@ -120,7 +120,7 @@ public final class LinuxFunctionAppSlotAuthSettings {
         return this.allowedExternalRedirectUrls == null ? List.of() : this.allowedExternalRedirectUrls;
     }
     /**
-     * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+     * @return The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
      * 
      */
     public Optional<String> defaultProvider() {
@@ -169,7 +169,7 @@ public final class LinuxFunctionAppSlotAuthSettings {
         return Optional.ofNullable(this.microsoft);
     }
     /**
-     * @return The RuntimeVersion of the Authentication / Authorization feature in use.
+     * @return The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
      * 
      */
     public Optional<String> runtimeVersion() {

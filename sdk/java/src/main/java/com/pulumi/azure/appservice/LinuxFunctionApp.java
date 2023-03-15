@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appservice.LinuxFunctionAppArgs;
 import com.pulumi.azure.appservice.inputs.LinuxFunctionAppState;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppAuthSettings;
+import com.pulumi.azure.appservice.outputs.LinuxFunctionAppAuthSettingsV2;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppBackup;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppConnectionString;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppIdentity;
@@ -127,6 +128,20 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<LinuxFunctionAppAuthSettings>> authSettings() {
         return Codegen.optional(this.authSettings);
+    }
+    /**
+     * An `auth_settings_v2` block as defined below.
+     * 
+     */
+    @Export(name="authSettingsV2", type=LinuxFunctionAppAuthSettingsV2.class, parameters={})
+    private Output</* @Nullable */ LinuxFunctionAppAuthSettingsV2> authSettingsV2;
+
+    /**
+     * @return An `auth_settings_v2` block as defined below.
+     * 
+     */
+    public Output<Optional<LinuxFunctionAppAuthSettingsV2>> authSettingsV2() {
+        return Codegen.optional(this.authSettingsV2);
     }
     /**
      * A `backup` block as defined below.

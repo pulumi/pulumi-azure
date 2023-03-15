@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterOmsAgentOmsAgentIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -33,6 +34,21 @@ public final class KubernetesClusterOmsAgentArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Is managed identity authentication for monitoring enabled?
+     * 
+     */
+    @Import(name="msiAuthForMonitoringEnabled")
+    private @Nullable Output<Boolean> msiAuthForMonitoringEnabled;
+
+    /**
+     * @return Is managed identity authentication for monitoring enabled?
+     * 
+     */
+    public Optional<Output<Boolean>> msiAuthForMonitoringEnabled() {
+        return Optional.ofNullable(this.msiAuthForMonitoringEnabled);
+    }
+
+    /**
      * An `oms_agent_identity` block is exported. The exported attributes are defined below.
      * 
      */
@@ -51,6 +67,7 @@ public final class KubernetesClusterOmsAgentArgs extends com.pulumi.resources.Re
 
     private KubernetesClusterOmsAgentArgs(KubernetesClusterOmsAgentArgs $) {
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
+        this.msiAuthForMonitoringEnabled = $.msiAuthForMonitoringEnabled;
         this.omsAgentIdentities = $.omsAgentIdentities;
     }
 
@@ -91,6 +108,27 @@ public final class KubernetesClusterOmsAgentArgs extends com.pulumi.resources.Re
          */
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             return logAnalyticsWorkspaceId(Output.of(logAnalyticsWorkspaceId));
+        }
+
+        /**
+         * @param msiAuthForMonitoringEnabled Is managed identity authentication for monitoring enabled?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder msiAuthForMonitoringEnabled(@Nullable Output<Boolean> msiAuthForMonitoringEnabled) {
+            $.msiAuthForMonitoringEnabled = msiAuthForMonitoringEnabled;
+            return this;
+        }
+
+        /**
+         * @param msiAuthForMonitoringEnabled Is managed identity authentication for monitoring enabled?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder msiAuthForMonitoringEnabled(Boolean msiAuthForMonitoringEnabled) {
+            return msiAuthForMonitoringEnabled(Output.of(msiAuthForMonitoringEnabled));
         }
 
         /**

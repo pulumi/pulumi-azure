@@ -43,7 +43,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        /// The Default Authentication Provider to use when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.WindowsFunctionAppSlotAuthSettingsMicrosoftArgs>? Microsoft { get; set; }
 
         /// <summary>
-        /// The RuntimeVersion of the Authentication / Authorization feature in use.
+        /// The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         /// </summary>
         [Input("runtimeVersion")]
         public Input<string>? RuntimeVersion { get; set; }

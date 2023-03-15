@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice;
 
 import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSlotAuthSettingsArgs;
+import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSlotAuthSettingsV2Args;
 import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSlotBackupArgs;
 import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSlotConnectionStringArgs;
 import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSlotIdentityArgs;
@@ -53,6 +54,21 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<WindowsFunctionAppSlotAuthSettingsArgs>> authSettings() {
         return Optional.ofNullable(this.authSettings);
+    }
+
+    /**
+     * an `auth_settings_v2` block as detailed below.
+     * 
+     */
+    @Import(name="authSettingsV2")
+    private @Nullable Output<WindowsFunctionAppSlotAuthSettingsV2Args> authSettingsV2;
+
+    /**
+     * @return an `auth_settings_v2` block as detailed below.
+     * 
+     */
+    public Optional<Output<WindowsFunctionAppSlotAuthSettingsV2Args>> authSettingsV2() {
+        return Optional.ofNullable(this.authSettingsV2);
     }
 
     /**
@@ -420,6 +436,7 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
     private WindowsFunctionAppSlotArgs(WindowsFunctionAppSlotArgs $) {
         this.appSettings = $.appSettings;
         this.authSettings = $.authSettings;
+        this.authSettingsV2 = $.authSettingsV2;
         this.backup = $.backup;
         this.builtinLoggingEnabled = $.builtinLoggingEnabled;
         this.clientCertificateEnabled = $.clientCertificateEnabled;
@@ -504,6 +521,27 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
          */
         public Builder authSettings(WindowsFunctionAppSlotAuthSettingsArgs authSettings) {
             return authSettings(Output.of(authSettings));
+        }
+
+        /**
+         * @param authSettingsV2 an `auth_settings_v2` block as detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSettingsV2(@Nullable Output<WindowsFunctionAppSlotAuthSettingsV2Args> authSettingsV2) {
+            $.authSettingsV2 = authSettingsV2;
+            return this;
+        }
+
+        /**
+         * @param authSettingsV2 an `auth_settings_v2` block as detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authSettingsV2(WindowsFunctionAppSlotAuthSettingsV2Args authSettingsV2) {
+            return authSettingsV2(Output.of(authSettingsV2));
         }
 
         /**

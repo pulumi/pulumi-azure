@@ -11591,6 +11591,162 @@ func (o OrchestratedVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type OrchestratedVirtualMachineScaleSetPriorityMix struct {
+	// Specifies the base number of VMs of `Regular` priority that will be created before any VMs of priority `Spot` are created. Possible values are integers between `0` and `1000`. Defaults to `0`.
+	BaseRegularCount *int `pulumi:"baseRegularCount"`
+	// Specifies the desired percentage of VM instances that are of `Regular` priority after the base count has been reached. Possible values are integers between `0` and `100`. Defaults to `0`.
+	RegularPercentageAboveBase *int `pulumi:"regularPercentageAboveBase"`
+}
+
+// OrchestratedVirtualMachineScaleSetPriorityMixInput is an input type that accepts OrchestratedVirtualMachineScaleSetPriorityMixArgs and OrchestratedVirtualMachineScaleSetPriorityMixOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetPriorityMixInput` via:
+//
+//	OrchestratedVirtualMachineScaleSetPriorityMixArgs{...}
+type OrchestratedVirtualMachineScaleSetPriorityMixInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetPriorityMixOutput() OrchestratedVirtualMachineScaleSetPriorityMixOutput
+	ToOrchestratedVirtualMachineScaleSetPriorityMixOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetPriorityMixOutput
+}
+
+type OrchestratedVirtualMachineScaleSetPriorityMixArgs struct {
+	// Specifies the base number of VMs of `Regular` priority that will be created before any VMs of priority `Spot` are created. Possible values are integers between `0` and `1000`. Defaults to `0`.
+	BaseRegularCount pulumi.IntPtrInput `pulumi:"baseRegularCount"`
+	// Specifies the desired percentage of VM instances that are of `Regular` priority after the base count has been reached. Possible values are integers between `0` and `100`. Defaults to `0`.
+	RegularPercentageAboveBase pulumi.IntPtrInput `pulumi:"regularPercentageAboveBase"`
+}
+
+func (OrchestratedVirtualMachineScaleSetPriorityMixArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPriorityMix)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetPriorityMixArgs) ToOrchestratedVirtualMachineScaleSetPriorityMixOutput() OrchestratedVirtualMachineScaleSetPriorityMixOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetPriorityMixOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetPriorityMixArgs) ToOrchestratedVirtualMachineScaleSetPriorityMixOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPriorityMixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetPriorityMixOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetPriorityMixArgs) ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutput() OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetPriorityMixArgs) ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetPriorityMixOutput).ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetPriorityMixPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetPriorityMixArgs, OrchestratedVirtualMachineScaleSetPriorityMixPtr and OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetPriorityMixPtrInput` via:
+//
+//	        OrchestratedVirtualMachineScaleSetPriorityMixArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrchestratedVirtualMachineScaleSetPriorityMixPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutput() OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput
+	ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetPriorityMixPtrType OrchestratedVirtualMachineScaleSetPriorityMixArgs
+
+func OrchestratedVirtualMachineScaleSetPriorityMixPtr(v *OrchestratedVirtualMachineScaleSetPriorityMixArgs) OrchestratedVirtualMachineScaleSetPriorityMixPtrInput {
+	return (*orchestratedVirtualMachineScaleSetPriorityMixPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetPriorityMixPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetPriorityMix)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetPriorityMixPtrType) ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutput() OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetPriorityMixPtrType) ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetPriorityMixOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetPriorityMixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPriorityMix)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetPriorityMixOutput) ToOrchestratedVirtualMachineScaleSetPriorityMixOutput() OrchestratedVirtualMachineScaleSetPriorityMixOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetPriorityMixOutput) ToOrchestratedVirtualMachineScaleSetPriorityMixOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPriorityMixOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetPriorityMixOutput) ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutput() OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetPriorityMixOutput) ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetPriorityMix) *OrchestratedVirtualMachineScaleSetPriorityMix {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput)
+}
+
+// Specifies the base number of VMs of `Regular` priority that will be created before any VMs of priority `Spot` are created. Possible values are integers between `0` and `1000`. Defaults to `0`.
+func (o OrchestratedVirtualMachineScaleSetPriorityMixOutput) BaseRegularCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetPriorityMix) *int { return v.BaseRegularCount }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the desired percentage of VM instances that are of `Regular` priority after the base count has been reached. Possible values are integers between `0` and `100`. Defaults to `0`.
+func (o OrchestratedVirtualMachineScaleSetPriorityMixOutput) RegularPercentageAboveBase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetPriorityMix) *int { return v.RegularPercentageAboveBase }).(pulumi.IntPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetPriorityMix)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput) ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutput() OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput) ToOrchestratedVirtualMachineScaleSetPriorityMixPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput) Elem() OrchestratedVirtualMachineScaleSetPriorityMixOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetPriorityMix) OrchestratedVirtualMachineScaleSetPriorityMix {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetPriorityMix
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetPriorityMixOutput)
+}
+
+// Specifies the base number of VMs of `Regular` priority that will be created before any VMs of priority `Spot` are created. Possible values are integers between `0` and `1000`. Defaults to `0`.
+func (o OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput) BaseRegularCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetPriorityMix) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BaseRegularCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the desired percentage of VM instances that are of `Regular` priority after the base count has been reached. Possible values are integers between `0` and `100`. Defaults to `0`.
+func (o OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput) RegularPercentageAboveBase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetPriorityMix) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RegularPercentageAboveBase
+	}).(pulumi.IntPtrOutput)
+}
+
 type OrchestratedVirtualMachineScaleSetSourceImageReference struct {
 	// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
 	Offer string `pulumi:"offer"`
@@ -29173,6 +29329,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPlanInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPlanPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPriorityMixInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPriorityMixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPriorityMixPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPriorityMixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSourceImageReferenceInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetTerminationNotificationInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetTerminationNotificationArgs{})
@@ -29547,6 +29705,8 @@ func init() {
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPlanOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPlanPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPriorityMixOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetTerminationNotificationOutput{})

@@ -222,6 +222,7 @@ class _NamespaceState:
                  default_primary_key: Optional[pulumi.Input[str]] = None,
                  default_secondary_connection_string: Optional[pulumi.Input[str]] = None,
                  default_secondary_key: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['NamespaceIdentityArgs']] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -240,6 +241,7 @@ class _NamespaceState:
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] endpoint: The URL to access the ServiceBus Namespace.
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -264,6 +266,8 @@ class _NamespaceState:
             pulumi.set(__self__, "default_secondary_connection_string", default_secondary_connection_string)
         if default_secondary_key is not None:
             pulumi.set(__self__, "default_secondary_key", default_secondary_key)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if local_auth_enabled is not None:
@@ -356,6 +360,18 @@ class _NamespaceState:
     @default_secondary_key.setter
     def default_secondary_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_secondary_key", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to access the ServiceBus Namespace.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
 
     @property
     @pulumi.getter
@@ -629,6 +645,7 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["default_primary_key"] = None
             __props__.__dict__["default_secondary_connection_string"] = None
             __props__.__dict__["default_secondary_key"] = None
+            __props__.__dict__["endpoint"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/namespace:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["defaultPrimaryConnectionString", "defaultPrimaryKey", "defaultSecondaryConnectionString", "defaultSecondaryKey"])
@@ -649,6 +666,7 @@ class Namespace(pulumi.CustomResource):
             default_primary_key: Optional[pulumi.Input[str]] = None,
             default_secondary_connection_string: Optional[pulumi.Input[str]] = None,
             default_secondary_key: Optional[pulumi.Input[str]] = None,
+            endpoint: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']]] = None,
             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -672,6 +690,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] endpoint: The URL to access the ServiceBus Namespace.
         :param pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -694,6 +713,7 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["default_primary_key"] = default_primary_key
         __props__.__dict__["default_secondary_connection_string"] = default_secondary_connection_string
         __props__.__dict__["default_secondary_key"] = default_secondary_key
+        __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["identity"] = identity
         __props__.__dict__["local_auth_enabled"] = local_auth_enabled
         __props__.__dict__["location"] = location
@@ -753,6 +773,14 @@ class Namespace(pulumi.CustomResource):
         The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_secondary_key")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Output[str]:
+        """
+        The URL to access the ServiceBus Namespace.
+        """
+        return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter

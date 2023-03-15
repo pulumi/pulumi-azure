@@ -57,6 +57,8 @@ type GetFunctionAppHostKeysArgs struct {
 
 // A collection of values returned by getFunctionAppHostKeys.
 type GetFunctionAppHostKeysResult struct {
+	// Function App resource's Blobs Extension system key.
+	BlobsExtensionKey string `pulumi:"blobsExtensionKey"`
 	// Function App resource's default function key.
 	DefaultFunctionKey string `pulumi:"defaultFunctionKey"`
 	// Function App resource's Durable Task Extension system key.
@@ -113,6 +115,11 @@ func (o GetFunctionAppHostKeysResultOutput) ToGetFunctionAppHostKeysResultOutput
 
 func (o GetFunctionAppHostKeysResultOutput) ToGetFunctionAppHostKeysResultOutputWithContext(ctx context.Context) GetFunctionAppHostKeysResultOutput {
 	return o
+}
+
+// Function App resource's Blobs Extension system key.
+func (o GetFunctionAppHostKeysResultOutput) BlobsExtensionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.BlobsExtensionKey }).(pulumi.StringOutput)
 }
 
 // Function App resource's default function key.

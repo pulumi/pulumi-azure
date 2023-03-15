@@ -26,6 +26,7 @@ class ActionGroupArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupItsmReceiverArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupLogicAppReceiverArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sms_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupSmsReceiverArgs']]]] = None,
@@ -44,6 +45,7 @@ class ActionGroupArgs:
         :param pulumi.Input[bool] enabled: Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupItsmReceiverArgs']]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
+        :param pulumi.Input[str] location: The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupLogicAppReceiverArgs']]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Action Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupSmsReceiverArgs']]] sms_receivers: One or more `sms_receiver` blocks as defined below.
@@ -69,6 +71,8 @@ class ActionGroupArgs:
             pulumi.set(__self__, "event_hub_receivers", event_hub_receivers)
         if itsm_receivers is not None:
             pulumi.set(__self__, "itsm_receivers", itsm_receivers)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if logic_app_receivers is not None:
             pulumi.set(__self__, "logic_app_receivers", logic_app_receivers)
         if name is not None:
@@ -203,6 +207,18 @@ class ActionGroupArgs:
         pulumi.set(self, "itsm_receivers", value)
 
     @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
     @pulumi.getter(name="logicAppReceivers")
     def logic_app_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupLogicAppReceiverArgs']]]]:
         """
@@ -286,6 +302,7 @@ class _ActionGroupState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupItsmReceiverArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupLogicAppReceiverArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -304,6 +321,7 @@ class _ActionGroupState:
         :param pulumi.Input[bool] enabled: Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupItsmReceiverArgs']]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
+        :param pulumi.Input[str] location: The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupLogicAppReceiverArgs']]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Action Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
@@ -329,6 +347,8 @@ class _ActionGroupState:
             pulumi.set(__self__, "event_hub_receivers", event_hub_receivers)
         if itsm_receivers is not None:
             pulumi.set(__self__, "itsm_receivers", itsm_receivers)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if logic_app_receivers is not None:
             pulumi.set(__self__, "logic_app_receivers", logic_app_receivers)
         if name is not None:
@@ -443,6 +463,18 @@ class _ActionGroupState:
         pulumi.set(self, "itsm_receivers", value)
 
     @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
     @pulumi.getter(name="logicAppReceivers")
     def logic_app_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupLogicAppReceiverArgs']]]]:
         """
@@ -552,6 +584,7 @@ class ActionGroup(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEventHubReceiverArgs']]]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -669,6 +702,7 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEventHubReceiverArgs']]]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
+        :param pulumi.Input[str] location: The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Action Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
@@ -805,6 +839,7 @@ class ActionGroup(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEventHubReceiverArgs']]]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -830,6 +865,7 @@ class ActionGroup(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["event_hub_receivers"] = event_hub_receivers
             __props__.__dict__["itsm_receivers"] = itsm_receivers
+            __props__.__dict__["location"] = location
             __props__.__dict__["logic_app_receivers"] = logic_app_receivers
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -860,6 +896,7 @@ class ActionGroup(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEventHubReceiverArgs']]]]] = None,
             itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]]] = None,
+            location: Optional[pulumi.Input[str]] = None,
             logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -883,6 +920,7 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEventHubReceiverArgs']]]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
+        :param pulumi.Input[str] location: The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Action Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
@@ -904,6 +942,7 @@ class ActionGroup(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["event_hub_receivers"] = event_hub_receivers
         __props__.__dict__["itsm_receivers"] = itsm_receivers
+        __props__.__dict__["location"] = location
         __props__.__dict__["logic_app_receivers"] = logic_app_receivers
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -977,6 +1016,14 @@ class ActionGroup(pulumi.CustomResource):
         One or more `itsm_receiver` blocks as defined below.
         """
         return pulumi.get(self, "itsm_receivers")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="logicAppReceivers")

@@ -2,50 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
- *     softDeleteRetentionDays: 7,
- *     accessPolicies: [{
- *         tenantId: current.then(current => current.tenantId),
- *         objectId: current.then(current => current.objectId),
- *         keyPermissions: [
- *             "Create",
- *             "Get",
- *             "Purge",
- *             "Recover",
- *         ],
- *         secretPermissions: ["Set"],
- *     }],
- * });
- * const generated = new azure.keyvault.Key("generated", {
- *     keyVaultId: exampleKeyVault.id,
- *     keyType: "RSA",
- *     keySize: 2048,
- *     keyOpts: [
- *         "decrypt",
- *         "encrypt",
- *         "sign",
- *         "unwrapKey",
- *         "verify",
- *         "wrapKey",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Key Vault Key which is Enabled can be imported using the `resource id`, e.g.
@@ -139,6 +100,10 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceVersionlessId!: pulumi.Output<string>;
     /**
+     * A `rotationPolicy` block as defined below.
+     */
+    public readonly rotationPolicy!: pulumi.Output<outputs.keyvault.KeyRotationPolicy>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -186,6 +151,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["publicKeyPem"] = state ? state.publicKeyPem : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["resourceVersionlessId"] = state ? state.resourceVersionlessId : undefined;
+            resourceInputs["rotationPolicy"] = state ? state.rotationPolicy : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["versionlessId"] = state ? state.versionlessId : undefined;
@@ -210,6 +176,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
+            resourceInputs["rotationPolicy"] = args ? args.rotationPolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["e"] = undefined /*out*/;
             resourceInputs["n"] = undefined /*out*/;
@@ -288,6 +255,10 @@ export interface KeyState {
      */
     resourceVersionlessId?: pulumi.Input<string>;
     /**
+     * A `rotationPolicy` block as defined below.
+     */
+    rotationPolicy?: pulumi.Input<inputs.keyvault.KeyRotationPolicy>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -345,6 +316,10 @@ export interface KeyArgs {
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      */
     notBeforeDate?: pulumi.Input<string>;
+    /**
+     * A `rotationPolicy` block as defined below.
+     */
+    rotationPolicy?: pulumi.Input<inputs.keyvault.KeyRotationPolicy>;
     /**
      * A mapping of tags to assign to the resource.
      */

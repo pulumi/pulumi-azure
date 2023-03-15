@@ -97,7 +97,7 @@ type KubernetesCluster struct {
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
-	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+	// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrOutput `pulumi:"dnsPrefix"`
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster pulumi.StringPtrOutput `pulumi:"dnsPrefixPrivateCluster"`
@@ -155,6 +155,8 @@ type KubernetesCluster struct {
 	NetworkProfile KubernetesClusterNetworkProfileOutput `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
+	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+	NodeResourceGroupId pulumi.StringOutput `pulumi:"nodeResourceGroupId"`
 	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
 	OidcIssuerEnabled pulumi.BoolPtrOutput `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
@@ -183,7 +185,7 @@ type KubernetesCluster struct {
 	RunCommandEnabled pulumi.BoolPtrOutput `pulumi:"runCommandEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrOutput `pulumi:"storageProfile"`
@@ -261,7 +263,7 @@ type kubernetesClusterState struct {
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+	// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
@@ -319,6 +321,8 @@ type kubernetesClusterState struct {
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
+	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+	NodeResourceGroupId *string `pulumi:"nodeResourceGroupId"`
 	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
@@ -347,7 +351,7 @@ type kubernetesClusterState struct {
 	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile *KubernetesClusterStorageProfile `pulumi:"storageProfile"`
@@ -384,7 +388,7 @@ type KubernetesClusterState struct {
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput
-	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+	// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrInput
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
@@ -442,6 +446,8 @@ type KubernetesClusterState struct {
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
+	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+	NodeResourceGroupId pulumi.StringPtrInput
 	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
 	OidcIssuerEnabled pulumi.BoolPtrInput
 	// The OIDC issuer URL that is associated with the cluster.
@@ -470,7 +476,7 @@ type KubernetesClusterState struct {
 	RunCommandEnabled pulumi.BoolPtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrInput
@@ -511,7 +517,7 @@ type kubernetesClusterArgs struct {
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+	// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
@@ -579,7 +585,7 @@ type kubernetesClusterArgs struct {
 	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile *KubernetesClusterStorageProfile `pulumi:"storageProfile"`
@@ -617,7 +623,7 @@ type KubernetesClusterArgs struct {
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput
-	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+	// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrInput
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
@@ -685,7 +691,7 @@ type KubernetesClusterArgs struct {
 	RunCommandEnabled pulumi.BoolPtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrInput
@@ -844,7 +850,7 @@ func (o KubernetesClusterOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
 func (o KubernetesClusterOutput) DnsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.DnsPrefix }).(pulumi.StringPtrOutput)
 }
@@ -995,6 +1001,11 @@ func (o KubernetesClusterOutput) NodeResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.NodeResourceGroup }).(pulumi.StringOutput)
 }
 
+// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
+func (o KubernetesClusterOutput) NodeResourceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.NodeResourceGroupId }).(pulumi.StringOutput)
+}
+
 // Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
 func (o KubernetesClusterOutput) OidcIssuerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.OidcIssuerEnabled }).(pulumi.BoolPtrOutput)
@@ -1065,7 +1076,7 @@ func (o KubernetesClusterOutput) ServicePrincipal() KubernetesClusterServicePrin
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterServicePrincipalPtrOutput { return v.ServicePrincipal }).(KubernetesClusterServicePrincipalPtrOutput)
 }
 
-// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 func (o KubernetesClusterOutput) SkuTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.SkuTier }).(pulumi.StringPtrOutput)
 }

@@ -18,6 +18,21 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs extends co
     public static final ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs Empty = new ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs();
 
     /**
+     * The communities of Bgp Peering specified for microsoft peering.
+     * 
+     */
+    @Import(name="advertisedCommunities")
+    private @Nullable Output<List<String>> advertisedCommunities;
+
+    /**
+     * @return The communities of Bgp Peering specified for microsoft peering.
+     * 
+     */
+    public Optional<Output<List<String>>> advertisedCommunities() {
+        return Optional.ofNullable(this.advertisedCommunities);
+    }
+
+    /**
      * A list of Advertised Public Prefixes.
      * 
      */
@@ -65,6 +80,7 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs extends co
     private ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs() {}
 
     private ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs $) {
+        this.advertisedCommunities = $.advertisedCommunities;
         this.advertisedPublicPrefixes = $.advertisedPublicPrefixes;
         this.customerAsn = $.customerAsn;
         this.routingRegistryName = $.routingRegistryName;
@@ -86,6 +102,37 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs extends co
 
         public Builder(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs defaults) {
             $ = new ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param advertisedCommunities The communities of Bgp Peering specified for microsoft peering.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advertisedCommunities(@Nullable Output<List<String>> advertisedCommunities) {
+            $.advertisedCommunities = advertisedCommunities;
+            return this;
+        }
+
+        /**
+         * @param advertisedCommunities The communities of Bgp Peering specified for microsoft peering.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advertisedCommunities(List<String> advertisedCommunities) {
+            return advertisedCommunities(Output.of(advertisedCommunities));
+        }
+
+        /**
+         * @param advertisedCommunities The communities of Bgp Peering specified for microsoft peering.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advertisedCommunities(String... advertisedCommunities) {
+            return advertisedCommunities(List.of(advertisedCommunities));
         }
 
         /**

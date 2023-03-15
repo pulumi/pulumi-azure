@@ -114,6 +114,9 @@ namespace Pulumi.Azure.Network
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        [Output("triggers")]
+        public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
+
         /// <summary>
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
         /// </summary>
@@ -208,6 +211,14 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
+        }
+
         /// <summary>
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
         /// </summary>
@@ -263,6 +274,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
+        }
 
         /// <summary>
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.

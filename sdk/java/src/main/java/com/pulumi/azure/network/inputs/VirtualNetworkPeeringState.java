@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -106,6 +107,13 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.resourceGroupName);
     }
 
+    @Import(name="triggers")
+    private @Nullable Output<Map<String,String>> triggers;
+
+    public Optional<Output<Map<String,String>>> triggers() {
+        return Optional.ofNullable(this.triggers);
+    }
+
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
@@ -145,6 +153,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         this.name = $.name;
         this.remoteVirtualNetworkId = $.remoteVirtualNetworkId;
         this.resourceGroupName = $.resourceGroupName;
+        this.triggers = $.triggers;
         this.useRemoteGateways = $.useRemoteGateways;
         this.virtualNetworkName = $.virtualNetworkName;
     }
@@ -291,6 +300,15 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
+            $.triggers = triggers;
+            return this;
+        }
+
+        public Builder triggers(Map<String,String> triggers) {
+            return triggers(Output.of(triggers));
         }
 
         /**

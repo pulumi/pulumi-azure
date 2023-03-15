@@ -165,6 +165,11 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Map<String,String> tags;
     /**
+     * @return Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+     * 
+     */
+    private @Nullable String temporaryNameForRotation;
+    /**
      * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
      * 
      */
@@ -180,7 +185,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable KubernetesClusterDefaultNodePoolUpgradeSettings upgradeSettings;
     /**
-     * @return The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+     * @return The size of the Virtual Machine, such as `Standard_DS2_v2`.
      * 
      */
     private String vmSize;
@@ -405,6 +410,13 @@ public final class KubernetesClusterDefaultNodePool {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
+     * @return Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
+     * 
+     */
+    public Optional<String> temporaryNameForRotation() {
+        return Optional.ofNullable(this.temporaryNameForRotation);
+    }
+    /**
      * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
      * 
      */
@@ -426,7 +438,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.upgradeSettings);
     }
     /**
-     * @return The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
+     * @return The size of the Virtual Machine, such as `Standard_DS2_v2`.
      * 
      */
     public String vmSize() {
@@ -492,6 +504,7 @@ public final class KubernetesClusterDefaultNodePool {
         private @Nullable String proximityPlacementGroupId;
         private @Nullable String scaleDownMode;
         private @Nullable Map<String,String> tags;
+        private @Nullable String temporaryNameForRotation;
         private @Nullable String type;
         private @Nullable Boolean ultraSsdEnabled;
         private @Nullable KubernetesClusterDefaultNodePoolUpgradeSettings upgradeSettings;
@@ -531,6 +544,7 @@ public final class KubernetesClusterDefaultNodePool {
     	      this.proximityPlacementGroupId = defaults.proximityPlacementGroupId;
     	      this.scaleDownMode = defaults.scaleDownMode;
     	      this.tags = defaults.tags;
+    	      this.temporaryNameForRotation = defaults.temporaryNameForRotation;
     	      this.type = defaults.type;
     	      this.ultraSsdEnabled = defaults.ultraSsdEnabled;
     	      this.upgradeSettings = defaults.upgradeSettings;
@@ -689,6 +703,11 @@ public final class KubernetesClusterDefaultNodePool {
             return this;
         }
         @CustomType.Setter
+        public Builder temporaryNameForRotation(@Nullable String temporaryNameForRotation) {
+            this.temporaryNameForRotation = temporaryNameForRotation;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
@@ -757,6 +776,7 @@ public final class KubernetesClusterDefaultNodePool {
             o.proximityPlacementGroupId = proximityPlacementGroupId;
             o.scaleDownMode = scaleDownMode;
             o.tags = tags;
+            o.temporaryNameForRotation = temporaryNameForRotation;
             o.type = type;
             o.ultraSsdEnabled = ultraSsdEnabled;
             o.upgradeSettings = upgradeSettings;

@@ -13,6 +13,7 @@ import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetNetwork
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetOsDiskArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetOsProfileArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetPlanArgs;
+import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetPriorityMixArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationArgs;
 import com.pulumi.core.Output;
@@ -363,6 +364,21 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
+     * a `priority_mix` block as defined below
+     * 
+     */
+    @Import(name="priorityMix")
+    private @Nullable Output<OrchestratedVirtualMachineScaleSetPriorityMixArgs> priorityMix;
+
+    /**
+     * @return a `priority_mix` block as defined below
+     * 
+     */
+    public Optional<Output<OrchestratedVirtualMachineScaleSetPriorityMixArgs>> priorityMix() {
+        return Optional.ofNullable(this.priorityMix);
+    }
+
+    /**
      * The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      * 
      */
@@ -567,6 +583,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         this.plan = $.plan;
         this.platformFaultDomainCount = $.platformFaultDomainCount;
         this.priority = $.priority;
+        this.priorityMix = $.priorityMix;
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
         this.resourceGroupName = $.resourceGroupName;
         this.singlePlacementGroup = $.singlePlacementGroup;
@@ -1089,6 +1106,27 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
          */
         public Builder priority(String priority) {
             return priority(Output.of(priority));
+        }
+
+        /**
+         * @param priorityMix a `priority_mix` block as defined below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priorityMix(@Nullable Output<OrchestratedVirtualMachineScaleSetPriorityMixArgs> priorityMix) {
+            $.priorityMix = priorityMix;
+            return this;
+        }
+
+        /**
+         * @param priorityMix a `priority_mix` block as defined below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priorityMix(OrchestratedVirtualMachineScaleSetPriorityMixArgs priorityMix) {
+            return priorityMix(Output.of(priorityMix));
         }
 
         /**

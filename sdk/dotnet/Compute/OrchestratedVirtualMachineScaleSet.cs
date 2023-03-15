@@ -190,6 +190,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> Priority { get; private set; } = null!;
 
         /// <summary>
+        /// a `priority_mix` block as defined below
+        /// </summary>
+        [Output("priorityMix")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetPriorityMix?> PriorityMix { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("proximityPlacementGroupId")]
@@ -462,6 +468,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Priority { get; set; }
 
         /// <summary>
+        /// a `priority_mix` block as defined below
+        /// </summary>
+        [Input("priorityMix")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetPriorityMixArgs>? PriorityMix { get; set; }
+
+        /// <summary>
         /// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("proximityPlacementGroupId")]
@@ -706,6 +718,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
+
+        /// <summary>
+        /// a `priority_mix` block as defined below
+        /// </summary>
+        [Input("priorityMix")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetPriorityMixGetArgs>? PriorityMix { get; set; }
 
         /// <summary>
         /// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.

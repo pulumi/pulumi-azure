@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLinuxFunctionAppAuthSettingActiveDirectory {
     /**
-     * @return A list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+     * @return The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
      * 
      */
     private List<String> allowedAudiences;
@@ -33,7 +33,7 @@ public final class GetLinuxFunctionAppAuthSettingActiveDirectory {
 
     private GetLinuxFunctionAppAuthSettingActiveDirectory() {}
     /**
-     * @return A list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+     * @return The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
      * 
      */
     public List<String> allowedAudiences() {

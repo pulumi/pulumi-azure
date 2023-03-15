@@ -20,7 +20,7 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
      */
     private @Nullable List<KubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities;
     /**
-     * @return Is secret rotation enabled?
+     * @return Should the secret store CSI driver on the AKS cluster be enabled?
      * 
      */
     private @Nullable Boolean secretRotationEnabled;
@@ -39,7 +39,7 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
         return this.secretIdentities == null ? List.of() : this.secretIdentities;
     }
     /**
-     * @return Is secret rotation enabled?
+     * @return Should the secret store CSI driver on the AKS cluster be enabled?
      * 
      */
     public Optional<Boolean> secretRotationEnabled() {

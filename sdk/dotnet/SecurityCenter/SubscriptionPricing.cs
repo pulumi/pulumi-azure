@@ -44,7 +44,7 @@ namespace Pulumi.Azure.SecurityCenter
     public partial class SubscriptionPricing : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers` and `CloudPosture`. Defaults to `VirtualMachines`
+        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         /// </summary>
         [Output("resourceType")]
         public Output<string?> ResourceType { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.SecurityCenter
     public sealed class SubscriptionPricingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers` and `CloudPosture`. Defaults to `VirtualMachines`
+        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.SecurityCenter
     public sealed class SubscriptionPricingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers` and `CloudPosture`. Defaults to `VirtualMachines`
+        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }

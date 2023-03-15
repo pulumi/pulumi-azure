@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appservice.WindowsFunctionAppSlotArgs;
 import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSlotState;
 import com.pulumi.azure.appservice.outputs.WindowsFunctionAppSlotAuthSettings;
+import com.pulumi.azure.appservice.outputs.WindowsFunctionAppSlotAuthSettingsV2;
 import com.pulumi.azure.appservice.outputs.WindowsFunctionAppSlotBackup;
 import com.pulumi.azure.appservice.outputs.WindowsFunctionAppSlotConnectionString;
 import com.pulumi.azure.appservice.outputs.WindowsFunctionAppSlotIdentity;
@@ -134,6 +135,20 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<WindowsFunctionAppSlotAuthSettings>> authSettings() {
         return Codegen.optional(this.authSettings);
+    }
+    /**
+     * an `auth_settings_v2` block as detailed below.
+     * 
+     */
+    @Export(name="authSettingsV2", type=WindowsFunctionAppSlotAuthSettingsV2.class, parameters={})
+    private Output</* @Nullable */ WindowsFunctionAppSlotAuthSettingsV2> authSettingsV2;
+
+    /**
+     * @return an `auth_settings_v2` block as detailed below.
+     * 
+     */
+    public Output<Optional<WindowsFunctionAppSlotAuthSettingsV2>> authSettingsV2() {
+        return Codegen.optional(this.authSettingsV2);
     }
     /**
      * a `backup` block as detailed below.

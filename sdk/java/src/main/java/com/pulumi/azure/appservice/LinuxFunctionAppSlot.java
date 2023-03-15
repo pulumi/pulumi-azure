@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appservice.LinuxFunctionAppSlotArgs;
 import com.pulumi.azure.appservice.inputs.LinuxFunctionAppSlotState;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotAuthSettings;
+import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotAuthSettingsV2;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotBackup;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotConnectionString;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotIdentity;
@@ -134,6 +135,20 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<LinuxFunctionAppSlotAuthSettings>> authSettings() {
         return Codegen.optional(this.authSettings);
+    }
+    /**
+     * an `auth_settings_v2` block as detailed below.
+     * 
+     */
+    @Export(name="authSettingsV2", type=LinuxFunctionAppSlotAuthSettingsV2.class, parameters={})
+    private Output</* @Nullable */ LinuxFunctionAppSlotAuthSettingsV2> authSettingsV2;
+
+    /**
+     * @return an `auth_settings_v2` block as detailed below.
+     * 
+     */
+    public Output<Optional<LinuxFunctionAppSlotAuthSettingsV2>> authSettingsV2() {
+        return Codegen.optional(this.authSettingsV2);
     }
     /**
      * a `backup` block as detailed below.

@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.keyvault.KeyArgs;
 import com.pulumi.azure.keyvault.inputs.KeyState;
+import com.pulumi.azure.keyvault.outputs.KeyRotationPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -18,75 +19,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.keyvault.KeyVault;
- * import com.pulumi.azure.keyvault.KeyVaultArgs;
- * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
- * import com.pulumi.azure.keyvault.Key;
- * import com.pulumi.azure.keyvault.KeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .skuName(&#34;premium&#34;)
- *             .softDeleteRetentionDays(7)
- *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .keyPermissions(                
- *                     &#34;Create&#34;,
- *                     &#34;Get&#34;,
- *                     &#34;Purge&#34;,
- *                     &#34;Recover&#34;)
- *                 .secretPermissions(&#34;Set&#34;)
- *                 .build())
- *             .build());
- * 
- *         var generated = new Key(&#34;generated&#34;, KeyArgs.builder()        
- *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
- *             .keySize(2048)
- *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Key Vault Key which is Enabled can be imported using the `resource id`, e.g.
@@ -293,6 +225,20 @@ public class Key extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceVersionlessId() {
         return this.resourceVersionlessId;
+    }
+    /**
+     * A `rotation_policy` block as defined below.
+     * 
+     */
+    @Export(name="rotationPolicy", type=KeyRotationPolicy.class, parameters={})
+    private Output<KeyRotationPolicy> rotationPolicy;
+
+    /**
+     * @return A `rotation_policy` block as defined below.
+     * 
+     */
+    public Output<KeyRotationPolicy> rotationPolicy() {
+        return this.rotationPolicy;
     }
     /**
      * A mapping of tags to assign to the resource.

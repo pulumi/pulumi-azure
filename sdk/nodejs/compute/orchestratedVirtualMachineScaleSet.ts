@@ -155,6 +155,10 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<string | undefined>;
     /**
+     * a `priorityMix` block as defined below
+     */
+    public readonly priorityMix!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetPriorityMix | undefined>;
+    /**
      * The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      */
     public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
@@ -238,6 +242,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["plan"] = state ? state.plan : undefined;
             resourceInputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["priorityMix"] = state ? state.priorityMix : undefined;
             resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
@@ -280,6 +285,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["priorityMix"] = args ? args.priorityMix : undefined;
             resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
@@ -392,6 +398,10 @@ export interface OrchestratedVirtualMachineScaleSetState {
      * The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      */
     priority?: pulumi.Input<string>;
+    /**
+     * a `priorityMix` block as defined below
+     */
+    priorityMix?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetPriorityMix>;
     /**
      * The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      */
@@ -534,6 +544,10 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      * The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      */
     priority?: pulumi.Input<string>;
+    /**
+     * a `priorityMix` block as defined below
+     */
+    priorityMix?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetPriorityMix>;
     /**
      * The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      */

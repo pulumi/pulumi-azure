@@ -40,6 +40,7 @@ namespace Pulumi.Azure.MariaDB
     ///         GeoRedundantBackupEnabled = false,
     ///         PublicNetworkAccessEnabled = false,
     ///         SslEnforcementEnabled = true,
+    ///         SslMinimalTlsVersionEnforced = "TLS1_2",
     ///     });
     /// 
     /// });
@@ -145,6 +146,12 @@ namespace Pulumi.Azure.MariaDB
         /// </summary>
         [Output("sslEnforcementEnabled")]
         public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+        /// </summary>
+        [Output("sslMinimalTlsVersionEnforced")]
+        public Output<string?> SslMinimalTlsVersionEnforced { get; private set; } = null!;
 
         /// <summary>
         /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
@@ -309,6 +316,12 @@ namespace Pulumi.Azure.MariaDB
         public Input<bool> SslEnforcementEnabled { get; set; } = null!;
 
         /// <summary>
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+        /// </summary>
+        [Input("sslMinimalTlsVersionEnforced")]
+        public Input<string>? SslMinimalTlsVersionEnforced { get; set; }
+
+        /// <summary>
         /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
         /// </summary>
         [Input("storageMb")]
@@ -439,6 +452,12 @@ namespace Pulumi.Azure.MariaDB
         /// </summary>
         [Input("sslEnforcementEnabled")]
         public Input<bool>? SslEnforcementEnabled { get; set; }
+
+        /// <summary>
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
+        /// </summary>
+        [Input("sslMinimalTlsVersionEnforced")]
+        public Input<string>? SslMinimalTlsVersionEnforced { get; set; }
 
         /// <summary>
         /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
