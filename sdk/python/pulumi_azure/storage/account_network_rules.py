@@ -29,7 +29,7 @@ class AccountNetworkRulesInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]] private_link_access_rules: One or More `private_link_access` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to to secure the storage account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to secure the storage account.
         """
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
@@ -106,7 +106,7 @@ class AccountNetworkRulesInitArgs:
     @pulumi.getter(name="virtualNetworkSubnetIds")
     def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of virtual network subnet ids to to secure the storage account.
+        A list of virtual network subnet ids to secure the storage account.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
 
@@ -131,7 +131,7 @@ class _AccountNetworkRulesState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]] private_link_access_rules: One or More `private_link_access` block as defined below.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to to secure the storage account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to secure the storage account.
         """
         if bypasses is not None:
             pulumi.set(__self__, "bypasses", bypasses)
@@ -210,7 +210,7 @@ class _AccountNetworkRulesState:
     @pulumi.getter(name="virtualNetworkSubnetIds")
     def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of virtual network subnet ids to to secure the storage account.
+        A list of virtual network subnet ids to secure the storage account.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
 
@@ -287,7 +287,7 @@ class AccountNetworkRules(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] private_link_access_rules: One or More `private_link_access` block as defined below.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to to secure the storage account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to secure the storage account.
         """
         ...
     @overload
@@ -412,7 +412,7 @@ class AccountNetworkRules(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] private_link_access_rules: One or More `private_link_access` block as defined below.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to to secure the storage account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to secure the storage account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -470,7 +470,7 @@ class AccountNetworkRules(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkSubnetIds")
     def virtual_network_subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of virtual network subnet ids to to secure the storage account.
+        A list of virtual network subnet ids to secure the storage account.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
 

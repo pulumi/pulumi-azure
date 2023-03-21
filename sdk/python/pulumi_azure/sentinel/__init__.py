@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .alert_rule_anomaly_built_in import *
+from .alert_rule_anomaly_duplicate import *
 from .alert_rule_fusion import *
 from .alert_rule_machine_learning_behavior_analytics import *
 from .alert_rule_ms_security_incident import *

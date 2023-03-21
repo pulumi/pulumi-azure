@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of virtual network subnet ids to to secure the storage account.
+        /// A list of virtual network subnet ids to secure the storage account.
         /// </summary>
         [Output("virtualNetworkSubnetIds")]
         public Output<ImmutableArray<string>> VirtualNetworkSubnetIds { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Storage
         private InputList<string>? _virtualNetworkSubnetIds;
 
         /// <summary>
-        /// A list of virtual network subnet ids to to secure the storage account.
+        /// A list of virtual network subnet ids to secure the storage account.
         /// </summary>
         public InputList<string> VirtualNetworkSubnetIds
         {
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.Storage
         private InputList<string>? _virtualNetworkSubnetIds;
 
         /// <summary>
-        /// A list of virtual network subnet ids to to secure the storage account.
+        /// A list of virtual network subnet ids to secure the storage account.
         /// </summary>
         public InputList<string> VirtualNetworkSubnetIds
         {

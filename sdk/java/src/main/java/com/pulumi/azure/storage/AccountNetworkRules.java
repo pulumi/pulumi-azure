@@ -174,14 +174,14 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
         return this.storageAccountId;
     }
     /**
-     * A list of virtual network subnet ids to to secure the storage account.
+     * A list of virtual network subnet ids to secure the storage account.
      * 
      */
     @Export(name="virtualNetworkSubnetIds", type=List.class, parameters={String.class})
     private Output<List<String>> virtualNetworkSubnetIds;
 
     /**
-     * @return A list of virtual network subnet ids to to secure the storage account.
+     * @return A list of virtual network subnet ids to secure the storage account.
      * 
      */
     public Output<List<String>> virtualNetworkSubnetIds() {

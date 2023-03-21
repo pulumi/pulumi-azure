@@ -33883,6 +33883,86 @@ export namespace mobile {
         type: pulumi.Input<string>;
     }
 
+    export interface NetworkSimPolicySlice {
+        /**
+         * An array of `dataNetwork` block as defined below.
+         */
+        dataNetworks: pulumi.Input<pulumi.Input<inputs.mobile.NetworkSimPolicySliceDataNetwork>[]>;
+        /**
+         * The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `dataNetwork` block.
+         */
+        defaultDataNetworkId: pulumi.Input<string>;
+        /**
+         * The ID of the slice that these settings apply to.
+         */
+        sliceId: pulumi.Input<string>;
+    }
+
+    export interface NetworkSimPolicySliceDataNetwork {
+        /**
+         * Allowed session types in addition to the default session type. Must not duplicate the default session type. Possible values are `IPv4` and `IPv6`.
+         */
+        additionalAllowedSessionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+         */
+        allocationAndRetentionPriorityLevel?: pulumi.Input<number>;
+        /**
+         * An array of IDs of services that can be used as part of this SIM policy. The array must not contain duplicate items and must contain at least one item.
+         */
+        allowedServicesIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of Mobile Network Data Network which these settings apply to.
+         */
+        dataNetworkId: pulumi.Input<string>;
+        /**
+         * The default PDU session type, which is used if the user equipment does not request a specific session type. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         */
+        defaultSessionType?: pulumi.Input<string>;
+        /**
+         * The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. Defaults to `10`, Must be at least `0`, See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
+         */
+        maxBufferedPackets?: pulumi.Input<number>;
+        /**
+         * The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+         */
+        preemptionCapability?: pulumi.Input<string>;
+        /**
+         * The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+         */
+        preemptionVulnerability?: pulumi.Input<string>;
+        /**
+         * The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+         */
+        qosIndicator: pulumi.Input<number>;
+        /**
+         * A `sessionAggregateMaximumBitRate` block as defined below.
+         */
+        sessionAggregateMaximumBitRate: pulumi.Input<inputs.mobile.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate>;
+    }
+
+    export interface NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate {
+        /**
+         * Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+         */
+        downlink: pulumi.Input<string>;
+        /**
+         * Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+         */
+        uplink: pulumi.Input<string>;
+    }
+
+    export interface NetworkSimPolicyUserEquipmentAggregateMaximumBitRate {
+        /**
+         * Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+         */
+        downlink: pulumi.Input<string>;
+        /**
+         * Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+         */
+        uplink: pulumi.Input<string>;
+    }
+
     export interface NetworkSliceSingleNetworkSliceSelectionAssistanceInformation {
         /**
          * Slice differentiator (SD). Must be a 6 digit hex string.
@@ -40886,6 +40966,97 @@ export namespace sentinel {
          * The value of the threshold observation.
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface AlertRuleAnomalyDuplicateMultiSelectObservation {
+        /**
+         * The description of the multi select observation.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name of the multi select observation.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A list of supported values of the multi select observation.
+         */
+        supportedValues?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of values of the multi select observation.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertRuleAnomalyDuplicatePrioritizedExcludeObservation {
+        /**
+         * The description of the prioritized exclude observation.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The excluded value per `description`.
+         */
+        exclude?: pulumi.Input<string>;
+        /**
+         * The name of the prioritized exclude observation.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The prioritized value per `description`.
+         */
+        prioritize?: pulumi.Input<string>;
+    }
+
+    export interface AlertRuleAnomalyDuplicateRequiredDataConnector {
+        /**
+         * The ID of the required Data Connector.
+         */
+        connectorId?: pulumi.Input<string>;
+        /**
+         * A list of data types of the required Data Connector.
+         */
+        dataTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertRuleAnomalyDuplicateSingleSelectObservation {
+        /**
+         * The description of the single select observation.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name of the single select observation.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A list of supported values of the single select observation.
+         */
+        supportedValues?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The value of the multi select observation.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AlertRuleAnomalyDuplicateThresholdObservation {
+        /**
+         * The description of the threshold observation.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The max value of the threshold observation.
+         */
+        max?: pulumi.Input<string>;
+        /**
+         * The min value of the threshold observation.
+         */
+        min?: pulumi.Input<string>;
+        /**
+         * The name of the threshold observation.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the threshold observation.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface AlertRuleFusionSource {

@@ -18,6 +18,10 @@ __all__ = [
     'NetworkServiceServiceQosPolicyArgs',
     'NetworkServiceServiceQosPolicyMaximumBitRateArgs',
     'NetworkSimGroupIdentityArgs',
+    'NetworkSimPolicySliceArgs',
+    'NetworkSimPolicySliceDataNetworkArgs',
+    'NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs',
+    'NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs',
     'NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs',
 ]
 
@@ -521,6 +525,295 @@ class NetworkSimGroupIdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class NetworkSimPolicySliceArgs:
+    def __init__(__self__, *,
+                 data_networks: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceDataNetworkArgs']]],
+                 default_data_network_id: pulumi.Input[str],
+                 slice_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceDataNetworkArgs']]] data_networks: An array of `data_network` block as defined below.
+        :param pulumi.Input[str] default_data_network_id: The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
+        :param pulumi.Input[str] slice_id: The ID of the slice that these settings apply to.
+        """
+        pulumi.set(__self__, "data_networks", data_networks)
+        pulumi.set(__self__, "default_data_network_id", default_data_network_id)
+        pulumi.set(__self__, "slice_id", slice_id)
+
+    @property
+    @pulumi.getter(name="dataNetworks")
+    def data_networks(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceDataNetworkArgs']]]:
+        """
+        An array of `data_network` block as defined below.
+        """
+        return pulumi.get(self, "data_networks")
+
+    @data_networks.setter
+    def data_networks(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceDataNetworkArgs']]]):
+        pulumi.set(self, "data_networks", value)
+
+    @property
+    @pulumi.getter(name="defaultDataNetworkId")
+    def default_data_network_id(self) -> pulumi.Input[str]:
+        """
+        The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
+        """
+        return pulumi.get(self, "default_data_network_id")
+
+    @default_data_network_id.setter
+    def default_data_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_data_network_id", value)
+
+    @property
+    @pulumi.getter(name="sliceId")
+    def slice_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the slice that these settings apply to.
+        """
+        return pulumi.get(self, "slice_id")
+
+    @slice_id.setter
+    def slice_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slice_id", value)
+
+
+@pulumi.input_type
+class NetworkSimPolicySliceDataNetworkArgs:
+    def __init__(__self__, *,
+                 allowed_services_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 data_network_id: pulumi.Input[str],
+                 qos_indicator: pulumi.Input[int],
+                 session_aggregate_maximum_bit_rate: pulumi.Input['NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs'],
+                 additional_allowed_session_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allocation_and_retention_priority_level: Optional[pulumi.Input[int]] = None,
+                 default_session_type: Optional[pulumi.Input[str]] = None,
+                 max_buffered_packets: Optional[pulumi.Input[int]] = None,
+                 preemption_capability: Optional[pulumi.Input[str]] = None,
+                 preemption_vulnerability: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_services_ids: An array of IDs of services that can be used as part of this SIM policy. The array must not contain duplicate items and must contain at least one item.
+        :param pulumi.Input[str] data_network_id: The ID of Mobile Network Data Network which these settings apply to.
+        :param pulumi.Input[int] qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+        :param pulumi.Input['NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs'] session_aggregate_maximum_bit_rate: A `session_aggregate_maximum_bit_rate` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_allowed_session_types: Allowed session types in addition to the default session type. Must not duplicate the default session type. Possible values are `IPv4` and `IPv6`.
+        :param pulumi.Input[int] allocation_and_retention_priority_level: Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        :param pulumi.Input[str] default_session_type: The default PDU session type, which is used if the user equipment does not request a specific session type. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        :param pulumi.Input[int] max_buffered_packets: The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. Defaults to `10`, Must be at least `0`, See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
+        :param pulumi.Input[str] preemption_capability: The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+        :param pulumi.Input[str] preemption_vulnerability: The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+        """
+        pulumi.set(__self__, "allowed_services_ids", allowed_services_ids)
+        pulumi.set(__self__, "data_network_id", data_network_id)
+        pulumi.set(__self__, "qos_indicator", qos_indicator)
+        pulumi.set(__self__, "session_aggregate_maximum_bit_rate", session_aggregate_maximum_bit_rate)
+        if additional_allowed_session_types is not None:
+            pulumi.set(__self__, "additional_allowed_session_types", additional_allowed_session_types)
+        if allocation_and_retention_priority_level is not None:
+            pulumi.set(__self__, "allocation_and_retention_priority_level", allocation_and_retention_priority_level)
+        if default_session_type is not None:
+            pulumi.set(__self__, "default_session_type", default_session_type)
+        if max_buffered_packets is not None:
+            pulumi.set(__self__, "max_buffered_packets", max_buffered_packets)
+        if preemption_capability is not None:
+            pulumi.set(__self__, "preemption_capability", preemption_capability)
+        if preemption_vulnerability is not None:
+            pulumi.set(__self__, "preemption_vulnerability", preemption_vulnerability)
+
+    @property
+    @pulumi.getter(name="allowedServicesIds")
+    def allowed_services_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        An array of IDs of services that can be used as part of this SIM policy. The array must not contain duplicate items and must contain at least one item.
+        """
+        return pulumi.get(self, "allowed_services_ids")
+
+    @allowed_services_ids.setter
+    def allowed_services_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_services_ids", value)
+
+    @property
+    @pulumi.getter(name="dataNetworkId")
+    def data_network_id(self) -> pulumi.Input[str]:
+        """
+        The ID of Mobile Network Data Network which these settings apply to.
+        """
+        return pulumi.get(self, "data_network_id")
+
+    @data_network_id.setter
+    def data_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_network_id", value)
+
+    @property
+    @pulumi.getter(name="qosIndicator")
+    def qos_indicator(self) -> pulumi.Input[int]:
+        """
+        The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+        """
+        return pulumi.get(self, "qos_indicator")
+
+    @qos_indicator.setter
+    def qos_indicator(self, value: pulumi.Input[int]):
+        pulumi.set(self, "qos_indicator", value)
+
+    @property
+    @pulumi.getter(name="sessionAggregateMaximumBitRate")
+    def session_aggregate_maximum_bit_rate(self) -> pulumi.Input['NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs']:
+        """
+        A `session_aggregate_maximum_bit_rate` block as defined below.
+        """
+        return pulumi.get(self, "session_aggregate_maximum_bit_rate")
+
+    @session_aggregate_maximum_bit_rate.setter
+    def session_aggregate_maximum_bit_rate(self, value: pulumi.Input['NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs']):
+        pulumi.set(self, "session_aggregate_maximum_bit_rate", value)
+
+    @property
+    @pulumi.getter(name="additionalAllowedSessionTypes")
+    def additional_allowed_session_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Allowed session types in addition to the default session type. Must not duplicate the default session type. Possible values are `IPv4` and `IPv6`.
+        """
+        return pulumi.get(self, "additional_allowed_session_types")
+
+    @additional_allowed_session_types.setter
+    def additional_allowed_session_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_allowed_session_types", value)
+
+    @property
+    @pulumi.getter(name="allocationAndRetentionPriorityLevel")
+    def allocation_and_retention_priority_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+        return pulumi.get(self, "allocation_and_retention_priority_level")
+
+    @allocation_and_retention_priority_level.setter
+    def allocation_and_retention_priority_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "allocation_and_retention_priority_level", value)
+
+    @property
+    @pulumi.getter(name="defaultSessionType")
+    def default_session_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default PDU session type, which is used if the user equipment does not request a specific session type. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        """
+        return pulumi.get(self, "default_session_type")
+
+    @default_session_type.setter
+    def default_session_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_session_type", value)
+
+    @property
+    @pulumi.getter(name="maxBufferedPackets")
+    def max_buffered_packets(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. Defaults to `10`, Must be at least `0`, See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
+        """
+        return pulumi.get(self, "max_buffered_packets")
+
+    @max_buffered_packets.setter
+    def max_buffered_packets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_buffered_packets", value)
+
+    @property
+    @pulumi.getter(name="preemptionCapability")
+    def preemption_capability(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+        """
+        return pulumi.get(self, "preemption_capability")
+
+    @preemption_capability.setter
+    def preemption_capability(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preemption_capability", value)
+
+    @property
+    @pulumi.getter(name="preemptionVulnerability")
+    def preemption_vulnerability(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+        """
+        return pulumi.get(self, "preemption_vulnerability")
+
+    @preemption_vulnerability.setter
+    def preemption_vulnerability(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preemption_vulnerability", value)
+
+
+@pulumi.input_type
+class NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs:
+    def __init__(__self__, *,
+                 downlink: pulumi.Input[str],
+                 uplink: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] downlink: Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        :param pulumi.Input[str] uplink: Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+        pulumi.set(__self__, "downlink", downlink)
+        pulumi.set(__self__, "uplink", uplink)
+
+    @property
+    @pulumi.getter
+    def downlink(self) -> pulumi.Input[str]:
+        """
+        Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+        return pulumi.get(self, "downlink")
+
+    @downlink.setter
+    def downlink(self, value: pulumi.Input[str]):
+        pulumi.set(self, "downlink", value)
+
+    @property
+    @pulumi.getter
+    def uplink(self) -> pulumi.Input[str]:
+        """
+        Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+        return pulumi.get(self, "uplink")
+
+    @uplink.setter
+    def uplink(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uplink", value)
+
+
+@pulumi.input_type
+class NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs:
+    def __init__(__self__, *,
+                 downlink: pulumi.Input[str],
+                 uplink: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] downlink: Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        :param pulumi.Input[str] uplink: Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+        pulumi.set(__self__, "downlink", downlink)
+        pulumi.set(__self__, "uplink", uplink)
+
+    @property
+    @pulumi.getter
+    def downlink(self) -> pulumi.Input[str]:
+        """
+        Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+        return pulumi.get(self, "downlink")
+
+    @downlink.setter
+    def downlink(self, value: pulumi.Input[str]):
+        pulumi.set(self, "downlink", value)
+
+    @property
+    @pulumi.getter
+    def uplink(self) -> pulumi.Input[str]:
+        """
+        Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+        return pulumi.get(self, "uplink")
+
+    @uplink.setter
+    def uplink(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uplink", value)
 
 
 @pulumi.input_type

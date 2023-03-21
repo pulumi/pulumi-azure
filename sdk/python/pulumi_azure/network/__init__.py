@@ -16,6 +16,7 @@ from .express_route_circuit_peering import *
 from .express_route_connection import *
 from .express_route_gateway import *
 from .express_route_port import *
+from .express_route_port_authorization import *
 from .firewall import *
 from .firewall_application_rule_collection import *
 from .firewall_nat_rule_collection import *

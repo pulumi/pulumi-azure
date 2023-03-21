@@ -85,8 +85,7 @@ type ExpressRouteCircuitAuthorization struct {
 	ExpressRouteCircuitName pulumi.StringOutput `pulumi:"expressRouteCircuitName"`
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to Changing this forces a new resource to be created.
-	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
@@ -137,8 +136,7 @@ type expressRouteCircuitAuthorizationState struct {
 	ExpressRouteCircuitName *string `pulumi:"expressRouteCircuitName"`
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to Changing this forces a new resource to be created.
-	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
@@ -151,8 +149,7 @@ type ExpressRouteCircuitAuthorizationState struct {
 	ExpressRouteCircuitName pulumi.StringPtrInput
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to Changing this forces a new resource to be created.
-	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -165,8 +162,7 @@ type expressRouteCircuitAuthorizationArgs struct {
 	ExpressRouteCircuitName string `pulumi:"expressRouteCircuitName"`
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to Changing this forces a new resource to be created.
-	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -176,8 +172,7 @@ type ExpressRouteCircuitAuthorizationArgs struct {
 	ExpressRouteCircuitName pulumi.StringInput
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to Changing this forces a new resource to be created.
-	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -288,8 +283,7 @@ func (o ExpressRouteCircuitAuthorizationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitAuthorization) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to Changing this forces a new resource to be created.
-// create the ExpressRoute circuit. Changing this forces a new resource to be created.
+// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
 func (o ExpressRouteCircuitAuthorizationOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitAuthorization) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

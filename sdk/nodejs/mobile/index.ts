@@ -25,6 +25,11 @@ export const getNetworkSimGroup: typeof import("./getNetworkSimGroup").getNetwor
 export const getNetworkSimGroupOutput: typeof import("./getNetworkSimGroup").getNetworkSimGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkSimGroup","getNetworkSimGroupOutput"], () => require("./getNetworkSimGroup"));
 
+export { GetNetworkSimPolicyArgs, GetNetworkSimPolicyResult, GetNetworkSimPolicyOutputArgs } from "./getNetworkSimPolicy";
+export const getNetworkSimPolicy: typeof import("./getNetworkSimPolicy").getNetworkSimPolicy = null as any;
+export const getNetworkSimPolicyOutput: typeof import("./getNetworkSimPolicy").getNetworkSimPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSimPolicy","getNetworkSimPolicyOutput"], () => require("./getNetworkSimPolicy"));
+
 export { GetNetworkSiteArgs, GetNetworkSiteResult, GetNetworkSiteOutputArgs } from "./getNetworkSite";
 export const getNetworkSite: typeof import("./getNetworkSite").getNetworkSite = null as any;
 export const getNetworkSiteOutput: typeof import("./getNetworkSite").getNetworkSiteOutput = null as any;
@@ -55,6 +60,11 @@ export type NetworkSimGroup = import("./networkSimGroup").NetworkSimGroup;
 export const NetworkSimGroup: typeof import("./networkSimGroup").NetworkSimGroup = null as any;
 utilities.lazyLoad(exports, ["NetworkSimGroup"], () => require("./networkSimGroup"));
 
+export { NetworkSimPolicyArgs, NetworkSimPolicyState } from "./networkSimPolicy";
+export type NetworkSimPolicy = import("./networkSimPolicy").NetworkSimPolicy;
+export const NetworkSimPolicy: typeof import("./networkSimPolicy").NetworkSimPolicy = null as any;
+utilities.lazyLoad(exports, ["NetworkSimPolicy"], () => require("./networkSimPolicy"));
+
 export { NetworkSiteArgs, NetworkSiteState } from "./networkSite";
 export type NetworkSite = import("./networkSite").NetworkSite;
 export const NetworkSite: typeof import("./networkSite").NetworkSite = null as any;
@@ -78,6 +88,8 @@ const _module = {
                 return new NetworkService(name, <any>undefined, { urn })
             case "azure:mobile/networkSimGroup:NetworkSimGroup":
                 return new NetworkSimGroup(name, <any>undefined, { urn })
+            case "azure:mobile/networkSimPolicy:NetworkSimPolicy":
+                return new NetworkSimPolicy(name, <any>undefined, { urn })
             case "azure:mobile/networkSite:NetworkSite":
                 return new NetworkSite(name, <any>undefined, { urn })
             case "azure:mobile/networkSlice:NetworkSlice":
@@ -91,5 +103,6 @@ pulumi.runtime.registerResourceModule("azure", "mobile/network", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkDataNetwork", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkService", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkSimGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "mobile/networkSimPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkSite", _module)
 pulumi.runtime.registerResourceModule("azure", "mobile/networkSlice", _module)

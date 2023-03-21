@@ -10,6 +10,11 @@ export type AlertRuleAnomalyBuiltIn = import("./alertRuleAnomalyBuiltIn").AlertR
 export const AlertRuleAnomalyBuiltIn: typeof import("./alertRuleAnomalyBuiltIn").AlertRuleAnomalyBuiltIn = null as any;
 utilities.lazyLoad(exports, ["AlertRuleAnomalyBuiltIn"], () => require("./alertRuleAnomalyBuiltIn"));
 
+export { AlertRuleAnomalyDuplicateArgs, AlertRuleAnomalyDuplicateState } from "./alertRuleAnomalyDuplicate";
+export type AlertRuleAnomalyDuplicate = import("./alertRuleAnomalyDuplicate").AlertRuleAnomalyDuplicate;
+export const AlertRuleAnomalyDuplicate: typeof import("./alertRuleAnomalyDuplicate").AlertRuleAnomalyDuplicate = null as any;
+utilities.lazyLoad(exports, ["AlertRuleAnomalyDuplicate"], () => require("./alertRuleAnomalyDuplicate"));
+
 export { AlertRuleFusionArgs, AlertRuleFusionState } from "./alertRuleFusion";
 export type AlertRuleFusion = import("./alertRuleFusion").AlertRuleFusion;
 export const AlertRuleFusion: typeof import("./alertRuleFusion").AlertRuleFusion = null as any;
@@ -182,6 +187,8 @@ const _module = {
         switch (type) {
             case "azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn":
                 return new AlertRuleAnomalyBuiltIn(name, <any>undefined, { urn })
+            case "azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate":
+                return new AlertRuleAnomalyDuplicate(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleFusion:AlertRuleFusion":
                 return new AlertRuleFusion(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics":
@@ -248,6 +255,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleAnomalyBuiltIn", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleAnomalyDuplicate", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleFusion", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMachineLearningBehaviorAnalytics", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMsSecurityIncident", _module)

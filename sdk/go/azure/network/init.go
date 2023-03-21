@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ExpressRouteGateway{}
 	case "azure:network/expressRoutePort:ExpressRoutePort":
 		r = &ExpressRoutePort{}
+	case "azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization":
+		r = &ExpressRoutePortAuthorization{}
 	case "azure:network/firewall:Firewall":
 		r = &Firewall{}
 	case "azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection":
@@ -253,6 +255,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/expressRoutePort",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/expressRoutePortAuthorization",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

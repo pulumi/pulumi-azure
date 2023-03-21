@@ -73,6 +73,8 @@ import (
 //					Create:  pulumi.Bool(true),
 //					Update:  pulumi.Bool(false),
 //					Process: pulumi.Bool(false),
+//					Tag:     pulumi.Bool(false),
+//					Filter:  pulumi.Bool(false),
 //				},
 //			}, nil)
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{

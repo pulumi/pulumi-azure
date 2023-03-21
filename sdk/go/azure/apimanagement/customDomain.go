@@ -109,13 +109,13 @@ import (
 //				Gateways: apimanagement.CustomDomainGatewayArray{
 //					&apimanagement.CustomDomainGatewayArgs{
 //						HostName:   pulumi.String("api.example.com"),
-//						KeyVaultId: exampleCertificate.SecretId,
+//						KeyVaultId: exampleCertificate.VersionlessSecretId,
 //					},
 //				},
 //				DeveloperPortals: apimanagement.CustomDomainDeveloperPortalArray{
 //					&apimanagement.CustomDomainDeveloperPortalArgs{
 //						HostName:   pulumi.String("portal.example.com"),
-//						KeyVaultId: exampleCertificate.SecretId,
+//						KeyVaultId: exampleCertificate.VersionlessSecretId,
 //					},
 //				},
 //			})

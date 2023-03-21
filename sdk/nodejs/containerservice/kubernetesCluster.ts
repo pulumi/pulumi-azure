@@ -235,7 +235,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly nodeResourceGroupId!: pulumi.Output<string>;
     /**
-     * Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+     * Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
      */
     public readonly oidcIssuerEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -635,7 +635,7 @@ export interface KubernetesClusterState {
      */
     nodeResourceGroupId?: pulumi.Input<string>;
     /**
-     * Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+     * Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
      */
     oidcIssuerEnabled?: pulumi.Input<boolean>;
     /**
@@ -857,7 +857,7 @@ export interface KubernetesClusterArgs {
      */
     nodeResourceGroup?: pulumi.Input<string>;
     /**
-     * Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+     * Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
      */
     oidcIssuerEnabled?: pulumi.Input<boolean>;
     /**

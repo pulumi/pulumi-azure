@@ -78,11 +78,11 @@ import * as utilities from "../utilities";
  *     apiManagementId: exampleService.id,
  *     gateways: [{
  *         hostName: "api.example.com",
- *         keyVaultId: exampleCertificate.secretId,
+ *         keyVaultId: exampleCertificate.versionlessSecretId,
  *     }],
  *     developerPortals: [{
  *         hostName: "portal.example.com",
- *         keyVaultId: exampleCertificate.secretId,
+ *         keyVaultId: exampleCertificate.versionlessSecretId,
  *     }],
  * });
  * ```

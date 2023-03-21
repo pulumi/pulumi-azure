@@ -72,6 +72,10 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+     */
+    public readonly allowNonVirtualWanTraffic!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteGatewayState | undefined;
+            resourceInputs["allowNonVirtualWanTraffic"] = state ? state.allowNonVirtualWanTraffic : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -126,6 +131,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
+            resourceInputs["allowNonVirtualWanTraffic"] = args ? args.allowNonVirtualWanTraffic : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -142,6 +148,10 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ExpressRouteGateway resources.
  */
 export interface ExpressRouteGatewayState {
+    /**
+     * Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+     */
+    allowNonVirtualWanTraffic?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -172,6 +182,10 @@ export interface ExpressRouteGatewayState {
  * The set of arguments for constructing a ExpressRouteGateway resource.
  */
 export interface ExpressRouteGatewayArgs {
+    /**
+     * Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+     */
+    allowNonVirtualWanTraffic?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

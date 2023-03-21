@@ -108,7 +108,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
      */
     public readonly storageAccountId!: pulumi.Output<string>;
     /**
-     * A list of virtual network subnet ids to to secure the storage account.
+     * A list of virtual network subnet ids to secure the storage account.
      */
     public readonly virtualNetworkSubnetIds!: pulumi.Output<string[]>;
 
@@ -176,7 +176,7 @@ export interface AccountNetworkRulesState {
      */
     storageAccountId?: pulumi.Input<string>;
     /**
-     * A list of virtual network subnet ids to to secure the storage account.
+     * A list of virtual network subnet ids to secure the storage account.
      */
     virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -206,7 +206,7 @@ export interface AccountNetworkRulesArgs {
      */
     storageAccountId: pulumi.Input<string>;
     /**
-     * A list of virtual network subnet ids to to secure the storage account.
+     * A list of virtual network subnet ids to secure the storage account.
      */
     virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

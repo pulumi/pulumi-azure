@@ -17,6 +17,7 @@ class ExpressRouteGatewayArgs:
                  resource_group_name: pulumi.Input[str],
                  scale_units: pulumi.Input[int],
                  virtual_hub_id: pulumi.Input[str],
+                 allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -25,6 +26,7 @@ class ExpressRouteGatewayArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
         :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] allow_non_virtual_wan_traffic: Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -32,6 +34,8 @@ class ExpressRouteGatewayArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scale_units", scale_units)
         pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        if allow_non_virtual_wan_traffic is not None:
+            pulumi.set(__self__, "allow_non_virtual_wan_traffic", allow_non_virtual_wan_traffic)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -76,6 +80,18 @@ class ExpressRouteGatewayArgs:
         pulumi.set(self, "virtual_hub_id", value)
 
     @property
+    @pulumi.getter(name="allowNonVirtualWanTraffic")
+    def allow_non_virtual_wan_traffic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_non_virtual_wan_traffic")
+
+    @allow_non_virtual_wan_traffic.setter
+    def allow_non_virtual_wan_traffic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_non_virtual_wan_traffic", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -115,6 +131,7 @@ class ExpressRouteGatewayArgs:
 @pulumi.input_type
 class _ExpressRouteGatewayState:
     def __init__(__self__, *,
+                 allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -123,6 +140,7 @@ class _ExpressRouteGatewayState:
                  virtual_hub_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteGateway resources.
+        :param pulumi.Input[bool] allow_non_virtual_wan_traffic: Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
@@ -130,6 +148,8 @@ class _ExpressRouteGatewayState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         """
+        if allow_non_virtual_wan_traffic is not None:
+            pulumi.set(__self__, "allow_non_virtual_wan_traffic", allow_non_virtual_wan_traffic)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -142,6 +162,18 @@ class _ExpressRouteGatewayState:
             pulumi.set(__self__, "tags", tags)
         if virtual_hub_id is not None:
             pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+
+    @property
+    @pulumi.getter(name="allowNonVirtualWanTraffic")
+    def allow_non_virtual_wan_traffic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_non_virtual_wan_traffic")
+
+    @allow_non_virtual_wan_traffic.setter
+    def allow_non_virtual_wan_traffic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_non_virtual_wan_traffic", value)
 
     @property
     @pulumi.getter
@@ -221,6 +253,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -266,6 +299,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_non_virtual_wan_traffic: Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
@@ -330,6 +364,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -345,6 +380,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExpressRouteGatewayArgs.__new__(ExpressRouteGatewayArgs)
 
+            __props__.__dict__["allow_non_virtual_wan_traffic"] = allow_non_virtual_wan_traffic
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -367,6 +403,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -380,6 +417,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_non_virtual_wan_traffic: Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
@@ -391,6 +429,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
         __props__ = _ExpressRouteGatewayState.__new__(_ExpressRouteGatewayState)
 
+        __props__.__dict__["allow_non_virtual_wan_traffic"] = allow_non_virtual_wan_traffic
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -398,6 +437,14 @@ class ExpressRouteGateway(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_hub_id"] = virtual_hub_id
         return ExpressRouteGateway(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowNonVirtualWanTraffic")
+    def allow_non_virtual_wan_traffic(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_non_virtual_wan_traffic")
 
     @property
     @pulumi.getter

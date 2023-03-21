@@ -12,6 +12,97 @@ namespace Pulumi.Azure.Mobile
     /// <summary>
     /// Manages a Mobile Network Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "east us",
+    ///     });
+    /// 
+    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         MobileCountryCode = "001",
+    ///         MobileNetworkCode = "01",
+    ///     });
+    /// 
+    ///     var exampleNetworkService = new Azure.Mobile.NetworkService("exampleNetworkService", new()
+    ///     {
+    ///         MobileNetworkId = exampleNetwork.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServicePrecedence = 0,
+    ///         PccRules = new[]
+    ///         {
+    ///             new Azure.Mobile.Inputs.NetworkServicePccRuleArgs
+    ///             {
+    ///                 Name = "default-rule",
+    ///                 Precedence = 1,
+    ///                 TrafficControlEnabled = true,
+    ///                 QosPolicy = new Azure.Mobile.Inputs.NetworkServicePccRuleQosPolicyArgs
+    ///                 {
+    ///                     AllocationAndRetentionPriorityLevel = 9,
+    ///                     QosIndicator = 9,
+    ///                     PreemptionCapability = "NotPreempt",
+    ///                     PreemptionVulnerability = "Preemptable",
+    ///                     GuaranteedBitRate = new Azure.Mobile.Inputs.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs
+    ///                     {
+    ///                         Downlink = "100 Mbps",
+    ///                         Uplink = "10 Mbps",
+    ///                     },
+    ///                     MaximumBitRate = new Azure.Mobile.Inputs.NetworkServicePccRuleQosPolicyMaximumBitRateArgs
+    ///                     {
+    ///                         Downlink = "1 Gbps",
+    ///                         Uplink = "100 Mbps",
+    ///                     },
+    ///                 },
+    ///                 ServiceDataFlowTemplates = new[]
+    ///                 {
+    ///                     new Azure.Mobile.Inputs.NetworkServicePccRuleServiceDataFlowTemplateArgs
+    ///                     {
+    ///                         Direction = "Uplink",
+    ///                         Name = "IP-to-server",
+    ///                         Ports = new[] {},
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             "ip",
+    ///                         },
+    ///                         RemoteIpLists = new[]
+    ///                         {
+    ///                             "10.3.4.0/24",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ServiceQosPolicy = new Azure.Mobile.Inputs.NetworkServiceServiceQosPolicyArgs
+    ///         {
+    ///             AllocationAndRetentionPriorityLevel = 9,
+    ///             QosIndicator = 9,
+    ///             PreemptionCapability = "NotPreempt",
+    ///             PreemptionVulnerability = "Preemptable",
+    ///             MaximumBitRate = new Azure.Mobile.Inputs.NetworkServiceServiceQosPolicyMaximumBitRateArgs
+    ///             {
+    ///                 Downlink = "1 Gbps",
+    ///                 Uplink = "100 Mbps",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Mobile Network Service can be imported using the `resource id`, e.g.

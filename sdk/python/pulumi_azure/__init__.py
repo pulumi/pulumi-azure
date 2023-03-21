@@ -5154,6 +5154,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mobile/networkSimPolicy",
+  "fqn": "pulumi_azure.mobile",
+  "classes": {
+   "azure:mobile/networkSimPolicy:NetworkSimPolicy": "NetworkSimPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mobile/networkSite",
   "fqn": "pulumi_azure.mobile",
   "classes": {
@@ -5782,6 +5790,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/expressRoutePort:ExpressRoutePort": "ExpressRoutePort"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/expressRoutePortAuthorization",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization": "ExpressRoutePortAuthorization"
   }
  },
  {
@@ -6970,6 +6986,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "sentinel/alertRuleAnomalyDuplicate",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate": "AlertRuleAnomalyDuplicate"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "sentinel/alertRuleFusion",
   "fqn": "pulumi_azure.sentinel",
   "classes": {
@@ -7406,6 +7430,14 @@ _utilities.register(
   "fqn": "pulumi_azure.siterecovery",
   "classes": {
    "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan": "ReplicationRecoveryPlan"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "siterecovery/vMWareReplicationPolicy",
+  "fqn": "pulumi_azure.siterecovery",
+  "classes": {
+   "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy": "VMWareReplicationPolicy"
   }
  },
  {

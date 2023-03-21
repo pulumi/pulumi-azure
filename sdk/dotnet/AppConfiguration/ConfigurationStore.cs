@@ -101,6 +101,7 @@ namespace Pulumi.Azure.AppConfiguration
     ///             "Decrypt",
     ///             "Sign",
     ///             "Verify",
+    ///             "GetRotationPolicy",
     ///         },
     ///         SecretPermissions = new[]
     ///         {

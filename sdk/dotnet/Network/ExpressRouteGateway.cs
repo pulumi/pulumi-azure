@@ -67,6 +67,12 @@ namespace Pulumi.Azure.Network
     public partial class ExpressRouteGateway : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+        /// </summary>
+        [Output("allowNonVirtualWanTraffic")]
+        public Output<bool?> AllowNonVirtualWanTraffic { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -149,6 +155,12 @@ namespace Pulumi.Azure.Network
     public sealed class ExpressRouteGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+        /// </summary>
+        [Input("allowNonVirtualWanTraffic")]
+        public Input<bool>? AllowNonVirtualWanTraffic { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -198,6 +210,12 @@ namespace Pulumi.Azure.Network
 
     public sealed class ExpressRouteGatewayState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+        /// </summary>
+        [Input("allowNonVirtualWanTraffic")]
+        public Input<bool>? AllowNonVirtualWanTraffic { get; set; }
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>

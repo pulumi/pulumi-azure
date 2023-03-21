@@ -157,7 +157,7 @@ type KubernetesCluster struct {
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId pulumi.StringOutput `pulumi:"nodeResourceGroupId"`
-	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
 	OidcIssuerEnabled pulumi.BoolPtrOutput `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl pulumi.StringOutput `pulumi:"oidcIssuerUrl"`
@@ -323,7 +323,7 @@ type kubernetesClusterState struct {
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId *string `pulumi:"nodeResourceGroupId"`
-	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl *string `pulumi:"oidcIssuerUrl"`
@@ -448,7 +448,7 @@ type KubernetesClusterState struct {
 	NodeResourceGroup pulumi.StringPtrInput
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId pulumi.StringPtrInput
-	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
 	OidcIssuerEnabled pulumi.BoolPtrInput
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl pulumi.StringPtrInput
@@ -563,7 +563,7 @@ type kubernetesClusterArgs struct {
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
-	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
 	// A `omsAgent` block as defined below.
 	OmsAgent *KubernetesClusterOmsAgent `pulumi:"omsAgent"`
@@ -669,7 +669,7 @@ type KubernetesClusterArgs struct {
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
-	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
 	OidcIssuerEnabled pulumi.BoolPtrInput
 	// A `omsAgent` block as defined below.
 	OmsAgent KubernetesClusterOmsAgentPtrInput
@@ -1006,7 +1006,7 @@ func (o KubernetesClusterOutput) NodeResourceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.NodeResourceGroupId }).(pulumi.StringOutput)
 }
 
-// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
 func (o KubernetesClusterOutput) OidcIssuerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.OidcIssuerEnabled }).(pulumi.BoolPtrOutput)
 }
