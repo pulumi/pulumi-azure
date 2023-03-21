@@ -93,14 +93,14 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of virtual network subnet ids to to secure the storage account.
+     * A list of virtual network subnet ids to secure the storage account.
      * 
      */
     @Import(name="virtualNetworkSubnetIds")
     private @Nullable Output<List<String>> virtualNetworkSubnetIds;
 
     /**
-     * @return A list of virtual network subnet ids to to secure the storage account.
+     * @return A list of virtual network subnet ids to secure the storage account.
      * 
      */
     public Optional<Output<List<String>>> virtualNetworkSubnetIds() {
@@ -272,7 +272,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to to secure the storage account.
+         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to secure the storage account.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to to secure the storage account.
+         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to secure the storage account.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to to secure the storage account.
+         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to secure the storage account.
          * 
          * @return builder
          * 

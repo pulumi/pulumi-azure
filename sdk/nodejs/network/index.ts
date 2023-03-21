@@ -60,6 +60,11 @@ export type ExpressRoutePort = import("./expressRoutePort").ExpressRoutePort;
 export const ExpressRoutePort: typeof import("./expressRoutePort").ExpressRoutePort = null as any;
 utilities.lazyLoad(exports, ["ExpressRoutePort"], () => require("./expressRoutePort"));
 
+export { ExpressRoutePortAuthorizationArgs, ExpressRoutePortAuthorizationState } from "./expressRoutePortAuthorization";
+export type ExpressRoutePortAuthorization = import("./expressRoutePortAuthorization").ExpressRoutePortAuthorization;
+export const ExpressRoutePortAuthorization: typeof import("./expressRoutePortAuthorization").ExpressRoutePortAuthorization = null as any;
+utilities.lazyLoad(exports, ["ExpressRoutePortAuthorization"], () => require("./expressRoutePortAuthorization"));
+
 export { FirewallArgs, FirewallState } from "./firewall";
 export type Firewall = import("./firewall").Firewall;
 export const Firewall: typeof import("./firewall").Firewall = null as any;
@@ -587,6 +592,8 @@ const _module = {
                 return new ExpressRouteGateway(name, <any>undefined, { urn })
             case "azure:network/expressRoutePort:ExpressRoutePort":
                 return new ExpressRoutePort(name, <any>undefined, { urn })
+            case "azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization":
+                return new ExpressRoutePortAuthorization(name, <any>undefined, { urn })
             case "azure:network/firewall:Firewall":
                 return new Firewall(name, <any>undefined, { urn })
             case "azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection":
@@ -747,6 +754,7 @@ pulumi.runtime.registerResourceModule("azure", "network/expressRouteCircuitPeeri
 pulumi.runtime.registerResourceModule("azure", "network/expressRouteConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/expressRouteGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "network/expressRoutePort", _module)
+pulumi.runtime.registerResourceModule("azure", "network/expressRoutePortAuthorization", _module)
 pulumi.runtime.registerResourceModule("azure", "network/firewall", _module)
 pulumi.runtime.registerResourceModule("azure", "network/firewallApplicationRuleCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/firewallNatRuleCollection", _module)

@@ -46,6 +46,8 @@ import * as utilities from "../utilities";
  *         create: true,
  *         update: false,
  *         process: false,
+ *         tag: false,
+ *         filter: false,
  *     },
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {

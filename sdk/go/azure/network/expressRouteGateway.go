@@ -80,6 +80,8 @@ import (
 type ExpressRouteGateway struct {
 	pulumi.CustomResourceState
 
+	// Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+	AllowNonVirtualWanTraffic pulumi.BoolPtrOutput `pulumi:"allowNonVirtualWanTraffic"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
@@ -132,6 +134,8 @@ func GetExpressRouteGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteGateway resources.
 type expressRouteGatewayState struct {
+	// Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+	AllowNonVirtualWanTraffic *bool `pulumi:"allowNonVirtualWanTraffic"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
@@ -147,6 +151,8 @@ type expressRouteGatewayState struct {
 }
 
 type ExpressRouteGatewayState struct {
+	// Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+	AllowNonVirtualWanTraffic pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
@@ -166,6 +172,8 @@ func (ExpressRouteGatewayState) ElementType() reflect.Type {
 }
 
 type expressRouteGatewayArgs struct {
+	// Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+	AllowNonVirtualWanTraffic *bool `pulumi:"allowNonVirtualWanTraffic"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
@@ -182,6 +190,8 @@ type expressRouteGatewayArgs struct {
 
 // The set of arguments for constructing a ExpressRouteGateway resource.
 type ExpressRouteGatewayArgs struct {
+	// Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+	AllowNonVirtualWanTraffic pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
@@ -281,6 +291,11 @@ func (o ExpressRouteGatewayOutput) ToExpressRouteGatewayOutput() ExpressRouteGat
 
 func (o ExpressRouteGatewayOutput) ToExpressRouteGatewayOutputWithContext(ctx context.Context) ExpressRouteGatewayOutput {
 	return o
+}
+
+// Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+func (o ExpressRouteGatewayOutput) AllowNonVirtualWanTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteGateway) pulumi.BoolPtrOutput { return v.AllowNonVirtualWanTraffic }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -112,7 +112,7 @@ namespace Pulumi.Azure.ApiManagement
     ///             new Azure.ApiManagement.Inputs.CustomDomainGatewayArgs
     ///             {
     ///                 HostName = "api.example.com",
-    ///                 KeyVaultId = exampleCertificate.SecretId,
+    ///                 KeyVaultId = exampleCertificate.VersionlessSecretId,
     ///             },
     ///         },
     ///         DeveloperPortals = new[]
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.ApiManagement
     ///             new Azure.ApiManagement.Inputs.CustomDomainDeveloperPortalArgs
     ///             {
     ///                 HostName = "portal.example.com",
-    ///                 KeyVaultId = exampleCertificate.SecretId,
+    ///                 KeyVaultId = exampleCertificate.VersionlessSecretId,
     ///             },
     ///         },
     ///     });

@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ExpressRouteGatewayArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ExpressRouteGatewayArgs Empty = new ExpressRouteGatewayArgs();
+
+    /**
+     * Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+     * 
+     */
+    @Import(name="allowNonVirtualWanTraffic")
+    private @Nullable Output<Boolean> allowNonVirtualWanTraffic;
+
+    /**
+     * @return Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> allowNonVirtualWanTraffic() {
+        return Optional.ofNullable(this.allowNonVirtualWanTraffic);
+    }
 
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -110,6 +126,7 @@ public final class ExpressRouteGatewayArgs extends com.pulumi.resources.Resource
     private ExpressRouteGatewayArgs() {}
 
     private ExpressRouteGatewayArgs(ExpressRouteGatewayArgs $) {
+        this.allowNonVirtualWanTraffic = $.allowNonVirtualWanTraffic;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -134,6 +151,27 @@ public final class ExpressRouteGatewayArgs extends com.pulumi.resources.Resource
 
         public Builder(ExpressRouteGatewayArgs defaults) {
             $ = new ExpressRouteGatewayArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowNonVirtualWanTraffic Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowNonVirtualWanTraffic(@Nullable Output<Boolean> allowNonVirtualWanTraffic) {
+            $.allowNonVirtualWanTraffic = allowNonVirtualWanTraffic;
+            return this;
+        }
+
+        /**
+         * @param allowNonVirtualWanTraffic Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowNonVirtualWanTraffic(Boolean allowNonVirtualWanTraffic) {
+            return allowNonVirtualWanTraffic(Output.of(allowNonVirtualWanTraffic));
         }
 
         /**

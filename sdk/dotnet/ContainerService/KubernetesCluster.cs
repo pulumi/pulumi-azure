@@ -303,7 +303,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> NodeResourceGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+        /// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
         /// </summary>
         [Output("oidcIssuerEnabled")]
         public Output<bool?> OidcIssuerEnabled { get; private set; } = null!;
@@ -680,7 +680,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NodeResourceGroup { get; set; }
 
         /// <summary>
-        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+        /// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
         /// </summary>
         [Input("oidcIssuerEnabled")]
         public Input<bool>? OidcIssuerEnabled { get; set; }
@@ -1082,7 +1082,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NodeResourceGroupId { get; set; }
 
         /// <summary>
-        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
+        /// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
         /// </summary>
         [Input("oidcIssuerEnabled")]
         public Input<bool>? OidcIssuerEnabled { get; set; }

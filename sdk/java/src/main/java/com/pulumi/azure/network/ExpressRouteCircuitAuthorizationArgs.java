@@ -46,16 +46,14 @@ public final class ExpressRouteCircuitAuthorizationArgs extends com.pulumi.resou
     }
 
     /**
-     * The name of the resource group in which to Changing this forces a new resource to be created.
-     * create the ExpressRoute circuit. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to Changing this forces a new resource to be created.
-     * create the ExpressRoute circuit. Changing this forces a new resource to be created.
+     * @return The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -131,8 +129,7 @@ public final class ExpressRouteCircuitAuthorizationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to Changing this forces a new resource to be created.
-         * create the ExpressRoute circuit. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -143,8 +140,7 @@ public final class ExpressRouteCircuitAuthorizationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to Changing this forces a new resource to be created.
-         * create the ExpressRoute circuit. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

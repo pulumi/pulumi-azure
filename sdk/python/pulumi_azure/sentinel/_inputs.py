@@ -15,6 +15,11 @@ __all__ = [
     'AlertRuleAnomalyBuiltInRequiredDataConnectorArgs',
     'AlertRuleAnomalyBuiltInSingleSelectObservationArgs',
     'AlertRuleAnomalyBuiltInThresholdObservationArgs',
+    'AlertRuleAnomalyDuplicateMultiSelectObservationArgs',
+    'AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs',
+    'AlertRuleAnomalyDuplicateRequiredDataConnectorArgs',
+    'AlertRuleAnomalyDuplicateSingleSelectObservationArgs',
+    'AlertRuleAnomalyDuplicateThresholdObservationArgs',
     'AlertRuleFusionSourceArgs',
     'AlertRuleFusionSourceSubTypeArgs',
     'AlertRuleNrtAlertDetailsOverrideArgs',
@@ -382,6 +387,338 @@ class AlertRuleAnomalyBuiltInThresholdObservationArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class AlertRuleAnomalyDuplicateMultiSelectObservationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 description: Optional[pulumi.Input[str]] = None,
+                 supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the multi select observation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values of the multi select observation.
+        :param pulumi.Input[str] description: The description of the multi select observation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_values: A list of supported values of the multi select observation.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if supported_values is not None:
+            pulumi.set(__self__, "supported_values", supported_values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the multi select observation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of values of the multi select observation.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the multi select observation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="supportedValues")
+    def supported_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of supported values of the multi select observation.
+        """
+        return pulumi.get(self, "supported_values")
+
+    @supported_values.setter
+    def supported_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_values", value)
+
+
+@pulumi.input_type
+class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 exclude: Optional[pulumi.Input[str]] = None,
+                 prioritize: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the prioritized exclude observation.
+        :param pulumi.Input[str] description: The description of the prioritized exclude observation.
+        :param pulumi.Input[str] exclude: The excluded value per `description`.
+        :param pulumi.Input[str] prioritize: The prioritized value per `description`.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if prioritize is not None:
+            pulumi.set(__self__, "prioritize", prioritize)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the prioritized exclude observation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the prioritized exclude observation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[pulumi.Input[str]]:
+        """
+        The excluded value per `description`.
+        """
+        return pulumi.get(self, "exclude")
+
+    @exclude.setter
+    def exclude(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exclude", value)
+
+    @property
+    @pulumi.getter
+    def prioritize(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prioritized value per `description`.
+        """
+        return pulumi.get(self, "prioritize")
+
+    @prioritize.setter
+    def prioritize(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prioritize", value)
+
+
+@pulumi.input_type
+class AlertRuleAnomalyDuplicateRequiredDataConnectorArgs:
+    def __init__(__self__, *,
+                 connector_id: Optional[pulumi.Input[str]] = None,
+                 data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] connector_id: The ID of the required Data Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_types: A list of data types of the required Data Connector.
+        """
+        if connector_id is not None:
+            pulumi.set(__self__, "connector_id", connector_id)
+        if data_types is not None:
+            pulumi.set(__self__, "data_types", data_types)
+
+    @property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the required Data Connector.
+        """
+        return pulumi.get(self, "connector_id")
+
+    @connector_id.setter
+    def connector_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connector_id", value)
+
+    @property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of data types of the required Data Connector.
+        """
+        return pulumi.get(self, "data_types")
+
+    @data_types.setter
+    def data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "data_types", value)
+
+
+@pulumi.input_type
+class AlertRuleAnomalyDuplicateSingleSelectObservationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the single select observation.
+        :param pulumi.Input[str] value: The value of the multi select observation.
+        :param pulumi.Input[str] description: The description of the single select observation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_values: A list of supported values of the single select observation.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if supported_values is not None:
+            pulumi.set(__self__, "supported_values", supported_values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the single select observation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the multi select observation.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the single select observation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="supportedValues")
+    def supported_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of supported values of the single select observation.
+        """
+        return pulumi.get(self, "supported_values")
+
+    @supported_values.setter
+    def supported_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_values", value)
+
+
+@pulumi.input_type
+class AlertRuleAnomalyDuplicateThresholdObservationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 max: Optional[pulumi.Input[str]] = None,
+                 min: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the threshold observation.
+        :param pulumi.Input[str] value: The value of the threshold observation.
+        :param pulumi.Input[str] description: The description of the threshold observation.
+        :param pulumi.Input[str] max: The max value of the threshold observation.
+        :param pulumi.Input[str] min: The min value of the threshold observation.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the threshold observation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the threshold observation.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[str]]:
+        """
+        The max value of the threshold observation.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[str]]:
+        """
+        The min value of the threshold observation.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min", value)
 
 
 @pulumi.input_type

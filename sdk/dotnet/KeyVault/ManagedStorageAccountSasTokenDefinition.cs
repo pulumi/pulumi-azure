@@ -65,6 +65,8 @@ namespace Pulumi.Azure.KeyVault
     ///             Create = true,
     ///             Update = false,
     ///             Process = false,
+    ///             Tag = false,
+    ///             Filter = false,
     ///         },
     ///     });
     /// 

@@ -128,11 +128,11 @@ import javax.annotation.Nullable;
  *             .apiManagementId(exampleService.id())
  *             .gateways(CustomDomainGatewayArgs.builder()
  *                 .hostName(&#34;api.example.com&#34;)
- *                 .keyVaultId(exampleCertificate.secretId())
+ *                 .keyVaultId(exampleCertificate.versionlessSecretId())
  *                 .build())
  *             .developerPortals(CustomDomainDeveloperPortalArgs.builder()
  *                 .hostName(&#34;portal.example.com&#34;)
- *                 .keyVaultId(exampleCertificate.secretId())
+ *                 .keyVaultId(exampleCertificate.versionlessSecretId())
  *                 .build())
  *             .build());
  * 

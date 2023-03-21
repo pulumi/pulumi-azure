@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -86,6 +87,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/expressRouteGateway:ExpressRouteGateway")
 public class ExpressRouteGateway extends com.pulumi.resources.CustomResource {
+    /**
+     * Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+     * 
+     */
+    @Export(name="allowNonVirtualWanTraffic", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> allowNonVirtualWanTraffic;
+
+    /**
+     * @return Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> allowNonVirtualWanTraffic() {
+        return Codegen.optional(this.allowNonVirtualWanTraffic);
+    }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 

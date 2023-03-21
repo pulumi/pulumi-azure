@@ -621,6 +621,617 @@ func (o AlertRuleAnomalyBuiltInThresholdObservationArrayOutput) Index(i pulumi.I
 	}).(AlertRuleAnomalyBuiltInThresholdObservationOutput)
 }
 
+type AlertRuleAnomalyDuplicateMultiSelectObservation struct {
+	// The description of the multi select observation.
+	Description *string `pulumi:"description"`
+	// The name of the multi select observation.
+	Name string `pulumi:"name"`
+	// A list of supported values of the multi select observation.
+	SupportedValues []string `pulumi:"supportedValues"`
+	// A list of values of the multi select observation.
+	Values []string `pulumi:"values"`
+}
+
+// AlertRuleAnomalyDuplicateMultiSelectObservationInput is an input type that accepts AlertRuleAnomalyDuplicateMultiSelectObservationArgs and AlertRuleAnomalyDuplicateMultiSelectObservationOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyDuplicateMultiSelectObservationInput` via:
+//
+//	AlertRuleAnomalyDuplicateMultiSelectObservationArgs{...}
+type AlertRuleAnomalyDuplicateMultiSelectObservationInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyDuplicateMultiSelectObservationOutput() AlertRuleAnomalyDuplicateMultiSelectObservationOutput
+	ToAlertRuleAnomalyDuplicateMultiSelectObservationOutputWithContext(context.Context) AlertRuleAnomalyDuplicateMultiSelectObservationOutput
+}
+
+type AlertRuleAnomalyDuplicateMultiSelectObservationArgs struct {
+	// The description of the multi select observation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the multi select observation.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of supported values of the multi select observation.
+	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
+	// A list of values of the multi select observation.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertRuleAnomalyDuplicateMultiSelectObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyDuplicateMultiSelectObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyDuplicateMultiSelectObservationArgs) ToAlertRuleAnomalyDuplicateMultiSelectObservationOutput() AlertRuleAnomalyDuplicateMultiSelectObservationOutput {
+	return i.ToAlertRuleAnomalyDuplicateMultiSelectObservationOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyDuplicateMultiSelectObservationArgs) ToAlertRuleAnomalyDuplicateMultiSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateMultiSelectObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateMultiSelectObservationOutput)
+}
+
+// AlertRuleAnomalyDuplicateMultiSelectObservationArrayInput is an input type that accepts AlertRuleAnomalyDuplicateMultiSelectObservationArray and AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyDuplicateMultiSelectObservationArrayInput` via:
+//
+//	AlertRuleAnomalyDuplicateMultiSelectObservationArray{ AlertRuleAnomalyDuplicateMultiSelectObservationArgs{...} }
+type AlertRuleAnomalyDuplicateMultiSelectObservationArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput() AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput
+	ToAlertRuleAnomalyDuplicateMultiSelectObservationArrayOutputWithContext(context.Context) AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput
+}
+
+type AlertRuleAnomalyDuplicateMultiSelectObservationArray []AlertRuleAnomalyDuplicateMultiSelectObservationInput
+
+func (AlertRuleAnomalyDuplicateMultiSelectObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyDuplicateMultiSelectObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyDuplicateMultiSelectObservationArray) ToAlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput() AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput {
+	return i.ToAlertRuleAnomalyDuplicateMultiSelectObservationArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyDuplicateMultiSelectObservationArray) ToAlertRuleAnomalyDuplicateMultiSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput)
+}
+
+type AlertRuleAnomalyDuplicateMultiSelectObservationOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyDuplicateMultiSelectObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyDuplicateMultiSelectObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyDuplicateMultiSelectObservationOutput) ToAlertRuleAnomalyDuplicateMultiSelectObservationOutput() AlertRuleAnomalyDuplicateMultiSelectObservationOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateMultiSelectObservationOutput) ToAlertRuleAnomalyDuplicateMultiSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateMultiSelectObservationOutput {
+	return o
+}
+
+// The description of the multi select observation.
+func (o AlertRuleAnomalyDuplicateMultiSelectObservationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateMultiSelectObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the multi select observation.
+func (o AlertRuleAnomalyDuplicateMultiSelectObservationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateMultiSelectObservation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of supported values of the multi select observation.
+func (o AlertRuleAnomalyDuplicateMultiSelectObservationOutput) SupportedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateMultiSelectObservation) []string { return v.SupportedValues }).(pulumi.StringArrayOutput)
+}
+
+// A list of values of the multi select observation.
+func (o AlertRuleAnomalyDuplicateMultiSelectObservationOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateMultiSelectObservation) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyDuplicateMultiSelectObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput) ToAlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput() AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput) ToAlertRuleAnomalyDuplicateMultiSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyDuplicateMultiSelectObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnomalyDuplicateMultiSelectObservation {
+		return vs[0].([]AlertRuleAnomalyDuplicateMultiSelectObservation)[vs[1].(int)]
+	}).(AlertRuleAnomalyDuplicateMultiSelectObservationOutput)
+}
+
+type AlertRuleAnomalyDuplicatePrioritizedExcludeObservation struct {
+	// The description of the prioritized exclude observation.
+	Description *string `pulumi:"description"`
+	// The excluded value per `description`.
+	Exclude *string `pulumi:"exclude"`
+	// The name of the prioritized exclude observation.
+	Name string `pulumi:"name"`
+	// The prioritized value per `description`.
+	Prioritize *string `pulumi:"prioritize"`
+}
+
+// AlertRuleAnomalyDuplicatePrioritizedExcludeObservationInput is an input type that accepts AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs and AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyDuplicatePrioritizedExcludeObservationInput` via:
+//
+//	AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs{...}
+type AlertRuleAnomalyDuplicatePrioritizedExcludeObservationInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput() AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput
+	ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutputWithContext(context.Context) AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput
+}
+
+type AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs struct {
+	// The description of the prioritized exclude observation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The excluded value per `description`.
+	Exclude pulumi.StringPtrInput `pulumi:"exclude"`
+	// The name of the prioritized exclude observation.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The prioritized value per `description`.
+	Prioritize pulumi.StringPtrInput `pulumi:"prioritize"`
+}
+
+func (AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyDuplicatePrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs) ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput() AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput {
+	return i.ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs) ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput)
+}
+
+// AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayInput is an input type that accepts AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArray and AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayInput` via:
+//
+//	AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArray{ AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs{...} }
+type AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput() AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput
+	ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutputWithContext(context.Context) AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput
+}
+
+type AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArray []AlertRuleAnomalyDuplicatePrioritizedExcludeObservationInput
+
+func (AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyDuplicatePrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArray) ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput() AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput {
+	return i.ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArray) ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput)
+}
+
+type AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyDuplicatePrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput) ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput() AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput) ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput {
+	return o
+}
+
+// The description of the prioritized exclude observation.
+func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicatePrioritizedExcludeObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The excluded value per `description`.
+func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput) Exclude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicatePrioritizedExcludeObservation) *string { return v.Exclude }).(pulumi.StringPtrOutput)
+}
+
+// The name of the prioritized exclude observation.
+func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicatePrioritizedExcludeObservation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The prioritized value per `description`.
+func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput) Prioritize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicatePrioritizedExcludeObservation) *string { return v.Prioritize }).(pulumi.StringPtrOutput)
+}
+
+type AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyDuplicatePrioritizedExcludeObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput) ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput() AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput) ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnomalyDuplicatePrioritizedExcludeObservation {
+		return vs[0].([]AlertRuleAnomalyDuplicatePrioritizedExcludeObservation)[vs[1].(int)]
+	}).(AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput)
+}
+
+type AlertRuleAnomalyDuplicateRequiredDataConnector struct {
+	// The ID of the required Data Connector.
+	ConnectorId *string `pulumi:"connectorId"`
+	// A list of data types of the required Data Connector.
+	DataTypes []string `pulumi:"dataTypes"`
+}
+
+// AlertRuleAnomalyDuplicateRequiredDataConnectorInput is an input type that accepts AlertRuleAnomalyDuplicateRequiredDataConnectorArgs and AlertRuleAnomalyDuplicateRequiredDataConnectorOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyDuplicateRequiredDataConnectorInput` via:
+//
+//	AlertRuleAnomalyDuplicateRequiredDataConnectorArgs{...}
+type AlertRuleAnomalyDuplicateRequiredDataConnectorInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyDuplicateRequiredDataConnectorOutput() AlertRuleAnomalyDuplicateRequiredDataConnectorOutput
+	ToAlertRuleAnomalyDuplicateRequiredDataConnectorOutputWithContext(context.Context) AlertRuleAnomalyDuplicateRequiredDataConnectorOutput
+}
+
+type AlertRuleAnomalyDuplicateRequiredDataConnectorArgs struct {
+	// The ID of the required Data Connector.
+	ConnectorId pulumi.StringPtrInput `pulumi:"connectorId"`
+	// A list of data types of the required Data Connector.
+	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
+}
+
+func (AlertRuleAnomalyDuplicateRequiredDataConnectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyDuplicateRequiredDataConnector)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyDuplicateRequiredDataConnectorArgs) ToAlertRuleAnomalyDuplicateRequiredDataConnectorOutput() AlertRuleAnomalyDuplicateRequiredDataConnectorOutput {
+	return i.ToAlertRuleAnomalyDuplicateRequiredDataConnectorOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyDuplicateRequiredDataConnectorArgs) ToAlertRuleAnomalyDuplicateRequiredDataConnectorOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateRequiredDataConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateRequiredDataConnectorOutput)
+}
+
+// AlertRuleAnomalyDuplicateRequiredDataConnectorArrayInput is an input type that accepts AlertRuleAnomalyDuplicateRequiredDataConnectorArray and AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyDuplicateRequiredDataConnectorArrayInput` via:
+//
+//	AlertRuleAnomalyDuplicateRequiredDataConnectorArray{ AlertRuleAnomalyDuplicateRequiredDataConnectorArgs{...} }
+type AlertRuleAnomalyDuplicateRequiredDataConnectorArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput() AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput
+	ToAlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutputWithContext(context.Context) AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput
+}
+
+type AlertRuleAnomalyDuplicateRequiredDataConnectorArray []AlertRuleAnomalyDuplicateRequiredDataConnectorInput
+
+func (AlertRuleAnomalyDuplicateRequiredDataConnectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyDuplicateRequiredDataConnector)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyDuplicateRequiredDataConnectorArray) ToAlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput() AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput {
+	return i.ToAlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyDuplicateRequiredDataConnectorArray) ToAlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput)
+}
+
+type AlertRuleAnomalyDuplicateRequiredDataConnectorOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyDuplicateRequiredDataConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyDuplicateRequiredDataConnector)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyDuplicateRequiredDataConnectorOutput) ToAlertRuleAnomalyDuplicateRequiredDataConnectorOutput() AlertRuleAnomalyDuplicateRequiredDataConnectorOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateRequiredDataConnectorOutput) ToAlertRuleAnomalyDuplicateRequiredDataConnectorOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateRequiredDataConnectorOutput {
+	return o
+}
+
+// The ID of the required Data Connector.
+func (o AlertRuleAnomalyDuplicateRequiredDataConnectorOutput) ConnectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateRequiredDataConnector) *string { return v.ConnectorId }).(pulumi.StringPtrOutput)
+}
+
+// A list of data types of the required Data Connector.
+func (o AlertRuleAnomalyDuplicateRequiredDataConnectorOutput) DataTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateRequiredDataConnector) []string { return v.DataTypes }).(pulumi.StringArrayOutput)
+}
+
+type AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyDuplicateRequiredDataConnector)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput) ToAlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput() AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput) ToAlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyDuplicateRequiredDataConnectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnomalyDuplicateRequiredDataConnector {
+		return vs[0].([]AlertRuleAnomalyDuplicateRequiredDataConnector)[vs[1].(int)]
+	}).(AlertRuleAnomalyDuplicateRequiredDataConnectorOutput)
+}
+
+type AlertRuleAnomalyDuplicateSingleSelectObservation struct {
+	// The description of the single select observation.
+	Description *string `pulumi:"description"`
+	// The name of the single select observation.
+	Name string `pulumi:"name"`
+	// A list of supported values of the single select observation.
+	SupportedValues []string `pulumi:"supportedValues"`
+	// The value of the multi select observation.
+	Value string `pulumi:"value"`
+}
+
+// AlertRuleAnomalyDuplicateSingleSelectObservationInput is an input type that accepts AlertRuleAnomalyDuplicateSingleSelectObservationArgs and AlertRuleAnomalyDuplicateSingleSelectObservationOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyDuplicateSingleSelectObservationInput` via:
+//
+//	AlertRuleAnomalyDuplicateSingleSelectObservationArgs{...}
+type AlertRuleAnomalyDuplicateSingleSelectObservationInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyDuplicateSingleSelectObservationOutput() AlertRuleAnomalyDuplicateSingleSelectObservationOutput
+	ToAlertRuleAnomalyDuplicateSingleSelectObservationOutputWithContext(context.Context) AlertRuleAnomalyDuplicateSingleSelectObservationOutput
+}
+
+type AlertRuleAnomalyDuplicateSingleSelectObservationArgs struct {
+	// The description of the single select observation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the single select observation.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of supported values of the single select observation.
+	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
+	// The value of the multi select observation.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AlertRuleAnomalyDuplicateSingleSelectObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyDuplicateSingleSelectObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyDuplicateSingleSelectObservationArgs) ToAlertRuleAnomalyDuplicateSingleSelectObservationOutput() AlertRuleAnomalyDuplicateSingleSelectObservationOutput {
+	return i.ToAlertRuleAnomalyDuplicateSingleSelectObservationOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyDuplicateSingleSelectObservationArgs) ToAlertRuleAnomalyDuplicateSingleSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateSingleSelectObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateSingleSelectObservationOutput)
+}
+
+// AlertRuleAnomalyDuplicateSingleSelectObservationArrayInput is an input type that accepts AlertRuleAnomalyDuplicateSingleSelectObservationArray and AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyDuplicateSingleSelectObservationArrayInput` via:
+//
+//	AlertRuleAnomalyDuplicateSingleSelectObservationArray{ AlertRuleAnomalyDuplicateSingleSelectObservationArgs{...} }
+type AlertRuleAnomalyDuplicateSingleSelectObservationArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput() AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput
+	ToAlertRuleAnomalyDuplicateSingleSelectObservationArrayOutputWithContext(context.Context) AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput
+}
+
+type AlertRuleAnomalyDuplicateSingleSelectObservationArray []AlertRuleAnomalyDuplicateSingleSelectObservationInput
+
+func (AlertRuleAnomalyDuplicateSingleSelectObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyDuplicateSingleSelectObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyDuplicateSingleSelectObservationArray) ToAlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput() AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput {
+	return i.ToAlertRuleAnomalyDuplicateSingleSelectObservationArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyDuplicateSingleSelectObservationArray) ToAlertRuleAnomalyDuplicateSingleSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput)
+}
+
+type AlertRuleAnomalyDuplicateSingleSelectObservationOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyDuplicateSingleSelectObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyDuplicateSingleSelectObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyDuplicateSingleSelectObservationOutput) ToAlertRuleAnomalyDuplicateSingleSelectObservationOutput() AlertRuleAnomalyDuplicateSingleSelectObservationOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateSingleSelectObservationOutput) ToAlertRuleAnomalyDuplicateSingleSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateSingleSelectObservationOutput {
+	return o
+}
+
+// The description of the single select observation.
+func (o AlertRuleAnomalyDuplicateSingleSelectObservationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateSingleSelectObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the single select observation.
+func (o AlertRuleAnomalyDuplicateSingleSelectObservationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateSingleSelectObservation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of supported values of the single select observation.
+func (o AlertRuleAnomalyDuplicateSingleSelectObservationOutput) SupportedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateSingleSelectObservation) []string { return v.SupportedValues }).(pulumi.StringArrayOutput)
+}
+
+// The value of the multi select observation.
+func (o AlertRuleAnomalyDuplicateSingleSelectObservationOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateSingleSelectObservation) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyDuplicateSingleSelectObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput) ToAlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput() AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput) ToAlertRuleAnomalyDuplicateSingleSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyDuplicateSingleSelectObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnomalyDuplicateSingleSelectObservation {
+		return vs[0].([]AlertRuleAnomalyDuplicateSingleSelectObservation)[vs[1].(int)]
+	}).(AlertRuleAnomalyDuplicateSingleSelectObservationOutput)
+}
+
+type AlertRuleAnomalyDuplicateThresholdObservation struct {
+	// The description of the threshold observation.
+	Description *string `pulumi:"description"`
+	// The max value of the threshold observation.
+	Max *string `pulumi:"max"`
+	// The min value of the threshold observation.
+	Min *string `pulumi:"min"`
+	// The name of the threshold observation.
+	Name string `pulumi:"name"`
+	// The value of the threshold observation.
+	Value string `pulumi:"value"`
+}
+
+// AlertRuleAnomalyDuplicateThresholdObservationInput is an input type that accepts AlertRuleAnomalyDuplicateThresholdObservationArgs and AlertRuleAnomalyDuplicateThresholdObservationOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyDuplicateThresholdObservationInput` via:
+//
+//	AlertRuleAnomalyDuplicateThresholdObservationArgs{...}
+type AlertRuleAnomalyDuplicateThresholdObservationInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyDuplicateThresholdObservationOutput() AlertRuleAnomalyDuplicateThresholdObservationOutput
+	ToAlertRuleAnomalyDuplicateThresholdObservationOutputWithContext(context.Context) AlertRuleAnomalyDuplicateThresholdObservationOutput
+}
+
+type AlertRuleAnomalyDuplicateThresholdObservationArgs struct {
+	// The description of the threshold observation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The max value of the threshold observation.
+	Max pulumi.StringPtrInput `pulumi:"max"`
+	// The min value of the threshold observation.
+	Min pulumi.StringPtrInput `pulumi:"min"`
+	// The name of the threshold observation.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the threshold observation.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AlertRuleAnomalyDuplicateThresholdObservationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyDuplicateThresholdObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyDuplicateThresholdObservationArgs) ToAlertRuleAnomalyDuplicateThresholdObservationOutput() AlertRuleAnomalyDuplicateThresholdObservationOutput {
+	return i.ToAlertRuleAnomalyDuplicateThresholdObservationOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyDuplicateThresholdObservationArgs) ToAlertRuleAnomalyDuplicateThresholdObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateThresholdObservationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateThresholdObservationOutput)
+}
+
+// AlertRuleAnomalyDuplicateThresholdObservationArrayInput is an input type that accepts AlertRuleAnomalyDuplicateThresholdObservationArray and AlertRuleAnomalyDuplicateThresholdObservationArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnomalyDuplicateThresholdObservationArrayInput` via:
+//
+//	AlertRuleAnomalyDuplicateThresholdObservationArray{ AlertRuleAnomalyDuplicateThresholdObservationArgs{...} }
+type AlertRuleAnomalyDuplicateThresholdObservationArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleAnomalyDuplicateThresholdObservationArrayOutput() AlertRuleAnomalyDuplicateThresholdObservationArrayOutput
+	ToAlertRuleAnomalyDuplicateThresholdObservationArrayOutputWithContext(context.Context) AlertRuleAnomalyDuplicateThresholdObservationArrayOutput
+}
+
+type AlertRuleAnomalyDuplicateThresholdObservationArray []AlertRuleAnomalyDuplicateThresholdObservationInput
+
+func (AlertRuleAnomalyDuplicateThresholdObservationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyDuplicateThresholdObservation)(nil)).Elem()
+}
+
+func (i AlertRuleAnomalyDuplicateThresholdObservationArray) ToAlertRuleAnomalyDuplicateThresholdObservationArrayOutput() AlertRuleAnomalyDuplicateThresholdObservationArrayOutput {
+	return i.ToAlertRuleAnomalyDuplicateThresholdObservationArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleAnomalyDuplicateThresholdObservationArray) ToAlertRuleAnomalyDuplicateThresholdObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateThresholdObservationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateThresholdObservationArrayOutput)
+}
+
+type AlertRuleAnomalyDuplicateThresholdObservationOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyDuplicateThresholdObservationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnomalyDuplicateThresholdObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyDuplicateThresholdObservationOutput) ToAlertRuleAnomalyDuplicateThresholdObservationOutput() AlertRuleAnomalyDuplicateThresholdObservationOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateThresholdObservationOutput) ToAlertRuleAnomalyDuplicateThresholdObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateThresholdObservationOutput {
+	return o
+}
+
+// The description of the threshold observation.
+func (o AlertRuleAnomalyDuplicateThresholdObservationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateThresholdObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The max value of the threshold observation.
+func (o AlertRuleAnomalyDuplicateThresholdObservationOutput) Max() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateThresholdObservation) *string { return v.Max }).(pulumi.StringPtrOutput)
+}
+
+// The min value of the threshold observation.
+func (o AlertRuleAnomalyDuplicateThresholdObservationOutput) Min() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateThresholdObservation) *string { return v.Min }).(pulumi.StringPtrOutput)
+}
+
+// The name of the threshold observation.
+func (o AlertRuleAnomalyDuplicateThresholdObservationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateThresholdObservation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the threshold observation.
+func (o AlertRuleAnomalyDuplicateThresholdObservationOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleAnomalyDuplicateThresholdObservation) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AlertRuleAnomalyDuplicateThresholdObservationArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnomalyDuplicateThresholdObservationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnomalyDuplicateThresholdObservation)(nil)).Elem()
+}
+
+func (o AlertRuleAnomalyDuplicateThresholdObservationArrayOutput) ToAlertRuleAnomalyDuplicateThresholdObservationArrayOutput() AlertRuleAnomalyDuplicateThresholdObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateThresholdObservationArrayOutput) ToAlertRuleAnomalyDuplicateThresholdObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateThresholdObservationArrayOutput {
+	return o
+}
+
+func (o AlertRuleAnomalyDuplicateThresholdObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyDuplicateThresholdObservationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnomalyDuplicateThresholdObservation {
+		return vs[0].([]AlertRuleAnomalyDuplicateThresholdObservation)[vs[1].(int)]
+	}).(AlertRuleAnomalyDuplicateThresholdObservationOutput)
+}
+
 type AlertRuleFusionSource struct {
 	// Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -5517,6 +6128,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInSingleSelectObservationArrayInput)(nil)).Elem(), AlertRuleAnomalyBuiltInSingleSelectObservationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInThresholdObservationInput)(nil)).Elem(), AlertRuleAnomalyBuiltInThresholdObservationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyBuiltInThresholdObservationArrayInput)(nil)).Elem(), AlertRuleAnomalyBuiltInThresholdObservationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyDuplicateMultiSelectObservationInput)(nil)).Elem(), AlertRuleAnomalyDuplicateMultiSelectObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyDuplicateMultiSelectObservationArrayInput)(nil)).Elem(), AlertRuleAnomalyDuplicateMultiSelectObservationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyDuplicatePrioritizedExcludeObservationInput)(nil)).Elem(), AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayInput)(nil)).Elem(), AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyDuplicateRequiredDataConnectorInput)(nil)).Elem(), AlertRuleAnomalyDuplicateRequiredDataConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyDuplicateRequiredDataConnectorArrayInput)(nil)).Elem(), AlertRuleAnomalyDuplicateRequiredDataConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyDuplicateSingleSelectObservationInput)(nil)).Elem(), AlertRuleAnomalyDuplicateSingleSelectObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyDuplicateSingleSelectObservationArrayInput)(nil)).Elem(), AlertRuleAnomalyDuplicateSingleSelectObservationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyDuplicateThresholdObservationInput)(nil)).Elem(), AlertRuleAnomalyDuplicateThresholdObservationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleAnomalyDuplicateThresholdObservationArrayInput)(nil)).Elem(), AlertRuleAnomalyDuplicateThresholdObservationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionSourceInput)(nil)).Elem(), AlertRuleFusionSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionSourceArrayInput)(nil)).Elem(), AlertRuleFusionSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionSourceSubTypeInput)(nil)).Elem(), AlertRuleFusionSourceSubTypeArgs{})
@@ -5599,6 +6220,16 @@ func init() {
 	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInThresholdObservationOutput{})
 	pulumi.RegisterOutputType(AlertRuleAnomalyBuiltInThresholdObservationArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyDuplicateMultiSelectObservationOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyDuplicateRequiredDataConnectorOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyDuplicateSingleSelectObservationOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyDuplicateThresholdObservationOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnomalyDuplicateThresholdObservationArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleFusionSourceOutput{})
 	pulumi.RegisterOutputType(AlertRuleFusionSourceArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleFusionSourceSubTypeOutput{})

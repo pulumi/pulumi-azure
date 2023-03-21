@@ -300,11 +300,11 @@ class CustomDomain(pulumi.CustomResource):
             api_management_id=example_service.id,
             gateways=[azure.apimanagement.CustomDomainGatewayArgs(
                 host_name="api.example.com",
-                key_vault_id=example_certificate.secret_id,
+                key_vault_id=example_certificate.versionless_secret_id,
             )],
             developer_portals=[azure.apimanagement.CustomDomainDeveloperPortalArgs(
                 host_name="portal.example.com",
-                key_vault_id=example_certificate.secret_id,
+                key_vault_id=example_certificate.versionless_secret_id,
             )])
         ```
 
@@ -399,11 +399,11 @@ class CustomDomain(pulumi.CustomResource):
             api_management_id=example_service.id,
             gateways=[azure.apimanagement.CustomDomainGatewayArgs(
                 host_name="api.example.com",
-                key_vault_id=example_certificate.secret_id,
+                key_vault_id=example_certificate.versionless_secret_id,
             )],
             developer_portals=[azure.apimanagement.CustomDomainDeveloperPortalArgs(
                 host_name="portal.example.com",
-                key_vault_id=example_certificate.secret_id,
+                key_vault_id=example_certificate.versionless_secret_id,
             )])
         ```
 

@@ -19,5 +19,6 @@ from .protection_container_mapping import *
 from .replicated_vm import *
 from .replication_policy import *
 from .replication_recovery_plan import *
+from .vm_ware_replication_policy import *
 from ._inputs import *
 from . import outputs

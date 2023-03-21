@@ -283,6 +283,8 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                 create=True,
                 update=False,
                 process=False,
+                tag=False,
+                filter=False,
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
@@ -383,6 +385,8 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                 create=True,
                 update=False,
                 process=False,
+                tag=False,
+                filter=False,
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,

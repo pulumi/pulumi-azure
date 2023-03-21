@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * Manages a Mobile Network Service.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -92,8 +91,8 @@ import javax.annotation.Nullable;
  *                     .direction(&#34;Uplink&#34;)
  *                     .name(&#34;IP-to-server&#34;)
  *                     .ports()
- *                     .protocol(&#34;ip&#34;)
- *                     .remoteIpList(&#34;10.3.4.0/24&#34;)
+ *                     .protocols(&#34;ip&#34;)
+ *                     .remoteIpLists(&#34;10.3.4.0/24&#34;)
  *                     .build())
  *                 .build())
  *             .serviceQosPolicy(NetworkServiceServiceQosPolicyArgs.builder()

@@ -16,6 +16,11 @@ __all__ = [
     'AlertRuleAnomalyBuiltInRequiredDataConnector',
     'AlertRuleAnomalyBuiltInSingleSelectObservation',
     'AlertRuleAnomalyBuiltInThresholdObservation',
+    'AlertRuleAnomalyDuplicateMultiSelectObservation',
+    'AlertRuleAnomalyDuplicatePrioritizedExcludeObservation',
+    'AlertRuleAnomalyDuplicateRequiredDataConnector',
+    'AlertRuleAnomalyDuplicateSingleSelectObservation',
+    'AlertRuleAnomalyDuplicateThresholdObservation',
     'AlertRuleFusionSource',
     'AlertRuleFusionSourceSubType',
     'AlertRuleNrtAlertDetailsOverride',
@@ -368,6 +373,315 @@ class AlertRuleAnomalyBuiltInThresholdObservation(dict):
         The value of the threshold observation.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AlertRuleAnomalyDuplicateMultiSelectObservation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedValues":
+            suggest = "supported_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleAnomalyDuplicateMultiSelectObservation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleAnomalyDuplicateMultiSelectObservation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleAnomalyDuplicateMultiSelectObservation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str],
+                 description: Optional[str] = None,
+                 supported_values: Optional[Sequence[str]] = None):
+        """
+        :param str name: The name of the multi select observation.
+        :param Sequence[str] values: A list of values of the multi select observation.
+        :param str description: The description of the multi select observation.
+        :param Sequence[str] supported_values: A list of supported values of the multi select observation.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if supported_values is not None:
+            pulumi.set(__self__, "supported_values", supported_values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the multi select observation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of values of the multi select observation.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the multi select observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="supportedValues")
+    def supported_values(self) -> Optional[Sequence[str]]:
+        """
+        A list of supported values of the multi select observation.
+        """
+        return pulumi.get(self, "supported_values")
+
+
+@pulumi.output_type
+class AlertRuleAnomalyDuplicatePrioritizedExcludeObservation(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 description: Optional[str] = None,
+                 exclude: Optional[str] = None,
+                 prioritize: Optional[str] = None):
+        """
+        :param str name: The name of the prioritized exclude observation.
+        :param str description: The description of the prioritized exclude observation.
+        :param str exclude: The excluded value per `description`.
+        :param str prioritize: The prioritized value per `description`.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if prioritize is not None:
+            pulumi.set(__self__, "prioritize", prioritize)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the prioritized exclude observation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the prioritized exclude observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[str]:
+        """
+        The excluded value per `description`.
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def prioritize(self) -> Optional[str]:
+        """
+        The prioritized value per `description`.
+        """
+        return pulumi.get(self, "prioritize")
+
+
+@pulumi.output_type
+class AlertRuleAnomalyDuplicateRequiredDataConnector(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorId":
+            suggest = "connector_id"
+        elif key == "dataTypes":
+            suggest = "data_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleAnomalyDuplicateRequiredDataConnector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleAnomalyDuplicateRequiredDataConnector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleAnomalyDuplicateRequiredDataConnector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_id: Optional[str] = None,
+                 data_types: Optional[Sequence[str]] = None):
+        """
+        :param str connector_id: The ID of the required Data Connector.
+        :param Sequence[str] data_types: A list of data types of the required Data Connector.
+        """
+        if connector_id is not None:
+            pulumi.set(__self__, "connector_id", connector_id)
+        if data_types is not None:
+            pulumi.set(__self__, "data_types", data_types)
+
+    @property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> Optional[str]:
+        """
+        The ID of the required Data Connector.
+        """
+        return pulumi.get(self, "connector_id")
+
+    @property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> Optional[Sequence[str]]:
+        """
+        A list of data types of the required Data Connector.
+        """
+        return pulumi.get(self, "data_types")
+
+
+@pulumi.output_type
+class AlertRuleAnomalyDuplicateSingleSelectObservation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedValues":
+            suggest = "supported_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleAnomalyDuplicateSingleSelectObservation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleAnomalyDuplicateSingleSelectObservation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleAnomalyDuplicateSingleSelectObservation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 description: Optional[str] = None,
+                 supported_values: Optional[Sequence[str]] = None):
+        """
+        :param str name: The name of the single select observation.
+        :param str value: The value of the multi select observation.
+        :param str description: The description of the single select observation.
+        :param Sequence[str] supported_values: A list of supported values of the single select observation.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if supported_values is not None:
+            pulumi.set(__self__, "supported_values", supported_values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the single select observation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the multi select observation.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the single select observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="supportedValues")
+    def supported_values(self) -> Optional[Sequence[str]]:
+        """
+        A list of supported values of the single select observation.
+        """
+        return pulumi.get(self, "supported_values")
+
+
+@pulumi.output_type
+class AlertRuleAnomalyDuplicateThresholdObservation(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 description: Optional[str] = None,
+                 max: Optional[str] = None,
+                 min: Optional[str] = None):
+        """
+        :param str name: The name of the threshold observation.
+        :param str value: The value of the threshold observation.
+        :param str description: The description of the threshold observation.
+        :param str max: The max value of the threshold observation.
+        :param str min: The min value of the threshold observation.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the threshold observation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the threshold observation.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the threshold observation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[str]:
+        """
+        The max value of the threshold observation.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[str]:
+        """
+        The min value of the threshold observation.
+        """
+        return pulumi.get(self, "min")
 
 
 @pulumi.output_type

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn":
 		r = &AlertRuleAnomalyBuiltIn{}
+	case "azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate":
+		r = &AlertRuleAnomalyDuplicate{}
 	case "azure:sentinel/alertRuleFusion:AlertRuleFusion":
 		r = &AlertRuleFusion{}
 	case "azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics":
@@ -99,6 +101,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/alertRuleAnomalyBuiltIn",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/alertRuleAnomalyDuplicate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

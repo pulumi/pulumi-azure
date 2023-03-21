@@ -75,6 +75,11 @@ export type ReplicationRecoveryPlan = import("./replicationRecoveryPlan").Replic
 export const ReplicationRecoveryPlan: typeof import("./replicationRecoveryPlan").ReplicationRecoveryPlan = null as any;
 utilities.lazyLoad(exports, ["ReplicationRecoveryPlan"], () => require("./replicationRecoveryPlan"));
 
+export { VMWareReplicationPolicyArgs, VMWareReplicationPolicyState } from "./vmwareReplicationPolicy";
+export type VMWareReplicationPolicy = import("./vmwareReplicationPolicy").VMWareReplicationPolicy;
+export const VMWareReplicationPolicy: typeof import("./vmwareReplicationPolicy").VMWareReplicationPolicy = null as any;
+utilities.lazyLoad(exports, ["VMWareReplicationPolicy"], () => require("./vmwareReplicationPolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -100,6 +105,8 @@ const _module = {
                 return new ReplicationPolicy(name, <any>undefined, { urn })
             case "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan":
                 return new ReplicationRecoveryPlan(name, <any>undefined, { urn })
+            case "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy":
+                return new VMWareReplicationPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -115,3 +122,4 @@ pulumi.runtime.registerResourceModule("azure", "siterecovery/protectionContainer
 pulumi.runtime.registerResourceModule("azure", "siterecovery/replicatedVM", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/replicationPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/replicationRecoveryPlan", _module)
+pulumi.runtime.registerResourceModule("azure", "siterecovery/vMWareReplicationPolicy", _module)

@@ -1906,8 +1906,9 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "express_route_circuit_authorization.html.markdown",
 				},
 			},
-			"azurerm_express_route_gateway": {Tok: azureResource(azureNetwork, "ExpressRouteGateway")},
-			"azurerm_nat_gateway":           {Tok: azureResource(azureNetwork, "NatGateway")},
+			"azurerm_express_route_gateway":            {Tok: azureResource(azureNetwork, "ExpressRouteGateway")},
+			"azurerm_express_route_port_authorization": {Tok: azureResource(azureNetwork, "ExpressRoutePortAuthorization")},
+			"azurerm_nat_gateway":                      {Tok: azureResource(azureNetwork, "NatGateway")},
 			"azurerm_nat_gateway_public_ip_prefix_association": {
 				Tok: azureResource(azureNetwork, "NatGatewayPublicIpPrefixAssociation"),
 			},
@@ -2293,6 +2294,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_site_recovery_hyperv_replication_policy":             {Tok: azureResource(azureSiteRecovery, "HyperVReplicationPolicy")},
 			"azurerm_site_recovery_hyperv_replication_policy_association": {Tok: azureResource(azureSiteRecovery, "HyperVReplicationPolicyAssociation")},
 			"azurerm_site_recovery_services_vault_hyperv_site":            {Tok: azureResource(azureSiteRecovery, "HyperVSite")},
+			"azurerm_site_recovery_vmware_replication_policy":             {Tok: azureResource(azureSiteRecovery, "VMWareReplicationPolicy")},
 
 			"azurerm_recovery_services_vault": {Tok: azureResource(azureRecoveryServices, "Vault")},
 
@@ -2436,6 +2438,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_sentinel_metadata": {
 				Tok: azureResource(azureSentinel, "Metadata"),
+			},
+			"azurerm_sentinel_alert_rule_anomaly_duplicate": {
+				Tok: azureResource(azureSentinel, "AlertRuleAnomalyDuplicate"),
 			},
 
 			// Eventgrid
@@ -2598,6 +2603,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mobile_network_site":         {Tok: azureResource(azureMobile, "NetworkSite")},
 			"azurerm_mobile_network_slice":        {Tok: azureResource(azureMobile, "NetworkSlice")},
 			"azurerm_mobile_network_data_network": {Tok: azureResource(azureMobile, "NetworkDataNetwork")},
+			"azurerm_mobile_network_sim_policy":   {Tok: azureResource(azureMobile, "NetworkSimPolicy")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_aadb2c_directory": {Tok: azureDataSource(aadb2c, "getDirectory")},
@@ -3075,6 +3081,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mobile_network_site":         {Tok: azureDataSource(azureMobile, "getNetworkSite")},
 			"azurerm_mobile_network_slice":        {Tok: azureDataSource(azureMobile, "getNetworkSlice")},
 			"azurerm_mobile_network_data_network": {Tok: azureDataSource(azureMobile, "getNetworkDataNetwork")},
+			"azurerm_mobile_network_sim_policy":   {Tok: azureDataSource(azureMobile, "getNetworkSimPolicy")},
 
 			"azurerm_virtual_desktop_host_pool": {Tok: azureDataSource(azureDesktopVirtualization, "getHostPool")},
 			"azurerm_hybrid_compute_machine":    {Tok: azureDataSource(azureHybrid, "getComputeMachine")},

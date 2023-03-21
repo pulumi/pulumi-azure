@@ -145,7 +145,8 @@ import javax.annotation.Nullable;
  *                 &#34;Encrypt&#34;,
  *                 &#34;Decrypt&#34;,
  *                 &#34;Sign&#34;,
- *                 &#34;Verify&#34;)
+ *                 &#34;Verify&#34;,
+ *                 &#34;GetRotationPolicy&#34;)
  *             .secretPermissions(&#34;Get&#34;)
  *             .build());
  * 

@@ -12,6 +12,8 @@ import com.pulumi.azure.mobile.inputs.GetNetworkServiceArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkServicePlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupPlainArgs;
+import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyArgs;
+import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyPlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSiteArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSitePlainArgs;
 import com.pulumi.azure.mobile.inputs.GetNetworkSliceArgs;
@@ -20,6 +22,7 @@ import com.pulumi.azure.mobile.outputs.GetNetworkDataNetworkResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkServiceResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkSimGroupResult;
+import com.pulumi.azure.mobile.outputs.GetNetworkSimPolicyResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkSiteResult;
 import com.pulumi.azure.mobile.outputs.GetNetworkSliceResult;
 import com.pulumi.core.Output;
@@ -708,6 +711,182 @@ public final class MobileFunctions {
      */
     public static CompletableFuture<GetNetworkSimGroupResult> getNetworkSimGroupPlain(GetNetworkSimGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", TypeShape.of(GetNetworkSimGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a Mobile Network Sim Policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetwork = MobileFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .name(&#34;example-mn&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
+     *             .name(&#34;example-mnsp&#34;)
+     *             .mobileNetworkId(exampleNetwork.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args) {
+        return getNetworkSimPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about a Mobile Network Sim Policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetwork = MobileFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .name(&#34;example-mn&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
+     *             .name(&#34;example-mnsp&#34;)
+     *             .mobileNetworkId(exampleNetwork.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkSimPolicyResult> getNetworkSimPolicyPlain(GetNetworkSimPolicyPlainArgs args) {
+        return getNetworkSimPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about a Mobile Network Sim Policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetwork = MobileFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .name(&#34;example-mn&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
+     *             .name(&#34;example-mnsp&#34;)
+     *             .mobileNetworkId(exampleNetwork.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", TypeShape.of(GetNetworkSimPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a Mobile Network Sim Policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mobile.MobileFunctions;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
+     * import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleNetwork = MobileFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .name(&#34;example-mn&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         final var exampleNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
+     *             .name(&#34;example-mnsp&#34;)
+     *             .mobileNetworkId(exampleNetwork.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworkSimPolicyResult> getNetworkSimPolicyPlain(GetNetworkSimPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", TypeShape.of(GetNetworkSimPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Site.

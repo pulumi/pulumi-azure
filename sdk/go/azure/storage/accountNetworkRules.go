@@ -120,7 +120,7 @@ type AccountNetworkRules struct {
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayOutput `pulumi:"privateLinkAccessRules"`
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
-	// A list of virtual network subnet ids to to secure the storage account.
+	// A list of virtual network subnet ids to secure the storage account.
 	VirtualNetworkSubnetIds pulumi.StringArrayOutput `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -169,7 +169,7 @@ type accountNetworkRulesState struct {
 	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
-	// A list of virtual network subnet ids to to secure the storage account.
+	// A list of virtual network subnet ids to secure the storage account.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -184,7 +184,7 @@ type AccountNetworkRulesState struct {
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
-	// A list of virtual network subnet ids to to secure the storage account.
+	// A list of virtual network subnet ids to secure the storage account.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput
 }
 
@@ -203,7 +203,7 @@ type accountNetworkRulesArgs struct {
 	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
-	// A list of virtual network subnet ids to to secure the storage account.
+	// A list of virtual network subnet ids to secure the storage account.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -219,7 +219,7 @@ type AccountNetworkRulesArgs struct {
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
-	// A list of virtual network subnet ids to to secure the storage account.
+	// A list of virtual network subnet ids to secure the storage account.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput
 }
 
@@ -337,7 +337,7 @@ func (o AccountNetworkRulesOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountNetworkRules) pulumi.StringOutput { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// A list of virtual network subnet ids to to secure the storage account.
+// A list of virtual network subnet ids to secure the storage account.
 func (o AccountNetworkRulesOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRules) pulumi.StringArrayOutput { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }

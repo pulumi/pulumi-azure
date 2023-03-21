@@ -1087,8 +1087,8 @@ github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
 github.com/hashicorp/go-azure-helpers v0.55.0 h1:2A2KWPiaDC5kQWr6tYHTD/P1k9bO0HvflEb/Nc1yLeU=
 github.com/hashicorp/go-azure-helpers v0.55.0/go.mod h1:RQugkG8wEcNIjYmcBLHpuEI/u2mTJwO4r37rR/OKRpo=
-github.com/hashicorp/go-azure-sdk v0.20230309.1123256 h1:/SxgrFGJEp/jXg4/tfR+gnC+cyfKxJucjM4QTMG3dS0=
-github.com/hashicorp/go-azure-sdk v0.20230309.1123256/go.mod h1:L9JXVUcnL0GjMizCnngYUlMp1lLhDBNgSTvn6Of/5O4=
+github.com/hashicorp/go-azure-sdk v0.20230316.1132628 h1:fuoXvk4cgaQMBcr6X62j9YqenGpwIjX+ikFRNkgb3G8=
+github.com/hashicorp/go-azure-sdk v0.20230316.1132628/go.mod h1:L9JXVUcnL0GjMizCnngYUlMp1lLhDBNgSTvn6Of/5O4=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -1685,6 +1685,8 @@ github.com/pulumi/pulumi-java/pkg v0.8.0 h1:b81/D/dk5/9OEH1k5BJxhqYiQc7Y4TPDbHVG
 github.com/pulumi/pulumi-java/pkg v0.8.0/go.mod h1:x7/J1GCJ+hHFBEgnMr4QpsTfjXUNHccAHJ9gvFfmAFU=
 github.com/pulumi/pulumi-terraform-bridge/v3 v3.42.0 h1:H6ieGxyfK/jjRX3wDxcidMCRBH48iMt4fauF2LNOR64=
 github.com/pulumi/pulumi-terraform-bridge/v3 v3.42.0/go.mod h1:ej3U842Dtjk6kIQv2b3dtHKqFyggbZqlDoPWzc2EZvM=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.42.1 h1:W3RJShHlsvVmTRuftLdp1yLQpRqU0c66iQMpxVqXVOs=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.42.1/go.mod h1:ej3U842Dtjk6kIQv2b3dtHKqFyggbZqlDoPWzc2EZvM=
 github.com/pulumi/pulumi-yaml v1.0.4 h1:p+989rW3AqkkxbzxtxccHKAN4xCJi3K2cRpvA2K84tw=
 github.com/pulumi/pulumi-yaml v1.0.4/go.mod h1:Szj8ud4Vqyq3oO1n3kzIUfaP3AiCjYZM4FYjOVWwJn8=
 github.com/pulumi/pulumi/pkg/v3 v3.56.0 h1:GAqRHERowIXCTUM2PX2t0G/UKze06WVhv52S8eO2lE8=
@@ -1697,8 +1699,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9 h1:JMw+t5I+6E8Lna7JF+ghAoOLOl23UIbshJyRNP+K1HU=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9/go.mod h1:mYPs/uchNcBq7AclQv9QUtSf9iNcfp1Ag21jqTlDf2M=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230314110926-3d31c241e34d h1:iu/36vlnJwPBS2OlT6BV0yB+5/GIm3FNA01S2PhEin4=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230314110926-3d31c241e34d/go.mod h1:DkUpdK/tXNd6xAql6FkLEV7NZbrvZGSmW1+HBPqEWxU=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230320122330-b9ebcffd5b29 h1:xR1o7WlYL5ZKPZ4M7ToSDmw3ATXogQEhl/znHiTFRDI=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230320122330-b9ebcffd5b29/go.mod h1:eUbL1GGtxmyw4eZjHqKeERF6bDbd/OyQN6Ug0V+uGrY=
 github.com/rakyll/embedmd v0.0.0-20171029212350-c8060a0752a2/go.mod h1:7jOTMgqac46PZcF54q6l2hkLEG8op93fZu61KmxWDV4=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=

@@ -1353,6 +1353,518 @@ func (o NetworkSimGroupIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type NetworkSimPolicySlice struct {
+	// An array of `dataNetwork` block as defined below.
+	DataNetworks []NetworkSimPolicySliceDataNetwork `pulumi:"dataNetworks"`
+	// The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `dataNetwork` block.
+	DefaultDataNetworkId string `pulumi:"defaultDataNetworkId"`
+	// The ID of the slice that these settings apply to.
+	SliceId string `pulumi:"sliceId"`
+}
+
+// NetworkSimPolicySliceInput is an input type that accepts NetworkSimPolicySliceArgs and NetworkSimPolicySliceOutput values.
+// You can construct a concrete instance of `NetworkSimPolicySliceInput` via:
+//
+//	NetworkSimPolicySliceArgs{...}
+type NetworkSimPolicySliceInput interface {
+	pulumi.Input
+
+	ToNetworkSimPolicySliceOutput() NetworkSimPolicySliceOutput
+	ToNetworkSimPolicySliceOutputWithContext(context.Context) NetworkSimPolicySliceOutput
+}
+
+type NetworkSimPolicySliceArgs struct {
+	// An array of `dataNetwork` block as defined below.
+	DataNetworks NetworkSimPolicySliceDataNetworkArrayInput `pulumi:"dataNetworks"`
+	// The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `dataNetwork` block.
+	DefaultDataNetworkId pulumi.StringInput `pulumi:"defaultDataNetworkId"`
+	// The ID of the slice that these settings apply to.
+	SliceId pulumi.StringInput `pulumi:"sliceId"`
+}
+
+func (NetworkSimPolicySliceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSimPolicySlice)(nil)).Elem()
+}
+
+func (i NetworkSimPolicySliceArgs) ToNetworkSimPolicySliceOutput() NetworkSimPolicySliceOutput {
+	return i.ToNetworkSimPolicySliceOutputWithContext(context.Background())
+}
+
+func (i NetworkSimPolicySliceArgs) ToNetworkSimPolicySliceOutputWithContext(ctx context.Context) NetworkSimPolicySliceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicySliceOutput)
+}
+
+// NetworkSimPolicySliceArrayInput is an input type that accepts NetworkSimPolicySliceArray and NetworkSimPolicySliceArrayOutput values.
+// You can construct a concrete instance of `NetworkSimPolicySliceArrayInput` via:
+//
+//	NetworkSimPolicySliceArray{ NetworkSimPolicySliceArgs{...} }
+type NetworkSimPolicySliceArrayInput interface {
+	pulumi.Input
+
+	ToNetworkSimPolicySliceArrayOutput() NetworkSimPolicySliceArrayOutput
+	ToNetworkSimPolicySliceArrayOutputWithContext(context.Context) NetworkSimPolicySliceArrayOutput
+}
+
+type NetworkSimPolicySliceArray []NetworkSimPolicySliceInput
+
+func (NetworkSimPolicySliceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkSimPolicySlice)(nil)).Elem()
+}
+
+func (i NetworkSimPolicySliceArray) ToNetworkSimPolicySliceArrayOutput() NetworkSimPolicySliceArrayOutput {
+	return i.ToNetworkSimPolicySliceArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkSimPolicySliceArray) ToNetworkSimPolicySliceArrayOutputWithContext(ctx context.Context) NetworkSimPolicySliceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicySliceArrayOutput)
+}
+
+type NetworkSimPolicySliceOutput struct{ *pulumi.OutputState }
+
+func (NetworkSimPolicySliceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSimPolicySlice)(nil)).Elem()
+}
+
+func (o NetworkSimPolicySliceOutput) ToNetworkSimPolicySliceOutput() NetworkSimPolicySliceOutput {
+	return o
+}
+
+func (o NetworkSimPolicySliceOutput) ToNetworkSimPolicySliceOutputWithContext(ctx context.Context) NetworkSimPolicySliceOutput {
+	return o
+}
+
+// An array of `dataNetwork` block as defined below.
+func (o NetworkSimPolicySliceOutput) DataNetworks() NetworkSimPolicySliceDataNetworkArrayOutput {
+	return o.ApplyT(func(v NetworkSimPolicySlice) []NetworkSimPolicySliceDataNetwork { return v.DataNetworks }).(NetworkSimPolicySliceDataNetworkArrayOutput)
+}
+
+// The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `dataNetwork` block.
+func (o NetworkSimPolicySliceOutput) DefaultDataNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSimPolicySlice) string { return v.DefaultDataNetworkId }).(pulumi.StringOutput)
+}
+
+// The ID of the slice that these settings apply to.
+func (o NetworkSimPolicySliceOutput) SliceId() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSimPolicySlice) string { return v.SliceId }).(pulumi.StringOutput)
+}
+
+type NetworkSimPolicySliceArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkSimPolicySliceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkSimPolicySlice)(nil)).Elem()
+}
+
+func (o NetworkSimPolicySliceArrayOutput) ToNetworkSimPolicySliceArrayOutput() NetworkSimPolicySliceArrayOutput {
+	return o
+}
+
+func (o NetworkSimPolicySliceArrayOutput) ToNetworkSimPolicySliceArrayOutputWithContext(ctx context.Context) NetworkSimPolicySliceArrayOutput {
+	return o
+}
+
+func (o NetworkSimPolicySliceArrayOutput) Index(i pulumi.IntInput) NetworkSimPolicySliceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkSimPolicySlice {
+		return vs[0].([]NetworkSimPolicySlice)[vs[1].(int)]
+	}).(NetworkSimPolicySliceOutput)
+}
+
+type NetworkSimPolicySliceDataNetwork struct {
+	// Allowed session types in addition to the default session type. Must not duplicate the default session type. Possible values are `IPv4` and `IPv6`.
+	AdditionalAllowedSessionTypes []string `pulumi:"additionalAllowedSessionTypes"`
+	// Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+	AllocationAndRetentionPriorityLevel *int `pulumi:"allocationAndRetentionPriorityLevel"`
+	// An array of IDs of services that can be used as part of this SIM policy. The array must not contain duplicate items and must contain at least one item.
+	AllowedServicesIds []string `pulumi:"allowedServicesIds"`
+	// The ID of Mobile Network Data Network which these settings apply to.
+	DataNetworkId string `pulumi:"dataNetworkId"`
+	// The default PDU session type, which is used if the user equipment does not request a specific session type. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	DefaultSessionType *string `pulumi:"defaultSessionType"`
+	// The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. Defaults to `10`, Must be at least `0`, See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
+	MaxBufferedPackets *int `pulumi:"maxBufferedPackets"`
+	// The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+	PreemptionCapability *string `pulumi:"preemptionCapability"`
+	// The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+	PreemptionVulnerability *string `pulumi:"preemptionVulnerability"`
+	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+	QosIndicator int `pulumi:"qosIndicator"`
+	// A `sessionAggregateMaximumBitRate` block as defined below.
+	SessionAggregateMaximumBitRate NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate `pulumi:"sessionAggregateMaximumBitRate"`
+}
+
+// NetworkSimPolicySliceDataNetworkInput is an input type that accepts NetworkSimPolicySliceDataNetworkArgs and NetworkSimPolicySliceDataNetworkOutput values.
+// You can construct a concrete instance of `NetworkSimPolicySliceDataNetworkInput` via:
+//
+//	NetworkSimPolicySliceDataNetworkArgs{...}
+type NetworkSimPolicySliceDataNetworkInput interface {
+	pulumi.Input
+
+	ToNetworkSimPolicySliceDataNetworkOutput() NetworkSimPolicySliceDataNetworkOutput
+	ToNetworkSimPolicySliceDataNetworkOutputWithContext(context.Context) NetworkSimPolicySliceDataNetworkOutput
+}
+
+type NetworkSimPolicySliceDataNetworkArgs struct {
+	// Allowed session types in addition to the default session type. Must not duplicate the default session type. Possible values are `IPv4` and `IPv6`.
+	AdditionalAllowedSessionTypes pulumi.StringArrayInput `pulumi:"additionalAllowedSessionTypes"`
+	// Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+	AllocationAndRetentionPriorityLevel pulumi.IntPtrInput `pulumi:"allocationAndRetentionPriorityLevel"`
+	// An array of IDs of services that can be used as part of this SIM policy. The array must not contain duplicate items and must contain at least one item.
+	AllowedServicesIds pulumi.StringArrayInput `pulumi:"allowedServicesIds"`
+	// The ID of Mobile Network Data Network which these settings apply to.
+	DataNetworkId pulumi.StringInput `pulumi:"dataNetworkId"`
+	// The default PDU session type, which is used if the user equipment does not request a specific session type. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	DefaultSessionType pulumi.StringPtrInput `pulumi:"defaultSessionType"`
+	// The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. Defaults to `10`, Must be at least `0`, See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
+	MaxBufferedPackets pulumi.IntPtrInput `pulumi:"maxBufferedPackets"`
+	// The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+	PreemptionCapability pulumi.StringPtrInput `pulumi:"preemptionCapability"`
+	// The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+	PreemptionVulnerability pulumi.StringPtrInput `pulumi:"preemptionVulnerability"`
+	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+	QosIndicator pulumi.IntInput `pulumi:"qosIndicator"`
+	// A `sessionAggregateMaximumBitRate` block as defined below.
+	SessionAggregateMaximumBitRate NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput `pulumi:"sessionAggregateMaximumBitRate"`
+}
+
+func (NetworkSimPolicySliceDataNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSimPolicySliceDataNetwork)(nil)).Elem()
+}
+
+func (i NetworkSimPolicySliceDataNetworkArgs) ToNetworkSimPolicySliceDataNetworkOutput() NetworkSimPolicySliceDataNetworkOutput {
+	return i.ToNetworkSimPolicySliceDataNetworkOutputWithContext(context.Background())
+}
+
+func (i NetworkSimPolicySliceDataNetworkArgs) ToNetworkSimPolicySliceDataNetworkOutputWithContext(ctx context.Context) NetworkSimPolicySliceDataNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicySliceDataNetworkOutput)
+}
+
+// NetworkSimPolicySliceDataNetworkArrayInput is an input type that accepts NetworkSimPolicySliceDataNetworkArray and NetworkSimPolicySliceDataNetworkArrayOutput values.
+// You can construct a concrete instance of `NetworkSimPolicySliceDataNetworkArrayInput` via:
+//
+//	NetworkSimPolicySliceDataNetworkArray{ NetworkSimPolicySliceDataNetworkArgs{...} }
+type NetworkSimPolicySliceDataNetworkArrayInput interface {
+	pulumi.Input
+
+	ToNetworkSimPolicySliceDataNetworkArrayOutput() NetworkSimPolicySliceDataNetworkArrayOutput
+	ToNetworkSimPolicySliceDataNetworkArrayOutputWithContext(context.Context) NetworkSimPolicySliceDataNetworkArrayOutput
+}
+
+type NetworkSimPolicySliceDataNetworkArray []NetworkSimPolicySliceDataNetworkInput
+
+func (NetworkSimPolicySliceDataNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkSimPolicySliceDataNetwork)(nil)).Elem()
+}
+
+func (i NetworkSimPolicySliceDataNetworkArray) ToNetworkSimPolicySliceDataNetworkArrayOutput() NetworkSimPolicySliceDataNetworkArrayOutput {
+	return i.ToNetworkSimPolicySliceDataNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkSimPolicySliceDataNetworkArray) ToNetworkSimPolicySliceDataNetworkArrayOutputWithContext(ctx context.Context) NetworkSimPolicySliceDataNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicySliceDataNetworkArrayOutput)
+}
+
+type NetworkSimPolicySliceDataNetworkOutput struct{ *pulumi.OutputState }
+
+func (NetworkSimPolicySliceDataNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSimPolicySliceDataNetwork)(nil)).Elem()
+}
+
+func (o NetworkSimPolicySliceDataNetworkOutput) ToNetworkSimPolicySliceDataNetworkOutput() NetworkSimPolicySliceDataNetworkOutput {
+	return o
+}
+
+func (o NetworkSimPolicySliceDataNetworkOutput) ToNetworkSimPolicySliceDataNetworkOutputWithContext(ctx context.Context) NetworkSimPolicySliceDataNetworkOutput {
+	return o
+}
+
+// Allowed session types in addition to the default session type. Must not duplicate the default session type. Possible values are `IPv4` and `IPv6`.
+func (o NetworkSimPolicySliceDataNetworkOutput) AdditionalAllowedSessionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) []string { return v.AdditionalAllowedSessionTypes }).(pulumi.StringArrayOutput)
+}
+
+// Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+func (o NetworkSimPolicySliceDataNetworkOutput) AllocationAndRetentionPriorityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) *int { return v.AllocationAndRetentionPriorityLevel }).(pulumi.IntPtrOutput)
+}
+
+// An array of IDs of services that can be used as part of this SIM policy. The array must not contain duplicate items and must contain at least one item.
+func (o NetworkSimPolicySliceDataNetworkOutput) AllowedServicesIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) []string { return v.AllowedServicesIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of Mobile Network Data Network which these settings apply to.
+func (o NetworkSimPolicySliceDataNetworkOutput) DataNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) string { return v.DataNetworkId }).(pulumi.StringOutput)
+}
+
+// The default PDU session type, which is used if the user equipment does not request a specific session type. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+func (o NetworkSimPolicySliceDataNetworkOutput) DefaultSessionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) *string { return v.DefaultSessionType }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. Defaults to `10`, Must be at least `0`, See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
+func (o NetworkSimPolicySliceDataNetworkOutput) MaxBufferedPackets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) *int { return v.MaxBufferedPackets }).(pulumi.IntPtrOutput)
+}
+
+// The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+func (o NetworkSimPolicySliceDataNetworkOutput) PreemptionCapability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) *string { return v.PreemptionCapability }).(pulumi.StringPtrOutput)
+}
+
+// The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+func (o NetworkSimPolicySliceDataNetworkOutput) PreemptionVulnerability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) *string { return v.PreemptionVulnerability }).(pulumi.StringPtrOutput)
+}
+
+// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+func (o NetworkSimPolicySliceDataNetworkOutput) QosIndicator() pulumi.IntOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) int { return v.QosIndicator }).(pulumi.IntOutput)
+}
+
+// A `sessionAggregateMaximumBitRate` block as defined below.
+func (o NetworkSimPolicySliceDataNetworkOutput) SessionAggregateMaximumBitRate() NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate {
+		return v.SessionAggregateMaximumBitRate
+	}).(NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput)
+}
+
+type NetworkSimPolicySliceDataNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkSimPolicySliceDataNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkSimPolicySliceDataNetwork)(nil)).Elem()
+}
+
+func (o NetworkSimPolicySliceDataNetworkArrayOutput) ToNetworkSimPolicySliceDataNetworkArrayOutput() NetworkSimPolicySliceDataNetworkArrayOutput {
+	return o
+}
+
+func (o NetworkSimPolicySliceDataNetworkArrayOutput) ToNetworkSimPolicySliceDataNetworkArrayOutputWithContext(ctx context.Context) NetworkSimPolicySliceDataNetworkArrayOutput {
+	return o
+}
+
+func (o NetworkSimPolicySliceDataNetworkArrayOutput) Index(i pulumi.IntInput) NetworkSimPolicySliceDataNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkSimPolicySliceDataNetwork {
+		return vs[0].([]NetworkSimPolicySliceDataNetwork)[vs[1].(int)]
+	}).(NetworkSimPolicySliceDataNetworkOutput)
+}
+
+type NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate struct {
+	// Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+	Downlink string `pulumi:"downlink"`
+	// Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+	Uplink string `pulumi:"uplink"`
+}
+
+// NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput is an input type that accepts NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs and NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput values.
+// You can construct a concrete instance of `NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput` via:
+//
+//	NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs{...}
+type NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput interface {
+	pulumi.Input
+
+	ToNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput() NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput
+	ToNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(context.Context) NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput
+}
+
+type NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs struct {
+	// Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+	Downlink pulumi.StringInput `pulumi:"downlink"`
+	// Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+	Uplink pulumi.StringInput `pulumi:"uplink"`
+}
+
+func (NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (i NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs) ToNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput() NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
+	return i.ToNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(context.Background())
+}
+
+func (i NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs) ToNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(ctx context.Context) NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput)
+}
+
+type NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput struct{ *pulumi.OutputState }
+
+func (NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (o NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ToNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput() NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
+	return o
+}
+
+func (o NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ToNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(ctx context.Context) NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
+	return o
+}
+
+// Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+func (o NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) Downlink() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate) string { return v.Downlink }).(pulumi.StringOutput)
+}
+
+// Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+func (o NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) Uplink() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate) string { return v.Uplink }).(pulumi.StringOutput)
+}
+
+type NetworkSimPolicyUserEquipmentAggregateMaximumBitRate struct {
+	// Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+	Downlink string `pulumi:"downlink"`
+	// Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+	Uplink string `pulumi:"uplink"`
+}
+
+// NetworkSimPolicyUserEquipmentAggregateMaximumBitRateInput is an input type that accepts NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs and NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput values.
+// You can construct a concrete instance of `NetworkSimPolicyUserEquipmentAggregateMaximumBitRateInput` via:
+//
+//	NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{...}
+type NetworkSimPolicyUserEquipmentAggregateMaximumBitRateInput interface {
+	pulumi.Input
+
+	ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput() NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput
+	ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutputWithContext(context.Context) NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput
+}
+
+type NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs struct {
+	// Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+	Downlink pulumi.StringInput `pulumi:"downlink"`
+	// Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+	Uplink pulumi.StringInput `pulumi:"uplink"`
+}
+
+func (NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSimPolicyUserEquipmentAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (i NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput() NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
+	return i.ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutputWithContext(context.Background())
+}
+
+func (i NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutputWithContext(ctx context.Context) NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput)
+}
+
+func (i NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput() NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput {
+	return i.ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(ctx context.Context) NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput).ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(ctx)
+}
+
+// NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrInput is an input type that accepts NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs, NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtr and NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput values.
+// You can construct a concrete instance of `NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrInput` via:
+//
+//	        NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrInput interface {
+	pulumi.Input
+
+	ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput() NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput
+	ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(context.Context) NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput
+}
+
+type networkSimPolicyUserEquipmentAggregateMaximumBitRatePtrType NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs
+
+func NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtr(v *NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrInput {
+	return (*networkSimPolicyUserEquipmentAggregateMaximumBitRatePtrType)(v)
+}
+
+func (*networkSimPolicyUserEquipmentAggregateMaximumBitRatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkSimPolicyUserEquipmentAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (i *networkSimPolicyUserEquipmentAggregateMaximumBitRatePtrType) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput() NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput {
+	return i.ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(context.Background())
+}
+
+func (i *networkSimPolicyUserEquipmentAggregateMaximumBitRatePtrType) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(ctx context.Context) NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput)
+}
+
+type NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput struct{ *pulumi.OutputState }
+
+func (NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSimPolicyUserEquipmentAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput() NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
+	return o
+}
+
+func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutputWithContext(ctx context.Context) NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
+	return o
+}
+
+func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput() NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput {
+	return o.ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(ctx context.Context) NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkSimPolicyUserEquipmentAggregateMaximumBitRate) *NetworkSimPolicyUserEquipmentAggregateMaximumBitRate {
+		return &v
+	}).(NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput)
+}
+
+// Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) Downlink() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSimPolicyUserEquipmentAggregateMaximumBitRate) string { return v.Downlink }).(pulumi.StringOutput)
+}
+
+// Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) Uplink() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkSimPolicyUserEquipmentAggregateMaximumBitRate) string { return v.Uplink }).(pulumi.StringOutput)
+}
+
+type NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkSimPolicyUserEquipmentAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput() NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput {
+	return o
+}
+
+func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(ctx context.Context) NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput {
+	return o
+}
+
+func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) Elem() NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
+	return o.ApplyT(func(v *NetworkSimPolicyUserEquipmentAggregateMaximumBitRate) NetworkSimPolicyUserEquipmentAggregateMaximumBitRate {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkSimPolicyUserEquipmentAggregateMaximumBitRate
+		return ret
+	}).(NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput)
+}
+
+// Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) Downlink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSimPolicyUserEquipmentAggregateMaximumBitRate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Downlink
+	}).(pulumi.StringPtrOutput)
+}
+
+// Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) Uplink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSimPolicyUserEquipmentAggregateMaximumBitRate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uplink
+	}).(pulumi.StringPtrOutput)
+}
+
 type NetworkSliceSingleNetworkSliceSelectionAssistanceInformation struct {
 	// Slice differentiator (SD). Must be a 6 digit hex string.
 	SliceDifferentiator *string `pulumi:"sliceDifferentiator"`
@@ -2496,6 +3008,513 @@ func (o GetNetworkSimGroupIdentityArrayOutput) Index(i pulumi.IntInput) GetNetwo
 	}).(GetNetworkSimGroupIdentityOutput)
 }
 
+type GetNetworkSimPolicySlice struct {
+	// An array of `dataNetwork` block as defined below.
+	DataNetworks []GetNetworkSimPolicySliceDataNetwork `pulumi:"dataNetworks"`
+	// The ID of default data network to use if the UE does not explicitly specify it.
+	DefaultDataNetworkId string `pulumi:"defaultDataNetworkId"`
+	// The ID of the slice that these settings apply to.
+	SliceId string `pulumi:"sliceId"`
+}
+
+// GetNetworkSimPolicySliceInput is an input type that accepts GetNetworkSimPolicySliceArgs and GetNetworkSimPolicySliceOutput values.
+// You can construct a concrete instance of `GetNetworkSimPolicySliceInput` via:
+//
+//	GetNetworkSimPolicySliceArgs{...}
+type GetNetworkSimPolicySliceInput interface {
+	pulumi.Input
+
+	ToGetNetworkSimPolicySliceOutput() GetNetworkSimPolicySliceOutput
+	ToGetNetworkSimPolicySliceOutputWithContext(context.Context) GetNetworkSimPolicySliceOutput
+}
+
+type GetNetworkSimPolicySliceArgs struct {
+	// An array of `dataNetwork` block as defined below.
+	DataNetworks GetNetworkSimPolicySliceDataNetworkArrayInput `pulumi:"dataNetworks"`
+	// The ID of default data network to use if the UE does not explicitly specify it.
+	DefaultDataNetworkId pulumi.StringInput `pulumi:"defaultDataNetworkId"`
+	// The ID of the slice that these settings apply to.
+	SliceId pulumi.StringInput `pulumi:"sliceId"`
+}
+
+func (GetNetworkSimPolicySliceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkSimPolicySlice)(nil)).Elem()
+}
+
+func (i GetNetworkSimPolicySliceArgs) ToGetNetworkSimPolicySliceOutput() GetNetworkSimPolicySliceOutput {
+	return i.ToGetNetworkSimPolicySliceOutputWithContext(context.Background())
+}
+
+func (i GetNetworkSimPolicySliceArgs) ToGetNetworkSimPolicySliceOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceOutput)
+}
+
+// GetNetworkSimPolicySliceArrayInput is an input type that accepts GetNetworkSimPolicySliceArray and GetNetworkSimPolicySliceArrayOutput values.
+// You can construct a concrete instance of `GetNetworkSimPolicySliceArrayInput` via:
+//
+//	GetNetworkSimPolicySliceArray{ GetNetworkSimPolicySliceArgs{...} }
+type GetNetworkSimPolicySliceArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkSimPolicySliceArrayOutput() GetNetworkSimPolicySliceArrayOutput
+	ToGetNetworkSimPolicySliceArrayOutputWithContext(context.Context) GetNetworkSimPolicySliceArrayOutput
+}
+
+type GetNetworkSimPolicySliceArray []GetNetworkSimPolicySliceInput
+
+func (GetNetworkSimPolicySliceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkSimPolicySlice)(nil)).Elem()
+}
+
+func (i GetNetworkSimPolicySliceArray) ToGetNetworkSimPolicySliceArrayOutput() GetNetworkSimPolicySliceArrayOutput {
+	return i.ToGetNetworkSimPolicySliceArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkSimPolicySliceArray) ToGetNetworkSimPolicySliceArrayOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceArrayOutput)
+}
+
+type GetNetworkSimPolicySliceOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkSimPolicySliceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkSimPolicySlice)(nil)).Elem()
+}
+
+func (o GetNetworkSimPolicySliceOutput) ToGetNetworkSimPolicySliceOutput() GetNetworkSimPolicySliceOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicySliceOutput) ToGetNetworkSimPolicySliceOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceOutput {
+	return o
+}
+
+// An array of `dataNetwork` block as defined below.
+func (o GetNetworkSimPolicySliceOutput) DataNetworks() GetNetworkSimPolicySliceDataNetworkArrayOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySlice) []GetNetworkSimPolicySliceDataNetwork { return v.DataNetworks }).(GetNetworkSimPolicySliceDataNetworkArrayOutput)
+}
+
+// The ID of default data network to use if the UE does not explicitly specify it.
+func (o GetNetworkSimPolicySliceOutput) DefaultDataNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySlice) string { return v.DefaultDataNetworkId }).(pulumi.StringOutput)
+}
+
+// The ID of the slice that these settings apply to.
+func (o GetNetworkSimPolicySliceOutput) SliceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySlice) string { return v.SliceId }).(pulumi.StringOutput)
+}
+
+type GetNetworkSimPolicySliceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkSimPolicySliceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkSimPolicySlice)(nil)).Elem()
+}
+
+func (o GetNetworkSimPolicySliceArrayOutput) ToGetNetworkSimPolicySliceArrayOutput() GetNetworkSimPolicySliceArrayOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicySliceArrayOutput) ToGetNetworkSimPolicySliceArrayOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceArrayOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicySliceArrayOutput) Index(i pulumi.IntInput) GetNetworkSimPolicySliceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkSimPolicySlice {
+		return vs[0].([]GetNetworkSimPolicySlice)[vs[1].(int)]
+	}).(GetNetworkSimPolicySliceOutput)
+}
+
+type GetNetworkSimPolicySliceDataNetwork struct {
+	// Allowed session types in addition to the default session type.
+	AdditionalAllowedSessionTypes []string `pulumi:"additionalAllowedSessionTypes"`
+	// Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+	AllocationAndRetentionPriorityLevel int `pulumi:"allocationAndRetentionPriorityLevel"`
+	// An array of IDs of services that can be used as part of this SIM policy.
+	AllowedServicesIds []string `pulumi:"allowedServicesIds"`
+	// The ID of Mobile Network Data Network which these settings apply to.
+	DataNetworkId string `pulumi:"dataNetworkId"`
+	// The default PDU session type, which is used if the UE does not request a specific session type.
+	DefaultSessionType string `pulumi:"defaultSessionType"`
+	// The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering.
+	MaxBufferedPackets int `pulumi:"maxBufferedPackets"`
+	// The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+	PreemptionCapability string `pulumi:"preemptionCapability"`
+	// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+	PreemptionVulnerability string `pulumi:"preemptionVulnerability"`
+	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers.
+	QosIndicator int `pulumi:"qosIndicator"`
+	// A `sessionAggregateMaximumBitRate` block as defined below.
+	SessionAggregateMaximumBitRates []GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate `pulumi:"sessionAggregateMaximumBitRates"`
+}
+
+// GetNetworkSimPolicySliceDataNetworkInput is an input type that accepts GetNetworkSimPolicySliceDataNetworkArgs and GetNetworkSimPolicySliceDataNetworkOutput values.
+// You can construct a concrete instance of `GetNetworkSimPolicySliceDataNetworkInput` via:
+//
+//	GetNetworkSimPolicySliceDataNetworkArgs{...}
+type GetNetworkSimPolicySliceDataNetworkInput interface {
+	pulumi.Input
+
+	ToGetNetworkSimPolicySliceDataNetworkOutput() GetNetworkSimPolicySliceDataNetworkOutput
+	ToGetNetworkSimPolicySliceDataNetworkOutputWithContext(context.Context) GetNetworkSimPolicySliceDataNetworkOutput
+}
+
+type GetNetworkSimPolicySliceDataNetworkArgs struct {
+	// Allowed session types in addition to the default session type.
+	AdditionalAllowedSessionTypes pulumi.StringArrayInput `pulumi:"additionalAllowedSessionTypes"`
+	// Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+	AllocationAndRetentionPriorityLevel pulumi.IntInput `pulumi:"allocationAndRetentionPriorityLevel"`
+	// An array of IDs of services that can be used as part of this SIM policy.
+	AllowedServicesIds pulumi.StringArrayInput `pulumi:"allowedServicesIds"`
+	// The ID of Mobile Network Data Network which these settings apply to.
+	DataNetworkId pulumi.StringInput `pulumi:"dataNetworkId"`
+	// The default PDU session type, which is used if the UE does not request a specific session type.
+	DefaultSessionType pulumi.StringInput `pulumi:"defaultSessionType"`
+	// The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering.
+	MaxBufferedPackets pulumi.IntInput `pulumi:"maxBufferedPackets"`
+	// The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+	PreemptionCapability pulumi.StringInput `pulumi:"preemptionCapability"`
+	// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+	PreemptionVulnerability pulumi.StringInput `pulumi:"preemptionVulnerability"`
+	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers.
+	QosIndicator pulumi.IntInput `pulumi:"qosIndicator"`
+	// A `sessionAggregateMaximumBitRate` block as defined below.
+	SessionAggregateMaximumBitRates GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayInput `pulumi:"sessionAggregateMaximumBitRates"`
+}
+
+func (GetNetworkSimPolicySliceDataNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkSimPolicySliceDataNetwork)(nil)).Elem()
+}
+
+func (i GetNetworkSimPolicySliceDataNetworkArgs) ToGetNetworkSimPolicySliceDataNetworkOutput() GetNetworkSimPolicySliceDataNetworkOutput {
+	return i.ToGetNetworkSimPolicySliceDataNetworkOutputWithContext(context.Background())
+}
+
+func (i GetNetworkSimPolicySliceDataNetworkArgs) ToGetNetworkSimPolicySliceDataNetworkOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceDataNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceDataNetworkOutput)
+}
+
+// GetNetworkSimPolicySliceDataNetworkArrayInput is an input type that accepts GetNetworkSimPolicySliceDataNetworkArray and GetNetworkSimPolicySliceDataNetworkArrayOutput values.
+// You can construct a concrete instance of `GetNetworkSimPolicySliceDataNetworkArrayInput` via:
+//
+//	GetNetworkSimPolicySliceDataNetworkArray{ GetNetworkSimPolicySliceDataNetworkArgs{...} }
+type GetNetworkSimPolicySliceDataNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkSimPolicySliceDataNetworkArrayOutput() GetNetworkSimPolicySliceDataNetworkArrayOutput
+	ToGetNetworkSimPolicySliceDataNetworkArrayOutputWithContext(context.Context) GetNetworkSimPolicySliceDataNetworkArrayOutput
+}
+
+type GetNetworkSimPolicySliceDataNetworkArray []GetNetworkSimPolicySliceDataNetworkInput
+
+func (GetNetworkSimPolicySliceDataNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkSimPolicySliceDataNetwork)(nil)).Elem()
+}
+
+func (i GetNetworkSimPolicySliceDataNetworkArray) ToGetNetworkSimPolicySliceDataNetworkArrayOutput() GetNetworkSimPolicySliceDataNetworkArrayOutput {
+	return i.ToGetNetworkSimPolicySliceDataNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkSimPolicySliceDataNetworkArray) ToGetNetworkSimPolicySliceDataNetworkArrayOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceDataNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceDataNetworkArrayOutput)
+}
+
+type GetNetworkSimPolicySliceDataNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkSimPolicySliceDataNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkSimPolicySliceDataNetwork)(nil)).Elem()
+}
+
+func (o GetNetworkSimPolicySliceDataNetworkOutput) ToGetNetworkSimPolicySliceDataNetworkOutput() GetNetworkSimPolicySliceDataNetworkOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicySliceDataNetworkOutput) ToGetNetworkSimPolicySliceDataNetworkOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceDataNetworkOutput {
+	return o
+}
+
+// Allowed session types in addition to the default session type.
+func (o GetNetworkSimPolicySliceDataNetworkOutput) AdditionalAllowedSessionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetwork) []string { return v.AdditionalAllowedSessionTypes }).(pulumi.StringArrayOutput)
+}
+
+// Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+func (o GetNetworkSimPolicySliceDataNetworkOutput) AllocationAndRetentionPriorityLevel() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetwork) int { return v.AllocationAndRetentionPriorityLevel }).(pulumi.IntOutput)
+}
+
+// An array of IDs of services that can be used as part of this SIM policy.
+func (o GetNetworkSimPolicySliceDataNetworkOutput) AllowedServicesIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetwork) []string { return v.AllowedServicesIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of Mobile Network Data Network which these settings apply to.
+func (o GetNetworkSimPolicySliceDataNetworkOutput) DataNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetwork) string { return v.DataNetworkId }).(pulumi.StringOutput)
+}
+
+// The default PDU session type, which is used if the UE does not request a specific session type.
+func (o GetNetworkSimPolicySliceDataNetworkOutput) DefaultSessionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetwork) string { return v.DefaultSessionType }).(pulumi.StringOutput)
+}
+
+// The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering.
+func (o GetNetworkSimPolicySliceDataNetworkOutput) MaxBufferedPackets() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetwork) int { return v.MaxBufferedPackets }).(pulumi.IntOutput)
+}
+
+// The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+func (o GetNetworkSimPolicySliceDataNetworkOutput) PreemptionCapability() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetwork) string { return v.PreemptionCapability }).(pulumi.StringOutput)
+}
+
+// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+func (o GetNetworkSimPolicySliceDataNetworkOutput) PreemptionVulnerability() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetwork) string { return v.PreemptionVulnerability }).(pulumi.StringOutput)
+}
+
+// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers.
+func (o GetNetworkSimPolicySliceDataNetworkOutput) QosIndicator() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetwork) int { return v.QosIndicator }).(pulumi.IntOutput)
+}
+
+// A `sessionAggregateMaximumBitRate` block as defined below.
+func (o GetNetworkSimPolicySliceDataNetworkOutput) SessionAggregateMaximumBitRates() GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetwork) []GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate {
+		return v.SessionAggregateMaximumBitRates
+	}).(GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput)
+}
+
+type GetNetworkSimPolicySliceDataNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkSimPolicySliceDataNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkSimPolicySliceDataNetwork)(nil)).Elem()
+}
+
+func (o GetNetworkSimPolicySliceDataNetworkArrayOutput) ToGetNetworkSimPolicySliceDataNetworkArrayOutput() GetNetworkSimPolicySliceDataNetworkArrayOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicySliceDataNetworkArrayOutput) ToGetNetworkSimPolicySliceDataNetworkArrayOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceDataNetworkArrayOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicySliceDataNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworkSimPolicySliceDataNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkSimPolicySliceDataNetwork {
+		return vs[0].([]GetNetworkSimPolicySliceDataNetwork)[vs[1].(int)]
+	}).(GetNetworkSimPolicySliceDataNetworkOutput)
+}
+
+type GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate struct {
+	// Downlink bit rate.
+	Downlink string `pulumi:"downlink"`
+	// Uplink bit rate.
+	Uplink string `pulumi:"uplink"`
+}
+
+// GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput is an input type that accepts GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs and GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput values.
+// You can construct a concrete instance of `GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput` via:
+//
+//	GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs{...}
+type GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput interface {
+	pulumi.Input
+
+	ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput() GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput
+	ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(context.Context) GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput
+}
+
+type GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs struct {
+	// Downlink bit rate.
+	Downlink pulumi.StringInput `pulumi:"downlink"`
+	// Uplink bit rate.
+	Uplink pulumi.StringInput `pulumi:"uplink"`
+}
+
+func (GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (i GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs) ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput() GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
+	return i.ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(context.Background())
+}
+
+func (i GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs) ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput)
+}
+
+// GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayInput is an input type that accepts GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArray and GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput values.
+// You can construct a concrete instance of `GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayInput` via:
+//
+//	GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArray{ GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs{...} }
+type GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput() GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput
+	ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutputWithContext(context.Context) GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput
+}
+
+type GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArray []GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput
+
+func (GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (i GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArray) ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput() GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput {
+	return i.ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArray) ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput)
+}
+
+type GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput() GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
+	return o
+}
+
+// Downlink bit rate.
+func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) Downlink() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate) string { return v.Downlink }).(pulumi.StringOutput)
+}
+
+// Uplink bit rate.
+func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) Uplink() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate) string { return v.Uplink }).(pulumi.StringOutput)
+}
+
+type GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput) ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput() GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput) ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput) Index(i pulumi.IntInput) GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate {
+		return vs[0].([]GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate)[vs[1].(int)]
+	}).(GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput)
+}
+
+type GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate struct {
+	// Downlink bit rate.
+	Downlink string `pulumi:"downlink"`
+	// Uplink bit rate.
+	Uplink string `pulumi:"uplink"`
+}
+
+// GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateInput is an input type that accepts GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs and GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput values.
+// You can construct a concrete instance of `GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateInput` via:
+//
+//	GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{...}
+type GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateInput interface {
+	pulumi.Input
+
+	ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput() GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput
+	ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutputWithContext(context.Context) GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput
+}
+
+type GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs struct {
+	// Downlink bit rate.
+	Downlink pulumi.StringInput `pulumi:"downlink"`
+	// Uplink bit rate.
+	Uplink pulumi.StringInput `pulumi:"uplink"`
+}
+
+func (GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (i GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput() GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
+	return i.ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutputWithContext(context.Background())
+}
+
+func (i GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutputWithContext(ctx context.Context) GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput)
+}
+
+// GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayInput is an input type that accepts GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray and GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput values.
+// You can construct a concrete instance of `GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayInput` via:
+//
+//	GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray{ GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{...} }
+type GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput() GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput
+	ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutputWithContext(context.Context) GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput
+}
+
+type GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray []GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateInput
+
+func (GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (i GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray) ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput() GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput {
+	return i.ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray) ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutputWithContext(ctx context.Context) GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput)
+}
+
+type GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput() GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutputWithContext(ctx context.Context) GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
+	return o
+}
+
+// Downlink bit rate.
+func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) Downlink() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate) string { return v.Downlink }).(pulumi.StringOutput)
+}
+
+// Uplink bit rate.
+func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) Uplink() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate) string { return v.Uplink }).(pulumi.StringOutput)
+}
+
+type GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate)(nil)).Elem()
+}
+
+func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput) ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput() GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput) ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutputWithContext(ctx context.Context) GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput {
+	return o
+}
+
+func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput) Index(i pulumi.IntInput) GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate {
+		return vs[0].([]GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate)[vs[1].(int)]
+	}).(GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput)
+}
+
 type GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation struct {
 	// Slice differentiator (SD).
 	SliceDifferentiator string `pulumi:"sliceDifferentiator"`
@@ -2621,6 +3640,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkServiceServiceQosPolicyMaximumBitRatePtrInput)(nil)).Elem(), NetworkServiceServiceQosPolicyMaximumBitRateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimGroupIdentityInput)(nil)).Elem(), NetworkSimGroupIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimGroupIdentityPtrInput)(nil)).Elem(), NetworkSimGroupIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicySliceInput)(nil)).Elem(), NetworkSimPolicySliceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicySliceArrayInput)(nil)).Elem(), NetworkSimPolicySliceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicySliceDataNetworkInput)(nil)).Elem(), NetworkSimPolicySliceDataNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicySliceDataNetworkArrayInput)(nil)).Elem(), NetworkSimPolicySliceDataNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput)(nil)).Elem(), NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicyUserEquipmentAggregateMaximumBitRateInput)(nil)).Elem(), NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrInput)(nil)).Elem(), NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSliceSingleNetworkSliceSelectionAssistanceInformationInput)(nil)).Elem(), NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrInput)(nil)).Elem(), NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkServicePccRuleInput)(nil)).Elem(), GetNetworkServicePccRuleArgs{})
@@ -2639,6 +3665,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkServiceServiceQosPolicyMaximumBitRateArrayInput)(nil)).Elem(), GetNetworkServiceServiceQosPolicyMaximumBitRateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimGroupIdentityInput)(nil)).Elem(), GetNetworkSimGroupIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimGroupIdentityArrayInput)(nil)).Elem(), GetNetworkSimGroupIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicySliceInput)(nil)).Elem(), GetNetworkSimPolicySliceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicySliceArrayInput)(nil)).Elem(), GetNetworkSimPolicySliceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicySliceDataNetworkInput)(nil)).Elem(), GetNetworkSimPolicySliceDataNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicySliceDataNetworkArrayInput)(nil)).Elem(), GetNetworkSimPolicySliceDataNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput)(nil)).Elem(), GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayInput)(nil)).Elem(), GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateInput)(nil)).Elem(), GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayInput)(nil)).Elem(), GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationInput)(nil)).Elem(), GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayInput)(nil)).Elem(), GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArray{})
 	pulumi.RegisterOutputType(NetworkServicePccRuleOutput{})
@@ -2657,6 +3691,13 @@ func init() {
 	pulumi.RegisterOutputType(NetworkServiceServiceQosPolicyMaximumBitRatePtrOutput{})
 	pulumi.RegisterOutputType(NetworkSimGroupIdentityOutput{})
 	pulumi.RegisterOutputType(NetworkSimGroupIdentityPtrOutput{})
+	pulumi.RegisterOutputType(NetworkSimPolicySliceOutput{})
+	pulumi.RegisterOutputType(NetworkSimPolicySliceArrayOutput{})
+	pulumi.RegisterOutputType(NetworkSimPolicySliceDataNetworkOutput{})
+	pulumi.RegisterOutputType(NetworkSimPolicySliceDataNetworkArrayOutput{})
+	pulumi.RegisterOutputType(NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput{})
+	pulumi.RegisterOutputType(NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput{})
+	pulumi.RegisterOutputType(NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput{})
 	pulumi.RegisterOutputType(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput{})
 	pulumi.RegisterOutputType(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput{})
 	pulumi.RegisterOutputType(GetNetworkServicePccRuleOutput{})
@@ -2675,6 +3716,14 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkServiceServiceQosPolicyMaximumBitRateArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkSimGroupIdentityOutput{})
 	pulumi.RegisterOutputType(GetNetworkSimGroupIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkSimPolicySliceOutput{})
+	pulumi.RegisterOutputType(GetNetworkSimPolicySliceArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkSimPolicySliceDataNetworkOutput{})
+	pulumi.RegisterOutputType(GetNetworkSimPolicySliceDataNetworkArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput{})
+	pulumi.RegisterOutputType(GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput{})
+	pulumi.RegisterOutputType(GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput{})
 	pulumi.RegisterOutputType(GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutput{})
 }

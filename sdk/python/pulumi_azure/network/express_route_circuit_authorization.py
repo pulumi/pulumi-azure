@@ -20,8 +20,7 @@ class ExpressRouteCircuitAuthorizationArgs:
         """
         The set of arguments for constructing a ExpressRouteCircuitAuthorization resource.
         :param pulumi.Input[str] express_route_circuit_name: The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
-               create the ExpressRoute circuit. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "express_route_circuit_name", express_route_circuit_name)
@@ -45,8 +44,7 @@ class ExpressRouteCircuitAuthorizationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to Changing this forces a new resource to be created.
-        create the ExpressRoute circuit. Changing this forces a new resource to be created.
+        The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -81,8 +79,7 @@ class _ExpressRouteCircuitAuthorizationState:
         :param pulumi.Input[str] authorization_use_status: The authorization use status.
         :param pulumi.Input[str] express_route_circuit_name: The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
-               create the ExpressRoute circuit. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
@@ -147,8 +144,7 @@ class _ExpressRouteCircuitAuthorizationState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to Changing this forces a new resource to be created.
-        create the ExpressRoute circuit. Changing this forces a new resource to be created.
+        The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -207,8 +203,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] express_route_circuit_name: The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
-               create the ExpressRoute circuit. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -317,8 +312,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_use_status: The authorization use status.
         :param pulumi.Input[str] express_route_circuit_name: The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
-               create the ExpressRoute circuit. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -367,8 +361,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to Changing this forces a new resource to be created.
-        create the ExpressRoute circuit. Changing this forces a new resource to be created.
+        The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
