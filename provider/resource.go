@@ -330,7 +330,7 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 		// Feature Toggles
 		EnableAuthenticatingUsingClientCertificate: true,
 		EnableAuthenticatingUsingClientSecret:      true,
-		EnableAuthenticatingUsingManagedIdentity:   boolValue(vars, "msiEndpoint", []string{"ARM_USE_MSI"}),
+		EnableAuthenticatingUsingManagedIdentity:   boolValue(vars, "useMsi", []string{"ARM_USE_MSI"}),
 		EnableAuthenticatingUsingAzureCLI:          true,
 	}
 
