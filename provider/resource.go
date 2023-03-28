@@ -20,6 +20,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"unicode"
 
@@ -1992,6 +1993,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_account": {
 				Tok: azureResource(azureStorage, "Account"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					// https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    24,
+						Randlen:   8,
+						Transform: lowercaseLettersAndNumbers,
+					}),
 					"static_website": {
 						Name: "staticWebsite",
 						Elem: &tfbridge.SchemaInfo{
@@ -3467,4 +3475,10 @@ func Provider() tfbridge.ProviderInfo {
 	}
 
 	return prov
+}
+
+// lowercaseLettersAndNumbers applies the "Lowercase letters and numbers" naming convention to the given name.
+// See: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules
+func lowercaseLettersAndNumbers(name string) string {
+	return regexp.MustCompile("[^a-z0-9]").ReplaceAllString(strings.ToLower(name), "")
 }
