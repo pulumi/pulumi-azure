@@ -127,8 +127,8 @@ github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
 github.com/hashicorp/go-azure-helpers v0.55.0 h1:2A2KWPiaDC5kQWr6tYHTD/P1k9bO0HvflEb/Nc1yLeU=
 github.com/hashicorp/go-azure-helpers v0.55.0/go.mod h1:RQugkG8wEcNIjYmcBLHpuEI/u2mTJwO4r37rR/OKRpo=
-github.com/hashicorp/go-azure-sdk v0.20230316.1132628 h1:fuoXvk4cgaQMBcr6X62j9YqenGpwIjX+ikFRNkgb3G8=
-github.com/hashicorp/go-azure-sdk v0.20230316.1132628/go.mod h1:L9JXVUcnL0GjMizCnngYUlMp1lLhDBNgSTvn6Of/5O4=
+github.com/hashicorp/go-azure-sdk v0.20230329.1052505 h1:kXwG77RToDNFtS8Zsse4wCf+SUkFs3WNHJ8qFvN0jYk=
+github.com/hashicorp/go-azure-sdk v0.20230329.1052505/go.mod h1:L9JXVUcnL0GjMizCnngYUlMp1lLhDBNgSTvn6Of/5O4=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -224,8 +224,8 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230320122330-b9ebcffd5b29 h1:xR1o7WlYL5ZKPZ4M7ToSDmw3ATXogQEhl/znHiTFRDI=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230320122330-b9ebcffd5b29/go.mod h1:eUbL1GGtxmyw4eZjHqKeERF6bDbd/OyQN6Ug0V+uGrY=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230331211508-c67578ae5f29 h1:qfibW+hZp0wdC4UvlbY0dEvnMCB7jyuw/fq2o6aonzY=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230331211508-c67578ae5f29/go.mod h1:VLOS0tRhWebzZAPCSFnjKuIQY02k4p77gxztH3+6l/k=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=
